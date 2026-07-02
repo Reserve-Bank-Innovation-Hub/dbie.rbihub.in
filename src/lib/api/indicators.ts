@@ -63,7 +63,7 @@ export interface ForexReserveData {
     foreignCurrencyUSD     : number;
     goldINR                : number;
     goldUSD                : number;
-    goldVolumeMetricTonnes : number;
+    goldVolumeMetricTonnes : number | null;
     sdrsINR                : number;
     sdrsUSD                : number;
     rtpINR                 : number;
