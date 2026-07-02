@@ -1,0 +1,79 @@
+#gold-and-silver-prices-page {
+    grid-template-rows  : 240px 240px repeat(3, 240px);
+    grid-template-areas :
+            "title     title     title     meta"
+            "statGold  statGold  statSilver statSilver"
+            "chart     chart     chart     chart"
+            "chart     chart     chart     chart"
+            "grid      grid      grid      grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .price-stat-card:nth-of-type(3) { grid-area : statGold; }
+    .price-stat-card:nth-of-type(4) { grid-area : statSilver; }
+
+    .price-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .gold-and-silver-prices-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .gold-and-silver-prices-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .gold-and-silver-prices-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .gold-and-silver-prices-chart {
+        min-height : 400px;
+    }
+
+    .gold-and-silver-prices-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#gold-and-silver-prices-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#gold-and-silver-prices-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#gold-and-silver-prices-page .modebar-btn:hover {
+    opacity : 1;
+}
