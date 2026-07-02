@@ -1,0 +1,56 @@
+#other-consumer-price-indices-page {
+    grid-template-rows  : 200px auto 1fr;
+    grid-template-areas :
+            "title      title     title    meta"
+            "chart      chart     chart    chart"
+            "table      table     table    table";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* HEADLINE CHART ============================================================================================== */
+    .other-consumer-price-indices-chart {
+        grid-area      : chart;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .other-consumer-price-indices-chart-plot {
+        flex : 1;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .other-consumer-price-indices-table {
+        grid-area      : table;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .other-consumer-price-indices-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .other-consumer-price-indices-chart,
+    .other-consumer-price-indices-table {
+        min-height : 400px;
+    }
+}

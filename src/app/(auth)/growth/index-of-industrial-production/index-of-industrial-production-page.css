@@ -1,0 +1,64 @@
+#index-of-industrial-production-page {
+    grid-template-rows  : 240px auto auto;
+    grid-template-areas :
+            "title      title     title    meta"
+            "chart      chart      chart    chart"
+            "grid       grid       grid     grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* CHART SECTION =============================================================================================== */
+    .iip-chart {
+        grid-area      : chart;
+        width          : 100%;
+        min-height     : 620px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .index-of-industrial-production-chart {
+        flex : 1;
+    }
+
+    /* DATA GRID SECTION ========================================================================================== */
+    .iip-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .index-of-industrial-production-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    #index-of-industrial-production-page {
+        grid-template-areas :
+                "title      title     title    title"
+                "meta       meta      meta     meta"
+                "chart      chart     chart    chart"
+                "grid       grid      grid     grid";
+    }
+
+    .iip-chart,
+    .iip-grid {
+        min-height : 400px;
+    }
+}

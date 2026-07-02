@@ -22,6 +22,11 @@ const datasets = [
   { name: 'credit-classification', mode: 'exact' },
   { name: 'external-debt', mode: 'exact' },
   { name: 'external-debt-recent', mode: 'exact' },
+  { name: 'consumer-price-index', mode: 'exact' },
+  { name: 'other-consumer-price-indices', mode: 'exact' },
+  { name: 'gold-and-silver-prices', mode: 'exact' },
+  { name: 'wholesale-price-index', mode: 'exact' },
+  { name: 'index-of-industrial-production', mode: 'exact' },
 ];
 
 let failed = 0;

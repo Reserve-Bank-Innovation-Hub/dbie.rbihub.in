@@ -1,0 +1,54 @@
+#wholesale-price-index-page {
+    grid-template-rows  : 240px 480px 1fr;
+    grid-template-areas :
+            "title      title     title    meta"
+            "linechart  linechart linechart linechart"
+            "grid       grid      grid     grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* LINE CHART ================================================================================================== */
+    .wholesale-price-index-linechart {
+        grid-area      : linechart;
+        width          : 100%;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .wholesale-price-index-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .wholesale-price-index-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    #wholesale-price-index-page {
+        grid-template-rows : auto 360px 1fr;
+    }
+
+    .wholesale-price-index-grid {
+        min-height : 400px;
+    }
+}
