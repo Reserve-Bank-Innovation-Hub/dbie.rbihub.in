@@ -2,17 +2,39 @@
     "name": "dbie.rbihub.in",
     "version": "1.0.0",
     "private": true,
+    "license": "MIT",
     "scripts": {
-        "start": "pnpm --dir frontend start:frontend",
-        "build": "pnpm --dir frontend build",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "scrape": "playwright install chromium && node scripts/scrape-sdmx.mjs",
+        "scrape:tree": "node scripts/fetch-sdmx-tree.mjs",
+        "data:ingest": "node scripts/ingest-sdmx.mjs",
         "data:build": "node data/processors/build.mjs",
         "data:verify": "node data/processors/verify-all.mjs",
-        "data:ingest": "node scripts/ingest-sdmx.mjs",
-        "scrape": "node scripts/scrape-sdmx.mjs",
-        "scrape:tree": "node scripts/fetch-sdmx-tree.mjs"
+        "data:sync": "mkdir -p public/data && cp data/processors/out/*.json public/data/"
     },
     "dependencies": {
+        "ag-grid-community": "^34.3.1",
+        "ag-grid-react": "^34.3.1",
+        "fictoan-react": "^1.11.14",
+        "lucide-react": "^0.468.0",
+        "next": "^15.1.7",
+        "plotly.js": "^3.3.0",
+        "prismjs": "^1.30.0",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-plotly.js": "^2.6.0"
+    },
+    "devDependencies": {
+        "@svgr/webpack": "^8.1.0",
+        "@types/node": "^20",
+        "@types/plotly.js": "^3.0.8",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
         "playwright": "^1.58.2",
+        "typescript": "^5",
         "xlsx": "0.18.5"
     }
 }

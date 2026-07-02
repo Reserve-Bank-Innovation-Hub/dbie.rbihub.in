@@ -9,7 +9,7 @@ build/
 out/
 
 # Build-synced DBIE data (populated from S3 at build time; not committed)
-frontend/public/data/
+public/data/
 
 # Environment - only ignore .local and .production files
 .env
