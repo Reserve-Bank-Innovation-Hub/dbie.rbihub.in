@@ -5,7 +5,7 @@ import React, { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 
 // UTILS ===============================================================================================================
-import { ExchangeRateData, ParsedExchangeRates } from "@/utils/exchangeRateParser";
+import { ExchangeRateData, ParsedExchangeRates } from "@/lib/api/indicators";
 
 // CHART CONFIG ========================================================================================================
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "./chartConfig";

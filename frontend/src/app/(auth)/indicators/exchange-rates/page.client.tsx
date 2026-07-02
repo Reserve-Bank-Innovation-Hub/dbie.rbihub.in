@@ -11,7 +11,7 @@ import ExchangeRateChart from "@/components/charts/ExchangeRateChart";
 import { DataUnit } from "@/components/DataUnit/DataUnit";
 
 // UTILS ===============================================================================================================
-import { ParsedExchangeRates } from "@/utils/exchangeRateParser";
+import { ParsedExchangeRates } from "@/lib/api/indicators";
 
 // STYLES ==============================================================================================================
 import "./exchange-rates-page.css";
