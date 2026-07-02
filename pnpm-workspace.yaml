@@ -1,0 +1,9 @@
+# Single-package repo. This file exists because pnpm >=10 stores its
+# build-script approvals here (allowBuilds) — and once the file exists,
+# pnpm requires a valid `packages` field.
+packages:
+  - '.'
+
+allowBuilds:
+  es5-ext: true
+  sharp: true
