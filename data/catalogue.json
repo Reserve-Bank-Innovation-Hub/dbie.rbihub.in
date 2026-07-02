@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-21T09:40:13.458Z",
-  "total": 295,
+  "generatedAt": "2026-07-02T13:43:43.830Z",
+  "total": 335,
   "bySource": {
-    "sdmx": 244,
-    "rbib": 51
+    "sdmx": 246,
+    "rbib": 89
   },
   "themes": [
     "Prices",
@@ -16,10 +16,10 @@
     "Payments"
   ],
   "themeCounts": {
-    "Prices": 19,
+    "Prices": 21,
     "Growth": 39,
     "External": 47,
-    "Money & Banking": 53,
+    "Money & Banking": 91,
     "Markets": 40,
     "Government": 30,
     "Corporate": 65,
@@ -27,7 +27,7 @@
   },
   "themeBySource": {
     "Prices": {
-      "sdmx": 15,
+      "sdmx": 17,
       "rbib": 4
     },
     "Growth": {
@@ -40,7 +40,7 @@
     },
     "Money & Banking": {
       "sdmx": 28,
-      "rbib": 25
+      "rbib": 63
     },
     "Markets": {
       "sdmx": 35,
@@ -890,6 +890,573 @@
       "bytes": 39714
     },
     {
+      "id": "rbib:Agricultural Production - Foodgrains.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Agricultural Production - Foodgrains.xlsx",
+      "label": "Agricultural Production - Foodgrains",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 9584,
+      "sdmxDuplicates": [
+        "sdmx:AGR_PROD_RN"
+      ]
+    },
+    {
+      "id": "rbib:Agricultural Production - Major Commercial Crops.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Agricultural Production - Major Commercial Crops.xlsx",
+      "label": "Agricultural Production - Major Commercial Crops",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 11428,
+      "sdmxDuplicates": [
+        "sdmx:AGR_PROD_RN"
+      ]
+    },
+    {
+      "id": "rbib:Annual Production Indices of Select Items (Base_ 2011-12 = 100).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Annual Production Indices of Select Items (Base_ 2011-12 = 100).xlsx",
+      "label": "Annual Production Indices of Select Items (Base_ 2011-12 = 100)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Annual",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 32529
+    },
+    {
+      "id": "rbib:Annual Survey of Industries - Principal Characteristics.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Annual Survey of Industries - Principal Characteristics.xlsx",
+      "label": "Annual Survey of Industries - Principal Characteristics",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Annual",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 15511
+    },
+    {
+      "id": "rbib:Area Under Cultivation - Foodgrains.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Area Under Cultivation - Foodgrains.xlsx",
+      "label": "Area Under Cultivation - Foodgrains",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 9704,
+      "sdmxDuplicates": [
+        "sdmx:AREA_UNDER_CULT_RN"
+      ]
+    },
+    {
+      "id": "rbib:Area Under Cultivation - Major Commercial Crops.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Area Under Cultivation - Major Commercial Crops.xlsx",
+      "label": "Area Under Cultivation - Major Commercial Crops",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 11077,
+      "sdmxDuplicates": [
+        "sdmx:AREA_UNDER_CULT_RN"
+      ]
+    },
+    {
+      "id": "rbib:Average Price of Gold and Silver in Domestic and Foreign Markets.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Average Price of Gold and Silver in Domestic and Foreign Markets.xlsx",
+      "label": "Average Price of Gold and Silver in Domestic and Foreign Markets",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 10523
+    },
+    {
+      "id": "rbib:Changes in Financial Assets_Liabilities of the Household Sector (At Current Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Changes in Financial Assets_Liabilities of the Household Sector (At Current Prices).xlsx",
+      "label": "Changes in Financial Assets_Liabilities of the Household Sector (At Current Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 12293
+    },
+    {
+      "id": "rbib:Components of Gross Domestic Product.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Components of Gross Domestic Product.xlsx",
+      "label": "Components of Gross Domestic Product",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 88309
+    },
+    {
+      "id": "rbib:Components of Gross Value Added At Basic Prices.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Components of Gross Value Added At Basic Prices.xlsx",
+      "label": "Components of Gross Value Added At Basic Prices",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 182366
+    },
+    {
+      "id": "rbib:Consumer Price Index - Annual Average.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Consumer Price Index - Annual Average.xlsx",
+      "label": "Consumer Price Index - Annual Average",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Annual",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 9010,
+      "sdmxDuplicates": [
+        "sdmx:CPI_ANN_AVG_VAR_RN"
+      ]
+    },
+    {
+      "id": "rbib:Employment in Public and Organised Private Sectors.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Employment in Public and Organised Private Sectors.xlsx",
+      "label": "Employment in Public and Organised Private Sectors",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 7296
+    },
+    {
+      "id": "rbib:Implementation of Central Sector Projects - Status (End -March).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Implementation of Central Sector Projects - Status (End -March).xlsx",
+      "label": "Implementation of Central Sector Projects - Status (End -March)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 18069,
+      "sdmxDuplicates": [
+        "sdmx:CENT_SEC_PRJ_RN"
+      ]
+    },
+    {
+      "id": "rbib:Index Numbers of Agricultural Production - Major Crops.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Agricultural Production - Major Crops.xlsx",
+      "label": "Index Numbers of Agricultural Production - Major Crops",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 14073,
+      "sdmxDuplicates": [
+        "sdmx:AGR_PROD_RN"
+      ]
+    },
+    {
+      "id": "rbib:Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India.xlsx",
+      "label": "Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 11239
+    },
+    {
+      "id": "rbib:Index Numbers of Industrial Production – Use-Based Classification.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Industrial Production – Use-Based Classification.xlsx",
+      "label": "Index Numbers of Industrial Production – Use-Based Classification",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 8599
+    },
+    {
+      "id": "rbib:Index Numbers of Industrial Production.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Industrial Production.xlsx",
+      "label": "Index Numbers of Industrial Production",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 8113
+    },
+    {
+      "id": "rbib:Index Numbers of Infrastructure Industries.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Infrastructure Industries.xlsx",
+      "label": "Index Numbers of Infrastructure Industries",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 8947
+    },
+    {
+      "id": "rbib:Index Numbers of Twenty Three Major Industry Groups of Manufacturing Sector (Base _ 2011-12 = 100).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Index Numbers of Twenty Three Major Industry Groups of Manufacturing Sector (Base _ 2011-12 = 100).xlsx",
+      "label": "Index Numbers of Twenty Three Major Industry Groups of Manufacturing Sector (Base _ 2011-12 = 100)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 14588
+    },
+    {
+      "id": "rbib:Institutional Sector-Wise Gross Capital Formation (At Current Prices) (Base Year _ 2011-12).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Institutional Sector-Wise Gross Capital Formation (At Current Prices) (Base Year _ 2011-12).xlsx",
+      "label": "Institutional Sector-Wise Gross Capital Formation (At Current Prices) (Base Year _ 2011-12)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 12642,
+      "sdmxDuplicates": [
+        "sdmx:SEC_WIS_CAP_FOM_RN"
+      ]
+    },
+    {
+      "id": "rbib:Macro-Economic Aggregates (Base Year_ 2011-12 At Constant Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Macro-Economic Aggregates (Base Year_ 2011-12 At Constant Prices).xlsx",
+      "label": "Macro-Economic Aggregates (Base Year_ 2011-12 At Constant Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 45906,
+      "sdmxDuplicates": [
+        "sdmx:MACRO_ECN_AGG_RN"
+      ]
+    },
+    {
+      "id": "rbib:Macro-Economic Aggregates (Base Year_ 2011-12 At Current Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Macro-Economic Aggregates (Base Year_ 2011-12 At Current Prices).xlsx",
+      "label": "Macro-Economic Aggregates (Base Year_ 2011-12 At Current Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 55230,
+      "sdmxDuplicates": [
+        "sdmx:MACRO_ECN_AGG_RN"
+      ]
+    },
+    {
+      "id": "rbib:Minimum Support Price for Foodgrains According to Crop Year (Fair Average Quality).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Minimum Support Price for Foodgrains According to Crop Year (Fair Average Quality).xlsx",
+      "label": "Minimum Support Price for Foodgrains According to Crop Year (Fair Average Quality)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 8614,
+      "sdmxDuplicates": [
+        "sdmx:MIN_SUP_PRICE_RN"
+      ]
+    },
+    {
+      "id": "rbib:Minimum Support Price for Non-Foodgrains According to Crop Year (Fair Average Quality).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Minimum Support Price for Non-Foodgrains According to Crop Year (Fair Average Quality).xlsx",
+      "label": "Minimum Support Price for Non-Foodgrains According to Crop Year (Fair Average Quality)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 9085,
+      "sdmxDuplicates": [
+        "sdmx:MIN_SUP_PRICE_RN"
+      ]
+    },
+    {
+      "id": "rbib:Net State Domestic Product - State-wise (At Constant Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Net State Domestic Product - State-wise (At Constant Prices).xlsx",
+      "label": "Net State Domestic Product - State-wise (At Constant Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21654
+    },
+    {
+      "id": "rbib:Net State Domestic Product - State-wise (At Current Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Net State Domestic Product - State-wise (At Current Prices).xlsx",
+      "label": "Net State Domestic Product - State-wise (At Current Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21537
+    },
+    {
+      "id": "rbib:Net State Value Added by Economic Activity (At Constant Prices) (Base_ 2011-2012).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Net State Value Added by Economic Activity (At Constant Prices) (Base_ 2011-2012).xlsx",
+      "label": "Net State Value Added by Economic Activity (At Constant Prices) (Base_ 2011-2012)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 214635
+    },
+    {
+      "id": "rbib:Net State Value Added by Economic Activity (At Current Prices) (Base_ 2011-2012).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Net State Value Added by Economic Activity (At Current Prices) (Base_ 2011-2012).xlsx",
+      "label": "Net State Value Added by Economic Activity (At Current Prices) (Base_ 2011-2012)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 189969
+    },
+    {
+      "id": "rbib:Pattern of Land Use and Select Inputs for Agricultural Production.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Pattern of Land Use and Select Inputs for Agricultural Production.xlsx",
+      "label": "Pattern of Land Use and Select Inputs for Agricultural Production",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 10219,
+      "sdmxDuplicates": [
+        "sdmx:AGR_PROD_RN"
+      ]
+    },
+    {
+      "id": "rbib:Per Capita Net State Domestic Product - State-wise (At Constant Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Per Capita Net State Domestic Product - State-wise (At Constant Prices).xlsx",
+      "label": "Per Capita Net State Domestic Product - State-wise (At Constant Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21024
+    },
+    {
+      "id": "rbib:Per Capita Net State Domestic Product - State-wise (At Current Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Per Capita Net State Domestic Product - State-wise (At Current Prices).xlsx",
+      "label": "Per Capita Net State Domestic Product - State-wise (At Current Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21100
+    },
+    {
+      "id": "rbib:Production and Imports of Crude Oil and Petroleum Products.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Production and Imports of Crude Oil and Petroleum Products.xlsx",
+      "label": "Production and Imports of Crude Oil and Petroleum Products",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 7938
+    },
+    {
+      "id": "rbib:Public Distribution System - Procurement, Off-Take and Stocks.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Public Distribution System - Procurement, Off-Take and Stocks.xlsx",
+      "label": "Public Distribution System - Procurement, Off-Take and Stocks",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 10893
+    },
+    {
       "id": "rbib:RBIB Table No. 52 (a)_ Flow of Financial Assets and Liabilities of Households - Instrument-wise.xlsx",
       "source": "rbib",
       "format": "xlsx",
@@ -922,10 +1489,99 @@
       "bytes": 13285
     },
     {
+      "id": "rbib:Sector-Wise Cost Overrun of Delayed Central Sector Projects  (End -March).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Sector-Wise Cost Overrun of Delayed Central Sector Projects  (End -March).xlsx",
+      "label": "Sector-Wise Cost Overrun of Delayed Central Sector Projects  (End -March)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 17536,
+      "sdmxDuplicates": [
+        "sdmx:CENT_SEC_PRJ_RN"
+      ]
+    },
+    {
+      "id": "rbib:Sector-Wise Domestic Savings (At Current Prices).xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/national-income-saving-employment/Sector-Wise Domestic Savings (At Current Prices).xlsx",
+      "label": "Sector-Wise Domestic Savings (At Current Prices)",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 13714,
+      "sdmxDuplicates": [
+        "sdmx:SEC_WIS_DOM_SAV_RN"
+      ]
+    },
+    {
+      "id": "rbib:Wholesale Price Index - Annual Average.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Wholesale Price Index - Annual Average.xlsx",
+      "label": "Wholesale Price Index - Annual Average",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Annual",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "index",
+      "bytes": 11116,
+      "sdmxDuplicates": [
+        "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN"
+      ]
+    },
+    {
+      "id": "rbib:Yield Per Hectare - Foodgrains.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Yield Per Hectare - Foodgrains.xlsx",
+      "label": "Yield Per Hectare - Foodgrains",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "rate",
+      "bytes": 9338
+    },
+    {
+      "id": "rbib:Yield Per Hectare - Major Commercial Crops.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Yield Per Hectare - Major Commercial Crops.xlsx",
+      "label": "Yield Per Hectare - Major Commercial Crops",
+      "publication": "handbook-statistics-on-indian-economy",
+      "topic": "annual-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "rate",
+      "bytes": 11201
+    },
+    {
       "id": "sdmx:AGG_STAT_IS_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/agricultural-statistics-indian-state.csv",
+      "path": "data/sdmx/real-sector/agriculture/agricultural-statistics-indian-state.csv",
       "label": "Agricultural Statistics - Indian State",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -936,13 +1592,13 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 19691
+      "bytes": 11940
     },
     {
       "id": "sdmx:AGR_INDEX_MJR_CRPS_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/agricultural-index-major-crops.csv",
+      "path": "data/sdmx/real-sector/agriculture/agricultural-index-major-crops.csv",
       "label": "Agricultural Index - Major crops",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -953,13 +1609,13 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 26783
+      "bytes": 27133
     },
     {
       "id": "sdmx:AGR_INDEX_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/agricultural-index.csv",
+      "path": "data/sdmx/real-sector/agriculture/agricultural-index.csv",
       "label": "Agricultural Index",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -970,13 +1626,13 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 5485
+      "bytes": 5547
     },
     {
       "id": "sdmx:AGR_PROD_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/agricultural-production.csv",
+      "path": "data/sdmx/real-sector/agriculture/agricultural-production.csv",
       "label": "Agricultural Production",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -993,7 +1649,7 @@
       "id": "sdmx:AGR_PROD_ST_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/state-wise-agricultural-production.csv",
+      "path": "data/sdmx/real-sector/agriculture/state-wise-agricultural-production.csv",
       "label": "State wise agricultural production",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -1004,13 +1660,13 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 22550
+      "bytes": 29719
     },
     {
       "id": "sdmx:AGR_PRODUCTIVITY_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/agricultural-productivity.csv",
+      "path": "data/sdmx/real-sector/agriculture/agricultural-productivity.csv",
       "label": "Agricultural Productivity",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -1095,7 +1751,7 @@
       "id": "sdmx:AREA_UNDER_CULT_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/area-under-cultivation.csv",
+      "path": "data/sdmx/real-sector/agriculture/area-under-cultivation.csv",
       "label": "Area Under Cultivation",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -1174,7 +1830,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 829245
+      "bytes": 843742
     },
     {
       "id": "sdmx:BAL_SHT_FDI_COMP_RN",
@@ -1361,7 +2017,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 68606
+      "bytes": 167691
     },
     {
       "id": "sdmx:BOP_INDI_RN",
@@ -1429,13 +2085,13 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 194874
+      "bytes": 198869
     },
     {
       "id": "sdmx:CCS_DIS_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-disbursments.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/combined-central-state-government-disbursments.csv",
       "label": "Combined Central & State Government Disbursments",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -1446,13 +2102,13 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 15050
+      "bytes": 15429
     },
     {
       "id": "sdmx:CCS_EXP_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-expenditures.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/combined-central-state-expenditures.csv",
       "label": "Combined Central & State Expenditures",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -1463,13 +2119,13 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 32489
+      "bytes": 33310
     },
     {
       "id": "sdmx:CCSG_DEF_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-deficit.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/combined-central-state-government-deficit.csv",
       "label": "Combined Central & State Government Deficit",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -1480,13 +2136,13 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 12056
+      "bytes": 12360
     },
     {
       "id": "sdmx:CCSG_RECPT_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-receipts.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/combined-central-state-government-receipts.csv",
       "label": "Combined Central & State Government Receipts",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -1497,7 +2153,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 15661
+      "bytes": 16055
     },
     {
       "id": "sdmx:CENT_SEC_DEL_PRJ_RN",
@@ -1548,7 +2204,7 @@
         "Markets"
       ],
       "shape": "stock",
-      "bytes": 12577
+      "bytes": 14154
     },
     {
       "id": "sdmx:CG_BOR_RN",
@@ -1752,7 +2408,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 105452
+      "bytes": 106655
     },
     {
       "id": "sdmx:COMP_ECO_ACT_NSDP_FACT_CST_RN",
@@ -1769,7 +2425,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 523206
+      "bytes": 4700508
     },
     {
       "id": "sdmx:CPI_AG_RN",
@@ -1820,7 +2476,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 430192
+      "bytes": 1111312
     },
     {
       "id": "sdmx:CPI_ANN_AVG_VAR_RN",
@@ -1837,7 +2493,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 33883
+      "bytes": 35285
     },
     {
       "id": "sdmx:CPI_AV_RN",
@@ -1854,7 +2510,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 140637
+      "bytes": 142703
     },
     {
       "id": "sdmx:CPI_IW_AISC_RN",
@@ -1871,7 +2527,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 826472
+      "bytes": 1988831
     },
     {
       "id": "sdmx:CPI_IW_AV_YRND_RN",
@@ -1905,7 +2561,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 155222
+      "bytes": 156758
     },
     {
       "id": "sdmx:CPI_RL_AV_YRND_RN",
@@ -1956,7 +2612,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 818388
+      "bytes": 1563248
     },
     {
       "id": "sdmx:CSURYCOM_F_RN",
@@ -1973,7 +2629,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 21223
+      "bytes": 24130
     },
     {
       "id": "sdmx:CSURYCOM_M_RN",
@@ -1990,7 +2646,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 201364
+      "bytes": 202690
     },
     {
       "id": "sdmx:CSURYSOR_F_RN",
@@ -2007,7 +2663,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 62850
+      "bytes": 71135
     },
     {
       "id": "sdmx:CSURYSOR_M_RN",
@@ -2024,13 +2680,13 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 525786
+      "bytes": 529078
     },
     {
       "id": "sdmx:DG_GDP_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/deficit-of-government-as-percentage-to-gdp.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/deficit-of-government-as-percentage-to-gdp.csv",
       "label": "Deficit of Government as percentage to GDP",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -2041,13 +2697,13 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 7628
+      "bytes": 7840
     },
     {
       "id": "sdmx:DIG_GDP_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/debt-indicators-of-government-as-percentage-to-gdp.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/debt-indicators-of-government-as-percentage-to-gdp.csv",
       "label": "Debt Indicators of Government as percentage to GDP",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -2058,7 +2714,7 @@
         "Government"
       ],
       "shape": "stock",
-      "bytes": 15605
+      "bytes": 16060
     },
     {
       "id": "sdmx:DIR_FR_TRD_RN",
@@ -2177,7 +2833,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 113205
+      "bytes": 113153
     },
     {
       "id": "sdmx:EXT_DBT_RT_RN",
@@ -2194,7 +2850,7 @@
         "External"
       ],
       "shape": "stock",
-      "bytes": 858237
+      "bytes": 878104
     },
     {
       "id": "sdmx:EXTR_ASSIST_RN",
@@ -2262,7 +2918,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 900144
+      "bytes": 1254661
     },
     {
       "id": "sdmx:FIN_RATIOS_NGNBFI_AW_RN",
@@ -2296,7 +2952,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 965350
+      "bytes": 3589707
     },
     {
       "id": "sdmx:FIN_RATIOS_PUB_PUC_RN",
@@ -2364,7 +3020,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 716833
+      "bytes": 2569192
     },
     {
       "id": "sdmx:FIN_RATIOS_PVT_RN",
@@ -2449,7 +3105,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 16299
+      "bytes": 16644
     },
     {
       "id": "sdmx:FOREX_RATE_D_RN",
@@ -2517,7 +3173,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 116359
+      "bytes": 116775
     },
     {
       "id": "sdmx:FOREXRT_HL_RN",
@@ -2534,7 +3190,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 81053
+      "bytes": 81424
     },
     {
       "id": "sdmx:FR_EXG_RESV_M_RN",
@@ -2551,7 +3207,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 259052
+      "bytes": 260882
     },
     {
       "id": "sdmx:FR_EXG_RESV_RN",
@@ -2568,7 +3224,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 915192
+      "bytes": 925655
     },
     {
       "id": "sdmx:FR_INV_INFLW_A_RN",
@@ -2602,7 +3258,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 478109
+      "bytes": 480877
     },
     {
       "id": "sdmx:FR_LIB_ASS_MUT_RN",
@@ -2670,7 +3326,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 64344
+      "bytes": 64779
     },
     {
       "id": "sdmx:FWC_PRE_D_RN",
@@ -2704,13 +3360,13 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 344189
+      "bytes": 348904
     },
     {
       "id": "sdmx:GOVT_LIAB_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-and-state-government-liabilities.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/combined-central-and-state-government-liabilities.csv",
       "label": "Combined Central and State Government Liabilities",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -2721,7 +3377,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 18333
+      "bytes": 18795
     },
     {
       "id": "sdmx:GROSS_NET_CAP_FRM_RN",
@@ -2840,7 +3496,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 1247649
+      "bytes": 1983263
     },
     {
       "id": "sdmx:GRWT_RT_INDC_PVT_RN",
@@ -2925,7 +3581,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 663716
+      "bytes": 2905015
     },
     {
       "id": "sdmx:GSEC_TO_RN",
@@ -2942,7 +3598,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 516144
+      "bytes": 521893
     },
     {
       "id": "sdmx:GWT_RT_NGNBFI_AW_RN",
@@ -3010,7 +3666,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 65457
+      "bytes": 67109
     },
     {
       "id": "sdmx:IFT_OIL_NON_OIL_RN",
@@ -3027,7 +3683,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 159728
+      "bytes": 160792
     },
     {
       "id": "sdmx:IIP_MANF_SEC_ANN_RN",
@@ -3146,7 +3802,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 1097489
+      "bytes": 1135215
     },
     {
       "id": "sdmx:IND_OVR_BOP_RN",
@@ -3163,7 +3819,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 683744
+      "bytes": 3914617
     },
     {
       "id": "sdmx:INT_RATE_RN",
@@ -3231,7 +3887,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 178248
+      "bytes": 178223
     },
     {
       "id": "sdmx:INVI_PYMTS_RN",
@@ -3350,7 +4006,7 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 38551
+      "bytes": 39075
     },
     {
       "id": "sdmx:INX_NEER_REER_M_RN",
@@ -3367,7 +4023,24 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 493832
+      "bytes": 495040
+    },
+    {
+      "id": "sdmx:INX_WPI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/index-numbers-of-wholesale-prices-in-india.csv",
+      "label": "Index Numbers of Wholesale Prices in India",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "INX_WPI_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 1985471
     },
     {
       "id": "sdmx:KCI_BOP_RN",
@@ -3384,7 +4057,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 102884
+      "bytes": 102947
     },
     {
       "id": "sdmx:LIBOOR_RN",
@@ -3469,7 +4142,7 @@
         "Prices"
       ],
       "shape": "other",
-      "bytes": 23425
+      "bytes": 23622
     },
     {
       "id": "sdmx:METAL_PRICE_RN",
@@ -3486,13 +4159,13 @@
         "Prices"
       ],
       "shape": "other",
-      "bytes": 64544
+      "bytes": 162189
     },
     {
       "id": "sdmx:MIN_SUP_PRICE_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/minimum-support-price.csv",
+      "path": "data/sdmx/real-sector/agriculture/minimum-support-price.csv",
       "label": "Minimum Support Price",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -3543,7 +4216,7 @@
       "id": "sdmx:MRKT_BOR_CSG_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/market-borrowings-of-governments.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/market-borrowings-of-governments.csv",
       "label": "Market Borrowings of Governments",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -3554,7 +4227,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 6725
+      "bytes": 6695
     },
     {
       "id": "sdmx:MRKT_BOR_GOI_SG_RN",
@@ -3571,7 +4244,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 275131
+      "bytes": 279632
     },
     {
       "id": "sdmx:MRKT_INFO_BSE_D_RN",
@@ -3622,7 +4295,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 21459
+      "bytes": 23258
     },
     {
       "id": "sdmx:MSS_F_RN",
@@ -3639,7 +4312,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 9511
+      "bytes": 12306
     },
     {
       "id": "sdmx:MSS_M_RN",
@@ -3656,7 +4329,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 37276
+      "bytes": 37778
     },
     {
       "id": "sdmx:MSURYCOM_F_RN",
@@ -3673,7 +4346,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 58416
+      "bytes": 61578
     },
     {
       "id": "sdmx:MSURYSOR_F_RN",
@@ -3690,7 +4363,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 69077
+      "bytes": 72925
     },
     {
       "id": "sdmx:NET_SDP_FAC_CST_RN",
@@ -3741,7 +4414,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 29624
+      "bytes": 30019
     },
     {
       "id": "sdmx:NRI_DEPOSITS_IN_OUT_RN",
@@ -3758,7 +4431,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 96925
+      "bytes": 97746
     },
     {
       "id": "sdmx:NRI_DEPOSITS_OUTS_A_RN",
@@ -3775,7 +4448,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 28941
+      "bytes": 29733
     },
     {
       "id": "sdmx:NRI_DEPOSITS_OUTS_RN",
@@ -3849,7 +4522,7 @@
       "id": "sdmx:PATT_LU_UAII_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/pattern-of-land-use-use-of-agriculltural-inputs-in-india.csv",
+      "path": "data/sdmx/real-sector/agriculture/pattern-of-land-use-use-of-agriculltural-inputs-in-india.csv",
       "label": "Pattern of Land Use & Use of Agriculltural inputs in India",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -3866,7 +4539,7 @@
       "id": "sdmx:PDS_AGR_PROD_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/real-sector/Agriculture/public-distribution-system-of-agriculture-produce.csv",
+      "path": "data/sdmx/real-sector/agriculture/public-distribution-system-of-agriculture-produce.csv",
       "label": "Public Distribution System of agriculture produce",
       "sector": "Real Sector",
       "subSector": "Agriculture",
@@ -3894,7 +4567,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 4278
+      "bytes": 4279
     },
     {
       "id": "sdmx:PER_SSI_SEC_RN",
@@ -4013,7 +4686,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 1163627
+      "bytes": 2678442
     },
     {
       "id": "sdmx:PRF_LNGNFC_INDUS_ANN_RN",
@@ -4285,7 +4958,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 864640
+      "bytes": 1988831
     },
     {
       "id": "sdmx:RATIO_LNGNFC_INDUS_ANN_RN",
@@ -4438,7 +5111,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 338814
+      "bytes": 344246
     },
     {
       "id": "sdmx:RBI_ASSET_W_RN",
@@ -4455,7 +5128,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 1129743
+      "bytes": 1142701
     },
     {
       "id": "sdmx:RBI_LIAB_A_RN",
@@ -4489,7 +5162,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 262589
+      "bytes": 265996
     },
     {
       "id": "sdmx:RBI_LIAB_W_RN",
@@ -4506,7 +5179,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 1058966
+      "bytes": 1067955
     },
     {
       "id": "sdmx:RBI_SF_RN",
@@ -4574,7 +5247,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 85052
+      "bytes": 86480
     },
     {
       "id": "sdmx:RMC_W_RN",
@@ -4608,7 +5281,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 162785
+      "bytes": 163348
     },
     {
       "id": "sdmx:RMS_W_RN",
@@ -4642,7 +5315,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 145523
+      "bytes": 150864
     },
     {
       "id": "sdmx:SEC_WIS_CAP_FOM_RN",
@@ -4761,7 +5434,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 37530
+      "bytes": 37526
     },
     {
       "id": "sdmx:SMAL_SAV_RN",
@@ -4863,13 +5536,13 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 190133
+      "bytes": 189808
     },
     {
       "id": "sdmx:TAX_REV_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
-      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/direct-and-indirect-tax-revenues.csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-finance-combined/direct-and-indirect-tax-revenues.csv",
       "label": "Direct and Indirect Tax Revenues",
       "sector": "Public Finance",
       "subSector": "Cental & State Govt Finance(Combined)",
@@ -4880,7 +5553,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 21070
+      "bytes": 21601
     },
     {
       "id": "sdmx:TRD_INX_NBR_RN",
@@ -4897,7 +5570,7 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 786556
+      "bytes": 2486160
     },
     {
       "id": "sdmx:TRN_OVR_BSE_RN",
@@ -5002,6 +5675,23 @@
       "bytes": 292297
     },
     {
+      "id": "sdmx:WAGE_RATES_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/wage-rates.csv",
+      "label": "Wage Rates",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "WAGE_RATES_RN",
+      "frequency": "Monthly",
+      "startDate": "1998-04-01",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "other",
+      "bytes": 3957434
+    },
+    {
       "id": "sdmx:WAR_CALL_MONEY_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
@@ -5016,7 +5706,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 68681
+      "bytes": 69159
     },
     {
       "id": "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN",
@@ -5033,7 +5723,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 60865
+      "bytes": 61494
     },
     {
       "id": "sdmx:YIELD_GOV_SEC_RN",
@@ -5050,7 +5740,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 25031
+      "bytes": 25350
     },
     {
       "id": "sdmx:YIELD_TB_RN",
@@ -5067,7 +5757,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 73071
+      "bytes": 76045
     }
   ]
 }
