@@ -11,9 +11,9 @@ read the JSON directly and the Go backend can be retired from the deploy path.
 ## Usage
 
 ```bash
-npm install          # installs xlsx (SheetJS)
-npm run build        # runs all 5 processors -> out/*.json  (the S3 site/ payload)
-npm run verify       # diffs out/*.json against oracles/  (must print ALL PASS)
+pnpm install         # at repo root — installs xlsx (SheetJS) + playwright
+npm run data:build   # runs all 5 processors -> out/*.json  (the S3 site/ payload)
+npm run data:verify  # diffs out/*.json against oracles/  (must print ALL PASS)
 ```
 
 Then upload: `aws s3 sync out/ s3://dbie-data/site/` (see the architecture doc).

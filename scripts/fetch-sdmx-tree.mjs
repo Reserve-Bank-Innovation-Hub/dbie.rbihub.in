@@ -18,6 +18,10 @@
 // Also writes sdmx-tree-raw.json with the untransformed API response for reference.
 
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const DATA = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'data');
 
 const GATEWAY = 'https://data.rbi.org.in/CIMS_Gateway_DBIE/GATEWAY/SERVICES';
 
@@ -94,7 +98,7 @@ async function main() {
     const body = await post('dbie_getSectorAction', { body: {} });
 
     // Write the raw response for debugging.
-    fs.writeFileSync('sdmx-tree-raw.json', JSON.stringify(body, null, 2));
+    fs.writeFileSync(path.join(DATA, 'sdmx-tree-raw.json'), JSON.stringify(body, null, 2));
 
     const elements = walkElements(body.result);
     console.log(`Found ${elements.length} elements.`);
@@ -120,7 +124,7 @@ async function main() {
     // Sort for stability.
     tree.sort((a, b) => (a.sector + a.subSector).localeCompare(b.sector + b.subSector));
 
-    fs.writeFileSync('sdmx-tree.json', JSON.stringify(tree, null, 2));
+    fs.writeFileSync(path.join(DATA, 'sdmx-tree.json'), JSON.stringify(tree, null, 2));
 
     console.log('\nSummary by sector:');
     const bySector = new Map();

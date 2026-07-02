@@ -48,3 +48,11 @@ next-env.d.ts
 
 # Vercel
 .vercel
+
+# Scrape staging (raw DSD-coded output; ingest-sdmx.mjs -> data/sdmx)
+data/sdmx-raw/
+data/bse-raw/
+# Scraper recon artefacts
+scripts/recon/output/
+# Transient: old scraper workspace while a long scrape finishes (delete after)
+dbie-scraper/

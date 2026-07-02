@@ -14,6 +14,10 @@
 // at all (one SDMX cube can represent several Reports tables, and vice versa).
 
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const DATA = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'data');
 
 const STOP = new Set(['statement','table','the','of','and','in','on','for','a','an','to','by','from','with',
     'data','indian','india','select','combined','all','various']);
@@ -49,9 +53,9 @@ function bestSdmxMatch(reportName, sdmxElements) {
     return best && best.score >= 0.25 ? best : null;
 }
 
-const reports = JSON.parse(fs.readFileSync('reports-catalogue.json','utf8'));
-const sdmxTree = JSON.parse(fs.readFileSync('sdmx-tree.json','utf8'));
-const manifest = JSON.parse(fs.readFileSync('manifest.json','utf8'));
+const reports = JSON.parse(fs.readFileSync(path.join(DATA,'reports-catalogue.json'),'utf8'));
+const sdmxTree = JSON.parse(fs.readFileSync(path.join(DATA,'sdmx-tree.json'),'utf8'));
+const manifest = JSON.parse(fs.readFileSync(path.join(DATA,'scrape-manifest.json'),'utf8'));
 
 // Build SDMX index by sub-sector label (fuzzy, stripped).
 const sdmxBySubkey = {};
@@ -154,14 +158,14 @@ lines.splice(4, 0,
     '',
 );
 
-fs.writeFileSync('coverage-report.md', lines.join('\n'));
+fs.writeFileSync(path.join(DATA,'coverage-report.md'), lines.join('\n'));
 
 // Write CSV too
 const csv = csvLines.map(row => row.map(f => {
     const s = String(f ?? '');
     return /[",\n]/.test(s) ? `"${s.replace(/"/g,'""')}"` : s;
 }).join(',')).join('\n');
-fs.writeFileSync('coverage-report.csv', csv);
+fs.writeFileSync(path.join(DATA,'coverage-report.csv'), csv);
 
 console.log(`\n=== Coverage headline ===`);
 console.log(`${downloadedReports} / ${totalReports} DBIE reports have SDMX data downloaded (${Math.round(downloadedReports*100/totalReports)}%)`);

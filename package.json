@@ -5,8 +5,14 @@
     "scripts": {
         "start": "pnpm --dir frontend start:frontend",
         "build": "pnpm --dir frontend build",
-        "data:build": "npm --prefix data/processors run build",
-        "data:verify": "npm --prefix data/processors run verify",
-        "scrape": "node dbie-scraper/src/scrape-sdmx.mjs"
+        "data:build": "node data/processors/build.mjs",
+        "data:verify": "node data/processors/verify-all.mjs",
+        "data:ingest": "node scripts/ingest-sdmx.mjs",
+        "scrape": "node scripts/scrape-sdmx.mjs",
+        "scrape:tree": "node scripts/fetch-sdmx-tree.mjs"
+    },
+    "dependencies": {
+        "playwright": "^1.58.2",
+        "xlsx": "0.18.5"
     }
 }
