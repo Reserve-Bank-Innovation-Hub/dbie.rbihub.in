@@ -25,7 +25,7 @@ export const metadata : Metadata = {
 // LIB =================================================================================================================
 import { getForexReservesRecent, getForeignInvestmentInflowsRecent } from "@/lib/api/indicators";
 import { getExternalDebtRecent } from "@/lib/api/publications";
-import markersData from "@/sample-data/markers.json";
+import markersData from "@/data/markers.json";
 
 export default async function Page() {
     // Fetch recent data for home page charts
