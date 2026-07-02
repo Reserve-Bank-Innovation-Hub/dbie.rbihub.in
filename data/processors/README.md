@@ -20,13 +20,13 @@ Then upload: `aws s3 sync out/ s3://dbie-data/site/` (see the architecture doc).
 
 ### Local frontend dev
 
-The frontend reads these JSON files from `frontend/public/data/` (git-ignored, build-synced). Amplify
+The frontend reads these JSON files from `public/data/` (git-ignored, build-synced). Amplify
 populates it from S3 in `preBuild` (`aws s3 sync s3://dbie-data/site public/data`). For local dev, copy
 the freshly built output in yourself:
 
 ```bash
-mkdir -p ../../frontend/public/data && cp out/*.json ../../frontend/public/data/
-# or pull the deployed payload: aws s3 sync s3://dbie-data/site ../../frontend/public/data
+mkdir -p ../../public/data && cp out/*.json ../../public/data/
+# or pull the deployed payload: aws s3 sync s3://dbie-data/site ../../public/data
 ```
 
 ## Outputs (8 files, matching the 8 API endpoints)

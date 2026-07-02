@@ -1,25 +1,24 @@
 version: 1
-applications:
-  - appRoot: frontend
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm install -g pnpm@9
-            - pnpm install
-            # Sync the static DBIE data from S3 into public/data before the build.
-            # Per-env payloads: main -> site-prod, staging -> site-staging, else site-dev.
-            # appRoot is `frontend`, so preBuild runs in frontend/ and this
-            # resolves to frontend/public/data. The build IAM role has S3 read.
-            - case "$AWS_BRANCH" in main) DATA_PREFIX=site-prod ;; staging) DATA_PREFIX=site-staging ;; *) DATA_PREFIX=site-dev ;; esac; mkdir -p public/data && aws s3 sync "s3://dbie-data/${DATA_PREFIX}" public/data
-        build:
-          commands:
-            - pnpm build
-      artifacts:
-        baseDirectory: .next
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-          - .next/cache/**/*
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Tooling deps (playwright/xlsx) are devDeps; never pull browser binaries in CI.
+        - export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+        - npm install -g pnpm@9
+        - pnpm install
+        # Sync the static DBIE data from S3 into public/data before the build.
+        # Per-env payloads: main -> site-prod, staging -> site-staging, else site-dev.
+        # The build IAM role has S3 read on the dbie-data bucket.
+        - case "$AWS_BRANCH" in main) DATA_PREFIX=site-prod ;; staging) DATA_PREFIX=site-staging ;; *) DATA_PREFIX=site-dev ;; esac; mkdir -p public/data && aws s3 sync "s3://dbie-data/${DATA_PREFIX}" public/data
+    build:
+      commands:
+        - pnpm build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
