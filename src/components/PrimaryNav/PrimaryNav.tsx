@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
 import { Aside, Div, Text } from "fictoan-react";
-import { FlagTriangleLeft, Newspaper } from "lucide-react";
+import { FlagTriangleLeft, Newspaper, Table2 } from "lucide-react";
 
 // ASSETS ==============================================================================================================
 import RBISeal from "@assets/images/logos/rbi-seal.svg";
@@ -80,6 +80,12 @@ export const PrimaryNav = () => {
                     icon={<Newspaper />}
                     linkTo="/publications"
                     label="Publications"
+                />
+
+                <NavItem
+                    icon={<Table2 />}
+                    linkTo="/tables"
+                    label="Tables"
                 />
             </NavGroup>
         </Aside>
