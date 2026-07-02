@@ -20,7 +20,7 @@ const REPO_ROOT = path.dirname(DATA_DIR);
 
 // SDMX metadata comes from the scraper's sdmx-tree.json. We keep the tree
 // co-located with the scraper so re-running the scraper updates both.
-const SCRAPER_TREE = path.resolve(REPO_ROOT, 'dbie-scraper/sdmx-tree.json');
+const SCRAPER_TREE = path.resolve(REPO_ROOT, 'data/sdmx-tree.json');
 const sdmxTree = fs.existsSync(SCRAPER_TREE)
     ? JSON.parse(fs.readFileSync(SCRAPER_TREE, 'utf8'))
     : [];

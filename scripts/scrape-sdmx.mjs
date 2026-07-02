@@ -20,10 +20,14 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const WIZARD_URL = 'https://data.rbi.org.in/DBIE/#/dbie/dataquery_enhanced';
-const DATA_DIR = 'data';
-const MANIFEST = 'manifest.json';
+const DATA_DIR = path.join(REPO, 'data', 'sdmx-raw');   // staging: raw DSD-coded CSVs (gitignored); ingest-sdmx.mjs -> data/sdmx
+const MANIFEST = path.join(REPO, 'data', 'scrape-manifest.json');
+const TREE_FILE = path.join(REPO, 'data', 'sdmx-tree.json');
 const TODAY = new Date();
 
 // --------- CLI parsing
@@ -356,11 +360,11 @@ async function scrapeElement(page, el, sector, subSector) {
 
 // --------- Main loop
 async function main() {
-    if (!fs.existsSync('sdmx-tree.json')) {
-        console.error('sdmx-tree.json missing. Run `node src/fetch-sdmx-tree.mjs` first.');
+    if (!fs.existsSync(TREE_FILE)) {
+        console.error('sdmx-tree.json missing. Run `node scripts/fetch-sdmx-tree.mjs` first.');
         process.exit(1);
     }
-    const tree = JSON.parse(fs.readFileSync('sdmx-tree.json', 'utf8'));
+    const tree = JSON.parse(fs.readFileSync(TREE_FILE, 'utf8'));
     const manifest = loadManifest();
 
     // --retry-failures: drop non-OK entries so they re-scrape; keep OKs cached.

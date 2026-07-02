@@ -21,6 +21,10 @@
 
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const DATA = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'data');
 
 const argv = process.argv.slice(2);
 const flag = n => { const i = argv.indexOf(n); return i >= 0 ? argv[i+1] : null; };
@@ -30,7 +34,7 @@ const filterSection = flag('--section') || 'Statistics';
 const filterSub     = flag('--sub');
 const headful       = has('--headful');
 
-const OUT = 'reports-catalogue.json';
+const OUT = path.join(DATA, 'reports-catalogue.json');
 
 const decode = raw => raw
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
@@ -79,7 +83,7 @@ function normaliseReport(r) {
 }
 
 async function main() {
-    const catalogue = JSON.parse(fs.readFileSync('catalogue.json', 'utf8'));
+    const catalogue = JSON.parse(fs.readFileSync(path.join(DATA, 'reports-sections.json'), 'utf8'));
     const targets = [];
     for (const sec of catalogue) {
         if (filterSection && sec.section !== filterSection) continue;

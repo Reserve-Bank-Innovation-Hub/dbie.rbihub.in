@@ -48,7 +48,7 @@ The two paths cover different slices of DBIE:
 | Surface | SDMX Data Query wizard (guest-accessible) | Monthly RBI Bulletin (behind SAP auth — fetched manually) |
 | Coverage | Macro time-series across 6 sectors, 24 sub-sectors | The 43-45 tables RBI publishes as the monthly snapshot |
 | Shape | Long, normalised — one observation per row (`DATAFLOW, FREQ, TIME_PERIOD, OBS_VALUE, …dimensions`) | Wide, pivoted — dates across columns, nested row headers |
-| Update path | Re-run `dbie-scraper/src/scrape-sdmx.mjs` | Manual download each month |
+| Update path | Re-run `npm run scrape` + `npm run data:ingest` | Manual download each month |
 | Use | Feed charts, compute deltas, power the narrative | Read-ready tables for direct reproduction |
 
 Some tables exist in both forms (e.g. RBIB Table 33 "Foreign Exchange Reserves Weekly" ↔ `FR_EXG_RESV_RN`). `catalogue.json` records these links under `sdmxDuplicates`.
@@ -125,7 +125,7 @@ After adding or removing files from `sdmx/` or `publications/`:
 node data/build-catalogue.mjs
 ```
 
-The script reads the file tree, looks up SDMX metadata from the scraper's `sdmx-tree.json` (at `dbie-scraper/sdmx-tree.json`), applies the theme/shape/frequency rules, and rewrites `catalogue.json` and `catalogue-summary.md`.
+The script reads the file tree, looks up SDMX metadata from the scraper's `sdmx-tree.json` (at `data/sdmx-tree.json`), applies the theme/shape/frequency rules, and rewrites `catalogue.json` and `catalogue-summary.md`.
 
 ## Coverage caveats
 

@@ -41,17 +41,17 @@ We use Playwright (not direct HTTP) because the wizard's Impala query payload is
 ## Usage
 
 ```bash
-pnpm install                               # installs playwright
-node src/fetch-sdmx-tree.mjs               # (re)generates sdmx-tree.json (the master list)
-node src/scrape-sdmx.mjs                   # scrape everything (resumable via manifest.json)
+pnpm install   # at repo root                               # installs playwright
+node scripts/fetch-sdmx-tree.mjs               # (re)generates sdmx-tree.json (the master list)
+node scripts/scrape-sdmx.mjs                   # scrape everything (resumable via manifest.json)
 
 # Filters
-node src/scrape-sdmx.mjs --sector "External Sector"
-node src/scrape-sdmx.mjs --sub    "External Debt"
-node src/scrape-sdmx.mjs --dsd    EXT_DBT_RT_RN
-node src/scrape-sdmx.mjs --limit  10
-node src/scrape-sdmx.mjs --headful         # show the browser (debugging)
-node src/scrape-sdmx.mjs --verbose
+node scripts/scrape-sdmx.mjs --sector "External Sector"
+node scripts/scrape-sdmx.mjs --sub    "External Debt"
+node scripts/scrape-sdmx.mjs --dsd    EXT_DBT_RT_RN
+node scripts/scrape-sdmx.mjs --limit  10
+node scripts/scrape-sdmx.mjs --headful         # show the browser (debugging)
+node scripts/scrape-sdmx.mjs --verbose
 ```
 
 ## Files

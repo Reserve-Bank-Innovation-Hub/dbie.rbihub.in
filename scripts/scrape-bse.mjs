@@ -20,7 +20,7 @@ import { promisify } from 'node:util';
 const exec = promisify(execFile);
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const OUT = join(ROOT, 'data-bse');
+const OUT = join(ROOT, 'data', 'bse-raw');
 const API = 'https://api.bseindia.com/BseIndiaAPI/api';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const HEADERS = {
