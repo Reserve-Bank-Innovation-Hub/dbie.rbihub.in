@@ -1,0 +1,399 @@
+section,category,subsection,reportId,reportName,frequency,from,to,sdmxMatch,dsdCode,downloadStatus
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1067,1. Performance of Listed Non-Government Non-Financial Companies,Quarterly,30-JUN-2014,31-DEC-2025,Performance of Listed Non-Government Non-Financial Companies Annually,PRF_LNGNFC_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1117,2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise,Quarterly,30-JUN-2014,31-DEC-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Industry wise,PRF_LNGNFC_INDUS_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1069,3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital,Quarterly,30-JUN-2014,31-DEC-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Paid-up-Capital,PRF_LNGNFC_PUC_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1071,4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales,Quarterly,30-JUN-2014,31-DEC-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Sales,PRF_LNGNFC_SAL_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1072,5. Performance of Listed Non-Government Non-Financial Companies according to Industry,Quarterly,30-JUN-2014,31-DEC-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Industry,PRF_LNGNFC_IND_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1407,6. Explanatory Notes & Glossary,Quarterly,31-MAR-2017,31-DEC-2025,,,—
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1075,1.Sources and Uses of Funds for Listed Private Manufacturing Companies (half-yearly) - Discontinued,Half-Yearly,30-SEP-2018,30-SEP-2019,,,—
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1074,1. Performance of Listed Non-Government Non-Financial Companies,Annual,31-MAR-2016,31-MAR-2025,Performance of Listed Non-Government Non-Financial Companies Annually,PRF_LNGNFC_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1118,2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise,Annual,31-MAR-2016,31-MAR-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Industry wise,PRF_LNGNFC_INDUS_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1068,3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital,Annual,31-MAR-2016,31-MAR-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Paid-up-Capital,PRF_LNGNFC_PUC_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1070,4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales,Annual,31-MAR-2016,31-MAR-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Sales,PRF_LNGNFC_SAL_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1073,5. Performance of Listed Non-Government Non-Financial Companies according to Industry,Annual,31-MAR-2016,31-MAR-2025,Performance of Listed Non-Government Non-Financial Companies Annually - Industry,PRF_LNGNFC_IND_ANN_RN,OK
+Statistics,Corporate Sector,Listed Non-Government Non-Financial Companies,1408,6. Explanatory Notes & Glossary,Annual,31-MAR-2017,31-MAR-2025,,,—
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1179,Statement 01: Growth Rates of the Select Items of the Select Private Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Private Limited Companies,GRWT_RT_INDC_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1187,Statement 02: Select Financial Ratios of the Select Private Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Private Limited Companies,FIN_RATIOS_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1175,"Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Private Limited Companies",Annual,31-MAR-2010,31-MAR-2025,Earning or Expenditure in Foreign Currencies of Private Limited Companies,EAR_EXP_FC_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1176,Statement 04A: Combined Balance Sheet (Capital and Liabilities) of the Select Private Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Balance Sheet of Private Limited Companies,BAL_SHT_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1188,Statement 04B: Combined Balance Sheet (Assets) of the Select Private Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Balance Sheet of Private Limited Companies,BAL_SHT_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1184,Statement 05A: Sources of Funds of the Select Private Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Sources of funds of Private Limited Companies,SRC_FND_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1203,Statement 05B: Uses of Funds of the Select Private Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Uses of Funds of Private Limited Companies,USE_FBD_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1181,Statement 06: Earnings / Expenditure in Foreign Currencies of Select Private Limited Companies,Annual,31-MAR-2010,31-MAR-2019,Earning or Expenditure in Foreign Currencies of Private Limited Companies,EAR_EXP_FC_PVT_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1204,Statement 07: Growth Rates of the Select Items of the Select Private Limited Companies - Industry-wise,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Private Limited Companies - Industry wise,GRWT_RT_INDC_PVT_IND_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1202,Statement 08: Select Financial Ratios of the Select Items of the Select Private Limited Companies - Industry-wise,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Private Limited Companies - Industry wise,FIN_RATIOS_PVT_IND_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Private Limited Companies,1410,Explanatory Notes,Annual,31-MAR-2020,31-MAR-2025,,,—
+Statistics,Corporate Sector,Finances of FDI Companies,1190,Statement 01: Industry and Country of Origin-Wise Distribution of the Select Foreign Direct Investment Companies,Annual,31-MAR-2013,31-MAR-2024,Industry & Country-Wise distrubution of FDI,IND_CNTRY_FDI_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1170,Statement 02: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies,Annual,31-MAR-2012,31-MAR-2024,,,—
+Statistics,Corporate Sector,Finances of FDI Companies,1166,Statement 03: Select Financial Ratios of the Select Foreign Direct Investment Companies,Annual,31-MAR-2011,31-MAR-2024,Financial Ratios,FIN_RATIOS_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1191,"Statement 04: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Foreign Direct Investment Companies",Annual,31-MAR-2011,31-MAR-2024,,,—
+Statistics,Corporate Sector,Finances of FDI Companies,1148,Statement 05A : Combined Balance Sheet of the Select Foreign Direct Investment Companies,Annual,31-MAR-2013,31-MAR-2024,Balance Sheet of FDI companies,BAL_SHT_FDI_COMP_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1146,Statement 05B : Combined Balance Sheet of the Select Foreign Direct Investment Companies,Annual,31-MAR-2011,31-MAR-2024,Balance Sheet of FDI companies,BAL_SHT_FDI_COMP_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1171,Statement 06A : Sources and Uses of Funds of the Select Foreign Direct Investment Companies,Annual,31-MAR-2012,31-MAR-2024,Sources of funds - FDI companies,SRC_FND_FDI_COMP_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1147,Statement 06B : Sources and Uses of Funds of the Select Foreign Direct Investment Companies,Annual,31-MAR-2012,31-MAR-2024,Sources of funds - FDI companies,SRC_FND_FDI_COMP_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1192,Statement 07: Earnings / Expenditure in Foreign Currencies of the Select Foreign Direct Investment Companies - Discontinued,Annual,31-MAR-2011,31-MAR-2019,Earning or Expenditure in Foreign Currencies,EAR_EXP_FC_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1167,"Statement 08: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Industry Group Wise",Annual,31-MAR-2012,31-MAR-2024,Financial Ratios- Industry group-wise,FIN_RATIOS_IND_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1185,"Statement 09: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Country-Wise",Annual,31-MAR-2012,31-MAR-2024,Growth Rate Indicators for FDI - Country wise,GRWT_RT_INDCO_FDI_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1180,"Statement 10: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Type-Wise",Annual,31-MAR-2012,31-MAR-2024,Growth Rate Indicators for FDI - Type wise,GRWT_RT_INDCT_FDI_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1193,Statement 11: Select Financial Ratios of the Select Foreign Direct Investment Companies - Industry Group-Wise,Annual,31-MAR-2011,31-MAR-2024,Financial Ratios,FIN_RATIOS_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1196,Statement 12: Select Financial Ratios of the Select Foreign Direct Investment Companies - Country-Wise,Annual,31-MAR-2011,31-MAR-2024,Financial Ratios,FIN_RATIOS_RN,OK
+Statistics,Corporate Sector,Finances of FDI Companies,1406,Explanatory Notes,Annual,31-MAR-2020,31-MAR-2024,,,—
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1173,Statement 01: Growth Rates of the Select Items of the Select Public Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Public Limited Companies,GRWT_RT_INDC_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1182,Statement 02: Select Financial Ratios of the Select Public Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Public Limited Companies,FIN_RATIOS_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1178,"Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Public Limited Companies",Annual,31-MAR-2010,31-MAR-2025,Earning or Expenditure in Foreign Currencies of Public Limited Companies,EAR_EXP_FC_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1189,Statement 04A: Combined Balance Sheet (Equity and Liabilities) of the Select Public Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Balance Sheet of Public Limited Companies-Capital Liabilities,BAL_SHT_PUB_CAP_LIA_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1195,Statement 04B: Combined Balance Sheet (Assets) of the Select Public Limited Companies,Annual,31-MAR-2010,31-MAR-2025,Balance Sheet of Public Limited Companies,BAL_SHT_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1172,Statement 05A: Sources of Funds of the Select Public Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Sources of funds of Public Limited Companies,SRC_FND_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1197,Statement 05B: Uses of Funds of the Select Public Limited Companies,Annual,31-MAR-2011,31-MAR-2025,Uses of Funds of Public Limited Companies,USE_FBD_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1186,Statement 06: Earnings / Expenditure in Foreign Currencies of Select Public Limited Companies,Annual,31-MAR-2010,31-MAR-2019,Earning or Expenditure in Foreign Currencies of Public Limited Companies,EAR_EXP_FC_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1201,Statement 07: Growth Rates of the Select Items of the Select Public Limited Companies - Sales-wise,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Public Limited Companies - Sales wise,GRWT_RT_INDC_PUB_SAL_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1194,Statement 08: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Sales-wise,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Public Limited Companies - Sales wise,FIN_RATIOS_PUB_SAL_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1177,Statement 09: Growth Rates of the Select Items of the Select Public Limited Companies - PUC-wise,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Public Limited Companies - PUC wise,GRWT_RT_INDC_PUB_PUC_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1206,Statement 10: Select Financial Ratios of the Select Items of the Select Public Limited Companies - PUC-wise,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Public Limited Companies - PUC wise,FIN_RATIOS_PUB_PUC_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1183,Statement 11: Growth Rates of the Select Items of the Select Public Limited Companies - Industry-wise,Annual,31-MAR-2011,31-MAR-2025,Growth Rate Indicators for Public Limited Companies Industry Wise,GRWT_RT_INDIC_PUB_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1208,Statement 12: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Industry-wise,Annual,31-MAR-2010,31-MAR-2025,Financial Ratios for Public Limited Companies Industry Wise,FIN_RATIOS_PUB_INDU_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Financial Public Limited Companies,1411,Explanatory Notes,Annual,31-MAR-2020,31-MAR-2025,,,—
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,731,Statement 1: Growth Rates of the Select Items of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,Annual,31-MAR-2014,31-MAR-2019,Growth Rate Indicators for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,GWT_RT_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,732,Statement 2: Select Financial Ratios of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,Annual,31-MAR-2014,31-MAR-2019,Financial Ratios for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,FIN_RATIOS_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,738,"Statement 3: Combined Income, Expenditure and Appropriation Accounts of Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",Annual,31-MAR-2014,31-MAR-2019,"Combined Income, Expenditure and Appropriation Accounts for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",CI_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,739,Statement 4A: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Liabilities,Annual,31-MAR-2014,31-MAR-2019,Balance Sheet of Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,BAL_SHT_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,742,Statement 4B: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Assets,Annual,31-MAR-2014,31-MAR-2019,Balance Sheet of Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise,BAL_SHT_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,753,Statement 5A: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Sources,Annual,31-MAR-2014,31-MAR-2019,Uses of Funds for Non-Government Non-Banking Financial and Investments Companies - Activity wise,USES_FND_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,754,Statement 5B: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Uses,Annual,31-MAR-2014,31-MAR-2019,Uses of Funds for Non-Government Non-Banking Financial and Investments Companies - Activity wise,USES_FND_NGNBFI_AW_RN,OK
+Statistics,Corporate Sector,Non-Government Non-Banking Financial and Investment Companies,1409,Explanatory Notes,Annual,31-MAR-2012,31-MAR-2019,,,—
+Statistics,External Sector,External Sector Indices,605,Index numbers of Exports - Quantum and Unit Value (Base: 1999-2000 = 100),Annual,1999-Mar-31,31-MAR-2025,,,—
+Statistics,External Sector,External Sector Indices,379,Index Numbers and Terms of Foreign Trade,Annual,1999-Mar-31,31-MAR-2025,General Index Numbers and Terms of Foreign Trade,INX_NBR_TERM_FR_TRD_RN,OK
+Statistics,External Sector,External Sector Indices,380,Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Calender Year - Annual Average),Annual,2005-Mar-31,31-DEC-2025,,,—
+Statistics,External Sector,External Sector Indices,381,Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Financial Year - Annual Average),Annual,2004-Mar-31,31-DEC-2025,,,—
+Statistics,External Sector,External Sector Indices,584,Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee,Monthly,31-JAN-1975,31-MAR-2026,Indices of REER/NEER Annually,INX_NEER_REER_A_RN,OK
+Statistics,External Sector,External Sector Indices,900,Index Numbers of Imports - Quantum and Unit Value (Base: 1999-2000 = 100),Annual,1999-Mar-31,31-MAR-2025,,,—
+Statistics,External Sector,External Debt,563,India's External Debt - US Dollars (End-March),Annual,1991-Mar-31,31-MAR-2025,India's External Debt,IND_EXTRN_DEBT_RN,OK
+Statistics,External Sector,External Debt,570,India's External Debt - Rupees (End-March),Annual,1991-Mar-31,31-MAR-2025,India's External Debt,IND_EXTRN_DEBT_RN,OK
+Statistics,External Sector,External Debt,660,External Debt of India - Quarterly,Quarterly,31-MAR-2020,30-JUN-2025,India's External Debt,IND_EXTRN_DEBT_RN,OK
+Statistics,External Sector,Forex Reserve,414,Foreign Exchange Reserves - Monthly,Monthly,1990-Mar-31,31-DEC-2025,Foreign Exchange Reserves Monthly,FR_EXG_RESV_M_RN,OK
+Statistics,External Sector,Forex Reserve,415,Foreign Exchange Reserves - Annual,Annual,1950-Mar-31,31-MAR-2026,Foreign Exchange Reserves,FR_EXG_RESV_RN,OK
+Statistics,External Sector,Forex Reserve,687,Foreign Exchange Reserves - Weekly,Weekly,2001-Apr-06,03-APR-2026,Foreign Exchange Reserves,FR_EXG_RESV_RN,OK
+Statistics,External Sector,International Finance,982,International Investment Position of India,Quarterly,31-MAR-2006,31-DEC-2025,International Investment Position of India BPM5,INTR_INV_POS_IND_RN,OK
+Statistics,External Sector,International Finance,417,NRI Deposits,Monthly,1997-Apr-01,31-JAN-2026,NRI Deposits Inflow/Outflow Annually,NRI_DEPOSITS_IN_OUT_A_RN,OK
+Statistics,External Sector,International Finance,418,External Assistance,Annual,1997-Apr-01,31-MAR-2025,External assistance,EXTR_ASSIST_RN,OK
+Statistics,External Sector,International Finance,419,Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - Rupees,Annual,31-MAR-1991,31-MAR-2025,,,—
+Statistics,External Sector,International Finance,420,Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - US Dollars,Annual,31-MAR-1991,31-MAR-2025,,,—
+Statistics,External Sector,International Finance,421,NRI Deposits Outstanding - Rupees,Annual,31-MAR-1991,31-MAR-2025,NRI Deposits Outstanding Monthly,NRI_DEPOSITS_OUTS_RN,OK
+Statistics,External Sector,International Finance,628,NRI Deposits Outstanding - US Dollars,Annual,31-MAR-1991,31-MAR-2025,NRI Deposits Outstanding Monthly,NRI_DEPOSITS_OUTS_RN,OK
+Statistics,External Sector,International Finance,695,Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies,Annual,31-MAR-2009,31-MAR-2024,Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies,FR_LIB_ASSTS_MUT_RN,OK
+Statistics,External Sector,International Finance,696,Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies : Country-wise,Annual,31-MAR-2009,31-MAR-2024,Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies - Country Wise,FR_LIB_ASS_MUT_RN,OK
+Statistics,External Sector,International Finance,752,Outright Remittances under the Liberalised Remittances Scheme for Resident Individuals - Yearly,Annual,31-MAR-2009,31-MAR-2024,,,—
+Statistics,External Sector,International Finance,793,Outward Remittances under the Liberalised Remittance Scheme for Resident Individuals,Monthly,30-APR-2008,31-JAN-2026,Outward Remittance,OUTW_REMIT_RN,OK
+Statistics,External Sector,International Finance,997,Foreign Investment Inflows,Monthly,30-APR-1995,31-MAR-2025,Foreign Investment Inflows,FR_INV_INFLW_RN,OK
+Statistics,External Sector,International Finance,1064,Foreign Investment Inflows - Yearly,Annual,31-MAR-1991,31-MAR-2024,Foreign Investment Inflows,FR_INV_INFLW_RN,OK
+Statistics,External Sector,International Trade,607,Direction of Foreign Trade - Rupees,Annual,31-MAR-2010,31-MAR-2025,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,635,Exports of Select Commodities to Principal Countries - Rupees,Annual,31-MAR-2014,31-MAR-2025,Exports of Select Commodities to Principal Countries,EXP_SEL_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,1076,Invisibles by Category of Transactions (in US Dollar),Quarterly,30-JUN-2010,31-DEC-2025,Invisibles By Category of Transactions,INVI_CAT_TRANS_RN,OK
+Statistics,External Sector,International Trade,885,India's Overall Balance of Payments - Quarterly - US Dollars,Quarterly,30-JUN-1949,31-MAR-2025,India's Overall Balance of Payments,IND_OVR_BOP_RN,OK
+Statistics,External Sector,International Trade,884,India's Overall Balance of Payments - US Dollars,Annual,31-MAR-1949,31-MAR-2025,India's Overall Balance of Payments,IND_OVR_BOP_RN,OK
+Statistics,External Sector,International Trade,883,India's Overall Balance of Payments - Rupees,Annual,31-MAR-1949,31-MAR-2025,India's Overall Balance of Payments,IND_OVR_BOP_RN,OK
+Statistics,External Sector,International Trade,878,Key Components of India's Balance of Payments - Rupees,Annual,31-MAR-1949,31-MAR-2025,Key components of India's Overall Balance of Payments,KCI_BOP_RN,OK
+Statistics,External Sector,International Trade,875,Key Components of India's Balance of Payments - US Dollars,Annual,31-MAR-1949,31-MAR-2025,Key components of India's Overall Balance of Payments,KCI_BOP_RN,OK
+Statistics,External Sector,International Trade,807,Invisibles by Category of Transactions - US Dollars,Annual,31-MAR-1949,31-MAR-2025,Invisibles By Category of Transactions,INVI_CAT_TRANS_RN,OK
+Statistics,External Sector,International Trade,791,India’s Overall Balance of Payments - Quarterly – Rupees,Quarterly,30-JUN-1949,31-DEC-2025,India's Overall Balance of Payments,IND_OVR_BOP_RN,OK
+Statistics,External Sector,International Trade,676,Direction of Foreign Trade - US Dollars,Annual,31-MAR-2010,31-MAR-2025,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,649,India's Foreign Trade - US Dollars,Annual,31-MAR-1971,31-MAR-2025,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,648,India's Foreign Trade – Rupees,Monthly,01-APR-1990,01-JAN-2026,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,424,Invisibles by Category of Transactions - Rupees,Annual,31-MAR-1949,31-MAR-2025,Invisibles By Category of Transactions,INVI_CAT_TRANS_RN,OK
+Statistics,External Sector,International Trade,439,Exports of Principal Commodities - US Dollars,Annual,31-MAR-2010,31-MAR-2025,Exports of Select Commodities to Principal Countries,EXP_SEL_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,433,India's Foreign Trade - US Dollars,Monthly,01-APR-1990,31-MAR-2025,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,432,India's Foreign Trade - Rupees,Annual,31-MAR-1971,31-MAR-2025,Direction of Foreign Trade,DIR_FR_TRD_RN,OK
+Statistics,External Sector,International Trade,431,Imports of Principal Commodities - US Dollars,Annual,31-MAR-2010,31-MAR-2025,Export of Principal commodities,EXP_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,430,Imports of Principal Commodities - Rupees,Annual,31-MAR-2010,31-MAR-2025,Export of Principal commodities,EXP_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,429,Exports of Select Commodities to Principal Countries - US Dollars,Annual,31-MAR-2014,31-MAR-2025,Exports of Select Commodities to Principal Countries,EXP_SEL_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,428,Exports of Principal Commodities - Rupees,Annual,31-MAR-2010,31-MAR-2025,Exports of Select Commodities to Principal Countries,EXP_SEL_PRIN_COMM_RN,OK
+Statistics,External Sector,International Trade,427,Balance of Payments - Indicators,Annual,31-MAR-1971,31-MAR-2025,Balance Of Payments Indicators,BOP_INDI_RN,OK
+Statistics,External Sector,International Trade,426,Broad Commodity Composition of Indias Merchandise Trade - US Dollar,Monthly,01-APR-1990,01-JAN-2026,Broad Commodity Composition of India's Merchandise Trade,BCCI_MER_TRD_RN,OK
+Statistics,External Sector,International Trade,425,Broad Commodity Composition of India's Merchandise Trade - Oil and Non-Oil Exports and Imports - Rupees,Monthly,01-APR-1990,01-JAN-2026,Broad Commodity Composition of India's Merchandise Trade,BCCI_MER_TRD_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,1358,Annual Averages of Share Price Indices and Market Capitalisation,Annual,31-MAR-1980,31-MAR-2026,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1353,Monthly and Annual Averages of BSE Sensitive Index,Monthly,30-Apr-1990,28-FEB-2026,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1352,Monthly Turnover at NSE,Monthly,30-APR-1994,28-FEB-2026,Turnover at NSE,TURNO_NSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,1351,Market Capitalisation - NSE,Monthly,01-APR-1994,28-FEB-2026,Market Information NSE,MRKT_INFO_NSE_D_RN,no-record
+Statistics,Financial Market,Equity and Corporate Debt Market,1350,Market Capitalisation - BSE and All-India,Monthly,01-APR-1993,28-FEB-2026,Market Information BSE,MRKT_INFO_BSE_D_RN,no-record
+Statistics,Financial Market,Equity and Corporate Debt Market,1354,Net Investments by FIIs in the Indian Capital Market,Monthly,30-APR-1992,30-JUN-2025,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1355,New Capital Issues by Non-Government Public Limited Companies,Monthly,30-APR-2022,31-JAN-2026,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1356,Number and Quantum of Euro Issues,Monthly,30-APR-1992,30-JUN-2025,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1357,Turnover in the Equity Derivatives Market,Annual,01-JAN-2016,30-JUN-2025,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,1359,Net Resources Mobilised by Bank-Sponsored and FI- Sponsored Mutual Funds,Annual,01-APR-1970,31-MAR-2024,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,728,NSE Indices,Daily,03-Mar-2003,17-MAR-2026,NSE INIDICES,NSE_IND_D_RN,no-record
+Statistics,Financial Market,Equity and Corporate Debt Market,1360,Net Resources Mobilised by Mutual Funds,Annual,31-MAR-1971,31-MAR-2024,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,693,BSE Indices,Daily,01-Jan-1990,17-MAR-2026,BSE INIDICES,BSE_IND_D_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,680,"Daily Turnover,Market Capitalisation and Traded Volume at NSE",Daily,03-MAR-2003,17-MAR-2026,Turnover at NSE,TURNO_NSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,658,"Daily Turnover, Market Capitalisation and Traded Volume at BSE",Daily,03-MAR-2003,17-MAR-2026,Turnover BSE,TRN_OVR_BSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,1361,Net Resources Mobilised by Private Sector Mutual Funds,Annual,31-MAR-1997,31-MAR-2025,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,990,Monthly Turnover at BSE,Monthly,01-APR-1990,28-FEB-2026,Turnover BSE,TRN_OVR_BSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,477,Average Price / Earning Ratio of BSE Sensitive Index,Monthly,01-APR-1990,31-MAR-2026,Earning Ratio of BSE,EARN_RAT_BSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,899,New Capital Issues by Non-Government Public Limited Companies,Annual,31-MAR-2011,31-MAR-2025,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,898,Monthly and Annual Averages of BSE 100,Monthly,01-JAN-1991,28-FEB-2026,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,804,Yearly Traded Volume in Corporate Debt at NSE (Discontinued),Annual,30-Apr-1997,21-DEC-2012,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,802,"Monthly and Annual Averages of Nifty 50 (Base November 3,1995=1000)",Monthly,31-Jul-1990,28-FEB-2026,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,750,Monthly Traded Volume in Corporate Debt at NSE  (Discontinued),Monthly,30-Apr-1997,21-DEC-2012,,,—
+Statistics,Financial Market,Equity and Corporate Debt Market,478,AVERAGE PRICE/BOOK VALUE RATIO OF BSE SENSEX,Monthly,01-APR-1990,31-MAR-2026,Book Value Ratio of BSE,BK_VAL_RAT_BSE_RN,OK
+Statistics,Financial Market,Equity and Corporate Debt Market,726,Foreign Equity Market Indices,Daily,03-Mar-2003,17-MAR-2026,,,—
+Statistics,Financial Market,Forex Market,691,Daily Interbank Forex Rates (USD vis-a-vis INR),Daily,08-AUG-2000,27-FEB-2026,,,—
+Statistics,Financial Market,Forex Market,694,Turnover in Foreign Exchange Market - Daily,Daily,03-AUG-1998,27-FEB-2026,EXCHANGE RATE OF THE INDIAN RUPEE DAILY,FOREX_RATE_D_RN,no-record
+Statistics,Financial Market,Forex Market,730,Sale/ Purchase of U.S. Dollar by the RBI,Monthly,30-JUN-1995,31-JAN-2026,,,—
+Statistics,Financial Market,Forex Market,768,Forex Rates - Month-High / Month-Low,Monthly,31-AUG-1998,10-APR-2026,Inter Bank Forex Rates,IB_FOREX_RT_RN,no-record
+Statistics,Financial Market,Forex Market,1347,Turnover in Foreign Exchange Market,Monthly,31-AUG-1996,28-FEB-2026,FOREIGN EXCHANGE RATE AVERAGE,FOREXRT_AVG_RN,OK
+Statistics,Financial Market,Forex Market,1348,"Exchange Rate of the Indian Rupee Vis-A-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Financial Year - Annual Average and End-Year Rates)",Annual,31-JUL-1971,31-MAR-2025,EXCHANGE RATE OF THE INDIAN RUPEE,FOREX_RATE_RN,OK
+Statistics,Financial Market,Forex Market,1349,"Exchange Rate of the Indian Rupee Vis-a-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Calender Year - Annual Average)",Annual,31-DEC-1970,31-DEC-2025,EXCHANGE RATE OF THE INDIAN RUPEE,FOREX_RATE_RN,OK
+Statistics,Financial Market,Forex Market,1374,"Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (Monthly Average and End-Month Rates)",Monthly,31-Mar-1992,31-MAR-2026,EXCHANGE RATE OF THE INDIAN RUPEE,FOREX_RATE_RN,OK
+Statistics,Financial Market,Forex Market,558,Forward Premia (Inter-Bank) (Monthly Average),Monthly,31-MAR-1993,27-FEB-2026,FORWARD PREMIA (INTER-BANK),FW_PRE_RN,OK
+Statistics,Financial Market,Forex Market,583,"Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (High and Low During the Month)",Monthly,30-Apr-2008,31-MAR-2026,EXCHANGE RATE OF THE INDIAN RUPEE,FOREX_RATE_RN,OK
+Statistics,Financial Market,Forex Market,675,Daily Exchange Rate of the Indian Rupee,Daily,25-AUG-1998,10-APR-2026,EXCHANGE RATE OF THE INDIAN RUPEE DAILY,FOREX_RATE_D_RN,no-record
+Statistics,Financial Market,Forex Market,698,Daily Forward Premia (Inter-Bank),Daily,04-NOV-2003,27-FEB-2026,FORWARD PREMIA (INTER-BANK),FW_PRE_RN,OK
+Statistics,Financial Market,Forex Market,767,Daily Forward Premia (USD vis-a-vis INR) (in Paise),Daily,08-AUG-2000,27-FEB-2026,FORWARD CASH PREMIA DAILY,FWC_PRE_D_RN,no-record
+Statistics,Financial Market,Forex Market,719,"Monthly Average Exchange Rates (EURO,GBP,JPY,USD)",Monthly,31-MAY-1966,31-MAR-2026,,,—
+Statistics,Financial Market,Forex Market,720,Monthly Average Exchange Rate (155 Currencies),Monthly,31-MAY-1966,31-MAR-2026,FOREIGN EXCHANGE RATE AVERAGE,FOREXRT_AVG_RN,OK
+Statistics,Financial Market,Government Securities Market,663,Auctions of 91-Day Government of India Treasury Bills,Weekly,08-Jan-1993,08-APR-2026,Govt of India Treasury Bills Outstanding,GOV_TR_BILL_OUTSD_RN,OK
+Statistics,Financial Market,Government Securities Market,1371,Ownership of Central and State Government Securities,Annual,20-Aug-1991,31-MAR-2025,Turnover In Government Securities Market,GSEC_TO_RN,OK
+Statistics,Financial Market,Government Securities Market,1370,Interest Rates on Central and State Government Dated Securities,Annual,01-Aug-1980,31-MAR-2025,Interest Rate,INT_RATE_RN,OK
+Statistics,Financial Market,Government Securities Market,1369,Ownership Pattern of Government of India Dated Securities,Quarterly,31-MAR-2007,31-DEC-2025,YIELD OF SGL TRANSACTIONS IN GOVERNMENT DATED SECURITIES,YIELD_GOV_SEC_RN,OK
+Statistics,Financial Market,Government Securities Market,1368,Yield of SGL Transactions in Government Dated Securiites for Various Maturities,Monthly,20-AUG-2021,31-MAR-2026,YIELD OF SGL TRANSACTIONS IN GOVERNMENT DATED SECURITIES,YIELD_GOV_SEC_RN,OK
+Statistics,Financial Market,Government Securities Market,1367,Monthly Open Market Operations of Reserve Bank of India,Monthly,30-APR-2016,31-MAR-2026,Open market operations of RBI,OPN_MKT_OP_RN,OK
+Statistics,Financial Market,Government Securities Market,1366,Auctions of 364-Day Government of India Treasury Bills,Weekly,7-Apr- 1998,08-APR-2026,Govt of India Treasury Bills Outstanding,GOV_TR_BILL_OUTSD_RN,OK
+Statistics,Financial Market,Government Securities Market,1365,Auctions of 182-Day Government of India Treasury Bills,Weekly,06-Apr-2005,08-APR-2026,Govt of India Treasury Bills Outstanding,GOV_TR_BILL_OUTSD_RN,OK
+Statistics,Financial Market,Government Securities Market,1364,Turnover in Government Securities Market (Face Value),Weekly,03-Apr-1998,03-APR-2026,Turnover In Government Securities Market,GSEC_TO_RN,OK
+Statistics,Financial Market,Government Securities Market,1363,Secondary Market Outright Transactions in Government Securities (Face Value),Weekly,03-Apr-1998,03-APR-2026,Secondary market transactions,SEC_MKT_RN,OK
+Statistics,Financial Market,Government Securities Market,1362,Maturity Pattern of Government of India Rupee loans,Annual,31-Mar-1975,31-MAR-2025,,,—
+Statistics,Financial Market,Government Securities Market,769,Secondary Market Repo Transactions In Government Securities (Face Value),Weekly,03-Apr-1998,10-APR-2026,Secondary market transactions,SEC_MKT_RN,OK
+Statistics,Financial Market,Government Securities Market,1213,Details of State Governments Market Borrowings,Weekly,19-Jan-2006,13-APR-2026,,,—
+Statistics,Financial Market,Government Securities Market,1207,Outstanding List of all SLR eligible securities,Daily,20-JAN-2006,16-APR-2026,,,—
+Statistics,Financial Market,Government Securities Market,809,Yield of SGL Transactions in Treasury Bills for Residual Maturities,Monthly,30-APR-1996,31-JUL-2025,YIELD OF SGL TRANSACTIONS IN TREASURY BILLS,YIELD_TB_RN,OK
+Statistics,Financial Market,Government Securities Market,808,Auctions of 14-Day Government of India Treasury Bills  (Discontinued),Weekly,18-Jun-1999,07-JUN-2023,Govt of India Treasury Bills Outstanding,GOV_TR_BILL_OUTSD_RN,OK
+Statistics,Financial Market,Government Securities Market,681,Government of India : Treasury Bills Outstanding,Weekly,12-MAY-2006,03-APR-2026,Govt of India Treasury Bills Outstanding,GOV_TR_BILL_OUTSD_RN,OK
+Statistics,Financial Market,Government Securities Market,559,Details of Central Government Market Borrowings,Weekly,25-Apr-1995,10-APR-2026,Turnover In Government Securities Market,GSEC_TO_RN,OK
+Statistics,Financial Market,Government Securities Market,727,Market Borrowings by the Government of India and State Governments- Dated Securities,Weekly,06-Jan-2012,03-APR-2026,Turnover In Government Securities Market,GSEC_TO_RN,OK
+Statistics,Financial Market,Government Securities Market,1398,Secondary Market Transactions in Government Securities,Monthly,30-SEP-1994,31-JUL-2025,Secondary market transactions,SEC_MKT_RN,OK
+Statistics,Financial Market,Money Market,659,Daily Money Market Operations,Daily,01-JUL-2020,06-APR-2026,,,—
+Statistics,Financial Market,Money Market,690,Weighted Average Call/Notice Money Rates,Daily,01-Apr-2005,06-APR-2026,Weighted Average Call Money Rates,WAR_CALL_MONEY_RN,OK
+Statistics,Financial Market,Money Market,1375,Weighted Average Call/Notice Money Rates,Monthly,30-APR-1991,31-JAN-2026,Weighted Average Call Money Rates,WAR_CALL_MONEY_RN,OK
+Statistics,Financial Market,Money Market,566,Certificates of Deposit,Fortnightly,12-JUL-1991,31-MAR-2026,Certificates of Deposit,CERTI_DEPO_RN,OK
+Statistics,Financial Market,Money Market,627,Average Daily Turnover in Select Financial Markets,Weekly,06-MAY-2005,30-JAN-2026,Average Daily Turnover,AVG_TURNOVER_RN,OK
+Statistics,Financial Market,Money Market,702,Liquidity Operations by RBI,Daily,01-NOV-2012,05-APR-2026,,,—
+Statistics,Financial Market,Money Market,992,London Inter-bank Overnight Offer Rate,Daily,02-JAN-2001,30-MAR-2022,London Inter Bank Overnight Offer Rates,LIBOOR_RN,no-record
+Statistics,Financial Market,Money Market,993,Mumbai Inter-Bank Offer Rate (MIBOR) & Mumbai Inter-Bank Bid Rate (MIBID),Daily,15-JUN-1998,11-MAR-2026,London Inter Bank Overnight Offer Rates,LIBOOR_RN,no-record
+Statistics,Financial Market,Money Market,1211,Repo/ Reverse Repo Auction Under Liquidity Adjustment Facility,Daily,03-APR-2001,10-APR-2026,Auction under LAF,AUC_LAF_RN,no-record
+Statistics,Financial Market,Money Market,1395,Commercial Paper,Bi-Monthly,15-JUN-2011,31-MAR-2026,Commercial Paper,COM_PAPER_RN,OK
+Statistics,Financial Market,Money Market,1396,Average Daily Turnover in Call Money Market - Weekly,Weekly,05-AUG-2011,02-DEC-2016,Average Daily Turnover,AVG_TURNOVER_RN,OK
+Statistics,Financial Market,Money Market,1397,Weighted Average Call/Notice Money Rates,Weekly,08-JAN-2010,13-FEB-2026,Weighted Average Call Money Rates,WAR_CALL_MONEY_RN,OK
+Statistics,Financial Sector,Monetary Statistics,1373,Components of Money Stock,Monthly,01-APR-1991,31-MAR-2025,Money Stock Components_Fortnightly,MSC_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,781,Reserve Money: Components and Sources - Monthly,Monthly,29-JUN-2001,12-DEC-2025,Reserve Money Components_Monthly,RMC_M_RN,OK
+Statistics,Financial Sector,Monetary Statistics,770,Money Stock: Components and Sources,Fortnightly,12-JAN-2001,31-MAR-2026,Money Stock Components_Fortnightly,MSC_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,568,Select Monetary Aggregates - Growth Rates,Annual,31-MAR-1970,31-MAR-2025,Monetary Aggregates,MON_AG_RN,OK
+Statistics,Financial Sector,Monetary Statistics,1004,Reserve Bank of India - Liabilities & Assets,Annual,31-MAR-1971,03-APR-2026,,,—
+Statistics,Financial Sector,Monetary Statistics,903,Commercial Bank Survey,Monthly,26-MAR-1999,31-JAN-2026,Commercial Survey Component Monthly,CSURYCOM_M_RN,OK
+Statistics,Financial Sector,Monetary Statistics,761,RBI - Liabilities & Assets,Monthly,02-JUL-2004,27-FEB-2026,RBI Assets_Annual,RBI_ASSET_A_RN,OK
+Statistics,Financial Sector,Monetary Statistics,751,Reserve Money: Components and Sources,Weekly,2001-JUL-06,12-DEC-2025,Reserve Money Components_Monthly,RMC_M_RN,OK
+Statistics,Financial Sector,Monetary Statistics,729,Reserve Money: Components and Sources - Yearly,Annual,2001-Apr-01,31-MAR-2025,Reserve Money Components_Monthly,RMC_M_RN,OK
+Statistics,Financial Sector,Monetary Statistics,586,Components of Money Stock,Annual,1951-Mar-31,31-MAR-2025,Money Stock Components_Fortnightly,MSC_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,443,Commercial Bank Survey,Fortnightly,26-MAR-1999,31-JAN-2026,Commercial Survey Component Monthly,CSURYCOM_M_RN,OK
+Statistics,Financial Sector,Monetary Statistics,556,Monetary Survey,Fortnightly,23-APR-1999,31-MAR-2026,Monetary Survey Components_Fortnightly,MSURYCOM_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,547,Sources of Money Stock,Annual,1951-Mar-30,31-MAR-2025,Money Stock Sources_Fortnightly,MSS_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,546,RESERVE BANK OF INDIA SURVEY,Monthly,29-FEB-1952,31-MAR-2026,,,—
+Statistics,Financial Sector,Monetary Statistics,545,RBI's Standing Facilities,Monthly,22-APR-1911,28-FEB-2026,RBI_Standing Facilities,RBI_SF_RN,OK
+Statistics,Financial Sector,Monetary Statistics,544,Monetary Survey,Monthly,31-MAR-1999,31-MAR-2026,Monetary Survey Components_Fortnightly,MSURYCOM_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,447,Reserve Bank of India - Liabilities & Assets,Weekly,02-JUL-2004,03-APR-2026,,,—
+Statistics,Financial Sector,Monetary Statistics,446,Notes and Coins in Circulation,Annual,31-MAR-1971,31-MAR-2025,Notes & Coin in Circulation,NOT_COIN_RN,OK
+Statistics,Financial Sector,Monetary Statistics,445,Average Monetary Aggregates,Annual,31-MAR-1952,31-MAR-2025,Average Monetary Aggregates,AMAGG_RN,OK
+Statistics,Financial Sector,Monetary Statistics,444,Sources of Money Stock,Monthly,01-APR-1991,31-MAR-2025,Money Stock Sources_Fortnightly,MSS_F_RN,OK
+Statistics,Financial Sector,Monetary Statistics,764,Select Monetary Ratios,Annual,30-MAR-1952,31-MAR-2025,Monetary Ratios,MONTRY_RATIOS_RN,OK
+Statistics,Financial Sector,Financial Institutions,1372,Operations of HDFC,Annual,31-MAR-1979,31-MAR-2024,,,—
+Statistics,Financial Sector,Financial Institutions,391,Liabilities and Assets of IFCI,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,801,Industrial Refinance by Reserve Bank of India,Annual,31-MAR-1971,31-MAR-2022,,,—
+Statistics,Financial Sector,Financial Institutions,398,Resource Mobilisation in the Private Placement Market,Annual,31-MAR-1996,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,396,National Bank for Agriculture and Rural Development - Financial Assistance,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,395,Liabilities and Assets of SIDBI,Annual,31-MAR-1991,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,394,Liabilities and Assets of SFCs,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,393,Liabilities and Assets of NHB,Annual,30-JUN-1989,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,392,Liabilities and Assets of NABARD,Annual,31-MAR-1990,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,382,Assets Under Management of Mutual Funds,Annual,31-MAR-1997,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,390,Investments by LIC,Annual,31-MAR-1979,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,389,Financial Assistance Sanctioned and Disbursed by All Financial Institutions,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,388,Disbursements by National Housing Bank Under its Refinance Schemes,Annual,31-MAR-1989,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,387,Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (General Fund),Annual,31-DEC-1982,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,386,Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Deposit Insurance Fund),Annual,31-DEC-1982,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,385,Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Credit Guarantee Fund),Annual,31-DEC-1981,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,384,Deposit Insurance and Credit Guarantee Corporation - Insured Deposits,Annual,31-DEC-1962,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,383,Bonds Issued by Public Sector Undertakings,Annual,31-MAR-1979,31-MAR-2025,,,—
+Statistics,Financial Sector,Financial Institutions,873,Liabilities and Assets of EXIM Bank,Annual,31-MAR-1982,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,737,Ownership of Deposits with Scheduled Commercial Banks,Annual,31-MAR-2019,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,473,Direct Institutional Credit for Agriculture and Allied Activities - Short-Term  (Discontinued),Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,1130,Food & Non-Food Credit of Scheduled Commercial Banks,Fortnightly,06-Jun-1997,15-MAR-2026,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,337,Institutional Credit for Agriculture and Allied Activities,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,756,Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Disbursements) - Short-Term & Long-Term Loans  (Discontinued),Annual,31-MAR-1981,31-MAR-2012,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,1223,"Bank Deposits of SCBs - Region, State, District, Bank Group, Population Group-Wise - Annual",Annual,31-MAR-2010,31-MAR-2018,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,1222,"Bank Credit of SCBs - Bank Group, Population Group, Occupation (Sector), District Wise - Annual",Annual,31-MAR-2010,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,999,Sectoral Deployment of Non-Food Gross Bank Credit - Outstanding,Annual,18-JAN-2019,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,906,Outstanding Advances of Scheduled Commercial Banks to Exporters  (Discontinued),Quarterly,31-MAR-2005,30-JUN-2018,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,905,Outstanding Advances of Scheduled Commercial Banks for Public Food Procurement Operations,Monthly,31-JAN-2005,27-JUN-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,790,Direct Institutional Credit for Agriculture and Allied Activities - Long-Term  (Discontinued),Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,762,Position of Sick SSI Units and Sick/Weak Non-SSI Units Financed by Scheduled Commercial Banks  (Discontinued),Annual,31-MAR-1987,31-MAR-2017,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,758,Scheduled Commercial Banks' Advances to Small Scale Industries and Allied Services - Outstanding  (Discontinued),Annual,31-MAR-1971,31-MAR-2020,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,757,Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Outstanding) - Short-Term & Long-Term Loans (Discontinued),Annual,31-MAR-1981,31-MAR-2012,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,749,Indirect Institutional Credit for Agriculture and Allied Activities (Discontinued),Annual,31-MAR-1972,31-MAR-2022,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,541,Industry-Wise Deployment of Gross Bank Credit,Annual,18-JAN-2019,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,338,Self-Help Group - Bank Linkage Programme,Annual,01-APR-1992,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,474,Scheduled Commercial Banks' Advances to Agriculture - Outstanding  (Discontinued),Annual,31-MAR-1971,31-MAR-2020,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,557,Bank Group-Wise Distribution of Employees of Scheduled Commercial Banks,Annual,31-MAR-1992,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,539,DEPLOYMENT OF BANK CREDIT BY MAJOR SECTORS,Monthly,18-JAN-2019,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Sectoral Statistics,540,INDUSTRY-WISE DEPLOYMENT OF BANK CREDIT,Monthly,18-JAN-2019,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,665,Bank Group-wise Classification of Loan Assets of Scheduled Commercial Banks,Annual,31-MAR-2005,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,910,Composition of NPAs of Public Sector Banks,Annual,31-MAR-2003,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,1221,Variables to be published Bank and Bank Group wise (For Public Access),Quarterly,31-MAR-2002,30-SEP-2025,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,336,"Bank-wise and Bank Group-wise Gross Non-Performing Assets, Gross Advances, and Gross NPA Ratios of Scheduled Commercial Banks",Annual,31-MAR-2004,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,329,Distribution of Scheduled Commercial Banks by CRAR,Annual,31-MAR-1996,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,332,Scheduled Commercial Banks - Ratios,Annual,31-MAR-1951,21-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,330,Gross and Net NPAs of Scheduled Commercial Banks - Bank Group-Wise,Annual,31-MAR-1997,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Performance Indicators,331,Important Banking Indicators - Regional Rural Banks - Outstanding,Annual,31-MAR-1980,31-MAR-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,741,Scheduled Commercial Bank's Investments,Fortnightly,06-JUN-1997,15-MAR-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,803,Scheduled Commercial Banks - Select Aggregates,Monthly,22-JAN-2016,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,987,Bank Group-wise Business of Scheduled Banks in India,Monthly,2005-Mar-31,21-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,939,State-wise Distribution of Liabilities and Assets of District Central Co-operative Banks,Annual,31-MAR-2005,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,938,Bank Group-wise Insured Deposits,Annual,30-SEP-2005,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,937,Business of Scheduled Banks in India,Monthly,01-MAR-2005,21-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,909,State-wise Distribution of Scheduled Commercial Banks' Investments in State Government Securities and Shares/Debentures/Bonds of State Level Bodies  (Discontinued),Annual,31-MAR-2005,31-MAR-2012,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,904,Liabilities and Assets of Indian Scheduled Commercial Banks in Foreign Countries,Annual,31-MAR-2004,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,901,Scheduled Commercial Banks - Select Aggregates,Fortnightly,30-MAY-1997,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,879,Scheduled Commercial Banks - Select Aggregates - Annual,Annual,30-MAR-1951,21-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,988,State-wise Distribution of Liabilities and Assets of State Co-operative Banks,Annual,31-MAR-2005,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,747,Investments of Scheduled Commercial Banks (Discontinued),Annual,2005-Mar-31,31-MAR-2012,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,998,Business in India - All Scheduled Banks and All Scheduled Commercial Banks,Monthly,1997-May-30,31-JAN-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1005,Unclaimed Deposits with Scheduled Commercial Banks,Annual,31-MAR-2005,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,326,Cash Balances of Scheduled Commercial Banks (excluding Regional Rural Banks) with Reserve Bank of India,Daily,22-JUL-2006,07-APR-2026,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1209,Abridged Balance Sheet - Bank Group wise - Quarterly (Discontinued),Quarterly,31-MAR-1997,30-SEP-2013,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1214,RTP: Growth Rate of Select Balance Sheet Indicators of Sch. UCBs,Annual,31-MAR-1997,31-MAR-2011,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1215,RTP: Select Balance Sheet Indicators of Primary Agricultural Credit Societies (PACS),Annual,31-MAR-1997,31-MAR-2011,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1248,Flow of Financial Resources from Scheduled Commercial Banks to the Commercial Sector,Fortnightly,2017-Apr-14,21-FEB-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,679,Bank Group-wise and Instrument-wise Derivatives of Scheduled Commercial Banks in India,Annual,2012-Mar-31,31-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,322,State Co-operative Banks Maintaining Accounts with the RBI,Monthly,28-NOV-1997,31-DEC-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,579,State Co-operative Banks Maintaining Accounts with the Reserve Bank of India,Annual,1971-Mar-31,28-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,324,"Loans and Advances of PACS, SCARDBs and PCARDBs",Annual,31-MAR-1978,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,325,Non-Performing Assets of Co-operative Banks,Annual,31-MAR-1995,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,323,Consolidated Balance Sheet of Scheduled Commercial Banks (Excluding Regional Rural Banks),Annual,31-MAR-1991,31-MAR-2024,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,872,Select Aggregates of Scheduled Commercial Banks - Growth Rates,Annual,28-MAR-1952,21-MAR-2025,,,—
+Statistics,Financial Sector,Banking - Assets & Liabilities,1216,List of Amalgamated Regional Rural Banks,Annual,31-AUG-2006,31-MAR-2024,,,—
+Statistics,Financial Sector,Payment Systems,678,Cheque Clearances,Annual,31-MAR-2005,31-MAR-2025,,,—
+Statistics,Financial Sector,Payment Systems,907,Payment System Indicators,Annual,1970-Mar-31,31-JAN-2026,,,—
+Statistics,Financial Sector,Payment Systems,936,Number of Clearing Houses,Annual,2005-Mar-31,31-MAR-2025,Clearing House,CLEARING_HOU_RN,error
+Statistics,Financial Sector,Payment Systems,778,Payment System Indicators,Monthly,30-APR-2004,31-JAN-2026,,,—
+Statistics,Financial Sector,Non Banking Financial Companies,450,Aggregate Deposits of the NBFC Sector,Annual,31-MAR-1998,31-MAR-2025,,,—
+Statistics,Financial Sector,Non Banking Financial Companies,760,Financial Statistics of NBFC Sector,Quarterly,31-MAR-2012,31-MAR-2015,,,—
+Statistics,Financial Sector,Non Banking Financial Companies,1198,Credit to Various Sectors by NBFCs,Annual,31-MAR-2016,31-MAR-2018,,,—
+Statistics,Financial Sector,Key Rates,440,"Major Monetary Policy Measures - Bank Rate, CRR & SLR",Quarterly,04-JUL-1935,05-DEC-2025,,,—
+Statistics,Financial Sector,Key Rates,441,Structure of Interest Rates,Annual,31-MAR-1971,31-MAR-2026,,,—
+Statistics,Financial Sector,Key Rates,755,Weighted Average Lending Rate (Discontinued),Annual,31-MAR-1992,31-MAR-2014,,,—
+Statistics,Financial Sector,Key Rates,1205,Bank Group-wise and Occupation-wise Weighted Average Lending Rate and Deposit Rate  (Discontinued),Annual,31-MAR-2005,31-MAR-2014,,,—
+Statistics,Financial Sector,Key Rates,1491,MPC voting pattern-Policy rate,As and When,04-OCT-2016,08-APR-2026,,,—
+Statistics,Public Finance,Central Govt. Finance,608,Financing of Public Sector Plan (Discontinued),Annual,31-MAR-1986,31-MAR-2017,Public Sector Plan Outlay,PSPOUTLY_RN,OK
+Statistics,Public Finance,Central Govt. Finance,655,Central Government Receipts - Major Components,Annual,31-MAR-1971,31-MAR-2026,Central Government Receipts,CG_RECPT_RN,OK
+Statistics,Public Finance,Central Govt. Finance,656,Centre's Gross Fiscal Deficit and its Financing,Annual,31-MAR-1971,31-MAR-2026,,,—
+Statistics,Public Finance,Central Govt. Finance,713,Key Deficit Indicators of the Central Government,Annual,31-MAR-1971,31-MAR-2026,Central Government Deficit,CG_DEF_RN,OK
+Statistics,Public Finance,Central Govt. Finance,349,Month-Wise Gross Fiscal Deficit of the Central Government,Monthly,30-APR-1994,30-JUN-2025,Central Government Deficit,CG_DEF_RN,OK
+Statistics,Public Finance,Central Govt. Finance,350,Gross Capital Formation from Budgetary Resources of the Central Government,Annual,31-MAR-1971,31-MAR-2018,Budgetary Resources,BUD_RESOR_RN,OK
+Statistics,Public Finance,Central Govt. Finance,351,Major Heads of Capital Receipts of the Central Government,Annual,31-MAR-1971,31-MAR-2026,Central Government Receipts,CG_RECPT_RN,OK
+Statistics,Public Finance,Central Govt. Finance,352,Major Heads of Developmental and Non-Developmental Expenditure of the Central Government,Annual,31-MAR-1981,31-MAR-2026,Devlopmental and Non-Devlopmental  Expenditures - Central Government,CG_DEV_NDEV_EXP_RN,OK
+Statistics,Public Finance,Central Govt. Finance,353,Major Heads of Expenditure of the Central Government,Annual,31-MAR-1971,31-MAR-2026,Central Government Borrowings,CG_BOR_RN,OK
+Statistics,Public Finance,Central Govt. Finance,355,Select Fiscal Indicators of the Central Government (As Percentage to GDP),Annual,31-MAR-1971,31-MAR-2026,Fiscal Indicators of the Central Government as per centage to GDP,FICG_GDP_RN,OK
+Statistics,Public Finance,Central Govt. Finance,356,Small Savings Schemes,Annual,01-APR-1992,01-JUL-2025,Small Savings,SMAL_SAV_RN,OK
+Statistics,Public Finance,Central Govt. Finance,581,Small Savings,Monthly,30-APR-1992,31-AUG-2025,Small Savings,SMAL_SAV_RN,OK
+Statistics,Public Finance,Central Govt. Finance,600,Small Savings,Annual,1982-Mar-31,31-AUG-2025,Small Savings,SMAL_SAV_RN,OK
+Statistics,Public Finance,Central Govt. Finance,748,Public Sector Plan Outlay (At Current Prices)  (Discontinued),Annual,31-MAR-1986,31-MAR-2017,Public Sector Plan Outlay,PSPOUTLY_RN,OK
+Statistics,Public Finance,Central Govt. Finance,1399,Outstanding Liabilities of Central Government,Annual,31-MAR-1981,31-MAR-2026,Central Government Liabilities,CGL_RN,OK
+Statistics,Public Finance,Central & State Govt. Finance (Combined),673,Direct and Indirect Tax Revenues of Central and State Governments,Annual,1981-Mar-31,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),339,Combined Liabilities of Central and State Governments,Annual,31-MAR-1981,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),340,Developmental and Non-Developmental Expenditure of Central and State Governments,Annual,1981-Mar-31,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),341,Market Borrowings of Central and State Governments,Annual,31-MAR-1981,31-MAR-2026,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),342,Select Debt Indicators of the Central and State Governments (As Percentage to GDP),Annual,31-MAR-1981,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),346,Combined Deficit of Central and State Governments,Annual,31-MAR-1981,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),347,Combined Deficits of the Central and State Governments (As Percentage to GDP),Annual,31-MAR-1981,31-MAR-2025,,,—
+Statistics,Public Finance,Central & State Govt. Finance (Combined),721,Receipts and Disbursements of Central and State Governments,Annual,31-MAR-1981,31-MAR-2026,,,—
+Statistics,Public Finance,State Govt. Finance,677,Expenditure Pattern of the State Governments,Annual,31-MAR-1971,31-MAR-2025,Expenditure Pattern of the State Governments,SG_EXP_RN,OK
+Statistics,Public Finance,State Govt. Finance,709,Pattern of Receipts of the State Governments,Annual,31-MAR-1971,31-MAR-2025,Pattern of Receipts of the State Governments,SG_RECPT_RN,OK
+Statistics,Public Finance,State Govt. Finance,451,Key Deficit Indicators of the State Governments,Annual,31-MAR-1971,31-MAR-2025,Combined State Government Deficit,CSG_DEF_RN,OK
+Statistics,Public Finance,State Govt. Finance,452,Outstanding Liabilities of the State Governments,Annual,31-MAR-1981,31-MAR-2025,State Government Liabilities,SGL_RN,error
+Statistics,Public Finance,State Govt. Finance,453,Pattern of Major Capital Receipts of the State Governments,Annual,31-MAR-1971,31-MAR-2025,Pattern of Receipts of the State Governments,SG_RECPT_RN,OK
+Statistics,Public Finance,State Govt. Finance,454,Select Fiscal Indicators of the State Governments (As Percentage to GDP),Annual,31-MAR-1974,31-MAR-2025,Fiscal Indicators of the State Government as per centage to GDP,FISG_GDP_RN,OK
+Statistics,Public Finance,State Govt. Finance,692,States' Gross Fiscal Deficit and its Financing,Annual,31-MAR-1981,31-MAR-2025,State Government Gross Fiscal Deficit Financing,SG_BOR_RN,OK
+Statistics,Real Sector,Prices & Wages,712,Consumer Price Index for Rural Labourer - By Group (Year-End),Annual,31-MAR-1996,31-MAR-2025,Consumer Price Index - Rural Labourer(Average/Year End),CPI_RL_AV_YRND_RN,OK
+Statistics,Real Sector,Prices & Wages,1458,Diffusion Indices based on CPI data,Monthly,01-FEB-2014,01-DEC-2025,,,—
+Statistics,Real Sector,Prices & Wages,711,Consumer Price Index for Industrial Workers - By Group (Year-End),Annual,31-Mar-1969,31-MAR-2025,Consumer Price Index - Industrial Worker,CPI_IW_RN,OK
+Statistics,Real Sector,Prices & Wages,708,Consumer Price Index for Agricultural Labourer - By Group (Year-End),Annual,31-MAR-1996,31-MAR-2025,Consumer Price Index - Agriculture Labourer(Average/Year end),CPI_AGR_AVG_YRND_RN,OK
+Statistics,Real Sector,Prices & Wages,688,House Price Index,Quarterly,31-MAR-2009,31-DEC-2025,House Price Index,HOUSE_PRICE_INDEX_RN,OK
+Statistics,Real Sector,Prices & Wages,626,"Consumer Price Index - Rural, Urban, Combined (All India)",Monthly,31-JAN-2011,31-MAR-2026,"Consumer Price Index - Rural, Urban, Combined (All India)",CPI_RUC_RN,OK
+Statistics,Real Sector,Prices & Wages,876,Consumer Price Index - Annual Average,Annual,1970-Mar-31,31-MAR-2025,Consumer Price Index - Annual Average/Variation,CPI_ANN_AVG_VAR_RN,OK
+Statistics,Real Sector,Prices & Wages,520,Wholesale Price Index - Annual Average,Annual,31-MAR-1953,31-MAR-2026,Wholesale Price Index - Annual Average/Variation,WHOLE_PRICE_INDEX_AVG_VAR_RN,OK
+Statistics,Real Sector,Prices & Wages,1210,Wholesale Price Index Data - Weekly (Discontinued),Weekly,04-FEB-1994,21-DEC-2012,Wholesale Price Index,WHOLE_PRICE_INDEX_RN,timeout
+Statistics,Real Sector,Prices & Wages,1174,Consumer Price Index for Agricultural Labourer - By Group (Annual Average),Annual,31-MAR-1967,31-MAR-2025,Consumer Price Index - Annual Average/Variation,CPI_ANN_AVG_VAR_RN,OK
+Statistics,Real Sector,Prices & Wages,1168,Consumer Price Index Numbers for Industrial Workers - All-India and Selected Centres,Monthly,31-AUG-1968,31-JAN-2026,Consumer Price Index - Industrial Workers (All India and Selected Centres),CPI_IW_AISC_RN,OK
+Statistics,Real Sector,Prices & Wages,1062,Wholesale Price Index - Monthly Data,Monthly,30-Apr-1982,31-MAR-2026,Wholesale Price Index,WHOLE_PRICE_INDEX_RN,timeout
+Statistics,Real Sector,Prices & Wages,1060,Consumer Price Index Numbers for Agricultural/Rural Labourers (State-Wise),Monthly,30-SEP-1964,31-MAR-2026,Consumer Price Index - Agriculture and Rural Labourer(State wise),CPI_ALRL_ST_RN,OK
+Statistics,Real Sector,Prices & Wages,994,"Consumer Price Index - Rural, Urban, Combined (State-Wise)",Monthly,2011-Jan-31,31-MAR-2026,"Consumer Price Index - Rural, Urban, Combined (All India)",CPI_RUC_RN,OK
+Statistics,Real Sector,Prices & Wages,902,Consumer Price Index (Average of Months) - Annual Variation,Annual,31-MAR-1967,31-MAR-2025,Consumer Price Index - Annual Average/Variation,CPI_ANN_AVG_VAR_RN,OK
+Statistics,Real Sector,Prices & Wages,889,Consumer Price Index - Annual Variation,Monthly,30-Apr-1967,31-JUL-2025,Consumer Price Index - Annual Variation,CPI_AV_RN,OK
+Statistics,Real Sector,Prices & Wages,674,Gold and Silver - Yearly Average Price in Domestic and Foreign Markets,Annual,31-MAR-1971,31-MAR-2025,,,—
+Statistics,Real Sector,Prices & Wages,759,Consumer Price Index for Rural Labourer - By Group (Annual Average),Annual,31-Mar-1996,31-MAR-2025,Consumer Price Index - Rural Labourer,CPI_RL_RN,OK
+Statistics,Real Sector,Prices & Wages,519,Monthly Average Price of Gold and Silver in Domestic and Foreign Markets,Monthly,01-APR-1990,01-JAN-2026,,,—
+Statistics,Real Sector,Prices & Wages,521,Wholesale Price Index - Annual Variation,Annual,31-Mar-1971,31-MAR-2025,Wholesale Price Index - Annual Average/Variation,WHOLE_PRICE_INDEX_AVG_VAR_RN,OK
+Statistics,Real Sector,Prices & Wages,707,Consumer Price Index for Rural Labourer - Monthly,Monthly,30-Nov-1995,28-FEB-2026,Consumer Price Index - Rural Labourer,CPI_RL_RN,OK
+Statistics,Real Sector,Prices & Wages,664,Average Daily Wage Rates (in Rs.) in Rural India for Men,Monthly,30-Apr-1998,23-APR-2025,Wage Rates,WAGE_RATES_RN,OK
+Statistics,Real Sector,Prices & Wages,763,Consumer Price Index for Industrial Workers - By Group ( Annual Average ),Annual,31-Mar-1969,31-MAR-2025,Consumer Price Index - Industrial Worker,CPI_IW_RN,OK
+Statistics,Real Sector,Prices & Wages,700,Consumer Price Index for Agricultural Labourer - Monthly,Monthly,30-APR-1966,28-FEB-2026,Consumer Price Index - Rural Labourer,CPI_RL_RN,OK
+Statistics,Real Sector,Prices & Wages,699,Consumer Price Index for Industrial Workers - Monthly,Monthly,31-Aug-1968,28-FEB-2026,Consumer Price Index - Industrial Workers (All India and Selected Centres),CPI_IW_AISC_RN,OK
+Statistics,Real Sector,National Income,871,Net State Value Added by Economic Activity (At Current Prices) (Base: 2011-12),Annual,2000-Mar-31,31-MAR-2025,,,—
+Statistics,Real Sector,National Income,550,Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Current Prices),Annual,31-MAR-1951,31-MAR-2026,Macro Economic Aggregates,MACRO_ECN_AGG_RN,OK
+Statistics,Real Sector,National Income,981,Net State Value Added by Economic Activity (At Constant Prices) (Base: 2011-12),Annual,31-Mar-2000,31-MAR-2025,,,—
+Statistics,Real Sector,National Income,897,Components of Gross Domestic Product (at Market Prices),Annual,31-MAR-1951,31-MAR-2026,Annual Gross Domestic Product at Market Price,ANN_GDP_MRKT_PRC_RN,OK
+Statistics,Real Sector,National Income,888,Macro Economic Aggregates (at Constant Prices),Annual,31-MAR-1951,31-MAR-2026,Macro Economic Aggregates,MACRO_ECN_AGG_RN,OK
+Statistics,Real Sector,National Income,882,Macro Economic Aggregates (at Current Prices),Annual,31-MAR-1951,31-MAR-2026,Macro Economic Aggregates,MACRO_ECN_AGG_RN,OK
+Statistics,Real Sector,National Income,806,Gross State Domestic Product (SDP) - Annual,Annual,2000-Mar-31,31-MAR-2022,Gross State Domestic Product,GROSS_STATE_DOM_PRD_RN,no-record
+Statistics,Real Sector,National Income,794,Components of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price,Annual,31-MAR-1951,31-MAR-2026,Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price,QTR_GDP_FACT_CST_RN,OK
+Statistics,Real Sector,National Income,595,Employment in Public and Organised Private Sector,Annual,31-MAR-1971,31-MAR-2024,Sector-wise Employment,SEC_WIS_EMP_RN,OK
+Statistics,Real Sector,National Income,594,Net State Domestic Product at Factor Cost - State-Wise (at Current Prices),Annual,31-MAR-1981,31-MAR-2025,Net State Domestic Product at Factor cost,NET_SDP_FAC_CST_RN,no-record
+Statistics,Real Sector,National Income,564,Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Constant Prices),Annual,1961-Mar-31,31-MAR-2026,Macro Economic Aggregates,MACRO_ECN_AGG_RN,OK
+Statistics,Real Sector,National Income,504,Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Constant Prices),Quarterly,30-JUN-1996,30-SEP-2025,Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price,QTR_GDP_FACT_CST_RN,OK
+Statistics,Real Sector,National Income,514,Sector-Wise Gross Capital Formation,Annual,31-MAR-1951,31-MAR-2024,Sector-wise Gross Capital Formation,SEC_WIS_CAP_FOM_RN,OK
+Statistics,Real Sector,National Income,513,Sector-Wise Domestic Savings (at Current Prices),Annual,31-MAR-1951,31-MAR-2024,Sector-wise Domestic Savings,SEC_WIS_DOM_SAV_RN,OK
+Statistics,Real Sector,National Income,512,Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Current Prices),Annual,31-MAR-1981,31-MAR-2025,Per Capita Net State Domestic Product at Factor Cost,PER_CAP_NET_SDP_RN,OK
+Statistics,Real Sector,National Income,511,Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices),Annual,31-MAR-1981,31-MAR-2025,Per Capita Net State Domestic Product at Factor Cost,PER_CAP_NET_SDP_RN,OK
+Statistics,Real Sector,National Income,510,Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices),Annual,31-MAR-1981,31-MAR-2025,Net State Domestic Product at Factor cost,NET_SDP_FAC_CST_RN,no-record
+Statistics,Real Sector,National Income,509,Gross/Net Capital Formation,Annual,1950-Mar-31,31-MAR-2018,Gross Net Capital Formation,GROSS_NET_CAP_FRM_RN,OK
+Statistics,Real Sector,National Income,508,Changes in Financial Assets/Liabilities of the Household Sector,Annual,31-MAR-1971,31-MAR-2024,Changes in Financial Assets of the Household Sector,CHG_FIN_ASS_HOUSE_SEC_RN,OK
+Statistics,Real Sector,National Income,507,Quarterly Estimates of Gross Domestic Product at Market Prices (at Current Prices),Quarterly,30-JUN-1996,30-SEP-2025,Quarterly Gross Domestic Product at Market Price,QTR_GDP_MRKT_PRC_RN,OK
+Statistics,Real Sector,National Income,506,Quarterly Estimates of Gross Domestic Product at Market Prices (at Constant Prices),Quarterly,30-JUN-1996,30-SEP-2025,Quarterly Gross Domestic Product at Market Price,QTR_GDP_MRKT_PRC_RN,OK
+Statistics,Real Sector,National Income,505,Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Current Prices),Quarterly,30-JUN-1996,30-SEP-2025,Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price,QTR_GDP_FACT_CST_RN,OK
+Statistics,Real Sector,Industrial Statistics,497,Annual Survey of Industries - Principal Characteristics,Annual,31-MAR-1991,31-MAR-2024,Details captured under Annual Survey of Industries,ANN_SURV_INDS_RN,OK
+Statistics,Real Sector,Industrial Statistics,498,Implementation of Central Sector Projects - Status,Annual,31-MAR-1995,31-MAR-2024,Central Sector Projects,CENT_SEC_PRJ_RN,OK
+Statistics,Real Sector,Industrial Statistics,499,Index Numbers of Core Industries,Annual,31-Mar-1995,31-MAR-2025,Index Numbers of Core/Infrastructure Industries,INX_CORE_INF_INDS_RN,OK
+Statistics,Real Sector,Industrial Statistics,500,Performance of SSI sector,Annual,31-MAR-1974,31-MAR-2017,Perfomance of SSI Sector,PER_SSI_SEC_RN,OK
+Statistics,Real Sector,Industrial Statistics,501,Production and Imports of Crude Oil and Petroleum Products,Annual,31-MAR-1973,31-MAR-2025,Imports of Petroleum Products,IMPT_PETRL_PRD_RN,OK
+Statistics,Real Sector,Industrial Statistics,502,Sector-Wise Cost Overrun of Delayed Central Sector Projects,Annual,31-MAR-1995,31-MAR-2024,Central Sector Projects,CENT_SEC_PRJ_RN,OK
+Statistics,Real Sector,Industrial Statistics,587,Index Numbers of Major Industry Groups of Manufacturing Sector,Annual,31-Mar-1995,28-FEB-2026,,,—
+Statistics,Real Sector,Industrial Statistics,657,Index Numbers of Major Industry Groups of Manufacturing Sector,Monthly,1995-Mar-31,28-FEB-2026,,,—
+Statistics,Real Sector,Industrial Statistics,701,Index Numbers of Industrial Production - Use-Based Classification,Annual,31-MAR-1982,31-MAR-2025,Index of Industrial Production,INX_INDS_PROD_RN,OK
+Statistics,Real Sector,Industrial Statistics,874,Production of Select Industries,Annual,1981-Mar-31,31-MAR-2025,Production of Select Industries,PROD_SEL_INDS_RN,OK
+Statistics,Real Sector,Industrial Statistics,989,Index Numbers of Core Industries - Growth Rates,Annual,1994-Mar-31,31-MAR-2025,Index Numbers of Core/Infrastructure Industries - Growth Rates,INX_CORE_INF_INDS_GWT_RN,OK
+Statistics,Real Sector,Industrial Statistics,1059,Index of Industrial Production,Monthly,1994-Mar-31,28-FEB-2026,Index of Industrial Production,INX_INDS_PROD_RN,OK
+Statistics,Real Sector,Agriculture,458,Area Under Cultivation - Major Commercial Crops,Annual,31-MAR-1951,31-MAR-2026,Area Under Cultivation,AREA_UNDER_CULT_RN,OK
+Statistics,Real Sector,Agriculture,459,Index Numbers of Agricultural Production - Major Crops,Annual,31-MAR-1981,31-MAR-2025,Agricultural Index - Major crops,AGR_INDEX_MJR_CRPS_RN,OK
+Statistics,Real Sector,Agriculture,460,"Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India",Annual,31-MAR-1950,31-MAR-2025,,,—
+Statistics,Real Sector,Agriculture,461,Minimum Support Price for Foodgrains According to Crop Year,Annual,31-MAR-1976,31-MAR-2026,Minimum Support Price,MIN_SUP_PRICE_RN,OK
+Statistics,Real Sector,Agriculture,462,Minimum Support Price for Non-Foodgrains According to Crop Year,Annual,31-MAR-1976,31-MAR-2026,Minimum Support Price,MIN_SUP_PRICE_RN,OK
+Statistics,Real Sector,Agriculture,463,Pattern of Land Use and Select Inputs for Agricultural Production,Annual,31-MAR-1951,31-MAR-2024,Agricultural Production,AGR_PROD_RN,OK
+Statistics,Real Sector,Agriculture,464,Public Distribution System - Procurement Off-Take and Stocks,Annual,31-MAR-1951,31-MAR-2026,Public Distribution System of agriculture produce,PDS_AGR_PROD_RN,OK
+Statistics,Real Sector,Agriculture,465,State-Wise Production of Foodgrains and Major Non-Foodgrain Crops,Annual,1980-Mar-31,31-MAR-2023,State wise agricultural production,AGR_PROD_ST_RN,OK
+Statistics,Real Sector,Agriculture,623,Agricultural Production - Foodgrains,Annual,31-MAR-1951,31-MAR-2026,Agricultural Production,AGR_PROD_RN,OK
+Statistics,Real Sector,Agriculture,624,Agricultural Production - Major Commercial Crops,Annual,31-MAR-1951,31-MAR-2026,Agricultural Production,AGR_PROD_RN,OK
+Statistics,Real Sector,Agriculture,625,Area Under Cultivation - Foodgrains,Annual,31-MAR-1951,31-MAR-2026,Area Under Cultivation,AREA_UNDER_CULT_RN,OK
+Statistics,Real Sector,Agriculture,886,Yield Per Hectare - Foodgrains,Annual,31-MAR-1951,31-MAR-2026,,,—
+Statistics,Real Sector,Agriculture,887,Yield Per Hectare - Major Commercial Crops,Annual,31-MAR-1951,31-MAR-2026,Agricultural Index - Major crops,AGR_INDEX_MJR_CRPS_RN,OK
+Statistics,Socio-Economic Indicators,Socio-Economic Indicators,1376,Number and Percentage of Population Below Poverty Line,Annual,01-Mar-1974,01-MAR-2012,,,—
+Statistics,Socio-Economic Indicators,Socio-Economic Indicators,522,Employment Situation in India - Per 1000 Distribution of Usually Employed by Broad Groups of Industry for Various Rounds,Annual,31-Dec-1983,30-JUN-2024,,,—
+Statistics,Surveys – Aggregated Data,Survey of Professional Forecasters,1475,Round-wise Aggregate Tables,Bi-Monthly,30-NOV-2019,31-JAN-2026,,,—
+Statistics,Surveys – Aggregated Data,Survey of Professional Forecasters,1476,Survey of Professional Forecasters: Aggregate-level Time Series Data,Bi-Monthly,30-NOV-2019,31-JAN-2026,,,—
+Statistics,Surveys – Aggregated Data,Survey of Professional Forecasters,1477,SPF-Survey of Professional Forecasters- Aggregate Level Metadata,,,,,,—

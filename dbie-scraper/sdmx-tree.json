@@ -1,0 +1,2414 @@
+[
+  {
+    "sector": "Corporate Sector",
+    "subSector": "Finances of FDI Companies",
+    "elements": [
+      {
+        "dsdCode": "BAL_SHT_FDI_COMP_RN",
+        "elementId": "2314",
+        "label": "Balance Sheet of FDI companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BAL_SHT_FDI_LIA_COMP_RN",
+        "elementId": "2873",
+        "label": "Balance Sheet of FDI companies-Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EAR_EXP_FC_RN",
+        "elementId": "2317",
+        "label": "Earning or Expenditure in Foreign Currencies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_RN",
+        "elementId": "2312",
+        "label": "Financial Ratios",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_IND_RN",
+        "elementId": "2796",
+        "label": "Financial Ratios- Industry group-wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_COUN_RN",
+        "elementId": "2797",
+        "label": "Financial Ratios-Country-wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_FDI_RN",
+        "elementId": "2311",
+        "label": "Growth Rate Indicators for FDI",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDCO_FDI_RN",
+        "elementId": "2788",
+        "label": "Growth Rate Indicators for FDI - Country wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDIC_FDI_RN",
+        "elementId": "2786",
+        "label": "Growth Rate Indicators for FDI - Industry wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDCT_FDI_RN",
+        "elementId": "2804",
+        "label": "Growth Rate Indicators for FDI - Type wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IND_CNTRY_FDI_RN",
+        "elementId": "2310",
+        "label": "Industry & Country-Wise distrubution of FDI",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PNL_FDI_COMP_RN",
+        "elementId": "2313",
+        "label": "Profit & Loss appriations of FDI companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SRC_FND_FDI_COMP_RN",
+        "elementId": "2315",
+        "label": "Sources of funds - FDI companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "USE_FBD_FDI_COMP_RN",
+        "elementId": "2316",
+        "label": "Uses of Funds - FDI companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Corporate Sector",
+    "subSector": "Listed Non-Government Non-Financial Companies",
+    "elements": [
+      {
+        "dsdCode": "PRF_LNGNFC_IND_QTR_RN",
+        "elementId": "2789",
+        "label": "Performance Indicators – Industry-wise Growth Rates (Y-o-Y per cent) Quarterly",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_ANN_RN",
+        "elementId": "2322",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_IND_ANN_RN",
+        "elementId": "2773",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Industry",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_INDUS_ANN_RN",
+        "elementId": "2791",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Industry wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_PUC_ANN_RN",
+        "elementId": "2776",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Paid-up-Capital",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_SAL_ANN_RN",
+        "elementId": "2780",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Sales",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_QTR_RN",
+        "elementId": "2318",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_PUC_QTR_RN",
+        "elementId": "2772",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly - Paid-up-Capital",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_SAL_QTR_RN",
+        "elementId": "2778",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly - Sales",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PRF_LNGNFC_QTR_IND_RN",
+        "elementId": "2834",
+        "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly -Ind",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_ANN_RN",
+        "elementId": "2323",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_IND_ANN_RN",
+        "elementId": "2775",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Annually  - Industry",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_SAL_ANN_RN",
+        "elementId": "2781",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Annually - Sales",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_PUC_ANN_RN",
+        "elementId": "2777",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Annually Paid-up-Capital",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_INDUS_ANN_RN",
+        "elementId": "2792",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Annually-- Industry wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2016-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_QTR_RN",
+        "elementId": "2319",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_PUC_QTR_RN",
+        "elementId": "2774",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely  - Paid-up-Capital",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_IND_QTR_RN",
+        "elementId": "2790",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely - Industry wise",
+        "frequency": "Quarterly",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_SAL_QTR_RN",
+        "elementId": "2779",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely - Sales",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RATIO_LNGNFC_QTR_IND_RN",
+        "elementId": "2835",
+        "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely-Ind",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2014-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Corporate Sector",
+    "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+    "elements": [
+      {
+        "dsdCode": "BAL_SHT_NGNBFI_AW_RN",
+        "elementId": "2329",
+        "label": "Balance Sheet of Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2014-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BAL_SHT_NGNBFI_LIAB_AW_RN",
+        "elementId": "2871",
+        "label": "Balance Sheet of Non-Government Non-Banking Financial and Investment(NGNBF&I) Companies-Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2014-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CI_NGNBFI_AW_RN",
+        "elementId": "2328",
+        "label": "Combined Income, Expenditure and Appropriation Accounts for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2014-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_NGNBFI_AW_RN",
+        "elementId": "2327",
+        "label": "Financial Ratios for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2014-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GWT_RT_NGNBFI_AW_RN",
+        "elementId": "2326",
+        "label": "Growth Rate Indicators for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SRC_FND_NGNBFI_AW_RN",
+        "elementId": "2330",
+        "label": "Sources of funds for Non-Government Non-Banking Financial and Investment Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "USES_FND_NGNBFI_AW_RN",
+        "elementId": "2331",
+        "label": "Uses of Funds for Non-Government Non-Banking Financial and Investments Companies - Activity wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2014-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Corporate Sector",
+    "subSector": "Non-Government Non-Financial Private Limited Companies",
+    "elements": [
+      {
+        "dsdCode": "BAL_SHT_PVT_FDIC_RN",
+        "elementId": "2849",
+        "label": "Balance Sheet of Foreign Direct Investment Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BAL_SHT_PVT_RN",
+        "elementId": "2335",
+        "label": "Balance Sheet of Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EAR_EXP_FC_PVT_RN",
+        "elementId": "2338",
+        "label": "Earning or Expenditure in Foreign Currencies of Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PVT_RN",
+        "elementId": "2333",
+        "label": "Financial Ratios for Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PVT_IND_RN",
+        "elementId": "2761",
+        "label": "Financial Ratios for Private Limited Companies - Industry wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_PVT_RN",
+        "elementId": "2332",
+        "label": "Growth Rate Indicators for Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_PVT_IND_RN",
+        "elementId": "2758",
+        "label": "Growth Rate Indicators for Private Limited Companies - Industry wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PNL_PVT_RN",
+        "elementId": "2334",
+        "label": "Profit & Loss appriations of Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SRC_FND_PVT_RN",
+        "elementId": "2336",
+        "label": "Sources of funds of Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "USE_FBD_PVT_RN",
+        "elementId": "2337",
+        "label": "Uses of Funds of Private Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Corporate Sector",
+    "subSector": "Non-Government Non-Financial Public Limited Companies",
+    "elements": [
+      {
+        "dsdCode": "BAL_SHT_PUB_RN",
+        "elementId": "2367",
+        "label": "Balance Sheet of Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BAL_SHT_PUB_CAP_LIA_RN",
+        "elementId": "2869",
+        "label": "Balance Sheet of Public Limited Companies-Capital Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EAR_EXP_FC_PUB_RN",
+        "elementId": "2345",
+        "label": "Earning or Expenditure in Foreign Currencies of Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PUB_RN",
+        "elementId": "2340",
+        "label": "Financial Ratios for Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PUB_PUC_RN",
+        "elementId": "2767",
+        "label": "Financial Ratios for Public Limited Companies - PUC wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PUB_SAL_RN",
+        "elementId": "2764",
+        "label": "Financial Ratios for Public Limited Companies - Sales wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FIN_RATIOS_PUB_INDU_RN",
+        "elementId": "2770",
+        "label": "Financial Ratios for Public Limited Companies Industry Wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_PUB_RN",
+        "elementId": "2339",
+        "label": "Growth Rate Indicators for Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_PUB_PUC_RN",
+        "elementId": "2765",
+        "label": "Growth Rate Indicators for Public Limited Companies - PUC wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDC_PUB_SAL_RN",
+        "elementId": "2759",
+        "label": "Growth Rate Indicators for Public Limited Companies - Sales wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GRWT_RT_INDIC_PUB_RN",
+        "elementId": "2766",
+        "label": "Growth Rate Indicators for Public Limited Companies Industry Wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PNL_PUB_RN",
+        "elementId": "2368",
+        "label": "Profit & Loss appriations of Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SRC_FND_PUB_RN",
+        "elementId": "2343",
+        "label": "Sources of funds of Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "USE_FBD_PUB_RN",
+        "elementId": "2344",
+        "label": "Uses of Funds of Public Limited Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2012-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "External Sector",
+    "subSector": "External Debt",
+    "elements": [
+      {
+        "dsdCode": "EXT_DBT_RT_RN",
+        "elementId": "2347",
+        "label": "External Debt Ratio",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2004-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IND_EXTRN_DEBT_RN",
+        "elementId": "2346",
+        "label": "India's External Debt",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "External Sector",
+    "subSector": "External Sector Indices",
+    "elements": [
+      {
+        "dsdCode": "INX_NBR_TERM_FR_TRD_RN",
+        "elementId": "2350",
+        "label": "General Index Numbers and Terms of Foreign Trade",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_NEER_REER_A_RN",
+        "elementId": "2699",
+        "label": "Indices of REER/NEER Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2005-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_NEER_REER_M_RN",
+        "elementId": "2698",
+        "label": "Indices of REER/NEER Monthly",
+        "frequency": "Monthly",
+        "startDate": "1993-04-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "TRD_INX_NBR_RN",
+        "elementId": "2351",
+        "label": "Trade Index Numbers",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "External Sector",
+    "subSector": "Forex Reserve",
+    "elements": [
+      {
+        "dsdCode": "FR_EXG_RESV_RN",
+        "elementId": "2352",
+        "label": "Foreign Exchange Reserves",
+        "frequency": "Weekly",
+        "startDate": "2001-04-06",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_EXG_RESV_M_RN",
+        "elementId": "2719",
+        "label": "Foreign Exchange Reserves Monthly",
+        "frequency": "Monthly",
+        "startDate": "1950-04-01",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "External Sector",
+    "subSector": "International Finance",
+    "elements": [
+      {
+        "dsdCode": "EXTR_ASSIST_RN",
+        "elementId": "2358",
+        "label": "External assistance",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1982-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_INV_INFLW_RN",
+        "elementId": "2353",
+        "label": "Foreign Investment Inflows",
+        "frequency": "Monthly",
+        "startDate": "1995-04-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_INV_INFLW_A_RN",
+        "elementId": "2737",
+        "label": "Foreign Investment Inflows Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_LIB_ASSTS_MUT_RN",
+        "elementId": "2881",
+        "label": "Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2009-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_LIB_ASS_MUT_RN",
+        "elementId": "2359",
+        "label": "Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies - Country Wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2009-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FR_LIB_MUT_NRH_RN",
+        "elementId": "2882",
+        "label": "Foreign Liabilities for Mutual Fund-Non Resident Holding",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2009-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INTR_INV_POS_IND_RN",
+        "elementId": "2357",
+        "label": "International Investment Position of India BPM5",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INTR_INV_POS_IND_BPM6_RN",
+        "elementId": "2892",
+        "label": "International Investment Position of India BPM6",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NRI_DEPOSITS_IN_OUT_A_RN",
+        "elementId": "2730",
+        "label": "NRI Deposits Inflow/Outflow Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NRI_DEPOSITS_IN_OUT_RN",
+        "elementId": "2728",
+        "label": "NRI Deposits Inflow/Outflow Monthly",
+        "frequency": "Monthly",
+        "startDate": "1997-04-01",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NRI_DEPOSITS_OUTS_RN",
+        "elementId": "2727",
+        "label": "NRI Deposits Outstanding Monthly",
+        "frequency": "Monthly",
+        "startDate": "1997-04-01",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NRI_DEPOSITS_OUTS_A_RN",
+        "elementId": "2729",
+        "label": "NRI Deposits Outstandings Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "OUTW_REMIT_RN",
+        "elementId": "2356",
+        "label": "Outward Remittance",
+        "frequency": "Monthly",
+        "startDate": "2008-04-30",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "External Sector",
+    "subSector": "International Trade",
+    "elements": [
+      {
+        "dsdCode": "BOP_INDI_RN",
+        "elementId": "2664",
+        "label": "Balance Of Payments Indicators",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BCCI_MER_TRD_RN",
+        "elementId": "2708",
+        "label": "Broad Commodity Composition of India's Merchandise Trade",
+        "frequency": "Monthly",
+        "startDate": "1997-01-04",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "DIR_FR_TRD_RN",
+        "elementId": "2363",
+        "label": "Direction of Foreign Trade",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1988-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EXP_PRIN_COMM_RN",
+        "elementId": "2745",
+        "label": "Export of Principal commodities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1988-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EXP_SEL_PRIN_COMM_RN",
+        "elementId": "2365",
+        "label": "Exports of Select Commodities to Principal Countries",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IMP_PRIN_COMM_RN",
+        "elementId": "2746",
+        "label": "Import of Principal commodities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1988-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IFT_OIL_NON_OIL_RN",
+        "elementId": "2360",
+        "label": "India's Foreign Trade - Oil & Non-Oil",
+        "frequency": "Monthly",
+        "startDate": "1990-04-01",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IFT_OIL_NON_OIL_A_RN",
+        "elementId": "2707",
+        "label": "India's Foreign Trade - Oil & Non-Oil_Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IND_OVR_BOP_RN",
+        "elementId": "2361",
+        "label": "India's Overall Balance of Payments",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "1990-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IND_OVR_BOP_A_RN",
+        "elementId": "2868",
+        "label": "India's Overall Balance of Payments Annually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1990-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INVI_CAT_TRANS_RN",
+        "elementId": "2563",
+        "label": "Invisibles By Category of Transactions",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INVI_PYMTS_RN",
+        "elementId": "2878",
+        "label": "Invisibles Payments",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INVI_RCPTS_RN",
+        "elementId": "2879",
+        "label": "Invisibles Receipts",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "KCI_BOP_RN",
+        "elementId": "2851",
+        "label": "Key components of India's Overall Balance of Payments",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Markets",
+    "subSector": "Equity and Corporate Debt Market",
+    "elements": [
+      {
+        "dsdCode": "AVG_NFTY_RN",
+        "elementId": "2904",
+        "label": "Average of Nifty 50",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BK_VAL_RAT_BSE_RN",
+        "elementId": "2905",
+        "label": "Book Value Ratio of BSE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BSE_IND_D_RN",
+        "elementId": "2884",
+        "label": "BSE INIDICES",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "EARN_RAT_BSE_RN",
+        "elementId": "2889",
+        "label": "Earning Ratio of BSE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MRKT_INFO_BSE_D_RN",
+        "elementId": "2886",
+        "label": "Market Information BSE",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MRKT_INFO_NSE_D_RN",
+        "elementId": "2885",
+        "label": "Market Information NSE",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NSE_IND_D_RN",
+        "elementId": "2883",
+        "label": "NSE INIDICES",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "TURNO_NSE_RN",
+        "elementId": "2895",
+        "label": "Turnover at NSE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "TRN_OVR_BSE_RN",
+        "elementId": "2890",
+        "label": "Turnover BSE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Markets",
+    "subSector": "Forex Market",
+    "elements": [
+      {
+        "dsdCode": "AVG_FOR_RAT_RN",
+        "elementId": "2816",
+        "label": "Average Forex Rate",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREX_RATE_AFY_RN",
+        "elementId": "2845",
+        "label": "Exchange rate of indian rupees",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREX_RATE_A_RN",
+        "elementId": "2846",
+        "label": "Exchange rate of indian rupees",
+        "frequency": "Annual - Calendar Year",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREX_RATE_RN",
+        "elementId": "2823",
+        "label": "EXCHANGE RATE OF THE INDIAN RUPEE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREX_RATE_D_RN",
+        "elementId": "2839",
+        "label": "EXCHANGE RATE OF THE INDIAN RUPEE DAILY",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREXRT_AVG_RN",
+        "elementId": "2854",
+        "label": "FOREIGN EXCHANGE RATE AVERAGE",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREXRT_HL_RN",
+        "elementId": "2853",
+        "label": "FOREIGN EXCHANGE RATE HIGH LOW",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FOREX_RT_REF_RN",
+        "elementId": "2985",
+        "label": "Forex rates based on reference rate",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FWC_PRE_D_RN",
+        "elementId": "2852",
+        "label": "FORWARD CASH PREMIA DAILY",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FW_PRE_RN",
+        "elementId": "2838",
+        "label": "FORWARD PREMIA (INTER-BANK)",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IB_FOREX_RT_RN",
+        "elementId": "2841",
+        "label": "Inter Bank Forex Rates",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Markets",
+    "subSector": "Government Securities Market",
+    "elements": [
+      {
+        "dsdCode": "GOV_TR_BILL_OUTSD_RN",
+        "elementId": "2911",
+        "label": "Govt of India Treasury Bills Outstanding",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INT_RATE_RN",
+        "elementId": "2855",
+        "label": "Interest Rate",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Average",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MRKT_BOR_GOI_SG_RN",
+        "elementId": "2912",
+        "label": "Market Borrowing of GOI and Stat Govt",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "OPN_MKT_OP_RN",
+        "elementId": "2859",
+        "label": "Open market operations of RBI",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SEC_MKT_RN",
+        "elementId": "2865",
+        "label": "Secondary market transactions",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GSEC_TO_RN",
+        "elementId": "2860",
+        "label": "Turnover In Government Securities Market",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "YIELD_GOV_SEC_RN",
+        "elementId": "2858",
+        "label": "YIELD OF SGL TRANSACTIONS IN GOVERNMENT DATED SECURITIES",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "YIELD_TB_RN",
+        "elementId": "2856",
+        "label": "YIELD OF SGL TRANSACTIONS IN TREASURY BILLS",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Markets",
+    "subSector": "Money Market",
+    "elements": [
+      {
+        "dsdCode": "AUC_LAF_RN",
+        "elementId": "2867",
+        "label": "Auction under LAF",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AVG_TURNOVER_RN",
+        "elementId": "2809",
+        "label": "Average Daily Turnover",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CALL_MONEY_RN",
+        "elementId": "2768",
+        "label": "Call Money Rates and Volume",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": true
+      },
+      {
+        "dsdCode": "CERTI_DEPO_RN",
+        "elementId": "2793",
+        "label": "Certificates of Deposit",
+        "frequency": "Fortnightly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "COM_PAPER_RN",
+        "elementId": "2924",
+        "label": "Commercial Paper",
+        "frequency": "Fortnightly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "LIBOOR_RN",
+        "elementId": "2811",
+        "label": "London Inter Bank Overnight Offer Rates",
+        "frequency": "Daily",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CALL_MONEY_W_RN",
+        "elementId": "2795",
+        "label": "Weekly  call money",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "WAR_CALL_MONEY_RN",
+        "elementId": "2861",
+        "label": "Weighted Average Call Money Rates",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Sector",
+    "subSector": "",
+    "elements": [
+      {
+        "dsdCode": "LNA_SCB_SR_OCC_BSR1_A_RN",
+        "elementId": "3046",
+        "label": "Loans and Advances of SCBs State and Occupation wise BSR1 Annual",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Sector",
+    "subSector": "Monetary Statistics",
+    "elements": [
+      {
+        "dsdCode": "AMAGG_RN",
+        "elementId": "2297",
+        "label": "Average Monetary Aggregates",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1952-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "BMC_M_RN",
+        "elementId": "2749",
+        "label": "Broad Money Components_Monthly",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CSURYCOM_M_RN",
+        "elementId": "2423",
+        "label": "Commercial Survey Component Monthly",
+        "frequency": "Monthly",
+        "startDate": "1999-03-26",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CSURYCOM_F_RN",
+        "elementId": "2302",
+        "label": "Commercial Survey Component_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "1999-03-26",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CSURYSOR_M_RN",
+        "elementId": "2424",
+        "label": "Commercial Survey Sources Monthly",
+        "frequency": "Monthly",
+        "startDate": "1999-03-26",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CSURYSOR_F_RN",
+        "elementId": "2303",
+        "label": "Commercial Survey Sources_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "1999-03-26",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MON_AG_RN",
+        "elementId": "2837",
+        "label": "Monetary Aggregates",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1970-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MONTRY_RATIOS_RN",
+        "elementId": "2306",
+        "label": "Monetary Ratios",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1952-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MSURYCOM_F_RN",
+        "elementId": "2298",
+        "label": "Monetary Survey Components_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "1999-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MSURYSOR_F_RN",
+        "elementId": "2299",
+        "label": "Monetary Survey Sources_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "1999-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MSC_F_RN",
+        "elementId": "2294",
+        "label": "Money Stock Components_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "2001-01-12",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MSS_F_RN",
+        "elementId": "2293",
+        "label": "Money Stock Sources_Fortnightly",
+        "frequency": "Fortnightly",
+        "startDate": "2001-01-12",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MSS_M_RN",
+        "elementId": "2290",
+        "label": "Money Stock Sources_Monthly",
+        "frequency": "Monthly",
+        "startDate": "1991-04-19",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NOT_COIN_RN",
+        "elementId": "2305",
+        "label": "Notes & Coin in Circulation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_ASSET_M_RN",
+        "elementId": "2426",
+        "label": "RBI Asset_Monthly",
+        "frequency": "Monthly",
+        "startDate": "2004-07-30",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_ASSET_W_RN",
+        "elementId": "2285",
+        "label": "RBI Asset_Weekly",
+        "frequency": "Weekly",
+        "startDate": "2004-07-01",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_ASSET_A_RN",
+        "elementId": "2288",
+        "label": "RBI Assets_Annual",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_LIAB_A_RN",
+        "elementId": "2287",
+        "label": "RBI Liabilities_Annual",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_LIAB_M_RN",
+        "elementId": "2425",
+        "label": "RBI Liabilities_Monthly",
+        "frequency": "Monthly",
+        "startDate": "2004-07-30",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_LIAB_W_RN",
+        "elementId": "2286",
+        "label": "RBI Liabilities_Weekly",
+        "frequency": "Weekly",
+        "startDate": "2004-07-01",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_SURY_COM_M_RN",
+        "elementId": "2667",
+        "label": "RBI Survey Components_Monthly",
+        "frequency": "Monthly",
+        "startDate": "1952-02-29",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_SURY_SOR_M_RN",
+        "elementId": "2668",
+        "label": "RBI Survey Sources_Monthly",
+        "frequency": "Monthly",
+        "startDate": "1952-02-29",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RBI_SF_RN",
+        "elementId": "2304",
+        "label": "RBI_Standing Facilities",
+        "frequency": "Monthly",
+        "startDate": "2011-04-22",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RMC_M_RN",
+        "elementId": "2750",
+        "label": "Reserve Money Components_Monthly",
+        "frequency": "Monthly",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RMC_W_RN",
+        "elementId": "2747",
+        "label": "Reserve Money Components_Weekly",
+        "frequency": "Weekly",
+        "startDate": "2001-07-06",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RMS_M_RN",
+        "elementId": "2752",
+        "label": "Reserve Money Sources _Monthly",
+        "frequency": "Monthly",
+        "startDate": "2001-06-29",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "RMS_W_RN",
+        "elementId": "2748",
+        "label": "Reserve Money Sources _Weekly",
+        "frequency": "Weekly",
+        "startDate": "2001-07-06",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Financial Sector",
+    "subSector": "Payment Systems",
+    "elements": [
+      {
+        "dsdCode": "CLEARING_HOU_RN",
+        "elementId": "2307",
+        "label": "Clearing House",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2005-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": true
+      }
+    ]
+  },
+  {
+    "sector": "Public Finance",
+    "subSector": "Cental & State Govt Finance(Combined)",
+    "elements": [
+      {
+        "dsdCode": "CCS_EXP_RN",
+        "elementId": "2268",
+        "label": "Combined Central & State Expenditures",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CCSG_DEF_RN",
+        "elementId": "2500",
+        "label": "Combined Central & State Government Deficit",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CCS_DIS_RN",
+        "elementId": "2739",
+        "label": "Combined Central & State Government Disbursments",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CCSG_RECPT_RN",
+        "elementId": "2501",
+        "label": "Combined Central & State Government Receipts",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GOVT_LIAB_RN",
+        "elementId": "2508",
+        "label": "Combined Central and State Government Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "DIG_GDP_RN",
+        "elementId": "2275",
+        "label": "Debt Indicators of Government as percentage to GDP",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "DG_GDP_RN",
+        "elementId": "2282",
+        "label": "Deficit of Government as percentage to GDP",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "TAX_REV_RN",
+        "elementId": "2705",
+        "label": "Direct and Indirect Tax Revenues",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MRKT_BOR_CSG_RN",
+        "elementId": "2276",
+        "label": "Market Borrowings of Governments",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Public Finance",
+    "subSector": "Central Govt Finance",
+    "elements": [
+      {
+        "dsdCode": "BUD_RESOR_RN",
+        "elementId": "2271",
+        "label": "Budgetary Resources",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_BOR_RN",
+        "elementId": "2509",
+        "label": "Central Government Borrowings",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_DEF_RN",
+        "elementId": "2502",
+        "label": "Central Government Deficit",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_DEFM_RN",
+        "elementId": "2269",
+        "label": "Central Government Deficit Monthly",
+        "frequency": "Monthly",
+        "startDate": "1970-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_EXP_RN",
+        "elementId": "2506",
+        "label": "Central Government Expenditures",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CGL_RN",
+        "elementId": "2273",
+        "label": "Central Government Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_RECPT_RN",
+        "elementId": "2504",
+        "label": "Central Government Receipts",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CG_DEV_NDEV_EXP_RN",
+        "elementId": "2741",
+        "label": "Devlopmental and Non-Devlopmental  Expenditures - Central Government",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FICG_GDP_RN",
+        "elementId": "2281",
+        "label": "Fiscal Indicators of the Central Government as per centage to GDP",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PUB_BOR_RN",
+        "elementId": "2279",
+        "label": "Public Sector Borrowings",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1986-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PSPOUTLY_RN",
+        "elementId": "2270",
+        "label": "Public Sector Plan Outlay",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1986-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SMAL_SAV_RN",
+        "elementId": "2277",
+        "label": "Small Savings",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1982-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Public Finance",
+    "subSector": "State Govt Finance",
+    "elements": [
+      {
+        "dsdCode": "CSG_DEF_RN",
+        "elementId": "2503",
+        "label": "Combined State Government Deficit",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SG_EXP_RN",
+        "elementId": "2507",
+        "label": "Expenditure Pattern of the State Governments",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "FISG_GDP_RN",
+        "elementId": "2283",
+        "label": "Fiscal Indicators of the State Government as per centage to GDP",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1974-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SG_RECPT_RN",
+        "elementId": "2505",
+        "label": "Pattern of Receipts of the State Governments",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "ST_FIN_STD_BUDGETS_RN",
+        "elementId": "3052",
+        "label": "State Finances a Study of Budgets",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SG_CAP_REV_EXP_RN",
+        "elementId": "2742",
+        "label": "State Government Capital and Revenue Expenditures",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SG_BOR_RN",
+        "elementId": "2280",
+        "label": "State Government Gross Fiscal Deficit Financing",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SGL_RN",
+        "elementId": "2274",
+        "label": "State Government Liabilities",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Real Sector",
+    "subSector": "Agriculture",
+    "elements": [
+      {
+        "dsdCode": "AGR_INDEX_RN",
+        "elementId": "2239",
+        "label": "Agricultural Index",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2020-01-01",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AGR_INDEX_MJR_CRPS_RN",
+        "elementId": "2769",
+        "label": "Agricultural Index - Major crops",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2013-01-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AGR_PROD_RN",
+        "elementId": "2236",
+        "label": "Agricultural Production",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AGR_PRODUCTIVITY_RN",
+        "elementId": "2238",
+        "label": "Agricultural Productivity",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AGG_STAT_IS_RN",
+        "elementId": "3053",
+        "label": "Agricultural Statistics - Indian State",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AREA_UNDER_CULT_RN",
+        "elementId": "2237",
+        "label": "Area Under Cultivation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MIN_SUP_PRICE_RN",
+        "elementId": "2240",
+        "label": "Minimum Support Price",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1976-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PATT_LU_UAII_RN",
+        "elementId": "2241",
+        "label": "Pattern of Land Use & Use of Agriculltural inputs in India",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PDS_AGR_PROD_RN",
+        "elementId": "2242",
+        "label": "Public Distribution System of agriculture produce",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1952-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "AGR_PROD_ST_RN",
+        "elementId": "2800",
+        "label": "State wise agricultural production",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Real Sector",
+    "subSector": "Industrial Statistics",
+    "elements": [
+      {
+        "dsdCode": "CENT_SEC_DEL_PRJ_RN",
+        "elementId": "2703",
+        "label": "Central Sector Delayed Projects",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1995-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CENT_SEC_PRJ_RN",
+        "elementId": "2257",
+        "label": "Central Sector Projects",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1995-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "ANN_SURV_INDS_RN",
+        "elementId": "2256",
+        "label": "Details captured under Annual Survey of Industries",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1991-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IMPT_PETRL_PRD_RN",
+        "elementId": "2260",
+        "label": "Imports of Petroleum Products",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1973-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_CORE_INF_INDS_RN",
+        "elementId": "2258",
+        "label": "Index Numbers of Core/Infrastructure Industries",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1995-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_CORE_INF_INDS_GWT_RN",
+        "elementId": "2810",
+        "label": "Index Numbers of Core/Infrastructure Industries - Growth Rates",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1995-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_INDS_PROD_RN",
+        "elementId": "2771",
+        "label": "Index of Industrial Production",
+        "frequency": "Monthly",
+        "startDate": "1994-04-01",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IIP_MANF_SEC_ANN_RN",
+        "elementId": "2255",
+        "label": "Indian Industrial Production Manufacturing Sector Anually",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1982-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "IIP_MANF_SEC_MTH_RN",
+        "elementId": "2254",
+        "label": "Indian Industrial Production Manufacturing Sector Monthly",
+        "frequency": "Monthly",
+        "startDate": "1994-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PER_SSI_SEC_RN",
+        "elementId": "2906",
+        "label": "Perfomance of SSI Sector",
+        "frequency": "Annual - Financial Year",
+        "startDate": "null",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PROD_PETRL_PRD_RN",
+        "elementId": "2259",
+        "label": "Production of Petroleum Products",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1973-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PROD_SEL_INDS_RN",
+        "elementId": "2261",
+        "label": "Production of Select Industries",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1983-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Real Sector",
+    "subSector": "National Income",
+    "elements": [
+      {
+        "dsdCode": "ANN_GDP_MRKT_PRC_RN",
+        "elementId": "2243",
+        "label": "Annual Gross Domestic Product at Market Price",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "ANN_GDP_FACT_CST_RN",
+        "elementId": "2244",
+        "label": "Annual Gross Value Added at Basic Prices",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CHG_FIN_ASS_HOUSE_SEC_RN",
+        "elementId": "2782",
+        "label": "Changes in Financial Assets of the Household Sector",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CHG_FIN_LIB_HOUSE_SEC_RN",
+        "elementId": "2783",
+        "label": "Changes in Financial Liabilities of the Household Sector",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "COMP_ECO_ACT_NSDP_FACT_CST_RN",
+        "elementId": "2784",
+        "label": "Components and Economic Activity of Domestic Products at  Factor Cost - State Wise",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2000-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GROSS_NET_CAP_FRM_RN",
+        "elementId": "2250",
+        "label": "Gross Net Capital Formation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "GROSS_STATE_DOM_PRD_RN",
+        "elementId": "2247",
+        "label": "Gross State Domestic Product",
+        "frequency": "Annual - Financial Year",
+        "startDate": "2000-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MACRO_ECN_AGG_RTS_RN",
+        "elementId": "2794",
+        "label": "Macro Economic Aggregate Rates",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "MACRO_ECN_AGG_RN",
+        "elementId": "2251",
+        "label": "Macro Economic Aggregates",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "NET_SDP_FAC_CST_RN",
+        "elementId": "2806",
+        "label": "Net State Domestic Product at Factor cost",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "PER_CAP_NET_SDP_RN",
+        "elementId": "2249",
+        "label": "Per Capita Net State Domestic Product at Factor Cost",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1981-03-31",
+        "flowType": "Flow",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "QTR_GDP_FACT_CST_RN",
+        "elementId": "2246",
+        "label": "Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "1996-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "QTR_GDP_MRKT_PRC_RN",
+        "elementId": "2245",
+        "label": "Quarterly Gross Domestic Product at Market Price",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "1996-06-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SEC_WIS_DOM_SAV_RN",
+        "elementId": "2252",
+        "label": "Sector-wise Domestic Savings",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SEC_WIS_EMP_RN",
+        "elementId": "2253",
+        "label": "Sector-wise Employment",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "SEC_WIS_CAP_FOM_RN",
+        "elementId": "2803",
+        "label": "Sector-wise Gross Capital Formation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1951-03-31",
+        "flowType": "Stock",
+        "isAlphaNumeric": false
+      }
+    ]
+  },
+  {
+    "sector": "Real Sector",
+    "subSector": "Prices & Wages",
+    "elements": [
+      {
+        "dsdCode": "CPI_ALRL_ST_RN",
+        "elementId": "2822",
+        "label": "Consumer Price Index - Agriculture and Rural Labourer(State wise)",
+        "frequency": "Monthly",
+        "startDate": "1995-11-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_AGR_AVG_YRND_RN",
+        "elementId": "2828",
+        "label": "Consumer Price Index - Agriculture Labourer(Average/Year end)",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1967-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_ANN_AVG_VAR_RN",
+        "elementId": "2827",
+        "label": "Consumer Price Index - Annual Average/Variation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1967-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_AV_RN",
+        "elementId": "2812",
+        "label": "Consumer Price Index - Annual Variation",
+        "frequency": "Monthly",
+        "startDate": "1967-04-01",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_IW_RN",
+        "elementId": "2820",
+        "label": "Consumer Price Index - Industrial Worker",
+        "frequency": "Monthly",
+        "startDate": "1968-08-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_IW_AV_YRND_RN",
+        "elementId": "2829",
+        "label": "Consumer Price Index - Industrial worker(Average/Year End)",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1969-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_IW_AISC_RN",
+        "elementId": "2824",
+        "label": "Consumer Price Index - Industrial Workers (All India and Selected Centres)",
+        "frequency": "Monthly",
+        "startDate": "1968-08-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_RL_RN",
+        "elementId": "2821",
+        "label": "Consumer Price Index - Rural Labourer",
+        "frequency": "Monthly",
+        "startDate": "1995-11-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_RL_AV_YRND_RN",
+        "elementId": "2830",
+        "label": "Consumer Price Index - Rural Labourer(Average/Year End)",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1996-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_RUC_RN",
+        "elementId": "2817",
+        "label": "Consumer Price Index - Rural, Urban, Combined (All India)",
+        "frequency": "Monthly",
+        "startDate": "2011-01-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_RUC_ST_RN",
+        "elementId": "2818",
+        "label": "CPI - Rural, Urban, Combined (All India- Statewise)",
+        "frequency": "Monthly",
+        "startDate": "2011-01-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "CPI_AG_RN",
+        "elementId": "2819",
+        "label": "CPI-Agricultural Labourer",
+        "frequency": "Monthly",
+        "startDate": "1966-04-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "HOUSE_PRICE_INDEX_RN",
+        "elementId": "2262",
+        "label": "House Price Index",
+        "frequency": "Quarterly - Financial Year",
+        "startDate": "2009-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "INX_WPI_RN",
+        "elementId": "2914",
+        "label": "Index Numbers of Wholesale Prices in India",
+        "frequency": "Weekly",
+        "startDate": "null",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "METAL_PRICE_RN",
+        "elementId": "2264",
+        "label": "Metal Price",
+        "frequency": "Monthly",
+        "startDate": "1990-01-03",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "METAL_PRICE_A_RN",
+        "elementId": "2826",
+        "label": "Metal Price - Annual Average",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1971-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "WAGE_RATES_RN",
+        "elementId": "2263",
+        "label": "Wage Rates",
+        "frequency": "Monthly",
+        "startDate": "1998-04-01",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "WHOLE_PRICE_INDEX_RN",
+        "elementId": "2266",
+        "label": "Wholesale Price Index",
+        "frequency": "Monthly",
+        "startDate": "1982-04-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "WHOLE_PRICE_INDEX_AVG_VAR_RN",
+        "elementId": "2825",
+        "label": "Wholesale Price Index - Annual Average/Variation",
+        "frequency": "Annual - Financial Year",
+        "startDate": "1953-03-31",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      },
+      {
+        "dsdCode": "WHOLE_PRICE_INDEX_INF_RN",
+        "elementId": "2721",
+        "label": "Wholesale Price Index Inflation",
+        "frequency": "Monthly",
+        "startDate": "2005-04-30",
+        "flowType": "Not Applicable",
+        "isAlphaNumeric": false
+      }
+    ]
+  }
+]

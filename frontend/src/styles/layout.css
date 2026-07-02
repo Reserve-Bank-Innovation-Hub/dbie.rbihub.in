@@ -1,0 +1,63 @@
+/* UNAUTHENTICATED PAGES ==================================================== */
+#unauthenticated-wrapper {
+    width      : 100vw;
+    min-height : 100vh;
+    position   : relative;
+}
+
+/* POST LOGIN MAIN CONTENT PAGES ============================================ */
+#component-main {
+    margin-left : var(--primary-nav-width);
+
+    @media (max-width : 1024px) {
+        margin-left : 0;
+    }
+}
+
+/* CONTENT AREA THAT MIGHT HAVE ITS OWN SIDEBAR ============================= */
+.page-with-sidebar > main {
+    height      : 100vh;
+    margin-left : var(--page-sidebar-width);
+
+    @media (max-width : 1024px) {
+        margin-left : 0;
+    }
+}
+
+/* PAGE GRID STYLES ///////////////////////////////////////////////////////// */
+.page-grid {
+    display               : grid;
+    grid-template-columns : repeat(4, 1fr);
+    gap                   : 1px;
+    min-height            : 100vh;
+}
+
+.grid-cell {
+    background-color : var(--white);
+    position         : relative;
+}
+
+/* Sticky section headers =================================================== */
+.section-header {
+    position : sticky;
+    top      : 64px;
+
+    &:first-child:not(:last-child) {
+        margin-bottom : 4px;
+    }
+}
+
+/* Sticky footers for forms ================================================= */
+.sticky-footer {
+    position         : fixed;
+    bottom           : 0;
+    width            : 100%;
+    background-color : white;
+    border-top       : 1px solid var(--card-border);
+    z-index          : 5000;
+}
+
+/* Drawer =================================================================== */
+[data-drawer].margin-all-nano {
+    height : calc(100vh - (var(--nano) * 2));
+}

@@ -1,0 +1,239 @@
+[
+  {
+    "section": "Statistics",
+    "url": "/dbie/statistics",
+    "categories": [
+      {
+        "category": "Corporate Sector",
+        "subsections": [
+          {
+            "subsection": "Listed Non-Government Non-Financial Companies",
+            "reportPath": "/dbie/reports/Statistics/Corporate Sector/Listed Non-Government Non-Financial Companies"
+          },
+          {
+            "subsection": "Non-Government Non-Financial Private Limited Companies",
+            "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Financial Private Limited Companies"
+          },
+          {
+            "subsection": "Finances of FDI Companies",
+            "reportPath": "/dbie/reports/Statistics/Corporate Sector/Finances of FDI Companies"
+          },
+          {
+            "subsection": "Non-Government Non-Financial Public Limited Companies",
+            "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Financial Public Limited Companies"
+          },
+          {
+            "subsection": "Non-Government Non-Banking Financial and Investment Companies",
+            "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Banking Financial and Investment Companies"
+          }
+        ]
+      },
+      {
+        "category": "External Sector",
+        "subsections": [
+          {
+            "subsection": "External Sector Indices",
+            "reportPath": "/dbie/reports/Statistics/External Sector/External Sector Indices"
+          },
+          {
+            "subsection": "External Debt",
+            "reportPath": "/dbie/reports/Statistics/External Sector/External Debt"
+          },
+          {
+            "subsection": "Forex Reserve",
+            "reportPath": "/dbie/reports/Statistics/External Sector/Forex Reserve"
+          },
+          {
+            "subsection": "International Finance",
+            "reportPath": "/dbie/reports/Statistics/External Sector/International Finance"
+          },
+          {
+            "subsection": "International Trade",
+            "reportPath": "/dbie/reports/Statistics/External Sector/International Trade"
+          }
+        ]
+      },
+      {
+        "category": "Financial Market",
+        "subsections": [
+          {
+            "subsection": "Equity and Corporate Debt Market",
+            "reportPath": "/dbie/reports/Statistics/Financial Market/Equity and Corporate Debt Market"
+          },
+          {
+            "subsection": "Forex Market",
+            "reportPath": "/dbie/reports/Statistics/Financial Market/Forex Market"
+          },
+          {
+            "subsection": "Government Securities Market",
+            "reportPath": "/dbie/reports/Statistics/Financial Market/Government Securities Market"
+          },
+          {
+            "subsection": "Money Market",
+            "reportPath": "/dbie/reports/Statistics/Financial Market/Money Market"
+          }
+        ]
+      },
+      {
+        "category": "Financial Sector",
+        "subsections": [
+          {
+            "subsection": "Monetary Statistics",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Monetary Statistics"
+          },
+          {
+            "subsection": "Financial Institutions",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Financial Institutions"
+          },
+          {
+            "subsection": "Banking - Sectoral Statistics",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Sectoral Statistics"
+          },
+          {
+            "subsection": "Banking - Performance Indicators",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Performance Indicators"
+          },
+          {
+            "subsection": "Banking - Assets & Liabilities",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Assets & Liabilities"
+          },
+          {
+            "subsection": "Payment Systems",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Payment Systems"
+          },
+          {
+            "subsection": "Non Banking Financial Companies",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Non Banking Financial Companies"
+          },
+          {
+            "subsection": "Key Rates",
+            "reportPath": "/dbie/reports/Statistics/Financial Sector/Key Rates"
+          }
+        ]
+      },
+      {
+        "category": "Public Finance",
+        "subsections": [
+          {
+            "subsection": "Central Govt. Finance",
+            "reportPath": "/dbie/reports/Statistics/Public Finance/Central Govt. Finance"
+          },
+          {
+            "subsection": "Central & State Govt. Finance (Combined)",
+            "reportPath": "/dbie/reports/Statistics/Public Finance/Central & State Govt. Finance (Combined)"
+          },
+          {
+            "subsection": "State Govt. Finance",
+            "reportPath": "/dbie/reports/Statistics/Public Finance/State Govt. Finance"
+          }
+        ]
+      },
+      {
+        "category": "Real Sector",
+        "subsections": [
+          {
+            "subsection": "Prices & Wages",
+            "reportPath": "/dbie/reports/Statistics/Real Sector/Prices & Wages"
+          },
+          {
+            "subsection": "National Income",
+            "reportPath": "/dbie/reports/Statistics/Real Sector/National Income"
+          },
+          {
+            "subsection": "Industrial Statistics",
+            "reportPath": "/dbie/reports/Statistics/Real Sector/Industrial Statistics"
+          },
+          {
+            "subsection": "Agriculture",
+            "reportPath": "/dbie/reports/Statistics/Real Sector/Agriculture"
+          }
+        ]
+      },
+      {
+        "category": "Socio-Economic Indicators",
+        "subsections": [
+          {
+            "subsection": "Socio-Economic Indicators",
+            "reportPath": "/dbie/reports/Statistics/Socio-Economic Indicators/Socio-Economic Indicators"
+          }
+        ]
+      },
+      {
+        "category": "Surveys – Aggregated Data",
+        "subsections": [
+          {
+            "subsection": "Survey of Professional Forecasters",
+            "reportPath": "/dbie/reports/Statistics/Surveys – Aggregated Data/Survey of Professional Forecasters"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Publication",
+    "url": "/dbie/publications",
+    "categories": [
+      {
+        "category": "Time-Series Publications",
+        "subsections": [
+          {
+            "subsection": "Monthly RBI Bulletin",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Monthly RBI Bulletin"
+          },
+          {
+            "subsection": "Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+          },
+          {
+            "subsection": "Data on International Banking Statistics of India",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Data on International Banking Statistics of India"
+          },
+          {
+            "subsection": "Quarterly Spatial Distribution of Deposits and Credit",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Quarterly Spatial Distribution of Deposits and Credit"
+          },
+          {
+            "subsection": "Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)"
+          },
+          {
+            "subsection": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)"
+          },
+          {
+            "subsection": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+          },
+          {
+            "subsection": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)"
+          },
+          {
+            "subsection": "Primary (Urban) Co-operative Banks' Outlook",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Primary (Urban) Co-operative Banks' Outlook"
+          },
+          {
+            "subsection": "Bank Branch Statistics",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Bank Branch Statistics"
+          },
+          {
+            "subsection": "Statistical Tables Relating to Banks in India",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Statistical Tables Relating to Banks in India"
+          },
+          {
+            "subsection": "Public Debt Statistics",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Public Debt Statistics"
+          },
+          {
+            "subsection": "Handbook of Statistics on the Indian Economy",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Handbook of Statistics on the Indian Economy"
+          },
+          {
+            "subsection": "Weekly Statistical Supplement",
+            "reportPath": "/dbie/reports/Publication/Time-Series Publications/Weekly Statistical Supplement"
+          }
+        ]
+      }
+    ]
+  }
+]

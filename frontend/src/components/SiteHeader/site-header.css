@@ -1,0 +1,19 @@
+#site-header {
+    position         : fixed;
+    top              : 0;
+    width            : 100%;
+    z-index          : 5000;
+    height           : var(--site-header-height);
+    background-color : var(--site-header-bg);
+    border-bottom    : var(--global-border-width) solid var(--site-header-border);
+
+    #rbi-seal path {
+        fill : black;
+    }
+
+    .nav-icon {
+        width  : var(--nav-icon-size);
+        height : var(--nav-icon-size);
+        fill   : none;
+    }
+}

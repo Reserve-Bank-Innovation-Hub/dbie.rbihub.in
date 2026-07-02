@@ -1,0 +1,54 @@
+.data-unit {
+    display        : flex;
+    flex-direction : column;
+
+    &.align-right {
+        align-items : flex-end;
+
+        header {
+            flex-direction : row-reverse;
+
+            p { text-align : right; }
+        }
+    }
+
+    /*header {*/
+    /*    position      : relative;*/
+    /*    display       : flex;*/
+    /*    gap           : 0 4px;*/
+    /*    align-content : center;*/
+    /*    width         : fit-content;*/
+
+    /*    .data-actions {*/
+    /*        display       : flex;*/
+    /*        align-content : center;*/
+    /*        gap           : 8px;*/
+    /*    }*/
+    /*}*/
+
+    /* ANY ICON THAT APPEARS IN THE HEADER ================================== */
+    .action-icon {
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        width           : 20px;
+        height          : 20px;
+        border-radius   : 4px;
+        cursor          : pointer;
+        transition      : all 0.2s ease-in-out;
+
+        &:hover {
+            background-color : hsl(var(--indivara));
+
+            svg { stroke : white; }
+        }
+    }
+
+    /* CLIPBOARD ICON ------------------------------------------------------- */
+    .copy-icon {
+        display          : none;
+        background-color : hsla(var(--indivara), 0.2);
+    }
+
+    &:hover .copy-icon { display : flex; }
+}

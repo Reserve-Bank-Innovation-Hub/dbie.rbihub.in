@@ -1,0 +1,16 @@
+#statistics-page {
+    grid-template-rows  : repeat(5, 240px);
+    grid-template-areas :
+            "title      title     title    meta"
+            "statDollar statPound statEuro statYen"
+            "chart      chart     chart    chart"
+            "chart      chart     chart    chart"
+            "chart      chart     chart    chart";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+}

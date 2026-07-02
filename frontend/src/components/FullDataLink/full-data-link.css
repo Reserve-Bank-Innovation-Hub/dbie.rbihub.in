@@ -1,0 +1,47 @@
+.full-view-link {
+    position         : absolute;
+    top              : var(--nano);
+    left             : var(--nano);
+    background-color : hsla(var(--indivara), 0.2);
+    padding          : 4px;
+    cursor           : pointer;
+    opacity          : 0;
+    pointer-events   : none;
+    transition       : opacity 0.4s ease, width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow         : hidden;
+    width            : 24px;
+    height           : 24px;
+    display          : flex;
+    align-items      : center;
+
+    .link-content {
+        display     : flex;
+        align-items : center;
+        transform   : translateX(-80px);
+        transition  : transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    p {
+        font-size   : 14px;
+        font-family : "Geist Mono", monospace;
+        color       : hsl(var(--indivara));
+        white-space : nowrap;
+        flex-shrink : 0;
+    }
+
+    .arrow-icon {
+        width       : 11px;
+        height      : 11px;
+        flex-shrink : 0;
+        margin-left : 6px;
+        stroke      : hsl(var(--indivara));
+    }
+
+    &:hover {
+        width : 104px;
+
+        .link-content {
+            transform : translateX(0);
+        }
+    }
+}

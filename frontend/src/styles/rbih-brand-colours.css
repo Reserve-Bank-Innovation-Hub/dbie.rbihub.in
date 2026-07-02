@@ -1,0 +1,37 @@
+:root {
+    --indivara   : 262, 82%, 52%;
+    --terracotta :  12, 44%, 52%;
+    --turmeric   :  38, 81%, 57%;
+    --neem       :  80, 60%, 35%;
+    --charcoal   :   0,  0%, 18%;
+    --ivory      :  50, 32%, 93%;
+    --sand       :  41, 38%, 81%;
+    --vermilion  :   6, 72%, 54%;
+}
+
+.bg-indivara { background-color: hsl(var(--indivara)); }
+.bg-terracotta { background-color: hsl(var(--terracotta)); }
+.bg-turmeric { background-color: hsl(var(--turmeric)); }
+.bg-neem { background-color: hsl(var(--neem)); }
+.bg-charcoal { background-color: hsl(var(--charcoal)); }
+.bg-ivory { background-color: hsl(var(--ivory)); }
+.bg-sand { background-color: hsl(var(--sand)); }
+.bg-vermilion { background-color: hsl(var(--vermilion)); }
+
+.text-indivara { color: hsl(var(--indivara)); }
+.text-terracotta { color: hsl(var(--terracotta)); }
+.text-turmeric { color: hsl(var(--turmeric)); }
+.text-neem { color: hsl(var(--neem)); }
+.text-charcoal { color: hsl(var(--charcoal)); }
+.text-ivory { color: hsl(var(--ivory)); }
+.text-sand { color: hsl(var(--sand)); }
+.text-vermilion { color: hsl(var(--vermilion)); }
+
+.border-indivara { border-color: hsl(var(--indivara)); }
+.border-terracotta { border-color: hsl(var(--terracotta)); }
+.border-turmeric { border-color: hsl(var(--turmeric)); }
+.border-neem { border-color: hsl(var(--neem)); }
+.border-charcoal { border-color: hsl(var(--charcoal)); }
+.border-ivory { border-color: hsl(var(--ivory)); }
+.border-sand { border-color: hsl(var(--sand)); }
+.border-vermilion { border-color: hsl(var(--vermilion)); }

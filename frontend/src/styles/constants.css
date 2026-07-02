@@ -1,0 +1,13 @@
+:root {
+    --global-border-radius      : 0;
+
+    /* HEADER =============================================================== */
+    --site-header-height        : 42px;
+
+    /* PRIMARY NAV ========================================================== */
+    --primary-nav-width         : 48px;
+    --nav-icon-size             : 24px;
+
+    /* PAGE WITH SIDEBAR ==================================================== */
+    --page-sidebar-width        : 200px;
+}

@@ -1,0 +1,16 @@
+#government-page {
+    grid-template-rows  : repeat(5, 240px);
+    grid-template-areas :
+            "title title title meta"
+            "card1 card2 card3 card4"
+            "chart chart chart chart"
+            "chart chart chart chart"
+            "chart chart chart chart";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+}

@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+yarn.lock
+
+# Build outputs
+.next/
+dist/
+build/
+out/
+
+# Build-synced DBIE data (populated from S3 at build time; not committed)
+frontend/public/data/
+
+# Environment - only ignore .local and .production files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Allow committing .development files
+!.env.development
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# OS
+.DS_Store
+Thumbs.db
+*.pem
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Turbo
+.turbo
+
+# Vercel
+.vercel

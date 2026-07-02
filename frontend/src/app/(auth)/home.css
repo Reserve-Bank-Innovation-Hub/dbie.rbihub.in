@@ -1,0 +1,70 @@
+#home-page {
+    grid-template-rows  : 240px auto auto repeat(4, 240px);
+    grid-template-areas :
+            "title      title      title      title"
+            "marker1    marker2    marker3    marker4"
+            "marker5    marker6    marker7    marker8"
+            "forex      forex      forex      forex"
+            "forex      forex      forex      forex"
+            "fii        fii        externalDebt          externalDebt"
+            "fii        fii        externalDebt          externalDebt";
+
+    #title-card {
+        grid-area       : title;
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        position        : relative;
+        background      : linear-gradient(345deg, hsla(var(--indivara), 0.8) 0%, #ffffff 100%);
+
+        #field-lines {
+            position : absolute;
+            right    : 0;
+            top      : 0;
+            width    : 50%;
+            height   : 100%;
+        }
+    }
+
+    #marker1-card { grid-area : marker1; }
+    #marker2-card { grid-area : marker2; }
+    #marker3-card { grid-area : marker3; }
+    #marker4-card { grid-area : marker4; }
+    #marker5-card { grid-area : marker5; }
+    #marker6-card { grid-area : marker6; }
+    #marker7-card { grid-area : marker7; }
+    #marker8-card { grid-area : marker8; }
+
+    .marker-card {
+        height : fit-content;
+    }
+
+    #forex-card {
+        grid-area      : forex;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    #fii-card {
+        grid-area      : fii;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    #external-debt-card {
+        grid-area      : externalDebt;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .forex-chart-wrapper,
+    .fii-chart-wrapper {
+        flex : 1;
+    }
+
+    .grid-cell.has-full-view:hover .full-view-link {
+        opacity        : 1;
+        pointer-events : auto;
+    }
+
+}

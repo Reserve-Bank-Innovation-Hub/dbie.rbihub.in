@@ -1,0 +1,134 @@
+/* SANS — GEIST ============================================================= */
+@font-face {
+    font-family : "Geist";
+    src         : url("./geist/Geist[wght].ttf") format("truetype-variations");
+    font-weight : 100 900;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family : "Geist";
+    src         : url("./geist/Geist-Italic[wght].ttf") format("truetype-variations");
+    font-weight : 100 900;
+    font-style  : italic;
+    font-display: swap;
+}
+
+.font-geist {
+    font-family: "Geist", sans-serif;
+}
+
+/* Weight variations */
+.font-geist-thin { font-weight: 100; }
+.font-geist-extralight { font-weight: 200; }
+.font-geist-light { font-weight: 300; }
+.font-geist-regular { font-weight: 400; }
+.font-geist-medium { font-weight: 500; }
+.font-geist-semibold { font-weight: 600; }
+.font-geist-bold { font-weight: 700; }
+.font-geist-extrabold { font-weight: 800; }
+.font-geist-black { font-weight: 900; }
+
+/* SERIF — SENTIENT ========================================================= */
+@font-face {
+    font-family : "Sentient";
+    src         : url("./sentient/Sentient-Regular.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "Sentient";
+    src         : url("./sentient/Sentient-Italic.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : italic;
+}
+
+@font-face {
+    font-family : "Sentient";
+    src         : url("./sentient/Sentient-Bold.woff2") format("woff2");
+    font-weight : 700;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "Sentient";
+    src         : url("./sentient/Sentient-BoldItalic.woff2") format("woff2");
+    font-weight : 700;
+    font-style  : italic;
+}
+
+.font-sentient {
+    font-family : "Sentient", serif;
+}
+
+/* AF PARSE GROTESK MONO ==================================================== */
+@font-face {
+    font-family : "AF Parse Grotesk Mono";
+    src         : url("./af-parse-grotesk/AFParseGroteskMono-Regular.woff") format("woff");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "AF Parse Grotesk Mono";
+    src         : url("./af-parse-grotesk/AFParseGroteskMono-Bold.woff") format("woff");
+    font-weight : 600;
+}
+
+.font-parse {
+    font-family : "AF Parse Grotesk Mono", serif;
+}
+
+/* MONO — GEIST MONO ======================================================== */
+@font-face {
+    font-family : "Geist Mono";
+    src         : url("./geist-mono/GeistMono[wght].ttf") format("truetype-variations");
+    font-weight : 100 900;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family : "Geist Mono";
+    src         : url("./geist-mono/GeistMono-Italic[wght].ttf") format("truetype-variations");
+    font-weight : 100 900;
+    font-style  : italic;
+    font-display: swap;
+}
+
+.font-geist-mono {
+    font-family : "Geist Mono", monospace;
+}
+
+/* Weight variations */
+.font-geist-mono-thin { font-weight: 100; }
+.font-geist-mono-extralight { font-weight: 200; }
+.font-geist-mono-light { font-weight: 300; }
+.font-geist-mono-regular { font-weight: 400; }
+.font-geist-mono-medium { font-weight: 500; }
+.font-geist-mono-semibold { font-weight: 600; }
+.font-geist-mono-bold { font-weight: 700; }
+.font-geist-mono-extrabold { font-weight: 800; }
+.font-geist-mono-black { font-weight: 900; }
+
+/* AF OPERAND MONO ========================================================== */
+@font-face {
+    font-family : "AF Operand Mono";
+    src         : url("./operand-mono/AFOperandMono-Regular.otf") format("opentype");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "AF Operand Mono";
+    src         : url("./operand-mono/AFOperandMono-Bold.otf") format("opentype");
+    font-weight : 600;
+}
+
+.font-operand-mono {
+    font-family : "AF Operand Mono", monospace;
+}
+
+

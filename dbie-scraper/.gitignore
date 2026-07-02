@@ -1,0 +1,13 @@
+# Scraped output (bulk data — the committed canonical copy lives in ../data/sdmx)
+data/
+data-bse/
+
+# Recon artefacts (screenshots, traffic dumps, downloaded samples)
+recon/output/
+
+# Dependencies
+node_modules/
+
+# Scrape logs + manifest backups
+*.log
+manifest.json.bak

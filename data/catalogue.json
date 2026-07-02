@@ -1,0 +1,5073 @@
+{
+  "generatedAt": "2026-04-21T09:40:13.458Z",
+  "total": 295,
+  "bySource": {
+    "sdmx": 244,
+    "rbib": 51
+  },
+  "themes": [
+    "Prices",
+    "Growth",
+    "External",
+    "Money & Banking",
+    "Markets",
+    "Government",
+    "Corporate",
+    "Payments"
+  ],
+  "themeCounts": {
+    "Prices": 19,
+    "Growth": 39,
+    "External": 47,
+    "Money & Banking": 53,
+    "Markets": 40,
+    "Government": 30,
+    "Corporate": 65,
+    "Payments": 2
+  },
+  "themeBySource": {
+    "Prices": {
+      "sdmx": 15,
+      "rbib": 4
+    },
+    "Growth": {
+      "sdmx": 38,
+      "rbib": 1
+    },
+    "External": {
+      "sdmx": 35,
+      "rbib": 12
+    },
+    "Money & Banking": {
+      "sdmx": 28,
+      "rbib": 25
+    },
+    "Markets": {
+      "sdmx": 35,
+      "rbib": 5
+    },
+    "Government": {
+      "sdmx": 27,
+      "rbib": 3
+    },
+    "Corporate": {
+      "sdmx": 65,
+      "rbib": 0
+    },
+    "Payments": {
+      "sdmx": 1,
+      "rbib": 1
+    }
+  },
+  "entries": [
+    {
+      "id": "rbib:01",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/rbi/table-01-select-economic-indicators.xlsx",
+      "label": "Select Economic Indicators",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "rbi",
+      "tableNo": 1,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 63161
+    },
+    {
+      "id": "rbib:02",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/rbi/table-02-rbi-liabilities-and-assets.xlsx",
+      "label": "Rbi Liabilities And Assets",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "rbi",
+      "tableNo": 2,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 305288
+    },
+    {
+      "id": "rbib:03",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/rbi/table-03-liquidity-operations-by-rbi.xlsx",
+      "label": "Liquidity Operations By Rbi",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "rbi",
+      "tableNo": 3,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 358233
+    },
+    {
+      "id": "rbib:04",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/rbi/table-04-sale-purchase-of-us-dollar-by-the-rbi.xlsx",
+      "label": "Sale Purchase Of Us Dollar By The Rbi",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "rbi",
+      "tableNo": 4,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "flow",
+      "bytes": 46917
+    },
+    {
+      "id": "rbib:05",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/rbi/table-05-rbis-standing-facilities.xlsx",
+      "label": "Rbis Standing Facilities",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "rbi",
+      "tableNo": 5,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 15501
+    },
+    {
+      "id": "rbib:06",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-06-money-stock-measures.xlsx",
+      "label": "Money Stock Measures",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 6,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "stock",
+      "bytes": 180592
+    },
+    {
+      "id": "rbib:07",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-07-sources-of-money-stock-m3.xlsx",
+      "label": "Sources Of Money Stock M3",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 7,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "stock",
+      "bytes": 212048
+    },
+    {
+      "id": "rbib:08",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-08-monetary-survey.xlsx",
+      "label": "Monetary Survey",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 8,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 214619,
+      "sdmxDuplicates": [
+        "sdmx:MSURYCOM_F_RN",
+        "sdmx:MSURYSOR_F_RN"
+      ]
+    },
+    {
+      "id": "rbib:09",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-09-liquidity-aggregates.xlsx",
+      "label": "Liquidity Aggregates",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 9,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 41546
+    },
+    {
+      "id": "rbib:10",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-10-reserve-bank-of-india-survey.xlsx",
+      "label": "Reserve Bank Of India Survey",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 10,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 162890
+    },
+    {
+      "id": "rbib:11",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-11-reserve-money-components-and-sources.xlsx",
+      "label": "Reserve Money Components And Sources",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 11,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 127150
+    },
+    {
+      "id": "rbib:12",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-12-commercial-bank-survey.xlsx",
+      "label": "Commercial Bank Survey",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 12,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 199355
+    },
+    {
+      "id": "rbib:13",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-13-scheduled-commercial-banks-investments.xlsx",
+      "label": "Scheduled Commercial Banks Investments",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 13,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 86754
+    },
+    {
+      "id": "rbib:14",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-14-business-in-india-all-scheduled-banks-and-all-scheduled-commercial-banks.xlsx",
+      "label": "Business In India All Scheduled Banks And All Scheduled Commercial Banks",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 14,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 252142
+    },
+    {
+      "id": "rbib:15",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-15-deployment-of-gross-bank-credit-by-major-sectors.xlsx",
+      "label": "Deployment Of Gross Bank Credit By Major Sectors",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 15,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 49671
+    },
+    {
+      "id": "rbib:16",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-16-industry-wise-deployment-of-bank-credit.xlsx",
+      "label": "Industry Wise Deployment Of Bank Credit",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 16,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 43560
+    },
+    {
+      "id": "rbib:17",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/money-and-banking/table-17-state-co-operative-banks-maintaining-accounts-with-the-reserve-bank-of-india.xlsx",
+      "label": "State Co Operative Banks Maintaining Accounts With The Reserve Bank Of India",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "money-and-banking",
+      "tableNo": 17,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 112575
+    },
+    {
+      "id": "rbib:19",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/prices-and-production/table-19-consumer-price-index-base-2010-100.xlsx",
+      "label": "Consumer Price Index Base 2010 100",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "prices-and-production",
+      "tableNo": 19,
+      "frequency": "Monthly",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 445054
+    },
+    {
+      "id": "rbib:20",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/prices-and-production/table-20-other-consumer-price-indices.xlsx",
+      "label": "Other Consumer Price Indices",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "prices-and-production",
+      "tableNo": 20,
+      "frequency": "Monthly",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "other",
+      "bytes": 34413
+    },
+    {
+      "id": "rbib:21",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/prices-and-production/table-21-monthly-average-price-of-gold-and-silver-in-mumbai.xlsx",
+      "label": "Monthly Average Price Of Gold And Silver In Mumbai",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "prices-and-production",
+      "tableNo": 21,
+      "frequency": "Monthly",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "other",
+      "bytes": 16939
+    },
+    {
+      "id": "rbib:22",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/prices-and-production/table-22-wholesale-price-index-base-year-2011-12.xlsx",
+      "label": "Wholesale Price Index Base Year 2011 12",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "prices-and-production",
+      "tableNo": 22,
+      "frequency": "Monthly",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 589715
+    },
+    {
+      "id": "rbib:23",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/prices-and-production/table-23-index-of-industrial-production-base-2004-05-100-2011-12.xlsx",
+      "label": "Index Of Industrial Production Base 2004 05 100 2011 12",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "prices-and-production",
+      "tableNo": 23,
+      "frequency": "Monthly",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 40721,
+      "sdmxDuplicates": [
+        "sdmx:INX_INDS_PROD_RN"
+      ]
+    },
+    {
+      "id": "rbib:24",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/government-accounts-and-treasury-bills/table-24-union-government-accounts-at-a-glance.xlsx",
+      "label": "Union Government Accounts At A Glance",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "government-accounts-and-treasury-bills",
+      "tableNo": 24,
+      "frequency": "Monthly",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 65362
+    },
+    {
+      "id": "rbib:25",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/government-accounts-and-treasury-bills/table-25-treasury-bills-ownership-pattern.xlsx",
+      "label": "Treasury Bills Ownership Pattern",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "government-accounts-and-treasury-bills",
+      "tableNo": 25,
+      "frequency": "Monthly",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 192580
+    },
+    {
+      "id": "rbib:26",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/government-accounts-and-treasury-bills/table-26-auctions-of-government-of-india-treasury-bills.xlsx",
+      "label": "Auctions Of Government Of India Treasury Bills",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "government-accounts-and-treasury-bills",
+      "tableNo": 26,
+      "frequency": "Monthly",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 183135
+    },
+    {
+      "id": "rbib:27",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/financial-markets/table-27-daily-call-money-rates.xlsx",
+      "label": "Daily Call Money Rates",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "financial-markets",
+      "tableNo": 27,
+      "frequency": "Daily",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 159882
+    },
+    {
+      "id": "rbib:28",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/financial-markets/table-28-certificates-of-deposit.xlsx",
+      "label": "Certificates Of Deposit",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "financial-markets",
+      "tableNo": 28,
+      "frequency": "Monthly",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "stock",
+      "bytes": 36816,
+      "sdmxDuplicates": [
+        "sdmx:CERTI_DEPO_RN"
+      ]
+    },
+    {
+      "id": "rbib:29",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/financial-markets/table-29-commercial-paper.xlsx",
+      "label": "Commercial Paper",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "financial-markets",
+      "tableNo": 29,
+      "frequency": "Monthly",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 19695,
+      "sdmxDuplicates": [
+        "sdmx:COM_PAPER_RN"
+      ]
+    },
+    {
+      "id": "rbib:30",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/financial-markets/table-30-average-daily-turnover-in-select-financial-markets.xlsx",
+      "label": "Average Daily Turnover In Select Financial Markets",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "financial-markets",
+      "tableNo": 30,
+      "frequency": "Daily",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 128820,
+      "sdmxDuplicates": [
+        "sdmx:AVG_TURNOVER_RN"
+      ]
+    },
+    {
+      "id": "rbib:31",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/financial-markets/table-31-new-capital-issues-by-non-government-public-limited-companies.xlsx",
+      "label": "New Capital Issues By Non Government Public Limited Companies",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "financial-markets",
+      "tableNo": 31,
+      "frequency": "Monthly",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 7475
+    },
+    {
+      "id": "rbib:32",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-32-foreign-trade.xlsx",
+      "label": "Foreign Trade",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 32,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 69062,
+      "sdmxDuplicates": [
+        "sdmx:INX_NBR_TERM_FR_TRD_RN",
+        "sdmx:DIR_FR_TRD_RN",
+        "sdmx:IFT_OIL_NON_OIL_A_RN",
+        "sdmx:IFT_OIL_NON_OIL_RN"
+      ]
+    },
+    {
+      "id": "rbib:33",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-33-foreign-exchange-reserves-weekly.xlsx",
+      "label": "Foreign Exchange Reserves Weekly",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 33,
+      "frequency": "Weekly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 120160,
+      "sdmxDuplicates": [
+        "sdmx:FR_EXG_RESV_RN"
+      ]
+    },
+    {
+      "id": "rbib:34",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-34-nri-deposits.xlsx",
+      "label": "Nri Deposits",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 34,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 32615,
+      "sdmxDuplicates": [
+        "sdmx:NRI_DEPOSITS_IN_OUT_A_RN",
+        "sdmx:NRI_DEPOSITS_IN_OUT_RN",
+        "sdmx:NRI_DEPOSITS_OUTS_RN",
+        "sdmx:NRI_DEPOSITS_OUTS_A_RN"
+      ]
+    },
+    {
+      "id": "rbib:35",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-35-foreign-investment-inflows.xlsx",
+      "label": "Foreign Investment Inflows",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 35,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 42327,
+      "sdmxDuplicates": [
+        "sdmx:FR_INV_INFLW_A_RN",
+        "sdmx:FR_INV_INFLW_RN"
+      ]
+    },
+    {
+      "id": "rbib:36",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-36-outward-remittances-under-the-liberalised-remittance-scheme-for-resident-individuals.xlsx",
+      "label": "Outward Remittances Under The Liberalised Remittance Scheme For Resident Individuals",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 36,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 27007,
+      "sdmxDuplicates": [
+        "sdmx:OUTW_REMIT_RN"
+      ]
+    },
+    {
+      "id": "rbib:37",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-37-indices-of-real-effective-exchange-rate-reer-and-nominal-effective-exchange-rate-neer-of-the-indian-rupee.xlsx",
+      "label": "Indices Of Real Effective Exchange Rate Reer And Nominal Effective Exchange Rate Neer Of The Indian Rupee",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 37,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "index",
+      "bytes": 18054
+    },
+    {
+      "id": "rbib:38",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-38-external-commercial-borrowings-ecbs-registrations.xlsx",
+      "label": "External Commercial Borrowings Ecbs Registrations",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 38,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 23106
+    },
+    {
+      "id": "rbib:40",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-40-indias-overall-balance-of-payments-us-million.xlsx",
+      "label": "Indias Overall Balance Of Payments Us Million",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 40,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 254828
+    },
+    {
+      "id": "rbib:41",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-41-indias-overall-balance-of-payments-rupees-crore.xlsx",
+      "label": "Indias Overall Balance Of Payments Rupees Crore",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 41,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 204716
+    },
+    {
+      "id": "rbib:42",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-42-standard-presentation-of-bop-in-india-as-per-bpm6-us-million.xlsx",
+      "label": "Standard Presentation Of Bop In India As Per Bpm6 Us Million",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 42,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 145063
+    },
+    {
+      "id": "rbib:43",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-43-standard-presentation-of-bop-in-india-as-per-bpm6-rs-crore.xlsx",
+      "label": "Standard Presentation Of Bop In India As Per Bpm6 Rs Crore",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 43,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 146470
+    },
+    {
+      "id": "rbib:44",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/external-sector/table-44-international-investment-position.xlsx",
+      "label": "International Investment Position",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "external-sector",
+      "tableNo": 44,
+      "frequency": "Monthly",
+      "themes": [
+        "External"
+      ],
+      "shape": "stock",
+      "bytes": 32399,
+      "sdmxDuplicates": [
+        "sdmx:INTR_INV_POS_IND_RN",
+        "sdmx:INTR_INV_POS_IND_BPM6_RN"
+      ]
+    },
+    {
+      "id": "rbib:45",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/payments-and-settlements-systems/table-45-payment-system-indicators.xlsx",
+      "label": "Payment System Indicators",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "payments-and-settlements-systems",
+      "tableNo": 45,
+      "frequency": "Monthly",
+      "themes": [
+        "Payments"
+      ],
+      "shape": "flow",
+      "bytes": 107677
+    },
+    {
+      "id": "rbib:46",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-46-small-savings.xlsx",
+      "label": "Small Savings",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 46,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 134119,
+      "sdmxDuplicates": [
+        "sdmx:SMAL_SAV_RN"
+      ]
+    },
+    {
+      "id": "rbib:47",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-47-ownership-pattern-of-government-of-india-dated-securities.xlsx",
+      "label": "Ownership Pattern Of Government Of India Dated Securities",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 47,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 27771
+    },
+    {
+      "id": "rbib:48",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-48-combined-receipts-and-disbursements-of-the-central-and-state-governments.xlsx",
+      "label": "Combined Receipts And Disbursements Of The Central And State Governments",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 48,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 17082
+    },
+    {
+      "id": "rbib:49",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-49-financial-accommodation-availed-by-state-governments-under-various-facilities.xlsx",
+      "label": "Financial Accommodation Availed By State Governments Under Various Facilities",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 49,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 85378
+    },
+    {
+      "id": "rbib:50",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-50-investments-by-state-governments.xlsx",
+      "label": "Investments By State Governments",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 50,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 82433
+    },
+    {
+      "id": "rbib:51",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/table-51-market-borrowings-of-state-governments.xlsx",
+      "label": "Market Borrowings Of State Governments",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": 51,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 39714
+    },
+    {
+      "id": "rbib:RBIB Table No. 52 (a)_ Flow of Financial Assets and Liabilities of Households - Instrument-wise.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/RBIB Table No. 52 (a)_ Flow of Financial Assets and Liabilities of Households - Instrument-wise.xlsx",
+      "label": "RBIB Table No. 52 (a)_ Flow of Financial Assets and Liabilities of Households - Instrument-wise",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 18922
+    },
+    {
+      "id": "rbib:RBIB Table No. 52 (b)_ Stocks of Financial Assets and Liabilities of Households - Select Indicators.xlsx",
+      "source": "rbib",
+      "format": "xlsx",
+      "path": "data/publications/monthly-rbi-bulletin/occasional-series/RBIB Table No. 52 (b)_ Stocks of Financial Assets and Liabilities of Households - Select Indicators.xlsx",
+      "label": "RBIB Table No. 52 (b)_ Stocks of Financial Assets and Liabilities of Households - Select Indicators",
+      "publication": "monthly-rbi-bulletin",
+      "topic": "occasional-series",
+      "tableNo": null,
+      "frequency": "Monthly",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 13285
+    },
+    {
+      "id": "sdmx:AGG_STAT_IS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/agricultural-statistics-indian-state.csv",
+      "label": "Agricultural Statistics - Indian State",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGG_STAT_IS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 19691
+    },
+    {
+      "id": "sdmx:AGR_INDEX_MJR_CRPS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/agricultural-index-major-crops.csv",
+      "label": "Agricultural Index - Major crops",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGR_INDEX_MJR_CRPS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-01-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 26783
+    },
+    {
+      "id": "sdmx:AGR_INDEX_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/agricultural-index.csv",
+      "label": "Agricultural Index",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGR_INDEX_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2020-01-01",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 5485
+    },
+    {
+      "id": "sdmx:AGR_PROD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/agricultural-production.csv",
+      "label": "Agricultural Production",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGR_PROD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 45302
+    },
+    {
+      "id": "sdmx:AGR_PROD_ST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/state-wise-agricultural-production.csv",
+      "label": "State wise agricultural production",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGR_PROD_ST_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 22550
+    },
+    {
+      "id": "sdmx:AGR_PRODUCTIVITY_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/agricultural-productivity.csv",
+      "label": "Agricultural Productivity",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AGR_PRODUCTIVITY_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 51347
+    },
+    {
+      "id": "sdmx:AMAGG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/average-monetary-aggregates.csv",
+      "label": "Average Monetary Aggregates",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "AMAGG_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1952-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 42731
+    },
+    {
+      "id": "sdmx:ANN_GDP_FACT_CST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/annual-gross-value-added-at-basic-prices.csv",
+      "label": "Annual Gross Value Added at Basic Prices",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "ANN_GDP_FACT_CST_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 9976
+    },
+    {
+      "id": "sdmx:ANN_GDP_MRKT_PRC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/annual-gross-domestic-product-at-market-price.csv",
+      "label": "Annual Gross Domestic Product at Market Price",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "ANN_GDP_MRKT_PRC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 190222
+    },
+    {
+      "id": "sdmx:ANN_SURV_INDS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/details-captured-under-annual-survey-of-industries.csv",
+      "label": "Details captured under Annual Survey of Industries",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "ANN_SURV_INDS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 93358
+    },
+    {
+      "id": "sdmx:AREA_UNDER_CULT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/area-under-cultivation.csv",
+      "label": "Area Under Cultivation",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "AREA_UNDER_CULT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 56308
+    },
+    {
+      "id": "sdmx:AUC_LAF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/auction-under-laf.csv",
+      "label": "Auction under LAF",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "AUC_LAF_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 6303
+    },
+    {
+      "id": "sdmx:AVG_FOR_RAT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/average-forex-rate.csv",
+      "label": "Average Forex Rate",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "AVG_FOR_RAT_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 82512
+    },
+    {
+      "id": "sdmx:AVG_NFTY_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/average-of-nifty-50.csv",
+      "label": "Average of Nifty 50",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "AVG_NFTY_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "index",
+      "bytes": 21882
+    },
+    {
+      "id": "sdmx:AVG_TURNOVER_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/average-daily-turnover.csv",
+      "label": "Average Daily Turnover",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "AVG_TURNOVER_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 829245
+    },
+    {
+      "id": "sdmx:BAL_SHT_FDI_COMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/balance-sheet-of-fdi-companies.csv",
+      "label": "Balance Sheet of FDI companies",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "BAL_SHT_FDI_COMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 180349
+    },
+    {
+      "id": "sdmx:BAL_SHT_FDI_LIA_COMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/balance-sheet-of-fdi-companies-liabilities.csv",
+      "label": "Balance Sheet of FDI companies-Liabilities",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "BAL_SHT_FDI_LIA_COMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 152739
+    },
+    {
+      "id": "sdmx:BAL_SHT_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/balance-sheet-of-non-government-non-banking-financial-and-investment-ngnbf-i-companies-activity-wise.csv",
+      "label": "Balance Sheet of Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "BAL_SHT_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2014-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 497778
+    },
+    {
+      "id": "sdmx:BAL_SHT_NGNBFI_LIAB_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/balance-sheet-of-non-government-non-banking-financial-and-investment-ngnbf-i-companies-liabilities.csv",
+      "label": "Balance Sheet of Non-Government Non-Banking Financial and Investment(NGNBF&I) Companies-Liabilities",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "BAL_SHT_NGNBFI_LIAB_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2014-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 505720
+    },
+    {
+      "id": "sdmx:BAL_SHT_PUB_CAP_LIA_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/balance-sheet-of-public-limited-companies-capital-liabilities.csv",
+      "label": "Balance Sheet of Public Limited Companies-Capital Liabilities",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "BAL_SHT_PUB_CAP_LIA_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 178499
+    },
+    {
+      "id": "sdmx:BAL_SHT_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/balance-sheet-of-public-limited-companies.csv",
+      "label": "Balance Sheet of Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "BAL_SHT_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 198099
+    },
+    {
+      "id": "sdmx:BAL_SHT_PVT_FDIC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/balance-sheet-of-foreign-direct-investment-companies.csv",
+      "label": "Balance Sheet of Foreign Direct Investment Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "BAL_SHT_PVT_FDIC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 208106
+    },
+    {
+      "id": "sdmx:BAL_SHT_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/balance-sheet-of-private-limited-companies.csv",
+      "label": "Balance Sheet of Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "BAL_SHT_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "stock",
+      "bytes": 180034
+    },
+    {
+      "id": "sdmx:BCCI_MER_TRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/broad-commodity-composition-of-indias-merchandise-trade.csv",
+      "label": "Broad Commodity Composition of India's Merchandise Trade",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "BCCI_MER_TRD_RN",
+      "frequency": "Monthly",
+      "startDate": "1997-01-04",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 297452
+    },
+    {
+      "id": "sdmx:BK_VAL_RAT_BSE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/book-value-ratio-of-bse.csv",
+      "label": "Book Value Ratio of BSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "BK_VAL_RAT_BSE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 21838
+    },
+    {
+      "id": "sdmx:BMC_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/broad-money-components-monthly.csv",
+      "label": "Broad Money Components_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "BMC_M_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 68606
+    },
+    {
+      "id": "sdmx:BOP_INDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/balance-of-payments-indicators.csv",
+      "label": "Balance Of Payments Indicators",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "BOP_INDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 33999
+    },
+    {
+      "id": "sdmx:BSE_IND_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/bse-inidices.csv",
+      "label": "BSE INIDICES",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "BSE_IND_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 5298
+    },
+    {
+      "id": "sdmx:BUD_RESOR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/budgetary-resources.csv",
+      "label": "Budgetary Resources",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "BUD_RESOR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 22375
+    },
+    {
+      "id": "sdmx:CALL_MONEY_W_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/weekly-call-money.csv",
+      "label": "Weekly  call money",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "CALL_MONEY_W_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 194874
+    },
+    {
+      "id": "sdmx:CCS_DIS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-disbursments.csv",
+      "label": "Combined Central & State Government Disbursments",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "CCS_DIS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 15050
+    },
+    {
+      "id": "sdmx:CCS_EXP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-expenditures.csv",
+      "label": "Combined Central & State Expenditures",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "CCS_EXP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 32489
+    },
+    {
+      "id": "sdmx:CCSG_DEF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-deficit.csv",
+      "label": "Combined Central & State Government Deficit",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "CCSG_DEF_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 12056
+    },
+    {
+      "id": "sdmx:CCSG_RECPT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-state-government-receipts.csv",
+      "label": "Combined Central & State Government Receipts",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "CCSG_RECPT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 15661
+    },
+    {
+      "id": "sdmx:CENT_SEC_DEL_PRJ_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/central-sector-delayed-projects.csv",
+      "label": "Central Sector Delayed Projects",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "CENT_SEC_DEL_PRJ_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1995-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 161219
+    },
+    {
+      "id": "sdmx:CENT_SEC_PRJ_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/central-sector-projects.csv",
+      "label": "Central Sector Projects",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "CENT_SEC_PRJ_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1995-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 174990
+    },
+    {
+      "id": "sdmx:CERTI_DEPO_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/certificates-of-deposit.csv",
+      "label": "Certificates of Deposit",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "CERTI_DEPO_RN",
+      "frequency": "Fortnightly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "stock",
+      "bytes": 12577
+    },
+    {
+      "id": "sdmx:CG_BOR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-borrowings.csv",
+      "label": "Central Government Borrowings",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_BOR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 17968
+    },
+    {
+      "id": "sdmx:CG_DEF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-deficit.csv",
+      "label": "Central Government Deficit",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_DEF_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 26830
+    },
+    {
+      "id": "sdmx:CG_DEFM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-deficit-monthly.csv",
+      "label": "Central Government Deficit Monthly",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_DEFM_RN",
+      "frequency": "Monthly",
+      "startDate": "1970-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 19528
+    },
+    {
+      "id": "sdmx:CG_DEV_NDEV_EXP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/devlopmental-and-non-devlopmental-expenditures-central-government.csv",
+      "label": "Devlopmental and Non-Devlopmental  Expenditures - Central Government",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_DEV_NDEV_EXP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 17000
+    },
+    {
+      "id": "sdmx:CG_EXP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-expenditures.csv",
+      "label": "Central Government Expenditures",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_EXP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 33600
+    },
+    {
+      "id": "sdmx:CG_RECPT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-receipts.csv",
+      "label": "Central Government Receipts",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CG_RECPT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 66438
+    },
+    {
+      "id": "sdmx:CGL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/central-government-liabilities.csv",
+      "label": "Central Government Liabilities",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "CGL_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 32314
+    },
+    {
+      "id": "sdmx:CHG_FIN_ASS_HOUSE_SEC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/changes-in-financial-assets-of-the-household-sector.csv",
+      "label": "Changes in Financial Assets of the Household Sector",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "CHG_FIN_ASS_HOUSE_SEC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 39024
+    },
+    {
+      "id": "sdmx:CHG_FIN_LIB_HOUSE_SEC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/changes-in-financial-liabilities-of-the-household-sector.csv",
+      "label": "Changes in Financial Liabilities of the Household Sector",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "CHG_FIN_LIB_HOUSE_SEC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 19435
+    },
+    {
+      "id": "sdmx:CI_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/combined-income-expenditure-and-appropriation-accounts-for-non-government-non-banking-financial-and-investment-ngnbf-i-companies-activity-wise.csv",
+      "label": "Combined Income, Expenditure and Appropriation Accounts for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "CI_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2014-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 518756
+    },
+    {
+      "id": "sdmx:CLEARING_HOU_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/payment-systems/clearing-house.csv",
+      "label": "Clearing House",
+      "sector": "Financial Sector",
+      "subSector": "Payment Systems",
+      "dsdCode": "CLEARING_HOU_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2005-03-31",
+      "themes": [
+        "Payments"
+      ],
+      "shape": "other",
+      "bytes": 4758
+    },
+    {
+      "id": "sdmx:COM_PAPER_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/commercial-paper.csv",
+      "label": "Commercial Paper",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "COM_PAPER_RN",
+      "frequency": "Fortnightly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 105452
+    },
+    {
+      "id": "sdmx:COMP_ECO_ACT_NSDP_FACT_CST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/components-and-economic-activity-of-domestic-products-at-factor-cost-state-wise.csv",
+      "label": "Components and Economic Activity of Domestic Products at  Factor Cost - State Wise",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "COMP_ECO_ACT_NSDP_FACT_CST_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2000-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 523206
+    },
+    {
+      "id": "sdmx:CPI_AG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/cpi-agricultural-labourer.csv",
+      "label": "CPI-Agricultural Labourer",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_AG_RN",
+      "frequency": "Monthly",
+      "startDate": "1966-04-30",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 135069
+    },
+    {
+      "id": "sdmx:CPI_AGR_AVG_YRND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-agriculture-labourer-average-year-end.csv",
+      "label": "Consumer Price Index - Agriculture Labourer(Average/Year end)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_AGR_AVG_YRND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1967-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 43992
+    },
+    {
+      "id": "sdmx:CPI_ALRL_ST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-agriculture-and-rural-labourer-state-wise.csv",
+      "label": "Consumer Price Index - Agriculture and Rural Labourer(State wise)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_ALRL_ST_RN",
+      "frequency": "Monthly",
+      "startDate": "1995-11-30",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 430192
+    },
+    {
+      "id": "sdmx:CPI_ANN_AVG_VAR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-annual-average-variation.csv",
+      "label": "Consumer Price Index - Annual Average/Variation",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_ANN_AVG_VAR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1967-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 33883
+    },
+    {
+      "id": "sdmx:CPI_AV_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-annual-variation.csv",
+      "label": "Consumer Price Index - Annual Variation",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_AV_RN",
+      "frequency": "Monthly",
+      "startDate": "1967-04-01",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 140637
+    },
+    {
+      "id": "sdmx:CPI_IW_AISC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-industrial-workers-all-india-and-selected-centres.csv",
+      "label": "Consumer Price Index - Industrial Workers (All India and Selected Centres)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_IW_AISC_RN",
+      "frequency": "Monthly",
+      "startDate": "1968-08-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 826472
+    },
+    {
+      "id": "sdmx:CPI_IW_AV_YRND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-industrial-worker-average-year-end.csv",
+      "label": "Consumer Price Index - Industrial worker(Average/Year End)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_IW_AV_YRND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1969-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 48253
+    },
+    {
+      "id": "sdmx:CPI_IW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-industrial-worker.csv",
+      "label": "Consumer Price Index - Industrial Worker",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_IW_RN",
+      "frequency": "Monthly",
+      "startDate": "1968-08-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 155222
+    },
+    {
+      "id": "sdmx:CPI_RL_AV_YRND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-rural-labourer-average-year-end.csv",
+      "label": "Consumer Price Index - Rural Labourer(Average/Year End)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_RL_AV_YRND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1996-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 36738
+    },
+    {
+      "id": "sdmx:CPI_RL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-rural-labourer.csv",
+      "label": "Consumer Price Index - Rural Labourer",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_RL_RN",
+      "frequency": "Monthly",
+      "startDate": "1995-11-30",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 135073
+    },
+    {
+      "id": "sdmx:CPI_RUC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/consumer-price-index-rural-urban-combined-all-india.csv",
+      "label": "Consumer Price Index - Rural, Urban, Combined (All India)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_RUC_RN",
+      "frequency": "Monthly",
+      "startDate": "2011-01-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 818388
+    },
+    {
+      "id": "sdmx:CSURYCOM_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/commercial-survey-component-fortnightly.csv",
+      "label": "Commercial Survey Component_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "CSURYCOM_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "1999-03-26",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21223
+    },
+    {
+      "id": "sdmx:CSURYCOM_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/commercial-survey-component-monthly.csv",
+      "label": "Commercial Survey Component Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "CSURYCOM_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1999-03-26",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 201364
+    },
+    {
+      "id": "sdmx:CSURYSOR_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/commercial-survey-sources-fortnightly.csv",
+      "label": "Commercial Survey Sources_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "CSURYSOR_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "1999-03-26",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 62850
+    },
+    {
+      "id": "sdmx:CSURYSOR_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/commercial-survey-sources-monthly.csv",
+      "label": "Commercial Survey Sources Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "CSURYSOR_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1999-03-26",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 525786
+    },
+    {
+      "id": "sdmx:DG_GDP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/deficit-of-government-as-percentage-to-gdp.csv",
+      "label": "Deficit of Government as percentage to GDP",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "DG_GDP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 7628
+    },
+    {
+      "id": "sdmx:DIG_GDP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/debt-indicators-of-government-as-percentage-to-gdp.csv",
+      "label": "Debt Indicators of Government as percentage to GDP",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "DIG_GDP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "stock",
+      "bytes": 15605
+    },
+    {
+      "id": "sdmx:DIR_FR_TRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/direction-of-foreign-trade.csv",
+      "label": "Direction of Foreign Trade",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "DIR_FR_TRD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1988-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 888766
+    },
+    {
+      "id": "sdmx:EAR_EXP_FC_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/earning-or-expenditure-in-foreign-currencies-of-public-limited-companies.csv",
+      "label": "Earning or Expenditure in Foreign Currencies of Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "EAR_EXP_FC_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 25494
+    },
+    {
+      "id": "sdmx:EAR_EXP_FC_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/earning-or-expenditure-in-foreign-currencies-of-private-limited-companies.csv",
+      "label": "Earning or Expenditure in Foreign Currencies of Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "EAR_EXP_FC_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 22107
+    },
+    {
+      "id": "sdmx:EAR_EXP_FC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/earning-or-expenditure-in-foreign-currencies.csv",
+      "label": "Earning or Expenditure in Foreign Currencies",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "EAR_EXP_FC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 21295
+    },
+    {
+      "id": "sdmx:EARN_RAT_BSE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/earning-ratio-of-bse.csv",
+      "label": "Earning Ratio of BSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "EARN_RAT_BSE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 21830
+    },
+    {
+      "id": "sdmx:EXP_PRIN_COMM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/export-of-principal-commodities.csv",
+      "label": "Export of Principal commodities",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "EXP_PRIN_COMM_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1988-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 352615
+    },
+    {
+      "id": "sdmx:EXP_SEL_PRIN_COMM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/exports-of-select-commodities-to-principal-countries.csv",
+      "label": "Exports of Select Commodities to Principal Countries",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "EXP_SEL_PRIN_COMM_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 113205
+    },
+    {
+      "id": "sdmx:EXT_DBT_RT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-debt/external-debt-ratio.csv",
+      "label": "External Debt Ratio",
+      "sector": "External Sector",
+      "subSector": "External Debt",
+      "dsdCode": "EXT_DBT_RT_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2004-06-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "stock",
+      "bytes": 858237
+    },
+    {
+      "id": "sdmx:EXTR_ASSIST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/external-assistance.csv",
+      "label": "External assistance",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "EXTR_ASSIST_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1982-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 62125
+    },
+    {
+      "id": "sdmx:FICG_GDP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/fiscal-indicators-of-the-central-government-as-per-centage-to-gdp.csv",
+      "label": "Fiscal Indicators of the Central Government as per centage to GDP",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "FICG_GDP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 59782
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_COUN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/financial-ratios-country-wise.csv",
+      "label": "Financial Ratios-Country-wise",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "FIN_RATIOS_COUN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 985757
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/financial-ratios-industry-group-wise.csv",
+      "label": "Financial Ratios- Industry group-wise",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "FIN_RATIOS_IND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 900144
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/financial-ratios-for-non-government-non-banking-financial-and-investment-ngnbf-i-companies-activity-wise.csv",
+      "label": "Financial Ratios for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "FIN_RATIOS_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2014-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 200189
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PUB_INDU_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/financial-ratios-for-public-limited-companies-industry-wise.csv",
+      "label": "Financial Ratios for Public Limited Companies Industry Wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "FIN_RATIOS_PUB_INDU_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 965350
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PUB_PUC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/financial-ratios-for-public-limited-companies-puc-wise.csv",
+      "label": "Financial Ratios for Public Limited Companies - PUC wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "FIN_RATIOS_PUB_PUC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 822510
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/financial-ratios-for-public-limited-companies.csv",
+      "label": "Financial Ratios for Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "FIN_RATIOS_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 98271
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PUB_SAL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/financial-ratios-for-public-limited-companies-sales-wise.csv",
+      "label": "Financial Ratios for Public Limited Companies - Sales wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "FIN_RATIOS_PUB_SAL_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 685529
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PVT_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/financial-ratios-for-private-limited-companies-industry-wise.csv",
+      "label": "Financial Ratios for Private Limited Companies - Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "FIN_RATIOS_PVT_IND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 716833
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/financial-ratios-for-private-limited-companies.csv",
+      "label": "Financial Ratios for Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "FIN_RATIOS_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 97810
+    },
+    {
+      "id": "sdmx:FIN_RATIOS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/financial-ratios.csv",
+      "label": "Financial Ratios",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "FIN_RATIOS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 80055
+    },
+    {
+      "id": "sdmx:FISG_GDP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/fiscal-indicators-of-the-state-government-as-per-centage-to-gdp.csv",
+      "label": "Fiscal Indicators of the State Government as per centage to GDP",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "FISG_GDP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1974-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 27126
+    },
+    {
+      "id": "sdmx:FOREX_RATE_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/exchange-rate-of-indian-rupees-cy.csv",
+      "label": "Exchange rate of indian rupees",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREX_RATE_A_RN",
+      "frequency": "Annual - Calendar Year",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 14456
+    },
+    {
+      "id": "sdmx:FOREX_RATE_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/exchange-rate-of-indian-rupees-fy.csv",
+      "label": "Exchange rate of indian rupees",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREX_RATE_A_RN",
+      "frequency": "Annual - Calendar Year",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 16299
+    },
+    {
+      "id": "sdmx:FOREX_RATE_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/exchange-rate-of-the-indian-rupee-daily.csv",
+      "label": "EXCHANGE RATE OF THE INDIAN RUPEE DAILY",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREX_RATE_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 5571
+    },
+    {
+      "id": "sdmx:FOREX_RATE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/exchange-rate-of-the-indian-rupee.csv",
+      "label": "EXCHANGE RATE OF THE INDIAN RUPEE",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREX_RATE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 44653
+    },
+    {
+      "id": "sdmx:FOREX_RT_REF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/forex-rates-based-on-reference-rate.csv",
+      "label": "Forex rates based on reference rate",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREX_RT_REF_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 83258
+    },
+    {
+      "id": "sdmx:FOREXRT_AVG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/foreign-exchange-rate-average.csv",
+      "label": "FOREIGN EXCHANGE RATE AVERAGE",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREXRT_AVG_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 116359
+    },
+    {
+      "id": "sdmx:FOREXRT_HL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/foreign-exchange-rate-high-low.csv",
+      "label": "FOREIGN EXCHANGE RATE HIGH LOW",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FOREXRT_HL_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 81053
+    },
+    {
+      "id": "sdmx:FR_EXG_RESV_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/forex-reserve/foreign-exchange-reserves-monthly.csv",
+      "label": "Foreign Exchange Reserves Monthly",
+      "sector": "External Sector",
+      "subSector": "Forex Reserve",
+      "dsdCode": "FR_EXG_RESV_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1950-04-01",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 259052
+    },
+    {
+      "id": "sdmx:FR_EXG_RESV_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/forex-reserve/foreign-exchange-reserves.csv",
+      "label": "Foreign Exchange Reserves",
+      "sector": "External Sector",
+      "subSector": "Forex Reserve",
+      "dsdCode": "FR_EXG_RESV_RN",
+      "frequency": "Weekly",
+      "startDate": "2001-04-06",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 915192
+    },
+    {
+      "id": "sdmx:FR_INV_INFLW_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/foreign-investment-inflows-annually.csv",
+      "label": "Foreign Investment Inflows Annually",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "FR_INV_INFLW_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 58829
+    },
+    {
+      "id": "sdmx:FR_INV_INFLW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/foreign-investment-inflows.csv",
+      "label": "Foreign Investment Inflows",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "FR_INV_INFLW_RN",
+      "frequency": "Monthly",
+      "startDate": "1995-04-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 478109
+    },
+    {
+      "id": "sdmx:FR_LIB_ASS_MUT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/foreign-liabilities-and-assets-for-mutual-fund-and-assets-management-companies-country-wise.csv",
+      "label": "Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies - Country Wise",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "FR_LIB_ASS_MUT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2009-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 102523
+    },
+    {
+      "id": "sdmx:FR_LIB_ASSTS_MUT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/foreign-liabilities-and-assets-for-mutual-fund-and-assets-management-companies.csv",
+      "label": "Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "FR_LIB_ASSTS_MUT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2009-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 22532
+    },
+    {
+      "id": "sdmx:FR_LIB_MUT_NRH_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/foreign-liabilities-for-mutual-fund-non-resident-holding.csv",
+      "label": "Foreign Liabilities for Mutual Fund-Non Resident Holding",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "FR_LIB_MUT_NRH_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2009-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 10291
+    },
+    {
+      "id": "sdmx:FW_PRE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/forward-premia-inter-bank.csv",
+      "label": "FORWARD PREMIA (INTER-BANK)",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FW_PRE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 64344
+    },
+    {
+      "id": "sdmx:FWC_PRE_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/forward-cash-premia-daily.csv",
+      "label": "FORWARD CASH PREMIA DAILY",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "FWC_PRE_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 8661
+    },
+    {
+      "id": "sdmx:GOV_TR_BILL_OUTSD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/govt-of-india-treasury-bills-outstanding.csv",
+      "label": "Govt of India Treasury Bills Outstanding",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "GOV_TR_BILL_OUTSD_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 344189
+    },
+    {
+      "id": "sdmx:GOVT_LIAB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/combined-central-and-state-government-liabilities.csv",
+      "label": "Combined Central and State Government Liabilities",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "GOVT_LIAB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 18333
+    },
+    {
+      "id": "sdmx:GROSS_NET_CAP_FRM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/gross-net-capital-formation.csv",
+      "label": "Gross Net Capital Formation",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "GROSS_NET_CAP_FRM_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 30640
+    },
+    {
+      "id": "sdmx:GROSS_STATE_DOM_PRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/gross-state-domestic-product.csv",
+      "label": "Gross State Domestic Product",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "GROSS_STATE_DOM_PRD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2000-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 188450
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_FDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/growth-rate-indicators-for-fdi.csv",
+      "label": "Growth Rate Indicators for FDI",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "GRWT_RT_INDC_FDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 66940
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_PUB_PUC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/growth-rate-indicators-for-public-limited-companies-puc-wise.csv",
+      "label": "Growth Rate Indicators for Public Limited Companies - PUC wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "GRWT_RT_INDC_PUB_PUC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 641776
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/growth-rate-indicators-for-public-limited-companies.csv",
+      "label": "Growth Rate Indicators for Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "GRWT_RT_INDC_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 75351
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_PUB_SAL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/growth-rate-indicators-for-public-limited-companies-sales-wise.csv",
+      "label": "Growth Rate Indicators for Public Limited Companies - Sales wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "GRWT_RT_INDC_PUB_SAL_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 502273
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_PVT_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/growth-rate-indicators-for-private-limited-companies-industry-wise.csv",
+      "label": "Growth Rate Indicators for Private Limited Companies - Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "GRWT_RT_INDC_PVT_IND_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 1247649
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDC_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/growth-rate-indicators-for-private-limited-companies.csv",
+      "label": "Growth Rate Indicators for Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "GRWT_RT_INDC_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 75703
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDCO_FDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/growth-rate-indicators-for-fdi-country-wise.csv",
+      "label": "Growth Rate Indicators for FDI - Country wise",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "GRWT_RT_INDCO_FDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 745777
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDCT_FDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/growth-rate-indicators-for-fdi-type-wise.csv",
+      "label": "Growth Rate Indicators for FDI - Type wise",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "GRWT_RT_INDCT_FDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 143424
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDIC_FDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/growth-rate-indicators-for-fdi-industry-wise.csv",
+      "label": "Growth Rate Indicators for FDI - Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "GRWT_RT_INDIC_FDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 972926
+    },
+    {
+      "id": "sdmx:GRWT_RT_INDIC_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/growth-rate-indicators-for-public-limited-companies-industry-wise.csv",
+      "label": "Growth Rate Indicators for Public Limited Companies Industry Wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "GRWT_RT_INDIC_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 663716
+    },
+    {
+      "id": "sdmx:GSEC_TO_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/turnover-in-government-securities-market.csv",
+      "label": "Turnover In Government Securities Market",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "GSEC_TO_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 516144
+    },
+    {
+      "id": "sdmx:GWT_RT_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/growth-rate-indicators-for-non-government-non-banking-financial-and-investment-ngnbf-i-companies-activity-wise.csv",
+      "label": "Growth Rate Indicators for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "GWT_RT_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "rate",
+      "bytes": 172059
+    },
+    {
+      "id": "sdmx:HOUSE_PRICE_INDEX_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/house-price-index.csv",
+      "label": "House Price Index",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "HOUSE_PRICE_INDEX_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2009-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 78998
+    },
+    {
+      "id": "sdmx:IB_FOREX_RT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/forex-market/inter-bank-forex-rates.csv",
+      "label": "Inter Bank Forex Rates",
+      "sector": "Financial Markets",
+      "subSector": "Forex Market",
+      "dsdCode": "IB_FOREX_RT_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 7459
+    },
+    {
+      "id": "sdmx:IFT_OIL_NON_OIL_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/indias-foreign-trade-oil-non-oil-annually.csv",
+      "label": "India's Foreign Trade - Oil & Non-Oil_Annually",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "IFT_OIL_NON_OIL_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 65457
+    },
+    {
+      "id": "sdmx:IFT_OIL_NON_OIL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/indias-foreign-trade-oil-non-oil.csv",
+      "label": "India's Foreign Trade - Oil & Non-Oil",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "IFT_OIL_NON_OIL_RN",
+      "frequency": "Monthly",
+      "startDate": "1990-04-01",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 159728
+    },
+    {
+      "id": "sdmx:IIP_MANF_SEC_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/indian-industrial-production-manufacturing-sector-anually.csv",
+      "label": "Indian Industrial Production Manufacturing Sector Anually",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "IIP_MANF_SEC_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1982-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 28077
+    },
+    {
+      "id": "sdmx:IIP_MANF_SEC_MTH_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/indian-industrial-production-manufacturing-sector-monthly.csv",
+      "label": "Indian Industrial Production Manufacturing Sector Monthly",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "IIP_MANF_SEC_MTH_RN",
+      "frequency": "Monthly",
+      "startDate": "1994-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 897050
+    },
+    {
+      "id": "sdmx:IMP_PRIN_COMM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/import-of-principal-commodities.csv",
+      "label": "Import of Principal commodities",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "IMP_PRIN_COMM_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1988-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 308500
+    },
+    {
+      "id": "sdmx:IMPT_PETRL_PRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/imports-of-petroleum-products.csv",
+      "label": "Imports of Petroleum Products",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "IMPT_PETRL_PRD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1973-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 6899
+    },
+    {
+      "id": "sdmx:IND_CNTRY_FDI_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/industry-country-wise-distrubution-of-fdi.csv",
+      "label": "Industry & Country-Wise distrubution of FDI",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "IND_CNTRY_FDI_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 131010
+    },
+    {
+      "id": "sdmx:IND_EXTRN_DEBT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-debt/indias-external-debt.csv",
+      "label": "India's External Debt",
+      "sector": "External Sector",
+      "subSector": "External Debt",
+      "dsdCode": "IND_EXTRN_DEBT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "stock",
+      "bytes": 407044
+    },
+    {
+      "id": "sdmx:IND_OVR_BOP_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/indias-overall-balance-of-payments-annually.csv",
+      "label": "India's Overall Balance of Payments Annually",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "IND_OVR_BOP_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1990-06-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 1097489
+    },
+    {
+      "id": "sdmx:IND_OVR_BOP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/indias-overall-balance-of-payments.csv",
+      "label": "India's Overall Balance of Payments",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "IND_OVR_BOP_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "1990-06-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 683744
+    },
+    {
+      "id": "sdmx:INT_RATE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/interest-rate.csv",
+      "label": "Interest Rate",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "INT_RATE_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 6821
+    },
+    {
+      "id": "sdmx:INTR_INV_POS_IND_BPM6_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/international-investment-position-of-india-bpm6.csv",
+      "label": "International Investment Position of India BPM6",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "INTR_INV_POS_IND_BPM6_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "External"
+      ],
+      "shape": "stock",
+      "bytes": 1042001
+    },
+    {
+      "id": "sdmx:INTR_INV_POS_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/international-investment-position-of-india-bpm5.csv",
+      "label": "International Investment Position of India BPM5",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "INTR_INV_POS_IND_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "External"
+      ],
+      "shape": "stock",
+      "bytes": 1141636
+    },
+    {
+      "id": "sdmx:INVI_CAT_TRANS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/invisibles-by-category-of-transactions.csv",
+      "label": "Invisibles By Category of Transactions",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "INVI_CAT_TRANS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 178248
+    },
+    {
+      "id": "sdmx:INVI_PYMTS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/invisibles-payments.csv",
+      "label": "Invisibles Payments",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "INVI_PYMTS_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 573662
+    },
+    {
+      "id": "sdmx:INVI_RCPTS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/invisibles-receipts.csv",
+      "label": "Invisibles Receipts",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "INVI_RCPTS_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 550905
+    },
+    {
+      "id": "sdmx:INX_CORE_INF_INDS_GWT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/index-numbers-of-core-infrastructure-industries-growth-rates.csv",
+      "label": "Index Numbers of Core/Infrastructure Industries - Growth Rates",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "INX_CORE_INF_INDS_GWT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1995-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 33575
+    },
+    {
+      "id": "sdmx:INX_CORE_INF_INDS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/index-numbers-of-core-infrastructure-industries.csv",
+      "label": "Index Numbers of Core/Infrastructure Industries",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "INX_CORE_INF_INDS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1995-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 28398
+    },
+    {
+      "id": "sdmx:INX_INDS_PROD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/index-of-industrial-production.csv",
+      "label": "Index of Industrial Production",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "INX_INDS_PROD_RN",
+      "frequency": "Monthly",
+      "startDate": "1994-04-01",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "index",
+      "bytes": 1321992
+    },
+    {
+      "id": "sdmx:INX_NBR_TERM_FR_TRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-sector-indices/general-index-numbers-and-terms-of-foreign-trade.csv",
+      "label": "General Index Numbers and Terms of Foreign Trade",
+      "sector": "External Sector",
+      "subSector": "External Sector Indices",
+      "dsdCode": "INX_NBR_TERM_FR_TRD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "index",
+      "bytes": 51254
+    },
+    {
+      "id": "sdmx:INX_NEER_REER_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-sector-indices/indices-of-reer-neer-annually.csv",
+      "label": "Indices of REER/NEER Annually",
+      "sector": "External Sector",
+      "subSector": "External Sector Indices",
+      "dsdCode": "INX_NEER_REER_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2005-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "index",
+      "bytes": 38551
+    },
+    {
+      "id": "sdmx:INX_NEER_REER_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-sector-indices/indices-of-reer-neer-monthly.csv",
+      "label": "Indices of REER/NEER Monthly",
+      "sector": "External Sector",
+      "subSector": "External Sector Indices",
+      "dsdCode": "INX_NEER_REER_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1993-04-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "index",
+      "bytes": 493832
+    },
+    {
+      "id": "sdmx:KCI_BOP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-trade/key-components-of-indias-overall-balance-of-payments.csv",
+      "label": "Key components of India's Overall Balance of Payments",
+      "sector": "External Sector",
+      "subSector": "International Trade",
+      "dsdCode": "KCI_BOP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 102884
+    },
+    {
+      "id": "sdmx:LIBOOR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/london-inter-bank-overnight-offer-rates.csv",
+      "label": "London Inter Bank Overnight Offer Rates",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "LIBOOR_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 5103
+    },
+    {
+      "id": "sdmx:LNA_SCB_SR_OCC_BSR1_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/loans-and-advances-of-scbs-state-and-occupation-wise-bsr1-annual.csv",
+      "label": "Loans and Advances of SCBs State and Occupation wise BSR1 Annual",
+      "sector": "Financial Sector",
+      "subSector": "",
+      "dsdCode": "LNA_SCB_SR_OCC_BSR1_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 21869
+    },
+    {
+      "id": "sdmx:MACRO_ECN_AGG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/macro-economic-aggregates.csv",
+      "label": "Macro Economic Aggregates",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "MACRO_ECN_AGG_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 414048
+    },
+    {
+      "id": "sdmx:MACRO_ECN_AGG_RTS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/macro-economic-aggregate-rates.csv",
+      "label": "Macro Economic Aggregate Rates",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "MACRO_ECN_AGG_RTS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 157780
+    },
+    {
+      "id": "sdmx:METAL_PRICE_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/metal-price-annual-average.csv",
+      "label": "Metal Price - Annual Average",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "METAL_PRICE_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "other",
+      "bytes": 23425
+    },
+    {
+      "id": "sdmx:METAL_PRICE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/metal-price.csv",
+      "label": "Metal Price",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "METAL_PRICE_RN",
+      "frequency": "Monthly",
+      "startDate": "1990-01-03",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "other",
+      "bytes": 64544
+    },
+    {
+      "id": "sdmx:MIN_SUP_PRICE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/minimum-support-price.csv",
+      "label": "Minimum Support Price",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "MIN_SUP_PRICE_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1976-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 57150
+    },
+    {
+      "id": "sdmx:MON_AG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/monetary-aggregates.csv",
+      "label": "Monetary Aggregates",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MON_AG_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1970-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 31513
+    },
+    {
+      "id": "sdmx:MONTRY_RATIOS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/monetary-ratios.csv",
+      "label": "Monetary Ratios",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MONTRY_RATIOS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1952-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 25212
+    },
+    {
+      "id": "sdmx:MRKT_BOR_CSG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/market-borrowings-of-governments.csv",
+      "label": "Market Borrowings of Governments",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "MRKT_BOR_CSG_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 6725
+    },
+    {
+      "id": "sdmx:MRKT_BOR_GOI_SG_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/market-borrowing-of-goi-and-stat-govt.csv",
+      "label": "Market Borrowing of GOI and Stat Govt",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "MRKT_BOR_GOI_SG_RN",
+      "frequency": "Weekly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 275131
+    },
+    {
+      "id": "sdmx:MRKT_INFO_BSE_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/market-information-bse.csv",
+      "label": "Market Information BSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "MRKT_INFO_BSE_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 3376
+    },
+    {
+      "id": "sdmx:MRKT_INFO_NSE_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/market-information-nse.csv",
+      "label": "Market Information NSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "MRKT_INFO_NSE_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 5095
+    },
+    {
+      "id": "sdmx:MSC_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/money-stock-components-fortnightly.csv",
+      "label": "Money Stock Components_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MSC_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "2001-01-12",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "stock",
+      "bytes": 21459
+    },
+    {
+      "id": "sdmx:MSS_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/money-stock-sources-fortnightly.csv",
+      "label": "Money Stock Sources_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MSS_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "2001-01-12",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "stock",
+      "bytes": 9511
+    },
+    {
+      "id": "sdmx:MSS_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/money-stock-sources-monthly.csv",
+      "label": "Money Stock Sources_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MSS_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1991-04-19",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "stock",
+      "bytes": 37276
+    },
+    {
+      "id": "sdmx:MSURYCOM_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/monetary-survey-components-fortnightly.csv",
+      "label": "Monetary Survey Components_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MSURYCOM_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "1999-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 58416
+    },
+    {
+      "id": "sdmx:MSURYSOR_F_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/monetary-survey-sources-fortnightly.csv",
+      "label": "Monetary Survey Sources_Fortnightly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "MSURYSOR_F_RN",
+      "frequency": "Fortnightly",
+      "startDate": "1999-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 69077
+    },
+    {
+      "id": "sdmx:NET_SDP_FAC_CST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/net-state-domestic-product-at-factor-cost.csv",
+      "label": "Net State Domestic Product at Factor cost",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "NET_SDP_FAC_CST_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 275006
+    },
+    {
+      "id": "sdmx:NOT_COIN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/notes-coin-in-circulation.csv",
+      "label": "Notes & Coin in Circulation",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "NOT_COIN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 38878
+    },
+    {
+      "id": "sdmx:NRI_DEPOSITS_IN_OUT_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/nri-deposits-inflow-outflow-annually.csv",
+      "label": "NRI Deposits Inflow/Outflow Annually",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "NRI_DEPOSITS_IN_OUT_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 29624
+    },
+    {
+      "id": "sdmx:NRI_DEPOSITS_IN_OUT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/nri-deposits-inflow-outflow-monthly.csv",
+      "label": "NRI Deposits Inflow/Outflow Monthly",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "NRI_DEPOSITS_IN_OUT_RN",
+      "frequency": "Monthly",
+      "startDate": "1997-04-01",
+      "themes": [
+        "External"
+      ],
+      "shape": "flow",
+      "bytes": 96925
+    },
+    {
+      "id": "sdmx:NRI_DEPOSITS_OUTS_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/nri-deposits-outstandings-annually.csv",
+      "label": "NRI Deposits Outstandings Annually",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "NRI_DEPOSITS_OUTS_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1991-03-31",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 28941
+    },
+    {
+      "id": "sdmx:NRI_DEPOSITS_OUTS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/nri-deposits-outstanding-monthly.csv",
+      "label": "NRI Deposits Outstanding Monthly",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "NRI_DEPOSITS_OUTS_RN",
+      "frequency": "Monthly",
+      "startDate": "1997-04-01",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 108762
+    },
+    {
+      "id": "sdmx:NSE_IND_D_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/nse-inidices.csv",
+      "label": "NSE INIDICES",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "NSE_IND_D_RN",
+      "frequency": "Daily",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 3453
+    },
+    {
+      "id": "sdmx:OPN_MKT_OP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/open-market-operations-of-rbi.csv",
+      "label": "Open market operations of RBI",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "OPN_MKT_OP_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 22885
+    },
+    {
+      "id": "sdmx:OUTW_REMIT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/international-finance/outward-remittance.csv",
+      "label": "Outward Remittance",
+      "sector": "External Sector",
+      "subSector": "International Finance",
+      "dsdCode": "OUTW_REMIT_RN",
+      "frequency": "Monthly",
+      "startDate": "2008-04-30",
+      "themes": [
+        "External"
+      ],
+      "shape": "other",
+      "bytes": 191910
+    },
+    {
+      "id": "sdmx:PATT_LU_UAII_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/pattern-of-land-use-use-of-agriculltural-inputs-in-india.csv",
+      "label": "Pattern of Land Use & Use of Agriculltural inputs in India",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "PATT_LU_UAII_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 20668
+    },
+    {
+      "id": "sdmx:PDS_AGR_PROD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/Agriculture/public-distribution-system-of-agriculture-produce.csv",
+      "label": "Public Distribution System of agriculture produce",
+      "sector": "Real Sector",
+      "subSector": "Agriculture",
+      "dsdCode": "PDS_AGR_PROD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1952-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 27313
+    },
+    {
+      "id": "sdmx:PER_CAP_NET_SDP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/per-capita-net-state-domestic-product-at-factor-cost.csv",
+      "label": "Per Capita Net State Domestic Product at Factor Cost",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "PER_CAP_NET_SDP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 4278
+    },
+    {
+      "id": "sdmx:PER_SSI_SEC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/perfomance-of-ssi-sector.csv",
+      "label": "Perfomance of SSI Sector",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "PER_SSI_SEC_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 13457
+    },
+    {
+      "id": "sdmx:PNL_FDI_COMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/profit-loss-appriations-of-fdi-companies.csv",
+      "label": "Profit & Loss appriations of FDI companies",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "PNL_FDI_COMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 146033
+    },
+    {
+      "id": "sdmx:PNL_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/profit-loss-appriations-of-public-limited-companies.csv",
+      "label": "Profit & Loss appriations of Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "PNL_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 157630
+    },
+    {
+      "id": "sdmx:PNL_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/profit-loss-appriations-of-private-limited-companies.csv",
+      "label": "Profit & Loss appriations of Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "PNL_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 156155
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-annually.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Annually",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 27634
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_IND_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-annually-industry.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Industry",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_IND_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 88203
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_IND_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-indicators-industry-wise-growth-rates-y-o-y-per-cent-quarterly.csv",
+      "label": "Performance Indicators – Industry-wise Growth Rates (Y-o-Y per cent) Quarterly",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_IND_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 1163627
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_INDUS_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-annually-industry-wise.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_INDUS_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 594066
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_PUC_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-annually-paid-up-capital.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Paid-up-Capital",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_PUC_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 68801
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_PUC_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-quarterly-paid-up-capital.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly - Paid-up-Capital",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_PUC_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 320603
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_QTR_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-quarterly-ind.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly -Ind",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_QTR_IND_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 412353
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-quarterly.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 143894
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_SAL_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-annually-sales.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Sales",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_SAL_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 66899
+    },
+    {
+      "id": "sdmx:PRF_LNGNFC_SAL_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/performance-of-listed-non-government-non-financial-companies-quarterly-sales.csv",
+      "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly - Sales",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "PRF_LNGNFC_SAL_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 310820
+    },
+    {
+      "id": "sdmx:PROD_PETRL_PRD_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/production-of-petroleum-products.csv",
+      "label": "Production of Petroleum Products",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "PROD_PETRL_PRD_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1973-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 6908
+    },
+    {
+      "id": "sdmx:PROD_SEL_INDS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/industrial-statistics/production-of-select-industries.csv",
+      "label": "Production of Select Industries",
+      "sector": "Real Sector",
+      "subSector": "Industrial Statistics",
+      "dsdCode": "PROD_SEL_INDS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1983-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "flow",
+      "bytes": 259622
+    },
+    {
+      "id": "sdmx:PSPOUTLY_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/public-sector-plan-outlay.csv",
+      "label": "Public Sector Plan Outlay",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "PSPOUTLY_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1986-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 23443
+    },
+    {
+      "id": "sdmx:PUB_BOR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/public-sector-borrowings.csv",
+      "label": "Public Sector Borrowings",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "PUB_BOR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1986-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 21339
+    },
+    {
+      "id": "sdmx:QTR_GDP_FACT_CST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/quarterly-gross-domestic-product-at-factor-cost-gross-value-added-at-basic-price.csv",
+      "label": "Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "QTR_GDP_FACT_CST_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "1996-06-30",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 353760
+    },
+    {
+      "id": "sdmx:QTR_GDP_MRKT_PRC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/quarterly-gross-domestic-product-at-market-price.csv",
+      "label": "Quarterly Gross Domestic Product at Market Price",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "QTR_GDP_MRKT_PRC_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "1996-06-30",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 367246
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-annually.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Annually",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 11813
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_IND_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-annually-industry.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Annually  - Industry",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_IND_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 38468
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_IND_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-quartely-industry-wise.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely - Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_IND_QTR_RN",
+      "frequency": "Quarterly",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 864640
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_INDUS_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-annually-industry-wise.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Annually-- Industry wise",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_INDUS_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 422254
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_PUC_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-annually-paid-up-capital.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Annually Paid-up-Capital",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_PUC_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 74834
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_PUC_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-quartely-paid-up-capital.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely  - Paid-up-Capital",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_PUC_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 349271
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_QTR_IND_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-quartely-ind.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely-Ind",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_QTR_IND_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 181200
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-quartely.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 62181
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_SAL_ANN_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-annually-sales.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Annually - Sales",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_SAL_ANN_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2016-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 80365
+    },
+    {
+      "id": "sdmx:RATIO_LNGNFC_SAL_QTR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/listed-non-government-non-financial-companies/ratios-of-listed-non-government-non-financial-companies-quartely-sales.csv",
+      "label": "Ratios of Listed Non-Government Non-Financial Companies Quartely - Sales",
+      "sector": "Corporate Sector",
+      "subSector": "Listed Non-Government Non-Financial Companies",
+      "dsdCode": "RATIO_LNGNFC_SAL_QTR_RN",
+      "frequency": "Quarterly - Financial Year",
+      "startDate": "2014-06-30",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 373573
+    },
+    {
+      "id": "sdmx:RBI_ASSET_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-assets-annual.csv",
+      "label": "RBI Assets_Annual",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_ASSET_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 65395
+    },
+    {
+      "id": "sdmx:RBI_ASSET_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-asset-monthly.csv",
+      "label": "RBI Asset_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_ASSET_M_RN",
+      "frequency": "Monthly",
+      "startDate": "2004-07-30",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 338814
+    },
+    {
+      "id": "sdmx:RBI_ASSET_W_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-asset-weekly.csv",
+      "label": "RBI Asset_Weekly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_ASSET_W_RN",
+      "frequency": "Weekly",
+      "startDate": "2004-07-01",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 1129743
+    },
+    {
+      "id": "sdmx:RBI_LIAB_A_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-liabilities-annual.csv",
+      "label": "RBI Liabilities_Annual",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_LIAB_A_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 39461
+    },
+    {
+      "id": "sdmx:RBI_LIAB_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-liabilities-monthly.csv",
+      "label": "RBI Liabilities_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_LIAB_M_RN",
+      "frequency": "Monthly",
+      "startDate": "2004-07-30",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 262589
+    },
+    {
+      "id": "sdmx:RBI_LIAB_W_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-liabilities-weekly.csv",
+      "label": "RBI Liabilities_Weekly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_LIAB_W_RN",
+      "frequency": "Weekly",
+      "startDate": "2004-07-01",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 1058966
+    },
+    {
+      "id": "sdmx:RBI_SF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-standing-facilities.csv",
+      "label": "RBI_Standing Facilities",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_SF_RN",
+      "frequency": "Monthly",
+      "startDate": "2011-04-22",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 63194
+    },
+    {
+      "id": "sdmx:RBI_SURY_COM_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-survey-components-monthly.csv",
+      "label": "RBI Survey Components_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_SURY_COM_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1952-02-29",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 121184
+    },
+    {
+      "id": "sdmx:RBI_SURY_SOR_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/rbi-survey-sources-monthly.csv",
+      "label": "RBI Survey Sources_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RBI_SURY_SOR_M_RN",
+      "frequency": "Monthly",
+      "startDate": "1952-02-29",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 495425
+    },
+    {
+      "id": "sdmx:RMC_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/reserve-money-components-monthly.csv",
+      "label": "Reserve Money Components_Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RMC_M_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 85052
+    },
+    {
+      "id": "sdmx:RMC_W_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/reserve-money-components-weekly.csv",
+      "label": "Reserve Money Components_Weekly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RMC_W_RN",
+      "frequency": "Weekly",
+      "startDate": "2001-07-06",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 300690
+    },
+    {
+      "id": "sdmx:RMS_M_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/reserve-money-sources-monthly.csv",
+      "label": "Reserve Money Sources _Monthly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RMS_M_RN",
+      "frequency": "Monthly",
+      "startDate": "2001-06-29",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 162785
+    },
+    {
+      "id": "sdmx:RMS_W_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-sector/monetary-statistics/reserve-money-sources-weekly.csv",
+      "label": "Reserve Money Sources _Weekly",
+      "sector": "Financial Sector",
+      "subSector": "Monetary Statistics",
+      "dsdCode": "RMS_W_RN",
+      "frequency": "Weekly",
+      "startDate": "2001-07-06",
+      "themes": [
+        "Money & Banking"
+      ],
+      "shape": "other",
+      "bytes": 442539
+    },
+    {
+      "id": "sdmx:SEC_MKT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/secondary-market-transactions.csv",
+      "label": "Secondary market transactions",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "SEC_MKT_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 145523
+    },
+    {
+      "id": "sdmx:SEC_WIS_CAP_FOM_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/sector-wise-gross-capital-formation.csv",
+      "label": "Sector-wise Gross Capital Formation",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "SEC_WIS_CAP_FOM_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 4118
+    },
+    {
+      "id": "sdmx:SEC_WIS_DOM_SAV_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/sector-wise-domestic-savings.csv",
+      "label": "Sector-wise Domestic Savings",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "SEC_WIS_DOM_SAV_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1951-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 47352
+    },
+    {
+      "id": "sdmx:SEC_WIS_EMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/national-income/sector-wise-employment.csv",
+      "label": "Sector-wise Employment",
+      "sector": "Real Sector",
+      "subSector": "National Income",
+      "dsdCode": "SEC_WIS_EMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Growth"
+      ],
+      "shape": "other",
+      "bytes": 7339
+    },
+    {
+      "id": "sdmx:SG_BOR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/state-government-gross-fiscal-deficit-financing.csv",
+      "label": "State Government Gross Fiscal Deficit Financing",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "SG_BOR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 13463
+    },
+    {
+      "id": "sdmx:SG_CAP_REV_EXP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/state-government-capital-and-revenue-expenditures.csv",
+      "label": "State Government Capital and Revenue Expenditures",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "SG_CAP_REV_EXP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 19616
+    },
+    {
+      "id": "sdmx:SG_EXP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/expenditure-pattern-of-the-state-governments.csv",
+      "label": "Expenditure Pattern of the State Governments",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "SG_EXP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 20338
+    },
+    {
+      "id": "sdmx:SGL_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/state-government-liabilities.csv",
+      "label": "State Government Liabilities",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "SGL_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 37530
+    },
+    {
+      "id": "sdmx:SMAL_SAV_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/central-govt-finance/small-savings.csv",
+      "label": "Small Savings",
+      "sector": "Public Finance",
+      "subSector": "Central Govt Finance",
+      "dsdCode": "SMAL_SAV_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1982-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 27909
+    },
+    {
+      "id": "sdmx:SRC_FND_FDI_COMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/sources-of-funds-fdi-companies.csv",
+      "label": "Sources of funds - FDI companies",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "SRC_FND_FDI_COMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 84309
+    },
+    {
+      "id": "sdmx:SRC_FND_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/sources-of-funds-for-non-government-non-banking-financial-and-investment-companies-activity-wise.csv",
+      "label": "Sources of funds for Non-Government Non-Banking Financial and Investment Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "SRC_FND_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 309998
+    },
+    {
+      "id": "sdmx:SRC_FND_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/sources-of-funds-of-public-limited-companies.csv",
+      "label": "Sources of funds of Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "SRC_FND_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 104104
+    },
+    {
+      "id": "sdmx:SRC_FND_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/sources-of-funds-of-private-limited-companies.csv",
+      "label": "Sources of funds of Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "SRC_FND_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 102315
+    },
+    {
+      "id": "sdmx:ST_FIN_STD_BUDGETS_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/state-finances-a-study-of-budgets.csv",
+      "label": "State Finances a Study of Budgets",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "ST_FIN_STD_BUDGETS_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 190133
+    },
+    {
+      "id": "sdmx:TAX_REV_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/cental-state-govt-financecombined/direct-and-indirect-tax-revenues.csv",
+      "label": "Direct and Indirect Tax Revenues",
+      "sector": "Public Finance",
+      "subSector": "Cental & State Govt Finance(Combined)",
+      "dsdCode": "TAX_REV_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1981-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 21070
+    },
+    {
+      "id": "sdmx:TRD_INX_NBR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/external-sector/external-sector-indices/trade-index-numbers.csv",
+      "label": "Trade Index Numbers",
+      "sector": "External Sector",
+      "subSector": "External Sector Indices",
+      "dsdCode": "TRD_INX_NBR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "null",
+      "themes": [
+        "External"
+      ],
+      "shape": "index",
+      "bytes": 786556
+    },
+    {
+      "id": "sdmx:TRN_OVR_BSE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/turnover-bse.csv",
+      "label": "Turnover BSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "TRN_OVR_BSE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 24659
+    },
+    {
+      "id": "sdmx:TURNO_NSE_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/equity-and-corporate-debt-market/turnover-at-nse.csv",
+      "label": "Turnover at NSE",
+      "sector": "Financial Markets",
+      "subSector": "Equity and Corporate Debt Market",
+      "dsdCode": "TURNO_NSE_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "flow",
+      "bytes": 20882
+    },
+    {
+      "id": "sdmx:USE_FBD_FDI_COMP_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/finances-of-fdi-companies/uses-of-funds-fdi-companies.csv",
+      "label": "Uses of Funds - FDI companies",
+      "sector": "Corporate Sector",
+      "subSector": "Finances of FDI Companies",
+      "dsdCode": "USE_FBD_FDI_COMP_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2013-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 77035
+    },
+    {
+      "id": "sdmx:USE_FBD_PUB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-public-limited-companies/uses-of-funds-of-public-limited-companies.csv",
+      "label": "Uses of Funds of Public Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Public Limited Companies",
+      "dsdCode": "USE_FBD_PUB_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 83562
+    },
+    {
+      "id": "sdmx:USE_FBD_PVT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-financial-private-limited-companies/uses-of-funds-of-private-limited-companies.csv",
+      "label": "Uses of Funds of Private Limited Companies",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Financial Private Limited Companies",
+      "dsdCode": "USE_FBD_PVT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2012-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 82669
+    },
+    {
+      "id": "sdmx:USES_FND_NGNBFI_AW_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/corporate-sector/non-government-non-banking-financial-and-investment-companies/uses-of-funds-for-non-government-non-banking-financial-and-investments-companies-activity-wise.csv",
+      "label": "Uses of Funds for Non-Government Non-Banking Financial and Investments Companies - Activity wise",
+      "sector": "Corporate Sector",
+      "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+      "dsdCode": "USES_FND_NGNBFI_AW_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "2014-03-31",
+      "themes": [
+        "Corporate"
+      ],
+      "shape": "other",
+      "bytes": 292297
+    },
+    {
+      "id": "sdmx:WAR_CALL_MONEY_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/money-market/weighted-average-call-money-rates.csv",
+      "label": "Weighted Average Call Money Rates",
+      "sector": "Financial Markets",
+      "subSector": "Money Market",
+      "dsdCode": "WAR_CALL_MONEY_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "other",
+      "bytes": 68681
+    },
+    {
+      "id": "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/wholesale-price-index-annual-average-variation.csv",
+      "label": "Wholesale Price Index - Annual Average/Variation",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "WHOLE_PRICE_INDEX_AVG_VAR_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1953-03-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 60865
+    },
+    {
+      "id": "sdmx:YIELD_GOV_SEC_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/yield-of-sgl-transactions-in-government-dated-securities.csv",
+      "label": "YIELD OF SGL TRANSACTIONS IN GOVERNMENT DATED SECURITIES",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "YIELD_GOV_SEC_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 25031
+    },
+    {
+      "id": "sdmx:YIELD_TB_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/financial-markets/government-securities-market/yield-of-sgl-transactions-in-treasury-bills.csv",
+      "label": "YIELD OF SGL TRANSACTIONS IN TREASURY BILLS",
+      "sector": "Financial Markets",
+      "subSector": "Government Securities Market",
+      "dsdCode": "YIELD_TB_RN",
+      "frequency": "Monthly",
+      "startDate": "null",
+      "themes": [
+        "Markets"
+      ],
+      "shape": "rate",
+      "bytes": 73071
+    }
+  ]
+}

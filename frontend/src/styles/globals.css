@@ -1,0 +1,28 @@
+/* MAIN FICTOAN STYLES ====================================================== */
+@import "fictoan-react/dist/index.css";
+
+@import "./constants.css";
+@import "./layout.css";
+@import "./rbih-brand-colours.css";
+@import "../assets/fonts/fonts.css";
+
+/* THEMES =================================================================== */
+@import "./theme-light.css";
+@import "./theme-dark.css";
+
+/* AG Grid CSS variable overrides =========================================== */
+.ag-root-wrapper {
+    --ag-borders                       : none !important;
+    --ag-font-family                   : "Geist", sans-serif;
+    --ag-header-font-family            : "Geist", sans-serif;
+    --ag-cell-font-family              : "Geist Mono", sans-serif;
+    --ag-border-color                  : #e0e0e0;
+    --ag-odd-row-background-color      : var(--grey-light90-opacity50);
+    --ag-row-hover-color               : hsla(var(--indivara), 0.12);
+    --ag-selected-row-background-color : hsla(var(--indivara), 0.24);
+    --ag-border-radius                 : 0;
+
+    span {
+        line-height : unset;
+    }
+}

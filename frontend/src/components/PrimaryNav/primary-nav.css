@@ -1,0 +1,124 @@
+#primary-nav {
+    position         : fixed;
+    width            : var(--primary-nav-width);
+    height           : 100vh;
+    top              : 0;
+    z-index          : 4900;
+    overflow         : hidden;
+    background-color : var(--primary-nav-bg);
+    border-right     : 1px solid var(--primary-nav-border);
+    transition       : width 0.2s ease-in-out;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : space-between;
+    padding          : 8px 0 24px 0;
+
+    &:hover {
+        width : 200px;
+    }
+
+    .links-group {
+        display        : flex;
+        flex-direction : column;
+        width          : 100%;
+
+        p { font-size: 14px; }
+    }
+
+    hr {
+        background-color: var(--primary-nav-border);
+    }
+
+    /* NAV ITEMS ============================================================ */
+    .link.active .nav-item:before {
+        opacity : 1;
+    }
+
+    .link:hover .nav-item:before {
+        opacity : 0.4;
+    }
+
+    @media (max-width: 1024px) {
+        display : none;
+    }
+}
+
+/* NAV ITEM /////////////////////////////////////////////////////////////////// */
+.nav-item {
+    display     : flex;
+    height      : var(--primary-nav-width);
+    align-items : center;
+    gap         : 8px;
+    position    : relative;
+    width       : 100%;
+    white-space : nowrap;
+
+    /* NAV ITEM ACTIVE STATE ================================================ */
+    &:before {
+        display          : block;
+        opacity          : 0;
+        height           : 72%;
+        width            : calc(100% - 8px);
+        content          : "";
+        background-color : var(--nav-item-bg-active);
+        position         : absolute;
+        left             : 4px;
+        transition       : all 0.2s ease-in-out;
+        border-radius    : 4px;
+        z-index          : -1;
+    }
+
+    &:hover &:before {
+        opacity : 1;
+    }
+
+    /* NAV ICON ============================================================= */
+    .nav-icon {
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        min-width       : var(--primary-nav-width);
+        height          : 100%;
+    }
+
+    .nav-icon svg {
+        width : var(--nav-icon-size);
+        fill  : none;
+    }
+
+    /* Forced over-ride of crucible-icons stroke */
+    .nav-icon:is(:not(.is-logo)) svg {
+        stroke       : var(--nav-icon-stroke-default);
+        stroke-width : 2px;
+    }
+
+    &:hover .nav-icon:is(:not(.is-logo)) svg {
+        stroke : var(--nav-icon-stroke-hover);
+    }
+
+    /* NAV LABEL ============================================================ */
+    .nav-label {
+        font-weight    : 400;
+        opacity        : 0;
+        transform      : translateX(-8px);
+        transition     : all 0.2s ease-in-out;
+        pointer-events : none;
+    }
+}
+
+/* Make nav label visible on hover */
+#primary-nav:hover .nav-label {
+    opacity        : 1;
+    transform      : translateX(0);
+    pointer-events : auto;
+}
+
+.link {
+    display         : block;
+    text-decoration : none;
+    width           : 100%;
+}
+
+.link.active .nav-icon svg {
+    stroke : var(--nav-icon-stroke-active);
+}

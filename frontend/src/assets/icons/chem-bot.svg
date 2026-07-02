@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+        <linearGradient id="linear-gradient" x1="6" y1="32.11" x2="56" y2="32.11" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset=".42" stop-color="#fdfdfd"/>
+            <stop offset=".57" stop-color="#f6f7f9"/>
+            <stop offset=".68" stop-color="#eaeef1"/>
+            <stop offset=".76" stop-color="#d9e0e6"/>
+            <stop offset=".84" stop-color="#c3ced8"/>
+            <stop offset=".9" stop-color="#a8b8c7"/>
+            <stop offset=".96" stop-color="#889eb3"/>
+            <stop offset="1" stop-color="#708aa3"/>
+        </linearGradient>
+        <style>
+            @keyframes blink { 0%, 95% { d: path('M 41.53 14.47 L 41.53 21.84'); }
+            96%, 100% { d: path('M38,18s0,4,4,4,4-4,4-4'); } }
+            @keyframes blink2 { 0%, 95% { d: path('M 20.47 14.47 L 20.47 21.84'); }
+            96%, 100% { d: path('M16,18s0,4,4,4,4-4,4-4'); } }
+
+            #right-eye { animation: blink 5s infinite; }
+            #left-eye { animation: blink2 5s infinite; }
+        </style>
+    </defs>
+    <path
+        d="M56,6.05v48.95c0,2.33-1.89,4.21-4.21,4.21H14.95c-2.33,0-4.21-1.89-4.21-4.21V9.74l-4.74-4.74h48.95c.58,0,1.05.47,1.05,1.05Z"
+        fill="url(#linear-gradient)"
+        stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    />
+    <g>
+        <path id="left-eye" d="M 20.47 14.47 L 20.47 21.84" fill="none" stroke="#000" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="4"/>
+        <path id="right-eye" d="M 41.53 14.47 L 41.53 21.84" fill="none" stroke="#000" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="4"/>
+        <path d="M40.21,31.32c0,5.23-4.24,9.47-9.47,9.47s-9.47-4.24-9.47-9.47h18.95Z" fill="#b3b3b3" stroke="#000"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+</svg>

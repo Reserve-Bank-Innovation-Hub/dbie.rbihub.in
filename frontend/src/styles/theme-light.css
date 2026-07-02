@@ -1,0 +1,112 @@
+.theme-light {
+    /* FICTOAN VARIABLES //////////////////////////////////////////////////// */
+    --body-bg                            : var(--grey-light60);
+
+    /* BUTTON =============================================================== */
+    /* Primary button ------------------------------------------------------- */
+    --button-primary-bg-default          : hsl(var(--indivara));
+    --button-primary-border-default      : hsl(var(--indivara));
+
+    --button-primary-bg-hover            : hsla(var(--indivara), 0.88);
+    --button-primary-border-hover        : hsl(var(--indivara));
+
+    --button-primary-bg-active           : var(--violet);
+    --button-primary-border-active       : var(--violet);
+
+    /* Secondary button ----------------------------------------------------- */
+    --button-secondary-bg-default        : var(--violet-light70);
+    --button-secondary-text-default      : var(--violet);
+    --button-secondary-border-default    : var(--violet);
+
+    --button-secondary-bg-hover          : var(--violet-light80);
+    --button-secondary-text-hover        : var(--violet);
+    --button-secondary-border-hover      : var(--violet);
+
+    --button-secondary-bg-active         : var(--violet-light60);
+    --button-secondary-text-active       : var(--violet);
+    --button-secondary-border-active     : var(--violet);
+
+    /* CARD ================================================================= */
+    --card-border                        : hsl(var(--sand));
+    --card-border-radius                 : 20px;
+
+    /* DRAWER =============================================================== */
+    --drawer-border-radius               : 20px;
+
+    /* FILE UPLOAD AREA ===================================================== */
+    --file-upload-area-main-text-default : var(--amber-dark40-opacity60);
+
+    /* INPUT ================================================================ */
+    --input-bg-default                   : hsl(var(--ivory));
+    --input-border-default               : hsl(var(--sand));
+
+    --input-bg-focus                     : var(--white);
+
+    --input-bg-invalid                   : hsla(var(--vermilion), 0.24);
+    --input-error-text-invalid           : hsl(var(--vermilion));
+
+    --list-box-badge-bg                  : var(--blue-light70);
+    --list-box-badge-text                : var(--black);
+
+    --kbd-bg                             : var(--slate-light90);
+
+    /* OPTION CARD ========================================================== */
+    --option-card-bg-hover               : var(--green-light80);
+    --option-card-bg-selected            : var(--green-light70);
+
+    /* TABLE ================================================================ */
+    --table-striped-header-bg            : var(--grey-light80);
+    --table-striped-cell-bg              : var(--amber-light90);
+    --table-border                       : var(--grey-light60);
+    --table-highlight-bg                 : var(--teal-light80);
+
+    /* RADIO TABS =========================================================== */
+    --radio-tabs-bg                      : var(--grey-light70);
+    --radio-tabs-border                  : var(--grey-light70);
+
+    /* TABS ================================================================= */
+    --tab-label-active                   : var(--blue);
+    --tab-label-hover                    : var(--teal);
+    --tab-border-active                  : hsl(var(--indivara));
+
+    /* TEXT ================================================================= */
+    --font-sans-serif                    : "Geist", sans-serif;
+    --font-mono                          : "Geist Mono", monospace;
+
+    --heading-line-height                : 1;
+
+    --font-size-min                      : 14;
+    --font-size-max                      : 18;
+    --scale-ratio-min                    : 1.2;
+    --scale-ratio-max                    : 1.2;
+
+    --heading-text-colour                : var(--grey-dark60);
+
+    --paragraph-text-colour              : var(--grey-dark40);
+    --paragraph-subtext-colour           : var(--grey-light20);
+    --paragraph-subtext-size             : 88%;
+
+    /* CUSTOM COMPONENTS //////////////////////////////////////////////////// */
+    /* HEADER =============================================================== */
+    --site-header-bg                     : var(--white);
+    --site-header-border                 : var(--grey-light80);
+
+    /* PRIMARY NAV ========================================================== */
+    --primary-nav-bg                     : var(--white);
+    --primary-nav-border                 : var(--grey-light80);
+
+    --nav-item-bg-hover                  : var(--blue-light80);
+    --nav-item-bg-active                 : hsla(var(--indivara), 0.12);
+
+    --nav-icon-stroke-default            : var(--grey);
+    --nav-icon-stroke-hover              : var(--blue-light20);
+    --nav-icon-stroke-active             : hsl(var(--indivara));
+
+    /* PAGE SIDEBAR ========================================================= */
+    --page-sidebar-bg                    : var(--white);
+    --page-sidebar-border                : var(--grey-light80);
+
+    --page-sidebar-divider               : var(--grey-light80);
+
+    --ag-borders: none;
+}

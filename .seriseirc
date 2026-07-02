@@ -1,0 +1,26 @@
+# .seriseirc
+TO_COLUMN_WIDTH = 120
+HEADER_CHAR = =
+
+[groups]
+# Use quotes to match the exact package name
+// REACT CORE = "react", "react-router-dom", "next/", next, tanstack/, tauri, "react-use", dnd-kit, react-dom, three, three/
+// UI = "fictoan-react", "framer-motion", "lucide-react"
+// DATA VIZ = "@nivo/", "ag-grid-community", "ag-grid-react"
+// LOCAL COMPONENTS = components/, Page, Element, $element, Element/, $tags, "@shared-components"
+// CONFIGS = configs/,
+// STATE MANAGEMENT = zustand, store/, "@shared-stores"
+// LIB = lib/
+// DATA = "$mock-data/", data, teamData, .json
+// CONTEXTS = contexts
+// HOOKS = hooks/,
+// UTILS = utils/,
+// ASSETS = assets/
+// TEMPLATES = templates/
+// INPUT = BaseInputComponent/
+// TYPOGRAPHY = typography/
+// TYPES = types, typings, "CommonAndHTMLProps", "SpacingTypes", "@shared-types"
+// UTILS = "@shared-utils"
+// SERVICES = services/
+// STYLES = .css, styles/
+// OTHER =

@@ -1,0 +1,4783 @@
+[
+  {
+    "section": "Statistics",
+    "category": "Corporate Sector",
+    "subsection": "Listed Non-Government Non-Financial Companies",
+    "reportPath": "/dbie/reports/Statistics/Corporate Sector/Listed Non-Government Non-Financial Companies",
+    "groups": [
+      {
+        "title": "Listed Non-Government Non-Financial Companies",
+        "reports": [
+          {
+            "reportName": "1. Performance of Listed Non-Government Non-Financial Companies",
+            "reportId": 1067,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2014",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise",
+            "reportId": 1117,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2014",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital",
+            "reportId": 1069,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2014",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales",
+            "reportId": 1071,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2014",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "4",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "5. Performance of Listed Non-Government Non-Financial Companies according to Industry",
+            "reportId": 1072,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2014",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "6. Explanatory Notes & Glossary",
+            "reportId": 1407,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2017",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "6",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "1.Sources and Uses of Funds for Listed Private Manufacturing Companies (half-yearly) - Discontinued",
+            "reportId": 1075,
+            "frequency": "Half-Yearly",
+            "from": "30-SEP-2018",
+            "to": "30-SEP-2019",
+            "period": "",
+            "tableNo": "7",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "1. Performance of Listed Non-Government Non-Financial Companies",
+            "reportId": 1074,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "8",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise",
+            "reportId": 1118,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "9",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital",
+            "reportId": 1068,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "10",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales",
+            "reportId": 1070,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "11",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "5. Performance of Listed Non-Government Non-Financial Companies according to Industry",
+            "reportId": 1073,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "12",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "6. Explanatory Notes & Glossary",
+            "reportId": 1408,
+            "frequency": "Annual",
+            "from": "31-MAR-2017",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "13",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Corporate Sector",
+    "subsection": "Non-Government Non-Financial Private Limited Companies",
+    "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Financial Private Limited Companies",
+    "groups": [
+      {
+        "title": "Non-Government Non-Financial Private Limited Companies",
+        "reports": [
+          {
+            "reportName": "Statement 01: Growth Rates of the Select Items of the Select Private Limited Companies",
+            "reportId": 1179,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 02: Select Financial Ratios of the Select Private Limited Companies",
+            "reportId": 1187,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Private Limited Companies",
+            "reportId": 1175,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 04A: Combined Balance Sheet (Capital and Liabilities) of the Select Private Limited Companies",
+            "reportId": 1176,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "4",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 04B: Combined Balance Sheet (Assets) of the Select Private Limited Companies",
+            "reportId": 1188,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05A: Sources of Funds of the Select Private Limited Companies",
+            "reportId": 1184,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "6",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05B: Uses of Funds of the Select Private Limited Companies",
+            "reportId": 1203,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "7",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 06: Earnings / Expenditure in Foreign Currencies of Select Private Limited Companies",
+            "reportId": 1181,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "8",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 07: Growth Rates of the Select Items of the Select Private Limited Companies - Industry-wise",
+            "reportId": 1204,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "9",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 08: Select Financial Ratios of the Select Items of the Select Private Limited Companies - Industry-wise",
+            "reportId": 1202,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "10",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Explanatory Notes",
+            "reportId": 1410,
+            "frequency": "Annual",
+            "from": "31-MAR-2020",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "11",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Corporate Sector",
+    "subsection": "Finances of FDI Companies",
+    "reportPath": "/dbie/reports/Statistics/Corporate Sector/Finances of FDI Companies",
+    "groups": [
+      {
+        "title": "Finances of FDI Companies",
+        "reports": [
+          {
+            "reportName": "Statement 01: Industry and Country of Origin-Wise Distribution of the Select Foreign Direct Investment Companies",
+            "reportId": 1190,
+            "frequency": "Annual",
+            "from": "31-MAR-2013",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 02: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies",
+            "reportId": 1170,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 03: Select Financial Ratios of the Select Foreign Direct Investment Companies",
+            "reportId": 1166,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 04: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Foreign Direct Investment Companies",
+            "reportId": 1191,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "4",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05A : Combined Balance Sheet of the Select Foreign Direct Investment Companies",
+            "reportId": 1148,
+            "frequency": "Annual",
+            "from": "31-MAR-2013",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05B : Combined Balance Sheet of the Select Foreign Direct Investment Companies",
+            "reportId": 1146,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "6",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 06A : Sources and Uses of Funds of the Select Foreign Direct Investment Companies",
+            "reportId": 1171,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "7",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 06B : Sources and Uses of Funds of the Select Foreign Direct Investment Companies",
+            "reportId": 1147,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "8",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 07: Earnings / Expenditure in Foreign Currencies of the Select Foreign Direct Investment Companies - Discontinued",
+            "reportId": 1192,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "9",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 08: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Industry Group Wise",
+            "reportId": 1167,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "10",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 09: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Country-Wise",
+            "reportId": 1185,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "11",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 10: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Type-Wise",
+            "reportId": 1180,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "12",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 11: Select Financial Ratios of the Select Foreign Direct Investment Companies - Industry Group-Wise",
+            "reportId": 1193,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "13",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 12: Select Financial Ratios of the Select Foreign Direct Investment Companies - Country-Wise",
+            "reportId": 1196,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "13",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Explanatory Notes",
+            "reportId": 1406,
+            "frequency": "Annual",
+            "from": "31-MAR-2020",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "15",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Corporate Sector",
+    "subsection": "Non-Government Non-Financial Public Limited Companies",
+    "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Financial Public Limited Companies",
+    "groups": [
+      {
+        "title": "Non-Government Non-Financial Public Limited Companies",
+        "reports": [
+          {
+            "reportName": "Statement 01: Growth Rates of the Select Items of the Select Public Limited Companies",
+            "reportId": 1173,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 02: Select Financial Ratios of the Select Public Limited Companies",
+            "reportId": 1182,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Public Limited Companies",
+            "reportId": 1178,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 04A: Combined Balance Sheet (Equity and Liabilities) of the Select Public Limited Companies",
+            "reportId": 1189,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "4",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 04B: Combined Balance Sheet (Assets) of the Select Public Limited Companies",
+            "reportId": 1195,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05A: Sources of Funds of the Select Public Limited Companies",
+            "reportId": 1172,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "6",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 05B: Uses of Funds of the Select Public Limited Companies",
+            "reportId": 1197,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "7",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 06: Earnings / Expenditure in Foreign Currencies of Select Public Limited Companies",
+            "reportId": 1186,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "8",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 07: Growth Rates of the Select Items of the Select Public Limited Companies - Sales-wise",
+            "reportId": 1201,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "9",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 08: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Sales-wise",
+            "reportId": 1194,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "10",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 09: Growth Rates of the Select Items of the Select Public Limited Companies - PUC-wise",
+            "reportId": 1177,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "11",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 10: Select Financial Ratios of the Select Items of the Select Public Limited Companies - PUC-wise",
+            "reportId": 1206,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "12",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 11: Growth Rates of the Select Items of the Select Public Limited Companies - Industry-wise",
+            "reportId": 1183,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "13",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 12: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Industry-wise",
+            "reportId": 1208,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "14",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Explanatory Notes",
+            "reportId": 1411,
+            "frequency": "Annual",
+            "from": "31-MAR-2020",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "15",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Corporate Sector",
+    "subsection": "Non-Government Non-Banking Financial and Investment Companies",
+    "reportPath": "/dbie/reports/Statistics/Corporate Sector/Non-Government Non-Banking Financial and Investment Companies",
+    "groups": [
+      {
+        "title": "Non-Government Non-Banking Financial and Investment Companies",
+        "reports": [
+          {
+            "reportName": "Statement 1: Growth Rates of the Select Items of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+            "reportId": 731,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 2: Select Financial Ratios of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+            "reportId": 732,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 3: Combined Income, Expenditure and Appropriation Accounts of Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+            "reportId": 738,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 4A: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Liabilities",
+            "reportId": 739,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 4B: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Assets",
+            "reportId": 742,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 5A: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Sources",
+            "reportId": 753,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Statement 5B: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Uses",
+            "reportId": 754,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Explanatory Notes",
+            "reportId": 1409,
+            "frequency": "Annual",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2019",
+            "period": "",
+            "tableNo": "13",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "External Sector",
+    "subsection": "External Sector Indices",
+    "reportPath": "/dbie/reports/Statistics/External Sector/External Sector Indices",
+    "groups": [
+      {
+        "title": "External Sector Indices",
+        "reports": [
+          {
+            "reportName": "Index numbers of Exports - Quantum and Unit Value (Base: 1999-2000 = 100)",
+            "reportId": 605,
+            "frequency": "Annual",
+            "from": "1999-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers and Terms of Foreign Trade",
+            "reportId": 379,
+            "frequency": "Annual",
+            "from": "1999-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Calender Year - Annual Average)",
+            "reportId": 380,
+            "frequency": "Annual",
+            "from": "2005-Mar-31",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Financial Year - Annual Average)",
+            "reportId": 381,
+            "frequency": "Annual",
+            "from": "2004-Mar-31",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee",
+            "reportId": 584,
+            "frequency": "Monthly",
+            "from": "31-JAN-1975",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Imports - Quantum and Unit Value (Base: 1999-2000 = 100)",
+            "reportId": 900,
+            "frequency": "Annual",
+            "from": "1999-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "External Sector",
+    "subsection": "External Debt",
+    "reportPath": "/dbie/reports/Statistics/External Sector/External Debt",
+    "groups": [
+      {
+        "title": "External Debt",
+        "reports": [
+          {
+            "reportName": "India's External Debt - US Dollars (End-March)",
+            "reportId": 563,
+            "frequency": "Annual",
+            "from": "1991-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's External Debt - Rupees (End-March)",
+            "reportId": 570,
+            "frequency": "Annual",
+            "from": "1991-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "External Debt of India - Quarterly",
+            "reportId": 660,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2020",
+            "to": "30-JUN-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "External Sector",
+    "subsection": "Forex Reserve",
+    "reportPath": "/dbie/reports/Statistics/External Sector/Forex Reserve",
+    "groups": [
+      {
+        "title": "Forex Reserve",
+        "reports": [
+          {
+            "reportName": "Foreign Exchange Reserves - Monthly",
+            "reportId": 414,
+            "frequency": "Monthly",
+            "from": "1990-Mar-31",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Exchange Reserves - Annual",
+            "reportId": 415,
+            "frequency": "Annual",
+            "from": "1950-Mar-31",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Exchange Reserves - Weekly",
+            "reportId": 687,
+            "frequency": "Weekly",
+            "from": "2001-Apr-06",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "External Sector",
+    "subsection": "International Finance",
+    "reportPath": "/dbie/reports/Statistics/External Sector/International Finance",
+    "groups": [
+      {
+        "title": "International Finance",
+        "reports": [
+          {
+            "reportName": "International Investment Position of India",
+            "reportId": 982,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2006",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "NRI Deposits",
+            "reportId": 417,
+            "frequency": "Monthly",
+            "from": "1997-Apr-01",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "External Assistance",
+            "reportId": 418,
+            "frequency": "Annual",
+            "from": "1997-Apr-01",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - Rupees",
+            "reportId": 419,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - US Dollars",
+            "reportId": 420,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "NRI Deposits Outstanding - Rupees",
+            "reportId": 421,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "NRI Deposits Outstanding - US Dollars",
+            "reportId": 628,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies",
+            "reportId": 695,
+            "frequency": "Annual",
+            "from": "31-MAR-2009",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies : Country-wise",
+            "reportId": 696,
+            "frequency": "Annual",
+            "from": "31-MAR-2009",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outright Remittances under the Liberalised Remittances Scheme for Resident Individuals - Yearly",
+            "reportId": 752,
+            "frequency": "Annual",
+            "from": "31-MAR-2009",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outward Remittances under the Liberalised Remittance Scheme for Resident Individuals",
+            "reportId": 793,
+            "frequency": "Monthly",
+            "from": "30-APR-2008",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Investment Inflows",
+            "reportId": 997,
+            "frequency": "Monthly",
+            "from": "30-APR-1995",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Investment Inflows - Yearly",
+            "reportId": 1064,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "External Sector",
+    "subsection": "International Trade",
+    "reportPath": "/dbie/reports/Statistics/External Sector/International Trade",
+    "groups": [
+      {
+        "title": "International Trade",
+        "reports": [
+          {
+            "reportName": "Direction of Foreign Trade - Rupees",
+            "reportId": 607,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exports of Select Commodities to Principal Countries - Rupees",
+            "reportId": 635,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Invisibles by Category of Transactions (in US Dollar)",
+            "reportId": 1076,
+            "frequency": "Quarterly",
+            "from": "30-JUN-2010",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Overall Balance of Payments - Quarterly - US Dollars",
+            "reportId": 885,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Overall Balance of Payments - US Dollars",
+            "reportId": 884,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Overall Balance of Payments - Rupees",
+            "reportId": 883,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Key Components of India's Balance of Payments - Rupees",
+            "reportId": 878,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "Yearly",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Key Components of India's Balance of Payments - US Dollars",
+            "reportId": 875,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Invisibles by Category of Transactions - US Dollars",
+            "reportId": 807,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India’s Overall Balance of Payments - Quarterly – Rupees",
+            "reportId": 791,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1949",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Direction of Foreign Trade - US Dollars",
+            "reportId": 676,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Foreign Trade - US Dollars",
+            "reportId": 649,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Foreign Trade – Rupees",
+            "reportId": 648,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "01-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Invisibles by Category of Transactions - Rupees",
+            "reportId": 424,
+            "frequency": "Annual",
+            "from": "31-MAR-1949",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exports of Principal Commodities - US Dollars",
+            "reportId": 439,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Foreign Trade - US Dollars",
+            "reportId": 433,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "India's Foreign Trade - Rupees",
+            "reportId": 432,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Imports of Principal Commodities - US Dollars",
+            "reportId": 431,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Imports of Principal Commodities - Rupees",
+            "reportId": 430,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exports of Select Commodities to Principal Countries - US Dollars",
+            "reportId": 429,
+            "frequency": "Annual",
+            "from": "31-MAR-2014",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exports of Principal Commodities - Rupees",
+            "reportId": 428,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Balance of Payments - Indicators",
+            "reportId": 427,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Broad Commodity Composition of Indias Merchandise Trade - US Dollar",
+            "reportId": 426,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "01-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Broad Commodity Composition of India's Merchandise Trade - Oil and Non-Oil Exports and Imports - Rupees",
+            "reportId": 425,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "01-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Market",
+    "subsection": "Equity and Corporate Debt Market",
+    "reportPath": "/dbie/reports/Statistics/Financial Market/Equity and Corporate Debt Market",
+    "groups": [
+      {
+        "title": "Equity and Corporate Debt Market",
+        "reports": [
+          {
+            "reportName": "Annual Averages of Share Price Indices and Market Capitalisation",
+            "reportId": 1358,
+            "frequency": "Annual",
+            "from": "31-MAR-1980",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly and Annual Averages of BSE Sensitive Index",
+            "reportId": 1353,
+            "frequency": "Monthly",
+            "from": "30-Apr-1990",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Turnover at NSE",
+            "reportId": 1352,
+            "frequency": "Monthly",
+            "from": "30-APR-1994",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Market Capitalisation - NSE",
+            "reportId": 1351,
+            "frequency": "Monthly",
+            "from": "01-APR-1994",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Market Capitalisation - BSE and All-India",
+            "reportId": 1350,
+            "frequency": "Monthly",
+            "from": "01-APR-1993",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net Investments by FIIs in the Indian Capital Market",
+            "reportId": 1354,
+            "frequency": "Monthly",
+            "from": "30-APR-1992",
+            "to": "30-JUN-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "New Capital Issues by Non-Government Public Limited Companies",
+            "reportId": 1355,
+            "frequency": "Monthly",
+            "from": "30-APR-2022",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Number and Quantum of Euro Issues",
+            "reportId": 1356,
+            "frequency": "Monthly",
+            "from": "30-APR-1992",
+            "to": "30-JUN-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Turnover in the Equity Derivatives Market",
+            "reportId": 1357,
+            "frequency": "Annual",
+            "from": "01-JAN-2016",
+            "to": "30-JUN-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net Resources Mobilised by Bank-Sponsored and FI- Sponsored Mutual Funds",
+            "reportId": 1359,
+            "frequency": "Annual",
+            "from": "01-APR-1970",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "NSE Indices",
+            "reportId": 728,
+            "frequency": "Daily",
+            "from": "03-Mar-2003",
+            "to": "17-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net Resources Mobilised by Mutual Funds",
+            "reportId": 1360,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "BSE Indices",
+            "reportId": 693,
+            "frequency": "Daily",
+            "from": "01-Jan-1990",
+            "to": "17-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Daily Turnover,Market Capitalisation and Traded Volume at NSE",
+            "reportId": 680,
+            "frequency": "Daily",
+            "from": "03-MAR-2003",
+            "to": "17-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Daily Turnover, Market Capitalisation and Traded Volume at BSE",
+            "reportId": 658,
+            "frequency": "Daily",
+            "from": "03-MAR-2003",
+            "to": "17-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net Resources Mobilised by Private Sector Mutual Funds",
+            "reportId": 1361,
+            "frequency": "Annual",
+            "from": "31-MAR-1997",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Turnover at BSE",
+            "reportId": 990,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Average Price / Earning Ratio of BSE Sensitive Index",
+            "reportId": 477,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "New Capital Issues by Non-Government Public Limited Companies",
+            "reportId": 899,
+            "frequency": "Annual",
+            "from": "31-MAR-2011",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly and Annual Averages of BSE 100",
+            "reportId": 898,
+            "frequency": "Monthly",
+            "from": "01-JAN-1991",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Yearly Traded Volume in Corporate Debt at NSE (Discontinued)",
+            "reportId": 804,
+            "frequency": "Annual",
+            "from": "30-Apr-1997",
+            "to": "21-DEC-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly and Annual Averages of Nifty 50 (Base November 3,1995=1000)",
+            "reportId": 802,
+            "frequency": "Monthly",
+            "from": "31-Jul-1990",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Traded Volume in Corporate Debt at NSE  (Discontinued)",
+            "reportId": 750,
+            "frequency": "Monthly",
+            "from": "30-Apr-1997",
+            "to": "21-DEC-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "AVERAGE PRICE/BOOK VALUE RATIO OF BSE SENSEX",
+            "reportId": 478,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Foreign Equity Market Indices",
+            "reportId": 726,
+            "frequency": "Daily",
+            "from": "03-Mar-2003",
+            "to": "17-MAR-2026",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Market",
+    "subsection": "Forex Market",
+    "reportPath": "/dbie/reports/Statistics/Financial Market/Forex Market",
+    "groups": [
+      {
+        "title": "Forex Market",
+        "reports": [
+          {
+            "reportName": "Daily Interbank Forex Rates (USD vis-a-vis INR)",
+            "reportId": 691,
+            "frequency": "Daily",
+            "from": "08-AUG-2000",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Turnover in Foreign Exchange Market - Daily",
+            "reportId": 694,
+            "frequency": "Daily",
+            "from": "03-AUG-1998",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sale/ Purchase of U.S. Dollar by the RBI",
+            "reportId": 730,
+            "frequency": "Monthly",
+            "from": "30-JUN-1995",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Forex Rates - Month-High / Month-Low",
+            "reportId": 768,
+            "frequency": "Monthly",
+            "from": "31-AUG-1998",
+            "to": "10-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Turnover in Foreign Exchange Market",
+            "reportId": 1347,
+            "frequency": "Monthly",
+            "from": "31-AUG-1996",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exchange Rate of the Indian Rupee Vis-A-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Financial Year - Annual Average and End-Year Rates)",
+            "reportId": 1348,
+            "frequency": "Annual",
+            "from": "31-JUL-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exchange Rate of the Indian Rupee Vis-a-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Calender Year - Annual Average)",
+            "reportId": 1349,
+            "frequency": "Annual",
+            "from": "31-DEC-1970",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (Monthly Average and End-Month Rates)",
+            "reportId": 1374,
+            "frequency": "Monthly",
+            "from": "31-Mar-1992",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Forward Premia (Inter-Bank) (Monthly Average)",
+            "reportId": 558,
+            "frequency": "Monthly",
+            "from": "31-MAR-1993",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (High and Low During the Month)",
+            "reportId": 583,
+            "frequency": "Monthly",
+            "from": "30-Apr-2008",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Daily Exchange Rate of the Indian Rupee",
+            "reportId": 675,
+            "frequency": "Daily",
+            "from": "25-AUG-1998",
+            "to": "10-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Daily Forward Premia (Inter-Bank)",
+            "reportId": 698,
+            "frequency": "Daily",
+            "from": "04-NOV-2003",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Daily Forward Premia (USD vis-a-vis INR) (in Paise)",
+            "reportId": 767,
+            "frequency": "Daily",
+            "from": "08-AUG-2000",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Average Exchange Rates (EURO,GBP,JPY,USD)",
+            "reportId": 719,
+            "frequency": "Monthly",
+            "from": "31-MAY-1966",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Average Exchange Rate (155 Currencies)",
+            "reportId": 720,
+            "frequency": "Monthly",
+            "from": "31-MAY-1966",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Market",
+    "subsection": "Government Securities Market",
+    "reportPath": "/dbie/reports/Statistics/Financial Market/Government Securities Market",
+    "groups": [
+      {
+        "title": "Government Securities Market",
+        "reports": [
+          {
+            "reportName": "Auctions of 91-Day Government of India Treasury Bills",
+            "reportId": 663,
+            "frequency": "Weekly",
+            "from": "08-Jan-1993",
+            "to": "08-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Ownership of Central and State Government Securities",
+            "reportId": 1371,
+            "frequency": "Annual",
+            "from": "20-Aug-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Interest Rates on Central and State Government Dated Securities",
+            "reportId": 1370,
+            "frequency": "Annual",
+            "from": "01-Aug-1980",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Ownership Pattern of Government of India Dated Securities",
+            "reportId": 1369,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2007",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Yield of SGL Transactions in Government Dated Securiites for Various Maturities",
+            "reportId": 1368,
+            "frequency": "Monthly",
+            "from": "20-AUG-2021",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Open Market Operations of Reserve Bank of India",
+            "reportId": 1367,
+            "frequency": "Monthly",
+            "from": "30-APR-2016",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Auctions of 364-Day Government of India Treasury Bills",
+            "reportId": 1366,
+            "frequency": "Weekly",
+            "from": "7-Apr- 1998",
+            "to": "08-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Auctions of 182-Day Government of India Treasury Bills",
+            "reportId": 1365,
+            "frequency": "Weekly",
+            "from": "06-Apr-2005",
+            "to": "08-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Turnover in Government Securities Market (Face Value)",
+            "reportId": 1364,
+            "frequency": "Weekly",
+            "from": "03-Apr-1998",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Secondary Market Outright Transactions in Government Securities (Face Value)",
+            "reportId": 1363,
+            "frequency": "Weekly",
+            "from": "03-Apr-1998",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Maturity Pattern of Government of India Rupee loans",
+            "reportId": 1362,
+            "frequency": "Annual",
+            "from": "31-Mar-1975",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Secondary Market Repo Transactions In Government Securities (Face Value)",
+            "reportId": 769,
+            "frequency": "Weekly",
+            "from": "03-Apr-1998",
+            "to": "10-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Details of State Governments Market Borrowings",
+            "reportId": 1213,
+            "frequency": "Weekly",
+            "from": "19-Jan-2006",
+            "to": "13-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outstanding List of all SLR eligible securities",
+            "reportId": 1207,
+            "frequency": "Daily",
+            "from": "20-JAN-2006",
+            "to": "16-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Yield of SGL Transactions in Treasury Bills for Residual Maturities",
+            "reportId": 809,
+            "frequency": "Monthly",
+            "from": "30-APR-1996",
+            "to": "31-JUL-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Auctions of 14-Day Government of India Treasury Bills  (Discontinued)",
+            "reportId": 808,
+            "frequency": "Weekly",
+            "from": "18-Jun-1999",
+            "to": "07-JUN-2023",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Government of India : Treasury Bills Outstanding",
+            "reportId": 681,
+            "frequency": "Weekly",
+            "from": "12-MAY-2006",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Details of Central Government Market Borrowings",
+            "reportId": 559,
+            "frequency": "Weekly",
+            "from": "25-Apr-1995",
+            "to": "10-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Market Borrowings by the Government of India and State Governments- Dated Securities",
+            "reportId": 727,
+            "frequency": "Weekly",
+            "from": "06-Jan-2012",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Secondary Market Transactions in Government Securities",
+            "reportId": 1398,
+            "frequency": "Monthly",
+            "from": "30-SEP-1994",
+            "to": "31-JUL-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Market",
+    "subsection": "Money Market",
+    "reportPath": "/dbie/reports/Statistics/Financial Market/Money Market",
+    "groups": [
+      {
+        "title": "Money Market",
+        "reports": [
+          {
+            "reportName": "Daily Money Market Operations",
+            "reportId": 659,
+            "frequency": "Daily",
+            "from": "01-JUL-2020",
+            "to": "06-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Weighted Average Call/Notice Money Rates",
+            "reportId": 690,
+            "frequency": "Daily",
+            "from": "01-Apr-2005",
+            "to": "06-APR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Weighted Average Call/Notice Money Rates",
+            "reportId": 1375,
+            "frequency": "Monthly",
+            "from": "30-APR-1991",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Certificates of Deposit",
+            "reportId": 566,
+            "frequency": "Fortnightly",
+            "from": "12-JUL-1991",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Average Daily Turnover in Select Financial Markets",
+            "reportId": 627,
+            "frequency": "Weekly",
+            "from": "06-MAY-2005",
+            "to": "30-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liquidity Operations by RBI",
+            "reportId": 702,
+            "frequency": "Daily",
+            "from": "01-NOV-2012",
+            "to": "05-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "London Inter-bank Overnight Offer Rate",
+            "reportId": 992,
+            "frequency": "Daily",
+            "from": "02-JAN-2001",
+            "to": "30-MAR-2022",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Mumbai Inter-Bank Offer Rate (MIBOR) & Mumbai Inter-Bank Bid Rate (MIBID)",
+            "reportId": 993,
+            "frequency": "Daily",
+            "from": "15-JUN-1998",
+            "to": "11-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Repo/ Reverse Repo Auction Under Liquidity Adjustment Facility",
+            "reportId": 1211,
+            "frequency": "Daily",
+            "from": "03-APR-2001",
+            "to": "10-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Commercial Paper",
+            "reportId": 1395,
+            "frequency": "Bi-Monthly",
+            "from": "15-JUN-2011",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Average Daily Turnover in Call Money Market - Weekly",
+            "reportId": 1396,
+            "frequency": "Weekly",
+            "from": "05-AUG-2011",
+            "to": "02-DEC-2016",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Weighted Average Call/Notice Money Rates",
+            "reportId": 1397,
+            "frequency": "Weekly",
+            "from": "08-JAN-2010",
+            "to": "13-FEB-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Monetary Statistics",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Monetary Statistics",
+    "groups": [
+      {
+        "title": "Monetary Statistics",
+        "reports": [
+          {
+            "reportName": "Components of Money Stock",
+            "reportId": 1373,
+            "frequency": "Monthly",
+            "from": "01-APR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Reserve Money: Components and Sources - Monthly",
+            "reportId": 781,
+            "frequency": "Monthly",
+            "from": "29-JUN-2001",
+            "to": "12-DEC-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Money Stock: Components and Sources",
+            "reportId": 770,
+            "frequency": "Fortnightly",
+            "from": "12-JAN-2001",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Monetary Aggregates - Growth Rates",
+            "reportId": 568,
+            "frequency": "Annual",
+            "from": "31-MAR-1970",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Reserve Bank of India - Liabilities & Assets",
+            "reportId": 1004,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Commercial Bank Survey",
+            "reportId": 903,
+            "frequency": "Monthly",
+            "from": "26-MAR-1999",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "RBI - Liabilities & Assets",
+            "reportId": 761,
+            "frequency": "Monthly",
+            "from": "02-JUL-2004",
+            "to": "27-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Reserve Money: Components and Sources",
+            "reportId": 751,
+            "frequency": "Weekly",
+            "from": "2001-JUL-06",
+            "to": "12-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Reserve Money: Components and Sources - Yearly",
+            "reportId": 729,
+            "frequency": "Annual",
+            "from": "2001-Apr-01",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Components of Money Stock",
+            "reportId": 586,
+            "frequency": "Annual",
+            "from": "1951-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Commercial Bank Survey",
+            "reportId": 443,
+            "frequency": "Fortnightly",
+            "from": "26-MAR-1999",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monetary Survey",
+            "reportId": 556,
+            "frequency": "Fortnightly",
+            "from": "23-APR-1999",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sources of Money Stock",
+            "reportId": 547,
+            "frequency": "Annual",
+            "from": "1951-Mar-30",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "RESERVE BANK OF INDIA SURVEY",
+            "reportId": 546,
+            "frequency": "Monthly",
+            "from": "29-FEB-1952",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "RBI's Standing Facilities",
+            "reportId": 545,
+            "frequency": "Monthly",
+            "from": "22-APR-1911",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monetary Survey",
+            "reportId": 544,
+            "frequency": "Monthly",
+            "from": "31-MAR-1999",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Reserve Bank of India - Liabilities & Assets",
+            "reportId": 447,
+            "frequency": "Weekly",
+            "from": "02-JUL-2004",
+            "to": "03-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Notes and Coins in Circulation",
+            "reportId": 446,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Average Monetary Aggregates",
+            "reportId": 445,
+            "frequency": "Annual",
+            "from": "31-MAR-1952",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sources of Money Stock",
+            "reportId": 444,
+            "frequency": "Monthly",
+            "from": "01-APR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Monetary Ratios",
+            "reportId": 764,
+            "frequency": "Annual",
+            "from": "30-MAR-1952",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Financial Institutions",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Financial Institutions",
+    "groups": [
+      {
+        "title": "Financial Institutions",
+        "reports": [
+          {
+            "reportName": "Operations of HDFC",
+            "reportId": 1372,
+            "frequency": "Annual",
+            "from": "31-MAR-1979",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of IFCI",
+            "reportId": 391,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Industrial Refinance by Reserve Bank of India",
+            "reportId": 801,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2022",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Resource Mobilisation in the Private Placement Market",
+            "reportId": 398,
+            "frequency": "Annual",
+            "from": "31-MAR-1996",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "National Bank for Agriculture and Rural Development - Financial Assistance",
+            "reportId": 396,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of SIDBI",
+            "reportId": 395,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of SFCs",
+            "reportId": 394,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of NHB",
+            "reportId": 393,
+            "frequency": "Annual",
+            "from": "30-JUN-1989",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of NABARD",
+            "reportId": 392,
+            "frequency": "Annual",
+            "from": "31-MAR-1990",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Assets Under Management of Mutual Funds",
+            "reportId": 382,
+            "frequency": "Annual",
+            "from": "31-MAR-1997",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Investments by LIC",
+            "reportId": 390,
+            "frequency": "Annual",
+            "from": "31-MAR-1979",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Financial Assistance Sanctioned and Disbursed by All Financial Institutions",
+            "reportId": 389,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Disbursements by National Housing Bank Under its Refinance Schemes",
+            "reportId": 388,
+            "frequency": "Annual",
+            "from": "31-MAR-1989",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (General Fund)",
+            "reportId": 387,
+            "frequency": "Annual",
+            "from": "31-DEC-1982",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Deposit Insurance Fund)",
+            "reportId": 386,
+            "frequency": "Annual",
+            "from": "31-DEC-1982",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Credit Guarantee Fund)",
+            "reportId": 385,
+            "frequency": "Annual",
+            "from": "31-DEC-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Deposit Insurance and Credit Guarantee Corporation - Insured Deposits",
+            "reportId": 384,
+            "frequency": "Annual",
+            "from": "31-DEC-1962",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bonds Issued by Public Sector Undertakings",
+            "reportId": 383,
+            "frequency": "Annual",
+            "from": "31-MAR-1979",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of EXIM Bank",
+            "reportId": 873,
+            "frequency": "Annual",
+            "from": "31-MAR-1982",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Banking - Sectoral Statistics",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Sectoral Statistics",
+    "groups": [
+      {
+        "title": "Banking - Sectoral Statistics",
+        "reports": [
+          {
+            "reportName": "Ownership of Deposits with Scheduled Commercial Banks",
+            "reportId": 737,
+            "frequency": "Annual",
+            "from": "31-MAR-2019",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Direct Institutional Credit for Agriculture and Allied Activities - Short-Term  (Discontinued)",
+            "reportId": 473,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Food & Non-Food Credit of Scheduled Commercial Banks",
+            "reportId": 1130,
+            "frequency": "Fortnightly",
+            "from": "06-Jun-1997",
+            "to": "15-MAR-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Institutional Credit for Agriculture and Allied Activities",
+            "reportId": 337,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Disbursements) - Short-Term & Long-Term Loans  (Discontinued)",
+            "reportId": 756,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Deposits of SCBs - Region, State, District, Bank Group, Population Group-Wise - Annual",
+            "reportId": 1223,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2018",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Credit of SCBs - Bank Group, Population Group, Occupation (Sector), District Wise - Annual",
+            "reportId": 1222,
+            "frequency": "Annual",
+            "from": "31-MAR-2010",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sectoral Deployment of Non-Food Gross Bank Credit - Outstanding",
+            "reportId": 999,
+            "frequency": "Annual",
+            "from": "18-JAN-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outstanding Advances of Scheduled Commercial Banks to Exporters  (Discontinued)",
+            "reportId": 906,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2005",
+            "to": "30-JUN-2018",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outstanding Advances of Scheduled Commercial Banks for Public Food Procurement Operations",
+            "reportId": 905,
+            "frequency": "Monthly",
+            "from": "31-JAN-2005",
+            "to": "27-JUN-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Direct Institutional Credit for Agriculture and Allied Activities - Long-Term  (Discontinued)",
+            "reportId": 790,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Position of Sick SSI Units and Sick/Weak Non-SSI Units Financed by Scheduled Commercial Banks  (Discontinued)",
+            "reportId": 762,
+            "frequency": "Annual",
+            "from": "31-MAR-1987",
+            "to": "31-MAR-2017",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks' Advances to Small Scale Industries and Allied Services - Outstanding  (Discontinued)",
+            "reportId": 758,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2020",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Outstanding) - Short-Term & Long-Term Loans (Discontinued)",
+            "reportId": 757,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Indirect Institutional Credit for Agriculture and Allied Activities (Discontinued)",
+            "reportId": 749,
+            "frequency": "Annual",
+            "from": "31-MAR-1972",
+            "to": "31-MAR-2022",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Industry-Wise Deployment of Gross Bank Credit",
+            "reportId": 541,
+            "frequency": "Annual",
+            "from": "18-JAN-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Self-Help Group - Bank Linkage Programme",
+            "reportId": 338,
+            "frequency": "Annual",
+            "from": "01-APR-1992",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks' Advances to Agriculture - Outstanding  (Discontinued)",
+            "reportId": 474,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2020",
+            "period": "",
+            "tableNo": "11",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Group-Wise Distribution of Employees of Scheduled Commercial Banks",
+            "reportId": 557,
+            "frequency": "Annual",
+            "from": "31-MAR-1992",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "71",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "DEPLOYMENT OF BANK CREDIT BY MAJOR SECTORS",
+            "reportId": 539,
+            "frequency": "Monthly",
+            "from": "18-JAN-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "120",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "INDUSTRY-WISE DEPLOYMENT OF BANK CREDIT",
+            "reportId": 540,
+            "frequency": "Monthly",
+            "from": "18-JAN-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "138",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Banking - Performance Indicators",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Performance Indicators",
+    "groups": [
+      {
+        "title": "Banking - Performance Indicators",
+        "reports": [
+          {
+            "reportName": "Bank Group-wise Classification of Loan Assets of Scheduled Commercial Banks",
+            "reportId": 665,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Composition of NPAs of Public Sector Banks",
+            "reportId": 910,
+            "frequency": "Annual",
+            "from": "31-MAR-2003",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Variables to be published Bank and Bank Group wise (For Public Access)",
+            "reportId": 1221,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2002",
+            "to": "30-SEP-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank-wise and Bank Group-wise Gross Non-Performing Assets, Gross Advances, and Gross NPA Ratios of Scheduled Commercial Banks",
+            "reportId": 336,
+            "frequency": "Annual",
+            "from": "31-MAR-2004",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "64",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Distribution of Scheduled Commercial Banks by CRAR",
+            "reportId": 329,
+            "frequency": "Annual",
+            "from": "31-MAR-1996",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "89",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks - Ratios",
+            "reportId": 332,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "21-MAR-2025",
+            "period": "",
+            "tableNo": "118",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Gross and Net NPAs of Scheduled Commercial Banks - Bank Group-Wise",
+            "reportId": 330,
+            "frequency": "Annual",
+            "from": "31-MAR-1997",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "141",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Important Banking Indicators - Regional Rural Banks - Outstanding",
+            "reportId": 331,
+            "frequency": "Annual",
+            "from": "31-MAR-1980",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "219",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Banking - Assets & Liabilities",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Banking - Assets & Liabilities",
+    "groups": [
+      {
+        "title": "Banking - Assets & Liabilities",
+        "reports": [
+          {
+            "reportName": "Scheduled Commercial Bank's Investments",
+            "reportId": 741,
+            "frequency": "Fortnightly",
+            "from": "06-JUN-1997",
+            "to": "15-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks - Select Aggregates",
+            "reportId": 803,
+            "frequency": "Monthly",
+            "from": "22-JAN-2016",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Group-wise Business of Scheduled Banks in India",
+            "reportId": 987,
+            "frequency": "Monthly",
+            "from": "2005-Mar-31",
+            "to": "21-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State-wise Distribution of Liabilities and Assets of District Central Co-operative Banks",
+            "reportId": 939,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Group-wise Insured Deposits",
+            "reportId": 938,
+            "frequency": "Annual",
+            "from": "30-SEP-2005",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Business of Scheduled Banks in India",
+            "reportId": 937,
+            "frequency": "Monthly",
+            "from": "01-MAR-2005",
+            "to": "21-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State-wise Distribution of Scheduled Commercial Banks' Investments in State Government Securities and Shares/Debentures/Bonds of State Level Bodies  (Discontinued)",
+            "reportId": 909,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Liabilities and Assets of Indian Scheduled Commercial Banks in Foreign Countries",
+            "reportId": 904,
+            "frequency": "Annual",
+            "from": "31-MAR-2004",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks - Select Aggregates",
+            "reportId": 901,
+            "frequency": "Fortnightly",
+            "from": "30-MAY-1997",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Scheduled Commercial Banks - Select Aggregates - Annual",
+            "reportId": 879,
+            "frequency": "Annual",
+            "from": "30-MAR-1951",
+            "to": "21-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State-wise Distribution of Liabilities and Assets of State Co-operative Banks",
+            "reportId": 988,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Investments of Scheduled Commercial Banks (Discontinued)",
+            "reportId": 747,
+            "frequency": "Annual",
+            "from": "2005-Mar-31",
+            "to": "31-MAR-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Business in India - All Scheduled Banks and All Scheduled Commercial Banks",
+            "reportId": 998,
+            "frequency": "Monthly",
+            "from": "1997-May-30",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Unclaimed Deposits with Scheduled Commercial Banks",
+            "reportId": 1005,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Cash Balances of Scheduled Commercial Banks (excluding Regional Rural Banks) with Reserve Bank of India",
+            "reportId": 326,
+            "frequency": "Daily",
+            "from": "22-JUL-2006",
+            "to": "07-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Abridged Balance Sheet - Bank Group wise - Quarterly (Discontinued)",
+            "reportId": 1209,
+            "frequency": "Quarterly",
+            "from": "31-MAR-1997",
+            "to": "30-SEP-2013",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "RTP: Growth Rate of Select Balance Sheet Indicators of Sch. UCBs",
+            "reportId": 1214,
+            "frequency": "Annual",
+            "from": "31-MAR-1997",
+            "to": "31-MAR-2011",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "RTP: Select Balance Sheet Indicators of Primary Agricultural Credit Societies (PACS)",
+            "reportId": 1215,
+            "frequency": "Annual",
+            "from": "31-MAR-1997",
+            "to": "31-MAR-2011",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Flow of Financial Resources from Scheduled Commercial Banks to the Commercial Sector",
+            "reportId": 1248,
+            "frequency": "Fortnightly",
+            "from": "2017-Apr-14",
+            "to": "21-FEB-2025",
+            "period": "",
+            "tableNo": "6",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Group-wise and Instrument-wise Derivatives of Scheduled Commercial Banks in India",
+            "reportId": 679,
+            "frequency": "Annual",
+            "from": "2012-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "32",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State Co-operative Banks Maintaining Accounts with the RBI",
+            "reportId": 322,
+            "frequency": "Monthly",
+            "from": "28-NOV-1997",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State Co-operative Banks Maintaining Accounts with the Reserve Bank of India",
+            "reportId": 579,
+            "frequency": "Annual",
+            "from": "1971-Mar-31",
+            "to": "28-MAR-2025",
+            "period": "",
+            "tableNo": "131",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Loans and Advances of PACS, SCARDBs and PCARDBs",
+            "reportId": 324,
+            "frequency": "Annual",
+            "from": "31-MAR-1978",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "132",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Non-Performing Assets of Co-operative Banks",
+            "reportId": 325,
+            "frequency": "Annual",
+            "from": "31-MAR-1995",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "133",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consolidated Balance Sheet of Scheduled Commercial Banks (Excluding Regional Rural Banks)",
+            "reportId": 323,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "147",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Aggregates of Scheduled Commercial Banks - Growth Rates",
+            "reportId": 872,
+            "frequency": "Annual",
+            "from": "28-MAR-1952",
+            "to": "21-MAR-2025",
+            "period": "",
+            "tableNo": "222",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "List of Amalgamated Regional Rural Banks",
+            "reportId": 1216,
+            "frequency": "Annual",
+            "from": "31-AUG-2006",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Payment Systems",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Payment Systems",
+    "groups": [
+      {
+        "title": "Payment Systems",
+        "reports": [
+          {
+            "reportName": "Cheque Clearances",
+            "reportId": 678,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Payment System Indicators",
+            "reportId": 907,
+            "frequency": "Annual",
+            "from": "1970-Mar-31",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Number of Clearing Houses",
+            "reportId": 936,
+            "frequency": "Annual",
+            "from": "2005-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Payment System Indicators",
+            "reportId": 778,
+            "frequency": "Monthly",
+            "from": "30-APR-2004",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Non Banking Financial Companies",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Non Banking Financial Companies",
+    "groups": [
+      {
+        "title": "Non Banking Financial Companies",
+        "reports": [
+          {
+            "reportName": "Aggregate Deposits of the NBFC Sector",
+            "reportId": 450,
+            "frequency": "Annual",
+            "from": "31-MAR-1998",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Financial Statistics of NBFC Sector",
+            "reportId": 760,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2012",
+            "to": "31-MAR-2015",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Credit to Various Sectors by NBFCs",
+            "reportId": 1198,
+            "frequency": "Annual",
+            "from": "31-MAR-2016",
+            "to": "31-MAR-2018",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Financial Sector",
+    "subsection": "Key Rates",
+    "reportPath": "/dbie/reports/Statistics/Financial Sector/Key Rates",
+    "groups": [
+      {
+        "title": "Key Rates",
+        "reports": [
+          {
+            "reportName": "Major Monetary Policy Measures - Bank Rate, CRR & SLR",
+            "reportId": 440,
+            "frequency": "Quarterly",
+            "from": "04-JUL-1935",
+            "to": "05-DEC-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Structure of Interest Rates",
+            "reportId": 441,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Weighted Average Lending Rate (Discontinued)",
+            "reportId": 755,
+            "frequency": "Annual",
+            "from": "31-MAR-1992",
+            "to": "31-MAR-2014",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Bank Group-wise and Occupation-wise Weighted Average Lending Rate and Deposit Rate  (Discontinued)",
+            "reportId": 1205,
+            "frequency": "Annual",
+            "from": "31-MAR-2005",
+            "to": "31-MAR-2014",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "MPC voting pattern-Policy rate",
+            "reportId": 1491,
+            "frequency": "As and When",
+            "from": "04-OCT-2016",
+            "to": "08-APR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Public Finance",
+    "subsection": "Central Govt. Finance",
+    "reportPath": "/dbie/reports/Statistics/Public Finance/Central Govt. Finance",
+    "groups": [
+      {
+        "title": "Central Govt. Finance",
+        "reports": [
+          {
+            "reportName": "Financing of Public Sector Plan (Discontinued)",
+            "reportId": 608,
+            "frequency": "Annual",
+            "from": "31-MAR-1986",
+            "to": "31-MAR-2017",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Central Government Receipts - Major Components",
+            "reportId": 655,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Centre's Gross Fiscal Deficit and its Financing",
+            "reportId": 656,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Key Deficit Indicators of the Central Government",
+            "reportId": 713,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Month-Wise Gross Fiscal Deficit of the Central Government",
+            "reportId": 349,
+            "frequency": "Monthly",
+            "from": "30-APR-1994",
+            "to": "30-JUN-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Gross Capital Formation from Budgetary Resources of the Central Government",
+            "reportId": 350,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2018",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Major Heads of Capital Receipts of the Central Government",
+            "reportId": 351,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Major Heads of Developmental and Non-Developmental Expenditure of the Central Government",
+            "reportId": 352,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Major Heads of Expenditure of the Central Government",
+            "reportId": 353,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Fiscal Indicators of the Central Government (As Percentage to GDP)",
+            "reportId": 355,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Small Savings Schemes",
+            "reportId": 356,
+            "frequency": "Annual",
+            "from": "01-APR-1992",
+            "to": "01-JUL-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Small Savings",
+            "reportId": 581,
+            "frequency": "Monthly",
+            "from": "30-APR-1992",
+            "to": "31-AUG-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Small Savings",
+            "reportId": 600,
+            "frequency": "Annual",
+            "from": "1982-Mar-31",
+            "to": "31-AUG-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Public Sector Plan Outlay (At Current Prices)  (Discontinued)",
+            "reportId": 748,
+            "frequency": "Annual",
+            "from": "31-MAR-1986",
+            "to": "31-MAR-2017",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outstanding Liabilities of Central Government",
+            "reportId": 1399,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Public Finance",
+    "subsection": "Central & State Govt. Finance (Combined)",
+    "reportPath": "/dbie/reports/Statistics/Public Finance/Central & State Govt. Finance (Combined)",
+    "groups": [
+      {
+        "title": "Central & State Govt. Finance (Combined)",
+        "reports": [
+          {
+            "reportName": "Direct and Indirect Tax Revenues of Central and State Governments",
+            "reportId": 673,
+            "frequency": "Annual",
+            "from": "1981-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Combined Liabilities of Central and State Governments",
+            "reportId": 339,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Developmental and Non-Developmental Expenditure of Central and State Governments",
+            "reportId": 340,
+            "frequency": "Annual",
+            "from": "1981-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Market Borrowings of Central and State Governments",
+            "reportId": 341,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Debt Indicators of the Central and State Governments (As Percentage to GDP)",
+            "reportId": 342,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Combined Deficit of Central and State Governments",
+            "reportId": 346,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Combined Deficits of the Central and State Governments (As Percentage to GDP)",
+            "reportId": 347,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Receipts and Disbursements of Central and State Governments",
+            "reportId": 721,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "130",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Public Finance",
+    "subsection": "State Govt. Finance",
+    "reportPath": "/dbie/reports/Statistics/Public Finance/State Govt. Finance",
+    "groups": [
+      {
+        "title": "State Govt. Finance",
+        "reports": [
+          {
+            "reportName": "Expenditure Pattern of the State Governments",
+            "reportId": 677,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Pattern of Receipts of the State Governments",
+            "reportId": 709,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Key Deficit Indicators of the State Governments",
+            "reportId": 451,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Outstanding Liabilities of the State Governments",
+            "reportId": 452,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Pattern of Major Capital Receipts of the State Governments",
+            "reportId": 453,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Fiscal Indicators of the State Governments (As Percentage to GDP)",
+            "reportId": 454,
+            "frequency": "Annual",
+            "from": "31-MAR-1974",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "States' Gross Fiscal Deficit and its Financing",
+            "reportId": 692,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Real Sector",
+    "subsection": "Prices & Wages",
+    "reportPath": "/dbie/reports/Statistics/Real Sector/Prices & Wages",
+    "groups": [
+      {
+        "title": "Prices & Wages",
+        "reports": [
+          {
+            "reportName": "Consumer Price Index for Rural Labourer - By Group (Year-End)",
+            "reportId": 712,
+            "frequency": "Annual",
+            "from": "31-MAR-1996",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Diffusion Indices based on CPI data",
+            "reportId": 1458,
+            "frequency": "Monthly",
+            "from": "01-FEB-2014",
+            "to": "01-DEC-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Industrial Workers - By Group (Year-End)",
+            "reportId": 711,
+            "frequency": "Annual",
+            "from": "31-Mar-1969",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Agricultural Labourer - By Group (Year-End)",
+            "reportId": 708,
+            "frequency": "Annual",
+            "from": "31-MAR-1996",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "House Price Index",
+            "reportId": 688,
+            "frequency": "Quarterly",
+            "from": "31-MAR-2009",
+            "to": "31-DEC-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index - Rural, Urban, Combined (All India)",
+            "reportId": 626,
+            "frequency": "Monthly",
+            "from": "31-JAN-2011",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index - Annual Average",
+            "reportId": 876,
+            "frequency": "Annual",
+            "from": "1970-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Wholesale Price Index - Annual Average",
+            "reportId": 520,
+            "frequency": "Annual",
+            "from": "31-MAR-1953",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Wholesale Price Index Data - Weekly (Discontinued)",
+            "reportId": 1210,
+            "frequency": "Weekly",
+            "from": "04-FEB-1994",
+            "to": "21-DEC-2012",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Agricultural Labourer - By Group (Annual Average)",
+            "reportId": 1174,
+            "frequency": "Annual",
+            "from": "31-MAR-1967",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index Numbers for Industrial Workers - All-India and Selected Centres",
+            "reportId": 1168,
+            "frequency": "Monthly",
+            "from": "31-AUG-1968",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Wholesale Price Index - Monthly Data",
+            "reportId": 1062,
+            "frequency": "Monthly",
+            "from": "30-Apr-1982",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index Numbers for Agricultural/Rural Labourers (State-Wise)",
+            "reportId": 1060,
+            "frequency": "Monthly",
+            "from": "30-SEP-1964",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index - Rural, Urban, Combined (State-Wise)",
+            "reportId": 994,
+            "frequency": "Monthly",
+            "from": "2011-Jan-31",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index (Average of Months) - Annual Variation",
+            "reportId": 902,
+            "frequency": "Annual",
+            "from": "31-MAR-1967",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index - Annual Variation",
+            "reportId": 889,
+            "frequency": "Monthly",
+            "from": "30-Apr-1967",
+            "to": "31-JUL-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Gold and Silver - Yearly Average Price in Domestic and Foreign Markets",
+            "reportId": 674,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Rural Labourer - By Group (Annual Average)",
+            "reportId": 759,
+            "frequency": "Annual",
+            "from": "31-Mar-1996",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Monthly Average Price of Gold and Silver in Domestic and Foreign Markets",
+            "reportId": 519,
+            "frequency": "Monthly",
+            "from": "01-APR-1990",
+            "to": "01-JAN-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Wholesale Price Index - Annual Variation",
+            "reportId": 521,
+            "frequency": "Annual",
+            "from": "31-Mar-1971",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Rural Labourer - Monthly",
+            "reportId": 707,
+            "frequency": "Monthly",
+            "from": "30-Nov-1995",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Average Daily Wage Rates (in Rs.) in Rural India for Men",
+            "reportId": 664,
+            "frequency": "Monthly",
+            "from": "30-Apr-1998",
+            "to": "23-APR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Industrial Workers - By Group ( Annual Average )",
+            "reportId": 763,
+            "frequency": "Annual",
+            "from": "31-Mar-1969",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Agricultural Labourer - Monthly",
+            "reportId": 700,
+            "frequency": "Monthly",
+            "from": "30-APR-1966",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Consumer Price Index for Industrial Workers - Monthly",
+            "reportId": 699,
+            "frequency": "Monthly",
+            "from": "31-Aug-1968",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "34",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Real Sector",
+    "subsection": "National Income",
+    "reportPath": "/dbie/reports/Statistics/Real Sector/National Income",
+    "groups": [
+      {
+        "title": "National Income",
+        "reports": [
+          {
+            "reportName": "Net State Value Added by Economic Activity (At Current Prices) (Base: 2011-12)",
+            "reportId": 871,
+            "frequency": "Annual",
+            "from": "2000-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Current Prices)",
+            "reportId": 550,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net State Value Added by Economic Activity (At Constant Prices) (Base: 2011-12)",
+            "reportId": 981,
+            "frequency": "Annual",
+            "from": "31-Mar-2000",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Components of Gross Domestic Product (at Market Prices)",
+            "reportId": 897,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Macro Economic Aggregates (at Constant Prices)",
+            "reportId": 888,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Macro Economic Aggregates (at Current Prices)",
+            "reportId": 882,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Gross State Domestic Product (SDP) - Annual",
+            "reportId": 806,
+            "frequency": "Annual",
+            "from": "2000-Mar-31",
+            "to": "31-MAR-2022",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Components of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price",
+            "reportId": 794,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Employment in Public and Organised Private Sector",
+            "reportId": 595,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net State Domestic Product at Factor Cost - State-Wise (at Current Prices)",
+            "reportId": 594,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Constant Prices)",
+            "reportId": 564,
+            "frequency": "Annual",
+            "from": "1961-Mar-31",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Constant Prices)",
+            "reportId": 504,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1996",
+            "to": "30-SEP-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sector-Wise Gross Capital Formation",
+            "reportId": 514,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sector-Wise Domestic Savings (at Current Prices)",
+            "reportId": 513,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Current Prices)",
+            "reportId": 512,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices)",
+            "reportId": 511,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices)",
+            "reportId": 510,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Gross/Net Capital Formation",
+            "reportId": 509,
+            "frequency": "Annual",
+            "from": "1950-Mar-31",
+            "to": "31-MAR-2018",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Changes in Financial Assets/Liabilities of the Household Sector",
+            "reportId": 508,
+            "frequency": "Annual",
+            "from": "31-MAR-1971",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Quarterly Estimates of Gross Domestic Product at Market Prices (at Current Prices)",
+            "reportId": 507,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1996",
+            "to": "30-SEP-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Quarterly Estimates of Gross Domestic Product at Market Prices (at Constant Prices)",
+            "reportId": 506,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1996",
+            "to": "30-SEP-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Current Prices)",
+            "reportId": 505,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1996",
+            "to": "30-SEP-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Real Sector",
+    "subsection": "Industrial Statistics",
+    "reportPath": "/dbie/reports/Statistics/Real Sector/Industrial Statistics",
+    "groups": [
+      {
+        "title": "Industrial Statistics",
+        "reports": [
+          {
+            "reportName": "Annual Survey of Industries - Principal Characteristics",
+            "reportId": 497,
+            "frequency": "Annual",
+            "from": "31-MAR-1991",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Implementation of Central Sector Projects - Status",
+            "reportId": 498,
+            "frequency": "Annual",
+            "from": "31-MAR-1995",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Core Industries",
+            "reportId": 499,
+            "frequency": "Annual",
+            "from": "31-Mar-1995",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Performance of SSI sector",
+            "reportId": 500,
+            "frequency": "Annual",
+            "from": "31-MAR-1974",
+            "to": "31-MAR-2017",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Production and Imports of Crude Oil and Petroleum Products",
+            "reportId": 501,
+            "frequency": "Annual",
+            "from": "31-MAR-1973",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Sector-Wise Cost Overrun of Delayed Central Sector Projects",
+            "reportId": 502,
+            "frequency": "Annual",
+            "from": "31-MAR-1995",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Major Industry Groups of Manufacturing Sector",
+            "reportId": 587,
+            "frequency": "Annual",
+            "from": "31-Mar-1995",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Major Industry Groups of Manufacturing Sector",
+            "reportId": 657,
+            "frequency": "Monthly",
+            "from": "1995-Mar-31",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Industrial Production - Use-Based Classification",
+            "reportId": 701,
+            "frequency": "Annual",
+            "from": "31-MAR-1982",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Production of Select Industries",
+            "reportId": 874,
+            "frequency": "Annual",
+            "from": "1981-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Core Industries - Growth Rates",
+            "reportId": 989,
+            "frequency": "Annual",
+            "from": "1994-Mar-31",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index of Industrial Production",
+            "reportId": 1059,
+            "frequency": "Monthly",
+            "from": "1994-Mar-31",
+            "to": "28-FEB-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Real Sector",
+    "subsection": "Agriculture",
+    "reportPath": "/dbie/reports/Statistics/Real Sector/Agriculture",
+    "groups": [
+      {
+        "title": "Agriculture",
+        "reports": [
+          {
+            "reportName": "Area Under Cultivation - Major Commercial Crops",
+            "reportId": 458,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Agricultural Production - Major Crops",
+            "reportId": 459,
+            "frequency": "Annual",
+            "from": "31-MAR-1981",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India",
+            "reportId": 460,
+            "frequency": "Annual",
+            "from": "31-MAR-1950",
+            "to": "31-MAR-2025",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Minimum Support Price for Foodgrains According to Crop Year",
+            "reportId": 461,
+            "frequency": "Annual",
+            "from": "31-MAR-1976",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Minimum Support Price for Non-Foodgrains According to Crop Year",
+            "reportId": 462,
+            "frequency": "Annual",
+            "from": "31-MAR-1976",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Pattern of Land Use and Select Inputs for Agricultural Production",
+            "reportId": 463,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Public Distribution System - Procurement Off-Take and Stocks",
+            "reportId": 464,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "State-Wise Production of Foodgrains and Major Non-Foodgrain Crops",
+            "reportId": 465,
+            "frequency": "Annual",
+            "from": "1980-Mar-31",
+            "to": "31-MAR-2023",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Agricultural Production - Foodgrains",
+            "reportId": 623,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Agricultural Production - Major Commercial Crops",
+            "reportId": 624,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Area Under Cultivation - Foodgrains",
+            "reportId": 625,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Yield Per Hectare - Foodgrains",
+            "reportId": 886,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Yield Per Hectare - Major Commercial Crops",
+            "reportId": 887,
+            "frequency": "Annual",
+            "from": "31-MAR-1951",
+            "to": "31-MAR-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Socio-Economic Indicators",
+    "subsection": "Socio-Economic Indicators",
+    "reportPath": "/dbie/reports/Statistics/Socio-Economic Indicators/Socio-Economic Indicators",
+    "groups": [
+      {
+        "title": "Socio-Economic Indicators",
+        "reports": [
+          {
+            "reportName": "Number and Percentage of Population Below Poverty Line",
+            "reportId": 1376,
+            "frequency": "Annual",
+            "from": "01-Mar-1974",
+            "to": "01-MAR-2012",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Employment Situation in India - Per 1000 Distribution of Usually Employed by Broad Groups of Industry for Various Rounds",
+            "reportId": 522,
+            "frequency": "Annual",
+            "from": "31-Dec-1983",
+            "to": "30-JUN-2024",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Statistics",
+    "category": "Surveys – Aggregated Data",
+    "subsection": "Survey of Professional Forecasters",
+    "reportPath": "/dbie/reports/Statistics/Surveys – Aggregated Data/Survey of Professional Forecasters",
+    "groups": [
+      {
+        "title": "Survey of Professional Forecasters",
+        "reports": [
+          {
+            "reportName": "Round-wise Aggregate Tables",
+            "reportId": 1475,
+            "frequency": "Bi-Monthly",
+            "from": "30-NOV-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "Survey of Professional Forecasters: Aggregate-level Time Series Data",
+            "reportId": 1476,
+            "frequency": "Bi-Monthly",
+            "from": "30-NOV-2019",
+            "to": "31-JAN-2026",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          },
+          {
+            "reportName": "SPF-Survey of Professional Forecasters- Aggregate Level Metadata",
+            "reportId": 1477,
+            "frequency": "",
+            "from": "",
+            "to": "",
+            "period": "",
+            "tableNo": "",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  }
+]

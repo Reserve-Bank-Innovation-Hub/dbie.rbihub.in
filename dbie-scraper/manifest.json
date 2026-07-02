@@ -1,0 +1,2252 @@
+{
+  "started": "2026-04-20T07:39:31.907Z",
+  "results": {
+    "BAL_SHT_FDI_COMP_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/BAL_SHT_FDI_COMP_RN.csv",
+      "bytes": 180349,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T07:40:04.111Z"
+    },
+    "BAL_SHT_FDI_LIA_COMP_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/BAL_SHT_FDI_LIA_COMP_RN.csv",
+      "bytes": 152739,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T07:40:35.827Z"
+    },
+    "EAR_EXP_FC_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/EAR_EXP_FC_RN.csv",
+      "bytes": 21295,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T07:41:06.908Z"
+    },
+    "FIN_RATIOS_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/FIN_RATIOS_RN.csv",
+      "bytes": 80055,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T07:41:38.153Z"
+    },
+    "FIN_RATIOS_COUN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/FIN_RATIOS_COUN_RN.csv",
+      "bytes": 985757,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 41,
+      "at": "2026-04-20T07:42:57.965Z"
+    },
+    "GRWT_RT_INDC_FDI_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/GRWT_RT_INDC_FDI_RN.csv",
+      "bytes": 66940,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T07:43:29.357Z"
+    },
+    "GRWT_RT_INDCO_FDI_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/GRWT_RT_INDCO_FDI_RN.csv",
+      "bytes": 745777,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T07:44:05.025Z"
+    },
+    "GRWT_RT_INDIC_FDI_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/GRWT_RT_INDIC_FDI_RN.csv",
+      "bytes": 972926,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 37,
+      "at": "2026-04-20T07:44:43.262Z"
+    },
+    "GRWT_RT_INDCT_FDI_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/GRWT_RT_INDCT_FDI_RN.csv",
+      "bytes": 143424,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 31,
+      "at": "2026-04-20T07:45:15.566Z"
+    },
+    "IND_CNTRY_FDI_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/IND_CNTRY_FDI_RN.csv",
+      "bytes": 131010,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T07:45:48.125Z"
+    },
+    "PNL_FDI_COMP_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/PNL_FDI_COMP_RN.csv",
+      "bytes": 146033,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 98,
+      "at": "2026-04-20T07:47:27.401Z"
+    },
+    "SRC_FND_FDI_COMP_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/SRC_FND_FDI_COMP_RN.csv",
+      "bytes": 84309,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T07:47:59.081Z"
+    },
+    "USE_FBD_FDI_COMP_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/USE_FBD_FDI_COMP_RN.csv",
+      "bytes": 77035,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 29,
+      "at": "2026-04-20T07:48:29.893Z"
+    },
+    "PRF_LNGNFC_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_ANN_RN.csv",
+      "bytes": 27634,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T07:49:46.908Z"
+    },
+    "PRF_LNGNFC_IND_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_IND_ANN_RN.csv",
+      "bytes": 88203,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 39,
+      "at": "2026-04-20T07:50:27.857Z"
+    },
+    "PRF_LNGNFC_INDUS_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_INDUS_ANN_RN.csv",
+      "bytes": 594066,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 35,
+      "at": "2026-04-20T07:51:03.951Z"
+    },
+    "PRF_LNGNFC_PUC_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_PUC_ANN_RN.csv",
+      "bytes": 68801,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T07:51:36.872Z"
+    },
+    "PRF_LNGNFC_SAL_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_SAL_ANN_RN.csv",
+      "bytes": 66899,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T07:52:09.538Z"
+    },
+    "PRF_LNGNFC_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_QTR_RN.csv",
+      "bytes": 143894,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T07:52:41.462Z"
+    },
+    "PRF_LNGNFC_PUC_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_PUC_QTR_RN.csv",
+      "bytes": 320603,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 35,
+      "at": "2026-04-20T07:53:17.994Z"
+    },
+    "PRF_LNGNFC_SAL_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_SAL_QTR_RN.csv",
+      "bytes": 310820,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T07:53:51.436Z"
+    },
+    "PRF_LNGNFC_QTR_IND_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_QTR_IND_RN.csv",
+      "bytes": 412353,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 34,
+      "at": "2026-04-20T07:54:26.849Z"
+    },
+    "RATIO_LNGNFC_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_ANN_RN.csv",
+      "bytes": 11813,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T07:54:59.915Z"
+    },
+    "RATIO_LNGNFC_IND_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_IND_ANN_RN.csv",
+      "bytes": 38468,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T07:55:32.715Z"
+    },
+    "RATIO_LNGNFC_SAL_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_SAL_ANN_RN.csv",
+      "bytes": 80365,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 39,
+      "at": "2026-04-20T07:56:12.775Z"
+    },
+    "RATIO_LNGNFC_PUC_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_PUC_ANN_RN.csv",
+      "bytes": 74834,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 39,
+      "at": "2026-04-20T07:56:53.188Z"
+    },
+    "RATIO_LNGNFC_INDUS_ANN_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_INDUS_ANN_RN.csv",
+      "bytes": 422254,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T07:57:28.154Z"
+    },
+    "RATIO_LNGNFC_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_QTR_RN.csv",
+      "bytes": 62181,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T07:58:03.463Z"
+    },
+    "RATIO_LNGNFC_PUC_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_PUC_QTR_RN.csv",
+      "bytes": 349271,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T07:58:36.569Z"
+    },
+    "RATIO_LNGNFC_SAL_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_SAL_QTR_RN.csv",
+      "bytes": 373573,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T07:59:56.142Z"
+    },
+    "RATIO_LNGNFC_QTR_IND_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_QTR_IND_RN.csv",
+      "bytes": 181200,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 41,
+      "at": "2026-04-20T08:00:38.773Z"
+    },
+    "BAL_SHT_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/BAL_SHT_NGNBFI_AW_RN.csv",
+      "bytes": 497778,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 36,
+      "at": "2026-04-20T08:01:15.819Z"
+    },
+    "BAL_SHT_NGNBFI_LIAB_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/BAL_SHT_NGNBFI_LIAB_AW_RN.csv",
+      "bytes": 505720,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 35,
+      "at": "2026-04-20T08:01:52.123Z"
+    },
+    "CI_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/CI_NGNBFI_AW_RN.csv",
+      "bytes": 518756,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T08:02:28.045Z"
+    },
+    "FIN_RATIOS_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/FIN_RATIOS_NGNBFI_AW_RN.csv",
+      "bytes": 200189,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 33,
+      "at": "2026-04-20T08:03:02.350Z"
+    },
+    "GWT_RT_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/GWT_RT_NGNBFI_AW_RN.csv",
+      "bytes": 172059,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 30,
+      "at": "2026-04-20T08:03:33.668Z"
+    },
+    "SRC_FND_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/SRC_FND_NGNBFI_AW_RN.csv",
+      "bytes": 309998,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T08:04:08.832Z"
+    },
+    "USES_FND_NGNBFI_AW_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Banking_Financial_and_Investment_Companies/USES_FND_NGNBFI_AW_RN.csv",
+      "bytes": 292297,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 32,
+      "at": "2026-04-20T08:04:42.832Z"
+    },
+    "BAL_SHT_PVT_FDIC_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/BAL_SHT_PVT_FDIC_RN.csv",
+      "bytes": 208106,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:05:15.648Z"
+    },
+    "BAL_SHT_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/BAL_SHT_PVT_RN.csv",
+      "bytes": 180034,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T08:05:49.522Z"
+    },
+    "EAR_EXP_FC_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/EAR_EXP_FC_PVT_RN.csv",
+      "bytes": 22107,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:06:21.618Z"
+    },
+    "FIN_RATIOS_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/FIN_RATIOS_PVT_RN.csv",
+      "bytes": 97810,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T08:06:55.455Z"
+    },
+    "GRWT_RT_INDC_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/GRWT_RT_INDC_PVT_RN.csv",
+      "bytes": 75703,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 29,
+      "at": "2026-04-20T08:08:12.942Z"
+    },
+    "PNL_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/PNL_PVT_RN.csv",
+      "bytes": 156155,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T08:09:24.934Z"
+    },
+    "SRC_FND_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/SRC_FND_PVT_RN.csv",
+      "bytes": 102315,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T08:09:56.112Z"
+    },
+    "USE_FBD_PVT_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/USE_FBD_PVT_RN.csv",
+      "bytes": 82669,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T08:10:27.896Z"
+    },
+    "BAL_SHT_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/BAL_SHT_PUB_RN.csv",
+      "bytes": 198099,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T08:11:01.151Z"
+    },
+    "BAL_SHT_PUB_CAP_LIA_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/BAL_SHT_PUB_CAP_LIA_RN.csv",
+      "bytes": 178499,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T08:11:32.961Z"
+    },
+    "EAR_EXP_FC_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/EAR_EXP_FC_PUB_RN.csv",
+      "bytes": 25494,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 29,
+      "at": "2026-04-20T08:12:03.954Z"
+    },
+    "FIN_RATIOS_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/FIN_RATIOS_PUB_RN.csv",
+      "bytes": 98271,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:12:35.967Z"
+    },
+    "FIN_RATIOS_PUB_PUC_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/FIN_RATIOS_PUB_PUC_RN.csv",
+      "bytes": 822510,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 38,
+      "at": "2026-04-20T08:13:15.204Z"
+    },
+    "FIN_RATIOS_PUB_SAL_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/FIN_RATIOS_PUB_SAL_RN.csv",
+      "bytes": 685529,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 36,
+      "at": "2026-04-20T08:13:52.748Z"
+    },
+    "GRWT_RT_INDC_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/GRWT_RT_INDC_PUB_RN.csv",
+      "bytes": 75351,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 28,
+      "at": "2026-04-20T08:15:21.469Z"
+    },
+    "GRWT_RT_INDC_PUB_PUC_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/GRWT_RT_INDC_PUB_PUC_RN.csv",
+      "bytes": 641776,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 33,
+      "at": "2026-04-20T08:15:56.028Z"
+    },
+    "GRWT_RT_INDC_PUB_SAL_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/GRWT_RT_INDC_PUB_SAL_RN.csv",
+      "bytes": 502273,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 33,
+      "at": "2026-04-20T08:16:30.979Z"
+    },
+    "PNL_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/PNL_PUB_RN.csv",
+      "bytes": 157630,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:17:48.952Z"
+    },
+    "SRC_FND_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/SRC_FND_PUB_RN.csv",
+      "bytes": 104104,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 29,
+      "at": "2026-04-20T08:18:19.647Z"
+    },
+    "USE_FBD_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/USE_FBD_PUB_RN.csv",
+      "bytes": 83562,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:18:51.934Z"
+    },
+    "EXT_DBT_RT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Debt/EXT_DBT_RT_RN.csv",
+      "bytes": 858237,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T08:19:29.502Z"
+    },
+    "IND_EXTRN_DEBT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Debt/IND_EXTRN_DEBT_RN.csv",
+      "bytes": 407044,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T08:20:04.344Z"
+    },
+    "INX_NBR_TERM_FR_TRD_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Sector_Indices/INX_NBR_TERM_FR_TRD_RN.csv",
+      "bytes": 51254,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 34,
+      "at": "2026-04-20T08:20:39.649Z"
+    },
+    "INX_NEER_REER_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Sector_Indices/INX_NEER_REER_A_RN.csv",
+      "bytes": 38551,
+      "tableRows": null,
+      "checkedCount": 6,
+      "took": 31,
+      "at": "2026-04-20T08:21:12.615Z"
+    },
+    "INX_NEER_REER_M_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Sector_Indices/INX_NEER_REER_M_RN.csv",
+      "bytes": 493832,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 38,
+      "at": "2026-04-20T08:21:51.716Z"
+    },
+    "FR_EXG_RESV_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/Forex_Reserve/FR_EXG_RESV_RN.csv",
+      "bytes": 915192,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 38,
+      "at": "2026-04-20T08:23:11.479Z"
+    },
+    "FR_EXG_RESV_M_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/Forex_Reserve/FR_EXG_RESV_M_RN.csv",
+      "bytes": 259052,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T08:23:48.951Z"
+    },
+    "EXTR_ASSIST_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/EXTR_ASSIST_RN.csv",
+      "bytes": 62125,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:24:19.993Z"
+    },
+    "FR_INV_INFLW_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/FR_INV_INFLW_RN.csv",
+      "bytes": 478109,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 37,
+      "at": "2026-04-20T08:24:58.092Z"
+    },
+    "FR_INV_INFLW_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/FR_INV_INFLW_A_RN.csv",
+      "bytes": 58829,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T08:25:30.985Z"
+    },
+    "FR_LIB_ASSTS_MUT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/FR_LIB_ASSTS_MUT_RN.csv",
+      "bytes": 22532,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 30,
+      "at": "2026-04-20T08:26:01.999Z"
+    },
+    "FR_LIB_ASS_MUT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/FR_LIB_ASS_MUT_RN.csv",
+      "bytes": 102523,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 32,
+      "at": "2026-04-20T08:26:35.330Z"
+    },
+    "FR_LIB_MUT_NRH_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/FR_LIB_MUT_NRH_RN.csv",
+      "bytes": 10291,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T08:27:10.647Z"
+    },
+    "INTR_INV_POS_IND_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/INTR_INV_POS_IND_RN.csv",
+      "bytes": 1141636,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 40,
+      "at": "2026-04-20T08:27:52.370Z"
+    },
+    "INTR_INV_POS_IND_BPM6_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/INTR_INV_POS_IND_BPM6_RN.csv",
+      "bytes": 1042001,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 40,
+      "at": "2026-04-20T08:28:33.753Z"
+    },
+    "NRI_DEPOSITS_IN_OUT_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/NRI_DEPOSITS_IN_OUT_A_RN.csv",
+      "bytes": 29624,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T08:29:08.464Z"
+    },
+    "NRI_DEPOSITS_IN_OUT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/NRI_DEPOSITS_IN_OUT_RN.csv",
+      "bytes": 96925,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:29:41.467Z"
+    },
+    "NRI_DEPOSITS_OUTS_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/NRI_DEPOSITS_OUTS_RN.csv",
+      "bytes": 108762,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T08:30:18.667Z"
+    },
+    "NRI_DEPOSITS_OUTS_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/NRI_DEPOSITS_OUTS_A_RN.csv",
+      "bytes": 28941,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:30:51.377Z"
+    },
+    "OUTW_REMIT_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Finance/OUTW_REMIT_RN.csv",
+      "bytes": 191910,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T08:31:28.889Z"
+    },
+    "BOP_INDI_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/BOP_INDI_RN.csv",
+      "bytes": 33999,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:32:00.600Z"
+    },
+    "BCCI_MER_TRD_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/BCCI_MER_TRD_RN.csv",
+      "bytes": 297452,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T08:32:33.704Z"
+    },
+    "DIR_FR_TRD_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/DIR_FR_TRD_RN.csv",
+      "bytes": 888766,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 36,
+      "at": "2026-04-20T08:33:11.476Z"
+    },
+    "EXP_PRIN_COMM_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/EXP_PRIN_COMM_RN.csv",
+      "bytes": 352615,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:33:47.061Z"
+    },
+    "EXP_SEL_PRIN_COMM_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/EXP_SEL_PRIN_COMM_RN.csv",
+      "bytes": 113205,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T08:34:20.314Z"
+    },
+    "IMP_PRIN_COMM_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/IMP_PRIN_COMM_RN.csv",
+      "bytes": 308500,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:34:56.098Z"
+    },
+    "IFT_OIL_NON_OIL_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/IFT_OIL_NON_OIL_RN.csv",
+      "bytes": 159728,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T08:35:33.783Z"
+    },
+    "IFT_OIL_NON_OIL_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/IFT_OIL_NON_OIL_A_RN.csv",
+      "bytes": 65457,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:36:06.580Z"
+    },
+    "IND_OVR_BOP_A_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/IND_OVR_BOP_A_RN.csv",
+      "bytes": 1097489,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 40,
+      "at": "2026-04-20T08:37:52.924Z"
+    },
+    "INVI_CAT_TRANS_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/INVI_CAT_TRANS_RN.csv",
+      "bytes": 178248,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T08:38:26.043Z"
+    },
+    "INVI_PYMTS_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/INVI_PYMTS_RN.csv",
+      "bytes": 573662,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 37,
+      "at": "2026-04-20T08:39:05.044Z"
+    },
+    "INVI_RCPTS_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/INVI_RCPTS_RN.csv",
+      "bytes": 550905,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 41,
+      "at": "2026-04-20T08:39:47.343Z"
+    },
+    "KCI_BOP_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/KCI_BOP_RN.csv",
+      "bytes": 102884,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:40:19.182Z"
+    },
+    "AVG_NFTY_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/AVG_NFTY_RN.csv",
+      "bytes": 21882,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:40:51.478Z"
+    },
+    "BK_VAL_RAT_BSE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/BK_VAL_RAT_BSE_RN.csv",
+      "bytes": 21838,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:41:23.324Z"
+    },
+    "BSE_IND_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/BSE_IND_D_RN.csv",
+      "bytes": 5298,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:41:55.274Z"
+    },
+    "EARN_RAT_BSE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/EARN_RAT_BSE_RN.csv",
+      "bytes": 21830,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T08:42:28.354Z"
+    },
+    "MRKT_INFO_BSE_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/MRKT_INFO_BSE_D_RN.csv",
+      "bytes": 3376,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:43:00.089Z"
+    },
+    "MRKT_INFO_NSE_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/MRKT_INFO_NSE_D_RN.csv",
+      "bytes": 5095,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:43:32.053Z"
+    },
+    "NSE_IND_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/NSE_IND_D_RN.csv",
+      "bytes": 3453,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T08:44:02.552Z"
+    },
+    "TURNO_NSE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/TURNO_NSE_RN.csv",
+      "bytes": 20882,
+      "tableRows": null,
+      "checkedCount": 1,
+      "took": 30,
+      "at": "2026-04-20T08:44:33.957Z"
+    },
+    "TRN_OVR_BSE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Equity_and_Corporate_Debt_Market/TRN_OVR_BSE_RN.csv",
+      "bytes": 24659,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:45:05.945Z"
+    },
+    "AVG_FOR_RAT_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/AVG_FOR_RAT_RN.csv",
+      "bytes": 82512,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T08:45:39.852Z"
+    },
+    "FOREX_RATE_AFY_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREX_RATE_AFY_RN.csv",
+      "bytes": 16299,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:46:11.039Z"
+    },
+    "FOREX_RATE_A_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREX_RATE_A_RN.csv",
+      "bytes": 14456,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:46:43.530Z"
+    },
+    "FOREX_RATE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREX_RATE_RN.csv",
+      "bytes": 44653,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:47:14.701Z"
+    },
+    "FOREX_RATE_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREX_RATE_D_RN.csv",
+      "bytes": 5571,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:47:46.308Z"
+    },
+    "FOREXRT_AVG_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREXRT_AVG_RN.csv",
+      "bytes": 116359,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:48:18.730Z"
+    },
+    "FOREXRT_HL_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREXRT_HL_RN.csv",
+      "bytes": 81053,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:48:50.933Z"
+    },
+    "FOREX_RT_REF_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FOREX_RT_REF_RN.csv",
+      "bytes": 83258,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:49:23.917Z"
+    },
+    "FWC_PRE_D_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FWC_PRE_D_RN.csv",
+      "bytes": 8661,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T08:49:54.518Z"
+    },
+    "FW_PRE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/FW_PRE_RN.csv",
+      "bytes": 64344,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T08:50:29.243Z"
+    },
+    "IB_FOREX_RT_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Forex_Market/IB_FOREX_RT_RN.csv",
+      "bytes": 7459,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T08:50:59.838Z"
+    },
+    "GOV_TR_BILL_OUTSD_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/GOV_TR_BILL_OUTSD_RN.csv",
+      "bytes": 344189,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:51:35.074Z"
+    },
+    "INT_RATE_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/INT_RATE_RN.csv",
+      "bytes": 6821,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T08:52:05.273Z"
+    },
+    "MRKT_BOR_GOI_SG_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/MRKT_BOR_GOI_SG_RN.csv",
+      "bytes": 275131,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T08:52:39.566Z"
+    },
+    "OPN_MKT_OP_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/OPN_MKT_OP_RN.csv",
+      "bytes": 22885,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:53:11.349Z"
+    },
+    "SEC_MKT_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/SEC_MKT_RN.csv",
+      "bytes": 145523,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:53:43.503Z"
+    },
+    "GSEC_TO_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/GSEC_TO_RN.csv",
+      "bytes": 516144,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:54:19.000Z"
+    },
+    "YIELD_GOV_SEC_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/YIELD_GOV_SEC_RN.csv",
+      "bytes": 25031,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T08:54:50.187Z"
+    },
+    "YIELD_TB_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Government_Securities_Market/YIELD_TB_RN.csv",
+      "bytes": 73071,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:55:23.151Z"
+    },
+    "AUC_LAF_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/AUC_LAF_RN.csv",
+      "bytes": 6303,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T08:55:53.422Z"
+    },
+    "AVG_TURNOVER_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/AVG_TURNOVER_RN.csv",
+      "bytes": 829245,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 41,
+      "at": "2026-04-20T08:56:36.134Z"
+    },
+    "CERTI_DEPO_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/CERTI_DEPO_RN.csv",
+      "bytes": 12577,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:58:22.354Z"
+    },
+    "COM_PAPER_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/COM_PAPER_RN.csv",
+      "bytes": 105452,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T08:58:58.075Z"
+    },
+    "LIBOOR_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/LIBOOR_RN.csv",
+      "bytes": 5103,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T08:59:30.924Z"
+    },
+    "CALL_MONEY_W_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/CALL_MONEY_W_RN.csv",
+      "bytes": 194874,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:00:02.930Z"
+    },
+    "WAR_CALL_MONEY_RN": {
+      "status": "ok",
+      "file": "data/Financial_Markets/Money_Market/WAR_CALL_MONEY_RN.csv",
+      "bytes": 68681,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 36,
+      "at": "2026-04-20T09:00:40.816Z"
+    },
+    "LNA_SCB_SR_OCC_BSR1_A_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/LNA_SCB_SR_OCC_BSR1_A_RN.csv",
+      "bytes": 21869,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 30,
+      "at": "2026-04-20T09:01:12.477Z"
+    },
+    "AMAGG_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/AMAGG_RN.csv",
+      "bytes": 42731,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 32,
+      "at": "2026-04-20T09:01:45.601Z"
+    },
+    "CSURYCOM_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/CSURYCOM_M_RN.csv",
+      "bytes": 201364,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T09:02:43.430Z"
+    },
+    "CSURYCOM_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/CSURYCOM_F_RN.csv",
+      "bytes": 21223,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T09:03:17.061Z"
+    },
+    "CSURYSOR_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/CSURYSOR_M_RN.csv",
+      "bytes": 525786,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 36,
+      "at": "2026-04-20T09:03:54.111Z"
+    },
+    "CSURYSOR_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/CSURYSOR_F_RN.csv",
+      "bytes": 62850,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 37,
+      "at": "2026-04-20T09:04:32.810Z"
+    },
+    "MON_AG_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MON_AG_RN.csv",
+      "bytes": 31513,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:05:04.247Z"
+    },
+    "MONTRY_RATIOS_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MONTRY_RATIOS_RN.csv",
+      "bytes": 25212,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:05:34.886Z"
+    },
+    "MSURYCOM_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MSURYCOM_F_RN.csv",
+      "bytes": 58416,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 39,
+      "at": "2026-04-20T09:06:15.649Z"
+    },
+    "MSURYSOR_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MSURYSOR_F_RN.csv",
+      "bytes": 69077,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 61,
+      "at": "2026-04-20T09:07:18.087Z"
+    },
+    "MSC_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MSC_F_RN.csv",
+      "bytes": 21459,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 42,
+      "at": "2026-04-20T09:08:01.982Z"
+    },
+    "MSS_F_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MSS_F_RN.csv",
+      "bytes": 9511,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T09:08:37.343Z"
+    },
+    "MSS_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/MSS_M_RN.csv",
+      "bytes": 37276,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:09:09.539Z"
+    },
+    "NOT_COIN_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/NOT_COIN_RN.csv",
+      "bytes": 38878,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:09:39.865Z"
+    },
+    "RBI_ASSET_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_ASSET_M_RN.csv",
+      "bytes": 338814,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T09:10:15.351Z"
+    },
+    "RBI_ASSET_W_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_ASSET_W_RN.csv",
+      "bytes": 1129743,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 38,
+      "at": "2026-04-20T09:10:54.880Z"
+    },
+    "RBI_ASSET_A_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_ASSET_A_RN.csv",
+      "bytes": 65395,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:11:26.264Z"
+    },
+    "RBI_LIAB_A_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_LIAB_A_RN.csv",
+      "bytes": 39461,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:11:57.472Z"
+    },
+    "RBI_LIAB_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_LIAB_M_RN.csv",
+      "bytes": 262589,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T09:12:31.333Z"
+    },
+    "RBI_LIAB_W_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_LIAB_W_RN.csv",
+      "bytes": 1058966,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 38,
+      "at": "2026-04-20T09:13:10.734Z"
+    },
+    "RBI_SURY_COM_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_SURY_COM_M_RN.csv",
+      "bytes": 121184,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:13:41.863Z"
+    },
+    "RBI_SURY_SOR_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_SURY_SOR_M_RN.csv",
+      "bytes": 495425,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 39,
+      "at": "2026-04-20T09:14:22.144Z"
+    },
+    "RBI_SF_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RBI_SF_RN.csv",
+      "bytes": 63194,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 34,
+      "at": "2026-04-20T09:14:57.938Z"
+    },
+    "RMC_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RMC_M_RN.csv",
+      "bytes": 85052,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:15:30.708Z"
+    },
+    "RMC_W_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RMC_W_RN.csv",
+      "bytes": 300690,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 35,
+      "at": "2026-04-20T09:16:07.004Z"
+    },
+    "RMS_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RMS_M_RN.csv",
+      "bytes": 162785,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:16:39.067Z"
+    },
+    "RMS_W_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/RMS_W_RN.csv",
+      "bytes": 442539,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T09:17:14.689Z"
+    },
+    "CCS_EXP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/CCS_EXP_RN.csv",
+      "bytes": 32489,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:18:55.093Z"
+    },
+    "CCSG_DEF_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/CCSG_DEF_RN.csv",
+      "bytes": 12056,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:19:27.955Z"
+    },
+    "CCS_DIS_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/CCS_DIS_RN.csv",
+      "bytes": 15050,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:19:58.991Z"
+    },
+    "CCSG_RECPT_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/CCSG_RECPT_RN.csv",
+      "bytes": 15661,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T09:20:32.238Z"
+    },
+    "GOVT_LIAB_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/GOVT_LIAB_RN.csv",
+      "bytes": 18333,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:21:04.730Z"
+    },
+    "DIG_GDP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/DIG_GDP_RN.csv",
+      "bytes": 15605,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:21:35.418Z"
+    },
+    "DG_GDP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/DG_GDP_RN.csv",
+      "bytes": 7628,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T09:22:09.550Z"
+    },
+    "TAX_REV_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/TAX_REV_RN.csv",
+      "bytes": 21070,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:22:40.476Z"
+    },
+    "MRKT_BOR_CSG_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Cental_State_Govt_FinanceCombined/MRKT_BOR_CSG_RN.csv",
+      "bytes": 6725,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:23:11.297Z"
+    },
+    "BUD_RESOR_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/BUD_RESOR_RN.csv",
+      "bytes": 22375,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:23:42.020Z"
+    },
+    "CG_BOR_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_BOR_RN.csv",
+      "bytes": 17968,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:24:14.684Z"
+    },
+    "CG_DEF_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_DEF_RN.csv",
+      "bytes": 26830,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T09:24:48.995Z"
+    },
+    "CG_DEFM_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_DEFM_RN.csv",
+      "bytes": 19528,
+      "tableRows": null,
+      "checkedCount": 1,
+      "took": 34,
+      "at": "2026-04-20T09:25:24.314Z"
+    },
+    "CG_EXP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_EXP_RN.csv",
+      "bytes": 33600,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:25:55.147Z"
+    },
+    "CGL_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CGL_RN.csv",
+      "bytes": 32314,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T09:26:28.526Z"
+    },
+    "CG_RECPT_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_RECPT_RN.csv",
+      "bytes": 66438,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:27:01.007Z"
+    },
+    "CG_DEV_NDEV_EXP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/CG_DEV_NDEV_EXP_RN.csv",
+      "bytes": 17000,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:27:33.796Z"
+    },
+    "FICG_GDP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/FICG_GDP_RN.csv",
+      "bytes": 59782,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T09:28:08.158Z"
+    },
+    "PUB_BOR_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/PUB_BOR_RN.csv",
+      "bytes": 21339,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:28:39.907Z"
+    },
+    "PSPOUTLY_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/PSPOUTLY_RN.csv",
+      "bytes": 23443,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:29:11.170Z"
+    },
+    "SMAL_SAV_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/Central_Govt_Finance/SMAL_SAV_RN.csv",
+      "bytes": 27909,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T09:29:45.752Z"
+    },
+    "SG_EXP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/SG_EXP_RN.csv",
+      "bytes": 20338,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T09:30:40.156Z"
+    },
+    "FISG_GDP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/FISG_GDP_RN.csv",
+      "bytes": 27126,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 34,
+      "at": "2026-04-20T09:31:15.843Z"
+    },
+    "ST_FIN_STD_BUDGETS_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/ST_FIN_STD_BUDGETS_RN.csv",
+      "bytes": 190133,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:32:07.981Z"
+    },
+    "SG_CAP_REV_EXP_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/SG_CAP_REV_EXP_RN.csv",
+      "bytes": 19616,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:32:40.540Z"
+    },
+    "SG_BOR_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/SG_BOR_RN.csv",
+      "bytes": 13463,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:33:12.612Z"
+    },
+    "SGL_RN": {
+      "status": "ok",
+      "file": "data/Public_Finance/State_Govt_Finance/SGL_RN.csv",
+      "bytes": 37530,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T09:33:45.882Z"
+    },
+    "AGR_INDEX_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGR_INDEX_RN.csv",
+      "bytes": 5485,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 31,
+      "at": "2026-04-20T09:34:18.205Z"
+    },
+    "AGR_INDEX_MJR_CRPS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGR_INDEX_MJR_CRPS_RN.csv",
+      "bytes": 26783,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 29,
+      "at": "2026-04-20T09:34:48.287Z"
+    },
+    "AGR_PROD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGR_PROD_RN.csv",
+      "bytes": 45302,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:35:20.091Z"
+    },
+    "AGR_PRODUCTIVITY_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGR_PRODUCTIVITY_RN.csv",
+      "bytes": 51347,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:35:52.553Z"
+    },
+    "AGG_STAT_IS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGG_STAT_IS_RN.csv",
+      "bytes": 19691,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:36:24.183Z"
+    },
+    "AREA_UNDER_CULT_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AREA_UNDER_CULT_RN.csv",
+      "bytes": 56308,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:36:56.475Z"
+    },
+    "MIN_SUP_PRICE_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/MIN_SUP_PRICE_RN.csv",
+      "bytes": 57150,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:37:28.092Z"
+    },
+    "PATT_LU_UAII_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/PATT_LU_UAII_RN.csv",
+      "bytes": 20668,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:37:59.625Z"
+    },
+    "PDS_AGR_PROD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/PDS_AGR_PROD_RN.csv",
+      "bytes": 27313,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 39,
+      "at": "2026-04-20T09:38:40.617Z"
+    },
+    "AGR_PROD_ST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Agriculture/AGR_PROD_ST_RN.csv",
+      "bytes": 22550,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 35,
+      "at": "2026-04-20T09:39:16.637Z"
+    },
+    "CENT_SEC_DEL_PRJ_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/CENT_SEC_DEL_PRJ_RN.csv",
+      "bytes": 161219,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T09:39:50.010Z"
+    },
+    "CENT_SEC_PRJ_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/CENT_SEC_PRJ_RN.csv",
+      "bytes": 174990,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 32,
+      "at": "2026-04-20T09:40:23.775Z"
+    },
+    "ANN_SURV_INDS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/ANN_SURV_INDS_RN.csv",
+      "bytes": 93358,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:40:56.551Z"
+    },
+    "IMPT_PETRL_PRD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/IMPT_PETRL_PRD_RN.csv",
+      "bytes": 6899,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 29,
+      "at": "2026-04-20T09:41:27.499Z"
+    },
+    "INX_CORE_INF_INDS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/INX_CORE_INF_INDS_RN.csv",
+      "bytes": 28398,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T09:42:01.717Z"
+    },
+    "INX_CORE_INF_INDS_GWT_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/INX_CORE_INF_INDS_GWT_RN.csv",
+      "bytes": 33575,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T09:42:34.235Z"
+    },
+    "INX_INDS_PROD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/INX_INDS_PROD_RN.csv",
+      "bytes": 1321992,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 45,
+      "at": "2026-04-20T09:43:20.652Z"
+    },
+    "IIP_MANF_SEC_ANN_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/IIP_MANF_SEC_ANN_RN.csv",
+      "bytes": 28077,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T09:43:52.919Z"
+    },
+    "IIP_MANF_SEC_MTH_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/IIP_MANF_SEC_MTH_RN.csv",
+      "bytes": 897050,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 43,
+      "at": "2026-04-20T09:44:37.598Z"
+    },
+    "PER_SSI_SEC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/PER_SSI_SEC_RN.csv",
+      "bytes": 13457,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 32,
+      "at": "2026-04-20T09:45:11.452Z"
+    },
+    "PROD_PETRL_PRD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/PROD_PETRL_PRD_RN.csv",
+      "bytes": 6908,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:45:42.679Z"
+    },
+    "PROD_SEL_INDS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Industrial_Statistics/PROD_SEL_INDS_RN.csv",
+      "bytes": 259622,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T09:46:17.123Z"
+    },
+    "ANN_GDP_MRKT_PRC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/ANN_GDP_MRKT_PRC_RN.csv",
+      "bytes": 190222,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 37,
+      "at": "2026-04-20T09:46:55.988Z"
+    },
+    "ANN_GDP_FACT_CST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/ANN_GDP_FACT_CST_RN.csv",
+      "bytes": 9976,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 33,
+      "at": "2026-04-20T09:47:30.306Z"
+    },
+    "CHG_FIN_ASS_HOUSE_SEC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/CHG_FIN_ASS_HOUSE_SEC_RN.csv",
+      "bytes": 39024,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 34,
+      "at": "2026-04-20T09:48:05.471Z"
+    },
+    "CHG_FIN_LIB_HOUSE_SEC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/CHG_FIN_LIB_HOUSE_SEC_RN.csv",
+      "bytes": 19435,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 31,
+      "at": "2026-04-20T09:48:38.329Z"
+    },
+    "GROSS_NET_CAP_FRM_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/GROSS_NET_CAP_FRM_RN.csv",
+      "bytes": 30640,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 30,
+      "at": "2026-04-20T09:50:34.730Z"
+    },
+    "GROSS_STATE_DOM_PRD_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/GROSS_STATE_DOM_PRD_RN.csv",
+      "bytes": 188450,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T09:51:09.949Z"
+    },
+    "MACRO_ECN_AGG_RTS_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/MACRO_ECN_AGG_RTS_RN.csv",
+      "bytes": 157780,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 35,
+      "at": "2026-04-20T09:51:46.089Z"
+    },
+    "MACRO_ECN_AGG_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/MACRO_ECN_AGG_RN.csv",
+      "bytes": 414048,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 33,
+      "at": "2026-04-20T09:52:20.574Z"
+    },
+    "NET_SDP_FAC_CST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/NET_SDP_FAC_CST_RN.csv",
+      "bytes": 275006,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 38,
+      "at": "2026-04-20T09:52:59.852Z"
+    },
+    "PER_CAP_NET_SDP_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/PER_CAP_NET_SDP_RN.csv",
+      "bytes": 4278,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 35,
+      "at": "2026-04-20T09:53:35.952Z"
+    },
+    "QTR_GDP_FACT_CST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/QTR_GDP_FACT_CST_RN.csv",
+      "bytes": 353760,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 39,
+      "at": "2026-04-20T09:54:16.857Z"
+    },
+    "QTR_GDP_MRKT_PRC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/QTR_GDP_MRKT_PRC_RN.csv",
+      "bytes": 367246,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 38,
+      "at": "2026-04-20T09:54:56.723Z"
+    },
+    "SEC_WIS_DOM_SAV_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/SEC_WIS_DOM_SAV_RN.csv",
+      "bytes": 47352,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 30,
+      "at": "2026-04-20T09:55:28.354Z"
+    },
+    "SEC_WIS_EMP_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/SEC_WIS_EMP_RN.csv",
+      "bytes": 7339,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 30,
+      "at": "2026-04-20T09:55:59.451Z"
+    },
+    "SEC_WIS_CAP_FOM_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/SEC_WIS_CAP_FOM_RN.csv",
+      "bytes": 4118,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T09:56:31.460Z"
+    },
+    "CPI_AGR_AVG_YRND_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_AGR_AVG_YRND_RN.csv",
+      "bytes": 43992,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 34,
+      "at": "2026-04-20T09:57:49.640Z"
+    },
+    "CPI_ANN_AVG_VAR_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_ANN_AVG_VAR_RN.csv",
+      "bytes": 33883,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 34,
+      "at": "2026-04-20T09:58:25.168Z"
+    },
+    "CPI_AV_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_AV_RN.csv",
+      "bytes": 140637,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 38,
+      "at": "2026-04-20T09:59:04.657Z"
+    },
+    "CPI_IW_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_IW_RN.csv",
+      "bytes": 155222,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 38,
+      "at": "2026-04-20T09:59:44.080Z"
+    },
+    "CPI_IW_AV_YRND_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_IW_AV_YRND_RN.csv",
+      "bytes": 48253,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 44,
+      "at": "2026-04-20T10:00:29.855Z"
+    },
+    "CPI_RL_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_RL_RN.csv",
+      "bytes": 135073,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 41,
+      "at": "2026-04-20T10:02:03.583Z"
+    },
+    "CPI_RL_AV_YRND_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_RL_AV_YRND_RN.csv",
+      "bytes": 36738,
+      "tableRows": null,
+      "checkedCount": 5,
+      "took": 31,
+      "at": "2026-04-20T10:02:36.251Z"
+    },
+    "CPI_AG_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_AG_RN.csv",
+      "bytes": 135069,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 42,
+      "at": "2026-04-20T10:11:16.213Z"
+    },
+    "HOUSE_PRICE_INDEX_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/HOUSE_PRICE_INDEX_RN.csv",
+      "bytes": 78998,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 33,
+      "at": "2026-04-20T10:11:50.802Z"
+    },
+    "METAL_PRICE_A_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/METAL_PRICE_A_RN.csv",
+      "bytes": 23425,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 42,
+      "at": "2026-04-20T10:16:10.935Z"
+    },
+    "WHOLE_PRICE_INDEX_RN": {
+      "status": "error",
+      "error": "page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://data.rbi.org.in/DBIE/#/dbie/dataquery_enhanced\", waiting until \"networkidle\"\u001b[22m\n",
+      "took": 301,
+      "at": "2026-06-03T08:21:37.511Z"
+    },
+    "WHOLE_PRICE_INDEX_AVG_VAR_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/WHOLE_PRICE_INDEX_AVG_VAR_RN.csv",
+      "bytes": 60865,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 32,
+      "at": "2026-04-20T10:22:46.413Z"
+    },
+    "WHOLE_PRICE_INDEX_INF_RN": {
+      "status": "error",
+      "error": "per-element budget exceeded (540000ms)",
+      "took": 540,
+      "at": "2026-06-03T08:40:58.419Z"
+    },
+    "FIN_RATIOS_IND_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Finances_of_FDI_Companies/FIN_RATIOS_IND_RN.csv",
+      "bytes": 900144,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 44,
+      "at": "2026-04-20T10:48:18.744Z"
+    },
+    "GRWT_RT_INDC_PVT_IND_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/GRWT_RT_INDC_PVT_IND_RN.csv",
+      "bytes": 1247649,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 52,
+      "at": "2026-04-20T10:51:25.716Z"
+    },
+    "BMC_M_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Monetary_Statistics/BMC_M_RN.csv",
+      "bytes": 68606,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 44,
+      "at": "2026-04-20T10:56:38.865Z"
+    },
+    "CLEARING_HOU_RN": {
+      "status": "ok",
+      "file": "data/Financial_Sector/Payment_Systems/CLEARING_HOU_RN.csv",
+      "bytes": 4758,
+      "tableRows": null,
+      "checkedCount": 2,
+      "took": 31,
+      "at": "2026-04-20T10:57:11.668Z"
+    },
+    "CPI_ALRL_ST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_ALRL_ST_RN.csv",
+      "bytes": 430192,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 43,
+      "at": "2026-04-20T10:59:19.977Z"
+    },
+    "CPI_IW_AISC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_IW_AISC_RN.csv",
+      "bytes": 826472,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 40,
+      "at": "2026-04-20T11:00:01.050Z"
+    },
+    "CPI_RUC_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/CPI_RUC_RN.csv",
+      "bytes": 818388,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 43,
+      "at": "2026-04-20T11:00:45.815Z"
+    },
+    "METAL_PRICE_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/METAL_PRICE_RN.csv",
+      "bytes": 64544,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 86,
+      "at": "2026-04-20T11:30:57.785Z"
+    },
+    "PRF_LNGNFC_IND_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/PRF_LNGNFC_IND_QTR_RN.csv",
+      "bytes": 1163627,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 44,
+      "at": "2026-04-21T09:02:58.446Z"
+    },
+    "RATIO_LNGNFC_IND_QTR_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Listed_Non-Government_Non-Financial_Companies/RATIO_LNGNFC_IND_QTR_RN.csv",
+      "bytes": 864640,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 36,
+      "at": "2026-04-21T09:03:36.198Z"
+    },
+    "FIN_RATIOS_PVT_IND_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Private_Limited_Companies/FIN_RATIOS_PVT_IND_RN.csv",
+      "bytes": 716833,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 38,
+      "at": "2026-04-21T09:04:15.405Z"
+    },
+    "FIN_RATIOS_PUB_INDU_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/FIN_RATIOS_PUB_INDU_RN.csv",
+      "bytes": 965350,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 38,
+      "at": "2026-04-21T09:04:54.685Z"
+    },
+    "GRWT_RT_INDIC_PUB_RN": {
+      "status": "ok",
+      "file": "data/Corporate_Sector/Non-Government_Non-Financial_Public_Limited_Companies/GRWT_RT_INDIC_PUB_RN.csv",
+      "bytes": 663716,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 35,
+      "at": "2026-04-21T09:05:31.356Z"
+    },
+    "TRD_INX_NBR_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/External_Sector_Indices/TRD_INX_NBR_RN.csv",
+      "bytes": 786556,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 37,
+      "at": "2026-04-21T09:06:09.980Z"
+    },
+    "IND_OVR_BOP_RN": {
+      "status": "ok",
+      "file": "data/External_Sector/International_Trade/IND_OVR_BOP_RN.csv",
+      "bytes": 683744,
+      "tableRows": null,
+      "checkedCount": 3,
+      "took": 36,
+      "at": "2026-04-21T09:06:47.870Z"
+    },
+    "CALL_MONEY_RN": {
+      "status": "error",
+      "error": "page.waitForEvent: Timeout 40000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================",
+      "took": 69,
+      "at": "2026-04-21T09:07:58.723Z"
+    },
+    "CSG_DEF_RN": {
+      "status": "error",
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label:has-text(\"CSG_DEF_RN\")').first() to be visible\u001b[22m\n\u001b[2m    25 × locator resolved to hidden <label class=\"container\" _ngcontent-ng-c3842127416=\"\">…</label>\u001b[22m\n",
+      "took": 20,
+      "at": "2026-04-21T09:08:19.840Z"
+    },
+    "SG_RECPT_RN": {
+      "status": "error",
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label:has-text(\"SG_RECPT_RN\")').first() to be visible\u001b[22m\n\u001b[2m    25 × locator resolved to hidden <label class=\"container\" _ngcontent-ng-c3842127416=\"\">…</label>\u001b[22m\n",
+      "took": 20,
+      "at": "2026-04-21T09:08:40.890Z"
+    },
+    "COMP_ECO_ACT_NSDP_FACT_CST_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/National_Income/COMP_ECO_ACT_NSDP_FACT_CST_RN.csv",
+      "bytes": 523206,
+      "tableRows": null,
+      "checkedCount": 6,
+      "took": 36,
+      "at": "2026-04-21T09:09:18.109Z"
+    },
+    "CPI_RUC_ST_RN": {
+      "status": "error",
+      "error": "per-element budget exceeded (540000ms)",
+      "took": 540,
+      "at": "2026-06-03T08:16:34.318Z"
+    },
+    "INX_WPI_RN": {
+      "status": "no-record",
+      "checkedCount": 3,
+      "took": 25,
+      "at": "2026-04-21T09:10:50.427Z"
+    },
+    "WAGE_RATES_RN": {
+      "status": "ok",
+      "file": "data/Real_Sector/Prices_Wages/WAGE_RATES_RN.csv",
+      "bytes": 3957434,
+      "tableRows": null,
+      "checkedCount": 4,
+      "took": 76,
+      "at": "2026-06-03T07:59:49.989Z"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+#forex-reserves-page {
+    grid-template-rows  : 240px 1fr;
+    grid-template-areas :
+            "title      title     title    meta"
+            "chart      chart     chart    chart";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .forex-reserves-chart {
+        grid-area      : chart;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .forex-reserves-grid-wrapper {
+        flex : 1;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .forex-reserves-chart {
+        min-height : 400px;
+    }
+}

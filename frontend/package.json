@@ -1,0 +1,46 @@
+{
+    "name": "dbie-frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start:frontend": "next dev",
+        "start:backend": "make -C ../backend dev",
+        "start:all": "concurrently --kill-others --names \"API,WEB\" -c \"bgBlue.bold,bgMagenta.bold\" \"pnpm start:backend\" \"pnpm start:frontend\"",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "clean": "rm -rf .next node_modules",
+        "db:up": "docker compose -f ../docker-compose.yml up -d",
+        "db:down": "docker compose -f ../docker-compose.yml down",
+        "db:logs": "docker compose -f ../docker-compose.yml logs -f"
+    },
+    "dependencies": {
+        "@tanstack/react-query": "^5.81.5",
+        "ag-grid-community": "^34.3.1",
+        "ag-grid-react": "^34.3.1",
+        "fictoan-react": "^1.11.14",
+        "framer-motion": "^12.23.24",
+        "lodash": "^4.17.21",
+        "lucide-react": "^0.468.0",
+        "next": "^15.1.7",
+        "plotly.js": "^3.3.0",
+        "posthog-js": "^1.256.1",
+        "prismjs": "^1.29.0",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-markdown": "^10.1.0",
+        "react-plotly.js": "^2.6.0",
+        "reactflow": "^11.11.4",
+        "zustand": "^5.0.3"
+    },
+    "devDependencies": {
+        "@svgr/webpack": "^8.1.0",
+        "@types/lodash": "^4.17.20",
+        "@types/node": "^20",
+        "@types/plotly.js": "^3.0.8",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "concurrently": "^8.2.2",
+        "typescript": "^5"
+    }
+}

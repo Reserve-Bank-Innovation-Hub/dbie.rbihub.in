@@ -1,0 +1,94 @@
+#exchange-rates-page {
+    grid-template-rows  : repeat(5, 240px);
+    grid-template-areas :
+            "title      title     title    meta"
+            "statDollar statPound statEuro statYen"
+            "chart      chart     chart    chart"
+            "chart      chart     chart    chart"
+            "chart      chart     chart    chart";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .currency-stat-card:nth-of-type(1) { grid-area : statDollar; }
+    .currency-stat-card:nth-of-type(2) { grid-area : statPound; }
+    .currency-stat-card:nth-of-type(3) { grid-area : statEuro; }
+    .currency-stat-card:nth-of-type(4) { grid-area : statYen; }
+
+    .currency-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+
+        header {
+            display         : flex;
+            flex-direction  : column;
+            justify-content : flex-end;
+        }
+
+        footer {
+            display         : flex;
+            justify-content : space-between;
+        }
+
+        /* CHANGE INDICATOR ========================================================================================= */
+        .change-indicator {
+            font-weight : 600;
+            display     : flex;
+            align-self  : flex-end;
+            width       : fit-content;
+            padding     : 2px 8px;
+        }
+
+        .change-indicator.up {
+            color      : #dc2626;
+            background : #fee2e2;
+        }
+
+        .change-indicator.down {
+            color      : #16a34a;
+            background : #dcfce7;
+        }
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .exchange-rate-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .exchange-rate-chart {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#exchange-rates-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#exchange-rates-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#exchange-rates-page .modebar-btn:hover {
+    opacity : 1;
+}
