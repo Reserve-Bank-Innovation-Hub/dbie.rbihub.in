@@ -1,13 +1,13 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import React, { useState, useMemo } from "react";
+import React from "react";
 
 // UI ==================================================================================================================
 import { Article, Header, Heading4, Heading6, Section, Card, Row, Portion, Text, Divider, Div, Footer } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import ExchangeRateChart from "@/components/charts/ExchangeRateChart";
+import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import { DataUnit } from "@/components/DataUnit/DataUnit";
 
 // UTILS ===============================================================================================================
@@ -33,14 +33,6 @@ interface ExchangeRatesPageProps {
 }
 
 const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
-    // Convert serialized dates back to Date objects for the chart
-    const parsedDataForChart = useMemo(() => ({
-        ...exchangeRateData,
-        data : exchangeRateData.data.map(item => ({
-            ...item,
-            date : typeof item.date === "string" ? new Date(item.date) : item.date,
-        })),
-    }), [ exchangeRateData ]);
 
     // Get latest rates (first item since data is reverse chronological in the file)
     const latestData = exchangeRateData.data[exchangeRateData.data.length - 1];
@@ -179,10 +171,18 @@ const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
                 })}
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ExchangeRateChart
-                parsedData={parsedDataForChart}
-                title="Historical exchange rates"
-                height={600}
+            <TimeSeriesChart
+                title       = "Historical exchange rates"
+                dates       = {exchangeRateData.data.map(d => (typeof d.date === "string" ? d.date : (d.date as Date).toISOString()).slice(0, 10))}
+                series      = {exchangeRateData.currencies.map(currency => ({
+                    key    : currency.key,
+                    label  : currency.displayName,
+                    values : exchangeRateData.data.map(d => d[currency.key as keyof SerializedExchangeRateData] as number ?? null),
+                }))}
+                yAxisTitle    = "₹ per unit"
+                valueDecimals = {2}
+                exportName    = "exchange-rates"
+                height        = {600}
             />
         </Article>
     );

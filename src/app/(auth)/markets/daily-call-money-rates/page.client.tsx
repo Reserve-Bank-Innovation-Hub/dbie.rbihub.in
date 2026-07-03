@@ -8,7 +8,7 @@ import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import DailyCallMoneyRatesGrid from "@/components/tables/DailyCallMoneyRatesGrid";
-import DailyCallMoneyRatesChart from "@/components/charts/DailyCallMoneyRatesChart";
+import TimeSeriesChart         from "@/components/charts/TimeSeriesChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
@@ -96,10 +96,18 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <DailyCallMoneyRatesChart
-                data={ratesData.data}
-                title="Call / notice money rates over time"
-                height={600}
+            <TimeSeriesChart
+                title        = "Call / notice money rates over time"
+                dates        = {ratesData.data.map(d => d.date)}
+                series       = {[
+                    {key : "minRate", label : "Minimum rate", values : ratesData.data.map(d => d.minRate)},
+                    {key : "maxRate", label : "Maximum rate", values : ratesData.data.map(d => d.maxRate)},
+                ]}
+                yAxisTitle   = "Per cent"
+                valueDecimals = {2}
+                valueSuffix  = "%"
+                exportName   = "daily-call-money-rates"
+                height       = {600}
             />
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
