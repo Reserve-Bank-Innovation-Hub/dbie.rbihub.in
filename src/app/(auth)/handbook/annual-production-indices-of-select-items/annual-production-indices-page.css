@@ -1,0 +1,78 @@
+#annual-production-indices-page {
+    grid-template-rows  : 160px repeat(2, 160px) 400px auto;
+    grid-template-areas :
+            "title  title  title  meta"
+            "stat   stat   stat   stat"
+            "chart  chart  chart  chart"
+            "chart  chart  chart  chart"
+            "grid   grid   grid   grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .stat-card {
+        grid-area       : stat;
+        display         : flex;
+        flex-direction  : row;
+        gap             : var(--micro);
+        align-items     : flex-start;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .annual-production-indices-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .annual-production-indices-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .annual-production-indices-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .annual-production-indices-chart {
+        min-height : 300px;
+    }
+
+    .annual-production-indices-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMISATION ============================================================================================= */
+#annual-production-indices-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#annual-production-indices-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#annual-production-indices-page .modebar-btn:hover {
+    opacity : 1;
+}

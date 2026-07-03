@@ -40,6 +40,44 @@ const processors = [
   'bop-bpm6-usd',
   'bop-bpm6-inr',
   'international-investment-position',
+  'agricultural-production-foodgrains',
+  'agricultural-production-major-commercial-crops',
+  'annual-production-indices-of-select-items',
+  'annual-survey-of-industries-principal-characteristics',
+  'area-under-cultivation-foodgrains',
+  'area-under-cultivation-major-commercial-crops',
+  'average-price-of-gold-and-silver-in-domestic-and-foreign-markets',
+  'changes-in-financial-assets-liabilities-of-the-household-sector',
+  'components-of-gross-domestic-product',
+  'components-of-gross-value-added-at-basic-prices',
+  'consumer-price-index-annual-average',
+  'employment-in-public-and-organised-private-sectors',
+  'implementation-of-central-sector-projects-status-end-march',
+  'index-numbers-of-agricultural-production-major-crops',
+  'index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains',
+  'index-numbers-of-industrial-production-use-based-classification',
+  'index-numbers-of-industrial-production',
+  'index-numbers-of-infrastructure-industries',
+  'index-numbers-of-twenty-three-major-industry-groups-of-manufacturing',
+  'institutional-sector-wise-gross-capital-formation-at-current-prices',
+  'macro-economic-aggregates-at-constant-prices',
+  'macro-economic-aggregates-at-current-prices',
+  'minimum-support-price-for-foodgrains-according-to-crop-year-fair-average',
+  'minimum-support-price-for-non-foodgrains-according-to-crop-year-fair',
+  'net-state-domestic-product-state-wise-at-constant-prices',
+  'net-state-domestic-product-state-wise-at-current-prices',
+  'net-state-value-added-by-economic-activity-at-constant-prices',
+  'net-state-value-added-by-economic-activity-at-current-prices',
+  'pattern-of-land-use-and-select-inputs-for-agricultural-production',
+  'per-capita-net-state-domestic-product-state-wise-at-constant-prices',
+  'per-capita-net-state-domestic-product-state-wise-at-current-prices',
+  'production-and-imports-of-crude-oil-and-petroleum-products',
+  'public-distribution-system-procurement-off-take-and-stocks',
+  'sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march',
+  'sector-wise-domestic-savings-at-current-prices',
+  'wholesale-price-index-annual-average',
+  'yield-per-hectare-foodgrains',
+  'yield-per-hectare-major-commercial-crops',
 ];
 
 for (const name of processors) {
@@ -47,4 +85,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (42 JSON files)');
+console.log('done -> out/ (80 JSON files)');

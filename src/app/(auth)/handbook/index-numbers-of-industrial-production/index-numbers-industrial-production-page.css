@@ -1,0 +1,94 @@
+#index-numbers-industrial-production-page {
+    grid-template-rows  : 240px 180px repeat(3, 240px);
+    grid-template-areas :
+            "title     title     title     meta"
+            "statMine  statMfg   statElec  statElec"
+            "chart     chart     chart     chart"
+            "chart     chart     chart     chart"
+            "grid      grid      grid      grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .iip-stat-card:nth-of-type(3) { grid-area : statMine; }
+    .iip-stat-card:nth-of-type(4) { grid-area : statMfg; }
+    .iip-stat-card:nth-of-type(5) { grid-area : statElec; }
+
+    .iip-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .iip-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+        display    : flex;
+        flex-direction : column;
+    }
+
+    /* DATA GRID ==================================================================================================== */
+    .iip-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .index-numbers-of-industrial-production-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    #index-numbers-industrial-production-page {
+        grid-template-rows : auto 180px 360px 1fr;
+        grid-template-areas :
+                "title"
+                "meta"
+                "statMine"
+                "statMfg"
+                "statElec"
+                "chart"
+                "grid";
+    }
+
+    .iip-chart {
+        min-height : 400px;
+    }
+
+    .iip-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#index-numbers-industrial-production-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#index-numbers-industrial-production-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#index-numbers-industrial-production-page .modebar-btn:hover {
+    opacity : 1;
+}
