@@ -75,6 +75,9 @@ const processors = [
   'public-distribution-system-procurement-off-take-and-stocks',
   'sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march',
   'sector-wise-domestic-savings-at-current-prices',
+  'treasury-bill-auctions',
+  'treasury-bills-ownership',
+  'union-government-accounts',
   'wholesale-price-index-annual-average',
   'yield-per-hectare-foodgrains',
   'yield-per-hectare-major-commercial-crops',
@@ -85,4 +88,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (80 JSON files)');
+console.log('done -> out/ (83 JSON files)');
