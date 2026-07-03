@@ -1,0 +1,80 @@
+#outward-remittances-lrs-page {
+    grid-template-rows  : 240px 180px repeat(3, 240px);
+    grid-template-areas :
+            "title       title       title       meta"
+            "statTotal   statTotal   statStudies statTravel"
+            "chart       chart       chart       chart"
+            "chart       chart       chart       chart"
+            "grid        grid        grid        grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .lrs-stat-card:nth-of-type(3) { grid-area : statTotal; }
+    .lrs-stat-card:nth-of-type(4) { grid-area : statStudies; }
+    .lrs-stat-card:nth-of-type(5) { grid-area : statTravel; }
+
+    .lrs-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .outward-remittances-lrs-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID ==================================================================================================== */
+    .outward-remittances-lrs-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .outward-remittances-lrs-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .outward-remittances-lrs-chart {
+        min-height : 400px;
+    }
+
+    .outward-remittances-lrs-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#outward-remittances-lrs-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#outward-remittances-lrs-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#outward-remittances-lrs-page .modebar-btn:hover {
+    opacity : 1;
+}

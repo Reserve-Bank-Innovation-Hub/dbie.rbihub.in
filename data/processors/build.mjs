@@ -16,6 +16,30 @@ const processors = [
   'commercial-paper',
   'financial-markets-turnover',
   'new-capital-issues',
+  'money-stock-measures',
+  'sources-of-money-stock',
+  'monetary-survey',
+  'liquidity-aggregates',
+  'rbi-survey',
+  'reserve-money',
+  'commercial-bank-survey',
+  'scb-investments',
+  'business-of-scheduled-banks',
+  'bank-credit-by-sector',
+  'bank-credit-by-industry',
+  'state-cooperative-banks',
+  'foreign-trade',
+  'forex-reserves-weekly',
+  'nri-deposits',
+  'foreign-investment-inflows-bulletin',
+  'outward-remittances-lrs',
+  'reer-and-neer',
+  'external-commercial-borrowings',
+  'balance-of-payments-usd',
+  'balance-of-payments-inr',
+  'bop-bpm6-usd',
+  'bop-bpm6-inr',
+  'international-investment-position',
 ];
 
 for (const name of processors) {
@@ -23,4 +47,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (18 JSON files)');
+console.log('done -> out/ (42 JSON files)');

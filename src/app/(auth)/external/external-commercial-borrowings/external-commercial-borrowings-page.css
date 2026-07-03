@@ -1,0 +1,80 @@
+#external-commercial-borrowings-page {
+    grid-template-rows  : 240px 180px repeat(3, 240px);
+    grid-template-areas :
+            "title      title      title      meta"
+            "statNo     statNo     statAmt    statMat"
+            "chart      chart      chart      chart"
+            "chart      chart      chart      chart"
+            "grid       grid       grid       grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .ecb-stat-card:nth-of-type(3) { grid-area : statNo; }
+    .ecb-stat-card:nth-of-type(4) { grid-area : statAmt; }
+    .ecb-stat-card:nth-of-type(5) { grid-area : statMat; }
+
+    .ecb-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .external-commercial-borrowings-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID ==================================================================================================== */
+    .external-commercial-borrowings-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .external-commercial-borrowings-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .external-commercial-borrowings-chart {
+        min-height : 400px;
+    }
+
+    .external-commercial-borrowings-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#external-commercial-borrowings-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#external-commercial-borrowings-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#external-commercial-borrowings-page .modebar-btn:hover {
+    opacity : 1;
+}

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
 import { Aside, Div, Text } from "fictoan-react";
-import { FlagTriangleLeft, LineChart, Newspaper, Table2, Tags, TrendingUp } from "lucide-react";
+import { FlagTriangleLeft, Globe, Landmark, LineChart, Newspaper, Table2, Tags, TrendingUp } from "lucide-react";
 
 // ASSETS ==============================================================================================================
 import RBISeal from "@assets/images/logos/rbi-seal.svg";
@@ -106,6 +106,18 @@ export const PrimaryNav = () => {
                     icon={<LineChart />}
                     linkTo="/markets"
                     label="Markets"
+                />
+
+                <NavItem
+                    icon={<Landmark />}
+                    linkTo="/banking"
+                    label="Banking"
+                />
+
+                <NavItem
+                    icon={<Globe />}
+                    linkTo="/external"
+                    label="External"
                 />
             </NavGroup>
         </Aside>
