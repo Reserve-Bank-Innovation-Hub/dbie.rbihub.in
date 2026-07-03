@@ -17,6 +17,7 @@ interface CatalogueEntry {
     id          : string;
     source      : "sdmx" | "rbib";
     label       : string;
+    path ?      : string;
     frequency ? : string;
     sector ?    : string;
     subSector ? : string;
@@ -42,10 +43,17 @@ export default function Page() {
         if (!groups.has(sector)) groups.set(sector, new Map());
         const subGroups = groups.get(sector)!;
         if (!subGroups.has(subSector)) subGroups.set(subSector, []);
+        // Registry lookup first; fall back to generic SDMX page for sdmx-source entries
+        const registryRoute = LIVE_PAGES[entry.id];
+        const sdmxBasename  = entry.source === "sdmx" && entry.path
+            ? entry.path.split("/").pop()!.replace(/\.csv$/, "")
+            : undefined;
+        const linkTo = registryRoute ?? (sdmxBasename ? `/tables/${sdmxBasename}` : undefined);
+
         subGroups.get(subSector)!.push({
             label     : entry.label,
             frequency : entry.frequency ?? "",
-            linkTo    : LIVE_PAGES[entry.id],
+            linkTo,
         });
     }
 
@@ -58,7 +66,13 @@ export default function Page() {
     }));
 
     const total     = (catalogue.entries as CatalogueEntry[]).length;
-    const liveCount = Object.keys(LIVE_PAGES).length;
+    const liveCount = tableGroups.reduce(
+        (sum, g) => sum + g.subGroups.reduce(
+            (s, sg) => s + sg.tables.filter(t => t.linkTo).length,
+            0,
+        ),
+        0,
+    );
 
     return <TablesPage groups={tableGroups} total={total} liveCount={liveCount} />;
 }
