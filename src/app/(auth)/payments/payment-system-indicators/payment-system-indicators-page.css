@@ -1,0 +1,55 @@
+#payment-system-indicators-page {
+    grid-template-rows  : 240px auto auto;
+    grid-template-areas :
+            "title  title  title  meta"
+            "grid   grid   grid   grid"
+            "notes  notes  notes  notes";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* DATA GRID ======================================================================================================= */
+    .payment-system-indicators-grid {
+        grid-area : grid;
+        width     : 100%;
+    }
+
+    .payment-system-indicators-grid-wrapper {
+        width : 100%;
+    }
+
+    /* NOTES =========================================================================================================== */
+    .notes-card {
+        grid-area  : notes;
+
+        .table-note {
+            font-size      : 0.8rem;
+            opacity        : 0.6;
+            white-space    : pre-line;
+            margin-bottom  : var(--nano);
+
+            &:last-child {
+                margin-bottom : 0;
+            }
+        }
+    }
+}
+
+/* RESPONSIVE ========================================================================================================= */
+@media screen and (max-width : 768px) {
+    .payment-system-indicators-grid {
+        min-height : 400px;
+    }
+}

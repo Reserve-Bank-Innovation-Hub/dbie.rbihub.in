@@ -80,5 +80,14 @@
  "rbib:Sector-Wise Domestic Savings (At Current Prices).xlsx": "/handbook/sector-wise-domestic-savings-at-current-prices",
  "rbib:Wholesale Price Index - Annual Average.xlsx": "/handbook/wholesale-price-index-annual-average",
  "rbib:Yield Per Hectare - Foodgrains.xlsx": "/handbook/yield-per-hectare-foodgrains",
- "rbib:Yield Per Hectare - Major Commercial Crops.xlsx": "/handbook/yield-per-hectare-major-commercial-crops"
+ "rbib:Yield Per Hectare - Major Commercial Crops.xlsx": "/handbook/yield-per-hectare-major-commercial-crops",
+ "rbib:45": "/payments/payment-system-indicators",
+ "rbib:46": "/banking/small-savings",
+ "rbib:47": "/government/dated-securities-ownership",
+ "rbib:48": "/government/combined-receipts-disbursements",
+ "rbib:49": "/government/state-financial-accommodation",
+ "rbib:50": "/government/state-government-investments",
+ "rbib:51": "/government/state-market-borrowings",
+ "rbib:RBIB Table No. 52 (a)_ Flow of Financial Assets and Liabilities of Households - Instrument-wise.xlsx": "/banking/household-financial-flows",
+ "rbib:RBIB Table No. 52 (b)_ Stocks of Financial Assets and Liabilities of Households - Select Indicators.xlsx": "/banking/household-financial-stocks"
 }

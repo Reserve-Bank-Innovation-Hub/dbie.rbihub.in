@@ -131,6 +131,28 @@ export const BankingSidebar = () => {
                     label="State co-operative banks"
                 />
             </LinkGroup>
+
+            <Divider />
+
+            <LinkGroup title="Occasional series">
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/small-savings"
+                    label="Small savings"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/household-financial-flows"
+                    label="Household financial flows"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/household-financial-stocks"
+                    label="Household financial stocks"
+                />
+            </LinkGroup>
         </PageSidebar>
     );
 };

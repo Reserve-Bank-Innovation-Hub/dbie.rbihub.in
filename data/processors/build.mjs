@@ -17,6 +17,7 @@ const processors = [
   'business-of-scheduled-banks',
   'certificates-of-deposit',
   'changes-in-financial-assets-liabilities-of-the-household-sector',
+  'combined-receipts-disbursements',
   'commercial-bank-survey',
   'commercial-paper',
   'components-of-gross-domestic-product',
@@ -25,6 +26,7 @@ const processors = [
   'consumer-price-index-annual-average',
   'credit-classification',
   'daily-call-money-rates',
+  'dated-securities-ownership',
   'employment-in-public-and-organised-private-sectors',
   'exchange-rates',
   'external-commercial-borrowings',
@@ -36,6 +38,8 @@ const processors = [
   'forex-reserves',
   'forex-reserves-weekly',
   'gold-and-silver-prices',
+  'household-financial-flows',
+  'household-financial-stocks',
   'implementation-of-central-sector-projects-status-end-march',
   'index-numbers-of-agricultural-production-major-crops',
   'index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains',
@@ -63,6 +67,7 @@ const processors = [
   'other-consumer-price-indices',
   'outward-remittances-lrs',
   'pattern-of-land-use-and-select-inputs-for-agricultural-production',
+  'payment-system-indicators',
   'per-capita-net-state-domestic-product-state-wise-at-constant-prices',
   'per-capita-net-state-domestic-product-state-wise-at-current-prices',
   'production-and-imports-of-crude-oil-and-petroleum-products',
@@ -76,8 +81,12 @@ const processors = [
   'sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march',
   'sector-wise-domestic-savings-at-current-prices',
   'select-economic-indicators',
+  'small-savings',
   'sources-of-money-stock',
   'state-cooperative-banks',
+  'state-financial-accommodation',
+  'state-government-investments',
+  'state-market-borrowings',
   'treasury-bill-auctions',
   'treasury-bills-ownership',
   'union-government-accounts',
@@ -93,4 +102,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (88 JSON files)');
+console.log('done -> out/ (97 JSON files)');
