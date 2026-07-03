@@ -28,7 +28,7 @@ function fmtUsd(value : number | null | undefined) : string {
 }
 
 const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPositionPageProps> = ({ data }) => {
-    const { quarters, items, data: values } = data;
+    const { quarters, data: values } = data;
 
     // Latest quarter is the first entry (newest-first ordering).
     const latestQuarter = quarters[0] ?? "—";

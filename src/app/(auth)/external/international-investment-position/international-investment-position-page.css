@@ -49,7 +49,7 @@
 /* RESPONSIVE =========================================================================================================== */
 @media screen and (max-width : 768px) {
     #international-investment-position-page {
-        grid-template-rows  : auto auto auto auto auto;
+        grid-template-rows  : repeat(6, auto);
         grid-template-areas :
                 "title"
                 "meta"
