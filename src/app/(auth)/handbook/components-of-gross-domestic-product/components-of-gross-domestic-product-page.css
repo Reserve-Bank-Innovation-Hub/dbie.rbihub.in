@@ -1,0 +1,77 @@
+#components-of-gross-domestic-product-page {
+    grid-template-rows  : 240px 120px repeat(3, 240px);
+    grid-template-areas :
+            "title  title  title  meta"
+            "stat   stat   stat   stat"
+            "chart  chart  chart  chart"
+            "chart  chart  chart  chart"
+            "grid   grid   grid   grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    #stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : stat;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .components-of-gdp-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .components-of-gdp-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .components-of-gdp-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .components-of-gdp-chart {
+        min-height : 400px;
+    }
+
+    .components-of-gdp-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#components-of-gross-domestic-product-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#components-of-gross-domestic-product-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#components-of-gross-domestic-product-page .modebar-btn:hover {
+    opacity : 1;
+}

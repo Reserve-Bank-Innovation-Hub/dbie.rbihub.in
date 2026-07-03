@@ -1,0 +1,197 @@
+// Processor: agricultural-production-foodgrains — RBI Handbook annual series.
+//
+// Source xlsx carries one sheet with annual foodgrain production figures for India,
+// newest-first from 2025-26 back to 1950-51. Layout:
+//   row 1  blank
+//   row 2  title: "Agricultural Production - Foodgrains"
+//   row 3  blank
+//   row 4  units: "(Lakhs Tonnes)"
+//   row 5  blank
+//   row 6  header row 1: Year | Cereals (spans Rice, Wheat, Coarse Cereals, Total) | Pulses
+//   row 7  header row 2: sub-columns
+//   row 8  col number row: 1, 2, 3, 4, 5, 6
+//   rows 9… data (col 1 = "YYYY-YY", col 2..6 = values)
+//   trailing blank + Note/Source footer
+//
+// Columns (1-indexed in the raw array, offset by 1 due to leading null col 0):
+//   col[1] = year (e.g. "2024-25   ")
+//   col[2] = rice
+//   col[3] = wheat
+//   col[4] = coarse_cereals
+//   col[5] = total_cereals  (labelled "Total (2 to 4)")
+//   col[6] = pulses
+//   (total foodgrains = total_cereals + pulses, not a separate column)
+//
+// Emits (newest-first):
+//   out/agricultural-production-foodgrains.json
+//     { reportTitle, units, data: [{ year, rice, wheat, coarse_cereals, total_cereals, pulses } …] }
+
+import * as XLSX from 'xlsx';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const XLSX_SRC = path.join(
+  __dirname,
+  '../publications/handbook-statistics-on-indian-economy/annual-series/output-and-prices/Agricultural Production - Foodgrains.xlsx',
+);
+const OUT_DIR = path.join(__dirname, 'out');
+
+function cellStr(row, i) {
+  const v = row[i];
+  return v == null ? '' : String(v);
+}
+
+// "3,320.5" -> 3320.5; '-'/'—'/'' -> null (gaps stay distinct from zeros).
+function parseNum(s) {
+  s = String(s == null ? '' : s).trim().replace(/,/g, '');
+  if (s === '' || s === '-' || s === '—' || s === 'N/A') return null;
+  const val = Number(s);
+  return Number.isFinite(val) ? val : null;
+}
+
+// "2024-25   " -> "2024-25" (trimmed canonical key).
+function yearKey(label) {
+  return label.trim();
+}
+
+// Is this a valid year cell like "2024-25" or "1950-51"?
+function isYearCell(s) {
+  return /^\d{4}-\d{2,4}\s*$/.test(s);
+}
+
+function parse(buf) {
+  const wb = XLSX.read(buf, { type: 'buffer' });
+  if (wb.SheetNames.length === 0) throw new Error('no sheets found in Excel file');
+
+  for (const sn of wb.SheetNames) {
+    const rows = XLSX.utils.sheet_to_json(wb.Sheets[sn], {
+      header    : 1,
+      raw       : false,
+      defval    : null,
+      blankrows : true,
+    });
+
+    let reportTitle = '';
+    let units       = 'Lakhs Tonnes';
+    let dataStart   = -1;
+
+    for (let i = 0; i < Math.min(rows.length, 12); i++) {
+      const row = rows[i] || [];
+      const c1  = cellStr(row, 1).trim();
+
+      if (/Agricultural Production.*Foodgrains/i.test(c1)) {
+        reportTitle = c1;
+      }
+      if (/Lakhs/i.test(c1)) {
+        // strip surrounding parens/brackets
+        units = c1.replace(/[()[\]]/g, '').trim();
+      }
+      // Data starts after the col-number row (1, 2, 3 …)
+      if (/^\s*1\s*$/.test(c1) && i > 5) {
+        dataStart = i + 1;
+        break;
+      }
+    }
+
+    if (dataStart < 0) continue;
+
+    const data = [];
+    for (let i = dataStart; i < rows.length; i++) {
+      const row  = rows[i] || [];
+      const raw  = cellStr(row, 1);
+      if (!isYearCell(raw)) continue;
+
+      data.push({
+        year           : yearKey(raw),
+        rice           : parseNum(row[2]),
+        wheat          : parseNum(row[3]),
+        coarse_cereals : parseNum(row[4]),
+        total_cereals  : parseNum(row[5]),
+        pulses         : parseNum(row[6]),
+      });
+    }
+
+    if (data.length === 0) throw new Error('no valid data rows found in sheet');
+
+    return {
+      reportTitle : reportTitle || 'Agricultural Production - Foodgrains',
+      units,
+      data,
+    };
+  }
+
+  throw new Error('could not locate data rows in any sheet');
+}
+
+// --- self-check: fail loudly (non-zero exit) if the shape or known cells drift ---
+function selfCheck(out) {
+  const { data } = out;
+  const errors   = [];
+
+  if (!Array.isArray(data) || data.length < 70) {
+    errors.push(`expected ≥70 year rows, got ${data ? data.length : 'n/a'}`);
+  }
+
+  // Known cells verified against source sheet.
+  const known = [
+    { year: '2025-26', field: 'rice',           value: 1245.04 },
+    { year: '2025-26', field: 'coarse_cereals', value: 414.14  },
+    { year: '2024-25', field: 'wheat',          value: 1179.45 },
+    { year: '2024-25', field: 'total_cereals',  value: 3320.5  },
+    { year: '1950-51', field: 'rice',           value: 205.8   },
+    { year: '1950-51', field: 'pulses',         value: 84.1    },
+  ];
+  for (const { year, field, value } of known) {
+    const row = data.find((r) => r.year === year);
+    if (!row) { errors.push(`known year missing: ${year}`); continue; }
+    if (row[field] !== value) {
+      errors.push(`${year} ${field}: expected ${value}, got ${row[field]}`);
+    }
+  }
+
+  // Years must be unique.
+  const keys = data.map((r) => r.year);
+  const uniq = new Set(keys);
+  if (uniq.size !== keys.length) {
+    errors.push(`years not unique: ${keys.length} rows, ${uniq.size} distinct`);
+  }
+
+  // Ordered newest-first (strictly descending start year).
+  for (let i = 1; i < keys.length; i++) {
+    const prev = parseInt(keys[i - 1].slice(0, 4), 10);
+    const curr = parseInt(keys[i].slice(0, 4), 10);
+    if (prev <= curr) {
+      errors.push(`not strictly newest-first at row ${i}: ${keys[i - 1]} then ${keys[i]}`);
+      break;
+    }
+  }
+
+  return errors;
+}
+
+function main() {
+  const out    = parse(fs.readFileSync(XLSX_SRC));
+  const errors = selfCheck(out);
+
+  if (errors.length > 0) {
+    console.error('agricultural-production-foodgrains self-check FAILED:');
+    errors.forEach((e) => console.error('  ' + e));
+    process.exit(1);
+  }
+
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.writeFileSync(
+    path.join(OUT_DIR, 'agricultural-production-foodgrains.json'),
+    JSON.stringify(out),
+  );
+
+  console.log(
+    `wrote ${out.data.length} year rows ` +
+    `(newest ${out.data[0].year}, oldest ${out.data[out.data.length - 1].year}; ` +
+    `units: ${out.units}); self-check passed`,
+  );
+}
+
+main();

@@ -1,0 +1,88 @@
+#nsva-at-constant-prices-page {
+    grid-template-rows  : 240px 480px 1fr;
+    grid-template-areas :
+            "title      title     title    meta"
+            "linechart  linechart linechart linechart"
+            "grid       grid      grid     grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* STATE SELECTOR ================================================================================================= */
+    .nsva-state-selector {
+        display         : flex;
+        flex-direction  : row;
+        align-items     : centre;
+        gap             : var(--nano);
+        flex-wrap       : wrap;
+    }
+
+    .nsva-state-selector select {
+        padding         : 6px 10px;
+        border          : 1px solid #d1d5db;
+        border-radius   : 4px;
+        font-family     : inherit;
+        font-size       : 14px;
+        background      : #ffffff;
+        cursor          : pointer;
+    }
+
+    /* CHART SECTION ================================================================================================== */
+    .nsva-at-constant-prices-linechart {
+        grid-area      : linechart;
+        width          : 100%;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    /* DATA GRID ====================================================================================================== */
+    .nsva-at-constant-prices-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 500px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .nsva-at-constant-prices-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ========================================================================================================= */
+@media screen and (max-width : 768px) {
+    #nsva-at-constant-prices-page {
+        grid-template-rows : auto 360px 1fr;
+    }
+
+    .nsva-at-constant-prices-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMISATION =============================================================================================== */
+#nsva-at-constant-prices-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#nsva-at-constant-prices-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#nsva-at-constant-prices-page .modebar-btn:hover {
+    opacity : 1;
+}

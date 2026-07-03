@@ -1,0 +1,79 @@
+#area-under-cultivation-foodgrains-page {
+    grid-template-rows  : 240px 240px repeat(3, 240px);
+    grid-template-areas :
+            "title     title     title     meta"
+            "statTotal statTotal statPulses statPulses"
+            "chart     chart     chart     chart"
+            "chart     chart     chart     chart"
+            "grid      grid      grid      grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .stat-card:nth-of-type(3) { grid-area : statTotal; }
+    .stat-card:nth-of-type(4) { grid-area : statPulses; }
+
+    .stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .area-under-cultivation-foodgrains-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .area-under-cultivation-foodgrains-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .area-under-cultivation-foodgrains-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .area-under-cultivation-foodgrains-chart {
+        min-height : 400px;
+    }
+
+    .area-under-cultivation-foodgrains-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#area-under-cultivation-foodgrains-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#area-under-cultivation-foodgrains-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#area-under-cultivation-foodgrains-page .modebar-btn:hover {
+    opacity : 1;
+}

@@ -1,0 +1,84 @@
+#iip-use-based-page {
+    grid-template-rows  : 240px 240px 240px repeat(2, 240px);
+    grid-template-areas :
+            "title      title      title      meta"
+            "stat0      stat1      stat2      stat3"
+            "stat4      stat5      chart      chart"
+            "chart      chart      chart      chart"
+            "grid       grid       grid       grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* Six stat cards, one per use-based category */
+    .iip-use-based-stat-card:nth-of-type(3) { grid-area : stat0; }
+    .iip-use-based-stat-card:nth-of-type(4) { grid-area : stat1; }
+    .iip-use-based-stat-card:nth-of-type(5) { grid-area : stat2; }
+    .iip-use-based-stat-card:nth-of-type(6) { grid-area : stat3; }
+    .iip-use-based-stat-card:nth-of-type(7) { grid-area : stat4; }
+    .iip-use-based-stat-card:nth-of-type(8) { grid-area : stat5; }
+
+    .iip-use-based-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .iip-use-based-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .iip-use-based-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 500px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .iip-use-based-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .iip-use-based-chart {
+        min-height : 300px;
+    }
+
+    .iip-use-based-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#iip-use-based-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#iip-use-based-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#iip-use-based-page .modebar-btn:hover {
+    opacity : 1;
+}

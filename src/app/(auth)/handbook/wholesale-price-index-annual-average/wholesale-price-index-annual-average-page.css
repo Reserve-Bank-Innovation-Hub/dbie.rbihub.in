@@ -1,0 +1,83 @@
+#wholesale-price-index-annual-average-page {
+    grid-template-rows  : 200px 200px 480px 1fr;
+    grid-template-areas :
+            "title      title     title    meta"
+            "statAC     statAC    statPA   statPA"
+            "linechart  linechart linechart linechart"
+            "grid       grid      grid     grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .wpi-stat-card:nth-of-type(3) { grid-area : statAC; }
+    .wpi-stat-card:nth-of-type(4) { grid-area : statPA; }
+
+    .wpi-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : center;
+    }
+
+    /* LINE CHART ================================================================================================== */
+    .wpi-annual-linechart {
+        grid-area      : linechart;
+        width          : 100%;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .wpi-annual-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .wholesale-price-index-annual-average-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    #wholesale-price-index-annual-average-page {
+        grid-template-rows : auto auto 360px 1fr;
+    }
+
+    .wpi-annual-linechart {
+        min-height : 360px;
+    }
+
+    .wpi-annual-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#wholesale-price-index-annual-average-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#wholesale-price-index-annual-average-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#wholesale-price-index-annual-average-page .modebar-btn:hover {
+    opacity : 1;
+}

@@ -1,0 +1,42 @@
+#sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march-page {
+    grid-template-rows  : 240px repeat(2, 240px);
+    grid-template-areas :
+            "title  title  title  meta"
+            "grid   grid   grid   grid"
+            "grid   grid   grid   grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* DATA GRID ===================================================================================================== */
+    .sector-wise-cost-overrun-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .sector-wise-cost-overrun-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================== */
+@media screen and (max-width : 768px) {
+    .sector-wise-cost-overrun-grid {
+        min-height : 400px;
+    }
+}

@@ -1,0 +1,81 @@
+#crude-oil-petroleum-page {
+    grid-template-rows  : 240px 240px repeat(3, 240px);
+    grid-template-areas :
+            "title      title      title      meta"
+            "statCrude  statPOL    statCImp   statPImp"
+            "chart      chart      chart      chart"
+            "chart      chart      chart      chart"
+            "grid       grid       grid       grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .stat-card:nth-of-type(3) { grid-area : statCrude; }
+    .stat-card:nth-of-type(4) { grid-area : statPOL; }
+    .stat-card:nth-of-type(5) { grid-area : statCImp; }
+    .stat-card:nth-of-type(6) { grid-area : statPImp; }
+
+    .stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .crude-oil-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .crude-oil-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .crude-oil-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .crude-oil-chart {
+        min-height : 400px;
+    }
+
+    .crude-oil-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMISATION ============================================================================================= */
+#crude-oil-petroleum-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#crude-oil-petroleum-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#crude-oil-petroleum-page .modebar-btn:hover {
+    opacity : 1;
+}
