@@ -1,0 +1,68 @@
+#liquidity-aggregates-page {
+    grid-template-rows  : 240px repeat(2, 240px) auto;
+    grid-template-areas :
+            "title   title   title   meta"
+            "chart   chart   chart   chart"
+            "chart   chart   chart   chart"
+            "grid    grid    grid    grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* CHART SECTION ==================================================================================================*/
+    .liquidity-aggregates-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID ======================================================================================================*/
+    .liquidity-aggregates-grid {
+        grid-area      : grid;
+        width          : 100%;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .liquidity-aggregates-grid-wrapper {
+        width : 100%;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================== */
+@media screen and (max-width : 768px) {
+    .liquidity-aggregates-chart {
+        min-height : 400px;
+    }
+
+    .liquidity-aggregates-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================== */
+#liquidity-aggregates-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#liquidity-aggregates-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#liquidity-aggregates-page .modebar-btn:hover {
+    opacity : 1;
+}

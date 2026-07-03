@@ -1,0 +1,69 @@
+#reserve-money-page {
+    grid-template-rows  : 240px 240px repeat(2, 240px);
+    grid-template-areas :
+            "title  title  title  meta"
+            "chart  chart  chart  chart"
+            "chart  chart  chart  chart"
+            "grid   grid   grid   grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* CHART SECTION ================================================================================================ */
+    .reserve-money-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .reserve-money-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .reserve-money-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .reserve-money-chart {
+        min-height : 400px;
+    }
+
+    .reserve-money-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMIZATION ============================================================================================= */
+#reserve-money-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#reserve-money-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#reserve-money-page .modebar-btn:hover {
+    opacity : 1;
+}
