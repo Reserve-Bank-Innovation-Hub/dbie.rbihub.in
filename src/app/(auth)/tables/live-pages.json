@@ -1,6 +1,11 @@
 {
  "sdmx:FOREX_RATE_D_RN": "/indicators/exchange-rates",
  "sdmx:FR_EXG_RESV_RN": "/indicators/forex-reserves",
+ "rbib:01": "/banking/select-economic-indicators",
+ "rbib:02": "/banking/rbi-liabilities-and-assets",
+ "rbib:03": "/banking/liquidity-operations",
+ "rbib:04": "/banking/usd-sale-purchase",
+ "rbib:05": "/banking/rbi-standing-facilities",
  "rbib:19": "/prices/consumer-price-index",
  "rbib:20": "/prices/other-consumer-price-indices",
  "rbib:21": "/prices/gold-and-silver-prices",
