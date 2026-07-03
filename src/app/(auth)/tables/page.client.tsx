@@ -2,9 +2,10 @@
 
 // REACT CORE ==========================================================================================================
 import React from "react";
+import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Article, Div, Heading4, Heading6, Text, Row, Portion, Card } from "fictoan-react";
+import { Article, Div, Heading4, Heading6, Text, Row, Portion, Card, Badge } from "fictoan-react";
 
 // STYLES ==============================================================================================================
 import "./tables-page.css";
@@ -13,16 +14,17 @@ export interface TableGroup {
     sector    : string;
     subGroups : {
         subSector : string;
-        tables    : { label : string; frequency : string }[];
+        tables    : { label : string; frequency : string; linkTo ? : string }[];
     }[];
 }
 
 interface TablesPageProps {
-    groups : TableGroup[];
-    total  : number;
+    groups    : TableGroup[];
+    total     : number;
+    liveCount : number;
 }
 
-const TablesPage = ({ groups, total } : TablesPageProps) => {
+const TablesPage = ({ groups, total, liveCount } : TablesPageProps) => {
     return (
         <Article id="tables-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
@@ -37,7 +39,7 @@ const TablesPage = ({ groups, total } : TablesPageProps) => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        All {total} data tables on the platform, grouped by sector.
+                        All {total} data tables on the platform, grouped by sector — {liveCount} live so far.
                     </Heading6>
                 </Div>
             </Div>
@@ -68,7 +70,19 @@ const TablesPage = ({ groups, total } : TablesPageProps) => {
                                     <li key={`${subGroup.subSector}-${table.label}-${table.frequency}`}>
                                         <Row marginBottom="none">
                                             <Portion desktopSpan="two-third" mobileSpan="whole">
-                                                <Text>{table.label}</Text>
+                                                {table.linkTo ? (
+                                                    <Link href={table.linkTo} className="table-link">
+                                                        <Text>
+                                                            {table.label}
+                                                            {" "}
+                                                            <Badge size="small" shape="rounded" aria-label="live">
+                                                                Live
+                                                            </Badge>
+                                                        </Text>
+                                                    </Link>
+                                                ) : (
+                                                    <Text opacity="80">{table.label}</Text>
+                                                )}
                                             </Portion>
 
                                             <Portion desktopSpan="one-third" mobileSpan="whole">

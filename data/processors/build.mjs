@@ -11,6 +11,11 @@ const processors = [
   'gold-and-silver-prices',
   'wholesale-price-index',
   'index-of-industrial-production',
+  'daily-call-money-rates',
+  'certificates-of-deposit',
+  'commercial-paper',
+  'financial-markets-turnover',
+  'new-capital-issues',
 ];
 
 for (const name of processors) {
@@ -18,4 +23,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (13 JSON files)');
+console.log('done -> out/ (18 JSON files)');
