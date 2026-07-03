@@ -1,0 +1,50 @@
+#household-financial-flows-page {
+    grid-template-rows  : 240px auto auto;
+    grid-template-areas :
+            "title  title  title  meta"
+            "grid   grid   grid   grid"
+            "notes  notes  notes  notes";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .household-financial-flows-grid {
+        grid-area  : grid;
+        width      : 100%;
+        min-height : 600px;
+    }
+
+    .household-financial-flows-grid-wrapper {
+        width : 100%;
+    }
+
+    /* NOTES ======================================================================================================= */
+    #notes-card {
+        grid-area   : notes;
+        border-top  : 1px solid var(--colour-rule, #e0e0e0);
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    #household-financial-flows-page {
+        grid-template-rows : auto auto auto;
+    }
+
+    .household-financial-flows-grid {
+        min-height : 400px;
+    }
+}

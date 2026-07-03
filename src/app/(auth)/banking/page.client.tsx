@@ -25,6 +25,9 @@ const TABLES = [
     { linkTo : "/banking/bank-credit-by-sector", label : "Bank credit by sector" },
     { linkTo : "/banking/bank-credit-by-industry", label : "Bank credit by industry" },
     { linkTo : "/banking/state-cooperative-banks", label : "State co-operative banks" },
+    { linkTo : "/banking/small-savings", label : "Small savings" },
+    { linkTo : "/banking/household-financial-flows", label : "Household financial flows" },
+    { linkTo : "/banking/household-financial-stocks", label : "Household financial stocks" },
 ];
 
 const SectionPage = () => {

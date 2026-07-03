@@ -1,0 +1,49 @@
+#dated-securities-ownership-page {
+    grid-template-rows  : 240px auto;
+    grid-template-areas :
+            "title  title  title  meta"
+            "sec1   sec1   sec1   sec1"
+            "grid1  grid1  grid1  grid1"
+            "sec2   sec2   sec2   sec2"
+            "grid2  grid2  grid2  grid2"
+            "sec3   sec3   sec3   sec3"
+            "grid3  grid3  grid3  grid3";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* SECTION HEADERS ================================================================================================ */
+    .dated-securities-ownership-section-header {
+        grid-column : 1 / -1;
+        border-top  : 2px solid var(--card-border);
+    }
+
+    /* DATA GRIDS ===================================================================================================== */
+    .dated-securities-ownership-grid {
+        grid-column : 1 / -1;
+        width       : 100%;
+    }
+
+    .dated-securities-ownership-grid-wrapper {
+        width : 100%;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .dated-securities-ownership-grid {
+        min-height : 400px;
+    }
+}

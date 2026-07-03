@@ -23,6 +23,31 @@ const TABLES = [
         label       : "Treasury bill auctions",
         description : "Auction-wise results for 91, 182 and 364-day treasury bills — bids, cut-off prices and yields.",
     },
+    {
+        linkTo      : "/government/dated-securities-ownership",
+        label       : "Dated securities ownership",
+        description : "Quarterly ownership shares of central and state government securities and treasury bills.",
+    },
+    {
+        linkTo      : "/government/combined-receipts-disbursements",
+        label       : "Combined receipts and disbursements",
+        description : "Consolidated fiscal position of central and state governments by year.",
+    },
+    {
+        linkTo      : "/government/state-financial-accommodation",
+        label       : "State financial accommodation",
+        description : "State-wise use of special drawing, ways and means and overdraft facilities.",
+    },
+    {
+        linkTo      : "/government/state-government-investments",
+        label       : "State government investments",
+        description : "State-wise investments in sinking, redemption and stabilisation funds and treasury bills.",
+    },
+    {
+        linkTo      : "/government/state-market-borrowings",
+        label       : "State market borrowings",
+        description : "State-wise gross and net market borrowings, annual and monthly.",
+    },
 ];
 
 const GovernmentPage = () => {
