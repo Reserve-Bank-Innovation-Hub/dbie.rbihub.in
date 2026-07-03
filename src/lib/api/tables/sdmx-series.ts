@@ -1,6 +1,3 @@
-// OTHER ===============================================================================================================
-import { loadData } from "../loadData";
-
 // Generic SDMX series payload — produced by the SDMX processor for each DSD.
 // Slug = catalogue path basename minus ".csv".
 //
@@ -8,7 +5,8 @@ import { loadData } from "../loadData";
 //   "wide" (≤100 series) — column-major: values[colIdx][dateIdx], dates ascending.
 //   "long" (>100 series) — row array: [dim0, dim1, …, unit, date, value] per observation.
 //
-// Older payloads (pre-dual-mode) lack a `mode` field — treat them as "wide".
+// Older payloads (pre-dual-mode) lack a `mode` field — client-side fetch code should
+// treat them as "wide" (same coercion as the former server loader did).
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Shared fields
@@ -51,48 +49,7 @@ export interface SdmxLongPayload extends SdmxSeriesBase {
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
-// Union — loader returns this; callers narrow by payload.mode
-// Older payloads lacking `mode` are normalised to SdmxWidePayload by getSdmxSeries().
+// Union — fetch result is cast to this; callers narrow by payload.mode.
+// Legacy payloads (no `mode`) should be treated as "wide" at the call site.
 // ---------------------------------------------------------------------------------------------------------------------
 export type SdmxSeriesPayload = SdmxWidePayload | SdmxLongPayload;
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Raw shape of pre-dual-mode payloads (no `mode` field)
-// ---------------------------------------------------------------------------------------------------------------------
-interface SdmxLegacyPayload extends SdmxSeriesBase {
-    columns : SdmxSeriesColumn[];
-    dates   : string[];
-    values  : (number | null)[][];
-}
-
-/**
- * Load the SDMX series payload for a given slug from the build-synced JSON.
- * File: public/data/sdmx-<slug>.json
- *
- * Legacy payloads (no `mode`) are coerced to wide mode so callers always see the union.
- */
-export function getSdmxSeries(slug : string) : SdmxSeriesPayload {
-    const raw = loadData<SdmxWidePayload | SdmxLongPayload | SdmxLegacyPayload>(`sdmx-${slug}`);
-
-    // If `mode` is already set, the parser has emitted the new dual-mode shape.
-    if ("mode" in raw && raw.mode != null) {
-        return raw as SdmxSeriesPayload;
-    }
-
-    // Legacy: coerce to wide.
-    const legacy = raw as SdmxLegacyPayload;
-    return {
-        mode      : "wide",
-        slug      : legacy.slug,
-        label     : legacy.label,
-        sector    : legacy.sector,
-        subSector : legacy.subSector,
-        frequency : legacy.frequency,
-        dsdCode   : legacy.dsdCode,
-        columns   : legacy.columns,
-        dates     : legacy.dates,
-        values    : legacy.values,
-        chartable : legacy.chartable,
-        footnotes : legacy.footnotes,
-    } satisfies SdmxWidePayload;
-}

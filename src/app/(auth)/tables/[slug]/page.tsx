@@ -4,9 +4,6 @@ import { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
-// LIB =================================================================================================================
-import { getSdmxSeries } from "@/lib/api/tables/sdmx-series";
-
 // OTHER ===============================================================================================================
 import SdmxSeriesPageClient from "./page.client";
 
@@ -14,36 +11,54 @@ import SdmxSeriesPageClient from "./page.client";
 export const dynamicParams = false;
 
 // =====================================================================================================================
-// generateStaticParams
-// Read the committed catalogue, filter source === "sdmx", derive slug from path basename.
+// Catalogue types
 // =====================================================================================================================
 interface CatalogueEntry {
-    id     : string;
-    source : "sdmx" | "rbib";
-    path   : string;
+    id        : string;
+    source    : "sdmx" | "rbib";
+    path      : string;
+    label     : string;
+    sector    : string;
+    subSector : string;
+    frequency : string;
 }
 
-export function generateStaticParams() : { slug : string }[] {
+function readCatalogue() : CatalogueEntry[] {
     const cataloguePath = path.join(process.cwd(), "data", "catalogue.json");
     const catalogue     = JSON.parse(fs.readFileSync(cataloguePath, "utf8"));
+    return catalogue.entries as CatalogueEntry[];
+}
 
-    return (catalogue.entries as CatalogueEntry[])
-        .filter(e => e.source === "sdmx")
-        .map(e => ({
-            slug : path.basename(e.path, ".csv"),
-        }));
+function findEntry(slug : string) : CatalogueEntry | undefined {
+    return readCatalogue().find(
+        e => e.source === "sdmx" && path.basename(e.path, ".csv") === slug,
+    );
 }
 
 // =====================================================================================================================
-// Metadata — dynamic per-series title and description
+// generateStaticParams
+// =====================================================================================================================
+export function generateStaticParams() : { slug : string }[] {
+    return readCatalogue()
+        .filter(e => e.source === "sdmx")
+        .map(e => ({ slug : path.basename(e.path, ".csv") }));
+}
+
+// =====================================================================================================================
+// Metadata — read from catalogue (no payload load)
 // =====================================================================================================================
 export async function generateMetadata(
     { params } : { params : Promise<{ slug : string }> },
 ) : Promise<Metadata> {
     const { slug }  = await params;
-    const payload   = getSdmxSeries(slug);
-    const title     = `${payload.label} — Database on Indian Economy`;
-    const desc      = `${payload.sector} · ${payload.subSector} · ${payload.frequency} — ${payload.label}. Source: Reserve Bank of India (DBIE).`;
+    const entry     = findEntry(slug);
+    const label     = entry?.label     ?? slug;
+    const sector    = entry?.sector    ?? "";
+    const subSector = entry?.subSector ?? "";
+    const frequency = entry?.frequency ?? "";
+
+    const title = `${label} — Database on Indian Economy`;
+    const desc  = `${sector} · ${subSector} · ${frequency} — ${label}. Source: Reserve Bank of India (DBIE).`;
 
     return {
         title,
@@ -63,13 +78,21 @@ export async function generateMetadata(
 }
 
 // =====================================================================================================================
-// Page
+// Page — pass only catalogue fields; payload is fetched client-side
 // =====================================================================================================================
 export default async function Page(
     { params } : { params : Promise<{ slug : string }> },
 ) {
-    const { slug } = await params;
-    const payload  = getSdmxSeries(slug);
+    const { slug }  = await params;
+    const entry     = findEntry(slug);
 
-    return <SdmxSeriesPageClient payload={payload} />;
+    return (
+        <SdmxSeriesPageClient
+            slug       = {slug}
+            label      = {entry?.label     ?? slug}
+            sector     = {entry?.sector    ?? ""}
+            subSector  = {entry?.subSector ?? ""}
+            frequency  = {entry?.frequency ?? ""}
+        />
+    );
 }
