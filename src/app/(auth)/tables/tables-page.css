@@ -24,3 +24,11 @@
         }
     }
 }
+
+#tables-page .table-link {
+    text-decoration : none;
+
+    &:hover p {
+        text-decoration : underline;
+    }
+}

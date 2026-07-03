@@ -1,0 +1,79 @@
+#certificates-of-deposit-page {
+    grid-template-rows  : 240px 240px repeat(3, 240px);
+    grid-template-areas :
+            "title    title    title    meta"
+            "statOut  statOut  statIssued statIssued"
+            "chart    chart    chart    chart"
+            "chart    chart    chart    chart"
+            "grid     grid     grid     grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    .cd-stat-card:nth-of-type(3) { grid-area : statOut; }
+    .cd-stat-card:nth-of-type(4) { grid-area : statIssued; }
+
+    .cd-stat-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+    }
+
+    /* CHART SECTION ==================================================================================================*/
+    .certificates-of-deposit-chart {
+        grid-area  : chart;
+        width      : 100%;
+        min-height : 100%;
+    }
+
+    /* DATA GRID ======================================================================================================*/
+    .certificates-of-deposit-grid {
+        grid-area      : grid;
+        width          : 100%;
+        min-height     : 600px;
+        display        : flex;
+        flex-direction : column;
+    }
+
+    .certificates-of-deposit-grid-wrapper {
+        flex : 1;
+    }
+}
+
+/* RESPONSIVE ========================================================================================================*/
+@media screen and (max-width : 768px) {
+    .certificates-of-deposit-chart {
+        min-height : 400px;
+    }
+
+    .certificates-of-deposit-grid {
+        min-height : 400px;
+    }
+}
+
+/* PLOTLY CUSTOMISATION ==============================================================================================*/
+#certificates-of-deposit-page .modebar {
+    right : 8px !important;
+    top   : 8px !important;
+}
+
+#certificates-of-deposit-page .modebar-btn {
+    opacity    : 0.6;
+    transition : opacity 0.2s ease;
+}
+
+#certificates-of-deposit-page .modebar-btn:hover {
+    opacity : 1;
+}

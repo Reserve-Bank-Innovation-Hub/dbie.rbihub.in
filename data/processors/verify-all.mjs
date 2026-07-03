@@ -27,6 +27,11 @@ const datasets = [
   { name: 'gold-and-silver-prices', mode: 'exact' },
   { name: 'wholesale-price-index', mode: 'exact' },
   { name: 'index-of-industrial-production', mode: 'exact' },
+  { name: 'daily-call-money-rates', mode: 'exact' },
+  { name: 'certificates-of-deposit', mode: 'exact' },
+  { name: 'commercial-paper', mode: 'exact' },
+  { name: 'financial-markets-turnover', mode: 'exact' },
+  { name: 'new-capital-issues', mode: 'exact' },
 ];
 
 let failed = 0;

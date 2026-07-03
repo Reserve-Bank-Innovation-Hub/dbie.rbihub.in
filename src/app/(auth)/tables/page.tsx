@@ -23,13 +23,29 @@ interface CatalogueEntry {
     topic ?     : string;
 }
 
+// Catalogue entries that have a live page on the site
+const LIVE_PAGES : Record<string, string> = {
+    "sdmx:FOREX_RATE_D_RN" : "/indicators/exchange-rates",
+    "sdmx:FR_EXG_RESV_RN"  : "/indicators/forex-reserves",
+    "rbib:19"              : "/prices/consumer-price-index",
+    "rbib:20"              : "/prices/other-consumer-price-indices",
+    "rbib:21"              : "/prices/gold-and-silver-prices",
+    "rbib:22"              : "/prices/wholesale-price-index",
+    "rbib:23"              : "/growth/index-of-industrial-production",
+    "rbib:27"              : "/markets/daily-call-money-rates",
+    "rbib:28"              : "/markets/certificates-of-deposit",
+    "rbib:29"              : "/markets/commercial-paper",
+    "rbib:30"              : "/markets/financial-markets-turnover",
+    "rbib:31"              : "/markets/new-capital-issues",
+};
+
 export default function Page() {
     // The catalogue is committed alongside the data — read it at build time (SSG)
     const cataloguePath = path.join(process.cwd(), "data", "catalogue.json");
     const catalogue = JSON.parse(fs.readFileSync(cataloguePath, "utf8"));
 
     // Normalise both sources into sector → sub-sector → tables
-    const groups = new Map<string, Map<string, { label : string; frequency : string }[]>>();
+    const groups = new Map<string, Map<string, { label : string; frequency : string; linkTo ? : string }[]>>();
 
     for (const entry of catalogue.entries as CatalogueEntry[]) {
         const sector    = entry.sector ?? entry.publication ?? "Other";
@@ -41,6 +57,7 @@ export default function Page() {
         subGroups.get(subSector)!.push({
             label     : entry.label,
             frequency : entry.frequency ?? "",
+            linkTo    : LIVE_PAGES[entry.id],
         });
     }
 
@@ -52,7 +69,8 @@ export default function Page() {
         })),
     }));
 
-    const total = (catalogue.entries as CatalogueEntry[]).length;
+    const total     = (catalogue.entries as CatalogueEntry[]).length;
+    const liveCount = Object.keys(LIVE_PAGES).length;
 
-    return <TablesPage groups={tableGroups} total={total} />;
+    return <TablesPage groups={tableGroups} total={total} liveCount={liveCount} />;
 }
