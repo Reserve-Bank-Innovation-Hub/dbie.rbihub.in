@@ -1,7 +1,8 @@
 #forex-reserves-page {
-    grid-template-rows  : 240px 1fr;
+    grid-template-rows  : 240px auto 1fr;
     grid-template-areas :
             "title      title     title    meta"
+            "ts-chart   ts-chart  ts-chart ts-chart"
             "chart      chart     chart    chart";
 
     #title-card {
@@ -17,6 +18,11 @@
         justify-content : space-between;
         gap             : var(--micro);
         grid-area       : meta;
+    }
+
+    .forex-reserves-ts-chart {
+        grid-area : ts-chart;
+        width     : 100%;
     }
 
     .forex-reserves-chart {
