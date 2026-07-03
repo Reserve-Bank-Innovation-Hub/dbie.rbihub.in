@@ -1,0 +1,38 @@
+#liquidity-operations-page {
+    grid-template-rows  : 240px auto;
+    grid-template-areas :
+            "title  title  title  meta"
+            "grid   grid   grid   grid";
+
+    #title-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        grid-area       : title;
+    }
+
+    #meta-card {
+        display         : flex;
+        flex-direction  : column;
+        justify-content : space-between;
+        gap             : var(--micro);
+        grid-area       : meta;
+    }
+
+    /* DATA GRID =================================================================================================== */
+    .liquidity-operations-grid {
+        grid-area  : grid;
+        width      : 100%;
+    }
+
+    .liquidity-operations-grid-wrapper {
+        width : 100%;
+    }
+}
+
+/* RESPONSIVE ======================================================================================================= */
+@media screen and (max-width : 768px) {
+    .liquidity-operations-grid {
+        min-height : 400px;
+    }
+}

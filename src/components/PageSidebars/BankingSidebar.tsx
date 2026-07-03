@@ -24,7 +24,41 @@ export const BankingSidebar = () => {
 
             <Divider />
 
-            <LinkGroup title="Monthly RBI Bulletin">
+            <LinkGroup title="Reserve Bank of India">
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/select-economic-indicators"
+                    label="Select economic indicators"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/rbi-liabilities-and-assets"
+                    label="RBI liabilities and assets"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/liquidity-operations"
+                    label="Liquidity operations"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/usd-sale-purchase"
+                    label="USD sale/purchase"
+                />
+
+                <LinkItem
+                    icon={<Table2 />}
+                    linkTo="/banking/rbi-standing-facilities"
+                    label="Standing facilities"
+                />
+            </LinkGroup>
+
+            <Divider />
+
+            <LinkGroup title="Money and banking">
                 <LinkItem
                     icon={<Table2 />}
                     linkTo="/banking/money-stock-measures"

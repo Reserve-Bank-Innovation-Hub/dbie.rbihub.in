@@ -8,6 +8,11 @@ import Link from "next/link";
 import { Article, Card, Div, Heading4, Heading6, Text, Row, Portion } from "fictoan-react";
 
 const TABLES = [
+    { linkTo : "/banking/select-economic-indicators", label : "Select economic indicators" },
+    { linkTo : "/banking/rbi-liabilities-and-assets", label : "RBI liabilities and assets" },
+    { linkTo : "/banking/liquidity-operations", label : "Liquidity operations" },
+    { linkTo : "/banking/usd-sale-purchase", label : "USD sale/purchase" },
+    { linkTo : "/banking/rbi-standing-facilities", label : "Standing facilities" },
     { linkTo : "/banking/money-stock-measures", label : "Money stock measures" },
     { linkTo : "/banking/sources-of-money-stock", label : "Sources of money stock (M3)" },
     { linkTo : "/banking/monetary-survey", label : "Monetary survey" },
@@ -32,7 +37,7 @@ const SectionPage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        Monetary aggregates, surveys and bank credit.
+                        Reserve Bank operations, monetary aggregates, surveys and bank credit.
                     </Heading6>
                 </Div>
             </Div>
