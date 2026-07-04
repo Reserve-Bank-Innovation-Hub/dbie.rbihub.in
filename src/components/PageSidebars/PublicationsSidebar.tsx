@@ -1,7 +1,7 @@
 "use client";
 
 // UI ==================================================================================================================
-import { BookOpen, LayoutDashboard, Newspaper } from "lucide-react";
+import { LayoutDashboard, Newspaper, Table2 } from "lucide-react";
 import { Divider } from "fictoan-react";
 
 // OTHER ===============================================================================================================
@@ -26,13 +26,13 @@ export const PublicationsSidebar = () => {
 
             <LinkGroup>
                 <LinkItem
-                    icon={<BookOpen />}
+                    icon={<Table2 />}
                     linkTo="/publications/abc"
                     label="Outstanding credit of SCBs"
                 />
 
                 <LinkItem
-                    icon={<BookOpen />}
+                    icon={<Table2 />}
                     linkTo="/publications/external-debt"
                     label="External debt"
                 />

@@ -2,38 +2,58 @@
 
 // REACT CORE ==========================================================================================================
 import React from "react";
+import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Article, Text, Heading6, Portion, Row, Heading4, Header, Div } from "fictoan-react";
+import { Article, Div, Header, Heading4, Heading6, Section, Text } from "fictoan-react";
 
-// LIB =================================================================================================================
-import { ParsedExchangeRates } from "@/lib/api/indicators";
+const SECTIONS = [
+    {
+        title : "External sector",
+        items : [
+            { linkTo : "/indicators/exchange-rates", label : "Exchange rates" },
+            { linkTo : "/indicators/forex-reserves", label : "Forex reserves" },
+        ],
+    },
+];
 
-// STYLES ==============================================================================================================
-import "./indicators-page.css";
-
-interface IndicatorsPageProps {
-    exchangeRateData ? : ParsedExchangeRates;
-}
-
-const IndicatorsPage = ({exchangeRateData} : IndicatorsPageProps) => {
+const IndicatorsPage = () => {
     return (
-        <Article id="indicators-page" className="page-grid">
-            {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div
-                id="title-card"
-                bgColour="white"
-                padding="micro"
-            >
+        <Article id="indicators-page" className="data-list-page">
+            <Header id="title-card" bgColour="white" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Indicators
                     </Heading4>
 
-                    <Heading6 weight="400" opacity="60" marginBottom="micro">
+                    <Heading6 weight="400" opacity="60">
                         Key economic parameters like GDP, inflation, and financial market trends.
                     </Heading6>
                 </Div>
+            </Header>
+
+            <Div id="sections-wrapper">
+                {SECTIONS.map((section, idx) => (
+                    <Section key={section.title || idx} marginBottom="nano">
+                        {section.title && (
+                            <Div className="grid-cell section-header" padding="micro">
+                                <Heading6 weight="700" className="section-title">
+                                    {section.title}
+                                </Heading6>
+                            </Div>
+                        )}
+
+                        <Div className="section-content">
+                            {section.items.map(item => (
+                                <Div className="grid-cell" key={item.linkTo} padding="micro">
+                                    <Link href={item.linkTo}>
+                                        <Text weight="600">{item.label}</Text>
+                                    </Link>
+                                </Div>
+                            ))}
+                        </Div>
+                    </Section>
+                ))}
             </Div>
         </Article>
     );

@@ -2,7 +2,7 @@
 
 // UI ==================================================================================================================
 import { Divider } from "fictoan-react";
-import { Building2, LayoutDashboard, ArrowRightLeft, Banknote } from "lucide-react";
+import { FlagTriangleLeft, LayoutDashboard, Table2 } from "lucide-react";
 
 // OTHER ===============================================================================================================
 import { PageSidebar, LinkGroup, LinkItem } from "./PageSidebar";
@@ -10,8 +10,8 @@ import { PageSidebar, LinkGroup, LinkItem } from "./PageSidebar";
 export const IndicatorsSidebar = () => {
     return (
         <PageSidebar
-            id="bfs-sidebar"
-            headerIcon={<Building2 />}
+            id="indicators-sidebar"
+            headerIcon={<FlagTriangleLeft />}
             headerLabel="Indicators"
         >
             <LinkGroup>
@@ -24,14 +24,14 @@ export const IndicatorsSidebar = () => {
 
             <Divider />
 
-            <LinkGroup title="External Sector">
+            <LinkGroup title="External sector">
                 <LinkItem
-                    icon={<ArrowRightLeft />}
+                    icon={<Table2 />}
                     linkTo="/indicators/exchange-rates"
                     label="Exchange rates"
                 />
                 <LinkItem
-                    icon={<Banknote />}
+                    icon={<Table2 />}
                     linkTo="/indicators/forex-reserves"
                     label="Forex reserves"
                 />

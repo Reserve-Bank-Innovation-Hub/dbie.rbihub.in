@@ -2,9 +2,6 @@
 import React from "react";
 import { Metadata } from "next";
 
-// LIB =================================================================================================================
-import { getExchangeRates } from "@/lib/api/indicators";
-
 // OTHER ===============================================================================================================
 import IndicatorsPage from "./page.client";
 
@@ -27,9 +24,6 @@ export const metadata : Metadata = {
     },
 };
 
-export default async function Page() {
-    // Load exchange rate data on the server (from the build-synced public/data JSON)
-    const exchangeRateData = await getExchangeRates();
-
-    return <IndicatorsPage exchangeRateData={exchangeRateData} />;
+export default function Page() {
+    return <IndicatorsPage />;
 }
