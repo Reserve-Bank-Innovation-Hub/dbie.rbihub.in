@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { BusinessOfScheduledBanks } from "@/lib/api/tables/business-of-scheduled-banks";
 
-// STYLES ==============================================================================================================
-import "./business-of-scheduled-banks-page.css";
+
 
 interface BusinessOfScheduledBanksPageProps {
     data : BusinessOfScheduledBanks;
@@ -91,7 +90,7 @@ const BusinessOfScheduledBanksPage : React.FC<BusinessOfScheduledBanksPageProps>
             </Div>
 
             {/* SHEET SELECTOR ///////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="sheet-selector" className="grid-cell" padding="micro">
+            <Div id="sheet-selector" className="controls-cell grid-cell" padding="micro">
                 {data.sheets.map((sheet, i) => (
                     <button
                         key={sheet.sheetName}
@@ -104,7 +103,7 @@ const BusinessOfScheduledBanksPage : React.FC<BusinessOfScheduledBanksPageProps>
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="business-of-scheduled-banks-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <BusinessOfScheduledBanksGrid
                     items={activeSheet.items}
                     periods={activeSheet.periods}

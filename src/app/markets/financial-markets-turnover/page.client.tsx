@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { FinancialMarketsTurnover } from "@/lib/api/tables/financial-markets-turnover";
 
 // STYLES ==============================================================================================================
-import "./financial-markets-turnover-page.css";
 
 interface FinancialMarketsTurnoverPageProps {
     turnoverData : FinancialMarketsTurnover;
@@ -80,7 +79,7 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
             </Div>
 
             {/* LATEST STATS ////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell turnover-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Call money</Text>
                 <DataUnit
                     label={`Latest (${stats.latestPeriod})`}
@@ -91,7 +90,7 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
                 <Text size="tiny" opacity="60">Average daily turnover, Rupees Crores</Text>
             </Div>
 
-            <Div className="grid-cell turnover-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Triparty repo</Text>
                 <DataUnit
                     label={`Latest (${stats.latestPeriod})`}
@@ -103,15 +102,17 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <FinancialMarketsTurnoverChart
-                data={turnoverData.data}
-                markets={turnoverData.markets}
-                title="Daily turnover in select financial markets"
-                height={600}
-            />
+            <div className="chart-cell grid-cell">
+                <FinancialMarketsTurnoverChart
+                    data={turnoverData.data}
+                    markets={turnoverData.markets}
+                    title="Daily turnover in select financial markets"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="financial-markets-turnover-grid">
+            <Div className="table-cell grid-cell">
                 <FinancialMarketsTurnoverGrid
                     data={turnoverData.data}
                     markets={turnoverData.markets}

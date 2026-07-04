@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ImplementationOfCentralSectorProjects } from "@/lib/api/tables/implementation-of-central-sector-projects-status-end-march";
 
-// STYLES ==============================================================================================================
-import "./implementation-of-central-sector-projects-status-end-march-page.css";
 
 interface ImplementationOfCentralSectorProjectsPageProps {
     tableData : ImplementationOfCentralSectorProjects;
@@ -59,7 +57,7 @@ const ImplementationOfCentralSectorProjectsPage : React.FC<ImplementationOfCentr
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="implementation-of-central-sector-projects-grid">
+            <Div className="table-cell grid-cell">
                 <ImplementationOfCentralSectorProjectsGrid
                     data={tableData.data}
                     units={tableData.units}

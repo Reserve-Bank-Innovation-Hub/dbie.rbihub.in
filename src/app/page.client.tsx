@@ -57,21 +57,23 @@ const HomePage : React.FC<HomePageProps> = ({markers, forexData, fiiData, extern
             </Div>
 
             {/* MARKER DATA POINTS ///////////////////////////////////////////////////////////////////////////////// */}
-            {markerKeys.map((key, index) => (
-                <Div
-                    key={key}
-                    id={`marker${index + 1}-card`}
-                    className="grid-cell marker-card"
-                    padding="micro"
-                >
-                    <DataUnit
-                        label={key}
-                        value={markers[key]}
-                        size="large"
-                        align="left"
-                    />
-                </Div>
-            ))}
+            <Div id="markers">
+                {markerKeys.map((key, index) => (
+                    <Div
+                        key={key}
+                        id={`marker${index + 1}-card`}
+                        className="grid-cell marker-card"
+                        padding="micro"
+                    >
+                        <DataUnit
+                            label={key}
+                            value={markers[key]}
+                            size="large"
+                            align="left"
+                        />
+                    </Div>
+                ))}
+            </Div>
 
             {/* FOREX RESERVES CHART /////////////////////////////////////////////////////////////////////////////// */}
             <Div

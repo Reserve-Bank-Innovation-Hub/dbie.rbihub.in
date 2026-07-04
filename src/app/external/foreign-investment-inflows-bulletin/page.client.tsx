@@ -18,8 +18,6 @@ import { ForeignInvestmentInflowsBulletin } from "@/lib/api/tables/foreign-inves
 import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@/components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./foreign-investment-inflows-bulletin-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -123,7 +121,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net FDI</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -134,7 +132,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
                 <Text size="tiny" opacity="60">US $Millions</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net portfolio investment</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -146,7 +144,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="foreign-investment-inflows-bulletin-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -157,7 +155,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="foreign-investment-inflows-bulletin-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ForeignInvestmentInflowsBulletinGrid
                     data={investmentData.data}
                     unit={investmentData.unit}

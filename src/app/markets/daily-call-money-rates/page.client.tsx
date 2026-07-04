@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { DailyCallMoneyRates } from "@/lib/api/tables/daily-call-money-rates";
 
 // STYLES ==============================================================================================================
-import "./daily-call-money-rates-page.css";
 
 interface DailyCallMoneyRatesPageProps {
     ratesData : DailyCallMoneyRates;
@@ -73,7 +72,7 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
             </Div>
 
             {/* LATEST RATE STATS ////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell rate-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Minimum rate</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -84,7 +83,7 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
                 <Text size="tiny" opacity="60">% per annum</Text>
             </Div>
 
-            <Div className="grid-cell rate-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Maximum rate</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -96,22 +95,24 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <TimeSeriesChart
-                title        = "Call / notice money rates over time"
-                dates        = {ratesData.data.map(d => d.date)}
-                series       = {[
-                    {key : "minRate", label : "Minimum rate", values : ratesData.data.map(d => d.minRate)},
-                    {key : "maxRate", label : "Maximum rate", values : ratesData.data.map(d => d.maxRate)},
-                ]}
-                yAxisTitle   = "Per cent"
-                valueDecimals = {2}
-                valueSuffix  = "%"
-                exportName   = "daily-call-money-rates"
-                height       = {600}
-            />
+            <div className="chart-cell grid-cell">
+                <TimeSeriesChart
+                    title        = "Call / notice money rates over time"
+                    dates        = {ratesData.data.map(d => d.date)}
+                    series       = {[
+                        {key : "minRate", label : "Minimum rate", values : ratesData.data.map(d => d.minRate)},
+                        {key : "maxRate", label : "Maximum rate", values : ratesData.data.map(d => d.maxRate)},
+                    ]}
+                    yAxisTitle   = "Per cent"
+                    valueDecimals = {2}
+                    valueSuffix  = "%"
+                    exportName   = "daily-call-money-rates"
+                    height       = {600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="daily-call-money-rates-grid">
+            <Div className="table-cell grid-cell">
                 <DailyCallMoneyRatesGrid
                     data={ratesData.data}
                 />

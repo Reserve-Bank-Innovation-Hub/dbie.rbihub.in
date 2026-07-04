@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { BopBpm6Usd } from "@/lib/api/tables/bop-bpm6-usd";
 
-// STYLES ==============================================================================================================
-import "./bop-bpm6-usd-page.css";
 
 interface BopBpm6UsdPageProps {
     data : BopBpm6Usd;
@@ -84,7 +82,7 @@ const BopBpm6UsdPage : React.FC<BopBpm6UsdPageProps> = ({ data }) => {
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="bop-bpm6-usd-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <BopBpm6UsdGrid
                     items={data.items}
                     quarters={data.quarters}

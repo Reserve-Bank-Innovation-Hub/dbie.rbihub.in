@@ -21,7 +21,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 import type * as Plotly from "plotly.js";
 
 // STYLES ==============================================================================================================
-import "./sector-wise-domestic-savings-at-current-prices-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -134,7 +133,7 @@ const SectorWiseDomesticSavingsPage : React.FC<SectorWiseDomesticSavingsPageProp
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross domestic savings</Text>
                 <DataUnit
                     label={`Latest (${latest?.year ?? "—"})`}
@@ -146,7 +145,7 @@ const SectorWiseDomesticSavingsPage : React.FC<SectorWiseDomesticSavingsPageProp
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="sector-wise-domestic-savings-chart">
+            <div className="chart-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -157,7 +156,7 @@ const SectorWiseDomesticSavingsPage : React.FC<SectorWiseDomesticSavingsPageProp
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="sector-wise-domestic-savings-grid">
+            <Div className="table-cell grid-cell">
                 <SectorWiseDomesticSavingsGrid data={data.data} />
             </Div>
         </Article>

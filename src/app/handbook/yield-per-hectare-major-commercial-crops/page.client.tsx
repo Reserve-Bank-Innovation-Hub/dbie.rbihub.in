@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { YieldPerHectareMajorCommercialCrops } from "@/lib/api/tables/yield-per-hectare-major-commercial-crops";
 
 // STYLES ==============================================================================================================
-import "./yield-per-hectare-major-commercial-crops-page.css";
 
 interface YieldPerHectareMajorCommercialCropsPageProps {
     tableData : YieldPerHectareMajorCommercialCrops;
@@ -72,7 +71,7 @@ const YieldPerHectareMajorCommercialCropsPage : React.FC<YieldPerHectareMajorCom
             </Div>
 
             {/* HEADLINE STAT CARDS //////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total oilseeds</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -82,7 +81,7 @@ const YieldPerHectareMajorCommercialCropsPage : React.FC<YieldPerHectareMajorCom
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Sugarcane</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -93,15 +92,17 @@ const YieldPerHectareMajorCommercialCropsPage : React.FC<YieldPerHectareMajorCom
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <YieldPerHectareMajorCommercialCropsChart
-                data={tableData.data}
-                unit={tableData.unit}
-                title="Yield per hectare — major commercial crops (annual)"
-                height={500}
-            />
+            <div className="chart-cell">
+                <YieldPerHectareMajorCommercialCropsChart
+                    data={tableData.data}
+                    unit={tableData.unit}
+                    title="Yield per hectare — major commercial crops (annual)"
+                    height={500}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="yield-per-hectare-major-commercial-crops-grid">
+            <Div className="table-cell grid-cell">
                 <YieldPerHectareMajorCommercialCropsGrid
                     data={tableData.data}
                     columns={tableData.columns}

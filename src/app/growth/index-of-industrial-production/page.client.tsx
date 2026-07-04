@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { ParsedIndexOfIndustrialProduction } from "@/lib/api/tables/index-of-industrial-production";
 
 // STYLES ==============================================================================================================
-import "./index-of-industrial-production-page.css";
 
 interface IndexOfIndustrialProductionPageProps {
     iipData : ParsedIndexOfIndustrialProduction;
@@ -75,12 +74,12 @@ const IndexOfIndustrialProductionPage : React.FC<IndexOfIndustrialProductionPage
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-chart">
+            <Div className="chart-cell grid-cell">
                 <IndexOfIndustrialProductionChart data={iipData.data} />
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-grid">
+            <Div className="table-cell grid-cell">
                 <IndexOfIndustrialProductionGrid
                     data={iipData.data}
                     categories={iipData.categories}

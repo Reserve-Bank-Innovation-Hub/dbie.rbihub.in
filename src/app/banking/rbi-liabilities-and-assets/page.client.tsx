@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { RbiLiabilitiesAndAssets } from "@/lib/api/tables/rbi-liabilities-and-assets";
 
-// STYLES ==============================================================================================================
-import "./rbi-liabilities-and-assets-page.css";
+
 
 interface RbiLiabilitiesAndAssetsPageProps {
     data : RbiLiabilitiesAndAssets;
@@ -85,7 +84,7 @@ const RbiLiabilitiesAndAssetsPage : React.FC<RbiLiabilitiesAndAssetsPageProps> =
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="rbi-liabilities-and-assets-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <RbiLiabilitiesAndAssetsGrid data={data.data} />
             </Div>
         </Article>

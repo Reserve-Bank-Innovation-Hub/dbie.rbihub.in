@@ -18,8 +18,6 @@ import { IndexNumbersOfInfrastructureIndustries } from "@/lib/api/tables/index-n
 import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./infrastructure-industries-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
@@ -99,7 +97,7 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="stat-card" className="grid-cell infrastructure-industries-stat-card" padding="micro">
+            <Div id="stat-card" className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Overall index</Text>
                 <DataUnit
                     label={`Latest (${latestYear})`}
@@ -114,7 +112,7 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
             </Div>
 
             {/* LINE CHART ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="infrastructure-industries-linechart">
+            <Div className="chart-cell grid-cell">
                 {chart ? (
                     <Plot
                         data={chart.traces}
@@ -127,7 +125,7 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="infrastructure-industries-grid">
+            <Div className="table-cell grid-cell">
                 <IndexNumbersOfInfrastructureIndustriesGrid series={infraData.series} />
             </Div>
         </Article>

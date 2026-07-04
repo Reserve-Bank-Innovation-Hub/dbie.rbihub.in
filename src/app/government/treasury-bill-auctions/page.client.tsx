@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { TreasuryBillAuctions } from "@/lib/api/tables/treasury-bill-auctions";
 
-// STYLES ==============================================================================================================
-import "./treasury-bill-auctions-page.css";
 
 interface TreasuryBillAuctionsPageProps {
     data : TreasuryBillAuctions;
@@ -85,7 +83,7 @@ const TreasuryBillAuctionsPageClient : React.FC<TreasuryBillAuctionsPageProps> =
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="treasury-bill-auctions-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <TreasuryBillAuctionsGrid
                     data={data.data}
                     notes={data.notes}

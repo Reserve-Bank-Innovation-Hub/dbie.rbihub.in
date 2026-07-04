@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { PerCapitaNsdpConstantPrices } from "@/lib/api/tables/per-capita-net-state-domestic-product-state-wise-at-constant-prices";
 
 // STYLES ==============================================================================================================
-import "./per-capita-nsdp-constant-prices-page.css";
 
 interface PerCapitaNsdpConstantPricesPageProps {
     nsdpData : PerCapitaNsdpConstantPrices;
@@ -62,7 +61,7 @@ const PerCapitaNsdpConstantPricesPage : React.FC<PerCapitaNsdpConstantPricesPage
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="per-capita-nsdp-constant-prices-grid">
+            <Div className="table-cell grid-cell">
                 <PerCapitaNsdpConstantPricesGrid data={nsdpData} />
             </Div>
         </Article>

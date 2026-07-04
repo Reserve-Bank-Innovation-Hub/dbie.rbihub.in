@@ -12,8 +12,6 @@ import ExternalDebtGrid from "@/components/tables/ExternalDebtGrid";
 // LIB =================================================================================================================
 import { ParsedExternalDebt } from "@/lib/api/publications";
 
-// STYLES ==============================================================================================================
-import "./external-debt-page.css";
 
 interface ExternalDebtPageProps {
     data : ParsedExternalDebt;
@@ -26,9 +24,9 @@ const ExternalDebtPage: React.FC<ExternalDebtPageProps> = ({ data }) => {
                 <Heading4>{data.reportTitle}</Heading4>
             </Div>
 
-            <div className="chart-wrapper">
+            <Div className="table-cell grid-cell">
                 <ExternalDebtGrid data={data.data} />
-            </div>
+            </Div>
         </Article>
     );
 };

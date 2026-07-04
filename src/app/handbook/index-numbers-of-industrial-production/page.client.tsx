@@ -18,8 +18,6 @@ import { IndexNumbersOfIndustrialProduction } from "@/lib/api/tables/index-numbe
 import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./index-numbers-industrial-production-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -117,7 +115,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell iip-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Mining &amp; quarrying</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -128,7 +126,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
                 <Text size="tiny" opacity="60">Index (base 2011-12 = 100)</Text>
             </Div>
 
-            <Div className="grid-cell iip-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Manufacturing</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -139,7 +137,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
                 <Text size="tiny" opacity="60">Index (base 2011-12 = 100)</Text>
             </Div>
 
-            <Div className="grid-cell iip-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Electricity</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -151,7 +149,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-chart">
+            <Div className="chart-cell grid-cell">
                 {chart ? (
                     <Plot
                         data={chart.traces}
@@ -164,7 +162,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-grid">
+            <Div className="table-cell grid-cell">
                 <IndexNumbersOfIndustrialProductionGrid series={iipData.series} />
             </Div>
         </Article>

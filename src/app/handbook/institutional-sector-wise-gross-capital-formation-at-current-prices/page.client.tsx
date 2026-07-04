@@ -21,7 +21,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 import type * as Plotly from "plotly.js";
 
 // STYLES ==============================================================================================================
-import "./institutional-sector-wise-gross-capital-formation-at-current-prices-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -150,7 +149,7 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross capital formation</Text>
                 <DataUnit
                     label={`Latest (${latest?.year ?? "—"})`}
@@ -162,7 +161,7 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="institutional-sector-gcf-chart">
+            <div className="chart-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -173,7 +172,7 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="institutional-sector-gcf-grid">
+            <Div className="table-cell grid-cell">
                 <InstitutionalSectorGrossCapitalFormationGrid data={data.data} />
             </Div>
         </Article>

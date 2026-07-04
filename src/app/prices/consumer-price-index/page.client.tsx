@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { ParsedConsumerPriceIndex } from "@/lib/api/tables/consumer-price-index";
 
 // STYLES ==============================================================================================================
-import "./consumer-price-index-page.css";
 
 interface ConsumerPriceIndexPageProps {
     cpiData : ParsedConsumerPriceIndex;
@@ -106,7 +105,7 @@ const ConsumerPriceIndexPage : React.FC<ConsumerPriceIndexPageProps> = ({ cpiDat
             </Div>
 
             {/* CONTROLS /////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="controls-card" className="grid-cell" padding="micro">
+            <Div id="controls-card" className="controls-cell grid-cell" padding="micro">
                 <Select
                     className="cpi-select"
                     label="Base period"
@@ -125,12 +124,12 @@ const ConsumerPriceIndexPage : React.FC<ConsumerPriceIndexPageProps> = ({ cpiDat
             </Div>
 
             {/* HEADLINE CHART ///////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="consumer-price-index-chart">
+            <Div className="chart-cell grid-cell">
                 <ConsumerPriceIndexChart series={activeSeries} />
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="consumer-price-index-table">
+            <Div className="table-cell grid-cell">
                 <ConsumerPriceIndexGrid series={activeSeries} month={month} />
             </Div>
         </Article>

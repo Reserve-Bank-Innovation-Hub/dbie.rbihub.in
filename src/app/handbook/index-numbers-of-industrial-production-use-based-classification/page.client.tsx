@@ -17,8 +17,6 @@ import { IndexNumbersOfIndustrialProductionUseBased } from "@/lib/api/tables/ind
 // CHART CONFIG ========================================================================================================
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@/components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./iip-use-based-page.css";
 
 // OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
@@ -127,7 +125,7 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
 
             {/* STAT CARDS — one per use-based category /////////////////////////////////////////////////////////// */}
             {stats.map((stat, i) => (
-                <Div key={i} className="grid-cell iip-use-based-stat-card" padding="micro">
+                <Div key={i} className="stat-cell grid-cell" padding="micro">
                     <Text weight="600" marginBottom="nano">{stat.label}</Text>
                     <DataUnit
                         label={`Latest (${latestYear})`}
@@ -140,7 +138,7 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
             ))}
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="iip-use-based-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -151,7 +149,7 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-use-based-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <Text weight="600" size="small" marginBottom="nano">
                     IIP use-based classification — base 2011-12 = 100
                 </Text>

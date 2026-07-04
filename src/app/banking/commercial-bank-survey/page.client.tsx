@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { CommercialBankSurvey } from "@/lib/api/tables/commercial-bank-survey";
 
-// STYLES ==============================================================================================================
-import "./commercial-bank-survey-page.css";
+
 
 interface CommercialBankSurveyPageProps {
     surveyData : CommercialBankSurvey;
@@ -69,7 +68,7 @@ const CommercialBankSurveyPage : React.FC<CommercialBankSurveyPageProps> = ({ su
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell cbs-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <DataUnit
                     label={`Aggregate deposits of residents (${stats.latestFortnight})`}
                     value={stats.aggregateDeposits}
@@ -81,7 +80,7 @@ const CommercialBankSurveyPage : React.FC<CommercialBankSurveyPageProps> = ({ su
                 </Div>
             </Div>
 
-            <Div className="grid-cell cbs-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <DataUnit
                     label={`Domestic credit (${stats.latestFortnight})`}
                     value={stats.domesticCredit}
@@ -94,7 +93,7 @@ const CommercialBankSurveyPage : React.FC<CommercialBankSurveyPageProps> = ({ su
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="cbs-grid">
+            <Div className="table-cell grid-cell">
                 <CommercialBankSurveyGrid
                     data={surveyData.data}
                     columns={surveyData.columns}

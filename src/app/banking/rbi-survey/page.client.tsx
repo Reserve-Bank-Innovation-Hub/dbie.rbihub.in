@@ -20,8 +20,7 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
 
-// STYLES ==============================================================================================================
-import "./rbi-survey-page.css";
+
 
 interface RbiSurveyPageProps {
     data : RbiSurvey;
@@ -146,7 +145,7 @@ const RbiSurveyPage : React.FC<RbiSurveyPageProps> = ({ data }) => {
             </Div>
 
             {/* CHART /////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="rbi-survey-chart grid-cell">
+            <Div className="chart-cell grid-cell">
                 <Plot
                     data={chartTraces}
                     layout={chartLayout}
@@ -157,7 +156,7 @@ const RbiSurveyPage : React.FC<RbiSurveyPageProps> = ({ data }) => {
             </Div>
 
             {/* DATA GRID /////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="rbi-survey-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <RbiSurveyGrid data={data} />
             </Div>
         </Article>

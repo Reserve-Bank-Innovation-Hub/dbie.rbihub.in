@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { ProductionAndImportsOfCrudeOilAndPetroleumProducts } from "@/lib/api/tables/production-and-imports-of-crude-oil-and-petroleum-products";
 
 // STYLES ==============================================================================================================
-import "./crude-oil-page.css";
 
 interface ProductionAndImportsOfCrudeOilPageProps {
     data : ProductionAndImportsOfCrudeOilAndPetroleumProducts;
@@ -75,7 +74,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="stat-card grid-cell" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Crude oil production</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -86,7 +85,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
                 <Text size="tiny" opacity="60">MMT</Text>
             </Div>
 
-            <Div className="stat-card grid-cell" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">POL products production</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -97,7 +96,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
                 <Text size="tiny" opacity="60">MMT</Text>
             </Div>
 
-            <Div className="stat-card grid-cell" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Crude oil imports</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -108,7 +107,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
                 <Text size="tiny" opacity="60">MMT</Text>
             </Div>
 
-            <Div className="stat-card grid-cell" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">POL products imports</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -120,12 +119,12 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="crude-oil-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <ProductionAndImportsOfCrudeOilChart data={data.data} />
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="crude-oil-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ProductionAndImportsOfCrudeOilGrid data={data.data} units={data.units} />
             </Div>
         </Article>

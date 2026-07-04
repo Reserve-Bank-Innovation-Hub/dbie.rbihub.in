@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { StateFinancialAccommodation } from "@/lib/api/tables/state-financial-accommodation";
 
-// STYLES ==============================================================================================================
-import "./state-financial-accommodation-page.css";
 
 interface StateFinancialAccommodationPageProps {
     data : StateFinancialAccommodation;
@@ -89,14 +87,14 @@ const StateFinancialAccommodationPage : React.FC<StateFinancialAccommodationPage
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="state-financial-accommodation-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <StateFinancialAccommodationGrid
                     columns={data.columns}
                     data={data.data}
                 />
 
                 {data.notes.length > 0 && (
-                    <Div className="state-financial-accommodation-notes">
+                    <Div>
                         {data.notes.map((note, i) => (
                             <Text key={i} className="notes-text">
                                 {note}

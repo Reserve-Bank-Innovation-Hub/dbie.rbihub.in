@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AreaProductionYieldFoodgrainsNonFoodgrains } from "@/lib/api/tables/index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains";
 
-// STYLES ==============================================================================================================
-import "./index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains-page.css";
 
 interface AreaProductionYieldFoodgrainsPageProps {
     tableData : AreaProductionYieldFoodgrainsNonFoodgrains;
@@ -76,7 +74,7 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
             </Div>
 
             {/* LATEST STAT CARDS ////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">All crops — production</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -86,7 +84,7 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Foodgrains — production</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -97,7 +95,7 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
             </Div>
 
             {/* SERIES SELECTOR /////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="series-selector" className="grid-cell" padding="micro">
+            <Div id="series-selector" className="controls-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Base period</Text>
                 <Div className="series-buttons">
                     {tableData.series.map((s, idx) => (
@@ -115,17 +113,19 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
             {activeSeries && (
-                <AreaProductionYieldFoodgrainsChart
-                    data={activeSeries.data}
-                    base={activeSeries.base}
-                    title={`Area, production and yield — all crops (base ${activeSeries.base})`}
-                    height={500}
-                />
+                <Div className="chart-cell grid-cell">
+                    <AreaProductionYieldFoodgrainsChart
+                        data={activeSeries.data}
+                        base={activeSeries.base}
+                        title={`Area, production and yield — all crops (base ${activeSeries.base})`}
+                        height={500}
+                    />
+                </Div>
             )}
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
             {activeSeries && (
-                <Div className="area-production-yield-foodgrains-grid">
+                <Div className="table-cell grid-cell">
                     <AreaProductionYieldFoodgrainsGrid
                         data={activeSeries.data}
                         columns={tableData.columns}

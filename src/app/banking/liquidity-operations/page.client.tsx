@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { LiquidityOperations } from "@/lib/api/tables/liquidity-operations";
 
-// STYLES ==============================================================================================================
-import "./liquidity-operations-page.css";
+
 
 interface LiquidityOperationsPageProps {
     data : LiquidityOperations;
@@ -67,7 +66,7 @@ const LiquidityOperationsPage : React.FC<LiquidityOperationsPageProps> = ({ data
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="liquidity-operations-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <LiquidityOperationsGrid data={data.data} />
             </Div>
         </Article>

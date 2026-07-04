@@ -19,7 +19,6 @@ import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
 // STYLES ==============================================================================================================
-import "./wholesale-price-index-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -119,7 +118,7 @@ const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiD
             </Div>
 
             {/* LINE CHART ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="wholesale-price-index-linechart">
+            <Div className="chart-cell grid-cell">
                 {chart ? (
                     <Plot
                         data={chart.traces}
@@ -132,7 +131,7 @@ const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiD
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="wholesale-price-index-grid">
+            <Div className="table-cell grid-cell">
                 <WholesalePriceIndexGrid bases={wpiData.bases} />
             </Div>
         </Article>

@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { SectorWiseCostOverrun } from "@/lib/api/tables/sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march";
 
 // STYLES ==============================================================================================================
-import "./sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march-page.css";
 
 interface SectorWiseCostOverrunPageProps {
     tableData : SectorWiseCostOverrun;
@@ -59,7 +58,7 @@ const SectorWiseCostOverrunPage : React.FC<SectorWiseCostOverrunPageProps> = ({ 
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="sector-wise-cost-overrun-grid">
+            <Div className="table-cell grid-cell">
                 <SectorWiseCostOverrunGrid
                     data={tableData.data}
                     units={tableData.units}

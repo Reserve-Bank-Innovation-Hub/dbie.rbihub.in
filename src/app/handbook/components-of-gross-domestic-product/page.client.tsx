@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ComponentsOfGrossDomesticProduct } from "@/lib/api/tables/components-of-gross-domestic-product";
 
-// STYLES ==============================================================================================================
-import "./components-of-gross-domestic-product-page.css";
 
 interface ComponentsOfGrossDomesticProductPageProps {
     gdpData : ComponentsOfGrossDomesticProduct;
@@ -68,7 +66,7 @@ const ComponentsOfGrossDomesticProductPage : React.FC<ComponentsOfGrossDomesticP
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="stat-card" className="grid-cell" padding="micro">
+            <Div id="stat-card" className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">GDP — constant prices</Text>
                 <DataUnit
                     label={`Latest (${latest?.year || "–"})`}
@@ -80,14 +78,16 @@ const ComponentsOfGrossDomesticProductPage : React.FC<ComponentsOfGrossDomesticP
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ComponentsOfGrossDomesticProductChart
-                data={gdpData.data}
-                title="GDP at constant prices (base year 2011-12)"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <ComponentsOfGrossDomesticProductChart
+                    data={gdpData.data}
+                    title="GDP at constant prices (base year 2011-12)"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="components-of-gdp-grid">
+            <Div className="table-cell grid-cell">
                 <ComponentsOfGrossDomesticProductGrid data={gdpData.data} />
             </Div>
         </Article>

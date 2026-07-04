@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { NsdpCurrentPrices } from "@/lib/api/tables/net-state-domestic-product-state-wise-at-current-prices";
 
 // STYLES ==============================================================================================================
-import "./nsdp-current-prices-page.css";
 
 interface NsdpCurrentPricesPageProps {
     nsdpData : NsdpCurrentPrices;
@@ -62,7 +61,7 @@ const NsdpCurrentPricesPage : React.FC<NsdpCurrentPricesPageProps> = ({ nsdpData
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="nsdp-current-prices-grid">
+            <Div className="table-cell grid-cell">
                 <NsdpCurrentPricesGrid data={nsdpData} />
             </Div>
         </Article>

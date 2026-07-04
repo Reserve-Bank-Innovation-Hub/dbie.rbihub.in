@@ -21,7 +21,6 @@ import { CommercialPaper } from "@/lib/api/tables/commercial-paper";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@/components/charts/chartConfig";
 
 // STYLES ==============================================================================================================
-import "./commercial-paper-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -165,7 +164,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             </Div>
 
             {/* SUMMARY STAT CARDS ///////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount outstanding</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -176,7 +175,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
                 <Text size="tiny" opacity="60">Rupees crores</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Minimum rate of interest</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -188,7 +187,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="commercial-paper-chart">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -199,7 +198,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="commercial-paper-grid">
+            <Div className="table-cell grid-cell">
                 <CommercialPaperGrid data={paperData.data} />
             </Div>
         </Article>

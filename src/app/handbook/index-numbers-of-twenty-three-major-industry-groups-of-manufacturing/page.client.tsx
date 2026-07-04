@@ -71,7 +71,7 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsPage : React.FC<IndexNumbersTwen
             </Div>
 
             {/* BASE SELECTOR ////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="base-selector" className="grid-cell" padding="micro">
+            <Div id="base-selector" className="controls-cell grid-cell" padding="micro">
                 <Text size="small" isSubtext marginBottom="nano">Base year</Text>
 
                 <Div className="base-tab-group">
@@ -88,7 +88,7 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsPage : React.FC<IndexNumbersTwen
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="index-numbers-twenty-three-chart-area">
+            <Div className="chart-cell grid-cell">
                 <IndexNumbersTwentyThreeMajorIndustryGroupsChart
                     data={activeBase.data}
                     industries={activeBase.industries}
@@ -96,7 +96,7 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsPage : React.FC<IndexNumbersTwen
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="index-numbers-twenty-three-grid-area">
+            <Div className="table-cell grid-cell">
                 <IndexNumbersTwentyThreeMajorIndustryGroupsGrid
                     data={activeBase.data}
                     industries={activeBase.industries}

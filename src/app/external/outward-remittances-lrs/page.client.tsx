@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { OutwardRemittancesLRS } from "@/lib/api/tables/outward-remittances-lrs";
 
-// STYLES ==============================================================================================================
-import "./outward-remittances-lrs-page.css";
 
 interface OutwardRemittancesLRSPageProps {
     lrsData : OutwardRemittancesLRS;
@@ -75,7 +73,7 @@ const OutwardRemittancesLRSPage : React.FC<OutwardRemittancesLRSPageProps> = ({ 
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell lrs-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total outward remittances</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -86,7 +84,7 @@ const OutwardRemittancesLRSPage : React.FC<OutwardRemittancesLRSPageProps> = ({ 
                 <Text size="tiny" opacity="60">{lrsData.unit}</Text>
             </Div>
 
-            <Div className="grid-cell lrs-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Studies abroad</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -97,7 +95,7 @@ const OutwardRemittancesLRSPage : React.FC<OutwardRemittancesLRSPageProps> = ({ 
                 <Text size="tiny" opacity="60">{lrsData.unit}</Text>
             </Div>
 
-            <Div className="grid-cell lrs-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Travel</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -109,15 +107,17 @@ const OutwardRemittancesLRSPage : React.FC<OutwardRemittancesLRSPageProps> = ({ 
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <OutwardRemittancesLRSChart
-                data={lrsData.data}
-                unit={lrsData.unit}
-                title="Outward remittances under the LRS — purpose breakdown"
-                height={520}
-            />
+            <div className="chart-cell grid-cell">
+                <OutwardRemittancesLRSChart
+                    data={lrsData.data}
+                    unit={lrsData.unit}
+                    title="Outward remittances under the LRS — purpose breakdown"
+                    height={520}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="outward-remittances-lrs-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <OutwardRemittancesLRSGrid
                     data={lrsData.data}
                     categories={lrsData.categories}

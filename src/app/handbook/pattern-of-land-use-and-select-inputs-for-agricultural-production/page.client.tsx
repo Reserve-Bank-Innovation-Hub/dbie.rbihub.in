@@ -21,7 +21,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 import type * as Plotly from "plotly.js";
 
 // STYLES ==============================================================================================================
-import "./pattern-of-land-use-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
@@ -156,7 +155,7 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell area-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <DataUnit
                     label={`Net sown area (${stats.latestYear})`}
                     value={stats.latestNetSown}
@@ -165,7 +164,7 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
                 />
             </Div>
 
-            <Div className="grid-cell area-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <DataUnit
                     label={`Gross sown area (${stats.latestYear})`}
                     value={stats.latestGrossSown}
@@ -175,7 +174,7 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="pattern-of-land-use-chart grid-cell">
+            <Div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -186,7 +185,7 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="pattern-of-land-use-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <PatternOfLandUseGrid data={landUseData.data} />
             </Div>
         </Article>

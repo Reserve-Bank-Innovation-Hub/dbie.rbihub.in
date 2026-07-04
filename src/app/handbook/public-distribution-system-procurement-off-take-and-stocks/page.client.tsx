@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { PublicDistributionSystemData } from "@/lib/api/tables/public-distribution-system-procurement-off-take-and-stocks";
 
 // STYLES ==============================================================================================================
-import "./pds-page.css";
 
 interface PublicDistributionSystemPageProps {
     data : PublicDistributionSystemData;
@@ -75,7 +74,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
             </Div>
 
             {/* LATEST YEAR STAT CARDS ///////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total procurement</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -86,7 +85,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
                 <Text size="tiny" opacity="60">Lakhs tonnes</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total off-take</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -97,7 +96,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
                 <Text size="tiny" opacity="60">Lakhs tonnes</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total stocks</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -109,14 +108,16 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <PublicDistributionSystemChart
-                data={data.data}
-                title="Public distribution system — procurement, off-take and stocks over time"
-                height={600}
-            />
+            <div className="chart-cell">
+                <PublicDistributionSystemChart
+                    data={data.data}
+                    title="Public distribution system — procurement, off-take and stocks over time"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="pds-grid">
+            <Div className="table-cell grid-cell">
                 <PublicDistributionSystemGrid
                     data={data.data}
                     units={data.units}

@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { HouseholdFinancialFlows } from "@/lib/api/tables/household-financial-flows";
 
-// STYLES ==============================================================================================================
-import "./household-financial-flows-page.css";
+
 
 interface HouseholdFinancialFlowsPageProps {
     data : HouseholdFinancialFlows;
@@ -110,7 +109,7 @@ const HouseholdFinancialFlowsPage : React.FC<HouseholdFinancialFlowsPageProps> =
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="household-financial-flows-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <HouseholdFinancialFlowsGrid
                     columns={data.columns}
                     data={data.data}
@@ -119,7 +118,7 @@ const HouseholdFinancialFlowsPage : React.FC<HouseholdFinancialFlowsPageProps> =
 
             {/* NOTES ////////////////////////////////////////////////////////////////////////////////////////////// */}
             {data.notes.length > 0 && (
-                <Div id="notes-card" className="grid-cell" padding="micro">
+                <Div id="notes-card" className="notes-cell grid-cell" padding="micro">
                     {data.notes.map((note, i) => (
                         <Text key={i} size="small" opacity="70">
                             {note}

@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { BopBpm6Inr } from "@/lib/api/tables/bop-bpm6-inr";
 
-// STYLES ==============================================================================================================
-import "./bop-bpm6-inr-page.css";
 
 interface BopBpm6InrPageProps {
     data : BopBpm6Inr;
@@ -84,7 +82,7 @@ const BopBpm6InrPage : React.FC<BopBpm6InrPageProps> = ({ data }) => {
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="bop-bpm6-inr-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <BopBpm6InrGrid
                     items={data.items}
                     quarters={data.quarters}

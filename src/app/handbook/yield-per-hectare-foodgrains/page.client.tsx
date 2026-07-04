@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { YieldPerHectareFoodgrains } from "@/lib/api/tables/yield-per-hectare-foodgrains";
 
 // STYLES ==============================================================================================================
-import "./yield-per-hectare-foodgrains-page.css";
 
 interface YieldPerHectareFoodgrainsPageProps {
     tableData : YieldPerHectareFoodgrains;
@@ -72,7 +71,7 @@ const YieldPerHectareFoodgrainsPage : React.FC<YieldPerHectareFoodgrainsPageProp
             </Div>
 
             {/* HEADLINE STAT CARDS //////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Rice</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -82,7 +81,7 @@ const YieldPerHectareFoodgrainsPage : React.FC<YieldPerHectareFoodgrainsPageProp
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Wheat</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -93,15 +92,17 @@ const YieldPerHectareFoodgrainsPage : React.FC<YieldPerHectareFoodgrainsPageProp
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <YieldPerHectareFoodgrainsChart
-                data={tableData.data}
-                unit={tableData.unit}
-                title="Yield per hectare — foodgrains (annual)"
-                height={500}
-            />
+            <div className="chart-cell">
+                <YieldPerHectareFoodgrainsChart
+                    data={tableData.data}
+                    unit={tableData.unit}
+                    title="Yield per hectare — foodgrains (annual)"
+                    height={500}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="yield-per-hectare-foodgrains-grid">
+            <Div className="table-cell grid-cell">
                 <YieldPerHectareFoodgrainsGrid
                     data={tableData.data}
                     columns={tableData.columns}

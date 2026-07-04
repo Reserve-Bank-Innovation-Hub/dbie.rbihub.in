@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AgriculturalProductionMajorCommercialCrops } from "@/lib/api/tables/agricultural-production-major-commercial-crops";
 
-// STYLES ==============================================================================================================
-import "./agricultural-production-major-commercial-crops-page.css";
 
 interface AgriculturalProductionMajorCommercialCropsPageProps {
     tableData : AgriculturalProductionMajorCommercialCrops;
@@ -73,7 +71,7 @@ const AgriculturalProductionMajorCommercialCropsPage : React.FC<AgriculturalProd
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Sugarcane</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -84,7 +82,7 @@ const AgriculturalProductionMajorCommercialCropsPage : React.FC<AgriculturalProd
                 <Text size="tiny" opacity="60">{tableData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total oilseeds</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -96,15 +94,17 @@ const AgriculturalProductionMajorCommercialCropsPage : React.FC<AgriculturalProd
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <AgriculturalProductionMajorCommercialCropsChart
-                data={tableData.data}
-                units={tableData.units}
-                title="Agricultural production of major commercial crops over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <AgriculturalProductionMajorCommercialCropsChart
+                    data={tableData.data}
+                    units={tableData.units}
+                    title="Agricultural production of major commercial crops over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="agricultural-production-major-commercial-crops-grid">
+            <Div className="table-cell grid-cell">
                 <AgriculturalProductionMajorCommercialCropsGrid
                     data={tableData.data}
                     units={tableData.units}

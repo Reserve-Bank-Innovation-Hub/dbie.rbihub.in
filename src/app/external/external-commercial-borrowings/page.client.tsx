@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ExternalCommercialBorrowings } from "@/lib/api/tables/external-commercial-borrowings";
 
-// STYLES ==============================================================================================================
-import "./external-commercial-borrowings-page.css";
 
 interface ExternalCommercialBorrowingsPageProps {
     ecbData : ExternalCommercialBorrowings;
@@ -82,7 +80,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell ecb-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total registrations</Text>
                 <DataUnit
                     label={`Latest (${stats.period})`}
@@ -93,7 +91,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
                 <Text size="tiny" opacity="60">number of registrations</Text>
             </Div>
 
-            <Div className="grid-cell ecb-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total amount registered</Text>
                 <DataUnit
                     label={`Latest (${stats.period})`}
@@ -104,7 +102,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
                 <Text size="tiny" opacity="60">{ecbData.unit}</Text>
             </Div>
 
-            <Div className="grid-cell ecb-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Weighted average maturity</Text>
                 <DataUnit
                     label={`Latest (${stats.period})`}
@@ -116,15 +114,17 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ExternalCommercialBorrowingsChart
-                rows={ecbData.rows}
-                unit={ecbData.unit}
-                title="ECB registrations — amount and number of registrations"
-                height={520}
-            />
+            <div className="chart-cell grid-cell">
+                <ExternalCommercialBorrowingsChart
+                    rows={ecbData.rows}
+                    unit={ecbData.unit}
+                    title="ECB registrations — amount and number of registrations"
+                    height={520}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="external-commercial-borrowings-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ExternalCommercialBorrowingsGrid
                     columns={ecbData.columns}
                     rows={ecbData.rows}

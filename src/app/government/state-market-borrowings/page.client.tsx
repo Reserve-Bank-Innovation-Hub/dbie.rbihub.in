@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { StateMarketBorrowings } from "@/lib/api/tables/state-market-borrowings";
 
-// STYLES ==============================================================================================================
-import "./state-market-borrowings-page.css";
 
 interface StateMarketBorrowingsPageProps {
     data : StateMarketBorrowings;
@@ -76,13 +74,13 @@ const StateMarketBorrowingsPage : React.FC<StateMarketBorrowingsPageProps> = ({ 
             </Div>
 
             {/* ANNUAL GRID //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="state-market-borrowings-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <Heading5 weight="600" marginBottom="nano">Annual</Heading5>
                 <AnnualGrid columns={data.annual.columns} data={data.annual.data} />
             </Div>
 
             {/* MONTHLY GRID /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="state-market-borrowings-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <Heading5 weight="600" marginBottom="nano">Monthly</Heading5>
                 <MonthlyGrid columns={data.monthly.columns} data={data.monthly.data} />
             </Div>

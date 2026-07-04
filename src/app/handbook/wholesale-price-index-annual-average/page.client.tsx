@@ -19,7 +19,6 @@ import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
 // STYLES ==============================================================================================================
-import "./wholesale-price-index-annual-average-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -124,7 +123,7 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell wpi-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <DataUnit
                     label={`All commodities — latest (${stats.latestYear})`}
                     value={stats.latestAC}
@@ -133,7 +132,7 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
                 />
             </Div>
 
-            <Div className="grid-cell wpi-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <DataUnit
                     label={`Primary articles — latest (${stats.latestYear})`}
                     value={stats.latestPA}
@@ -143,7 +142,7 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
             </Div>
 
             {/* LINE CHART ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="wpi-annual-linechart">
+            <Div className="chart-cell">
                 <Plot
                     data={chart.traces}
                     layout={chart.layout}
@@ -154,7 +153,7 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="wpi-annual-grid">
+            <Div className="table-cell grid-cell">
                 <WholesalePriceIndexAnnualAverageGrid data={wpiData.data} />
             </Div>
         </Article>

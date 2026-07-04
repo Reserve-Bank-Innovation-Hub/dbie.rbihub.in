@@ -17,8 +17,6 @@ import { AnnualSurveyOfIndustriesPrincipalCharacteristics } from "@/lib/api/tabl
 // DATA VIZ ============================================================================================================
 import AnnualSurveyOfIndustriesChart from "@/components/charts/AnnualSurveyOfIndustriesChart";
 
-// STYLES ==============================================================================================================
-import "./annual-survey-page.css";
 
 interface AnnualSurveyOfIndustriesPrincipalCharacteristicsPageProps {
     asiData : AnnualSurveyOfIndustriesPrincipalCharacteristics;
@@ -80,7 +78,7 @@ const AnnualSurveyOfIndustriesPrincipalCharacteristicsPage : React.FC<
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="annual-survey-of-industries-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <AnnualSurveyOfIndustriesChart
                     data={asiData.data}
                     characteristics={asiData.characteristics}
@@ -90,7 +88,7 @@ const AnnualSurveyOfIndustriesPrincipalCharacteristicsPage : React.FC<
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="annual-survey-of-industries-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <AnnualSurveyOfIndustriesPrincipalCharacteristicsGrid
                     data={asiData.data}
                     characteristics={asiData.characteristics}

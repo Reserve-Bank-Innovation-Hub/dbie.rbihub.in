@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { NewCapitalIssues } from "@/lib/api/tables/new-capital-issues";
 
 // STYLES ==============================================================================================================
-import "./new-capital-issues-page.css";
 
 interface NewCapitalIssuesPageProps {
     data : NewCapitalIssues;
@@ -87,7 +86,7 @@ const NewCapitalIssuesPage : React.FC<NewCapitalIssuesPageProps> = ({ data }) =>
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="new-capital-issues-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <NewCapitalIssuesGrid
                     columns={data.columns}
                     rows={data.rows}

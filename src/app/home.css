@@ -2,8 +2,8 @@
     grid-template-rows  : 240px auto auto repeat(4, 240px);
     grid-template-areas :
             "title      title      title      title"
-            "marker1    marker2    marker3    marker4"
-            "marker5    marker6    marker7    marker8"
+            "markers    markers    markers    markers"
+            "markers    markers    markers    markers"
             "forex      forex      forex      forex"
             "forex      forex      forex      forex"
             "fii        fii        externalDebt          externalDebt"
@@ -26,14 +26,15 @@
         }
     }
 
-    #marker1-card { grid-area : marker1; }
-    #marker2-card { grid-area : marker2; }
-    #marker3-card { grid-area : marker3; }
-    #marker4-card { grid-area : marker4; }
-    #marker5-card { grid-area : marker5; }
-    #marker6-card { grid-area : marker6; }
-    #marker7-card { grid-area : marker7; }
-    #marker8-card { grid-area : marker8; }
+    #rbi-seal { width : 80px; }
+
+    #markers {
+        grid-area             : markers;
+        display               : grid;
+        grid-template-columns : repeat(4, 1fr);
+        grid-template-rows    : repeat(2, 1fr);
+        gap                   : 1px;
+    }
 
     .marker-card {
         height : fit-content;
@@ -66,5 +67,4 @@
         opacity        : 1;
         pointer-events : auto;
     }
-
 }

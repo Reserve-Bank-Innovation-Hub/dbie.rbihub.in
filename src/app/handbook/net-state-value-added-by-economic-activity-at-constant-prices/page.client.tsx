@@ -19,7 +19,6 @@ import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
 // STYLES ==============================================================================================================
-import "./nsva-at-constant-prices-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -111,7 +110,7 @@ const NsvaAtConstantPricesPage : React.FC<NsvaAtConstantPricesPageProps> = ({ da
                     </Heading6>
                 </Div>
 
-                <Div className="nsva-state-selector">
+                <Div style={{ display : "flex", flexDirection : "row", alignItems : "center", gap : "var(--nano)", flexWrap : "wrap" }}>
                     <label htmlFor="state-select" style={{ fontSize : 14, fontWeight : 500 }}>
                         State / UT:
                     </label>
@@ -119,6 +118,7 @@ const NsvaAtConstantPricesPage : React.FC<NsvaAtConstantPricesPageProps> = ({ da
                         id="state-select"
                         value={selectedStateName}
                         onChange={(e) => setSelectedStateName(e.target.value)}
+                        style={{ padding : "6px 10px", border : "1px solid #d1d5db", borderRadius : 4, fontFamily : "inherit", fontSize : 14, background : "#ffffff", cursor : "pointer" }}
                     >
                         {states.map((s) => (
                             <option key={s.name} value={s.name}>
@@ -152,7 +152,7 @@ const NsvaAtConstantPricesPage : React.FC<NsvaAtConstantPricesPageProps> = ({ da
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="nsva-at-constant-prices-linechart">
+            <Div className="chart-cell">
                 {chart ? (
                     <Plot
                         data={chart.traces}
@@ -165,7 +165,7 @@ const NsvaAtConstantPricesPage : React.FC<NsvaAtConstantPricesPageProps> = ({ da
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="nsva-at-constant-prices-grid">
+            <Div className="table-cell grid-cell">
                 <NsvaAtConstantPricesGrid
                     data={data}
                     selectedState={selectedState}

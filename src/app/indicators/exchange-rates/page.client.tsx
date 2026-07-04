@@ -14,7 +14,7 @@ import { DataUnit } from "@/components/DataUnit/DataUnit";
 import { ParsedExchangeRates } from "@/lib/api/indicators";
 
 // STYLES ==============================================================================================================
-import "./exchange-rates-page.css";
+import "./exchange-rates-page.css"; // retains non-layout rules (change-indicator, Plotly modebar)
 
 interface SerializedExchangeRateData {
         date          : string | Date;
@@ -119,7 +119,7 @@ const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
                         <Div
                             key={currency.name}
                             padding="micro"
-                            className={`grid-cell currency-stat-card ${stats.change > 0 ? "positive" : stats.change < 0 ? "negative" : "neutral"}`}
+                            className={`stat-cell grid-cell currency-stat-card ${stats.change > 0 ? "positive" : stats.change < 0 ? "negative" : "neutral"}`}
                         >
                             <Header>
                                 <Text weight="600" marginBottom="nano">
@@ -171,19 +171,21 @@ const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
                 })}
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <TimeSeriesChart
-                title       = "Historical exchange rates"
-                dates       = {exchangeRateData.data.map(d => (typeof d.date === "string" ? d.date : (d.date as Date).toISOString()).slice(0, 10))}
-                series      = {exchangeRateData.currencies.map(currency => ({
-                    key    : currency.key,
-                    label  : currency.displayName,
-                    values : exchangeRateData.data.map(d => d[currency.key as keyof SerializedExchangeRateData] as number ?? null),
-                }))}
-                yAxisTitle    = "₹ per unit"
-                valueDecimals = {2}
-                exportName    = "exchange-rates"
-                height        = {600}
-            />
+            <Div className="chart-cell grid-cell">
+                <TimeSeriesChart
+                    title       = "Historical exchange rates"
+                    dates       = {exchangeRateData.data.map(d => (typeof d.date === "string" ? d.date : (d.date as Date).toISOString()).slice(0, 10))}
+                    series      = {exchangeRateData.currencies.map(currency => ({
+                        key    : currency.key,
+                        label  : currency.displayName,
+                        values : exchangeRateData.data.map(d => d[currency.key as keyof SerializedExchangeRateData] as number ?? null),
+                    }))}
+                    yAxisTitle    = "₹ per unit"
+                    valueDecimals = {2}
+                    exportName    = "exchange-rates"
+                    height        = {600}
+                />
+            </Div>
         </Article>
     );
 };

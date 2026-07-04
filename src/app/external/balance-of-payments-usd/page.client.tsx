@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { BalanceOfPaymentsUsd } from "@/lib/api/tables/balance-of-payments-usd";
 
-// STYLES ==============================================================================================================
-import "./balance-of-payments-usd-page.css";
 
 interface BalanceOfPaymentsUsdPageProps {
     data : BalanceOfPaymentsUsd;
@@ -83,7 +81,7 @@ const BalanceOfPaymentsUsdPage : React.FC<BalanceOfPaymentsUsdPageProps> = ({ da
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="balance-of-payments-usd-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <BalanceOfPaymentsGrid
                     items={data.items}
                     data={data.data}

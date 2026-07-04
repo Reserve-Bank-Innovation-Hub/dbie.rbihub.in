@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { GoldAndSilverPrices } from "@/lib/api/tables/gold-and-silver-prices";
 
 // STYLES ==============================================================================================================
-import "./gold-and-silver-prices-page.css";
 
 interface GoldAndSilverPricesPageProps {
     pricesData : GoldAndSilverPrices;
@@ -72,7 +71,7 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
             </Div>
 
             {/* LATEST PRICE STATS ///////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell price-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Standard gold</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -83,7 +82,7 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
                 <Text size="tiny" opacity="60">{pricesData.units.gold}</Text>
             </Div>
 
-            <Div className="grid-cell price-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Silver</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -95,15 +94,17 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <GoldAndSilverPricesChart
-                data={pricesData.data}
-                units={pricesData.units}
-                title="Gold and silver prices over time"
-                height={600}
-            />
+            <div className="chart-cell grid-cell">
+                <GoldAndSilverPricesChart
+                    data={pricesData.data}
+                    units={pricesData.units}
+                    title="Gold and silver prices over time"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="gold-and-silver-prices-grid">
+            <Div className="table-cell grid-cell">
                 <GoldAndSilverPricesGrid
                     data={pricesData.data}
                     units={pricesData.units}

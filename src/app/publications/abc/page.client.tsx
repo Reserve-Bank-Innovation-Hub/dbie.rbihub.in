@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ParsedCreditClassification } from "@/lib/api/publications";
 
-// STYLES ==============================================================================================================
-import "./credit-classification-page.css";
 
 interface CreditClassificationPageProps {
     creditData : ParsedCreditClassification;
@@ -62,7 +60,7 @@ const CreditClassificationPage : React.FC<CreditClassificationPageProps> = ({cre
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="credit-classification-chart">
+            <Div className="table-cell grid-cell">
                 <CreditClassificationGrid
                     data={creditData.data}
                     organizations={creditData.organizations}

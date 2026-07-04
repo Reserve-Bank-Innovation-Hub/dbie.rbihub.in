@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { DatedSecuritiesOwnership } from "@/lib/api/tables/dated-securities-ownership";
 
-// STYLES ==============================================================================================================
-import "./dated-securities-ownership-page.css";
 
 interface DatedSecuritiesOwnershipPageProps {
     data : DatedSecuritiesOwnership;
@@ -93,13 +91,13 @@ const DatedSecuritiesOwnershipPage : React.FC<DatedSecuritiesOwnershipPageProps>
             {/* SECTION 1: GOI DATED SECURITIES /////////////////////////////////////////////////////////////////////// */}
             {data.sections.map(section => (
                 <React.Fragment key={section.key}>
-                    <Div className="dated-securities-ownership-section-header grid-cell" padding="micro">
+                    <Div className="section-header grid-cell" padding="micro">
                         <Heading5 weight="600">
                             {section.title}
                         </Heading5>
                     </Div>
 
-                    <Div className="dated-securities-ownership-grid grid-cell">
+                    <Div className="table-cell grid-cell">
                         <DatedSecuritiesOwnershipGrid section={section} />
                     </Div>
                 </React.Fragment>

@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { NriDeposits } from "@/lib/api/tables/nri-deposits";
 
-// STYLES ==============================================================================================================
-import "./nri-deposits-page.css";
 
 interface NriDepositsPageProps {
     depositsData : NriDeposits;
@@ -85,7 +83,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             </Div>
 
             {/* LATEST STATS /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total NRI outstanding</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -95,7 +93,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">FCNR(B) outstanding</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -105,7 +103,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">NR(E)RA outstanding</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -116,15 +114,17 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <NriDepositsChart
-                data={depositsData.data}
-                unit={depositsData.unit}
-                title="NRI deposits — outstanding balances by scheme"
-                height={500}
-            />
+            <div className="chart-cell grid-cell">
+                <NriDepositsChart
+                    data={depositsData.data}
+                    unit={depositsData.unit}
+                    title="NRI deposits — outstanding balances by scheme"
+                    height={500}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="nri-deposits-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <NriDepositsGrid
                     data={depositsData.data}
                     unit={depositsData.unit}

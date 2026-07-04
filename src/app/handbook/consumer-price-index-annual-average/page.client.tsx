@@ -20,8 +20,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 // OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
 
-// STYLES ==============================================================================================================
-import "./consumer-price-index-annual-average-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
@@ -148,7 +146,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell cpi-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">New CPI — combined</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -159,7 +157,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
                 <Text size="tiny" opacity="60">Base 2012=100; annual average</Text>
             </Div>
 
-            <Div className="grid-cell cpi-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">CPI - Agricultural labourers</Text>
                 <DataUnit
                     label={`Latest (${stats.latestAlYear})`}
@@ -171,7 +169,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="cpi-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -182,7 +180,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="cpi-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <Text weight="600" size="small" marginBottom="nano">
                     New CPI — rural, urban and combined (base 2012=100)
                 </Text>

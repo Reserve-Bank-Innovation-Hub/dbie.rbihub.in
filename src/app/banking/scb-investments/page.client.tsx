@@ -14,8 +14,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ScbInvestments } from "@/lib/api/tables/scb-investments";
 
-// STYLES ==============================================================================================================
-import "./scb-investments-page.css";
+
 
 interface ScbInvestmentsPageClientProps {
     data : ScbInvestments;
@@ -78,7 +77,7 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell scb-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">SLR securities</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -89,7 +88,7 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
                 <Text size="tiny" opacity="60">{data.units}</Text>
             </Div>
 
-            <Div className="grid-cell scb-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total investments</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -101,14 +100,16 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ScbInvestmentsChart
-                data={data.data}
-                title="SLR securities holdings over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <ScbInvestmentsChart
+                    data={data.data}
+                    title="SLR securities holdings over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="scb-investments-grid">
+            <Div className="table-cell grid-cell">
                 <ScbInvestmentsGrid
                     data={data.data}
                     columns={data.columns}

@@ -7,16 +7,13 @@ import { RootLayoutClient } from "./layout.client";
 
 export const metadata : Metadata = {
     title       : "DBIE — Database of the Indian Economy",
-    description :
-        "Comprehensive economic data and indicators from the Reserve Bank of India. Access exchange rates, interest rates, inflation data, and more.",
+    description : "Comprehensive economic data and indicators from the Reserve Bank of India. Access exchange rates, interest rates, inflation data, and more.",
     keywords    : [
-        "RBI", "Reserve Bank of India", "Indian economy", "economic data",
-        "exchange rates", "inflation", "GDP", "statistics", "financial indicators"
+        "RBI", "Reserve Bank of India", "Indian economy", "economic data", "exchange rates", "inflation", "GDP", "statistics", "financial indicators",
     ],
     openGraph   : {
         title       : "DBIE — Database of the Indian Economy",
-        description :
-            "Comprehensive economic data and indicators from the Reserve Bank of India.",
+        description : "Comprehensive economic data and indicators from the Reserve Bank of India.",
         siteName    : "Database of the Indian Economy",
         locale      : "en_IN",
         type        : "website",
@@ -24,8 +21,7 @@ export const metadata : Metadata = {
     twitter     : {
         card        : "summary_large_image",
         title       : "DBIE — Database of the Indian Economy",
-        description :
-            "Comprehensive economic data and indicators from the Reserve Bank of India.",
+        description : "Comprehensive economic data and indicators from the Reserve Bank of India.",
     },
     icons       : {
         shortcut : "/favicon.ico",

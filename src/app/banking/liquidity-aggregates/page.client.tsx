@@ -14,8 +14,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { LiquidityAggregates } from "@/lib/api/tables/liquidity-aggregates";
 
-// STYLES ==============================================================================================================
-import "./liquidity-aggregates-page.css";
+
 
 interface LiquidityAggregatesPageProps {
     data : LiquidityAggregates;
@@ -65,14 +64,16 @@ const LiquidityAggregatesPage : React.FC<LiquidityAggregatesPageProps> = ({ data
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <LiquidityAggregatesChart
-                data={data.data}
-                title="NM3, L1 and L2 over time"
-                height={480}
-            />
+            <Div className="chart-cell grid-cell">
+                <LiquidityAggregatesChart
+                    data={data.data}
+                    title="NM3, L1 and L2 over time"
+                    height={480}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="liquidity-aggregates-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <LiquidityAggregatesGrid
                     columns={data.columns}
                     data={data.data}

@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { StateCooperativeBanks } from "@/lib/api/tables/state-cooperative-banks";
 
-// STYLES ==============================================================================================================
-import "./state-cooperative-banks-page.css";
+
 
 interface StateCooperativeBanksPageProps {
     data : StateCooperativeBanks;
@@ -86,7 +85,7 @@ const StateCooperativeBanksPage : React.FC<StateCooperativeBanksPageProps> = ({ 
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="state-cooperative-banks-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <StateCooperativeBanksGrid
                     columns={data.columns}
                     periods={data.periods}

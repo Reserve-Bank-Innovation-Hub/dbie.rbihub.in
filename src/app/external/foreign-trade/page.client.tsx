@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ForeignTrade } from "@/lib/api/tables/foreign-trade";
 
-// STYLES ==============================================================================================================
-import "./foreign-trade-page.css";
 
 interface ForeignTradePageProps {
     tradeData : ForeignTrade;
@@ -84,7 +82,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             </Div>
 
             {/* LATEST STATS /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Exports</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -94,7 +92,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Imports</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -104,7 +102,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Trade balance</Text>
                 <DataUnit
                     label={`Latest (${stats.latestMonth})`}
@@ -115,14 +113,16 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ForeignTradeChart
-                data={tradeData.data}
-                title="India foreign trade — exports, imports and trade balance (US$ millions)"
-                height={600}
-            />
+            <div className="chart-cell grid-cell">
+                <ForeignTradeChart
+                    data={tradeData.data}
+                    title="India foreign trade — exports, imports and trade balance (US$ millions)"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="foreign-trade-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ForeignTradeGrid data={tradeData.data} />
             </Div>
         </Article>

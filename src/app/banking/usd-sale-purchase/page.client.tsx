@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { UsdSalePurchase } from "@/lib/api/tables/usd-sale-purchase";
 
-// STYLES ==============================================================================================================
-import "./usd-sale-purchase-page.css";
+
 
 interface UsdSalePurchasePageProps {
     data : UsdSalePurchase;
@@ -77,28 +76,25 @@ const UsdSalePurchasePage : React.FC<UsdSalePurchasePageProps> = ({ data }) => {
                 />
             </Div>
 
-            {/* DATA GRIDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="usd-sale-purchase-grid grid-cell">
-                {/* SECTION: Outright ///////////////////////////////////////////////////////////////////////////// */}
-                <Div className="grid-section">
-                    <p className="grid-section-heading">Outright sale/purchase (US $ million)</p>
-                    <OutrightGrid data={data.outright} />
-                    {data.notes && (
-                        <p className="outright-notes">{data.notes}</p>
-                    )}
-                </Div>
+            {/* SECTION: Outright ///////////////////////////////////////////////////////////////////////////// */}
+            <Div className="table-cell grid-cell" padding="micro">
+                <p className="grid-section-heading">Outright sale/purchase (US $ million)</p>
+                <OutrightGrid data={data.outright} />
+                {data.notes && (
+                    <p className="outright-notes">{data.notes}</p>
+                )}
+            </Div>
 
-                {/* SECTION: Currency forwards //////////////////////////////////////////////////////////////////// */}
-                <Div className="grid-section">
-                    <p className="grid-section-heading">Operations in currency forwards (US $ million)</p>
-                    <ForwardsGrid data={data.forwards} />
-                </Div>
+            {/* SECTION: Currency forwards //////////////////////////////////////////////////////////////////// */}
+            <Div className="table-cell grid-cell" padding="micro">
+                <p className="grid-section-heading">Operations in currency forwards (US $ million)</p>
+                <ForwardsGrid data={data.forwards} />
+            </Div>
 
-                {/* SECTION: Maturity breakdown /////////////////////////////////////////////////////////////////// */}
-                <Div className="grid-section">
-                    <p className="grid-section-heading">Maturity breakdown of outstanding forwards (US $ million)</p>
-                    <ForwardsMaturityGrid data={data.forwards_maturity} />
-                </Div>
+            {/* SECTION: Maturity breakdown /////////////////////////////////////////////////////////////////// */}
+            <Div className="table-cell grid-cell" padding="micro">
+                <p className="grid-section-heading">Maturity breakdown of outstanding forwards (US $ million)</p>
+                <ForwardsMaturityGrid data={data.forwards_maturity} />
             </Div>
         </Article>
     );

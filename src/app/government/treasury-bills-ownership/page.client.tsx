@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { TreasuryBillsOwnership } from "@/lib/api/tables/treasury-bills-ownership";
 
-// STYLES ==============================================================================================================
-import "./treasury-bills-ownership-page.css";
 
 interface TreasuryBillsOwnershipPageProps {
     data : TreasuryBillsOwnership;
@@ -84,7 +82,7 @@ const TreasuryBillsOwnershipPage : React.FC<TreasuryBillsOwnershipPageProps> = (
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="treasury-bills-ownership-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <TreasuryBillsOwnershipGrid data={data.data} />
             </Div>
         </Article>

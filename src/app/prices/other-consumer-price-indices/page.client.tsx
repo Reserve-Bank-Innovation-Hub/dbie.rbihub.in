@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { ParsedOtherConsumerPriceIndices } from "@/lib/api/tables/other-consumer-price-indices";
 
 // STYLES ==============================================================================================================
-import "./other-consumer-price-indices-page.css";
 
 interface OtherConsumerPriceIndicesPageProps {
     otherCPIData : ParsedOtherConsumerPriceIndices;
@@ -72,7 +71,7 @@ const OtherConsumerPriceIndicesPage : React.FC<OtherConsumerPriceIndicesPageProp
             </Div>
 
             {/* HEADLINE CHART /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="other-consumer-price-indices-chart">
+            <Div className="chart-cell grid-cell">
                 <OtherConsumerPriceIndicesChart
                     data={otherCPIData.data}
                     seriesKey={HEADLINE_KEY}
@@ -80,7 +79,7 @@ const OtherConsumerPriceIndicesPage : React.FC<OtherConsumerPriceIndicesPageProp
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="other-consumer-price-indices-table">
+            <Div className="table-cell grid-cell">
                 <OtherConsumerPriceIndicesGrid
                     data={otherCPIData.data}
                     series={otherCPIData.series}

@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { StateGovernmentInvestments } from "@/lib/api/tables/state-government-investments";
 
-// STYLES ==============================================================================================================
-import "./state-government-investments-page.css";
 
 interface StateGovernmentInvestmentsPageProps {
     data : StateGovernmentInvestments;
@@ -83,7 +81,7 @@ const StateGovernmentInvestmentsPage : React.FC<StateGovernmentInvestmentsPagePr
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="state-government-investments-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <StateGovernmentInvestmentsGrid
                     columns={data.columns}
                     data={data.data}

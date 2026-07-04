@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { CombinedReceiptsDisbursements } from "@/lib/api/tables/combined-receipts-disbursements";
 
-// STYLES ==============================================================================================================
-import "./combined-receipts-disbursements-page.css";
 
 interface CombinedReceiptsDisbursementsPageProps {
     data : CombinedReceiptsDisbursements;
@@ -84,7 +82,7 @@ const CombinedReceiptsDisbursementsPage : React.FC<CombinedReceiptsDisbursements
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="combined-receipts-disbursements-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <CombinedReceiptsDisbursementsGrid
                     years={data.years}
                     data={data.data}

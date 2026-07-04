@@ -14,8 +14,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ReserveMoney } from "@/lib/api/tables/reserve-money";
 
-// STYLES ==============================================================================================================
-import "./reserve-money-page.css";
+
 
 interface ReserveMoneyPageProps {
     reserveMoneyData : ReserveMoney;
@@ -65,14 +64,16 @@ const ReserveMoneyPage : React.FC<ReserveMoneyPageProps> = ({ reserveMoneyData }
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ReserveMoneyChart
-                data={reserveMoneyData.data}
-                title="Reserve money and currency in circulation over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <ReserveMoneyChart
+                    data={reserveMoneyData.data}
+                    title="Reserve money and currency in circulation over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="reserve-money-grid">
+            <Div className="table-cell grid-cell">
                 <ReserveMoneyGrid
                     data={reserveMoneyData.data}
                     columns={reserveMoneyData.columns}

@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { RbiStandingFacilities } from "@/lib/api/tables/rbi-standing-facilities";
 
-// STYLES ==============================================================================================================
-import "./rbi-standing-facilities-page.css";
+
 
 interface RbiStandingFacilitiesPageProps {
     data : RbiStandingFacilities;
@@ -74,7 +73,7 @@ const RbiStandingFacilitiesPage : React.FC<RbiStandingFacilitiesPageProps> = ({ 
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="rbi-standing-facilities-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <RbiStandingFacilitiesGrid data={data.data} />
             </Div>
         </Article>

@@ -20,8 +20,7 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
 
-// STYLES ==============================================================================================================
-import "./monetary-survey-page.css";
+
 
 interface MonetarySurveyPageProps {
     data : MonetarySurvey;
@@ -132,7 +131,7 @@ const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
             </Div>
 
             {/* CHART /////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="monetary-survey-chart grid-cell">
+            <Div className="chart-cell grid-cell">
                 <Plot
                     data={chartTraces}
                     layout={chartLayout}
@@ -143,7 +142,7 @@ const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
             </Div>
 
             {/* DATA GRID /////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="monetary-survey-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <MonetarySurveyGrid data={data} />
             </Div>
         </Article>

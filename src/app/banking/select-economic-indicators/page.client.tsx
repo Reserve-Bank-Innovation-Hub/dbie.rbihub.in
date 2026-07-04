@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { SelectEconomicIndicators } from "@/lib/api/tables/select-economic-indicators";
 
-// STYLES ==============================================================================================================
-import "./select-economic-indicators-page.css";
+
 
 interface SelectEconomicIndicatorsPageProps {
     data : SelectEconomicIndicators;
@@ -84,13 +83,13 @@ const SelectEconomicIndicatorsPage : React.FC<SelectEconomicIndicatorsPageProps>
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="select-economic-indicators-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <SelectEconomicIndicatorsGrid data={data.data} />
             </Div>
 
             {/* NOTES ////////////////////////////////////////////////////////////////////////////////////////////// */}
             {data.notes && (
-                <Div id="notes-card" className="grid-cell" padding="micro">
+                <Div id="notes-card" className="notes-cell grid-cell" padding="micro">
                     <Text className="notes-text">{data.notes}</Text>
                 </Div>
             )}

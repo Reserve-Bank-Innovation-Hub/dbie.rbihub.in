@@ -14,8 +14,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { MoneyStockMeasures } from "@/lib/api/tables/money-stock-measures";
 
-// STYLES ==============================================================================================================
-import "./money-stock-measures-page.css";
+
 
 interface MoneyStockMeasuresPageProps {
     moneyStockData : MoneyStockMeasures;
@@ -74,7 +73,7 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
             </Div>
 
             {/* AGGREGATE STATS //////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M3 (broad money)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -85,7 +84,7 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
                 <Text size="tiny" opacity="60">{moneyStockData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M1 (narrow money)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -97,14 +96,16 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <MoneyStockMeasuresChart
-                data={moneyStockData.data}
-                title="Money stock aggregates over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <MoneyStockMeasuresChart
+                    data={moneyStockData.data}
+                    title="Money stock aggregates over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="money-stock-measures-grid">
+            <Div className="table-cell grid-cell">
                 <MoneyStockMeasuresGrid
                     data={moneyStockData.data}
                     columns={moneyStockData.columns}

@@ -15,7 +15,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { CertificatesOfDeposit } from "@/lib/api/tables/certificates-of-deposit";
 
 // STYLES ==============================================================================================================
-import "./certificates-of-deposit-page.css";
 
 interface CertificatesOfDepositPageProps {
     cdData : CertificatesOfDeposit;
@@ -74,7 +73,7 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
             </Div>
 
             {/* LATEST STATS /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell cd-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount outstanding</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -85,7 +84,7 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
                 <Text size="tiny" opacity="60">Rupees Crores</Text>
             </Div>
 
-            <Div className="grid-cell cd-stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount issued</Text>
                 <DataUnit
                     label={`Latest (${stats.latestFortnight})`}
@@ -97,14 +96,16 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <CertificatesOfDepositChart
-                data={cdData.data}
-                title="Amount outstanding over time"
-                height={600}
-            />
+            <div className="chart-cell grid-cell">
+                <CertificatesOfDepositChart
+                    data={cdData.data}
+                    title="Amount outstanding over time"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="certificates-of-deposit-grid">
+            <Div className="table-cell grid-cell">
                 <CertificatesOfDepositGrid
                     data={cdData.data}
                 />

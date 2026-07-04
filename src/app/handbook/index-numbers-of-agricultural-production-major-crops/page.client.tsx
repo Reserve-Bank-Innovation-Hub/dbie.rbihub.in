@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AgriProductionMajorCrops } from "@/lib/api/tables/index-numbers-of-agricultural-production-major-crops";
 
-// STYLES ==============================================================================================================
-import "./index-numbers-of-agricultural-production-major-crops-page.css";
 
 interface AgriProductionMajorCropsPageProps {
     tableData : AgriProductionMajorCrops;
@@ -76,7 +74,7 @@ const AgriProductionMajorCropsPage : React.FC<AgriProductionMajorCropsPageProps>
             </Div>
 
             {/* LATEST STAT CARDS ////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">All crops</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -86,7 +84,7 @@ const AgriProductionMajorCropsPage : React.FC<AgriProductionMajorCropsPageProps>
                 />
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Food-grains</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -97,7 +95,7 @@ const AgriProductionMajorCropsPage : React.FC<AgriProductionMajorCropsPageProps>
             </Div>
 
             {/* SERIES SELECTOR /////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="series-selector" className="grid-cell" padding="micro">
+            <Div id="series-selector" className="controls-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Base period</Text>
                 <Div className="series-buttons">
                     {tableData.series.map((s, idx) => (
@@ -115,17 +113,19 @@ const AgriProductionMajorCropsPage : React.FC<AgriProductionMajorCropsPageProps>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
             {activeSeries && (
-                <AgriProductionMajorCropsChart
-                    data={activeSeries.data}
-                    base={activeSeries.base}
-                    title={`Index numbers of agricultural production — major crops (base ${activeSeries.base})`}
-                    height={500}
-                />
+                <Div className="chart-cell grid-cell">
+                    <AgriProductionMajorCropsChart
+                        data={activeSeries.data}
+                        base={activeSeries.base}
+                        title={`Index numbers of agricultural production — major crops (base ${activeSeries.base})`}
+                        height={500}
+                    />
+                </Div>
             )}
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
             {activeSeries && (
-                <Div className="agri-production-major-crops-grid">
+                <Div className="table-cell grid-cell">
                     <AgriProductionMajorCropsGrid
                         data={activeSeries.data}
                         columns={tableData.columns}

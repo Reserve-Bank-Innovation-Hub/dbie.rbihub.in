@@ -17,8 +17,6 @@ import { AveragePriceOfGoldAndSilver } from "@/lib/api/tables/average-price-of-g
 // CHART CONFIG ========================================================================================================
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@/components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./average-price-of-gold-and-silver-in-domestic-and-foreign-markets-page.css";
 
 // OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
@@ -162,7 +160,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             </Div>
 
             {/* LATEST PRICE STATS ///////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell price-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gold (Mumbai)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -173,7 +171,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
                 <Text size="tiny" opacity="60">{pricesData.units.goldMumbai}</Text>
             </Div>
 
-            <Div className="grid-cell price-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Silver (Mumbai)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -185,7 +183,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="average-price-of-gold-and-silver-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -196,7 +194,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="average-price-of-gold-and-silver-grid">
+            <Div className="table-cell grid-cell">
                 <AveragePriceOfGoldAndSilverGrid
                     data={pricesData.data}
                     units={pricesData.units}

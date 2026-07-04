@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { NsdpConstantPrices } from "@/lib/api/tables/net-state-domestic-product-state-wise-at-constant-prices";
 
 // STYLES ==============================================================================================================
-import "./nsdp-constant-prices-page.css";
 
 interface NsdpConstantPricesPageProps {
     nsdpData : NsdpConstantPrices;
@@ -62,7 +61,7 @@ const NsdpConstantPricesPage : React.FC<NsdpConstantPricesPageProps> = ({ nsdpDa
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="nsdp-constant-prices-grid">
+            <Div className="table-cell grid-cell">
                 <NsdpConstantPricesGrid data={nsdpData} />
             </Div>
         </Article>

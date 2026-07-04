@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AreaUnderCultivationFoodgrains } from "@/lib/api/tables/area-under-cultivation-foodgrains";
 
-// STYLES ==============================================================================================================
-import "./area-under-cultivation-foodgrains-page.css";
 
 interface AreaUnderCultivationFoodgrainsPageProps {
     tableData : AreaUnderCultivationFoodgrains;
@@ -72,7 +70,7 @@ const AreaUnderCultivationFoodgrainsPage : React.FC<AreaUnderCultivationFoodgrai
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total cereals area</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -83,7 +81,7 @@ const AreaUnderCultivationFoodgrainsPage : React.FC<AreaUnderCultivationFoodgrai
                 <Text size="tiny" opacity="60">{tableData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Pulses area</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -95,15 +93,17 @@ const AreaUnderCultivationFoodgrainsPage : React.FC<AreaUnderCultivationFoodgrai
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <AreaUnderCultivationFoodgrainsChart
-                data={tableData.data}
-                units={tableData.units}
-                title="Area under cultivation of foodgrains over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <AreaUnderCultivationFoodgrainsChart
+                    data={tableData.data}
+                    units={tableData.units}
+                    title="Area under cultivation of foodgrains over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="area-under-cultivation-foodgrains-grid">
+            <Div className="table-cell grid-cell">
                 <AreaUnderCultivationFoodgrainsGrid
                     data={tableData.data}
                     units={tableData.units}

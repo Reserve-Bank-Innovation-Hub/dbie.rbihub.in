@@ -18,8 +18,6 @@ import { ForexReservesWeekly } from "@/lib/api/tables/forex-reserves-weekly";
 import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@/components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./forex-reserves-weekly-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -130,7 +128,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total reserves</Text>
                 <DataUnit
                     label={`Latest (${stats.latestWeek})`}
@@ -141,7 +139,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
                 <Text size="tiny" opacity="60">US $Millions</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gold</Text>
                 <DataUnit
                     label={`Latest (${stats.latestWeek})`}
@@ -153,7 +151,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="forex-reserves-weekly-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -164,7 +162,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="forex-reserves-weekly-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ForexReservesWeeklyGrid data={reservesData.data} />
             </Div>
         </Article>

@@ -18,8 +18,7 @@ import { BankCreditBySector } from "@/lib/api/tables/bank-credit-by-sector";
 import type * as Plotly from "plotly.js";
 import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "@components/charts/chartConfig";
 
-// STYLES ==============================================================================================================
-import "./bank-credit-by-sector-page.css";
+
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -124,7 +123,7 @@ const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }
             </Div>
 
             {/* LINE CHART ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="bank-credit-by-sector-linechart">
+            <Div className="chart-cell grid-cell">
                 {chart ? (
                     <Plot
                         data={chart.traces}
@@ -137,7 +136,7 @@ const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="bank-credit-by-sector-grid">
+            <Div className="table-cell grid-cell">
                 <BankCreditBySectorGrid data={data} />
             </Div>
         </Article>

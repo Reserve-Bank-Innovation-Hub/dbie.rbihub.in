@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AgriculturalProductionFoodgrains } from "@/lib/api/tables/agricultural-production-foodgrains";
 
-// STYLES ==============================================================================================================
-import "./agricultural-production-foodgrains-page.css";
 
 interface AgriculturalProductionFoodgrainsPageProps {
     tableData : AgriculturalProductionFoodgrains;
@@ -73,7 +71,7 @@ const AgriculturalProductionFoodgrainsPage : React.FC<AgriculturalProductionFood
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total cereals</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -84,7 +82,7 @@ const AgriculturalProductionFoodgrainsPage : React.FC<AgriculturalProductionFood
                 <Text size="tiny" opacity="60">{tableData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Pulses</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -96,15 +94,17 @@ const AgriculturalProductionFoodgrainsPage : React.FC<AgriculturalProductionFood
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <AgriculturalProductionFoodgrainsChart
-                data={tableData.data}
-                units={tableData.units}
-                title="Agricultural production of foodgrains over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <AgriculturalProductionFoodgrainsChart
+                    data={tableData.data}
+                    units={tableData.units}
+                    title="Agricultural production of foodgrains over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="agricultural-production-foodgrains-grid">
+            <Div className="table-cell grid-cell">
                 <AgriculturalProductionFoodgrainsGrid
                     data={tableData.data}
                     units={tableData.units}

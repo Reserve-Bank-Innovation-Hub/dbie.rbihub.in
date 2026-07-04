@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ReerAndNeer } from "@/lib/api/tables/reer-and-neer";
 
-// STYLES ==============================================================================================================
-import "./reer-and-neer-page.css";
 
 interface ReerAndNeerPageProps {
     reerNeerData : ReerAndNeer;
@@ -86,7 +84,7 @@ const ReerAndNeerPage : React.FC<ReerAndNeerPageProps> = ({ reerNeerData }) => {
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="stat-trade-reer" className="grid-cell reer-stat-card" padding="micro">
+            <Div id="stat-trade-reer" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Trade REER</Text>
                 <DataUnit
                     label={`Latest (${stats.tradeReerMonth})`}
@@ -97,7 +95,7 @@ const ReerAndNeerPage : React.FC<ReerAndNeerPageProps> = ({ reerNeerData }) => {
                 <Text size="tiny" opacity="60">Index, base 2015-16 = 100</Text>
             </Div>
 
-            <Div id="stat-export-reer" className="grid-cell reer-stat-card" padding="micro">
+            <Div id="stat-export-reer" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Export REER</Text>
                 <DataUnit
                     label={`Latest (${stats.exportReerMonth})`}
@@ -109,14 +107,16 @@ const ReerAndNeerPage : React.FC<ReerAndNeerPageProps> = ({ reerNeerData }) => {
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ReerAndNeerChart
-                data={reerNeerData.data}
-                title="NEER and REER of the Indian rupee over time"
-                height={600}
-            />
+            <div className="chart-cell grid-cell">
+                <ReerAndNeerChart
+                    data={reerNeerData.data}
+                    title="NEER and REER of the Indian rupee over time"
+                    height={600}
+                />
+            </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="reer-and-neer-grid">
+            <Div className="table-cell grid-cell">
                 <ReerAndNeerGrid data={reerNeerData.data} />
             </Div>
         </Article>

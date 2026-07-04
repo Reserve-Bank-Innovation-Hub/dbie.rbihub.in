@@ -14,7 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 import { MspNonFoodgrains } from "@/lib/api/tables/minimum-support-price-for-non-foodgrains-according-to-crop-year-fair";
 
 // STYLES ==============================================================================================================
-import "./minimum-support-price-for-non-foodgrains-according-to-crop-year-fair-page.css";
 
 interface MspNonFoodgrainsPageProps {
     tableData : MspNonFoodgrains;
@@ -60,7 +59,7 @@ const MspNonFoodgrainsPage : React.FC<MspNonFoodgrainsPageProps> = ({ tableData 
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="msp-non-foodgrains-grid">
+            <Div className="table-cell grid-cell">
                 <MspNonFoodgrainsGrid
                     data={tableData.data}
                     units={tableData.units}

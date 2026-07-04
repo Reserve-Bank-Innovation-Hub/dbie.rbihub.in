@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { EmploymentInPublicAndOrganisedPrivateSectors } from "@/lib/api/tables/employment-in-public-and-organised-private-sectors";
 
-// STYLES ==============================================================================================================
-import "./employment-in-public-and-organised-private-sectors-page.css";
 
 interface EmploymentInPublicAndOrganisedPrivateSectorsPageProps {
     employmentData : EmploymentInPublicAndOrganisedPrivateSectors;
@@ -72,7 +70,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
             </Div>
 
             {/* LATEST STATS /////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell employment-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Public sector</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -83,7 +81,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
                 <Text size="tiny" opacity="60">In lakhs</Text>
             </Div>
 
-            <Div className="grid-cell employment-stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Private sector</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -95,14 +93,16 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <EmploymentInPublicAndOrganisedPrivateSectorsChart
-                data={employmentData.data}
-                title="Employment in public and organised private sectors over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <EmploymentInPublicAndOrganisedPrivateSectorsChart
+                    data={employmentData.data}
+                    title="Employment in public and organised private sectors over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="employment-public-private-grid">
+            <Div className="table-cell grid-cell">
                 <EmploymentInPublicAndOrganisedPrivateSectorsGrid
                     data={employmentData.data}
                 />

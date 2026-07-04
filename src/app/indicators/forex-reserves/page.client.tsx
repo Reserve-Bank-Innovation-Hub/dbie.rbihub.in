@@ -14,8 +14,6 @@ import { DataUnit }      from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ParsedForexReserves } from "@/lib/api/indicators";
 
-// STYLES ==============================================================================================================
-import "./forex-reserves-page.css";
 
 // Explicit month-name map — avoids locale-dependent Date.parse behaviour.
 const MONTH_MAP : Record<string, string> = {
@@ -111,7 +109,7 @@ const ForexReservesPage : React.FC<ForexReservesPageProps> = ({forexData}) => {
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="forex-reserves-ts-chart grid-cell" padding="micro">
+            <Div className="chart-cell grid-cell" padding="micro">
                 <Heading6 weight="600" marginBottom="nano">
                     Weekly reserves (US $ million)
                 </Heading6>
@@ -128,7 +126,7 @@ const ForexReservesPage : React.FC<ForexReservesPageProps> = ({forexData}) => {
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="forex-reserves-chart">
+            <Div className="table-cell grid-cell">
                 <ForexReservesGrid data={forexData.data} />
             </Div>
         </Article>

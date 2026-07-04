@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { AreaUnderCultivationMajorCommercialCrops } from "@/lib/api/tables/area-under-cultivation-major-commercial-crops";
 
-// STYLES ==============================================================================================================
-import "./area-under-cultivation-major-commercial-crops-page.css";
 
 interface AreaUnderCultivationMajorCommercialCropsPageProps {
     tableData : AreaUnderCultivationMajorCommercialCrops;
@@ -73,7 +71,7 @@ const AreaUnderCultivationMajorCommercialCropsPage : React.FC<AreaUnderCultivati
             </Div>
 
             {/* LATEST STATS //////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total oilseeds area</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -84,7 +82,7 @@ const AreaUnderCultivationMajorCommercialCropsPage : React.FC<AreaUnderCultivati
                 <Text size="tiny" opacity="60">{tableData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Cotton lint area</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -96,15 +94,17 @@ const AreaUnderCultivationMajorCommercialCropsPage : React.FC<AreaUnderCultivati
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <AreaUnderCultivationMajorCommercialCropsChart
-                data={tableData.data}
-                units={tableData.units}
-                title="Area under cultivation of major commercial crops over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <AreaUnderCultivationMajorCommercialCropsChart
+                    data={tableData.data}
+                    units={tableData.units}
+                    title="Area under cultivation of major commercial crops over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="area-under-cultivation-major-commercial-crops-grid">
+            <Div className="table-cell grid-cell">
                 <AreaUnderCultivationMajorCommercialCropsGrid
                     data={tableData.data}
                     units={tableData.units}

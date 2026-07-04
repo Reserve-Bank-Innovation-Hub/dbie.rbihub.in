@@ -20,8 +20,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 // OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
 
-// STYLES ==============================================================================================================
-import "./annual-production-indices-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly.
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
@@ -101,7 +99,7 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <DataUnit
                     label="Latest year"
                     value={stats.latestYear}
@@ -114,7 +112,7 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="annual-production-indices-chart">
+            <Div className="chart-cell grid-cell">
                 <Plot
                     data={chart.traces}
                     layout={chart.layout}
@@ -125,7 +123,7 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="annual-production-indices-grid">
+            <Div className="table-cell grid-cell">
                 <AnnualProductionIndicesGrid
                     data={indicesData.data}
                     items={indicesData.items}

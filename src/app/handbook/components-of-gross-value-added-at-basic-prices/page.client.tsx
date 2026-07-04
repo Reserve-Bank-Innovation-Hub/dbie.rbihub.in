@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ComponentsOfGrossValueAddedAtBasicPrices } from "@/lib/api/tables/components-of-gross-value-added-at-basic-prices";
 
-// STYLES ==============================================================================================================
-import "./components-of-gross-value-added-at-basic-prices-page.css";
 
 interface ComponentsOfGrossValueAddedAtBasicPricesPageProps {
     gvaData : ComponentsOfGrossValueAddedAtBasicPrices;
@@ -73,7 +71,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
             </Div>
 
             {/* LATEST STATS ////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Latest GVA (constant prices)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -84,7 +82,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
                 <Text size="tiny" opacity="60">{gvaData.unit}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Latest GDP (constant prices)</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -96,14 +94,16 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <ComponentsOfGrossValueAddedAtBasicPricesChart
-                data={gvaData.data}
-                title="GVA components at constant prices (base year 2011-12)"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <ComponentsOfGrossValueAddedAtBasicPricesChart
+                    data={gvaData.data}
+                    title="GVA components at constant prices (base year 2011-12)"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="components-of-gross-value-added-at-basic-prices-grid">
+            <Div className="table-cell grid-cell">
                 <ComponentsOfGrossValueAddedAtBasicPricesGrid
                     data={gvaData.data}
                 />

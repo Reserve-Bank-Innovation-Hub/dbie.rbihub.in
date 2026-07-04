@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { PaymentSystemIndicators } from "@/lib/api/tables/payment-system-indicators";
 
-// STYLES ==============================================================================================================
-import "./payment-system-indicators-page.css";
 
 interface PaymentSystemIndicatorsPageProps {
     data : PaymentSystemIndicators;
@@ -90,7 +88,7 @@ const PaymentSystemIndicatorsPage : React.FC<PaymentSystemIndicatorsPageProps> =
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="payment-system-indicators-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <PaymentSystemIndicatorsGrid
                     columns={data.columns}
                     data={data.data}
@@ -99,7 +97,7 @@ const PaymentSystemIndicatorsPage : React.FC<PaymentSystemIndicatorsPageProps> =
 
             {/* NOTES ////////////////////////////////////////////////////////////////////////////////////////////// */}
             {data.notes.length > 0 && (
-                <Div className="grid-cell notes-card" padding="micro">
+                <Div className="notes-cell grid-cell" padding="micro">
                     {data.notes.map((note, idx) => (
                         <Text key={idx} className="table-note">
                             {note}

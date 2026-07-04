@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { SmallSavings } from "@/lib/api/tables/small-savings";
 
-// STYLES ==============================================================================================================
-import "./small-savings-page.css";
+
 
 interface SmallSavingsPageProps {
     data : SmallSavings;
@@ -83,7 +82,7 @@ const SmallSavingsPage : React.FC<SmallSavingsPageProps> = ({ data }) => {
             </Div>
 
             {/* DATA GRIDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="grids-card" className="grid-cell">
+            <Div id="grids-card" className="table-cell grid-cell">
                 {/* Tab selector */}
                 <div className="small-savings-tab-bar">
                     <button

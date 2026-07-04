@@ -14,8 +14,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSector } from "@/lib/api/tables/changes-in-financial-assets-liabilities-of-the-household-sector";
 
-// STYLES ==============================================================================================================
-import "./changes-in-financial-assets-liabilities-of-the-household-sector-page.css";
 
 interface ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPageProps {
     data : ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSector;
@@ -75,7 +73,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Changes in financial assets</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -86,7 +84,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
                 <Text size="tiny" opacity="60">{data.unit}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Bank deposits</Text>
                 <DataUnit
                     label={`Latest (${stats.latestYear})`}
@@ -98,7 +96,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="changes-in-financial-assets-liabilities-chart grid-cell">
+            <div className="chart-cell grid-cell">
                 <ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart
                     data={data.data}
                     title="Changes in financial assets/liabilities — household sector"
@@ -107,7 +105,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="changes-in-financial-assets-liabilities-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorGrid data={data.data} />
             </Div>
         </Article>

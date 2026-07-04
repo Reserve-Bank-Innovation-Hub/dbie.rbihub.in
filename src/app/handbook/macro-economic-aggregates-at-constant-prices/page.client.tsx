@@ -21,7 +21,6 @@ import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } f
 import type * as Plotly from "plotly.js";
 
 // STYLES ==============================================================================================================
-import "./macro-economic-aggregates-at-constant-prices-page.css";
 
 // Dynamic import to avoid SSR issues with Plotly
 const Plot = dynamic(() => import("react-plotly.js"), { ssr : false });
@@ -101,7 +100,7 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
             </Div>
 
             {/* STAT CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross domestic product</Text>
                 <DataUnit
                     label={`Latest (${latest?.year ?? "—"})`}
@@ -113,7 +112,7 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <div className="macro-economic-aggregates-constant-prices-chart">
+            <div className="chart-cell">
                 <Plot
                     data={traces}
                     layout={layout}
@@ -124,7 +123,7 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
             </div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="macro-economic-aggregates-constant-prices-grid">
+            <Div className="table-cell grid-cell">
                 <MacroEconomicAggregatesConstantPricesGrid data={data.data} />
             </Div>
         </Article>

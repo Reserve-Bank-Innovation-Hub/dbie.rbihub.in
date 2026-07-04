@@ -14,8 +14,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { SourcesOfMoneyStock } from "@/lib/api/tables/sources-of-money-stock";
 
-// STYLES ==============================================================================================================
-import "./sources-of-money-stock-page.css";
+
 
 interface SourcesOfMoneyStockPageProps {
     sourcesData : SourcesOfMoneyStock;
@@ -75,7 +74,7 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
             </Div>
 
             {/* AGGREGATE STATS //////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M3</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -86,7 +85,7 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
                 <Text size="tiny" opacity="60">{sourcesData.units}</Text>
             </Div>
 
-            <Div className="grid-cell stat-card" padding="micro">
+            <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net bank credit to government</Text>
                 <DataUnit
                     label={`Latest (${stats.latestDate})`}
@@ -98,14 +97,16 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
             </Div>
 
             {/* CHART ////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <SourcesOfMoneyStockChart
-                data={sourcesData.data}
-                title="Sources of money stock (M3) over time"
-                height={600}
-            />
+            <Div className="chart-cell grid-cell">
+                <SourcesOfMoneyStockChart
+                    data={sourcesData.data}
+                    title="Sources of money stock (M3) over time"
+                    height={600}
+                />
+            </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="sources-of-money-stock-grid">
+            <Div className="table-cell grid-cell">
                 <SourcesOfMoneyStockGrid
                     data={sourcesData.data}
                     columns={sourcesData.columns}

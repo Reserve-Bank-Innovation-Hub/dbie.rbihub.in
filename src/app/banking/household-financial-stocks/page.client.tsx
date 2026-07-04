@@ -13,8 +13,7 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { HouseholdFinancialStocks } from "@/lib/api/tables/household-financial-stocks";
 
-// STYLES ==============================================================================================================
-import "./household-financial-stocks-page.css";
+
 
 interface HouseholdFinancialStocksPageProps {
     data : HouseholdFinancialStocks;
@@ -89,7 +88,7 @@ const HouseholdFinancialStocksPage : React.FC<HouseholdFinancialStocksPageProps>
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="household-financial-stocks-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <HouseholdFinancialStocksGrid data={data} />
 
                 {data.notes.length > 0 && (

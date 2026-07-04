@@ -13,8 +13,6 @@ import { DataUnit } from "@components/DataUnit/DataUnit";
 // LIB =================================================================================================================
 import { InternationalInvestmentPosition } from "@/lib/api/tables/international-investment-position";
 
-// STYLES ==============================================================================================================
-import "./international-investment-position-page.css";
 
 interface InternationalInvestmentPositionPageProps {
     data : InternationalInvestmentPosition;
@@ -98,7 +96,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             </Div>
 
             {/* STAT CARDS ///////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="statAssets" className="grid-cell iip-stat-card" padding="micro">
+            <Div id="statAssets" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total assets</Text>
                 <DataUnit
                     label={`Latest (${latestQuarter})`}
@@ -109,7 +107,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
                 <Text size="tiny" opacity="60">External assets, US$ millions</Text>
             </Div>
 
-            <Div id="statLiab" className="grid-cell iip-stat-card" padding="micro">
+            <Div id="statLiab" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total liabilities</Text>
                 <DataUnit
                     label={`Latest (${latestQuarter})`}
@@ -120,7 +118,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
                 <Text size="tiny" opacity="60">External liabilities, US$ millions</Text>
             </Div>
 
-            <Div id="statNet" className="grid-cell iip-stat-card" padding="micro">
+            <Div id="statNet" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net IIP</Text>
                 <DataUnit
                     label={`Latest (${latestQuarter})`}
@@ -136,7 +134,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             </Div>
 
             {/* DATA GRID ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="iip-grid grid-cell">
+            <Div className="table-cell grid-cell">
                 <InternationalInvestmentPositionGrid data={data} />
             </Div>
         </Article>
