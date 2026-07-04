@@ -1,7 +1,8 @@
 // Processor: search-index — the site-wide search corpus.
 //
-// One entry per catalogue table (all 335), matching the SiteSearch component's
-// Orama schema: { title, description, keywords, section, url }.
+// One entry per catalogue table (all 335) plus the standalone pages below,
+// matching the SiteSearch component's Orama schema:
+// { title, description, keywords, section, url }.
 //   - url: the live-pages registry route when one exists, else the generic
 //     /tables/<slug> page for SDMX entries.
 //   - description: the target page's own metadata description (parsed from its
@@ -66,17 +67,21 @@ for (const e of catalogue.entries) {
     entries.push({ title : e.label, description, keywords, section, url });
 }
 
-// Standalone publication pages — real tables, but not catalogue entries.
+// Standalone pages — not catalogue entries: publication tables and the docs pages.
 const STATIC_PAGES = [
-    { url : '/publications/credit-classification', title : 'Outstanding credit of SCBs', keywords : [ 'credit classification', 'ABC', 'basic statistical return', 'SCB' ] },
-    { url : '/publications/external-debt',         title : 'External debt',              keywords : [ 'external debt', 'publications' ] },
+    { url : '/publications/credit-classification', section : 'Publications', title : 'Outstanding credit of SCBs', keywords : [ 'credit classification', 'ABC', 'basic statistical return', 'SCB' ] },
+    { url : '/publications/external-debt',         section : 'Publications', title : 'External debt',              keywords : [ 'external debt', 'publications' ] },
+    { url : '/docs',                               section : 'Docs',         title : 'Docs — overview',            keywords : [ 'docs', 'documentation', 'help', 'about', 'data vintage' ] },
+    { url : '/docs/using-the-site',                section : 'Docs',         title : 'Using the site',             keywords : [ 'docs', 'help', 'search', 'charts', 'grids', 'filter', 'sort', 'units' ] },
+    { url : '/docs/mcp',                           section : 'Docs',         title : 'AI access via MCP',          keywords : [ 'docs', 'mcp', 'ai', 'claude', 'model context protocol', 'assistant', 'api' ] },
+    { url : '/docs/how-to-scrape',                 section : 'Docs',         title : 'How to scrape',              keywords : [ 'docs', 'scraper', 'playwright', 'pipeline', 'processors', 'oracles', 'refresh' ] },
 ];
 for (const p of STATIC_PAGES) {
     entries.push({
         title       : p.title,
         description : pageDescription(p.url) ?? p.title,
         keywords    : p.keywords,
-        section     : 'Publications',
+        section     : p.section,
         url         : p.url,
     });
 }

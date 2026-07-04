@@ -1,0 +1,50 @@
+/* DOCS PAGES =========================================================================================================
+   Prose pages under /docs — a title-card row plus one full-height content cell,
+   shared by every docs page. Prose width is capped for readability. */
+.docs-page {
+    display               : grid;
+    grid-template-rows    : 240px auto;
+    grid-template-columns : 1fr;
+    gap                   : 1px;
+    min-height            : 100vh;
+}
+
+.docs-page .docs-content {
+    background-color : var(--white);
+}
+
+.docs-page .docs-prose {
+    max-width : 800px;
+}
+
+.docs-page .docs-prose ul,
+.docs-page .docs-prose ol {
+    margin        : 0;
+    margin-bottom : var(--nano);
+    padding-left  : 20px;
+}
+
+.docs-page .docs-prose li {
+    line-height   : 1.6;
+    margin-bottom : 8px;
+}
+
+.docs-page .docs-prose li::marker {
+    color : var(--slate-light40);
+}
+
+.docs-page .docs-prose kbd {
+    padding          : 1px 6px;
+    border           : 1px solid var(--slate-light60);
+    border-radius    : 4px;
+    background-color : var(--slate-light90);
+    font-family      : monospace;
+    font-size        : 0.85em;
+}
+
+.docs-page .docs-prose :not(pre) > code {
+    padding          : 1px 5px;
+    border-radius    : 4px;
+    background-color : var(--slate-light80);
+    font-size        : 0.9em;
+}

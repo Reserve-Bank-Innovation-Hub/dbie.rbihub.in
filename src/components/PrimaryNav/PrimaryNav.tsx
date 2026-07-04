@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 // UI ==================================================================================================================
 import { Aside, Div, Text } from "fictoan-react";
 import {
+    BookMarked,
     BookOpen,
     Building2,
     CreditCard,
@@ -173,6 +174,12 @@ export const PrimaryNav = () => {
             </NavGroup>
 
             <NavGroup>
+                <NavItem
+                    icon={<BookMarked />}
+                    linkTo="/docs"
+                    label="Docs"
+                />
+
                 <NavItem
                     icon={<Search />}
                     label="Search"
