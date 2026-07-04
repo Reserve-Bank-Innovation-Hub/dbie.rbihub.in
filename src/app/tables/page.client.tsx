@@ -57,7 +57,6 @@ const TablesPage = ({ groups, total, liveCount } : TablesPageProps) => {
                             className="sub-sector-card"
                             padding="micro"
                             marginBottom="nano"
-                            shape="rounded"
                         >
                             {subGroup.subSector && (
                                 <Text weight="600" marginBottom="nano">
@@ -72,23 +71,18 @@ const TablesPage = ({ groups, total, liveCount } : TablesPageProps) => {
                                             <Portion desktopSpan="two-third" mobileSpan="whole">
                                                 {table.linkTo ? (
                                                     <Link href={table.linkTo} className="table-link">
-                                                        <Text>
+                                                        <Text weight="400">
                                                             {table.label}
                                                             {" "}
-                                                            <Badge size="small" shape="rounded" aria-label="live">
-                                                                Live
-                                                            </Badge>
                                                         </Text>
                                                     </Link>
                                                 ) : (
-                                                    <Text opacity="80">{table.label}</Text>
+                                                    <Text>{table.label}</Text>
                                                 )}
                                             </Portion>
 
                                             <Portion desktopSpan="one-third" mobileSpan="whole">
-                                                <Text opacity="60" size="small">
-                                                    {table.frequency}
-                                                </Text>
+                                                <Text>{table.frequency}</Text>
                                             </Portion>
                                         </Row>
                                     </li>

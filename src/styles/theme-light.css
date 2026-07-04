@@ -86,6 +86,8 @@
     --paragraph-subtext-colour           : var(--grey-light20);
     --paragraph-subtext-size             : 88%;
 
+    --code-font                          : "Geist Mono", monospace;
+
     /* CUSTOM COMPONENTS //////////////////////////////////////////////////// */
     /* HEADER =============================================================== */
     --site-header-bg                     : var(--white);
@@ -108,5 +110,5 @@
 
     --page-sidebar-divider               : var(--grey-light80);
 
-    --ag-borders: none;
+    --ag-borders                         : none;
 }
