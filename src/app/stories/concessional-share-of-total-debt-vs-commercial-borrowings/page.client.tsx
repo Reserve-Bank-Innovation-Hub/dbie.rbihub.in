@@ -156,7 +156,7 @@ export const ConcessionalVsCommercialPage = () => {
 
             {/* SOURCES & METHOD ======================================================================= */}
             <Section id="cvc-sources">
-                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
+                <Row horizontalPadding="medium" marginTop="large" allowUltraWide>
                     <Portion desktopSpan="half">
                         <Divider kind="secondary" verticalMargin="micro" />
 

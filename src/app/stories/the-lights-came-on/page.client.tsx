@@ -167,7 +167,7 @@ export const TheLightsCameOnPage = () => {
     const perHundred = Math.round((y26.acc / y15.acc) * 100);
 
     return (
-        <Article id="the-lights-came-on-page" paddingBottom="small">
+        <Article id="the-lights-came-on-page">
             {/* ACTS I–III — dark indigo, one sticky canvas ======================================== */}
             <Div className="act-dark">
                 <Div className="stage">
@@ -515,7 +515,7 @@ export const TheLightsCameOnPage = () => {
 
             {/* SOURCES & METHOD =================================================================================== */}
             <Section id="tloc-sources">
-                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
+                <Row horizontalPadding="medium" marginTop="large" allowUltraWide>
                     <Portion desktopSpan="half">
                         <Divider kind="secondary" verticalMargin="micro" />
 

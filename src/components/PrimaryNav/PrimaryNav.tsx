@@ -114,6 +114,14 @@ export const PrimaryNav = () => {
 
             <NavGroup>
                 <NavItem
+                    icon={<Search />}
+                    label="Search"
+                    onClick={() => setIsSearchOpen(true)}
+                />
+            </NavGroup>
+
+            <NavGroup>
+                <NavItem
                     icon={<FlagTriangleLeft />}
                     linkTo="/indicators"
                     label="Indicators"
@@ -173,6 +181,9 @@ export const PrimaryNav = () => {
                     label="Payments"
                 />
 
+            </NavGroup>
+
+            <NavGroup>
                 <NavItem
                     icon={<Feather />}
                     linkTo="/stories"
@@ -187,11 +198,6 @@ export const PrimaryNav = () => {
                     label="Docs"
                 />
 
-                <NavItem
-                    icon={<Search />}
-                    label="Search"
-                    onClick={() => setIsSearchOpen(true)}
-                />
 
                 <NavItem
                     icon={<Table2 />}

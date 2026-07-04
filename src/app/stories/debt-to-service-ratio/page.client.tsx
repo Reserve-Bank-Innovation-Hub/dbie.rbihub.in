@@ -235,7 +235,7 @@ export const DebtToServiceRatioPage = () => {
 
             {/* SOURCES & METHOD =================================================================================== */}
             <Section id="dsr-sources">
-                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
+                <Row horizontalPadding="medium" marginTop="large" allowUltraWide>
                     <Portion desktopSpan="half">
                         <Divider kind="secondary" verticalMargin="micro" />
 
