@@ -113,13 +113,13 @@ const ExternalCommercialBorrowingsChart : React.FC<ExternalCommercialBorrowingsC
             rangemode  : "tozero",
         }),
         height,
-        margin : { t : 80, b : 160, l : 80, r : 80 },
+        margin : { t : 80, b : 40, l : 80, r : 80 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.45,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

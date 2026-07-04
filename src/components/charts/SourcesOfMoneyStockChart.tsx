@@ -77,6 +77,10 @@ const SourcesOfMoneyStockChart : React.FC<SourcesOfMoneyStockChartProps> = ({
             type          : "date",
             rangeslider   : { visible: true },
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     { count: 1,  label: "1Y",  step: "year", stepmode: "backward" },
                     { count: 5,  label: "5Y",  step: "year", stepmode: "backward" },
@@ -87,7 +91,7 @@ const SourcesOfMoneyStockChart : React.FC<SourcesOfMoneyStockChartProps> = ({
         }),
         yaxis  : createAxis("₹ crores", { rangemode: "tozero" }),
         height,
-        margin : { t: 80, b: 150, l: 90, r: 40 },
+        margin : { t: 80, b: 40, l: 90, r: 40 },
     });
 
     const config : Partial<Plotly.Config> = getBaseConfig("sources_of_money_stock_chart", {

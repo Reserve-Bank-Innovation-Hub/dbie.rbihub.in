@@ -4,7 +4,7 @@ import type * as Plotly from "plotly.js";
 // Common font configuration
 export const CHART_FONTS = {
     title  : {
-        size   : 18,
+        size   : 14,
         family : "Geist, sans-serif",
     },
     axis   : {
@@ -40,15 +40,17 @@ export const CHART_COLORS = {
 // Common layout configuration
 export const getBaseLayout = (overrides? : Partial<Plotly.Layout>) : Partial<Plotly.Layout> => ({
     showlegend    : true,
+    // Legend sits above the plot, top-left; range buttons (where present) go
+    // top-right. Keeps the bottom margin free for just the axis labels.
     legend        : {
         orientation : "h",
         yanchor     : "bottom",
-        y           : -0.45,
-        xanchor     : "center",
-        x           : 0.5,
+        y           : 1.02,
+        xanchor     : "left",
+        x           : 0,
         font        : CHART_FONTS.legend,
     },
-    margin        : {t : 60, b : 140, l : 80, r : 40},
+    margin        : {t : 60, b : 40, l : 80, r : 40},
     plot_bgcolor  : "#fafafa",
     paper_bgcolor : "#ffffff",
     hovermode     : "x unified",

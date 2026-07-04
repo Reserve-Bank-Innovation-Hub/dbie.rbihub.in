@@ -86,13 +86,13 @@ const AgriculturalProductionMajorCommercialCropsChart : React.FC<AgriculturalPro
             rangemode  : "tozero",
         }),
         height,
-        margin : {t : 80, b : 150, l : 90, r : 90},
+        margin : {t : 80, b : 40, l : 90, r : 90},
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.35,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

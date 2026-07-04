@@ -68,12 +68,13 @@ const ConsumerPriceIndexChart : React.FC<ConsumerPriceIndexChartProps> = ({ seri
         title  : createTitle(`General Index over time (base ${series.base})`),
         xaxis  : createAxis("Month", { showgrid: false, type: "date" }),
         yaxis  : createAxis("Index", { showgrid: true, gridcolor: "#e5e7eb" }),
-        margin : { t: 60, b: 80, l: 80, r: 40 },
+        margin : { t: 60, b: 40, l: 80, r: 40 },
         legend : {
             orientation : "h",
-            x           : 0.5,
-            xanchor     : "center",
-            y           : -0.2,
+            yanchor     : "bottom",
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

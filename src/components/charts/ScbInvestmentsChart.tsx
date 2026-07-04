@@ -58,6 +58,10 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
             type          : "date",
             rangeslider   : { visible: true },
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     { count: 1,  label: "1Y",  step: "year", stepmode: "backward" },
                     { count: 5,  label: "5Y",  step: "year", stepmode: "backward" },
@@ -70,13 +74,13 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
             rangemode : "tozero",
         }),
         height,
-        margin : { t: 80, b: 150, l: 80, r: 40 },
+        margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.35,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

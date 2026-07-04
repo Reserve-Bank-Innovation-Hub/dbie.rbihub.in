@@ -87,6 +87,10 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     {
                         label  : "10Y",
@@ -100,13 +104,13 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
         }),
         yaxis  : createAxis("Rupees crores", { rangemode: "normal" }),
         height,
-        margin : { t: 80, b: 80, l: 80, r: 40 },
+        margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.25,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 
@@ -117,6 +121,10 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
         xaxis : {
             ...layout.xaxis,
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     {
                         label  : "10Y",

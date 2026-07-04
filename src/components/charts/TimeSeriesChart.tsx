@@ -135,7 +135,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         },
         // The base layout's 140px bottom margin is sized for below-chart
         // legends; ours sits on top, so reclaim the space for the plot.
-        margin : {t : 60, b : 70, l : 80, r : 40},
+        margin : {t : 80, b : 40, l : 80, r : 40},
     }), [ title, yAxisTitle ]);
 
     const config = useMemo(

@@ -50,6 +50,10 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
             type          : "date",
             rangeslider   : { visible : true },
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     { count : 6, label : "6M", step : "month", stepmode : "backward" },
                     { count : 1, label : "1Y", step : "year", stepmode : "backward" },
@@ -60,13 +64,13 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
         }),
         yaxis   : createAxis("Index (base 2011-12 = 100)"),
         height,
-        margin  : { t : 80, b : 150, l : 70, r : 40 },
+        margin  : { t : 80, b : 40, l : 70, r : 40 },
         legend  : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.3,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

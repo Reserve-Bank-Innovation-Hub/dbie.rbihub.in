@@ -91,6 +91,10 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     {
                         count    : 10,
@@ -112,13 +116,13 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
             rangemode : "tozero",
         }),
         height,
-        margin : { t: 80, b: 150, l: 80, r: 40 },
+        margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.35,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

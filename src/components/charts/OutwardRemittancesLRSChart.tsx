@@ -89,6 +89,10 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
             type          : "date",
             rangeslider   : { visible : true },
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     { count : 2,  label : "2Y",  step : "year", stepmode : "backward" },
                     { count : 5,  label : "5Y",  step : "year", stepmode : "backward" },
@@ -104,13 +108,13 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
             rangemode  : "tozero",
         }),
         height,
-        margin : { t : 80, b : 160, l : 80, r : 80 },
+        margin : { t : 80, b : 40, l : 80, r : 80 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.45,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 

@@ -86,6 +86,10 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
             type          : "date",
             rangeslider   : { visible: true },
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     { count: 1,  label: "1Y",  step: "year",  stepmode: "backward" },
                     { count: 5,  label: "5Y",  step: "year",  stepmode: "backward" },
@@ -96,13 +100,13 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
         }),
         yaxis  : createAxis("Rupees Crores", { rangemode: "tozero" }),
         height,
-        margin : { t: 80, b: 160, l: 90, r: 40 },
+        margin : { t: 80, b: 40, l: 90, r: 40 },
         legend : {
             orientation : "h",
             yanchor     : "bottom",
-            y           : -0.40,
-            xanchor     : "center",
-            x           : 0.5,
+            y           : 1.02,
+            xanchor     : "left",
+            x           : 0,
         },
     });
 
