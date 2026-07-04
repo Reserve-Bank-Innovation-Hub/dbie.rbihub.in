@@ -324,7 +324,7 @@
 
 /* SOURCES ============================================================================================================ */
 #the-lights-came-on-page .download-link {
-    display    : inline-block;
+    display    : block;
     width      : fit-content;
     color      : hsl(var(--indivara));
     transition : opacity 0.2s ease;

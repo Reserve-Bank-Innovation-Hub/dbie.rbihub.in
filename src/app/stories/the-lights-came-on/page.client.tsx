@@ -227,7 +227,7 @@ export const TheLightsCameOnPage = () => {
                             <Text fontStyle="serif" marginBottom="nano">
                                 {locked !== null && <>You guessed <strong>₹{locked}</strong>.&ensp;</>}
                                 Companies were the biggest borrowers—<strong>₹40</strong> of every ₹100, against
-                                just <strong>₹31</strong> for individuals. Hold that ₹31; we&rsquo;ll come back to it.
+                                just <strong>₹31</strong>{" "}for individuals. Hold that ₹31; we&rsquo;ll come back to it.
                             </Text>
                             <Text fontStyle="serif"><em>Many credit-seeking households were simply left in the
                                 dark.</em></Text>
@@ -300,7 +300,7 @@ export const TheLightsCameOnPage = () => {
                             <Text fontStyle="serif">
                                 Women&rsquo;s accounts: <strong>2.6 crore → 10.3 crore</strong>. One in five
                                 individual borrowers in 2015; nearly one in three today. Women&rsquo;s borrower
-                                count grew <strong>4×</strong> against men&rsquo;s 2.7×—of the 35 lit dots,
+                                count grew <strong>4×</strong>{" "}against men&rsquo;s 2.7×—of the 35 lit dots,
                                 about 10 are now red.
                             </Text>
                         </Card>
@@ -331,7 +331,7 @@ export const TheLightsCameOnPage = () => {
                                 crore</strong> in
                                 March 2024 and stand at <strong>10.3 crore</strong> today — 11% below the peak — and
                                 the total count of individual borrowers dipped in the year to March 2026. The
-                                <em> value</em> of women&rsquo;s credit kept rising; it is the smallest accounts
+                                <em> value</em>{" "}of women&rsquo;s credit kept rising; it is the smallest accounts
                                 that closed.
                             </Text>
                             <Text size="small" isSubtext>
@@ -574,7 +574,7 @@ export const TheLightsCameOnPage = () => {
                         </Text>
 
                         <Text size="tiny" marginBottom="nano">
-                            <strong>The decline is in the table, not smoothed over.</strong> Women&rsquo;s borrower
+                            <strong>The decline is in the table, not smoothed over.</strong>{" "}Women&rsquo;s borrower
                             accounts peaked at 11.6 crore in March 2024 and fell to 10.3 crore by March 2026; the
                             total count of individual borrowers also dipped in the final year. The point-to-point
                             growth figures (4&times; for women, 3&times; overall) are 2015&rarr;2026 and include

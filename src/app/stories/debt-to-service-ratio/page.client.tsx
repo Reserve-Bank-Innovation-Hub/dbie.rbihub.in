@@ -233,79 +233,86 @@ export const DebtToServiceRatioPage = () => {
                 </Row>
             </Section>
 
-            {/* SOURCES ============================================================================================ */}
+            {/* SOURCES & METHOD =================================================================================== */}
             <Section id="dsr-sources">
-                <Row horizontalPadding="small" marginTop="large" marginBottom="none" allowUltraWide>
+                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="half">
-                        <Text isSubtext weight="600" size="tiny">SOURCES &amp; METHOD</Text>
-
                         <Divider kind="secondary" verticalMargin="micro" />
 
-                        <Text size="tiny">
+                        <Text weight="600" size="tiny" verticalMargin="micro">SOURCES</Text>
+
+                        <Text size="tiny" marginBottom="micro">
                             External debt service ratio and external debt-to-GDP — External Debt Management Unit,
                             Ministry of Finance &amp; Reserve Bank of India
                             (&ldquo;India&rsquo;s External Debt&rdquo;, end-March, &#8377; crore).
                         </Text>
 
-                        <a
-                            href="/stories/debt-to-service-ratio/india-external-debt-rupees-end-march.xlsx"
-                            download
-                            className="download-link"
-                        >
-                            <Div verticallyCentreItems marginTop="nano">
-                                <Download size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Download external debt data (XLSX)
-                                </Text>
-                            </Div>
-                        </a>
+                        <Div>
+                            <Link
+                                href="/stories/debt-to-service-ratio/india-external-debt-rupees-end-march.xlsx" download
+                                className="download-link"
+                            >
+                                <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
+                                    <Download size="16px" />
 
-                        <Link href="/publications/external-debt" className="download-link">
-                            <Div verticallyCentreItems marginTop="nano">
-                                <Table2 size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Go to dataset
-                                </Text>
-                            </Div>
-                        </Link>
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Download external debt data (XLSX)
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
 
-                        <Divider kind="tertiary" verticalMargin="micro" />
+                        <Div>
+                            <Link href="/publications/external-debt" className="download-link">
+                                <Div verticallyCentreItems marginBottom="nano">
+                                    <Table2 size="16px" />
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Go to dataset
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
 
-                        <Text size="tiny">
+                        <Text size="tiny" marginTop="micro" marginBottom="micro">
                             Combined liabilities of the Centre and state governments as % of GDP — Reserve Bank
                             of India, via this site&rsquo;s own dataset (fiscal years ending March). A separate
-                            domestic series, shown for context; explore the full table at{" "}
-                            <Link href="/tables/debt-indicators-of-government-as-percentage-to-gdp">
-                                debt indicators of government
-                            </Link>.
+                            domestic series, shown for context.
                         </Text>
 
-                        <a
-                            href="/stories/debt-to-service-ratio/govt-debt-to-gdp-rbi.csv"
-                            download
-                            className="download-link"
-                        >
-                            <Div verticallyCentreItems marginTop="nano">
-                                <Download size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Download combined govt liabilities data (CSV)
-                                </Text>
-                            </Div>
-                        </a>
+                        <Div>
+                            <Link
+                                href="/stories/debt-to-service-ratio/govt-debt-to-gdp-rbi.csv" download
+                                className="download-link"
+                            >
+                                <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
+                                    <Download size="16px" />
 
-                        <Link href="/tables/debt-indicators-of-government-as-percentage-to-gdp" className="download-link">
-                            <Div verticallyCentreItems marginTop="nano">
-                                <Table2 size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Go to dataset
-                                </Text>
-                            </Div>
-                        </Link>
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Download combined govt liabilities data (CSV)
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
 
-                        <Divider kind="tertiary" verticalMargin="micro" />
+                        <Div>
+                            <Link href="/tables/debt-indicators-of-government-as-percentage-to-gdp" className="download-link">
+                                <Div verticallyCentreItems marginBottom="nano">
+                                    <Table2 size="16px" />
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Go to dataset
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
+                    </Portion>
+
+                    <Portion desktopSpan="half">
+                        <Divider kind="secondary" verticalMargin="micro" />
+
+                        <Text weight="600" size="tiny" verticalMargin="micro">METHOD</Text>
 
                         <Text size="tiny" marginBottom="nano">
-                            <strong>One chart, two denominators.</strong> The debt service ratio measures
+                            <strong>One chart, two denominators.</strong>{" "}The debt service ratio measures
                             external repayments against India&rsquo;s current receipts — export earnings and
                             the like; the liabilities line measures combined Centre and state debt against
                             GDP. Both are percentages, of different things. They share a chart to show the
@@ -313,14 +320,14 @@ export const DebtToServiceRatioPage = () => {
                         </Text>
 
                         <Text size="tiny" marginBottom="nano">
-                            <strong>Hand-typed vs derived.</strong> The debt service ratio is transcribed from
+                            <strong>Hand-typed vs derived.</strong>{" "}The debt service ratio is transcribed from
                             the Ministry of Finance / RBI status reports and carries their revisions. The
                             external-debt and combined-liabilities series are derived from this site&rsquo;s
                             committed datasets by a self-checking processor, verified on every deploy.
                         </Text>
 
                         <Text size="tiny">
-                            <strong>Years are fiscal.</strong> Every year label means the fiscal year ending
+                            <strong>Years are fiscal.</strong>{" "}Every year label means the fiscal year ending
                             that March — &ldquo;1991&rdquo; is FY 1990-91, the crisis year, and the ~89%
                             liabilities peak is March 2021. The 2006 spike in the ratio is the scheduled
                             India Millennium Deposits redemption, not fresh stress.
