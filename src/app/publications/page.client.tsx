@@ -11,8 +11,16 @@ const SECTIONS = [
     {
         title : "",
         items : [
-            { linkTo : "/publications/abc", label : "Outstanding credit of SCBs" },
-            { linkTo : "/publications/external-debt", label : "External debt" },
+            {
+                linkTo      : "/publications/abc",
+                label       : "Outstanding credit of SCBs",
+                description : "Organisation-wise classification of outstanding credit of scheduled commercial banks according to occupation",
+            },
+            {
+                linkTo      : "/publications/external-debt",
+                label       : "External debt",
+                description : "India’s External Debt data in Rupees (end-March)",
+            },
         ],
     },
 ];
@@ -48,6 +56,12 @@ const PublicationsPage = () => {
                                 <Div className="grid-cell" key={item.linkTo} padding="micro">
                                     <Link href={item.linkTo}>
                                         <Text weight="600">{item.label}</Text>
+
+                                        {item.description && (
+                                            <Text size="small" opacity="60" marginTop="nano">
+                                                {item.description}
+                                            </Text>
+                                        )}
                                     </Link>
                                 </Div>
                             ))}

@@ -11,10 +11,26 @@ const SECTIONS = [
     {
         title : "Monthly RBI Bulletin",
         items : [
-            { linkTo : "/prices/consumer-price-index", label : "Consumer price index" },
-            { linkTo : "/prices/other-consumer-price-indices", label : "Other consumer price indices" },
-            { linkTo : "/prices/gold-and-silver-prices", label : "Gold and silver prices" },
-            { linkTo : "/prices/wholesale-price-index", label : "Wholesale price index" },
+            {
+                linkTo      : "/prices/consumer-price-index",
+                label       : "Consumer price index",
+                description : "Monthly consumer price index (CPI) for rural, urban and combined India across base years, with year-on-year inflation",
+            },
+            {
+                linkTo      : "/prices/other-consumer-price-indices",
+                label       : "Other consumer price indices",
+                description : "Consumer Price Index for Industrial Workers, Agricultural Labourers and Rural Labourers across their respective base years",
+            },
+            {
+                linkTo      : "/prices/gold-and-silver-prices",
+                label       : "Gold and silver prices",
+                description : "Monthly average price of standard gold (₹ per 10 grams) and silver (₹ per kilogram) in Mumbai, from 1990 onwards.",
+            },
+            {
+                linkTo      : "/prices/wholesale-price-index",
+                label       : "Wholesale price index",
+                description : "Monthly wholesale price index (Table 22) across the full commodity taxonomy, with historical base years back to 1947",
+            },
         ],
     },
 ];
@@ -35,19 +51,27 @@ const PricesPage = () => {
             </Header>
 
             <Div id="sections-wrapper">
-                {SECTIONS.map(section => (
-                    <Section key={section.title} marginBottom="nano">
-                        <Div className="grid-cell section-header" padding="micro">
-                            <Heading6 weight="700" className="section-title">
-                                {section.title}
-                            </Heading6>
-                        </Div>
+                {SECTIONS.map((section, idx) => (
+                    <Section key={section.title || idx} marginBottom="nano">
+                        {section.title && (
+                            <Div className="grid-cell section-header" padding="micro">
+                                <Heading6 weight="700" className="section-title">
+                                    {section.title}
+                                </Heading6>
+                            </Div>
+                        )}
 
                         <Div className="section-content">
                             {section.items.map(item => (
                                 <Div className="grid-cell" key={item.linkTo} padding="micro">
                                     <Link href={item.linkTo}>
                                         <Text weight="600">{item.label}</Text>
+
+                                        {item.description && (
+                                            <Text size="small" opacity="60" marginTop="nano">
+                                                {item.description}
+                                            </Text>
+                                        )}
                                     </Link>
                                 </Div>
                             ))}

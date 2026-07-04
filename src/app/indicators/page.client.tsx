@@ -11,8 +11,16 @@ const SECTIONS = [
     {
         title : "External sector",
         items : [
-            { linkTo : "/indicators/exchange-rates", label : "Exchange rates" },
-            { linkTo : "/indicators/forex-reserves", label : "Forex reserves" },
+            {
+                linkTo      : "/indicators/exchange-rates",
+                label       : "Exchange rates",
+                description : "Daily exchange rates of the Indian Rupee against major foreign currencies including US Dollar, Pound Sterling, Euro, and Japanese Yen.",
+            },
+            {
+                linkTo      : "/indicators/forex-reserves",
+                label       : "Forex reserves",
+                description : "Weekly foreign exchange reserves data including total reserves, foreign currency assets, gold holdings, and SDRs",
+            },
         ],
     },
 ];
@@ -48,6 +56,12 @@ const IndicatorsPage = () => {
                                 <Div className="grid-cell" key={item.linkTo} padding="micro">
                                     <Link href={item.linkTo}>
                                         <Text weight="600">{item.label}</Text>
+
+                                        {item.description && (
+                                            <Text size="small" opacity="60" marginTop="nano">
+                                                {item.description}
+                                            </Text>
+                                        )}
                                     </Link>
                                 </Div>
                             ))}

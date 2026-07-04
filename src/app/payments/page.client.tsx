@@ -11,7 +11,11 @@ const SECTIONS = [
     {
         title : "Monthly RBI Bulletin",
         items : [
-            { linkTo : "/payments/payment-system-indicators", label : "Payment system indicators" },
+            {
+                linkTo      : "/payments/payment-system-indicators",
+                label       : "Payment system indicators",
+                description : "Monthly volumes and values across settlement systems, RTGS, UPI, cards, PPIs and payment infrastructure.",
+            },
         ],
     },
 ];
@@ -32,19 +36,27 @@ const PaymentsPage = () => {
             </Header>
 
             <Div id="sections-wrapper">
-                {SECTIONS.map(section => (
-                    <Section key={section.title} marginBottom="nano">
-                        <Div className="grid-cell section-header" padding="micro">
-                            <Heading6 weight="700" className="section-title">
-                                {section.title}
-                            </Heading6>
-                        </Div>
+                {SECTIONS.map((section, idx) => (
+                    <Section key={section.title || idx} marginBottom="nano">
+                        {section.title && (
+                            <Div className="grid-cell section-header" padding="micro">
+                                <Heading6 weight="700" className="section-title">
+                                    {section.title}
+                                </Heading6>
+                            </Div>
+                        )}
 
                         <Div className="section-content">
                             {section.items.map(item => (
                                 <Div className="grid-cell" key={item.linkTo} padding="micro">
                                     <Link href={item.linkTo}>
                                         <Text weight="600">{item.label}</Text>
+
+                                        {item.description && (
+                                            <Text size="small" opacity="60" marginTop="nano">
+                                                {item.description}
+                                            </Text>
+                                        )}
                                     </Link>
                                 </Div>
                             ))}
