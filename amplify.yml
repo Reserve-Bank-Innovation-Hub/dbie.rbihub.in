@@ -7,10 +7,15 @@ frontend:
         - export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
         - npm install -g pnpm@9
         - pnpm install
-        # Sync the static DBIE data from S3 into public/data before the build.
-        # Per-env payloads: main -> site-prod, staging -> site-staging, else site-dev.
-        # The build IAM role has S3 read on the dbie-data bucket.
-        - case "$AWS_BRANCH" in main) DATA_PREFIX=site-prod ;; staging) DATA_PREFIX=site-staging ;; *) DATA_PREFIX=site-dev ;; esac; mkdir -p public/data && aws s3 sync "s3://dbie-data/${DATA_PREFIX}" public/data
+        # The data payload is derived in-CI from the committed sources
+        # (data/sdmx CSVs + data/publications xlsx): run all processors,
+        # verify the outputs byte-exact against the committed oracles,
+        # then copy into public/data for the app build. No S3 involved —
+        # an environment serves exactly what its branch's processors
+        # produce from its branch's data.
+        - pnpm data:build
+        - pnpm data:verify
+        - pnpm data:sync
     build:
       commands:
         - pnpm build
