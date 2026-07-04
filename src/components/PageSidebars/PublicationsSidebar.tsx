@@ -27,7 +27,7 @@ export const PublicationsSidebar = () => {
             <LinkGroup>
                 <LinkItem
                     icon={<Table2 />}
-                    linkTo="/publications/abc"
+                    linkTo="/publications/credit-classification"
                     label="Outstanding credit of SCBs"
                 />
 

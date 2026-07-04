@@ -66,10 +66,25 @@ for (const e of catalogue.entries) {
     entries.push({ title : e.label, description, keywords, section, url });
 }
 
+// Standalone publication pages — real tables, but not catalogue entries.
+const STATIC_PAGES = [
+    { url : '/publications/credit-classification', title : 'Outstanding credit of SCBs', keywords : [ 'credit classification', 'ABC', 'basic statistical return', 'SCB' ] },
+    { url : '/publications/external-debt',         title : 'External debt',              keywords : [ 'external debt', 'publications' ] },
+];
+for (const p of STATIC_PAGES) {
+    entries.push({
+        title       : p.title,
+        description : pageDescription(p.url) ?? p.title,
+        keywords    : p.keywords,
+        section     : 'Publications',
+        url         : p.url,
+    });
+}
+
 // --- self-checks: fail loudly if the corpus drifts ---
 const errors = [];
-if (entries.length !== catalogue.entries.length) {
-    errors.push(`expected ${catalogue.entries.length} entries, got ${entries.length}`);
+if (entries.length !== catalogue.entries.length + STATIC_PAGES.length) {
+    errors.push(`expected ${catalogue.entries.length + STATIC_PAGES.length} entries, got ${entries.length}`);
 }
 if (entries.some((e) => !e.title || !e.url || !e.description)) {
     errors.push('entry with empty title/url/description');

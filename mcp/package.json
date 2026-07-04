@@ -1,0 +1,27 @@
+{
+    "name": "dbie-mcp",
+    "version": "0.1.0",
+    "description": "MCP server for the Database on Indian Economy — search and fetch RBI economic data tables and series",
+    "license": "MIT",
+    "type": "module",
+    "bin": {
+        "dbie-mcp": "./server.mjs"
+    },
+    "files": [
+        "server.mjs",
+        "README.md"
+    ],
+    "engines": {
+        "node": ">=20"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in.git",
+        "directory": "mcp"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.12.0",
+        "@orama/orama": "^3.1.18",
+        "zod": "^3.24.0"
+    }
+}

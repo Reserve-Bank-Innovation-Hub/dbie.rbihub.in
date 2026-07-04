@@ -12,7 +12,7 @@ const SECTIONS = [
         title : "",
         items : [
             {
-                linkTo      : "/publications/abc",
+                linkTo      : "/publications/credit-classification",
                 label       : "Outstanding credit of SCBs",
                 description : "Organisation-wise classification of outstanding credit of scheduled commercial banks according to occupation",
             },

@@ -180,7 +180,7 @@ export const SiteSearch = ({isOpen : isModalOpen, onClose} : SiteSearchProps) =>
                 <Div id="search-modal">
                     <InputField
                         placeholder="Search tables and series"
-                        innerIconLeft={<Search size="24px" />}
+                        innerIconLeft={<Search size="16px" />}
                         value={query}
                         onChange={handleChange}
                         ref={inputRef}
@@ -190,32 +190,29 @@ export const SiteSearch = ({isOpen : isModalOpen, onClose} : SiteSearchProps) =>
                     {hasResults && (
                         <Div id="search-results-dropdown" shadow="soft">
                             {results.map((result, idx) => (
-                                <Card
+                                <Div
                                     key={result.document.url}
                                     className={`search-result-item ${idx === activeIndex ? "is-active" : ""}`}
                                     onMouseEnter={() => setActiveIndex(idx)}
                                     onClick={() => navigateTo(result.document.url)}
-                                    shape="rounded"
                                     shadow={idx === activeIndex ? "hard" : undefined}
                                 >
-                                    <Header verticallyCentreItems pushItemsToEnds>
-                                        <Text weight="500" size="small">
-                                            {result.document.title}
-                                        </Text>
-
-                                        <Text className="search-result-section">
+                                    <Header>
+                                        <Text size="tiny" className="result-theme" weight="500" marginBottom="nano">
                                             {result.document.section}
                                         </Text>
-                                    </Header>
 
-                                    <Divider kind="tertiary" />
+                                        <Text weight="600" size="small">
+                                            {result.document.title}
+                                        </Text>
+                                    </Header>
 
                                     <Div className="search-result-description" opacity="80">
                                         <Text size="small" isSubtext>
                                             {result.document.description}
                                         </Text>
                                     </Div>
-                                </Card>
+                                </Div>
                             ))}
                         </Div>
                     )}

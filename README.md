@@ -68,6 +68,14 @@ Deployment (AWS Amplify + S3, per-environment data payloads) is described in
 [`docs/05-static-amplify-s3-architecture.md`](docs/05-static-amplify-s3-architecture.md);
 `amplify.yml` pulls the environment's data from S3 in `preBuild`.
 
+## AI access (MCP)
+
+AI assistants can search and fetch every table via the bundled MCP server — see [mcp/README.md](mcp/README.md):
+
+```bash
+claude mcp add dbie -- npx -y dbie-mcp
+```
+
 ## Contributing
 
 Issues and PRs welcome. The pipeline is deliberately boring: plain Node scripts, no
