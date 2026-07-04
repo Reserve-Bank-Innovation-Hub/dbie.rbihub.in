@@ -53,7 +53,7 @@ const GrowthPage = () => {
                                         <Text weight="600">{item.label}</Text>
 
                                         {item.description && (
-                                            <Text size="small" opacity="60" marginTop="nano">
+                                            <Text size="small" opacity="80" weight="400">
                                                 {item.description}
                                             </Text>
                                         )}
