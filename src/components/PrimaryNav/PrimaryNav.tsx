@@ -2,25 +2,42 @@
 
 // REACT CORE ==========================================================================================================
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
 import { Aside, Div, Text } from "fictoan-react";
-import { BookOpen, Building2, CreditCard, FlagTriangleLeft, Globe, Landmark, LineChart, Newspaper, Table2, Tags, TrendingUp } from "lucide-react";
+import {
+    BookOpen,
+    Building2,
+    CreditCard,
+    FlagTriangleLeft,
+    Globe,
+    Landmark,
+    LineChart,
+    Newspaper,
+    Search,
+    Table2,
+    Tags,
+    TrendingUp,
+} from "lucide-react";
+
+// LOCAL COMPONENTS ====================================================================================================
+import { SiteSearch } from "@components/SiteSearch/SiteSearch";
 
 // STYLES ==============================================================================================================
 import "./primary-nav.css";
 
 // NAV ITEM ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 interface NavItemProps {
-    icon     : ReactNode;
-    label    : string;
-    linkTo ? : string;
-    isLogo ? : boolean;
+    icon : ReactNode;
+    label : string;
+    linkTo? : string;
+    isLogo? : boolean;
+    onClick? : () => void;
 }
 
-export const NavItem = ({ icon, label, linkTo, isLogo }: NavItemProps) => {
+export const NavItem = ({icon, label, linkTo, isLogo, onClick} : NavItemProps) => {
     const pathname = usePathname();
 
     // For home ("/"), use exact match. For others, use startsWith to match subroutes
@@ -30,17 +47,30 @@ export const NavItem = ({ icon, label, linkTo, isLogo }: NavItemProps) => {
             : pathname.startsWith(linkTo)
         : false;
 
+    const content = (
+        <Div className="nav-item">
+            <Div className={`nav-icon ${isLogo ? "is-logo" : ""}`}>
+                {icon}
+            </Div>
+
+            <Div className="nav-label">
+                <Text weight="600">{label}</Text>
+            </Div>
+        </Div>
+    );
+
+    // Action items (no route) render as a button-like div instead of a Link
+    if (!linkTo && onClick) {
+        return (
+            <Div className="link" onClick={onClick} role="button" tabIndex={0}>
+                {content}
+            </Div>
+        );
+    }
+
     return (
         <Link href={linkTo || "#"} className={`link ${isActive ? "active" : ""}`}>
-            <Div className="nav-item">
-                <Div className={`nav-icon ${isLogo ? "is-logo" : ""}`}>
-                    {icon}
-                </Div>
-
-                <Div className="nav-label">
-                    <Text weight="600">{label}</Text>
-                </Div>
-            </Div>
+            {content}
         </Link>
     );
 };
@@ -50,12 +80,26 @@ interface NavGroupProps {
     children : ReactNode;
 }
 
-export const NavGroup = ({ children }: NavGroupProps) => {
+export const NavGroup = ({children} : NavGroupProps) => {
     return <Div className="links-group">{children}</Div>;
 };
 
 // PRIMARY NAV /////////////////////////////////////////////////////////////////////////////////////////////////////////
 export const PrimaryNav = () => {
+    const [ isSearchOpen, setIsSearchOpen ] = useState(false);
+
+    // Cmd+/ (or Ctrl+/) opens search from anywhere
+    useEffect(() => {
+        const handleShortcut = (e : KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === "/") {
+                e.preventDefault();
+                setIsSearchOpen(true);
+            }
+        };
+        document.addEventListener("keydown", handleShortcut);
+        return () => document.removeEventListener("keydown", handleShortcut);
+    }, []);
+
     return (
         <Aside id="primary-nav">
             <NavGroup>
@@ -85,14 +129,6 @@ export const PrimaryNav = () => {
                     label="Handbook"
                 />
 
-                <NavItem
-                    icon={<Table2 />}
-                    linkTo="/tables"
-                    label="Tables"
-                />
-            </NavGroup>
-
-            <NavGroup>
                 <NavItem
                     icon={<Tags />}
                     linkTo="/prices"
@@ -135,6 +171,22 @@ export const PrimaryNav = () => {
                     label="Payments"
                 />
             </NavGroup>
+
+            <NavGroup>
+                <NavItem
+                    icon={<Search />}
+                    label="Search"
+                    onClick={() => setIsSearchOpen(true)}
+                />
+
+                <NavItem
+                    icon={<Table2 />}
+                    linkTo="/tables"
+                    label="Tables"
+                />
+            </NavGroup>
+
+            <SiteSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
         </Aside>
     );
 };

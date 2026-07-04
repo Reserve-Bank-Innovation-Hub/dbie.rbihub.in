@@ -79,6 +79,7 @@ const processors = [
   'reserve-money',
   'scb-investments',
   'sdmx-series',
+  'search-index',
   'sector-wise-cost-overrun-of-delayed-central-sector-projects-end-march',
   'sector-wise-domestic-savings-at-current-prices',
   'select-economic-indicators',
@@ -103,4 +104,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (344 JSON files)');
+console.log('done -> out/ (345 JSON files)');

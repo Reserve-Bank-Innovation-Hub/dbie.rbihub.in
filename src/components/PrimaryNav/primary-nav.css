@@ -123,3 +123,8 @@
 .link.active .nav-icon svg {
     stroke : var(--nav-icon-stroke-active);
 }
+
+/* Action items (e.g. Search) are divs, not anchors — give them the pointer */
+#primary-nav .link[role="button"] {
+    cursor : pointer;
+}
