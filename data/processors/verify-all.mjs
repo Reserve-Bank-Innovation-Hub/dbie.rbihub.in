@@ -108,6 +108,8 @@ const datasets = [
   { name: 'state-financial-accommodation', mode: 'exact' },
   { name: 'state-government-investments', mode: 'exact' },
   { name: 'state-market-borrowings', mode: 'exact' },
+  { name: 'story-external-debt', mode: 'exact' },        // story series — re-snapshot when their sources refresh
+  { name: 'story-the-lights-came-on', mode: 'exact' },
   { name: 'treasury-bill-auctions', mode: 'exact' },
   { name: 'treasury-bills-ownership', mode: 'exact' },
   { name: 'union-government-accounts', mode: 'exact' },

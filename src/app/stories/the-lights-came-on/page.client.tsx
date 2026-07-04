@@ -19,7 +19,10 @@ import { Q_LAST, Q_MAR_2015, QUARTERS, YEAR_2015, YEAR_2026, YEARS } from "./dat
 // STYLES ==============================================================================================================
 import "./the-lights-came-on.css";
 
-type Stage = "hero" | "guess" | "reveal" | "field" | "cascade" | "ticket" | "women" | "agri" | "swap" | "done";
+type Stage = "hero" | "guess" | "reveal" | "field" | "cascade" | "ticket" | "women" | "agri" | "dim" | "swap" | "done";
+
+// March 2024 — the peak year for women's borrower accounts; the "dim" act scrubs from here.
+const YEAR_2024 = YEAR_2026 - 2;
 
 export const TheLightsCameOnPage = () => {
     const [ stage, setStage ] = useState<Stage>("hero");
@@ -46,7 +49,8 @@ export const TheLightsCameOnPage = () => {
             case "cascade":
             case "ticket":  return { kind : "field", yearIdx, gender : false };
             case "women":
-            case "agri":    return { kind : "field", yearIdx, gender : true };
+            case "agri":
+            case "dim":     return { kind : "field", yearIdx, gender : true };
             default:        return { kind : "dark" };
         }
     }, [ stage, quarterIdx, yearIdx ]);
@@ -66,6 +70,16 @@ export const TheLightsCameOnPage = () => {
             }, stage === "cascade" ? 460 : 340);
         } else if (stage === "ticket" || stage === "agri") {
             setYearIdx(YEAR_2026);
+        } else if (stage === "dim") {
+            // Scrub back to the 2024 peak, then let two years of dimming play out.
+            if (rm) { setYearIdx(YEAR_2026); return; }
+            setYearIdx(YEAR_2024);
+            timerRef.current = setInterval(() => {
+                setYearIdx((p) => {
+                    if (p >= YEAR_2026) { clearTimer(); return p; }
+                    return p + 1;
+                });
+            }, 900);
         } else if (stage === "field") {
             setYearIdx(YEAR_2015);
         } else if (stage === "swap") {
@@ -255,8 +269,27 @@ export const TheLightsCameOnPage = () => {
                         </Card>
                     </Div>
 
+                    <Div className="step" data-stage="dim" ref={stepRef(8)}>
+                        <Card className="step-card" padding="micro" shadow="soft">
+                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">
+                                Since 2024, some lights have gone out
+                            </Heading6>
+                            <Text fontStyle="serif" marginBottom="nano">
+                                Watch the field: women&rsquo;s borrower accounts peaked at <strong>11.6 crore</strong> in
+                                March 2024 and stand at <strong>10.3 crore</strong> today — 11% below the peak — and
+                                the total count of individual borrowers dipped in the year to March 2026. The
+                                <em> value</em> of women&rsquo;s credit kept rising; it is the smallest accounts
+                                that closed.
+                            </Text>
+                            <Text size="small" isSubtext>
+                                The table doesn&rsquo;t say why. The timing tracks the November-2023 tightening of
+                                small unsecured loans and the microfinance pullback that followed.
+                            </Text>
+                        </Card>
+                    </Div>
+
                     {/* ACT III — close the loop --------------------------------------------------- */}
-                    <Div className="step" data-stage="swap" ref={stepRef(8)}>
+                    <Div className="step" data-stage="swap" ref={stepRef(9)}>
                         <Card className="step-card" padding="micro" shadow="soft">
                             <Heading6 fontStyle="serif" weight="600" marginBottom="nano">Remember 2015?</Heading6>
                             <Text fontStyle="serif" marginBottom="nano">
@@ -281,7 +314,7 @@ export const TheLightsCameOnPage = () => {
                         </Card>
                     </Div>
 
-                    <Div className="step" data-stage="done" ref={stepRef(9)}>
+                    <Div className="step" data-stage="done" ref={stepRef(10)}>
                         <Card className="step-card" padding="micro" shadow="soft">
                             <Heading6 fontStyle="serif" weight="600" marginBottom="nano">
                                 The question has a new answer
@@ -410,8 +443,9 @@ export const TheLightsCameOnPage = () => {
                         <Text fontStyle="serif">
                             Roughly 35 dots in 104 are lit. The same door that lets a household in is the door
                             that exposes it—strain shows first in small, unsecured loans, which is why the
-                            regulator tightened them in November 2023. The lights came on; most of the room
-                            still waits.
+                            regulator tightened them in November 2023. That strain is visible in this very
+                            table: about 1.3 crore women&rsquo;s accounts have gone dark since the 2024 peak.
+                            The lights came on; most of the room still waits.
                         </Text>
                     </Portion>
 
@@ -456,6 +490,14 @@ export const TheLightsCameOnPage = () => {
                             <strong>Units switch once.</strong> Acts I and III count rupees (shares of ₹100 of
                             outstanding credit; inflation cancels in shares). Act II counts borrower accounts.
                             All loan-size figures are nominal; no price adjustment is applied anywhere.
+                        </Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>The decline is in the table, not smoothed over.</strong> Women&rsquo;s borrower
+                            accounts peaked at 11.6 crore in March 2024 and fell to 10.3 crore by March 2026; the
+                            total count of individual borrowers also dipped in the final year. The point-to-point
+                            growth figures (4&times; for women, 3&times; overall) are 2015&rarr;2026 and include
+                            that decline.
                         </Text>
 
                         <Text size="tiny">

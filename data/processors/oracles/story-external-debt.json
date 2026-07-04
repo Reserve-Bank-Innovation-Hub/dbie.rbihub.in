@@ -1,0 +1,487 @@
+{
+  "CONCESSIONAL": [
+    {
+      "year": 1991,
+      "concessionalShare": 45.9,
+      "commercialBorrowing": 19727
+    },
+    {
+      "year": 1992,
+      "concessionalShare": 44.8,
+      "commercialBorrowing": 35711
+    },
+    {
+      "year": 1993,
+      "concessionalShare": 44.5,
+      "commercialBorrowing": 36367
+    },
+    {
+      "year": 1994,
+      "concessionalShare": 44.4,
+      "commercialBorrowing": 38782
+    },
+    {
+      "year": 1995,
+      "concessionalShare": 45.3,
+      "commercialBorrowing": 40915
+    },
+    {
+      "year": 1996,
+      "concessionalShare": 44.7,
+      "commercialBorrowing": 47642
+    },
+    {
+      "year": 1997,
+      "concessionalShare": 42.2,
+      "commercialBorrowing": 51454
+    },
+    {
+      "year": 1998,
+      "concessionalShare": 39.5,
+      "commercialBorrowing": 67086
+    },
+    {
+      "year": 1999,
+      "concessionalShare": 38.5,
+      "commercialBorrowing": 89019
+    },
+    {
+      "year": 2000,
+      "concessionalShare": 38.9,
+      "commercialBorrowing": 86963
+    },
+    {
+      "year": 2001,
+      "concessionalShare": 35.4,
+      "commercialBorrowing": 113839
+    },
+    {
+      "year": 2002,
+      "concessionalShare": 35.9,
+      "commercialBorrowing": 113908
+    },
+    {
+      "year": 2003,
+      "concessionalShare": 36.8,
+      "commercialBorrowing": 106843
+    },
+    {
+      "year": 2004,
+      "concessionalShare": 35.8,
+      "commercialBorrowing": 95611
+    },
+    {
+      "year": 2005,
+      "concessionalShare": 30.7,
+      "commercialBorrowing": 115533
+    },
+    {
+      "year": 2006,
+      "concessionalShare": 28.4,
+      "commercialBorrowing": 117991
+    },
+    {
+      "year": 2007,
+      "concessionalShare": 23,
+      "commercialBorrowing": 180669
+    },
+    {
+      "year": 2008,
+      "concessionalShare": 19.7,
+      "commercialBorrowing": 249243
+    },
+    {
+      "year": 2009,
+      "concessionalShare": 18.7,
+      "commercialBorrowing": 318209
+    },
+    {
+      "year": 2010,
+      "concessionalShare": 16.8,
+      "commercialBorrowing": 319221
+    },
+    {
+      "year": 2011,
+      "concessionalShare": 14.9,
+      "commercialBorrowing": 448448
+    },
+    {
+      "year": 2012,
+      "concessionalShare": 13.3,
+      "commercialBorrowing": 614623
+    },
+    {
+      "year": 2013,
+      "concessionalShare": 11.1,
+      "commercialBorrowing": 762128
+    },
+    {
+      "year": 2014,
+      "concessionalShare": 10.4,
+      "commercialBorrowing": 897744
+    },
+    {
+      "year": 2015,
+      "concessionalShare": 8.8,
+      "commercialBorrowing": 1128501
+    },
+    {
+      "year": 2016,
+      "concessionalShare": 9,
+      "commercialBorrowing": 1197176
+    },
+    {
+      "year": 2017,
+      "concessionalShare": 9.4,
+      "commercialBorrowing": 1115514
+    },
+    {
+      "year": 2018,
+      "concessionalShare": 9.1,
+      "commercialBorrowing": 1312723
+    },
+    {
+      "year": 2019,
+      "concessionalShare": 8.7,
+      "commercialBorrowing": 1423574
+    },
+    {
+      "year": 2020,
+      "concessionalShare": 8.8,
+      "commercialBorrowing": 1653677
+    },
+    {
+      "year": 2021,
+      "concessionalShare": 9,
+      "commercialBorrowing": 1590938
+    },
+    {
+      "year": 2022,
+      "concessionalShare": 8.3,
+      "commercialBorrowing": 1710032
+    },
+    {
+      "year": 2023,
+      "concessionalShare": 8.2,
+      "commercialBorrowing": 1817207
+    },
+    {
+      "year": 2024,
+      "concessionalShare": 7.4,
+      "commercialBorrowing": 2088095
+    },
+    {
+      "year": 2025,
+      "concessionalShare": 6.9,
+      "commercialBorrowing": 2495778
+    }
+  ],
+  "EXT_DEBT_TO_GDP": [
+    {
+      "year": 1991,
+      "value": 28.7
+    },
+    {
+      "year": 1992,
+      "value": 38.7
+    },
+    {
+      "year": 1993,
+      "value": 37.5
+    },
+    {
+      "year": 1994,
+      "value": 33.8
+    },
+    {
+      "year": 1995,
+      "value": 30.8
+    },
+    {
+      "year": 1996,
+      "value": 27
+    },
+    {
+      "year": 1997,
+      "value": 24.6
+    },
+    {
+      "year": 1998,
+      "value": 24.3
+    },
+    {
+      "year": 1999,
+      "value": 23.6
+    },
+    {
+      "year": 2000,
+      "value": 22
+    },
+    {
+      "year": 2001,
+      "value": 22.1
+    },
+    {
+      "year": 2002,
+      "value": 20.8
+    },
+    {
+      "year": 2003,
+      "value": 20
+    },
+    {
+      "year": 2004,
+      "value": 17.7
+    },
+    {
+      "year": 2005,
+      "value": 18.4
+    },
+    {
+      "year": 2006,
+      "value": 17.1
+    },
+    {
+      "year": 2007,
+      "value": 17.7
+    },
+    {
+      "year": 2008,
+      "value": 18.3
+    },
+    {
+      "year": 2009,
+      "value": 20.7
+    },
+    {
+      "year": 2010,
+      "value": 18.5
+    },
+    {
+      "year": 2011,
+      "value": 18.6
+    },
+    {
+      "year": 2012,
+      "value": 21.1
+    },
+    {
+      "year": 2013,
+      "value": 22.4
+    },
+    {
+      "year": 2014,
+      "value": 23.9
+    },
+    {
+      "year": 2015,
+      "value": 23.8
+    },
+    {
+      "year": 2016,
+      "value": 23.4
+    },
+    {
+      "year": 2017,
+      "value": 19.8
+    },
+    {
+      "year": 2018,
+      "value": 20.1
+    },
+    {
+      "year": 2019,
+      "value": 19.9
+    },
+    {
+      "year": 2020,
+      "value": 20.9
+    },
+    {
+      "year": 2021,
+      "value": 21.1
+    },
+    {
+      "year": 2022,
+      "value": 19.9
+    },
+    {
+      "year": 2023,
+      "value": 19.1
+    },
+    {
+      "year": 2024,
+      "value": 18.5
+    },
+    {
+      "year": 2025,
+      "value": 19.1
+    }
+  ],
+  "GG_DEBT_TO_GDP": [
+    {
+      "year": 1986,
+      "value": 60.51
+    },
+    {
+      "year": 1987,
+      "value": 64.85
+    },
+    {
+      "year": 1988,
+      "value": 68.15
+    },
+    {
+      "year": 1989,
+      "value": 67.7
+    },
+    {
+      "year": 1990,
+      "value": 70.06
+    },
+    {
+      "year": 1991,
+      "value": 68.85
+    },
+    {
+      "year": 1992,
+      "value": 72.89
+    },
+    {
+      "year": 1993,
+      "value": 72.01
+    },
+    {
+      "year": 1994,
+      "value": 72.39
+    },
+    {
+      "year": 1995,
+      "value": 70.04
+    },
+    {
+      "year": 1996,
+      "value": 67.28
+    },
+    {
+      "year": 1997,
+      "value": 64.37
+    },
+    {
+      "year": 1998,
+      "value": 66.29
+    },
+    {
+      "year": 1999,
+      "value": 67.11
+    },
+    {
+      "year": 2000,
+      "value": 70.47
+    },
+    {
+      "year": 2001,
+      "value": 73.67
+    },
+    {
+      "year": 2002,
+      "value": 78.79
+    },
+    {
+      "year": 2003,
+      "value": 82.86
+    },
+    {
+      "year": 2004,
+      "value": 83.23
+    },
+    {
+      "year": 2005,
+      "value": 82.13
+    },
+    {
+      "year": 2006,
+      "value": 79.07
+    },
+    {
+      "year": 2007,
+      "value": 74.66
+    },
+    {
+      "year": 2008,
+      "value": 71.44
+    },
+    {
+      "year": 2009,
+      "value": 72.21
+    },
+    {
+      "year": 2010,
+      "value": 70.6
+    },
+    {
+      "year": 2011,
+      "value": 65.6
+    },
+    {
+      "year": 2012,
+      "value": 67.36
+    },
+    {
+      "year": 2013,
+      "value": 66.65
+    },
+    {
+      "year": 2014,
+      "value": 67.06
+    },
+    {
+      "year": 2015,
+      "value": 66.58
+    },
+    {
+      "year": 2016,
+      "value": 68.53
+    },
+    {
+      "year": 2017,
+      "value": 68.77
+    },
+    {
+      "year": 2018,
+      "value": 69.57
+    },
+    {
+      "year": 2019,
+      "value": 70.53
+    },
+    {
+      "year": 2020,
+      "value": 75.12
+    },
+    {
+      "year": 2021,
+      "value": 89.24
+    },
+    {
+      "year": 2022,
+      "value": 84.23
+    },
+    {
+      "year": 2023,
+      "value": 82.88
+    },
+    {
+      "year": 2024,
+      "value": 82.14
+    },
+    {
+      "year": 2025,
+      "value": 81.13
+    },
+    {
+      "year": 2026,
+      "value": 81.85
+    }
+  ]
+}

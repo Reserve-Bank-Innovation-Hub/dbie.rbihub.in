@@ -1,6 +1,7 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 // UI ==================================================================================================================
@@ -128,7 +129,7 @@ export const DebtToServiceRatioPage = () => {
                             </Div>
                             <Div verticallyCentreItems className="legend-item">
                                 <span className="legend-swatch swatch-gg" />
-                                <Text size="small" weight="500">Govt. debt-to-GDP (IMF/RBI)</Text>
+                                <Text size="small" weight="500">Combined govt liabilities, % of GDP (RBI)</Text>
                             </Div>
                         </Div>
                     </Div>
@@ -221,8 +222,10 @@ export const DebtToServiceRatioPage = () => {
 
                         <Text fontStyle="serif">
                             External vulnerability is near zero&mdash;but it did not vanish, it moved inward.
-                            Government debt-to-GDP touched ~88% in 2020, and interest is now the single
-                            largest call on revenue. The discipline 1991 demanded is now domestic.
+                            Combined government liabilities touched ~89% of GDP in the pandemic year, and
+                            interest now absorbs roughly a third of the union government&rsquo;s revenue
+                            receipts&mdash;its largest single head of spending. The discipline 1991 demanded
+                            is now domestic.
                         </Text>
                     </Portion>
 
@@ -262,20 +265,23 @@ export const DebtToServiceRatioPage = () => {
                         <Divider kind="tertiary" verticalMargin="micro" />
 
                         <Text size="tiny">
-                            General-government debt-to-GDP — IMF World Economic Outlook and RBI fiscal data
-                            (rounded to the nearest point). A separate domestic series, shown for context; not
-                            part of the external-debt dataset above.
+                            Combined liabilities of the Centre and state governments as % of GDP — Reserve Bank
+                            of India, via this site&rsquo;s own dataset (fiscal years ending March). A separate
+                            domestic series, shown for context; explore the full table at{" "}
+                            <Link href="/tables/debt-indicators-of-government-as-percentage-to-gdp">
+                                debt indicators of government
+                            </Link>.
                         </Text>
 
                         <a
-                            href="/stories/debt-to-service-ratio/govt-debt-to-gdp-imf-rbi.csv"
+                            href="/stories/debt-to-service-ratio/govt-debt-to-gdp-rbi.csv"
                             download
                             className="download-link"
                         >
                             <Div verticallyCentreItems marginTop="nano">
                                 <Download size="16px" />
                                 <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Download govt debt-to-GDP data (CSV)
+                                    Download combined govt liabilities data (CSV)
                                 </Text>
                             </Div>
                         </a>

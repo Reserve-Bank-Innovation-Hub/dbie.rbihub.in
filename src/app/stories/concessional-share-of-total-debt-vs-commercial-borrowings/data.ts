@@ -17,43 +17,9 @@ export interface DebtMixDatum {
     commercialBorrowing : number;   // ₹ crore
 }
 
-export const DEBT_MIX_SERIES : DebtMixDatum[] = [
-    { year : 1991, concessionalShare : 45.9, commercialBorrowing : 19727 },
-    { year : 1992, concessionalShare : 44.8, commercialBorrowing : 35711 },
-    { year : 1993, concessionalShare : 44.5, commercialBorrowing : 36367 },
-    { year : 1994, concessionalShare : 44.4, commercialBorrowing : 38782 },
-    { year : 1995, concessionalShare : 45.3, commercialBorrowing : 40915 },
-    { year : 1996, concessionalShare : 44.7, commercialBorrowing : 47642 },
-    { year : 1997, concessionalShare : 42.2, commercialBorrowing : 51454 },
-    { year : 1998, concessionalShare : 39.5, commercialBorrowing : 67086 },
-    { year : 1999, concessionalShare : 38.5, commercialBorrowing : 89019 },
-    { year : 2000, concessionalShare : 38.9, commercialBorrowing : 86963 },
-    { year : 2001, concessionalShare : 35.4, commercialBorrowing : 113839 },
-    { year : 2002, concessionalShare : 35.9, commercialBorrowing : 113908 },
-    { year : 2003, concessionalShare : 36.8, commercialBorrowing : 106843 },
-    { year : 2004, concessionalShare : 35.8, commercialBorrowing : 95611 },
-    { year : 2005, concessionalShare : 30.7, commercialBorrowing : 115533 },
-    { year : 2006, concessionalShare : 28.4, commercialBorrowing : 117991 },
-    { year : 2007, concessionalShare : 23.0, commercialBorrowing : 180669 },
-    { year : 2008, concessionalShare : 19.7, commercialBorrowing : 249243 },
-    { year : 2009, concessionalShare : 18.7, commercialBorrowing : 318209 },
-    { year : 2010, concessionalShare : 16.8, commercialBorrowing : 319221 },
-    { year : 2011, concessionalShare : 14.9, commercialBorrowing : 448448 },
-    { year : 2012, concessionalShare : 13.3, commercialBorrowing : 614623 },
-    { year : 2013, concessionalShare : 11.1, commercialBorrowing : 762128 },
-    { year : 2014, concessionalShare : 10.4, commercialBorrowing : 897744 },
-    { year : 2015, concessionalShare :  8.8, commercialBorrowing : 1128501 },
-    { year : 2016, concessionalShare :  9.0, commercialBorrowing : 1197176 },
-    { year : 2017, concessionalShare :  9.4, commercialBorrowing : 1115514 },
-    { year : 2018, concessionalShare :  9.1, commercialBorrowing : 1312723 },
-    { year : 2019, concessionalShare :  8.7, commercialBorrowing : 1423574 },
-    { year : 2020, concessionalShare :  8.8, commercialBorrowing : 1653677 },
-    { year : 2021, concessionalShare :  9.0, commercialBorrowing : 1590938 },
-    { year : 2022, concessionalShare :  8.3, commercialBorrowing : 1710032 },
-    { year : 2023, concessionalShare :  8.2, commercialBorrowing : 1817207 },
-    { year : 2024, concessionalShare :  7.4, commercialBorrowing : 2088095 },
-    { year : 2025, concessionalShare :  6.9, commercialBorrowing : 2495778 },
-];
+// DEBT_MIX_SERIES is derived from the committed workbook by the processor; the hand-typed
+// values below are superseded. See data/processors/story-external-debt.mjs.
+export { DEBT_MIX_SERIES } from './data.gen';
 
 // Narrative beats keyed to years. PLACEHOLDER copy — to be replaced with the
 // real story content.
