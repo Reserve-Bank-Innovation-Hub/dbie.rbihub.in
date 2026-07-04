@@ -150,7 +150,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                                 valueSuffix={card.valueSuffix}
                                 defaultVisible={card.defaultVisible}
                                 exportName={card.chart.replace(/_/g, "-")}
-                                height={400}
+                                height="fill"
                             />
                         </div>
 

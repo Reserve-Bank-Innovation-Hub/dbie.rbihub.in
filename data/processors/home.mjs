@@ -106,11 +106,12 @@ const inflation = seiSeries([
   [ 'wpi', 'WPI inflation (YoY)', 'wpi_inflation' ],
 ]);
 
+// Short labels — the legend shares the top row with the range buttons.
 const corridor = seiSeries([
-  [ 'repo', 'Policy repo rate', 'policy_repo_rate' ],
-  [ 'msf',  'MSF rate',         'msf_rate' ],
-  [ 'sdf',  'SDF rate',         'sdf_rate' ],
-  [ 'call', 'Call money rate',  'call_money_rate' ],
+  [ 'repo', 'Repo',       'policy_repo_rate' ],
+  [ 'msf',  'MSF',        'msf_rate' ],
+  [ 'sdf',  'SDF',        'sdf_rate' ],
+  [ 'call', 'Call money', 'call_money_rate' ],
 ]);
 
 // UPI from payment system indicators (RBIB Table 43; rows newest-first).

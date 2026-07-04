@@ -52,7 +52,8 @@
     }
 
     .home-chart-wrapper {
-        flex : 1;
+        flex       : 1;
+        min-height : 0;   /* let the chart track the flex cell, not overflow it */
     }
 
     .grid-cell.has-full-view:hover .full-view-link {

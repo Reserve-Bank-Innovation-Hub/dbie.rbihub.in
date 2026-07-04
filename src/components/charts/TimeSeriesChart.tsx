@@ -31,7 +31,7 @@ interface TimeSeriesChartProps {
     series           : TimeSeriesChartSeries[];
     title          ? : string;
     yAxisTitle     ? : string;
-    height         ? : number;
+    height         ? : number | "fill";           // px, or "fill" to track the parent's height
     valueDecimals  ? : number;                    // hover precision
     valueSuffix    ? : string;                    // e.g. "%" appended in hover
     defaultVisible ? : string[];                  // series keys plotted initially; others start legend-only
@@ -110,7 +110,12 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         xaxis  : createAxis("Date", {
             type          : "date",
             rangeslider   : {visible : true},
+            // Top-right, clear of the legend row at top-left.
             rangeselector : {
+                x       : 1,
+                xanchor : "right",
+                y       : 1.02,
+                yanchor : "bottom",
                 buttons : [
                     {count : 3,  label : "3M",  step : "month", stepmode : "backward"},
                     {count : 1,  label : "1Y",  step : "year",  stepmode : "backward"},
@@ -128,6 +133,9 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
+        // The base layout's 140px bottom margin is sized for below-chart
+        // legends; ours sits on top, so reclaim the space for the plot.
+        margin : {t : 60, b : 70, l : 80, r : 40},
     }), [ title, yAxisTitle ]);
 
     const config = useMemo(
@@ -140,7 +148,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             data={traces as Plotly.Data[]}
             layout={layout}
             config={config}
-            style={{width : "100%", height : `${height}px`}}
+            style={{width : "100%", height : height === "fill" ? "100%" : `${height}px`}}
             useResizeHandler
         />
     );
