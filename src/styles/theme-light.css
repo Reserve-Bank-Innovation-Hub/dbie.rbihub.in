@@ -34,7 +34,7 @@
     --drawer-border-radius               : 20px;
 
     /* FILE UPLOAD AREA ===================================================== */
-    --file-upload-area-main-text-default : var(--amber-dark40-opacity60);
+    --file-upload-area-main-text-default : color-mix(in oklch, var(--amber-dark40) 60%, transparent);
 
     /* INPUT ================================================================ */
     --input-bg-default                   : hsl(var(--ivory));

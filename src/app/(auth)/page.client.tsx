@@ -19,7 +19,6 @@ import { ExternalDebtRow } from "@/lib/api/publications";
 import { ParsedForexReserves, ForeignInvestmentInflowsData } from "@/lib/api/indicators";
 
 // ASSETS ==============================================================================================================
-import RBISeal from "@assets/images/logos/rbi-seal.svg";
 
 // STYLES ==============================================================================================================
 import "./home.css";
@@ -42,7 +41,7 @@ const HomePage : React.FC<HomePageProps> = ({markers, forexData, fiiData, extern
                 className="grid-cell"
                 padding="micro"
             >
-                <RBISeal id="rbi-seal" width="96px" />
+                <img id="rbi-seal" src="/images/rbi-seal.svg" alt="RBI seal" width="96" />
 
                 <Div>
                     <Heading4 weight="700">

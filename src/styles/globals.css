@@ -17,7 +17,7 @@
     --ag-header-font-family            : "Geist", sans-serif;
     --ag-cell-font-family              : "Geist Mono", sans-serif;
     --ag-border-color                  : #e0e0e0;
-    --ag-odd-row-background-color      : var(--grey-light90-opacity50);
+    --ag-odd-row-background-color      : color-mix(in oklch, var(--grey-light90) 50%, transparent);
     --ag-row-hover-color               : hsla(var(--indivara), 0.12);
     --ag-selected-row-background-color : hsla(var(--indivara), 0.24);
     --ag-border-radius                 : 0;

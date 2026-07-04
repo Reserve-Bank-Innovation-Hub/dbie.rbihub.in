@@ -7,8 +7,8 @@
     background-color : var(--site-header-bg);
     border-bottom    : var(--global-border-width) solid var(--site-header-border);
 
-    #rbi-seal path {
-        fill : black;
+    #rbi-seal {
+        filter : brightness(0);
     }
 
     .nav-icon {
