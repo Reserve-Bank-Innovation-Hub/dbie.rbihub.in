@@ -18,7 +18,7 @@ It is a thin, read-only layer over the site's static JSON payloads. No credentia
 With Claude Code:
 
 ```bash
-claude mcp add dbie -- npx -y dbie-mcp
+claude mcp add dbie -- npx -y @reserve-bank-innovation-hub/dbie-mcp
 ```
 
 Or in any MCP client config:
@@ -28,7 +28,7 @@ Or in any MCP client config:
     "mcpServers": {
         "dbie": {
             "command": "npx",
-            "args": ["-y", "dbie-mcp"]
+            "args": ["-y", "@reserve-bank-innovation-hub/dbie-mcp"]
         }
     }
 }
@@ -41,7 +41,7 @@ Data comes from `DBIE_BASE_URL` (default `https://dbie.rbihub.in`). To use anoth
 ```json
 {
     "command": "npx",
-    "args": ["-y", "dbie-mcp"],
+    "args": ["-y", "@reserve-bank-innovation-hub/dbie-mcp"],
     "env": { "DBIE_BASE_URL": "https://dev.dbie.rbihub.in" }
 }
 ```

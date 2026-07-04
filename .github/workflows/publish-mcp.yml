@@ -1,0 +1,45 @@
+# Publishes @reserve-bank-innovation-hub/dbie-mcp to npm with provenance.
+#
+# Trigger: push a tag like mcp-v0.1.0 (must match mcp/package.json's version).
+# Auth: npm trusted publishing (OIDC) — configure this repo + workflow as the
+# package's trusted publisher on npmjs.com; no tokens are stored anywhere.
+name: Publish dbie-mcp
+
+on:
+  push:
+    tags:
+      - "mcp-v*"
+
+permissions:
+  contents: read
+  id-token: write   # OIDC for npm trusted publishing + provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs a recent npm CLI
+      - run: npm install -g npm@latest
+
+      - name: Check tag matches package version
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION="${GITHUB_REF_NAME#mcp-v}"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package version $PKG_VERSION" >&2
+            exit 1
+          fi
+
+      - run: npm ci
+
+      - run: npm publish

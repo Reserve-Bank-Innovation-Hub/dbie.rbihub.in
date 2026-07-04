@@ -73,7 +73,7 @@ Deployment (AWS Amplify + S3, per-environment data payloads) is described in
 AI assistants can search and fetch every table via the bundled MCP server — see [mcp/README.md](mcp/README.md):
 
 ```bash
-claude mcp add dbie -- npx -y dbie-mcp
+claude mcp add dbie -- npx -y @reserve-bank-innovation-hub/dbie-mcp
 ```
 
 ## Contributing
