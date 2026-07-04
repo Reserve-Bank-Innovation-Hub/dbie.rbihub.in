@@ -114,7 +114,7 @@ const server = new McpServer({ name : "dbie-mcp", version : "0.1.0" });
 
 server.tool(
     "search_tables",
-    "Full-text search across every DBIE table and series (337 entries: RBI Bulletin tables, Handbook series, SDMX series, publications). Returns matching tables with the `table` value to pass to get_series/get_table.",
+    "Full-text search across every DBIE table and series (RBI Bulletin tables, Handbook series, SDMX series, publications, docs and data stories). Returns matching tables with the `table` value to pass to get_series/get_table.",
     {
         query : z.string().describe("Search terms, e.g. 'wholesale price index' or 'forex reserves'"),
         limit : z.number().int().min(1).max(25).optional().describe("Max results (default 8)"),
