@@ -22,6 +22,7 @@ export const RootLayoutClient = ({children} : { children : ReactNode }) => {
         <ThemeProvider
             themeList={listOfThemes}
             currentTheme="theme-light"
+            storageKey="dbie-theme"
         >
             <RootLayoutContent>{children}</RootLayoutContent>
         </ThemeProvider>

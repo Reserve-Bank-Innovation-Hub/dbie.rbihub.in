@@ -9,9 +9,6 @@ import { usePathname } from "next/navigation";
 import { Aside, Div, Text } from "fictoan-react";
 import { BookOpen, Building2, CreditCard, FlagTriangleLeft, Globe, Landmark, LineChart, Newspaper, Table2, Tags, TrendingUp } from "lucide-react";
 
-// ASSETS ==============================================================================================================
-import RBISeal from "@assets/images/logos/rbi-seal.svg";
-
 // STYLES ==============================================================================================================
 import "./primary-nav.css";
 
@@ -63,7 +60,7 @@ export const PrimaryNav = () => {
         <Aside id="primary-nav">
             <NavGroup>
                 <NavItem
-                    icon={<RBISeal />}
+                    icon={<img src="/images/rbi-seal.svg" alt="" />}
                     linkTo="/"
                     label="RBI DBIE"
                 />

@@ -21,7 +21,7 @@ export const DataUnit : React.FC<DataUnitProps> = ({label, value, size, isCopyab
         if (val === null || val === undefined) return "";
         if (typeof val === "string") return val;
         if (typeof val === "number") return val.toString();
-        if (React.isValidElement(val) && typeof val.props.children === "string") {
+        if (React.isValidElement<{ children ? : React.ReactNode }>(val) && typeof val.props.children === "string") {
             return val.props.children;
         }
         return "";

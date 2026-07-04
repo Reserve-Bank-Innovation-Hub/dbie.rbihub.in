@@ -8,7 +8,6 @@ import React from "react";
 import { Text, Header, Div, Card, Footer } from "fictoan-react";
 
 // ASSETS ==============================================================================================================
-import RBISeal from "@assets/images/logos/rbi-seal.svg";
 
 // STYLES ==============================================================================================================
 import "./site-header.css";
@@ -23,7 +22,7 @@ export const SiteHeader = () => {
         >
             <Link href="/">
                 <Div verticallyCentreItems>
-                    <RBISeal id="rbi-seal" width="32px" />
+                    <img id="rbi-seal" src="/images/rbi-seal.svg" alt="RBI seal" width="32" />
                     <Text marginLeft="nano" className="font-anek">RBI</Text>
                 </Div>
             </Link>
