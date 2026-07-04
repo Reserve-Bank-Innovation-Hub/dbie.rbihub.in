@@ -1,17 +1,16 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 // UI ==================================================================================================================
-import { ThemeProvider } from "fictoan-react";
+import { Main, ThemeProvider } from "fictoan-react";
+
+// LOCAL COMPONENTS ====================================================================================================
+import { PrimaryNav } from "@components/PrimaryNav/PrimaryNav";
 
 // STYLES ==============================================================================================================
 import "@styles/globals.css";
-
-function RootLayoutContent({children} : { children : ReactNode }) {
-    return children;
-}
 
 export const RootLayoutClient = ({children} : { children : ReactNode }) => {
     const listOfThemes = [ "theme-light", "theme-dark" ];
@@ -24,7 +23,9 @@ export const RootLayoutClient = ({children} : { children : ReactNode }) => {
             currentTheme="theme-light"
             storageKey="dbie-theme"
         >
-            <RootLayoutContent>{children}</RootLayoutContent>
+            <PrimaryNav />
+
+            <Main id="component-main">{children}</Main>
         </ThemeProvider>
         </body>
         </html>
