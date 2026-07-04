@@ -1,47 +1,43 @@
 # DBIE data processors
 
-Local processing step for the static-hosting architecture (see `docs/05-static-amplify-s3-architecture.md`).
-Turns the raw source files in `data/sources/` into the frontend-consumable JSON that the
-Amplify build pulls from S3 (`s3://dbie-data/site/`) and pre-renders (SSG).
+The processing step of the data pipeline: one small Node script per dataset, turning the committed
+source files (`data/sdmx/` CSVs, `data/publications/` and `data/sources/` spreadsheets) into the
+frontend-consumable JSON the site pre-renders (SSG). ~96 processors produce all 345 payloads.
 
-These processors are a faithful JS port of the Go backend parsers in `backend/internal/parser/`. Their
-output is verified byte-for-byte (semantically) against snapshots of the live API — so the frontend can
-read the JSON directly and the Go backend can be retired from the deploy path.
+Every processor is self-checking (hard-coded anchor values fail loudly on source drift), and every
+output is verified against a committed oracle — see the [how to scrape](../../src/app/docs/how-to-scrape)
+docs page for the full pipeline story.
 
 ## Usage
 
 ```bash
-pnpm install         # at repo root — installs xlsx (SheetJS) + playwright
-npm run data:build   # runs all 5 processors -> out/*.json  (the S3 site/ payload)
-npm run data:verify  # diffs out/*.json against oracles/  (must print ALL PASS)
+pnpm install         # at repo root
+pnpm data:build      # runs all processors -> out/*.json (345 files)
+pnpm data:verify     # checks out/*.json against oracles/ (must print ALL PASS)
+pnpm data:sync       # copies out/*.json -> public/data/ for the frontend
 ```
 
-Then upload: `aws s3 sync out/ s3://dbie-data/site/` (see the architecture doc).
+`out/` and `public/data/` are gitignored — deployments regenerate them: `amplify.yml` runs
+`data:build`, `data:verify` and `data:sync` in `preBuild`, so a failed oracle check fails the deploy.
 
-### Local frontend dev
+## Verification oracles
 
-The frontend reads these JSON files from `public/data/` (git-ignored, build-synced). Amplify
-populates it from S3 in `preBuild` (`aws s3 sync s3://dbie-data/site public/data`). For local dev, copy
-the freshly built output in yourself:
+`oracles/*.json` are committed known-good outputs, one per dataset. `verify-all.mjs` compares each
+output in one of two modes:
 
-```bash
-mkdir -p ../../public/data && cp out/*.json ../../public/data/
-# or pull the deployed payload: aws s3 sync s3://dbie-data/site ../../public/data
-```
+- **exact** — source frozen; output must match the oracle byte-for-byte (semantic).
+- **fresh** — source has been re-scraped since the oracle was captured; the oracle is a shape +
+  history reference (structure and historical observations must agree; newer observations may
+  extend the series).
 
-## Outputs (8 files, matching the 8 API endpoints)
-
-| File | Source | Notes |
-|---|---|---|
-| `exchange-rates.json` | `Daily Exchange Rate of the Indian Rupee.txt` | 6501 rows |
-| `forex-reserves.json` / `-recent.json` | `RBIB Table No. 32 … Weekly.xlsx` | recent = first 26 |
-| `foreign-investment-inflows.json` / `-recent.json` | `RBIB Table No. 34 ….xlsx` | recent = first 12 |
-| `credit-classification.json` | `Table No 3.2 … occupation.xlsx` | large (~2 MB) |
-| `external-debt.json` / `-recent.json` | `India External Debt - Rupees.xlsx` | recent = first 10 |
+The original five oracles (`exchange-rates`, `forex-reserves`, `foreign-investment-inflows`,
+`credit-classification`, `external-debt`) are 2026-07-02 snapshots of the retired Go API — the
+parity reference for the SheetJS port below.
 
 ## SheetJS ↔ excelize parity gotchas (load-bearing)
 
-The Go backend uses `excelize`; these processors use SheetJS `xlsx` 0.18.5. To match output exactly:
+The retired Go backend used `excelize`; the spreadsheet processors use SheetJS `xlsx` 0.18.5. To
+match its output exactly:
 
 1. **No `readFile` in the ESM build.** `xlsx` 0.18.5 ESM exposes only `read`/`write`. Read bytes with
    `fs.readFileSync(path)` then `XLSX.read(buf, { type: 'buffer' })`.
@@ -55,8 +51,3 @@ The Go backend uses `excelize`; these processors use SheetJS `xlsx` 0.18.5. To m
    `Number(v.toFixed(dp))`.
 4. **Cells beyond `!ref`.** `sheet_to_json({header:1})` caps at the declared `!ref`; columns past it are
    dropped. Use direct cell access `ws[XLSX.utils.encode_cell({r,c})]` for those.
-
-## Verification oracles
-
-`oracles/*.json` are snapshots captured 2026-07-02 from the (then-live) Go API — the parity reference for
-the port. They are not the deployed data; regenerate real data with `npm run build`.
