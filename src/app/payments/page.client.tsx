@@ -5,21 +5,21 @@ import React from "react";
 import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Article, Card, Div, Heading4, Heading6, Text, Row, Portion } from "fictoan-react";
+import { Article, Div, Header, Heading4, Heading6, Section, Text } from "fictoan-react";
 
-const TABLES = [
+const SECTIONS = [
     {
-        linkTo      : "/payments/payment-system-indicators",
-        label       : "Payment system indicators",
-        description : "Monthly volumes and values across settlement systems, RTGS, UPI, cards, PPIs and payment infrastructure.",
+        title : "Monthly RBI Bulletin",
+        items : [
+            { linkTo : "/payments/payment-system-indicators", label : "Payment system indicators" },
+        ],
     },
 ];
 
 const PaymentsPage = () => {
     return (
-        <Article id="payments-page" className="page-grid">
-            {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+        <Article id="payments-page" className="data-list-page">
+            <Header id="title-card" bgColour="white" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Payments
@@ -29,21 +29,29 @@ const PaymentsPage = () => {
                         Payment and settlement system statistics.
                     </Heading6>
                 </Div>
-            </Div>
+            </Header>
 
-            {/* TABLES ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Row marginTop="micro">
-                {TABLES.map(table => (
-                    <Portion key={table.linkTo} desktopSpan="half" mobileSpan="whole">
-                        <Link href={table.linkTo}>
-                            <Card padding="micro" shape="rounded" isFullHeight>
-                                <Text weight="600" marginBottom="nano">{table.label}</Text>
-                                <Text opacity="60" size="small">{table.description}</Text>
-                            </Card>
-                        </Link>
-                    </Portion>
+            <Div id="sections-wrapper">
+                {SECTIONS.map(section => (
+                    <Section key={section.title} marginBottom="nano">
+                        <Div className="grid-cell section-header" padding="micro">
+                            <Heading6 weight="700" className="section-title">
+                                {section.title}
+                            </Heading6>
+                        </Div>
+
+                        <Div className="section-content">
+                            {section.items.map(item => (
+                                <Div className="grid-cell" key={item.linkTo} padding="micro">
+                                    <Link href={item.linkTo}>
+                                        <Text weight="600">{item.label}</Text>
+                                    </Link>
+                                </Div>
+                            ))}
+                        </Div>
+                    </Section>
                 ))}
-            </Row>
+            </Div>
         </Article>
     );
 };

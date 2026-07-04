@@ -5,36 +5,24 @@ import React from "react";
 import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Article, Card, Div, Heading4, Heading6, Text, Row, Portion } from "fictoan-react";
+import { Article, Div, Header, Heading4, Heading6, Section, Text } from "fictoan-react";
 
-const TABLES = [
+const SECTIONS = [
     {
-        linkTo      : "/prices/consumer-price-index",
-        label       : "Consumer price index",
-        description : "CPI for rural, urban and combined, by commodity group (base 2010 = 100).",
-    },
-    {
-        linkTo      : "/prices/other-consumer-price-indices",
-        label       : "Other consumer price indices",
-        description : "CPI for industrial workers and agricultural/rural labourers, across base years.",
-    },
-    {
-        linkTo      : "/prices/gold-and-silver-prices",
-        label       : "Gold and silver prices",
-        description : "Monthly average price of standard gold and silver in Mumbai.",
-    },
-    {
-        linkTo      : "/prices/wholesale-price-index",
-        label       : "Wholesale price index",
-        description : "WPI across the commodity taxonomy, by base year.",
+        title : "Monthly RBI Bulletin",
+        items : [
+            { linkTo : "/prices/consumer-price-index", label : "Consumer price index" },
+            { linkTo : "/prices/other-consumer-price-indices", label : "Other consumer price indices" },
+            { linkTo : "/prices/gold-and-silver-prices", label : "Gold and silver prices" },
+            { linkTo : "/prices/wholesale-price-index", label : "Wholesale price index" },
+        ],
     },
 ];
 
 const PricesPage = () => {
     return (
-        <Article id="prices-page" className="page-grid">
-            {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+        <Article id="prices-page" className="data-list-page">
+            <Header id="title-card" bgColour="white" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Prices
@@ -44,21 +32,29 @@ const PricesPage = () => {
                         Price statistics — consumer and wholesale indices, and bullion prices.
                     </Heading6>
                 </Div>
-            </Div>
+            </Header>
 
-            {/* TABLES ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Row marginTop="micro">
-                {TABLES.map(table => (
-                    <Portion key={table.linkTo} desktopSpan="half" mobileSpan="whole">
-                        <Link href={table.linkTo}>
-                            <Card padding="micro" shape="rounded" isFullHeight>
-                                <Text weight="600" marginBottom="nano">{table.label}</Text>
-                                <Text opacity="60" size="small">{table.description}</Text>
-                            </Card>
-                        </Link>
-                    </Portion>
+            <Div id="sections-wrapper">
+                {SECTIONS.map(section => (
+                    <Section key={section.title} marginBottom="nano">
+                        <Div className="grid-cell section-header" padding="micro">
+                            <Heading6 weight="700" className="section-title">
+                                {section.title}
+                            </Heading6>
+                        </Div>
+
+                        <Div className="section-content">
+                            {section.items.map(item => (
+                                <Div className="grid-cell" key={item.linkTo} padding="micro">
+                                    <Link href={item.linkTo}>
+                                        <Text weight="600">{item.label}</Text>
+                                    </Link>
+                                </Div>
+                            ))}
+                        </Div>
+                    </Section>
                 ))}
-            </Row>
+            </Div>
         </Article>
     );
 };
