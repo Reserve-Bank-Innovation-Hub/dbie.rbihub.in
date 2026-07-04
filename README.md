@@ -1,10 +1,10 @@
 # dbie.rbihub.in
 
 A modern, fully static web platform for exploring economic data from the Reserve Bank of
-India's [Database on Indian Economy](https://data.rbi.org.in) (DBIE) — plus the scraping and
+India's [Database on Indian Economy](https://data.rbi.org.in) (DBIE)—plus the scraping and
 processing pipeline that keeps its data fresh. 335 tables and series across prices, growth,
 markets, banking, external sector, government finance and payments, each with a searchable
-page, AG Grid table and (where it fits) a Plotly chart — and an MCP server so AI assistants
+page, AG Grid table and (where it fits) a Plotly chart—and an MCP server so AI assistants
 can use the data too.
 
 Built by the [Reserve Bank Innovation Hub](https://rbihub.in). MIT licensed.
@@ -52,17 +52,17 @@ raw SDMX CSVs / report files ──► frontend-consumable JSON ──► public
 
 ## Repository layout
 
-| Path | What |
-|---|---|
-| `src/`, `public/`, `next.config.js` | The Next.js app (TypeScript) |
-| `scripts/` | DBIE scraper + ingest tooling (Playwright; probes in `scripts/recon/`) |
-| `data/sdmx/` | All scraped SDMX series as CSV, human-readable names (committed) |
-| `data/sources/`, `data/publications/` | Manually downloaded report files (the DBIE Reports path is auth-walled) |
-| `data/processors/` | Source files → the JSON the site renders (`pnpm data:build`, verified by `pnpm data:verify`) |
-| `data/catalogue.json`, `data/sdmx-tree.json`, `data/scrape-manifest.json` | Table index + scrape state |
-| `data/coverage-report.md` | What the scrape covers vs the DBIE Reports catalogue |
-| `mcp/` | `@reserve-bank-innovation-hub/dbie-mcp` — MCP server over the site's data |
-| `docs/` | Architecture, scraper internals, data learnings |
+| Path                                                                      | What                                                                                         |
+|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `src/`, `public/`, `next.config.js`                                       | The Next.js app (TypeScript)                                                                 |
+| `scripts/`                                                                | DBIE scraper + ingest tooling (Playwright; probes in `scripts/recon/`)                       |
+| `data/sdmx/`                                                              | All scraped SDMX series as CSV, human-readable names (committed)                             |
+| `data/sources/`, `data/publications/`                                     | Manually downloaded report files (the DBIE Reports path is auth-walled)                      |
+| `data/processors/`                                                        | Source files → the JSON the site renders (`pnpm data:build`, verified by `pnpm data:verify`) |
+| `data/catalogue.json`, `data/sdmx-tree.json`, `data/scrape-manifest.json` | Table index + scrape state                                                                   |
+| `data/coverage-report.md`                                                 | What the scrape covers vs the DBIE Reports catalogue                                         |
+| `mcp/`                                                                    | `@reserve-bank-innovation-hub/dbie-mcp` — MCP server over the site's data                    |
+| `docs/`                                                                   | Architecture, scraper internals, data learnings                                              |
 
 ## Data refresh
 
@@ -86,11 +86,10 @@ claude mcp add dbie -- npx -y @reserve-bank-innovation-hub/dbie-mcp
 
 ## Contributing
 
-Issues and PRs welcome. The pipeline is deliberately boring: plain Node scripts, no
-framework, one workspace (`pnpm install` covers the app and the MCP package). If you add
-a dataset, add its processor under
-`data/processors/` and verify its output against a known-good snapshot (see
-`data/processors/README.md` for the parity gotchas when porting spreadsheet parsers).
+Issues and PRs welcome. The pipeline is deliberately boring: plain Node scripts, no framework, one
+workspace (`pnpm install` covers the app and the MCP package). If you add a dataset, add its processor under
+`data/processors/` and verify its output against a known-good snapshot (see `data/processors/README.md` for the 
+parity gotchas when porting spreadsheet parsers).
 
 ## License
 
