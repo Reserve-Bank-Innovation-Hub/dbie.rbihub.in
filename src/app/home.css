@@ -1,13 +1,12 @@
 #home-page {
-    grid-template-rows  : 240px auto auto repeat(4, 240px);
+    grid-template-rows  : 240px auto auto repeat(3, minmax(480px, auto));
     grid-template-areas :
             "title      title      title      title"
             "markers    markers    markers    markers"
             "markers    markers    markers    markers"
-            "forex      forex      forex      forex"
-            "forex      forex      forex      forex"
-            "fii        fii        externalDebt          externalDebt"
-            "fii        fii        externalDebt          externalDebt";
+            "usdInr     usdInr     inflation  inflation"
+            "corridor   corridor   upi        upi"
+            "trade      trade      reserves   reserves";
 
     #title-card {
         grid-area       : title;
@@ -40,26 +39,19 @@
         height : fit-content;
     }
 
-    #forex-card {
-        grid-area      : forex;
+    #usd-inr-card   { grid-area : usdInr; }
+    #inflation-card { grid-area : inflation; }
+    #corridor-card  { grid-area : corridor; }
+    #upi-card       { grid-area : upi; }
+    #trade-card     { grid-area : trade; }
+    #reserves-card  { grid-area : reserves; }
+
+    .home-chart-card {
         display        : flex;
         flex-direction : column;
     }
 
-    #fii-card {
-        grid-area      : fii;
-        display        : flex;
-        flex-direction : column;
-    }
-
-    #external-debt-card {
-        grid-area      : externalDebt;
-        display        : flex;
-        flex-direction : column;
-    }
-
-    .forex-chart-wrapper,
-    .fii-chart-wrapper {
+    .home-chart-wrapper {
         flex : 1;
     }
 

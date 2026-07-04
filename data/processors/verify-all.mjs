@@ -54,6 +54,7 @@ const datasets = [
   { name: 'forex-reserves-recent', mode: 'fresh' },
   { name: 'forex-reserves-weekly', mode: 'exact' },
   { name: 'gold-and-silver-prices', mode: 'exact' },
+  { name: 'home', mode: 'exact' },   // derived from other outputs; re-snapshot its oracle when a source dataset refreshes
   { name: 'household-financial-flows', mode: 'exact' },
   { name: 'household-financial-stocks', mode: 'exact' },
   { name: 'implementation-of-central-sector-projects-status-end-march', mode: 'exact' },

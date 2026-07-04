@@ -97,6 +97,7 @@ const processors = [
   'wholesale-price-index-annual-average',
   'yield-per-hectare-foodgrains',
   'yield-per-hectare-major-commercial-crops',
+  'home',   // derives from other processors' outputs — must stay last
 ];
 
 for (const name of processors) {
@@ -104,4 +105,4 @@ for (const name of processors) {
   await import('./' + name + '.mjs');
   console.log('ok');
 }
-console.log('done -> out/ (345 JSON files)');
+console.log('done -> out/ (346 JSON files)');

@@ -23,15 +23,10 @@ export const metadata : Metadata = {
 };
 
 // LIB =================================================================================================================
-import { getForexReservesRecent, getForeignInvestmentInflowsRecent } from "@/lib/api/indicators";
-import { getExternalDebtRecent } from "@/lib/api/publications";
-import markersData from "@/data/markers.json";
+import { getHomeData } from "@/lib/api/home";
 
 export default async function Page() {
-    // Fetch recent data for home page charts
-    const recentForex = await getForexReservesRecent();
-    const recentFII = await getForeignInvestmentInflowsRecent();
-    const recentExternalDebt = await getExternalDebtRecent();
+    const home = getHomeData();
 
-    return <DashboardPage forexData={recentForex} fiiData={recentFII} externalDebtData={recentExternalDebt.data} markers={markersData} />;
+    return <DashboardPage home={home} />;
 }

@@ -7,32 +7,86 @@ import React from "react";
 import { Article, Heading6, Heading4, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import ExternalDebtChart from "@components/charts/ExternalDebtChart";
-import ForeignInvestmentInflowsChart from "@/components/charts/ForeignInvestmentInflowsChart";
-import ForexReservesChart from "@/components/charts/ForexReservesChart";
+import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import FullDataLink from "@components/FullDataLink/FullDataLink";
 import { DataUnit } from "@/components/DataUnit/DataUnit";
 import { FieldLines } from "@components/FieldLines/FieldLines";
 
 // LIB =================================================================================================================
-import { ExternalDebtRow } from "@/lib/api/publications";
-import { ParsedForexReserves, ForeignInvestmentInflowsData } from "@/lib/api/indicators";
-
-// ASSETS ==============================================================================================================
+import { HomePayload } from "@/lib/api/home";
 
 // STYLES ==============================================================================================================
 import "./home.css";
 
 interface HomePageProps {
-    forexData        : ParsedForexReserves;
-    fiiData          : ForeignInvestmentInflowsData;
-    externalDebtData : ExternalDebtRow[];
-    markers          : Record<string, string>;
+    home : HomePayload;
 }
 
-const HomePage : React.FC<HomePageProps> = ({markers, forexData, fiiData, externalDebtData}) => {
-    const markerKeys = Object.keys(markers);
+// Presentation config per chart — data comes aligned from the home payload.
+const CHART_CARDS : Array<{
+    id               : string;
+    chart            : keyof HomePayload["charts"];
+    title            : string;
+    yAxisTitle       : string;
+    valueDecimals    : number;
+    valueSuffix    ? : string;
+    defaultVisible ? : string[];
+    linkTo           : string;
+}> = [
+    {
+        id            : "usd-inr-card",
+        chart         : "usd_inr",
+        title         : "USD/INR exchange rate",
+        yAxisTitle    : "₹ per US$",
+        valueDecimals : 2,
+        linkTo        : "/indicators/exchange-rates",
+    },
+    {
+        id            : "inflation-card",
+        chart         : "inflation",
+        title         : "Inflation",
+        yAxisTitle    : "% year-on-year",
+        valueDecimals : 2,
+        valueSuffix   : "%",
+        linkTo        : "/banking/select-economic-indicators",
+    },
+    {
+        id            : "corridor-card",
+        chart         : "corridor",
+        title         : "Policy rate corridor",
+        yAxisTitle    : "%",
+        valueDecimals : 2,
+        valueSuffix   : "%",
+        linkTo        : "/banking/select-economic-indicators",
+    },
+    {
+        id             : "upi-card",
+        chart          : "upi",
+        title          : "UPI, monthly",
+        yAxisTitle     : "₹ lakh crore",
+        valueDecimals  : 2,
+        defaultVisible : [ "value" ],
+        linkTo         : "/payments/payment-system-indicators",
+    },
+    {
+        id            : "trade-card",
+        chart         : "trade",
+        title         : "Foreign trade, monthly",
+        yAxisTitle    : "US$ billion",
+        valueDecimals : 2,
+        linkTo        : "/external/foreign-trade",
+    },
+    {
+        id            : "reserves-card",
+        chart         : "reserves",
+        title         : "Foreign exchange reserves",
+        yAxisTitle    : "US$ billion",
+        valueDecimals : 2,
+        linkTo        : "/indicators/forex-reserves",
+    },
+];
 
+const HomePage : React.FC<HomePageProps> = ({home}) => {
     return (
         <Article id="home-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
@@ -58,16 +112,16 @@ const HomePage : React.FC<HomePageProps> = ({markers, forexData, fiiData, extern
 
             {/* MARKER DATA POINTS ///////////////////////////////////////////////////////////////////////////////// */}
             <Div id="markers">
-                {markerKeys.map((key, index) => (
+                {home.markers.map((marker, index) => (
                     <Div
-                        key={key}
+                        key={marker.label}
                         id={`marker${index + 1}-card`}
                         className="grid-cell marker-card"
                         padding="micro"
                     >
                         <DataUnit
-                            label={key}
-                            value={markers[key]}
+                            label={`${marker.label} · ${marker.as_of}`}
+                            value={marker.value}
                             size="large"
                             align="left"
                         />
@@ -75,40 +129,35 @@ const HomePage : React.FC<HomePageProps> = ({markers, forexData, fiiData, extern
                 ))}
             </Div>
 
-            {/* FOREX RESERVES CHART /////////////////////////////////////////////////////////////////////////////// */}
-            <Div
-                id="forex-card"
-                className="grid-cell has-full-view"
-                padding="micro"
-            >
-                <div className="forex-chart-wrapper">
-                    <ForexReservesChart data={forexData.data} />
-                </div>
+            {/* CHARTS ///////////////////////////////////////////////////////////////////////////////////////////// */}
+            {CHART_CARDS.map(card => {
+                const chart = home.charts[card.chart];
 
-                <FullDataLink fullData="/indicators/forex-reserves" />
-            </Div>
+                return (
+                    <Div
+                        key={card.id}
+                        id={card.id}
+                        className="grid-cell home-chart-card has-full-view"
+                        padding="micro"
+                    >
+                        <div className="home-chart-wrapper">
+                            <TimeSeriesChart
+                                dates={chart.dates}
+                                series={chart.series}
+                                title={card.title}
+                                yAxisTitle={card.yAxisTitle}
+                                valueDecimals={card.valueDecimals}
+                                valueSuffix={card.valueSuffix}
+                                defaultVisible={card.defaultVisible}
+                                exportName={card.chart.replace(/_/g, "-")}
+                                height={400}
+                            />
+                        </div>
 
-            {/* FII CHART ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div
-                id="fii-card"
-                className="grid-cell"
-                padding="micro"
-            >
-                <div className="fii-chart-wrapper">
-                    <ForeignInvestmentInflowsChart data={fiiData.data} />
-                </div>
-            </Div>
-
-            {/* EXTERNAL DEBT CHART //////////////////////////////////////////////////////////////////////////////// */}
-            <Div
-                id="external-debt-card"
-                className="grid-cell"
-                padding="micro"
-            >
-                <div className="external-debt-chart-wrapper">
-                    <ExternalDebtChart data={externalDebtData} />
-                </div>
-            </Div>
+                        <FullDataLink fullData={card.linkTo} />
+                    </Div>
+                );
+            })}
         </Article>
     );
 };
