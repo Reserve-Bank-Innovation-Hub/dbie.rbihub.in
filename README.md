@@ -2,7 +2,10 @@
 
 A modern, fully static web platform for exploring economic data from the Reserve Bank of
 India's [Database on Indian Economy](https://data.rbi.org.in) (DBIE) — plus the scraping and
-processing pipeline that keeps its data fresh.
+processing pipeline that keeps its data fresh. 335 tables and series across prices, growth,
+markets, banking, external sector, government finance and payments, each with a searchable
+page, AG Grid table and (where it fits) a Plotly chart — and an MCP server so AI assistants
+can use the data too.
 
 Built by the [Reserve Bank Innovation Hub](https://rbihub.in). MIT licensed.
 
@@ -41,8 +44,11 @@ raw SDMX CSVs / report files ──► frontend-consumable JSON ──► public
 
 - Pages are **pre-rendered at build time** from JSON in `public/data/` — there is no API,
   no database, no server to run.
-- All interactivity (Plotly charts, AG Grid) is client-side.
-- Data refreshes are decoupled from code: re-run the pipeline, rebuild, redeploy.
+- All interactivity (Plotly charts, AG Grid, search) is client-side.
+- The processors are **self-checking** (hard-coded known cells) and their outputs are verified
+  **byte-exact** against committed oracles by `pnpm data:verify`.
+- A data refresh is therefore just a commit: sources, processors and their verified outputs
+  travel through review together.
 
 ## Repository layout
 
@@ -54,6 +60,8 @@ raw SDMX CSVs / report files ──► frontend-consumable JSON ──► public
 | `data/sources/`, `data/publications/` | Manually downloaded report files (the DBIE Reports path is auth-walled) |
 | `data/processors/` | Source files → the JSON the site renders (`pnpm data:build`, verified by `pnpm data:verify`) |
 | `data/catalogue.json`, `data/sdmx-tree.json`, `data/scrape-manifest.json` | Table index + scrape state |
+| `data/coverage-report.md` | What the scrape covers vs the DBIE Reports catalogue |
+| `mcp/` | `@reserve-bank-innovation-hub/dbie-mcp` — MCP server over the site's data |
 | `docs/` | Architecture, scraper internals, data learnings |
 
 ## Data refresh
@@ -64,9 +72,9 @@ raw SDMX CSVs / report files ──► frontend-consumable JSON ──► public
 4. `pnpm data:build && pnpm data:verify` — regenerate + check the site's JSON.
 5. `pnpm data:sync && pnpm build` — see it locally; commit the refreshed data.
 
-Deployment (AWS Amplify + S3, per-environment data payloads) is described in
-[`docs/05-static-amplify-s3-architecture.md`](docs/05-static-amplify-s3-architecture.md);
-`amplify.yml` pulls the environment's data from S3 in `preBuild`.
+Deployments run the same pipeline: `amplify.yml` executes `data:build`, `data:verify` and
+`data:sync` in `preBuild`, so an environment serves exactly what its branch's processors
+produce from its branch's committed sources — a failed oracle check fails the deploy.
 
 ## AI access (MCP)
 
@@ -79,7 +87,8 @@ claude mcp add dbie -- npx -y @reserve-bank-innovation-hub/dbie-mcp
 ## Contributing
 
 Issues and PRs welcome. The pipeline is deliberately boring: plain Node scripts, no
-framework, one `package.json`. If you add a dataset, add its processor under
+framework, one workspace (`pnpm install` covers the app and the MCP package). If you add
+a dataset, add its processor under
 `data/processors/` and verify its output against a known-good snapshot (see
 `data/processors/README.md` for the parity gotchas when porting spreadsheet parsers).
 
