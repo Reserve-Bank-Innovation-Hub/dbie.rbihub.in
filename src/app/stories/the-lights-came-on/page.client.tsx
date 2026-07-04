@@ -5,7 +5,20 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // UI ==================================================================================================================
-import { Article, Button, Card, Div, Divider, Heading1, Heading4, Heading6, Portion, Row, Section, Text } from "fictoan-react";
+import {
+    Article,
+    Button,
+    Card,
+    Div,
+    Divider,
+    Heading1,
+    Heading4,
+    Heading6,
+    Portion,
+    Row,
+    Section,
+    Text,
+} from "fictoan-react";
 import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
@@ -37,22 +50,31 @@ export const TheLightsCameOnPage = () => {
     const stepRefs = useRef<(HTMLElement | null)[]>([]);
 
     const clearTimer = () => {
-        if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+            timerRef.current = null;
+        }
     };
 
     // ---- the single canvas state, derived from the story stage --------------------------------------
     const scene : CanvasScene = useMemo(() => {
         switch (stage) {
-            case "reveal":  return { kind : "columns", quarterIdx : Q_MAR_2015 };
+            case "reveal":
+                return {kind : "columns", quarterIdx : Q_MAR_2015};
             case "swap":
-            case "done":    return { kind : "columns", quarterIdx };
-            case "field":   return { kind : "field", yearIdx : YEAR_2015, gender : false };
+            case "done":
+                return {kind : "columns", quarterIdx};
+            case "field":
+                return {kind : "field", yearIdx : YEAR_2015, gender : false};
             case "cascade":
-            case "ticket":  return { kind : "field", yearIdx, gender : false };
+            case "ticket":
+                return {kind : "field", yearIdx, gender : false};
             case "women":
             case "agri":
-            case "dim":     return { kind : "field", yearIdx, gender : true };
-            default:        return { kind : "dark" };
+            case "dim":
+                return {kind : "field", yearIdx, gender : true};
+            default:
+                return {kind : "dark"};
         }
     }, [ stage, quarterIdx, yearIdx ]);
 
@@ -61,11 +83,17 @@ export const TheLightsCameOnPage = () => {
         clearTimer();
         const rm = rmRef.current;
         if (stage === "cascade" || stage === "women") {
-            if (rm) { setYearIdx(YEAR_2026); return; }
+            if (rm) {
+                setYearIdx(YEAR_2026);
+                return;
+            }
             setYearIdx(YEAR_2015);
             timerRef.current = setInterval(() => {
                 setYearIdx((p) => {
-                    if (p >= YEAR_2026) { clearTimer(); return p; }
+                    if (p >= YEAR_2026) {
+                        clearTimer();
+                        return p;
+                    }
                     return p + 1;
                 });
             }, stage === "cascade" ? 460 : 340);
@@ -73,18 +101,27 @@ export const TheLightsCameOnPage = () => {
             setYearIdx(YEAR_2026);
         } else if (stage === "dim") {
             // Scrub back to the 2024 peak, then let two years of dimming play out.
-            if (rm) { setYearIdx(YEAR_2026); return; }
+            if (rm) {
+                setYearIdx(YEAR_2026);
+                return;
+            }
             setYearIdx(YEAR_2024);
             timerRef.current = setInterval(() => {
                 setYearIdx((p) => {
-                    if (p >= YEAR_2026) { clearTimer(); return p; }
+                    if (p >= YEAR_2026) {
+                        clearTimer();
+                        return p;
+                    }
                     return p + 1;
                 });
             }, 900);
         } else if (stage === "field") {
             setYearIdx(YEAR_2015);
         } else if (stage === "swap") {
-            if (rm) { setQuarterIdx(Q_LAST); return; }
+            if (rm) {
+                setQuarterIdx(Q_LAST);
+                return;
+            }
             playQuarters();
         } else if (stage === "reveal") {
             setQuarterIdx(Q_MAR_2015);
@@ -98,7 +135,10 @@ export const TheLightsCameOnPage = () => {
         setQuarterIdx(Q_MAR_2015);
         timerRef.current = setInterval(() => {
             setQuarterIdx((p) => {
-                if (p >= Q_LAST) { clearTimer(); return p; }
+                if (p >= Q_LAST) {
+                    clearTimer();
+                    return p;
+                }
                 return p + 1;
             });
         }, 130);
@@ -113,13 +153,15 @@ export const TheLightsCameOnPage = () => {
                     if (e.isIntersecting) setStage((e.target as HTMLElement).dataset.stage as Stage);
                 }
             },
-            { rootMargin : "-44% 0px -44% 0px", threshold : 0 },
+            {rootMargin : "-44% 0px -44% 0px", threshold : 0},
         );
         stepRefs.current.forEach((el) => el && io.observe(el));
         return () => io.disconnect();
     }, []);
 
-    const stepRef = (i : number) => (el : HTMLElement | null) => { stepRefs.current[i] = el; };
+    const stepRef = (i : number) => (el : HTMLElement | null) => {
+        stepRefs.current[i] = el;
+    };
 
     const y26 = YEARS[YEAR_2026], y15 = YEARS[YEAR_2015];
     const perHundred = Math.round((y26.acc / y15.acc) * 100);
@@ -169,7 +211,9 @@ export const TheLightsCameOnPage = () => {
                                 kind="primary" size="small" marginTop="nano"
                                 onClick={() => {
                                     setLocked(guess);
-                                    stepRefs.current[2]?.scrollIntoView({ behavior : rmRef.current ? "auto" : "smooth", block : "center" });
+                                    stepRefs.current[2]?.scrollIntoView({
+                                        behavior : rmRef.current ? "auto" : "smooth", block : "center",
+                                    });
                                 }}
                             >
                                 Lock it in ↓
@@ -185,7 +229,8 @@ export const TheLightsCameOnPage = () => {
                                 Companies were the biggest borrowers—<strong>₹40</strong> of every ₹100, against
                                 just <strong>₹31</strong> for individuals. Hold that ₹31; we&rsquo;ll come back to it.
                             </Text>
-                            <Text fontStyle="serif"><em>Many credit-seeking households were simply left in the dark.</em></Text>
+                            <Text fontStyle="serif"><em>Many credit-seeking households were simply left in the
+                                dark.</em></Text>
                         </Card>
                     </Div>
 
@@ -205,14 +250,18 @@ export const TheLightsCameOnPage = () => {
 
                     <Div className="step" data-stage="cascade" ref={stepRef(4)}>
                         <Card className="step-card" padding="micro" shadow="soft">
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">Eleven years of ignition</Heading6>
+                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">Eleven years of
+                                ignition</Heading6>
                             <Text fontStyle="serif" marginBottom="nano">
                                 By March 2026, <strong>35 dots are lit</strong>—{perHundred} borrower accounts for
                                 every 100 that existed in 2015. Banks opened 23 crore new credit footholds.
                             </Text>
                             <input
                                 type="range" min={YEAR_2015} max={YEAR_2026} step={1} value={yearIdx}
-                                onChange={(e) => { clearTimer(); setYearIdx(+e.target.value); }}
+                                onChange={(e) => {
+                                    clearTimer();
+                                    setYearIdx(+e.target.value);
+                                }}
                                 aria-label="Scrub through March-end years"
                             />
                             <Div className="scrub-ends">
@@ -224,7 +273,8 @@ export const TheLightsCameOnPage = () => {
 
                     <Div className="step" data-stage="ticket" ref={stepRef(5)}>
                         <Card className="step-card" padding="micro" shadow="soft">
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">More borrowers—not deeper debt</Heading6>
+                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">More borrowers—not deeper
+                                debt</Heading6>
                             <Div className="dots-inline" marginBottom="nano">
                                 <span className="dot" /><span className="arrow">→</span>
                                 <span className="dot" /><span className="dot" /><span className="dot" />
@@ -258,7 +308,8 @@ export const TheLightsCameOnPage = () => {
 
                     <Div className="step" data-stage="agri" ref={stepRef(7)}>
                         <Card className="step-card" padding="micro" shadow="soft">
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">On the farm, it went furthest</Heading6>
+                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">On the farm, it went
+                                furthest</Heading6>
                             <Text fontStyle="serif" marginBottom="nano">
                                 Every <strong>third</strong> rupee banks lend an individual for agriculture now
                                 goes to a woman. In 2014 it was every fifth.
@@ -276,7 +327,8 @@ export const TheLightsCameOnPage = () => {
                                 Since 2024, some lights have gone out
                             </Heading6>
                             <Text fontStyle="serif" marginBottom="nano">
-                                Watch the field: women&rsquo;s borrower accounts peaked at <strong>11.6 crore</strong> in
+                                Watch the field: women&rsquo;s borrower accounts peaked at <strong>11.6
+                                crore</strong> in
                                 March 2024 and stand at <strong>10.3 crore</strong> today — 11% below the peak — and
                                 the total count of individual borrowers dipped in the year to March 2026. The
                                 <em> value</em> of women&rsquo;s credit kept rising; it is the smallest accounts
@@ -299,13 +351,19 @@ export const TheLightsCameOnPage = () => {
                             </Text>
                             <Div className="controls" verticallyCentreItems marginBottom="nano">
                                 <Button kind="secondary" size="small" onClick={playQuarters}>↺ Replay</Button>
-                                <Button kind="secondary" size="small" onClick={() => { clearTimer(); setQuarterIdx(Q_LAST); }}>
+                                <Button kind="secondary" size="small" onClick={() => {
+                                    clearTimer();
+                                    setQuarterIdx(Q_LAST);
+                                }}>
                                     Skip to today ⏭
                                 </Button>
                             </Div>
                             <input
                                 type="range" min={Q_MAR_2015} max={Q_LAST} step={1} value={quarterIdx}
-                                onChange={(e) => { clearTimer(); setQuarterIdx(+e.target.value); }}
+                                onChange={(e) => {
+                                    clearTimer();
+                                    setQuarterIdx(+e.target.value);
+                                }}
                                 aria-label="Scrub through quarters"
                             />
                             <Div className="scrub-ends">
@@ -364,7 +422,8 @@ export const TheLightsCameOnPage = () => {
 
                 <Row horizontalPadding="small" marginTop="medium" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="half">
-                        <Heading6 fontStyle="serif" weight="600" marginBottom="nano">The newcomers skew female</Heading6>
+                        <Heading6 fontStyle="serif" weight="600" marginBottom="nano">The newcomers skew
+                            female</Heading6>
                         <Text size="small" isSubtext marginBottom="micro">
                             Stock versus flow. Of every 100 borrower accounts that already existed in March
                             2015, 22 belonged to women. Of every 100 added in the eleven years since, 34 do—
@@ -454,109 +513,58 @@ export const TheLightsCameOnPage = () => {
                 </Row>
             </Section>
 
-            {/* SOURCES & METHOD =================================================================== */}
+            {/* SOURCES & METHOD =================================================================================== */}
             <Section id="tloc-sources">
-                <Row horizontalPadding="small" marginTop="large" marginBottom="none" allowUltraWide>
+                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="half">
                         <Divider kind="secondary" verticalMargin="micro" />
 
-                        <Text weight="600" size="tiny">SOURCES</Text>
+                        <Text weight="600" size="tiny" verticalMargin="micro">SOURCES</Text>
 
-                        <Text size="tiny" marginBottom="nano">
+                        <Text size="tiny" marginBottom="micro">
                             All credit figures—Reserve Bank of India, Basic Statistical Returns of scheduled
                             commercial banks, Table 3.2 (organisation-wise classification of outstanding credit
                             according to occupation), quarterly, March 2014 – March 2026. March-end points used
                             for annual beats; &ldquo;Individuals&rdquo; columns with the male/female split.
                         </Text>
 
-                        <a href="/stories/the-lights-came-on/rbi-bsr-table-3-2-occupation-credit.xlsx" download className="download-link">
-                            <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
-                                <Download size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Download BSR Table 3.2 (XLSX)
-                                </Text>
-                            </Div>
-                        </a>
+                        <Div>
+                            <Link
+                                href="/stories/the-lights-came-on/rbi-bsr-table-3-2-occupation-credit.xlsx" download
+                                className="download-link"
+                            >
+                                <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
+                                    <Download size="16px" />
 
-                        <Link href="/publications/credit-classification" className="download-link">
-                            <Div verticallyCentreItems marginBottom="nano">
-                                <Table2 size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Go to dataset
-                                </Text>
-                            </Div>
-                        </Link>
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Download BSR Table 3.2 (XLSX)
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
 
-                        <Divider kind="tertiary" verticalMargin="micro" />
-
-                        <Text size="tiny" marginBottom="nano">
-                            <strong>Dots, not people.</strong> Lit dots count borrower <em>accounts</em> (one
-                            person can hold several); the 104-dot field counts credit-eligible
-                            <em> adults</em> (≈1,036 million; TransUnion CIBIL, World Bank–based, December 2024).
-                            A deliberate proxy—directionally the inclusion story, not a literal 1:1.
-                        </Text>
-
-                        <Text size="tiny" marginBottom="nano">
-                            <strong>Units switch once.</strong> Acts I and III count rupees (shares of ₹100 of
-                            outstanding credit; inflation cancels in shares). Act II counts borrower accounts.
-                            All loan-size figures are nominal; no price adjustment is applied anywhere.
-                        </Text>
-
-                        <Text size="tiny" marginBottom="nano">
-                            <strong>The decline is in the table, not smoothed over.</strong> Women&rsquo;s borrower
-                            accounts peaked at 11.6 crore in March 2024 and fell to 10.3 crore by March 2026; the
-                            total count of individual borrowers also dipped in the final year. The point-to-point
-                            growth figures (4&times; for women, 3&times; overall) are 2015&rarr;2026 and include
-                            that decline.
-                        </Text>
-
-                        <Text size="tiny">
-                            <strong>Borrowed framings.</strong> &ldquo;More borrowers, not deeper debt&rdquo;—RBI
-                            Deputy Governor M Rajeshwar Rao (July 2025) and RBI FSR (December 2024).
-                            Banks&rsquo; shift toward retail &ldquo;to reduce concentration of exposures to large
-                            corporates&rdquo;—IMF FSAP. &ldquo;Inclusion and aspiration&rdquo; that must not
-                            &ldquo;morph into systemic over-indebtedness&rdquo;—CAFRAL, 2026. November-2023
-                            unsecured risk-weight action—RBI notification RBI/2023-24/85.
-                        </Text>
+                        <Div>
+                            <Link href="/publications/credit-classification" className="download-link">
+                                <Div verticallyCentreItems marginBottom="nano">
+                                    <Table2 size="16px" />
+                                    <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                        Go to dataset
+                                    </Text>
+                                </Div>
+                            </Link>
+                        </Div>
                     </Portion>
 
                     <Portion desktopSpan="half">
-                        <Text isSubtext weight="600" size="tiny">METHOD</Text>
-
                         <Divider kind="secondary" verticalMargin="micro" />
 
-                        <Text size="tiny" marginBottom="nano">
-                            All credit figures—Reserve Bank of India, Basic Statistical Returns of scheduled
-                            commercial banks, Table 3.2 (organisation-wise classification of outstanding credit
-                            according to occupation), quarterly, March 2014 – March 2026. March-end points used
-                            for annual beats; &ldquo;Individuals&rdquo; columns with the male/female split.
-                        </Text>
-
-                        <a href="/stories/the-lights-came-on/rbi-bsr-table-3-2-occupation-credit.xlsx" download className="download-link">
-                            <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
-                                <Download size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Download BSR Table 3.2 (XLSX)
-                                </Text>
-                            </Div>
-                        </a>
-
-                        <Link href="/publications/credit-classification" className="download-link">
-                            <Div verticallyCentreItems marginBottom="nano">
-                                <Table2 size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
-                                    Go to dataset
-                                </Text>
-                            </Div>
-                        </Link>
-
-                        <Divider kind="tertiary" verticalMargin="micro" />
+                        <Text weight="600" size="tiny" verticalMargin="micro">METHOD</Text>
 
                         <Text size="tiny" marginBottom="nano">
-                            <strong>Dots, not people.</strong> Lit dots count borrower <em>accounts</em> (one
-                            person can hold several); the 104-dot field counts credit-eligible
-                            <em> adults</em> (≈1,036 million; TransUnion CIBIL, World Bank–based, December 2024).
-                            A deliberate proxy—directionally the inclusion story, not a literal 1:1.
+                            <strong>Dots, not people.</strong> Lit dots count borrower <em>accounts</em> (one person can
+                            hold several); the 104-dot field counts credit-eligible<em> adults</em> (≈1,036 million;
+                            TransUnion CIBIL, World Bank–based, December 2024). A deliberate proxy—directionally the
+                            inclusion story, not a literal 1:1.
                         </Text>
 
                         <Text size="tiny" marginBottom="nano">

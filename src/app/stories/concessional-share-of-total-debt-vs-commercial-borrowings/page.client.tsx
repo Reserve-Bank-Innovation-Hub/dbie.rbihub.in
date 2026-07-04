@@ -157,14 +157,12 @@ export const ConcessionalVsCommercialPage = () => {
             {/* SOURCES ================================================================================ */}
             <Section id="cvc-sources">
                 <Row horizontalPadding="small" marginTop="large" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="one-third">
-                        <Text isSubtext weight="600">
-                            SOURCES
-                        </Text>
+                    <Portion desktopSpan="half">
+                        <Text isSubtext weight="600" size="tiny">SOURCES &amp; METHOD</Text>
 
                         <Divider kind="secondary" verticalMargin="micro" />
 
-                        <Text>
+                        <Text size="tiny">
                             Concessional debt as % of total debt, and commercial borrowing &mdash; External Debt
                             Management Unit, Ministry of Finance &amp; Reserve Bank of India
                             (&ldquo;India&rsquo;s External Debt&rdquo;, end-March, &#8377; crore).
@@ -177,7 +175,7 @@ export const ConcessionalVsCommercialPage = () => {
                         >
                             <Div verticallyCentreItems marginTop="nano">
                                 <Download size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano">
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
                                     Download external debt data (XLSX)
                                 </Text>
                             </Div>
@@ -186,11 +184,33 @@ export const ConcessionalVsCommercialPage = () => {
                         <Link href="/publications/external-debt" className="download-link">
                             <Div verticallyCentreItems marginTop="nano">
                                 <Table2 size="16px" />
-                                <Text weight="600" textColour="indivara" marginLeft="nano">
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
                                     Go to dataset
                                 </Text>
                             </Div>
                         </Link>
+
+                        <Divider kind="tertiary" verticalMargin="micro" />
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>Different bases, deliberately.</strong> The concessional share is a
+                            percentage of total external debt — long- and short-term together — while
+                            commercial borrowing is an absolute long-term component in &#8377; crore. One
+                            shows the mix changing, the other the scale; they answer different questions on
+                            the same chart.
+                        </Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>Nominal rupees.</strong> Commercial borrowing is unadjusted &#8377; crore
+                            across three and a half decades, so inflation does part of the visual work in the
+                            rising line. The share series is the inflation-proof one — trust its slope first.
+                        </Text>
+
+                        <Text size="tiny">
+                            <strong>Derived, not typed.</strong> Both series are read from the committed
+                            workbook by a self-checking processor and verified on every deploy. Years are
+                            fiscal — &ldquo;1991&rdquo; means the year ending March 1991.
+                        </Text>
                     </Portion>
                 </Row>
             </Section>

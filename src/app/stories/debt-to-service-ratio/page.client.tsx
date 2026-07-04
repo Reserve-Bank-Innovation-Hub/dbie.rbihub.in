@@ -236,10 +236,8 @@ export const DebtToServiceRatioPage = () => {
             {/* SOURCES ============================================================================================ */}
             <Section id="dsr-sources">
                 <Row horizontalPadding="small" marginTop="large" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="one-third">
-                        <Text isSubtext weight="600" size="tiny">
-                            SOURCES
-                        </Text>
+                    <Portion desktopSpan="half">
+                        <Text isSubtext weight="600" size="tiny">SOURCES &amp; METHOD</Text>
 
                         <Divider kind="secondary" verticalMargin="micro" />
 
@@ -303,6 +301,30 @@ export const DebtToServiceRatioPage = () => {
                                 </Text>
                             </Div>
                         </Link>
+
+                        <Divider kind="tertiary" verticalMargin="micro" />
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>One chart, two denominators.</strong> The debt service ratio measures
+                            external repayments against India&rsquo;s current receipts — export earnings and
+                            the like; the liabilities line measures combined Centre and state debt against
+                            GDP. Both are percentages, of different things. They share a chart to show the
+                            constraint moving, not to be compared point-for-point.
+                        </Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>Hand-typed vs derived.</strong> The debt service ratio is transcribed from
+                            the Ministry of Finance / RBI status reports and carries their revisions. The
+                            external-debt and combined-liabilities series are derived from this site&rsquo;s
+                            committed datasets by a self-checking processor, verified on every deploy.
+                        </Text>
+
+                        <Text size="tiny">
+                            <strong>Years are fiscal.</strong> Every year label means the fiscal year ending
+                            that March — &ldquo;1991&rdquo; is FY 1990-91, the crisis year, and the ~89%
+                            liabilities peak is March 2021. The 2006 spike in the ratio is the scheduled
+                            India Millennium Deposits redemption, not fresh stress.
+                        </Text>
                     </Portion>
                 </Row>
             </Section>
