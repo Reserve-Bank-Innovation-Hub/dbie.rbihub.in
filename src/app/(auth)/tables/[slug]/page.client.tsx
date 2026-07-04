@@ -10,6 +10,7 @@ import { Article, Div, Heading4, Heading6, Text } from "fictoan-react";
 import SdmxSeriesGrid, { SdmxLongGrid } from "@/components/tables/SdmxSeriesGrid";
 import TimeSeriesChart                  from "@/components/charts/TimeSeriesChart";
 import { DataUnit }                     from "@components/DataUnit/DataUnit";
+import { Loading }                      from "@components/Loading/Loading";
 
 // LIB =================================================================================================================
 import {
@@ -225,7 +226,7 @@ const SdmxSeriesPageClient : React.FC<SdmxSeriesPageClientProps> = ({
                             Could not load series data. {fetchError}
                         </Text>
                     ) : (
-                        <Text size="small" opacity="60">Loading data…</Text>
+                        <Loading name={label} />
                     )}
                 </Div>
             )}
