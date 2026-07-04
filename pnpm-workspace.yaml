@@ -1,8 +1,8 @@
-# Single-package repo. This file exists because pnpm >=10 stores its
-# build-script approvals here (allowBuilds) — and once the file exists,
-# pnpm requires a valid `packages` field.
+# Two-package workspace: the app at the root, the dbie-mcp package in mcp/.
+# pnpm >=10 also stores its build-script approvals here (allowBuilds).
 packages:
   - '.'
+  - 'mcp'
 
 allowBuilds:
   es5-ext: true

@@ -31,6 +31,9 @@ jobs:
       # Trusted publishing needs a recent npm CLI
       - run: npm install -g npm@latest
 
+      # Publishing packs three files; no install or build is needed.
+      - run: node --check server.mjs
+
       - name: Check tag matches package version
         run: |
           PKG_VERSION=$(node -p "require('./package.json').version")
@@ -40,6 +43,12 @@ jobs:
             exit 1
           fi
 
-      - run: npm ci
-
-      - run: npm publish
+      - name: Publish (skip if this version is already on the registry)
+        run: |
+          PKG=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "$PKG@$VERSION" version > /dev/null 2>&1; then
+            echo "$PKG@$VERSION already published — nothing to do."
+            exit 0
+          fi
+          npm publish
