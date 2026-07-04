@@ -4,9 +4,8 @@
 # Auth: npm trusted publishing (OIDC) — configure this repo + workflow as the
 # package's trusted publisher on npmjs.com; no tokens are stored anywhere.
 #
-# Provenance is currently OFF (publishConfig.provenance in mcp/package.json):
-# npm only generates attestations from public repositories. Flip it back to
-# true when this repo goes public.
+# Provenance (publishConfig.provenance in mcp/package.json) requires this
+# repository to be public — npm only generates attestations from public repos.
 name: Publish dbie-mcp
 
 on:
