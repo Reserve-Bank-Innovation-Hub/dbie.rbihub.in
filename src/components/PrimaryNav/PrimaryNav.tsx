@@ -12,6 +12,7 @@ import {
     BookOpen,
     Building2,
     CreditCard,
+    Feather,
     FlagTriangleLeft,
     Globe,
     Landmark,
@@ -170,6 +171,12 @@ export const PrimaryNav = () => {
                     icon={<CreditCard />}
                     linkTo="/payments"
                     label="Payments"
+                />
+
+                <NavItem
+                    icon={<Feather />}
+                    linkTo="/stories"
+                    label="Stories"
                 />
             </NavGroup>
 

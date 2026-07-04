@@ -75,11 +75,16 @@ const STATIC_PAGES = [
     { url : '/docs/using-the-site',                section : 'Docs',         title : 'Using the site',             keywords : [ 'docs', 'help', 'search', 'charts', 'grids', 'filter', 'sort', 'units' ] },
     { url : '/docs/mcp',                           section : 'Docs',         title : 'AI access via MCP',          keywords : [ 'docs', 'mcp', 'ai', 'claude', 'model context protocol', 'assistant', 'api' ] },
     { url : '/docs/how-to-scrape',                 section : 'Docs',         title : 'How to scrape',              keywords : [ 'docs', 'scraper', 'playwright', 'pipeline', 'processors', 'oracles', 'refresh' ] },
+    { url : '/stories',                            section : 'Stories',      title : 'Stories — dashboard',        keywords : [ 'stories', 'so what', 'editorial', 'narratives' ],
+      description : 'Data-led stories built on the same verified datasets as the tables' },
+    { url : '/stories/the-lights-came-on',         section : 'Stories',      title : 'The lights came on',         keywords : [ 'story', 'bank credit', 'individuals', 'women', 'financial inclusion', 'BSR' ] },
+    { url : '/stories/debt-to-service-ratio',      section : 'Stories',      title : 'The long walk back from 1991', keywords : [ 'story', 'external debt', 'debt service ratio', '1991', 'crisis', 'liberalisation' ] },
+    { url : '/stories/concessional-share-of-total-debt-vs-commercial-borrowings', section : 'Stories', title : 'From aid recipient to market borrower', keywords : [ 'story', 'external debt', 'concessional', 'commercial borrowing', 'aid' ] },
 ];
 for (const p of STATIC_PAGES) {
     entries.push({
         title       : p.title,
-        description : pageDescription(p.url) ?? p.title,
+        description : p.description ?? pageDescription(p.url) ?? p.title,
         keywords    : p.keywords,
         section     : p.section,
         url         : p.url,

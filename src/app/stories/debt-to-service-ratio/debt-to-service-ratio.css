@@ -1,0 +1,482 @@
+#debt-to-service-ratio-page {
+    #dsr-heading {
+        font-family : var(--font-serif);
+        max-width   : 18ch;
+    }
+
+    .back-link {
+        display    : inline-block;
+        opacity    : 0.72;
+        transition : opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+        opacity : 1;
+    }
+
+    /* INDIA MAP — 1991 vs 2025 split comparison =========================== */
+    .dsr-split {
+        position : relative;
+        width    : 100%;
+        height   : calc(100vh - var(--site-header-height));
+        overflow : hidden;
+    }
+
+    .dsr-maps {
+        display : flex;
+        width   : 100%;
+        height  : 100%;
+    }
+
+    /* Each half holds one year's map; the background is the (mild blue) water */
+    .india-map-wrap {
+        position         : relative;
+        flex             : 1 1 0;
+        min-width        : 0;
+        height           : 100%;
+        overflow         : hidden;
+        background-color : hsl(200, 48%, 90%);
+    }
+
+    /* Divider between the two halves */
+    .dsr-maps .india-map-wrap + .india-map-wrap {
+        border-left : 1px solid color-mix(in oklch, var(--paragraph-text-colour), transparent 82%);
+    }
+
+    /* Question title — top-centre, above both maps */
+    .dsr-title {
+        position       : absolute;
+        top            : var(--small);
+        left           : 50%;
+        transform      : translateX(-50%);
+        z-index        : 3;
+        max-width      : 92%;
+        text-align     : center;
+        pointer-events : none;
+        text-shadow    : 0 1px 3px var(--body-bg), 0 0 2px var(--body-bg);
+    }
+
+    .map-title {
+        font-family : var(--font-serif);
+    }
+
+    /* Year + % label, top-centre of each half */
+    .year-label {
+        position       : absolute;
+        top            : calc(var(--small) + 3.4rem);
+        left           : 50%;
+        transform      : translateX(-50%);
+        z-index        : 2;
+        text-align     : center;
+        pointer-events : none;
+        text-shadow    : 0 1px 3px var(--body-bg), 0 0 2px var(--body-bg);
+    }
+
+    .year-pct {
+        font-weight : 700;
+        color       : hsl(var(--terracotta));
+    }
+
+    /* Bottom-centre controls — the card with a plain-text reset link beneath it */
+    .dsr-controls {
+        position       : absolute;
+        bottom         : var(--small);
+        left           : 50%;
+        transform      : translateX(-50%);
+        z-index        : 3;
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+        gap            : var(--nano);
+    }
+
+    .dsr-card {
+        width      : 320px;
+        max-width  : 90%;
+        padding    : 16px;
+        text-align : center;
+    }
+
+    /* Export markers — emoji pinned to geographic points inside India */
+    .export-marker {
+        position       : absolute;
+        transform      : translate(-50%, -50%);
+        font-size      : 22px;
+        line-height    : 1;
+        z-index        : 1;
+        pointer-events : none;
+        user-select    : none;
+        filter         : drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+    }
+
+    /* Flying particles (goods + dollars) — anchor centres on the geo point, motion span moves */
+    .flow-anchor {
+        position       : absolute;
+        z-index        : 1;
+        pointer-events : none;
+        user-select    : none;
+    }
+
+    .flow-trajectory {
+        position    : relative;
+        display     : inline-block;
+        will-change : transform;
+    }
+
+    .flow-particle {
+        display     : inline-block;
+        font-size   : 20px;
+        line-height : 1;
+        will-change : transform;
+        filter      : drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+    }
+
+    /* Tag under each dollar — a coloured badge with white text, one per stream */
+    .flow-label {
+        position       : absolute;
+        top            : 100%;
+        left           : 50%;
+        transform      : translateX(-50%);
+        margin-top     : 3px;
+        padding        : 2px 5px;
+        border-radius  : 3px;
+        font-size      : 8.5px;
+        font-weight    : 700;
+        line-height    : 1;
+        white-space    : nowrap;
+        letter-spacing : 0.02em;
+        text-transform : uppercase;
+        color          : var(--white);
+    }
+
+    .flow-label.reserves { background-color : hsl(var(--neem)); }
+    /* reserves — green */
+    .flow-label.import { background-color : hsl(var(--indivara)); }
+    /* imports — blue/purple */
+    .flow-label.uturn { background-color : hsl(var(--vermilion)); }
+    /* debt repayment — red */
+
+    .earnings-title {
+        font-size     : 13px;
+        font-weight   : 600;
+        text-align    : center;
+        line-height   : 1.3;
+        margin-bottom : var(--nano);
+    }
+
+    /* Colour key for the three dollar streams */
+    .dsr-legend {
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        margin-bottom  : var(--nano);
+        text-align     : left;
+        font-size      : 11px;
+    }
+
+    .legend-row {
+        display     : flex;
+        align-items : center;
+        gap         : var(--nano);
+    }
+
+    .legend-dot {
+        flex-shrink   : 0;
+        width         : 9px;
+        height        : 9px;
+        border-radius : 50%;
+    }
+
+    .legend-dot.reserves { background-color : hsl(var(--neem)); }
+    .legend-dot.import { background-color : hsl(var(--indivara)); }
+    .legend-dot.uturn { background-color : hsl(var(--vermilion)); }
+
+    .sell-button {
+        white-space : nowrap;
+    }
+
+    /* Plain-text reset — revealed only when the cursor is in the bottom half of the section */
+    .reset-link {
+        opacity         : 0;
+        transform       : translateY(-4px);
+        transition      : opacity 0.2s ease, transform 0.2s ease;
+        pointer-events  : none;
+        text-shadow     : 0 1px 3px var(--body-bg), 0 0 2px var(--body-bg);
+    }
+
+    .reset-link.is-visible {
+        opacity        : 0.6;
+        transform      : translateY(0);
+        pointer-events : auto;
+    }
+
+    .reset-link:hover {
+        opacity         : 1;
+        text-decoration : underline;
+    }
+
+    .india-map {
+        display : block;
+        width   : 100%;
+        height  : 100%;
+    }
+
+    .india-map .country {
+        /* Neighbours — opaque light land so the blue water shows only in the sea */
+        fill            : hsl(44, 26%, 92%);
+        stroke          : color-mix(in oklch, var(--paragraph-text-colour), transparent 70%);
+        stroke-width    : 0.75;
+        stroke-linejoin : round;
+        vector-effect   : non-scaling-stroke;
+    }
+
+    .india-map .country.is-india {
+        /* India — light base; the saturated fill rises over it as earnings accumulate */
+        fill         : color-mix(in oklch, hsl(var(--terracotta)), white 48%);
+        stroke       : hsl(var(--terracotta));
+        stroke-width : 1;
+    }
+
+    .india-map .country.is-india-fill {
+        /* Saturated fill copy, clipped to the rising level — India as the gauge */
+        fill   : hsl(var(--terracotta));
+        stroke : none;
+    }
+
+    /* SCROLLYTELLING LAYOUT ================================================ */
+    .scrolly {
+        display               : grid;
+        grid-template-columns : 1fr;
+        position              : relative;
+    }
+
+    /* Sticky chart and the steps share the same grid cell, so steps scroll over the chart */
+    .scrolly-chart,
+    .scrolly-steps {
+        grid-column : 1;
+        grid-row    : 1;
+    }
+
+    /* Full-bleed: edge to edge horizontally, anchored to the viewport bottom */
+    .scrolly-chart {
+        position       : sticky;
+        top            : var(--site-header-height);
+        height         : calc(100vh - var(--site-header-height));
+        width          : 100%;
+        z-index        : 0;
+        pointer-events : none;
+    }
+
+    .debt-chart-wrap {
+        position : relative;
+        width    : 100%;
+        height   : 100%;
+    }
+
+    /* Current-year Badge riding the reveal edge along the bottom axis */
+    .edge-year-badge {
+        position         : absolute;
+        bottom           : 8px;
+        transform        : translateX(-50%);
+        font-family      : var(--font-mono);
+        font-weight      : 700;
+        background-color : var(--slate);
+        color            : var(--white);
+        border           : none;
+        z-index          : 2;
+    }
+
+    /* Line-value Badges floating just above each dot */
+    .value-badge {
+        position    : absolute;
+        transform   : translate(-50%, calc(-100% - 12px));
+        font-family : var(--font-mono);
+        font-weight : 700;
+        color       : var(--white);
+        border      : none;
+        z-index     : 2;
+    }
+
+    .value-badge-dsr { background-color : hsl(var(--vermilion)); }
+    .value-badge-gg { background-color : hsl(var(--indivara)); }
+
+    #debt-chart {
+        display : block;
+        width   : 100%;
+        height  : 100%;
+    }
+
+    .chart-legend {
+        position       : absolute;
+        top            : var(--micro);
+        left           : var(--micro);
+        display        : flex;
+        flex-direction : column;
+        gap            : var(--nano);
+    }
+
+    .legend-item {
+        gap : var(--nano);
+    }
+
+    .legend-swatch {
+        display       : inline-block;
+        width         : 18px;
+        height        : 3px;
+        border-radius : 2px;
+    }
+
+    .swatch-dsr { background-color : hsl(var(--vermilion)); }
+    .swatch-gg { background-color : hsl(var(--indivara)); }
+
+    /* STEPS ================================================================ */
+    .scrolly-steps {
+        z-index        : 1;
+        position       : relative;
+        pointer-events : none;
+    }
+
+    .scrolly-step {
+        min-height      : 92vh;
+        display         : flex;
+        align-items     : center;
+        justify-content : flex-end;
+        padding         : 0 var(--small);
+    }
+
+    .step-card {
+        pointer-events   : auto;
+        max-width        : 440px;
+        background-color : color-mix(in oklch, var(--white), transparent 80%);
+        backdrop-filter  : blur(8px) saturate(160%);
+        border-radius    : var(--nano);
+        transform        : translateY(16px);
+        transition       : opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+
+        /* 1px white inset ring stacked over a 1px black 4% outer shadow — no border */
+        border           : none;
+        box-shadow       : inset 0 0 0 1px var(--white),
+        0 0 0 1px color-mix(in oklch, var(--black), transparent 96%),
+        0 1.6px 0.2px rgba(0, 0, 0, 0.016),
+        0 3.2px 0.8px rgba(0, 0, 0, 0.024),
+        0 24.0px 16.0px rgba(0, 0, 0, 0.056),
+        0 32.0px 24.0px rgba(0, 0, 0, 0.064);
+    }
+
+    .scrolly-step.is-active .step-card {
+        opacity   : 1;
+        transform : translateY(0);
+    }
+
+    .step-year {
+        line-height : 1;
+        color       : hsl(var(--vermilion));
+    }
+
+    /* CHART INTERNALS ====================================================== */
+    #debt-chart {
+        /* Gradient area fills — colour at the line fading to transparent at the bottom */
+        .grad-dsr-top { stop-color : hsl(var(--vermilion)); stop-opacity : 0.30; }
+        .grad-dsr-bottom { stop-color : hsl(var(--vermilion)); stop-opacity : 0; }
+        .grad-gg-top { stop-color : hsl(var(--indivara)); stop-opacity : 0.18; }
+        .grad-gg-bottom { stop-color : hsl(var(--indivara)); stop-opacity : 0; }
+
+        .axis-labels text {
+            font-family : var(--font-mono);
+            font-size   : 13px;
+            fill        : var(--paragraph-text-colour);
+            opacity     : 0.5;
+        }
+
+        .line-dsr {
+            stroke          : hsl(var(--vermilion));
+            stroke-width    : 3;
+            stroke-linecap  : round;
+            stroke-linejoin : round;
+        }
+
+        .line-gg {
+            stroke           : hsl(var(--indivara));
+            stroke-width     : 2;
+            stroke-linecap   : round;
+            stroke-linejoin  : round;
+            stroke-dasharray : 1 7;
+            opacity          : 0.9;
+        }
+
+        /* Milestone dots — one per event year on each line */
+        .event-dot-dsr {
+            fill         : hsl(var(--vermilion));
+            stroke       : var(--body-bg);
+            stroke-width : 2;
+        }
+
+        .event-dot-gg {
+            fill         : hsl(var(--indivara));
+            stroke       : var(--body-bg);
+            stroke-width : 2;
+            opacity      : 0.85;
+        }
+
+        /* Travelling reveal-edge marker */
+        .reveal-edge {
+            stroke       : hsl(var(--vermilion));
+            stroke-width : 2;
+            opacity      : 0.55;
+        }
+
+        .focus-guide {
+            stroke           : var(--paragraph-text-colour);
+            stroke-width     : 1;
+            stroke-dasharray : 3 5;
+            opacity          : 0.35;
+        }
+
+        .focus-dot-dsr {
+            fill         : hsl(var(--vermilion));
+            stroke       : var(--body-bg);
+            stroke-width : 3;
+        }
+
+        .focus-dot-gg {
+            fill         : hsl(var(--indivara));
+            stroke       : var(--body-bg);
+            stroke-width : 3;
+        }
+    }
+
+    /* SOURCES ============================================================== */
+    .sources-heading {
+        text-transform : uppercase;
+    }
+
+    .download-link {
+        display    : inline-block;
+        width      : fit-content;
+        color      : hsl(var(--indivara));
+        transition : opacity 0.2s ease;
+    }
+
+    .download-link:hover {
+        opacity : 0.7;
+    }
+
+    .download-link svg {
+        stroke : hsl(var(--indivara));
+    }
+
+    /* MOBILE =============================================================== */
+    @media (max-width : 820px) {
+        .scrolly-step {
+            justify-content : center;
+        }
+
+        .step-card {
+            max-width : 100%;
+        }
+
+        #debt-chart {
+            opacity : 0.55;
+        }
+    }
+}

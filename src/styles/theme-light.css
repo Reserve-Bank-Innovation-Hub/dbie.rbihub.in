@@ -71,6 +71,7 @@
 
     /* TEXT ================================================================= */
     --font-sans-serif                    : "Geist", sans-serif;
+    --font-serif                         : "Sentient", serif;
     --font-mono                          : "Geist Mono", monospace;
 
     --heading-line-height                : 1;

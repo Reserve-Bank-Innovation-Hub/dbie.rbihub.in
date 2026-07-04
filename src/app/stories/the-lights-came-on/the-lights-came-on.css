@@ -1,0 +1,323 @@
+#the-lights-came-on-page {
+    /* ACTS I–III — dark indigo immersive ===================================== */
+    .act-dark {
+        position   : relative;
+        background : color-mix(in oklch, hsl(var(--indivara)), black 84%);
+
+        /* fictoan components read these, so cards and copy go dark without prop noise */
+        --heading-text-colour   : var(--white);
+        --paragraph-text-colour : hsl(var(--ivory));
+        --card-bg               : color-mix(in oklch, hsl(var(--indivara)), rgb(8 6 16 / 92%) 76%);
+        --card-border           : color-mix(in oklch, hsl(var(--ivory)), transparent 78%);
+    }
+
+    .stage {
+        position : sticky;
+        top      : 0;
+        height   : 100vh;
+        height   : 100svh;
+        overflow : hidden;
+    }
+
+    .credit-canvas-wrap {
+        position : absolute;
+        inset    : 0;
+    }
+
+    .credit-canvas-wrap canvas {
+        display : block;
+        width   : 100%;
+        height  : 100%;
+    }
+
+    .dot-tip {
+        position       : absolute;
+        transform      : translate(-50%, -100%);
+        max-width      : 36ch;
+        padding        : 6px 10px;
+        border         : 1px solid var(--card-border);
+        border-radius  : 6px;
+        background     : var(--card-bg);
+        color          : hsl(var(--ivory));
+        font-size      : 12.5px;
+        line-height    : 1.4;
+        text-align     : center;
+        pointer-events : none;
+        z-index        : 4;
+    }
+
+    /* steps ride over the sticky stage */
+    .steps {
+        position   : relative;
+        z-index    : 3;
+        margin-top : -100vh;
+        margin-top : -100svh;
+    }
+
+    .step {
+        min-height      : 95vh;
+        display         : flex;
+        align-items     : flex-end;
+        justify-content : center;
+        padding         : 0 16px 7vh;
+    }
+
+    .step.centered {
+        align-items    : center;
+        padding-bottom : 0;
+    }
+
+    .step-card {
+        max-width       : 560px;
+        width           : 100%;
+        backdrop-filter : blur(6px);
+    }
+
+    /* hero */
+    .title-card {
+        max-width  : 720px;
+        text-align : centre;
+        text-align : center;
+    }
+
+    .kicker {
+        letter-spacing : 0.14em;
+        opacity        : 0.75;
+    }
+
+    .tloc-title {
+        font-family : var(--font-serif);
+        font-size   : clamp(40px, 7vw, 72px);
+    }
+
+    .tloc-title .lit {
+        color       : hsl(var(--turmeric));
+        text-shadow : 0 0 28px color-mix(in oklch, hsl(var(--turmeric)), transparent 55%);
+    }
+
+    .tloc-sub {
+        max-width : 52ch;
+        margin    : 0 auto;
+        opacity   : 0.85;
+    }
+
+    .tloc-cue {
+        opacity   : 0.65;
+        animation : tloc-bob 1.7s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .tloc-cue { animation : none; }
+    }
+
+    /* controls */
+    .slider-row { gap : var(--micro); }
+
+    input[type="range"] {
+        flex         : 1 1 auto;
+        width        : 100%;
+        height       : 32px;
+        accent-color : hsl(var(--turmeric));
+    }
+
+    .guess-value {
+        min-width  : 3.2ch;
+        font-size  : 28px;
+        text-align : right;
+        color      : hsl(var(--turmeric));
+    }
+
+    .scrub-ends {
+        display         : flex;
+        justify-content : space-between;
+    }
+
+    .controls { gap : var(--nano); }
+
+    /* the breadth-not-depth mini visual: same-size dots, more of them */
+    .dots-inline {
+        display     : flex;
+        align-items : center;
+        gap         : 10px;
+    }
+
+    .dots-inline .dot {
+        width         : 14px;
+        height        : 14px;
+        border-radius : 50%;
+        background    : hsl(var(--turmeric));
+        box-shadow    : 0 0 10px color-mix(in oklch, hsl(var(--turmeric)), transparent 50%);
+    }
+
+    .dots-inline .arrow {
+        color   : hsl(var(--ivory));
+        opacity : 0.7;
+    }
+
+    /* dark → light hand-off into the receipts */
+    .dawn {
+        position : relative;
+        z-index  : 3;
+        height   : 16vh;
+        background : linear-gradient(
+            to bottom,
+            transparent,
+            var(--body-bg)
+        );
+    }
+
+    /* ACT IV — charts ======================================================== */
+    .tloc-chart { width : 100%; }
+
+    .slope-chart   { height : 540px; }
+    .indexed-chart { height : 440px; }
+
+    .tloc-chart .axis-label {
+        font-family : var(--font-mono);
+        font-size   : 12px;
+        fill        : var(--paragraph-text-colour);
+        opacity     : 0.7;
+    }
+
+    .tloc-chart .slope-label {
+        font-size : 13px;
+        fill      : var(--paragraph-text-colour);
+    }
+
+    .tloc-chart .series-label {
+        font-size   : 13px;
+        font-weight : 600;
+        fill        : var(--paragraph-text-colour);
+    }
+
+    .tloc-chart .axis-line,
+    .tloc-chart .grid-line {
+        stroke : color-mix(in oklch, var(--paragraph-text-colour), transparent 78%);
+    }
+
+    .tloc-chart .ref-line {
+        stroke : color-mix(in oklch, var(--paragraph-text-colour), transparent 30%);
+    }
+
+    .tloc-chart .ghost-tick {
+        stroke       : var(--paragraph-text-colour);
+        stroke-width : 2.5;
+        opacity      : 0.55;
+    }
+
+    .slope-muted  { color : color-mix(in oklch, var(--paragraph-text-colour), transparent 40%); }
+    .slope-accent { color : var(--paragraph-text-colour); }
+
+    @media (max-width : 760px) {
+        .slope-chart { height : 480px; }
+
+        .tloc-chart .slope-label,
+        .tloc-chart .series-label { font-size : 11px; }
+    }
+}
+
+@keyframes tloc-bob {
+    50% { transform : translateY(6px); }
+}
+
+#the-lights-came-on-page .stacked-chart {
+    height : 460px;
+}
+
+#the-lights-came-on-page .tloc-chart .bar-value {
+    font-family : var(--font-mono);
+    font-size   : 11px;
+    font-weight : 700;
+    fill        : var(--paragraph-text-colour);
+}
+
+#the-lights-came-on-page .tloc-chart .bar-value.on-warm {
+    fill : #fff;
+}
+
+#the-lights-came-on-page .tloc-chart .legend-label {
+    font-size : 11.5px;
+    fill      : var(--paragraph-text-colour);
+    opacity   : 0.75;
+}
+
+/* chart 10 — stock vs flow isotype ========================================= */
+#the-lights-came-on-page .women-isotype .sr-only {
+    position : absolute;
+    width    : 1px;
+    height   : 1px;
+    overflow : hidden;
+    clip     : rect(0 0 0 0);
+}
+
+#the-lights-came-on-page .iso-legend {
+    gap           : var(--micro);
+    margin-bottom : var(--micro);
+    font-size     : 12.5px;
+    color         : var(--paragraph-text-colour);
+}
+
+#the-lights-came-on-page .iso-key {
+    display     : inline-flex;
+    align-items : center;
+    gap         : 6px;
+}
+
+#the-lights-came-on-page .iso-swatch {
+    width         : 12px;
+    height        : 12px;
+    border-radius : 50%;
+    display       : inline-block;
+}
+
+#the-lights-came-on-page .iso-note {
+    margin-left : auto;
+}
+
+#the-lights-came-on-page .isotype-panels {
+    display               : grid;
+    grid-template-columns : repeat(auto-fit, minmax(240px, 1fr));
+    gap                   : 20px;
+}
+
+#the-lights-came-on-page .iso-panel {
+    background    : var(--card-bg);
+    border        : 1px solid var(--card-border);
+    border-radius : 12px;
+    padding       : 1rem 1.25rem;
+}
+
+#the-lights-came-on-page .iso-panel-flow {
+    border : 2px solid hsl(var(--indivara));
+}
+
+#the-lights-came-on-page .isotype-grid {
+    display               : grid;
+    grid-template-columns : repeat(10, 1fr);
+    gap                   : 5px;
+    margin                : 8px 0 14px;
+}
+
+#the-lights-came-on-page .iso-dot {
+    aspect-ratio  : 1;
+    border-radius : 50%;
+}
+
+#the-lights-came-on-page .iso-dot.pending {
+    opacity   : 0;
+    transform : scale(0.2);
+}
+
+#the-lights-came-on-page .iso-dot.on {
+    opacity    : 1;
+    transform  : scale(1);
+    transition : opacity 0.25s ease, transform 0.25s ease;
+}
+
+#the-lights-came-on-page .iso-stat-row {
+    gap : var(--nano);
+}
+
+#the-lights-came-on-page .iso-stat {
+    font-size : 24px;
+}
