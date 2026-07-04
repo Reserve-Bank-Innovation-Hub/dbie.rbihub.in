@@ -1,11 +1,12 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // UI ==================================================================================================================
 import { Article, Button, Card, Div, Divider, Heading1, Heading4, Heading6, Portion, Row, Section, Text } from "fictoan-react";
-import { Download } from "lucide-react";
+import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { CreditCanvas, type CanvasScene } from "./CreditCanvas";
@@ -124,7 +125,7 @@ export const TheLightsCameOnPage = () => {
     const perHundred = Math.round((y26.acc / y15.acc) * 100);
 
     return (
-        <Article id="the-lights-came-on-page">
+        <Article id="the-lights-came-on-page" paddingBottom="small">
             {/* ACTS I–III — dark indigo, one sticky canvas ======================================== */}
             <Div className="act-dark">
                 <Div className="stage">
@@ -457,7 +458,70 @@ export const TheLightsCameOnPage = () => {
             <Section id="tloc-sources">
                 <Row horizontalPadding="small" marginTop="large" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="half">
-                        <Text isSubtext weight="600" size="tiny">SOURCES &amp; METHOD</Text>
+                        <Divider kind="secondary" verticalMargin="micro" />
+
+                        <Text weight="600" size="tiny">SOURCES</Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            All credit figures—Reserve Bank of India, Basic Statistical Returns of scheduled
+                            commercial banks, Table 3.2 (organisation-wise classification of outstanding credit
+                            according to occupation), quarterly, March 2014 – March 2026. March-end points used
+                            for annual beats; &ldquo;Individuals&rdquo; columns with the male/female split.
+                        </Text>
+
+                        <a href="/stories/the-lights-came-on/rbi-bsr-table-3-2-occupation-credit.xlsx" download className="download-link">
+                            <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
+                                <Download size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                    Download BSR Table 3.2 (XLSX)
+                                </Text>
+                            </Div>
+                        </a>
+
+                        <Link href="/publications/credit-classification" className="download-link">
+                            <Div verticallyCentreItems marginBottom="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                    Go to dataset
+                                </Text>
+                            </Div>
+                        </Link>
+
+                        <Divider kind="tertiary" verticalMargin="micro" />
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>Dots, not people.</strong> Lit dots count borrower <em>accounts</em> (one
+                            person can hold several); the 104-dot field counts credit-eligible
+                            <em> adults</em> (≈1,036 million; TransUnion CIBIL, World Bank–based, December 2024).
+                            A deliberate proxy—directionally the inclusion story, not a literal 1:1.
+                        </Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>Units switch once.</strong> Acts I and III count rupees (shares of ₹100 of
+                            outstanding credit; inflation cancels in shares). Act II counts borrower accounts.
+                            All loan-size figures are nominal; no price adjustment is applied anywhere.
+                        </Text>
+
+                        <Text size="tiny" marginBottom="nano">
+                            <strong>The decline is in the table, not smoothed over.</strong> Women&rsquo;s borrower
+                            accounts peaked at 11.6 crore in March 2024 and fell to 10.3 crore by March 2026; the
+                            total count of individual borrowers also dipped in the final year. The point-to-point
+                            growth figures (4&times; for women, 3&times; overall) are 2015&rarr;2026 and include
+                            that decline.
+                        </Text>
+
+                        <Text size="tiny">
+                            <strong>Borrowed framings.</strong> &ldquo;More borrowers, not deeper debt&rdquo;—RBI
+                            Deputy Governor M Rajeshwar Rao (July 2025) and RBI FSR (December 2024).
+                            Banks&rsquo; shift toward retail &ldquo;to reduce concentration of exposures to large
+                            corporates&rdquo;—IMF FSAP. &ldquo;Inclusion and aspiration&rdquo; that must not
+                            &ldquo;morph into systemic over-indebtedness&rdquo;—CAFRAL, 2026. November-2023
+                            unsecured risk-weight action—RBI notification RBI/2023-24/85.
+                        </Text>
+                    </Portion>
+
+                    <Portion desktopSpan="half">
+                        <Text isSubtext weight="600" size="tiny">METHOD</Text>
 
                         <Divider kind="secondary" verticalMargin="micro" />
 
@@ -476,6 +540,15 @@ export const TheLightsCameOnPage = () => {
                                 </Text>
                             </Div>
                         </a>
+
+                        <Link href="/publications/credit-classification" className="download-link">
+                            <Div verticallyCentreItems marginBottom="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                    Go to dataset
+                                </Text>
+                            </Div>
+                        </Link>
 
                         <Divider kind="tertiary" verticalMargin="micro" />
 

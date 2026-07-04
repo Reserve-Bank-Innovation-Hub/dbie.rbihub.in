@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 // UI ==================================================================================================================
 import { Article, Card, Div, Divider, Heading1, Heading4, Heading6, Portion, Row, Section, Text } from "fictoan-react";
-import { Download } from "lucide-react";
+import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { DebtChart } from "./DebtChart";
@@ -262,6 +262,15 @@ export const DebtToServiceRatioPage = () => {
                             </Div>
                         </a>
 
+                        <Link href="/publications/external-debt" className="download-link">
+                            <Div verticallyCentreItems marginTop="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                    Go to dataset
+                                </Text>
+                            </Div>
+                        </Link>
+
                         <Divider kind="tertiary" verticalMargin="micro" />
 
                         <Text size="tiny">
@@ -285,6 +294,15 @@ export const DebtToServiceRatioPage = () => {
                                 </Text>
                             </Div>
                         </a>
+
+                        <Link href="/tables/debt-indicators-of-government-as-percentage-to-gdp" className="download-link">
+                            <Div verticallyCentreItems marginTop="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano" size="tiny">
+                                    Go to dataset
+                                </Text>
+                            </Div>
+                        </Link>
                     </Portion>
                 </Row>
             </Section>

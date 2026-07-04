@@ -1,11 +1,12 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 // UI ==================================================================================================================
 import { Article, Card, Div, Divider, Heading1, Heading6, Portion, Row, Section, Text } from "fictoan-react";
-import { Download } from "lucide-react";
+import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { DebtMixChart } from "./DebtMixChart";
@@ -181,6 +182,15 @@ export const ConcessionalVsCommercialPage = () => {
                                 </Text>
                             </Div>
                         </a>
+
+                        <Link href="/publications/external-debt" className="download-link">
+                            <Div verticallyCentreItems marginTop="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" textColour="indivara" marginLeft="nano">
+                                    Go to dataset
+                                </Text>
+                            </Div>
+                        </Link>
                     </Portion>
                 </Row>
             </Section>

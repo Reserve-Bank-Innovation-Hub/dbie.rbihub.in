@@ -321,3 +321,19 @@
 #the-lights-came-on-page .iso-stat {
     font-size : 24px;
 }
+
+/* SOURCES ============================================================================================================ */
+#the-lights-came-on-page .download-link {
+    display    : inline-block;
+    width      : fit-content;
+    color      : hsl(var(--indivara));
+    transition : opacity 0.2s ease;
+}
+
+#the-lights-came-on-page .download-link:hover {
+    opacity : 0.7;
+}
+
+#the-lights-came-on-page .download-link svg {
+    stroke : hsl(var(--indivara));
+}
