@@ -38,6 +38,8 @@ export const SiteSearch = ({isOpen : isModalOpen, onClose} : SiteSearchProps) =>
     const [ activeIndex, setActiveIndex ] = useState(-1);
     const inputRef = useRef<HTMLInputElement>(null);
     const debounceRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const zeroResultTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const lastReportedRef = useRef("");
     const [ db, setDb ] = useState<AnyOrama | null>(null);
     const [ results, setResults ] = useState<SearchResult[]>([]);
 
@@ -101,6 +103,17 @@ export const SiteSearch = ({isOpen : isModalOpen, onClose} : SiteSearchProps) =>
             setResults(hits);
             setHasResults(hits.length > 0);
             setActiveIndex(-1);
+
+            // Count zero-result searches (anonymous counter, the missing-content
+            // signal on /enni) — only once the query settles, and once per query.
+            if (zeroResultTimerRef.current) clearTimeout(zeroResultTimerRef.current);
+            const settled = searchQuery.trim().toLowerCase();
+            if (hits.length === 0 && settled.length >= 3 && lastReportedRef.current !== settled) {
+                zeroResultTimerRef.current = setTimeout(() => {
+                    lastReportedRef.current = settled;
+                    window.enni?.("s0", settled);
+                }, 1500);
+            }
         },
         [ db ],
     );

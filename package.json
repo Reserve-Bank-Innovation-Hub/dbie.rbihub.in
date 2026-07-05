@@ -19,6 +19,7 @@
         "ag-grid-community": "^34.3.1",
         "ag-grid-react": "^34.3.1",
         "d3-geo": "^3.1.1",
+        "enni-analytics": "^0.1.0",
         "fictoan-react": "2.0.0-beta.19",
         "framer-motion": "^12.42.2",
         "lucide-react": "^0.468.0",

@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 import { Main, ThemeProvider } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { Analytics } from "@components/Analytics/Analytics";
 import { PrimaryNav } from "@components/PrimaryNav/PrimaryNav";
 
 // STYLES ==============================================================================================================
@@ -26,6 +27,8 @@ export const RootLayoutClient = ({children} : { children : ReactNode }) => {
             <PrimaryNav />
 
             <Main id="component-main">{children}</Main>
+
+            <Analytics />
         </ThemeProvider>
         </body>
         </html>

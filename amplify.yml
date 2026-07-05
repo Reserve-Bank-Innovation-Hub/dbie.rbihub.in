@@ -18,6 +18,9 @@ frontend:
         - pnpm data:sync
     build:
       commands:
+        # Amplify exposes env vars at build time only; write the enni ones
+        # into .env.production so the Next SSR runtime can read them too.
+        - env | grep -E '^ENNI_' >> .env.production || true
         - pnpm build
   artifacts:
     baseDirectory: .next
