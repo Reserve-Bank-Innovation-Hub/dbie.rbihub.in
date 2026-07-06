@@ -21,8 +21,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       enni-analytics:
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.2.0
+        version: 0.2.0
       fictoan-react:
         specifier: 2.0.0-beta.19
         version: 2.0.0-beta.19(prismjs@1.30.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -1645,8 +1645,8 @@ packages:
   end-of-stream@1.4.5:
     resolution: {integrity: sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==}
 
-  enni-analytics@0.1.0:
-    resolution: {integrity: sha512-Z5b49VNwTZ/HKQEYxOjKh/T+kg+nNkVfTtHWijDBoh3mL1SPfbm0CZIFpbysjCRjmhT8ZrYVlVlTeypM8SEBSA==}
+  enni-analytics@0.2.0:
+    resolution: {integrity: sha512-0IsbfxdK01qGqPMba2IWBCz1uwKQUlKQIwE8BGMQWPIExVpaZ2DyPmkuCwu57RDanJ2c0/EfVMVb770kW5y9pA==}
     engines: {node: '>=18'}
 
   entities@4.5.0:
@@ -4562,7 +4562,7 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  enni-analytics@0.1.0:
+  enni-analytics@0.2.0:
     dependencies:
       '@aws-sdk/client-dynamodb': 3.1079.0
 
