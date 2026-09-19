@@ -1,0 +1,862 @@
+{
+ "dsdCode": "INX_WPI_RN",
+ "label": "Index Numbers of Wholesale Prices in India",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:36.398Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COMD_ITEM",
+   "name": "Commodity",
+   "column": "comd_item_description",
+   "table": "dim_ebr_comd_item",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56873",
+     "code": "C_AL_COM",
+     "label": "All Commodities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56893",
+     "code": "C_AC_FPLL",
+     "label": "Fuel Power Light & Lubricants",
+     "parentId": "56873",
+     "level": 2
+    },
+    {
+     "id": "56894",
+     "code": "C_AC_FPLL_CM",
+     "label": "Coal Minning",
+     "parentId": "56893",
+     "level": 3
+    },
+    {
+     "id": "56896",
+     "code": "C_AC_FPLL_EL",
+     "label": "Electricity",
+     "parentId": "56893",
+     "level": 3
+    },
+    {
+     "id": "56895",
+     "code": "C_AC_FPLL_MO",
+     "label": "Minerals Oils",
+     "parentId": "56893",
+     "level": 3
+    },
+    {
+     "id": "56897",
+     "code": "C_AC_MP",
+     "label": "Manufactured Products",
+     "parentId": "56873",
+     "level": 2
+    },
+    {
+     "id": "56899",
+     "code": "C_AC_MP_BMAMP",
+     "label": "Basic Metals Alloys & Metals Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56900",
+     "code": "C_AC_MP_BMAMP_BMA",
+     "label": "Basic Metals & Alloys",
+     "parentId": "56899",
+     "level": 4
+    },
+    {
+     "id": "56904",
+     "code": "C_AC_MP_BMAMP_BMA_FA",
+     "label": "Ferro Alloys",
+     "parentId": "56900",
+     "level": 5
+    },
+    {
+     "id": "56902",
+     "code": "C_AC_MP_BMAMP_BMA_FCFS",
+     "label": "Foundries for Casting Forging & Structurals",
+     "parentId": "56900",
+     "level": 5
+    },
+    {
+     "id": "56901",
+     "code": "C_AC_MP_BMAMP_BMA_IS",
+     "label": "Iron & Steel",
+     "parentId": "56900",
+     "level": 5
+    },
+    {
+     "id": "56903",
+     "code": "C_AC_MP_BMAMP_BMA_PWDO",
+     "label": "Pipes Wires Drawing & Others",
+     "parentId": "56900",
+     "level": 5
+    },
+    {
+     "id": "56908",
+     "code": "C_AC_MP_BMAMP_MP",
+     "label": "Metal Products",
+     "parentId": "56899",
+     "level": 4
+    },
+    {
+     "id": "56905",
+     "code": "C_AC_MP_BMAMP_NFM",
+     "label": "Non-Ferrous Metals",
+     "parentId": "56899",
+     "level": 4
+    },
+    {
+     "id": "56906",
+     "code": "C_AC_MP_BMAMP_NFM_AL",
+     "label": "Aluminium",
+     "parentId": "56905",
+     "level": 5
+    },
+    {
+     "id": "56907",
+     "code": "C_AC_MP_BMAMP_NFM_ONFM",
+     "label": "Other Non-Ferrous Metals",
+     "parentId": "56905",
+     "level": 5
+    },
+    {
+     "id": "56932",
+     "code": "C_AC_MP_BTP",
+     "label": "Beverages, Tobacco & Tobacco Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56934",
+     "code": "C_AC_MP_BTP_ML",
+     "label": "Malt liquor",
+     "parentId": "56932",
+     "level": 4
+    },
+    {
+     "id": "56936",
+     "code": "C_AC_MP_BTP_MBCTZ",
+     "label": "Manufacture of Bidi,Cigarettes,Tobacco & Zarda",
+     "parentId": "56932",
+     "level": 4
+    },
+    {
+     "id": "56935",
+     "code": "C_AC_MP_BTP_SCW",
+     "label": "Soft Drinks & Carbonated Water",
+     "parentId": "56932",
+     "level": 4
+    },
+    {
+     "id": "56933",
+     "code": "C_AC_MP_BTP_WI",
+     "label": "Wine Industries",
+     "parentId": "56932",
+     "level": 4
+    },
+    {
+     "id": "56959",
+     "code": "C_AC_MP_CCP",
+     "label": "Chemicals & Chemical Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56960",
+     "code": "C_AC_MP_CCP_BHIC",
+     "label": "Basic Heavy Inorganic Chemical",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56961",
+     "code": "C_AC_MP_CCP_BHOC",
+     "label": "Basic Heavy Organic Chamical",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56967",
+     "code": "C_AC_MP_CCP_DM",
+     "label": "Drugs & Medicines",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56966",
+     "code": "C_AC_MP_CCP_DSI",
+     "label": "Dyestuffs & Indigo",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56962",
+     "code": "C_AC_MP_CCP_FP",
+     "label": "Fertilisers & Pesticides",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56963",
+     "code": "C_AC_MP_CCP_FP_FR",
+     "label": "Fertilisers",
+     "parentId": "56962",
+     "level": 5
+    },
+    {
+     "id": "56964",
+     "code": "C_AC_MP_CCP_FP_PS",
+     "label": "Pesticides",
+     "parentId": "56962",
+     "level": 5
+    },
+    {
+     "id": "56971",
+     "code": "C_AC_MP_CCP_MEOC",
+     "label": "Matches, Explosives and Other Chemicals n.e.c",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56965",
+     "code": "C_AC_MP_CCP_PVL",
+     "label": "Paints, Varnishes & Laquers",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56968",
+     "code": "C_AC_MP_CCP_PCT",
+     "label": "Perfumes, Cosmetics, Toiletries etc",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56969",
+     "code": "C_AC_MP_CCP_PCT_OTH",
+     "label": "Others",
+     "parentId": "56968",
+     "level": 5
+    },
+    {
+     "id": "56970",
+     "code": "C_AC_MP_CCP_TSRPM",
+     "label": "Turpentine, Synthetic Resins and Plastic materials",
+     "parentId": "56959",
+     "level": 4
+    },
+    {
+     "id": "56898",
+     "code": "C_AC_MP_FP",
+     "label": "Food Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56927",
+     "code": "C_AC_MP_FP_BP",
+     "label": "Bakery Products",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56925",
+     "code": "C_AC_MP_FP_CPPF",
+     "label": "Canning, Preserving & Processing of fish",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56930",
+     "code": "C_AC_MP_FP_CCSC",
+     "label": "Cocoa, Choclate Sugar & Confectionery",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56909",
+     "code": "C_AC_MP_FP_DP",
+     "label": "Dairy Products",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56931",
+     "code": "C_AC_MP_FP_EO",
+     "label": "Edible Oils",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56926",
+     "code": "C_AC_MP_FP_GMP",
+     "label": "Grain Mill Products",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56929",
+     "code": "C_AC_MP_FP_MCS",
+     "label": "Manufacture of Common Salts",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56911",
+     "code": "C_AC_MP_FP_OC",
+     "label": "Oil Cakes",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56917",
+     "code": "C_AC_MP_FP_OFP",
+     "label": "Other Food Products n.e.c",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56928",
+     "code": "C_AC_MP_FP_SKG",
+     "label": "Sugar,Khandsari & Gur",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56912",
+     "code": "C_AC_MP_FP_TCP",
+     "label": "Tea & Coffee Proccessing",
+     "parentId": "56898",
+     "level": 4
+    },
+    {
+     "id": "56952",
+     "code": "C_AC_MP_LP",
+     "label": "Leather & Leather Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56910",
+     "code": "C_AC_MP_MMT",
+     "label": "Machinery & Machine Tools",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56918",
+     "code": "C_AC_MP_MMT_EM",
+     "label": "Electrical Machinery",
+     "parentId": "56910",
+     "level": 4
+    },
+    {
+     "id": "56921",
+     "code": "C_AC_MP_MMT_EM_DWB",
+     "label": "Dry & Wet Batteries",
+     "parentId": "56918",
+     "level": 5
+    },
+    {
+     "id": "56984",
+     "code": "C_AC_MP_MMT_EM_EAA",
+     "label": "Electrical appratus and Appliances",
+     "parentId": "56918",
+     "level": 5
+    },
+    {
+     "id": "56919",
+     "code": "C_AC_MP_MMT_EM_EIM",
+     "label": "Electrical Industrial Machinery",
+     "parentId": "56918",
+     "level": 5
+    },
+    {
+     "id": "56920",
+     "code": "C_AC_MP_MMT_EM_WC",
+     "label": "Wires & Cables",
+     "parentId": "56918",
+     "level": 5
+    },
+    {
+     "id": "56913",
+     "code": "C_AC_MP_MMT_NEMP",
+     "label": "Non-Electrical Machinery & Parts",
+     "parentId": "56910",
+     "level": 4
+    },
+    {
+     "id": "56914",
+     "code": "C_AC_MP_MMT_NEMP_HMP",
+     "label": "Heavy Machinery & Parts",
+     "parentId": "56913",
+     "level": 5
+    },
+    {
+     "id": "56915",
+     "code": "C_AC_MP_MMT_NEMP_IMT",
+     "label": "Industrial Machinery for Textile etc",
+     "parentId": "56913",
+     "level": 5
+    },
+    {
+     "id": "56916",
+     "code": "C_AC_MP_MMT_NEMP_ROMEM",
+     "label": "Refrigeration & Other Non-Electrical Machinery",
+     "parentId": "56913",
+     "level": 5
+    },
+    {
+     "id": "56972",
+     "code": "C_AC_MP_NMMP",
+     "label": "Non-Mettallic Mineral Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56977",
+     "code": "C_AC_MP_NMMP_CSGP",
+     "label": "Cement Slate & Graphite Products",
+     "parentId": "56972",
+     "level": 4
+    },
+    {
+     "id": "56975",
+     "code": "C_AC_MP_NMMP_CLP",
+     "label": "Cement,lime & plaster",
+     "parentId": "56972",
+     "level": 4
+    },
+    {
+     "id": "56976",
+     "code": "C_AC_MP_NMMP_CLP_CM",
+     "label": "Cement",
+     "parentId": "56975",
+     "level": 5
+    },
+    {
+     "id": "56974",
+     "code": "C_AC_MP_NMMP_GECP",
+     "label": "Glass Earthernware Chinaware & their products",
+     "parentId": "56972",
+     "level": 4
+    },
+    {
+     "id": "56973",
+     "code": "C_AC_MP_NMMP_SCP",
+     "label": "Structural Clay Products",
+     "parentId": "56972",
+     "level": 4
+    },
+    {
+     "id": "56948",
+     "code": "C_AC_MP_PP",
+     "label": "Paper & Paper Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56950",
+     "code": "C_AC_MP_PP_MB",
+     "label": "Manufacture of Board",
+     "parentId": "56948",
+     "level": 4
+    },
+    {
+     "id": "56949",
+     "code": "C_AC_MP_PP_PP",
+     "label": "Paper & Pulp",
+     "parentId": "56948",
+     "level": 4
+    },
+    {
+     "id": "56951",
+     "code": "C_AC_MP_PP_PPNP",
+     "label": "Printing & Publishing of Newspapers,Periodicals etc",
+     "parentId": "56948",
+     "level": 4
+    },
+    {
+     "id": "56953",
+     "code": "C_AC_MP_RPP",
+     "label": "Rubber & Plastic Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56958",
+     "code": "C_AC_MP_RPP_ORPP",
+     "label": "Other Rubber & Plastic Products",
+     "parentId": "56953",
+     "level": 4
+    },
+    {
+     "id": "56957",
+     "code": "C_AC_MP_RPP_PP",
+     "label": "Plastic Products",
+     "parentId": "56953",
+     "level": 4
+    },
+    {
+     "id": "56954",
+     "code": "C_AC_MP_RPP_TT",
+     "label": "Tyres & Tubes",
+     "parentId": "56953",
+     "level": 4
+    },
+    {
+     "id": "56956",
+     "code": "C_AC_MP_RPP_TT_TU",
+     "label": "Tubes",
+     "parentId": "56954",
+     "level": 5
+    },
+    {
+     "id": "56955",
+     "code": "C_AC_MP_RPP_TT_TY",
+     "label": "Tyres",
+     "parentId": "56954",
+     "level": 5
+    },
+    {
+     "id": "56937",
+     "code": "C_AC_MP_TXT",
+     "label": "Textiles",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56938",
+     "code": "C_AC_MP_TXT_CT",
+     "label": "Cotton Textiles",
+     "parentId": "56937",
+     "level": 4
+    },
+    {
+     "id": "56940",
+     "code": "C_AC_MP_TXT_CT_CC",
+     "label": "Cotton Cloth (Mills)",
+     "parentId": "56938",
+     "level": 5
+    },
+    {
+     "id": "56939",
+     "code": "C_AC_MP_TXT_CT_CY",
+     "label": "Cotton Yarn",
+     "parentId": "56938",
+     "level": 5
+    },
+    {
+     "id": "56945",
+     "code": "C_AC_MP_TXT_JHMT",
+     "label": "Jute Hemp & Mesta Textiles",
+     "parentId": "56937",
+     "level": 4
+    },
+    {
+     "id": "56941",
+     "code": "C_AC_MP_TXT_MMT",
+     "label": "Man Made Textiles",
+     "parentId": "56937",
+     "level": 4
+    },
+    {
+     "id": "56943",
+     "code": "C_AC_MP_TXT_MMT_MMC",
+     "label": "Man Made Cloth",
+     "parentId": "56941",
+     "level": 5
+    },
+    {
+     "id": "56942",
+     "code": "C_AC_MP_TXT_MMT_MMF",
+     "label": "Man Made Fibre",
+     "parentId": "56941",
+     "level": 5
+    },
+    {
+     "id": "56946",
+     "code": "C_AC_MP_TXT_OMT",
+     "label": "Other Misc. Textiles",
+     "parentId": "56937",
+     "level": 4
+    },
+    {
+     "id": "56944",
+     "code": "C_AC_MP_TXT_WT",
+     "label": "Woolen Textiles",
+     "parentId": "56937",
+     "level": 4
+    },
+    {
+     "id": "56922",
+     "code": "C_AC_MP_TEP",
+     "label": "Transport Equipment & Parts",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56923",
+     "code": "C_AC_MP_TEP_LRWP",
+     "label": "Locomotives Railway Wagon & Parts",
+     "parentId": "56922",
+     "level": 4
+    },
+    {
+     "id": "56924",
+     "code": "C_AC_MP_TEP_MVMCSBP",
+     "label": "Motor Vehicles, Motorcycles, Scooters, bicycles & parts",
+     "parentId": "56922",
+     "level": 4
+    },
+    {
+     "id": "56947",
+     "code": "C_AC_MP_WP",
+     "label": "Wood & Wood Products",
+     "parentId": "56897",
+     "level": 3
+    },
+    {
+     "id": "56874",
+     "code": "C_AC_PI",
+     "label": "Primary Article",
+     "parentId": "56873",
+     "level": 2
+    },
+    {
+     "id": "56875",
+     "code": "C_AC_PI_FA",
+     "label": "Food Articles",
+     "parentId": "56874",
+     "level": 3
+    },
+    {
+     "id": "56884",
+     "code": "C_AC_PI_FA_CS",
+     "label": "Condiments & Spices",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56883",
+     "code": "C_AC_PI_FA_EMF",
+     "label": "Eggs,Meat & Fish",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56876",
+     "code": "C_AC_PI_FA_FG",
+     "label": "Food Grains(Cereals+Pulses)",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56877",
+     "code": "C_AC_PI_FA_FG_C",
+     "label": "Cereals",
+     "parentId": "56876",
+     "level": 5
+    },
+    {
+     "id": "56878",
+     "code": "C_AC_PI_FA_FG_P",
+     "label": "Pulses",
+     "parentId": "56876",
+     "level": 5
+    },
+    {
+     "id": "56879",
+     "code": "C_AC_PI_FA_FV",
+     "label": "Fruits & Vegetables",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56881",
+     "code": "C_AC_PI_FA_FV_F",
+     "label": "Fruits",
+     "parentId": "56879",
+     "level": 5
+    },
+    {
+     "id": "56880",
+     "code": "C_AC_PI_FA_FV_V",
+     "label": "Vegetables",
+     "parentId": "56879",
+     "level": 5
+    },
+    {
+     "id": "56882",
+     "code": "C_AC_PI_FA_MK",
+     "label": "Milk",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56885",
+     "code": "C_AC_PI_FA_OFA",
+     "label": "Other Food Articles",
+     "parentId": "56875",
+     "level": 4
+    },
+    {
+     "id": "56890",
+     "code": "C_AC_PI_MI",
+     "label": "Minerals",
+     "parentId": "56874",
+     "level": 3
+    },
+    {
+     "id": "56978",
+     "code": "C_AC_PI_MI_CP",
+     "label": "Crude Petroleum",
+     "parentId": "56890",
+     "level": 4
+    },
+    {
+     "id": "56891",
+     "code": "C_AC_PI_MI_MM",
+     "label": "Metallic Minerals",
+     "parentId": "56890",
+     "level": 4
+    },
+    {
+     "id": "56892",
+     "code": "C_AC_PI_MI_OM",
+     "label": "Other Minerals",
+     "parentId": "56890",
+     "level": 4
+    },
+    {
+     "id": "56886",
+     "code": "C_AC_PI_NFA",
+     "label": "Non-Food Articles",
+     "parentId": "56874",
+     "level": 3
+    },
+    {
+     "id": "56887",
+     "code": "C_AC_PI_NFA_F",
+     "label": "Fibres",
+     "parentId": "56886",
+     "level": 4
+    },
+    {
+     "id": "56979",
+     "code": "C_AC_PI_NFA_FC",
+     "label": "Floriculture",
+     "parentId": "56886",
+     "level": 4
+    },
+    {
+     "id": "56888",
+     "code": "C_AC_PI_NFA_OS",
+     "label": "Oil Seeds",
+     "parentId": "56886",
+     "level": 4
+    },
+    {
+     "id": "56889",
+     "code": "C_AC_PI_NFA_ONFA",
+     "label": "Other Non-Food Articles",
+     "parentId": "56886",
+     "level": 4
+    },
+    {
+     "id": "56980",
+     "code": "C_AC_FP",
+     "label": "Fuel and Power",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56983",
+     "code": "C_AC_FP_C",
+     "label": "Coal",
+     "parentId": "56980",
+     "level": 2
+    },
+    {
+     "id": "56981",
+     "code": "C_AC_FP_EC",
+     "label": "Electricity",
+     "parentId": "56980",
+     "level": 2
+    },
+    {
+     "id": "56982",
+     "code": "C_AC_FP_MO",
+     "label": "Mineral Oils",
+     "parentId": "56980",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

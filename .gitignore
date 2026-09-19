@@ -8,11 +8,12 @@ dist/
 build/
 out/
 
-# Build-synced DBIE data (populated from S3 at build time; not committed)
+# Site data bundle, downloaded from S3 at build time (pnpm data:pull); not committed
 public/data/
 
 # Environment - only ignore .local and .production files
 .env
+.env.common
 .env.local
 .env.*.local
 .env.production
@@ -49,8 +50,19 @@ next-env.d.ts
 # Vercel
 .vercel
 
-# Scrape staging (raw DSD-coded output; ingest-sdmx.mjs -> data/sdmx)
+# Scraped data is not versioned in git: the database is the system of record and every scrape is archived to S3
+# (pnpm data:archive; restore with pnpm data:fetch). See docs/database.md.
+data/sdmx/
+data/reports/
 data/sdmx-raw/
 data/bse-raw/
 # Scraper recon artefacts
 scripts/recon/output/
+
+# Terraform
+infra/terraform/**/.terraform/
+infra/terraform/**/*.tfstate*
+infra/terraform/**/*.tfplan
+
+# Which archived scrape data/ holds (written by pnpm data:archive / data:fetch)
+data/.scrape-version

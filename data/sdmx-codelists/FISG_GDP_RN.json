@@ -1,0 +1,118 @@
+{
+ "dsdCode": "FISG_GDP_RN",
+ "label": "Fiscal Indicators of the State Government as per centage to GDP",
+ "sector": "Public Finance",
+ "subSector": "State Govt Finance",
+ "fetched": "2026-09-18T15:04:03.324Z",
+ "dims": [
+  {
+   "code": "INDICATORS_RN",
+   "name": "Indicators (As percentage to GDP)",
+   "column": "indicators_rn_description",
+   "table": "dim_ebr_indicators_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40353",
+     "code": "IND6",
+     "label": "Aggregate Disbursements",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40355",
+     "code": "IND8",
+     "label": "Aggregate Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40352",
+     "code": "IND5",
+     "label": "Conventional Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40349",
+     "code": "IND2",
+     "label": "Gross Fiscal Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40350",
+     "code": "IND3",
+     "label": "Primary Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40351",
+     "code": "IND4",
+     "label": "Primary Revenue Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40348",
+     "code": "IND1",
+     "label": "Revenue Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40354",
+     "code": "IND7",
+     "label": "Revenue Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45067",
+     "code": "IND72",
+     "label": "Revenue Receipts_Non Tax Receipts",
+     "parentId": "40354",
+     "level": 2
+    },
+    {
+     "id": "45066",
+     "code": "IND71",
+     "label": "Revenue Receipts_Tax Receipts",
+     "parentId": "40354",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37046",
+     "code": "RO",
+     "label": "Ratio",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "dsdCode": "SG_RECPT_RN",
+ "label": "Pattern of Receipts of the State Governments",
+ "sector": "Public Finance",
+ "subSector": "State Govt Finance",
+ "fetched": "2026-09-18T15:04:04.990Z",
+ "dims": [
+  {
+   "code": "TYP_SGRECPT_RN",
+   "name": "Type of State Government's Receipts",
+   "column": "typ_sgrecpt_rn_description",
+   "table": "dim_ebr_typ_sgrecpt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40166",
+     "code": "SGR1",
+     "label": "Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "44997",
+     "code": "SGR12",
+     "label": "Capital Receipts",
+     "parentId": "40166",
+     "level": 2
+    },
+    {
+     "id": "40174",
+     "code": "SGR1201",
+     "label": "Loans from Centre (Gross)",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "40176",
+     "code": "SGR1203",
+     "label": "Market Loans (Gross)",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "52568",
+     "code": "OTHER",
+     "label": "Of Which Others",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "40175",
+     "code": "SGR1202",
+     "label": "Recovery of Loans & Advances",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "40178",
+     "code": "SGR1205",
+     "label": "Special Securities Issued to NSSF",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "40177",
+     "code": "SGR1204",
+     "label": "State Provident Fund, Small Savings, etc. (Net)",
+     "parentId": "44997",
+     "level": 3
+    },
+    {
+     "id": "44996",
+     "code": "SGR11",
+     "label": "Revenue Receipts",
+     "parentId": "40166",
+     "level": 2
+    },
+    {
+     "id": "45506",
+     "code": "SGR1102",
+     "label": "Non-tax Receipts",
+     "parentId": "44996",
+     "level": 3
+    },
+    {
+     "id": "40173",
+     "code": "SGR11022",
+     "label": "Grants from the Centre",
+     "parentId": "45506",
+     "level": 4
+    },
+    {
+     "id": "40172",
+     "code": "SGR11021",
+     "label": "Interest Receipts",
+     "parentId": "45506",
+     "level": 4
+    },
+    {
+     "id": "52611",
+     "code": "OTHE",
+     "label": "Of Which Others",
+     "parentId": "45506",
+     "level": 4
+    },
+    {
+     "id": "45505",
+     "code": "SGR1101",
+     "label": "Tax Receipts",
+     "parentId": "44996",
+     "level": 3
+    },
+    {
+     "id": "52610",
+     "code": "OT",
+     "label": "Of Which Others",
+     "parentId": "45505",
+     "level": 4
+    },
+    {
+     "id": "49123",
+     "code": "SGR11011",
+     "label": "Sales Tax",
+     "parentId": "45505",
+     "level": 4
+    },
+    {
+     "id": "49119",
+     "code": "SGR1103",
+     "label": "Share in Central Taxes",
+     "parentId": "45505",
+     "level": 4
+    },
+    {
+     "id": "49121",
+     "code": "SGR110301",
+     "label": "Income Tax",
+     "parentId": "49119",
+     "level": 5
+    },
+    {
+     "id": "52652",
+     "code": "OTHERS",
+     "label": "Of Which Others",
+     "parentId": "49119",
+     "level": 5
+    },
+    {
+     "id": "49120",
+     "code": "SGR110302",
+     "label": "Union Excise Duties",
+     "parentId": "49119",
+     "level": 5
+    },
+    {
+     "id": "49122",
+     "code": "SGR11012",
+     "label": "State Excise Duties",
+     "parentId": "45505",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

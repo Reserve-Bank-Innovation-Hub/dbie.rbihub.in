@@ -1,0 +1,99 @@
+{
+ "dsdCode": "INT_RATE_RN",
+ "label": "Interest Rate",
+ "sector": "Financial Markets",
+ "subSector": "Government Securities Market",
+ "fetched": "2026-09-18T15:02:14.203Z",
+ "dims": [
+  {
+   "code": "DAILY_AVG_TO_RN",
+   "name": "Daily Average Turnover",
+   "column": "daily_avg_to_rn_description",
+   "table": "dim_ebr_daily_avg_to_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "57694",
+     "code": "CGOVT_SEC",
+     "label": "Central Government Securities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54464",
+     "code": "STATE_GOVT_SEC",
+     "label": "State Government Securities",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "RANGE_RT_RN",
+   "name": "Range of Rates",
+   "column": "range_rt_rn_description",
+   "table": "dim_ebr_range_rt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55491",
+     "code": "MAX_VAL",
+     "label": "Max value range",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55492",
+     "code": "MIN_VAL",
+     "label": "Min Value Range",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55296",
+     "code": "WAR",
+     "label": "Weighted Average Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

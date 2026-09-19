@@ -1,0 +1,255 @@
+{
+ "dsdCode": "ANN_GDP_FACT_CST_RN",
+ "label": "Annual Gross Value Added at Basic Prices",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:04:50.511Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COMP_GDP_RN",
+   "name": "Components of GDP",
+   "column": "comp_gdp_rn_description",
+   "table": "dim_ebr_comp_gdp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54375",
+     "code": "CECN_AGR_FOR_FISH",
+     "label": "Agriculture, Forestry and Fishing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54361",
+     "code": "CEXP_CHG_STOCK",
+     "label": "Change in Stock",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54369",
+     "code": "CECN_CONST",
+     "label": "Construction",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54357",
+     "code": "CEXP_DISCP",
+     "label": "Discrepancies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54371",
+     "code": "CECN_ELCTY_GAS_WTR_OTH",
+     "label": "Electricity, Gas, Water Supply & Other Utility Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54359",
+     "code": "CECN_EXP",
+     "label": "Exports",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54367",
+     "code": "CECN_FIN_REAL_PRO_SER",
+     "label": "Financial, Real Estate & Professional Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54362",
+     "code": "CECN_GCF",
+     "label": "GCF: Gross capital formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54356",
+     "code": "CEXP_GDP_MARK_CST",
+     "label": "GDP at Market prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54363",
+     "code": "CEXP_GFCE",
+     "label": "GFCE: Government Final Consumption Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54365",
+     "code": "GVA_BAS_PRC",
+     "label": "GVA at basic price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54374",
+     "code": "CECN_INDS",
+     "label": "Industry",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54358",
+     "code": "CECN_LES_IMP",
+     "label": "Less Imports",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54372",
+     "code": "CECN_MANF",
+     "label": "Manufacturing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54373",
+     "code": "CECN_MIN_QUAR",
+     "label": "Mining & Quarrying",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54364",
+     "code": "CEXP_PFCE",
+     "label": "PFCE: Private final consumption expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54366",
+     "code": "CECN_PUB_ADM_DEF_OTH_SER",
+     "label": "Public Administration, Defence and Other Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54370",
+     "code": "CECN_SER",
+     "label": "Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54368",
+     "code": "CECN_TRD_HTL_TRAN_COMM_SER",
+     "label": "Trade, Repair, Hotels, Restaurants and Transport, Storage, Communication & Services Related to Broadcasting",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54360",
+     "code": "CEXP_VAL",
+     "label": "Valuables",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

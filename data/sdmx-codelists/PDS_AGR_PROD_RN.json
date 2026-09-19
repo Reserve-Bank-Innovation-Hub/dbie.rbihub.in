@@ -1,0 +1,111 @@
+{
+ "dsdCode": "PDS_AGR_PROD_RN",
+ "label": "Public Distribution System of agriculture produce",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:26.146Z",
+ "dims": [
+  {
+   "code": "DIS_OF_COM",
+   "name": "Distribution of Commodities",
+   "column": "dis_of_com_description",
+   "table": "dim_ebr_dis_of_com",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53209",
+     "code": "OFFTAKE",
+     "label": "Offtake",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53214",
+     "code": "RIC",
+     "label": "Rice",
+     "parentId": "53209",
+     "level": 2
+    },
+    {
+     "id": "53213",
+     "code": "WHE",
+     "label": "Wheat",
+     "parentId": "53209",
+     "level": 2
+    },
+    {
+     "id": "53210",
+     "code": "PROCUREMENT",
+     "label": "Procurement",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53216",
+     "code": "RI",
+     "label": "Rice",
+     "parentId": "53210",
+     "level": 2
+    },
+    {
+     "id": "48593",
+     "code": "WH",
+     "label": "Wheat",
+     "parentId": "53210",
+     "level": 2
+    },
+    {
+     "id": "53201",
+     "code": "STOCKS",
+     "label": "Stocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53205",
+     "code": "RICE",
+     "label": "Rice",
+     "parentId": "53201",
+     "level": 2
+    },
+    {
+     "id": "53204",
+     "code": "WHEAT",
+     "label": "Wheat",
+     "parentId": "53201",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37047",
+     "code": "TN",
+     "label": "Tonnes",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

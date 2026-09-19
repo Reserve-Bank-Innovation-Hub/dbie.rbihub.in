@@ -1,0 +1,174 @@
+{
+ "dsdCode": "KCI_BOP_RN",
+ "label": "Key components of India's Overall Balance of Payments",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:38.418Z",
+ "dims": [
+  {
+   "code": "COMP_BOP_RN",
+   "name": "Components of Indias BOP",
+   "column": "comp_bop_rn_description",
+   "table": "dim_ebr_comp_bop_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55224",
+     "code": "MON_MOV",
+     "label": "Monetary Movements",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55229",
+     "code": "NET_IMF",
+     "label": "IMF net",
+     "parentId": "55224",
+     "level": 2
+    },
+    {
+     "id": "55230",
+     "code": "RESERVES",
+     "label": "Reserves (increase -/ decrease +)",
+     "parentId": "55224",
+     "level": 2
+    },
+    {
+     "id": "55228",
+     "code": "SDR_ALLC",
+     "label": "SDR allocation",
+     "parentId": "55224",
+     "level": 2
+    },
+    {
+     "id": "55225",
+     "code": "OVR_BAL",
+     "label": "Overall Balance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55231",
+     "code": "CAP_ACC",
+     "label": "Capital Account",
+     "parentId": "55225",
+     "level": 2
+    },
+    {
+     "id": "55238",
+     "code": "CA_COMM_BORRW",
+     "label": "Commercial Borrowings",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55239",
+     "code": "CA_EXT_AST",
+     "label": "External Assistance",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55240",
+     "code": "CA_FRG_INV",
+     "label": "Foreign Investment",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55236",
+     "code": "CA_NRI_DEP",
+     "label": "NRI deposits",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55235",
+     "code": "CA_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55237",
+     "code": "CA_RUP_DBT_SRV",
+     "label": "Rupee Debt Service",
+     "parentId": "55231",
+     "level": 3
+    },
+    {
+     "id": "55226",
+     "code": "CURR_ACC",
+     "label": "Current Account",
+     "parentId": "55225",
+     "level": 2
+    },
+    {
+     "id": "55232",
+     "code": "CURR_INVIS",
+     "label": "Invisibles",
+     "parentId": "55226",
+     "level": 3
+    },
+    {
+     "id": "55227",
+     "code": "CURR_MERCH_TRD_BAL",
+     "label": "Trade balance",
+     "parentId": "55226",
+     "level": 3
+    },
+    {
+     "id": "55233",
+     "code": "CURR_MERCH_IMP",
+     "label": "Imports, Cost, insurance, and freight",
+     "parentId": "55227",
+     "level": 4
+    },
+    {
+     "id": "55234",
+     "code": "CURR_MERCH_EXP",
+     "label": "Merchandise - Exports, free on board",
+     "parentId": "55227",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "dsdCode": "INX_NEER_REER_A_RN",
+ "label": "Indices of REER/NEER Annually",
+ "sector": "External Sector",
+ "subSector": "External Sector Indices",
+ "fetched": "2026-09-18T15:00:46.797Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40124",
+     "code": "BY_2015_16",
+     "label": "Base Year : 2015-16",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CURR_BASK_RN",
+   "name": "Currency Basket",
+   "column": "curr_bask_rn_description",
+   "table": "dim_ebr_curr_bask_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41358",
+     "code": "CURR_BASK_36CURR",
+     "label": "36-Currency (Discontinued)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41359",
+     "code": "CURR_BASK_40CURR",
+     "label": "40-Currency",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_OF_RATE",
+   "name": "Type of Rate",
+   "column": "typ_of_rate_description",
+   "table": "dim_ebr_typ_of_rate",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "49028",
+     "code": "NEER",
+     "label": "Nominal Effective Exchange Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49029",
+     "code": "REER",
+     "label": "Real Effective Exchange Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_REP_RN",
+   "name": "Type of Average",
+   "column": "typ_rep_rn_description",
+   "table": "dim_ebr_typ_rep_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41365",
+     "code": "REP_CY_ANN_AVG",
+     "label": "Calendar Year - Annual Average",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41364",
+     "code": "REP_FY_ANN_AVG",
+     "label": "Financial Year - Annual Average",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_TRD_WTS_RN",
+   "name": "Type of Trade Weights",
+   "column": "typ_trd_wts_rn_description",
+   "table": "dim_ebr_typ_trd_wts_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41362",
+     "code": "EXP_WTS",
+     "label": "Export-weighted",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41361",
+     "code": "TRD_WTS",
+     "label": "Trade-weighted",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

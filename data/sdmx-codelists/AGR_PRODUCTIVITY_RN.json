@@ -1,0 +1,167 @@
+{
+ "dsdCode": "AGR_PRODUCTIVITY_RN",
+ "label": "Agricultural Productivity",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:17.966Z",
+ "dims": [
+  {
+   "code": "CLS_OF_CRPS",
+   "name": "Classification of Crops",
+   "column": "cls_of_crps_description",
+   "table": "dim_ebr_cls_of_crps",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48595",
+     "code": "FDGRNS",
+     "label": "Foodgrains",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48596",
+     "code": "CERLS",
+     "label": "Cereals",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "48598",
+     "code": "CC",
+     "label": "Coarse Cereals",
+     "parentId": "48596",
+     "level": 3
+    },
+    {
+     "id": "48600",
+     "code": "RI",
+     "label": "Rice",
+     "parentId": "48596",
+     "level": 3
+    },
+    {
+     "id": "48599",
+     "code": "WH",
+     "label": "Wheat",
+     "parentId": "48596",
+     "level": 3
+    },
+    {
+     "id": "48597",
+     "code": "PUL",
+     "label": "Pulses",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "48731",
+     "code": "MJR_COM_CRPS",
+     "label": "Major Commercial Crops",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48739",
+     "code": "CFF",
+     "label": "Coffee",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48738",
+     "code": "COTTON",
+     "label": "Cotton",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48734",
+     "code": "OILSDS",
+     "label": "Oilseeds",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48744",
+     "code": "GRDNT",
+     "label": "Groundnut",
+     "parentId": "48734",
+     "level": 3
+    },
+    {
+     "id": "48743",
+     "code": "RNM",
+     "label": "Rapeseed & Mustard",
+     "parentId": "48734",
+     "level": 3
+    },
+    {
+     "id": "48742",
+     "code": "SOY",
+     "label": "Soyabean",
+     "parentId": "48734",
+     "level": 3
+    },
+    {
+     "id": "48737",
+     "code": "RJNM",
+     "label": "Raw Jute & Mesta",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48741",
+     "code": "SGRCN",
+     "label": "Sugarcane",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48740",
+     "code": "TEA",
+     "label": "Tea",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "48736",
+     "code": "TOBB",
+     "label": "Tobacco",
+     "parentId": "48731",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37059",
+     "code": "KG_HCT",
+     "label": "Kg per hectare",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

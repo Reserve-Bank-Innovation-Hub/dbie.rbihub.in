@@ -1,0 +1,202 @@
+{
+ "dsdCode": "FICG_GDP_RN",
+ "label": "Fiscal Indicators of the Central Government as per centage to GDP",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:53.640Z",
+ "dims": [
+  {
+   "code": "INDICRS_RN",
+   "name": "Indicators (As percentage to GDP)",
+   "column": "indicrs_rn_description",
+   "table": "dim_ebr_indicrs_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40345",
+     "code": "IN1202",
+     "label": "Capital Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40346",
+     "code": "IN12021",
+     "label": "Capital Outlay",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40339",
+     "code": "IN11",
+     "label": "Capital Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40344",
+     "code": "IN13",
+     "label": "Defence (Revenue+ Capital)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40335",
+     "code": "IN07",
+     "label": "Draw Down Of Cash Balances",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40340",
+     "code": "IN12",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40329",
+     "code": "IN01",
+     "label": "Gross Fiscal Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40331",
+     "code": "IN03",
+     "label": "Gross Primary Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40337",
+     "code": "IN09",
+     "label": "Gross tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45062",
+     "code": "IN091",
+     "label": "Direct",
+     "parentId": "40337",
+     "level": 2
+    },
+    {
+     "id": "45063",
+     "code": "IN092",
+     "label": "Indirect",
+     "parentId": "40337",
+     "level": 2
+    },
+    {
+     "id": "40342",
+     "code": "IN12011",
+     "label": "Interest Payments",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40330",
+     "code": "IN02",
+     "label": "Net Fiscal Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40332",
+     "code": "IN04",
+     "label": "Net Primary Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40336",
+     "code": "IN08",
+     "label": "Net RBI credit to center",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45065",
+     "code": "IN102",
+     "label": "Non Tax Revenue",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40334",
+     "code": "IN06",
+     "label": "Primary Revenue Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40333",
+     "code": "IN05",
+     "label": "Revenue Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40341",
+     "code": "IN1201",
+     "label": "Revenue Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40338",
+     "code": "IN10",
+     "label": "Revenue Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40343",
+     "code": "IN12012",
+     "label": "Subsidies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45064",
+     "code": "IN101",
+     "label": "Tax Revenue Net",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37046",
+     "code": "RO",
+     "label": "Ratio",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

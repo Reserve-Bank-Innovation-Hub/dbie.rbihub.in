@@ -1,0 +1,141 @@
+{
+ "dsdCode": "BMC_M_RN",
+ "label": "Broad Money Components_Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:41.938Z",
+ "dims": [
+  {
+   "code": "COMP_RN",
+   "name": "Components",
+   "column": "comp_rn_description",
+   "table": "dim_ebr_comp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53564",
+     "code": "CMS1",
+     "label": "Broad Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53565",
+     "code": "CMS11",
+     "label": "Narrow Money",
+     "parentId": "53564",
+     "level": 2
+    },
+    {
+     "id": "53567",
+     "code": "CMS1104",
+     "label": "Cash with Banks",
+     "parentId": "53565",
+     "level": 3
+    },
+    {
+     "id": "53570",
+     "code": "CMS1101",
+     "label": "Currency with the Public",
+     "parentId": "53565",
+     "level": 3
+    },
+    {
+     "id": "53568",
+     "code": "CMS1103",
+     "label": "Demand Deposits",
+     "parentId": "53565",
+     "level": 3
+    },
+    {
+     "id": "53569",
+     "code": "CMS1102",
+     "label": "Other' Deposits with the RBI",
+     "parentId": "53565",
+     "level": 3
+    },
+    {
+     "id": "53566",
+     "code": "CMS12",
+     "label": "Time Deposits",
+     "parentId": "53564",
+     "level": 2
+    },
+    {
+     "id": "40433",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53572",
+     "code": "CMS1_IM",
+     "label": "Broad Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53571",
+     "code": "CMS12_IM",
+     "label": "Time Deposits",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

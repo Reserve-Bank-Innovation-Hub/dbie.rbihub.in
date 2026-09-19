@@ -45,6 +45,11 @@ export const EXT_DEBT_TO_GDP : YearValue[] = [
 ];
 
 export const GG_DEBT_TO_GDP : YearValue[] = [
+    { year : 1981, value : 47.94 },
+    { year : 1982, value : 48.92 },
+    { year : 1983, value : 53.29 },
+    { year : 1984, value : 52.55 },
+    { year : 1985, value : 55.95 },
     { year : 1986, value : 60.51 },
     { year : 1987, value : 64.85 },
     { year : 1988, value : 68.15 },

@@ -1,0 +1,132 @@
+{
+ "dsdCode": "MON_AG_RN",
+ "label": "Monetary Aggregates",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:50.005Z",
+ "dims": [
+  {
+   "code": "MON_AGG_ITM",
+   "name": "Monetary Aggregates Items",
+   "column": "mon_agg_itm_description",
+   "table": "dim_ebr_mon_agg_itm",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55139",
+     "code": "BRD_MON",
+     "label": "Broad Money (M3)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55143",
+     "code": "CUR_PUB",
+     "label": "Currency with the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55142",
+     "code": "DD",
+     "label": "Demand Deposits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55140",
+     "code": "NAR_MON",
+     "label": "Narrow Money (M1)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55134",
+     "code": "NFEABS",
+     "label": "Net Foreign Exchange Assets of Banking Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55138",
+     "code": "NET_RBI_CCG",
+     "label": "Net RBI Credit to Central Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55135",
+     "code": "OTH_BNK_CCS",
+     "label": "Other Banks Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55137",
+     "code": "OTH_BNK_CG",
+     "label": "Other Banks Credit to Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55136",
+     "code": "RBI_CCS",
+     "label": "RBI Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "59506",
+     "code": "RBI_NET_CB",
+     "label": "RBI Net Claims on Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55144",
+     "code": "RES_MON",
+     "label": "Reserve Money (M0)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55141",
+     "code": "TIM_DE",
+     "label": "Time Deposits",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

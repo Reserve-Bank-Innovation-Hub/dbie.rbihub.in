@@ -1,0 +1,83 @@
+{
+ "dsdCode": "IB_FOREX_RT_RN",
+ "label": "Inter Bank Forex Rates",
+ "sector": "Financial Markets",
+ "subSector": "Forex Market",
+ "fetched": "2026-09-18T15:02:10.979Z",
+ "dims": [
+  {
+   "code": "TYPE_RATE_RN",
+   "name": "Type of Rates",
+   "column": "type_rate_rn_description",
+   "table": "dim_ebr_type_rate_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55288",
+     "code": "IB_CLS_RT",
+     "label": "Inter Bank Close Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55290",
+     "code": "IB_HG_RT",
+     "label": "Inter Bank High Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55289",
+     "code": "IB_LW_RT",
+     "label": "Inter Bank Low Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55291",
+     "code": "IB_OPN_RT",
+     "label": "Inter Bank Open Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55287",
+     "code": "RBI_REF_RT",
+     "label": "RBI Reference Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

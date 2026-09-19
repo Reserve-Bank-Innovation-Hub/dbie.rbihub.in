@@ -1,0 +1,190 @@
+{
+ "dsdCode": "MSS_F_RN",
+ "label": "Money Stock Sources_Fortnightly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:58.085Z",
+ "dims": [
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53559",
+     "code": "SF2_IM",
+     "label": "Bank Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53557",
+     "code": "SF5_IM",
+     "label": "Banking Sectors Net Non-Monetary Liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53561",
+     "code": "SF1_IM",
+     "label": "Net Bank Credit to Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53560",
+     "code": "SF12_IM",
+     "label": "Net Bank Credit to Government - Other Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53558",
+     "code": "SF22_IM",
+     "label": "Other banks credit to commercial sector - Other Banks",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "SOR_F_RN",
+   "name": "Sources",
+   "column": "sor_f_rn_description",
+   "table": "dim_ebr_sor_f_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40444",
+     "code": "SF2",
+     "label": "Bank Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45118",
+     "code": "SF22",
+     "label": "Other Banks",
+     "parentId": "40444",
+     "level": 2
+    },
+    {
+     "id": "45117",
+     "code": "SF21",
+     "label": "Reserve Bank",
+     "parentId": "40444",
+     "level": 2
+    },
+    {
+     "id": "40447",
+     "code": "SF5",
+     "label": "Banking Sectors Net Non-monetary Liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45121",
+     "code": "SF51",
+     "label": "Net non-monetary liabilities of RBI",
+     "parentId": "40447",
+     "level": 2
+    },
+    {
+     "id": "45122",
+     "code": "SF52",
+     "label": "Others",
+     "parentId": "40447",
+     "level": 2
+    },
+    {
+     "id": "40446",
+     "code": "SF4",
+     "label": "Governments Currency Liabilities to the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40443",
+     "code": "SF1",
+     "label": "Net Bank Credit to Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45116",
+     "code": "SF12",
+     "label": "Other Banks",
+     "parentId": "40443",
+     "level": 2
+    },
+    {
+     "id": "45115",
+     "code": "SF11",
+     "label": "Reserve Bank",
+     "parentId": "40443",
+     "level": 2
+    },
+    {
+     "id": "40445",
+     "code": "SF3",
+     "label": "Net Foreign Exchange Assets of Banking Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40448",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "dsdCode": "CENT_SEC_DEL_PRJ_RN",
+ "label": "Central Sector Delayed Projects",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:29.383Z",
+ "dims": [
+  {
+   "code": "DELY_PRJ_RN",
+   "name": "Delayed Project Details",
+   "column": "dely_prj_rn_description",
+   "table": "dim_ebr_dely_prj_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37530",
+     "code": "DEL_COST_OVRN",
+     "label": "Cost overrun",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37529",
+     "code": "DEL_NON_ANT",
+     "label": "Now anticipated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37527",
+     "code": "DEL_NBR_PRJ",
+     "label": "Number of projects",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37528",
+     "code": "DEL_ORG_EST",
+     "label": "Original estimate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "IIP_SEC_RN",
+   "name": "Sector",
+   "column": "iip_sec_rn_description",
+   "table": "dim_ebr_iip_sec_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37532",
+     "code": "IIP_ATM_ENG",
+     "label": "Atomic energy",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37533",
+     "code": "IIP_CVL_AVN",
+     "label": "Civil aviation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37534",
+     "code": "IIP_COAL",
+     "label": "Coal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37536",
+     "code": "IIP_FRTZ",
+     "label": "Fertilisers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37535",
+     "code": "IIP_FIN",
+     "label": "Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37537",
+     "code": "IIP_MINES",
+     "label": "Mines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37547",
+     "code": "IIP_OTH",
+     "label": "Others",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37539",
+     "code": "IIP_PETRO_CHEM",
+     "label": "Petro-chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37540",
+     "code": "IIP_PETROLEUM",
+     "label": "Petroleum",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37541",
+     "code": "IIP_PWR",
+     "label": "Power",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37542",
+     "code": "IIP_RLWY",
+     "label": "Railways",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37538",
+     "code": "IIP_STEEL",
+     "label": "Steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37543",
+     "code": "IIP_SURF_TRANSP",
+     "label": "Surface transport",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37544",
+     "code": "IIP_TEL_COMM",
+     "label": "Telecommunication",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37045",
+     "code": "PN",
+     "label": "Pure Number",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

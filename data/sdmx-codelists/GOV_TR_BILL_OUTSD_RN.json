@@ -1,0 +1,120 @@
+{
+ "dsdCode": "GOV_TR_BILL_OUTSD_RN",
+ "label": "Govt of India Treasury Bills Outstanding",
+ "sector": "Financial Markets",
+ "subSector": "Government Securities Market",
+ "fetched": "2026-09-18T15:02:12.588Z",
+ "dims": [
+  {
+   "code": "HOLDER_TYPE_DESC_RN",
+   "name": "Holder Type Description",
+   "column": "holder_type_desc_rn_description",
+   "table": "dim_ebr_holder_type_desc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56727",
+     "code": "BANKS",
+     "label": "Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56724",
+     "code": "OTHER",
+     "label": "Other",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56726",
+     "code": "PRIMARY_DEALERS",
+     "label": "Primary Dealers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56725",
+     "code": "STATE_GOVT",
+     "label": "State Govt",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "INSTRUMENT_TYPE_RN",
+   "name": "Instrument Type",
+   "column": "instrument_type_rn_description",
+   "table": "dim_ebr_instrument_type_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56722",
+     "code": "182_DAY",
+     "label": "182-Day",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56721",
+     "code": "364_DAY",
+     "label": "364-Day",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56723",
+     "code": "91_DAY",
+     "label": "91-Day",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56720",
+     "code": "CMB",
+     "label": "CMB",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,285 @@
+{
+ "dsdCode": "INX_NEER_REER_M_RN",
+ "label": "Indices of REER/NEER Monthly",
+ "sector": "External Sector",
+ "subSector": "External Sector Indices",
+ "fetched": "2026-09-18T15:00:48.413Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40124",
+     "code": "BY_2015_16",
+     "label": "Base Year : 2015-16",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48701",
+     "code": "MBY_1993_94",
+     "label": "Moving Base (6-Currency): 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48702",
+     "code": "MBY_2003_04",
+     "label": "Moving Base (6-Currency): 2003-04",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48704",
+     "code": "MBY_2005_06",
+     "label": "Moving Base (6-Currency): 2005-06",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48705",
+     "code": "MBY_2006_07",
+     "label": "Moving Base (6-Currency): 2006-07",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48706",
+     "code": "MBY_2007_08",
+     "label": "Moving Base (6-Currency): 2007-08",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48707",
+     "code": "MBY_2008_09",
+     "label": "Moving Base (6-Currency): 2008-09",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48708",
+     "code": "MBY_2009_10",
+     "label": "Moving Base (6-Currency): 2009-10",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48709",
+     "code": "MBY_2010_11",
+     "label": "Moving Base (6-Currency): 2010-11",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48710",
+     "code": "MBY_2011_12",
+     "label": "Moving Base (6-Currency): 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48711",
+     "code": "MBY_2012_13",
+     "label": "Moving Base (6-Currency): 2012-13",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48712",
+     "code": "MBY_2013_14",
+     "label": "Moving Base (6-Currency): 2013-14",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48713",
+     "code": "MBY_2014_15",
+     "label": "Moving Base (6-Currency): 2014-15",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48714",
+     "code": "MBY_2016_17",
+     "label": "Moving Base (6-Currency): 2016-17",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48715",
+     "code": "MBY_2017_18",
+     "label": "Moving Base (6-Currency): 2017-18",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48700",
+     "code": "MBY_2018_19",
+     "label": "Moving Base (6-Currency): 2018-19",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48716",
+     "code": "MBY_2019_20",
+     "label": "Moving Base (6-Currency): 2019-20",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48717",
+     "code": "MBY_2020_21",
+     "label": "Moving Base (6-Currency): 2020-21",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53340",
+     "code": "MBY_2021_22",
+     "label": "Moving Base (6-Currency): 2021-22",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CURR_BASK_RN",
+   "name": "Currency Basket",
+   "column": "curr_bask_rn_description",
+   "table": "dim_ebr_curr_bask_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41358",
+     "code": "CURR_BASK_36CURR",
+     "label": "36-Currency (Discontinued)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41359",
+     "code": "CURR_BASK_40CURR",
+     "label": "40-Currency",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41357",
+     "code": "CURR_BASK_6CURR",
+     "label": "6-Currency",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_OF_RATE",
+   "name": "Type of Rate",
+   "column": "typ_of_rate_description",
+   "table": "dim_ebr_typ_of_rate",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "49028",
+     "code": "NEER",
+     "label": "Nominal Effective Exchange Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49029",
+     "code": "REER",
+     "label": "Real Effective Exchange Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_TRD_WTS_RN",
+   "name": "Type of Trade Weights",
+   "column": "typ_trd_wts_rn_description",
+   "table": "dim_ebr_typ_trd_wts_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41362",
+     "code": "EXP_WTS",
+     "label": "Export-weighted",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41361",
+     "code": "TRD_WTS",
+     "label": "Trade-weighted",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "dsdCode": "AGR_INDEX_RN",
+ "label": "Agricultural Index",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:13.116Z",
+ "dims": [
+  {
+   "code": "AGI_OBS_TYP_RN",
+   "name": "Agriculture Observation Type",
+   "column": "agi_obs_typ_rn_description",
+   "table": "dim_ebr_agi_obs_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37090",
+     "code": "AOT_AREA",
+     "label": "Area",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37091",
+     "code": "AOT_PROD",
+     "label": "Production",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37092",
+     "code": "AOT_YLD",
+     "label": "Yield",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40082",
+     "code": "BY_TE_1981_82",
+     "label": "Triennium Ending 1981-82=100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40083",
+     "code": "BY_TE_1993_94",
+     "label": "Triennium Ending 1993-94=100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40084",
+     "code": "BY_TE_2007_08",
+     "label": "Triennium Ending 2007-08=100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLASS_PROD_RN",
+   "name": "Classification of Crops",
+   "column": "class_prod_rn_description",
+   "table": "dim_ebr_class_prod_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53951",
+     "code": "ALL_CRPS",
+     "label": "All Crops",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53955",
+     "code": "FDGRAINS",
+     "label": "Foodgrains",
+     "parentId": "53951",
+     "level": 2
+    },
+    {
+     "id": "53952",
+     "code": "NON_FDGRAINS",
+     "label": "Non-Foodgrains",
+     "parentId": "53951",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

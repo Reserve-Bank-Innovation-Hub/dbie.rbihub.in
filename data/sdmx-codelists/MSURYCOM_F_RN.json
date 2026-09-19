@@ -1,0 +1,204 @@
+{
+ "dsdCode": "MSURYCOM_F_RN",
+ "label": "Monetary Survey Components_Fortnightly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:53.233Z",
+ "dims": [
+  {
+   "code": "COM_MSUR_RN",
+   "name": "Components of Monetary Survey",
+   "column": "com_msur_rn_description",
+   "table": "dim_ebr_com_msur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40485",
+     "code": "CMSR1",
+     "label": "NM3",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45135",
+     "code": "CMSR11",
+     "label": "NM3_NM2",
+     "parentId": "40485",
+     "level": 2
+    },
+    {
+     "id": "45532",
+     "code": "CMSR1101",
+     "label": "NM3_NM2_M1",
+     "parentId": "45135",
+     "level": 3
+    },
+    {
+     "id": "53183",
+     "code": "CMSR11013",
+     "label": "'Other' Deposits with RBI",
+     "parentId": "45532",
+     "level": 4
+    },
+    {
+     "id": "45603",
+     "code": "CMSR11012",
+     "label": "Aggregate Deposits of Residents",
+     "parentId": "45532",
+     "level": 4
+    },
+    {
+     "id": "51368",
+     "code": "CMSR1101201",
+     "label": "Demand Deposits",
+     "parentId": "45603",
+     "level": 5
+    },
+    {
+     "id": "51363",
+     "code": "CMSR1101202",
+     "label": "Time Deposits of Residents",
+     "parentId": "45603",
+     "level": 5
+    },
+    {
+     "id": "51366",
+     "code": "CMSR110120202",
+     "label": "Long-term Time Deposits",
+     "parentId": "51363",
+     "level": 6
+    },
+    {
+     "id": "51364",
+     "code": "CMSR110120201",
+     "label": "Short-term Time Deposits",
+     "parentId": "51363",
+     "level": 6
+    },
+    {
+     "id": "51367",
+     "code": "CMSR11012020101",
+     "label": "Certificates of Deposits (CDs)",
+     "parentId": "51364",
+     "level": 7
+    },
+    {
+     "id": "53182",
+     "code": "CMSR11014",
+     "label": "Call/Term Funding from Financial Institutions",
+     "parentId": "45532",
+     "level": 4
+    },
+    {
+     "id": "45602",
+     "code": "CMSR11011",
+     "label": "Currency with the Public",
+     "parentId": "45532",
+     "level": 4
+    },
+    {
+     "id": "40487",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53225",
+     "code": "CMSR11012_IM",
+     "label": "Aggregate Deposits of Residents",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53222",
+     "code": "CMSR110120202_IM",
+     "label": "Long-term Time Deposits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53226",
+     "code": "CMSR1_IM",
+     "label": "NM3",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53227",
+     "code": "CMSR11_IM",
+     "label": "NM3_NM2",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53223",
+     "code": "CMSR110120201_IM",
+     "label": "Short-term Time Deposits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53224",
+     "code": "CMSR1101202_IM",
+     "label": "Time Deposits of Residents",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

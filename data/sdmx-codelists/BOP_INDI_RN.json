@@ -1,0 +1,153 @@
+{
+ "dsdCode": "BOP_INDI_RN",
+ "label": "Balance Of Payments Indicators",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:16.924Z",
+ "dims": [
+  {
+   "code": "CAT_BOP_IND",
+   "name": "Category of BOP Indicator",
+   "column": "cat_bop_ind_description",
+   "table": "dim_ebr_cat_bop_ind",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "49057",
+     "code": "CAP_ACC",
+     "label": "Capital Account",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49061",
+     "code": "FI_TO_EXP",
+     "label": "Foreign Investment/ Exports",
+     "parentId": "49057",
+     "level": 2
+    },
+    {
+     "id": "49060",
+     "code": "FI_TO_GDP",
+     "label": "Foreign Investment/ GDP",
+     "parentId": "49057",
+     "level": 2
+    },
+    {
+     "id": "49058",
+     "code": "CUR_AC",
+     "label": "Current Account",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49062",
+     "code": "CAD_TO_GDP",
+     "label": "Current Account Deficit(CAD)/GDP",
+     "parentId": "49058",
+     "level": 2
+    },
+    {
+     "id": "49063",
+     "code": "CURR_RCPTS_TO_CURR_PYMTS",
+     "label": "Current Receipts/ Current Payments",
+     "parentId": "49058",
+     "level": 2
+    },
+    {
+     "id": "49064",
+     "code": "CURR_RCPTS_TO_GDP",
+     "label": "Current Receipts/ GDP",
+     "parentId": "49058",
+     "level": 2
+    },
+    {
+     "id": "49059",
+     "code": "TERM_IMP_RES",
+     "label": "Imports of Reserve",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49050",
+     "code": "INVI",
+     "label": "Invisibles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49052",
+     "code": "NET_TO_GDP",
+     "label": "Net/ GDP",
+     "parentId": "49050",
+     "level": 2
+    },
+    {
+     "id": "49053",
+     "code": "PYMTS_TO_GDP",
+     "label": "Payments/ GDP",
+     "parentId": "49050",
+     "level": 2
+    },
+    {
+     "id": "49054",
+     "code": "RCPTS_TO_GDP",
+     "label": "Receipts/ GDP",
+     "parentId": "49050",
+     "level": 2
+    },
+    {
+     "id": "49051",
+     "code": "TRD",
+     "label": "Trade",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49056",
+     "code": "EXT_TO_GDP",
+     "label": "Exports/ GDP",
+     "parentId": "49051",
+     "level": 2
+    },
+    {
+     "id": "49055",
+     "code": "IMP_TO_GDP",
+     "label": "Imports/ GDP",
+     "parentId": "49051",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

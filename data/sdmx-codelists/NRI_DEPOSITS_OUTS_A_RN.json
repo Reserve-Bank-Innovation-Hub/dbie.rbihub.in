@@ -1,0 +1,111 @@
+{
+ "dsdCode": "NRI_DEPOSITS_OUTS_A_RN",
+ "label": "NRI Deposits Outstandings Annually",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:01:13.568Z",
+ "dims": [
+  {
+   "code": "NRI_DEP_OS_RN",
+   "name": "NRI Deposits Outstanding",
+   "column": "nri_dep_os_rn_description",
+   "table": "dim_ebr_nri_dep_os_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48774",
+     "code": "TTL",
+     "label": "Deposits Outstanding",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53276",
+     "code": "FXD_DEP_OVRS_FCBOD",
+     "label": "FC(B&O)D: Foreign currency (bank and other) deposits",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53275",
+     "code": "FXD_DEP_OVRS_FCON",
+     "label": "FC(O)N: Foreign currency (ordinary) non-repatriable deposits",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53281",
+     "code": "FXD_DEP_OVRS_FCNRA",
+     "label": "FCNR(A): Foreign currency non-resident (accounts)",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53280",
+     "code": "FXD_DEP_OVRS_FCNRB",
+     "label": "FCNR(B): Foreign currency non resident (banks)",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53279",
+     "code": "FXD_DEP_OVRS_NRERA",
+     "label": "NR(E)RA: non-resident external (rupee accounts)",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53278",
+     "code": "FXD_DEP_OVRS_NRNRRD",
+     "label": "NR(NR)RD: Non-resident (non-repatriable) Rupee deposits",
+     "parentId": "48774",
+     "level": 2
+    },
+    {
+     "id": "53277",
+     "code": "FXD_DEP_OVRS_NRO",
+     "label": "NRO: Non-Resident Ordinary",
+     "parentId": "48774",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

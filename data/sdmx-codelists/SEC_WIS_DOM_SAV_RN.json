@@ -1,0 +1,278 @@
+{
+ "dsdCode": "SEC_WIS_DOM_SAV_RN",
+ "label": "Sector-wise Domestic Savings",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:10.305Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLASF_SEC_GDP_RN",
+   "name": "Classification of sectors for GDP",
+   "column": "clasf_sec_gdp_rn_description",
+   "table": "dim_ebr_clasf_sec_gdp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37239",
+     "code": "N_A",
+     "label": "Not Applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "DIFF_SEC_GDP_RN",
+   "name": "Different sectors for GDP",
+   "column": "diff_sec_gdp_rn_description",
+   "table": "dim_ebr_diff_sec_gdp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54486",
+     "code": "DSG_GROSS_DOM_SAV",
+     "label": "Gross Domestic Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54491",
+     "code": "DSG_GROSS_SAV",
+     "label": "Gross Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54498",
+     "code": "DSG_FIN_CRP",
+     "label": "Financial corporations",
+     "parentId": "54491",
+     "level": 2
+    },
+    {
+     "id": "54505",
+     "code": "DSG_PRV_FIN_CRP",
+     "label": "Private financial corporations",
+     "parentId": "54498",
+     "level": 3
+    },
+    {
+     "id": "54499",
+     "code": "DSG_PUB_FIN_CRP",
+     "label": "Public financial corporations",
+     "parentId": "54498",
+     "level": 3
+    },
+    {
+     "id": "54507",
+     "code": "DSG_PUB_FIN_CRP_DEP_ENT",
+     "label": "Departmental enterprises",
+     "parentId": "54499",
+     "level": 4
+    },
+    {
+     "id": "54506",
+     "code": "DSG_PUB_FIN_CRP_NON_DEP_ENT",
+     "label": "Non-departmental enterprises",
+     "parentId": "54499",
+     "level": 4
+    },
+    {
+     "id": "54504",
+     "code": "DSG_GEN_GOV",
+     "label": "General Government",
+     "parentId": "54491",
+     "level": 2
+    },
+    {
+     "id": "54496",
+     "code": "DSG_HOUS_SEC",
+     "label": "Household sector",
+     "parentId": "54491",
+     "level": 2
+    },
+    {
+     "id": "54501",
+     "code": "DSG_SAV_PHY_ASS",
+     "label": "Saving in physical assets",
+     "parentId": "54496",
+     "level": 3
+    },
+    {
+     "id": "54500",
+     "code": "DSG_SAV_GLD_SLV",
+     "label": "Saving in the form of gold & silver ornaments",
+     "parentId": "54496",
+     "level": 3
+    },
+    {
+     "id": "54492",
+     "code": "DSG_NON_FIN_CRP",
+     "label": "Non-financial corporations",
+     "parentId": "54491",
+     "level": 2
+    },
+    {
+     "id": "54508",
+     "code": "DSG_PRV_NON_FIN_CRP",
+     "label": "Private non-financial corporations",
+     "parentId": "54492",
+     "level": 3
+    },
+    {
+     "id": "54493",
+     "code": "DSG_PUB_NON_FIN_CRP",
+     "label": "Public non-financial corporations",
+     "parentId": "54492",
+     "level": 3
+    },
+    {
+     "id": "54495",
+     "code": "DSG_PUB_NON_FIN_CRP_DEP_ENT",
+     "label": "Departmental enterprises",
+     "parentId": "54493",
+     "level": 4
+    },
+    {
+     "id": "54494",
+     "code": "DSG_PUB_NON_FIN_CRP_NON_DEP_ENT",
+     "label": "Non-departmental enterprises",
+     "parentId": "54493",
+     "level": 4
+    },
+    {
+     "id": "54484",
+     "code": "DSG_TTL_HSG_SAV",
+     "label": "Household Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54489",
+     "code": "DSG_FIN_SAV",
+     "label": "Financial Savings",
+     "parentId": "54484",
+     "level": 2
+    },
+    {
+     "id": "54490",
+     "code": "DSG_PHY_SAV",
+     "label": "Physical Savings",
+     "parentId": "54484",
+     "level": 2
+    },
+    {
+     "id": "54485",
+     "code": "DSG_NET_DOM_SAV",
+     "label": "Net Domestic Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54488",
+     "code": "DSG_PRV_CRP_CSEC",
+     "label": "Private Corporate Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54487",
+     "code": "DSG_PUB_SEC",
+     "label": "Public Sector",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

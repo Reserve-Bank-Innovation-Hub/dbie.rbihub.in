@@ -1,0 +1,83 @@
+{
+ "dsdCode": "SG_BOR_RN",
+ "label": "State Government Gross Fiscal Deficit Financing",
+ "sector": "Public Finance",
+ "subSector": "State Govt Finance",
+ "fetched": "2026-09-18T15:04:09.854Z",
+ "dims": [
+  {
+   "code": "TYP_FINANCE_RN",
+   "name": "Type of Financing",
+   "column": "typ_finance_rn_description",
+   "table": "dim_ebr_typ_finance_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "49114",
+     "code": "SGB",
+     "label": "Financing of Gross Fiscal Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49118",
+     "code": "SGB1",
+     "label": "Loans from Central Government",
+     "parentId": "49114",
+     "level": 2
+    },
+    {
+     "id": "49117",
+     "code": "SGB2",
+     "label": "Market Borrowings",
+     "parentId": "49114",
+     "level": 2
+    },
+    {
+     "id": "49115",
+     "code": "SGB4",
+     "label": "Others",
+     "parentId": "49114",
+     "level": 2
+    },
+    {
+     "id": "49116",
+     "code": "SGB3",
+     "label": "Special Securities Issued to NSSF",
+     "parentId": "49114",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

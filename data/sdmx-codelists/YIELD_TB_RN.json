@@ -1,0 +1,76 @@
+{
+ "dsdCode": "YIELD_TB_RN",
+ "label": "YIELD OF SGL TRANSACTIONS IN TREASURY BILLS",
+ "sector": "Financial Markets",
+ "subSector": "Government Securities Market",
+ "fetched": "2026-09-18T15:02:24.044Z",
+ "dims": [
+  {
+   "code": "MAT_TERM_D_RN",
+   "name": "Term To Maturity In days",
+   "column": "mat_term_d_rn_description",
+   "table": "dim_ebr_mat_term_d_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55301",
+     "code": "15TO91",
+     "label": "15-91 days",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55299",
+     "code": "183TO364",
+     "label": "183-364 days",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55300",
+     "code": "92TO182",
+     "label": "92-182 days",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55302",
+     "code": "UPTOTO14",
+     "label": "Upto 14 days",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

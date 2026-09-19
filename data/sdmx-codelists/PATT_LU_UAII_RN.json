@@ -1,0 +1,104 @@
+{
+ "dsdCode": "PATT_LU_UAII_RN",
+ "label": "Pattern of Land Use & Use of Agriculltural inputs in India",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:24.443Z",
+ "dims": [
+  {
+   "code": "SL_CAT_LAND_USE_INP_RN",
+   "name": "Selected Categories of Land Use & Agricultural inputs",
+   "column": "sl_cat_land_use_inp_rn_description",
+   "table": "dim_ebr_sl_cat_land_use_inp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37082",
+     "code": "AREA_UNDER_HIGH_YIELD_VARIETIES",
+     "label": "Area under high yield varieties",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37083",
+     "code": "CONSM_FERTZ",
+     "label": "Consumption of Fertilizer (Nitrogen+Phosphorus+Potassium)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37084",
+     "code": "CONSM_PESTC",
+     "label": "Consumption of Pesticides (Technical Grade Materials)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37081",
+     "code": "GROSS_IRR_AREA",
+     "label": "Gross Irrigated Area",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37079",
+     "code": "GROSS_SOWN_AREA",
+     "label": "Gross Sown Area",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37080",
+     "code": "NET_IRR_AREA",
+     "label": "Net Irrigated Area",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37078",
+     "code": "NET_SOWN_AREA",
+     "label": "Net Sown Area",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37051",
+     "code": "HA",
+     "label": "Hectare",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37047",
+     "code": "TN",
+     "label": "Tonnes",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

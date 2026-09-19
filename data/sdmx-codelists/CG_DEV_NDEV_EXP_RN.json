@@ -1,0 +1,83 @@
+{
+ "dsdCode": "CG_DEV_NDEV_EXP_RN",
+ "label": "Devlopmental and Non-Devlopmental  Expenditures - Central Government",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:52.029Z",
+ "dims": [
+  {
+   "code": "TYP_CGEXP_RN",
+   "name": "Type of Central Governments Expenditures",
+   "column": "typ_cgexp_rn_description",
+   "table": "dim_ebr_typ_cgexp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40186",
+     "code": "CE1",
+     "label": "Development and Non-development Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45008",
+     "code": "CE11",
+     "label": "Developmental expenditure",
+     "parentId": "40186",
+     "level": 2
+    },
+    {
+     "id": "40187",
+     "code": "CE1101",
+     "label": "Economic services",
+     "parentId": "45008",
+     "level": 3
+    },
+    {
+     "id": "40188",
+     "code": "CE1102",
+     "label": "Social services",
+     "parentId": "45008",
+     "level": 3
+    },
+    {
+     "id": "45009",
+     "code": "CE12",
+     "label": "Non-developmental expenditure",
+     "parentId": "40186",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

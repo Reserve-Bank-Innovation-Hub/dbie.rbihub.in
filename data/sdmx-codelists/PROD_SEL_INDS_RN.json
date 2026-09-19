@@ -1,0 +1,1303 @@
+{
+ "dsdCode": "PROD_SEL_INDS_RN",
+ "label": "Production of Select Industries",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:47.274Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40120",
+     "code": "BY_1972_73",
+     "label": "Base Year : 1972-73",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "INDS_WI_GDS_CAT",
+   "name": "Industry wise goods categories",
+   "column": "inds_wi_gds_cat_description",
+   "table": "dim_ebr_inds_wi_gds_cat",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54170",
+     "code": "BAS_GOOD_INDS",
+     "label": "Basic goods industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54183",
+     "code": "PRM_ALM_ING",
+     "label": "Aluminium ingots",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54231",
+     "code": "PRM_BARS_RODS",
+     "label": "Bars and rods",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54230",
+     "code": "PRM_CRBN_STL",
+     "label": "Carbon steel",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54182",
+     "code": "PRM_CAUS_SODA",
+     "label": "Caustic soda",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54181",
+     "code": "PRM_CEMENT",
+     "label": "Cement, all kinds",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54180",
+     "code": "PRM_COAL",
+     "label": "Coal",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54179",
+     "code": "PRM_CPR_MTL",
+     "label": "Copper metal (cathode)",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54266",
+     "code": "PRM_DSL",
+     "label": "Diesel",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54235",
+     "code": "PRM_DSL_HSPD",
+     "label": "Diesel, high speed",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54178",
+     "code": "PRM_ECTY",
+     "label": "Electricity",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54227",
+     "code": "PRM_FERR_MANG",
+     "label": "Ferro manganese",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54177",
+     "code": "PRM_FERTZ",
+     "label": "Fertilisers(nitrogenous & phosphatic)",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54176",
+     "code": "PRM_FIN_STL",
+     "label": "Finished steel",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54234",
+     "code": "PRM_HR_COILS",
+     "label": "H R coils/skelp",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54175",
+     "code": "PRM_HVY_STR",
+     "label": "Heavy structurals",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54263",
+     "code": "PRM_KERO",
+     "label": "Kerosene",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54264",
+     "code": "PRM_LPG",
+     "label": "Liquefied Petroleum Gas (LPG)",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54262",
+     "code": "PRM_NPK_FETRZ",
+     "label": "NPK fertilizers",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54265",
+     "code": "PRM_PETR_MTR_SPR",
+     "label": "Petrol/ motor spirit",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54174",
+     "code": "PRM_PIP_TBS",
+     "label": "Pipes and tubes (other than spun)",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54233",
+     "code": "PRM_PLATES",
+     "label": "Plates",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54232",
+     "code": "PRM_SPNG_IRN",
+     "label": "Sponge iron",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54228",
+     "code": "PRM_STAIN_STEEL",
+     "label": "Stainless/alloy steel",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54173",
+     "code": "PRM_STMP_FRG",
+     "label": "Stamping and forgings",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54172",
+     "code": "PRM_STL_CAST",
+     "label": "Steel casting",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54171",
+     "code": "PRM_SUL_ACD",
+     "label": "Sulphuric acid",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54229",
+     "code": "PRM_UREA",
+     "label": "Urea",
+     "parentId": "54170",
+     "level": 2
+    },
+    {
+     "id": "54184",
+     "code": "CAP_GOOD_INDS",
+     "label": "Capital goods industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54271",
+     "code": "CGI_AGR_TRAC",
+     "label": "Agricultural Tractors",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54200",
+     "code": "CGI_AUT_ANC_PRTS",
+     "label": "Auto-ancillary and parts",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54199",
+     "code": "CGI_BAL_ROL_NDL",
+     "label": "Ball rollers and needle bearings",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54198",
+     "code": "CGI_BOIL",
+     "label": "Boilers",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54197",
+     "code": "CGI_BRDG_CVRD_WAG",
+     "label": "Broadgauge covered wagons",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54196",
+     "code": "CGI_BRDG_PSGR_CARG",
+     "label": "Broadgauge passenger carriage",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54195",
+     "code": "CGI_COMM_VEH",
+     "label": "Commercial vehicles",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54194",
+     "code": "CGI_COMP_TRAC",
+     "label": "Complete tractors",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54239",
+     "code": "CGI_COMP",
+     "label": "Computers",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54236",
+     "code": "CGI_CONDC_ALM",
+     "label": "Conductor, aluminium",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54268",
+     "code": "CGI_CONST_MACH",
+     "label": "Construction machine/ equipment (incl. bull-dozers and road rollers)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54193",
+     "code": "CGI_DSL_ENG",
+     "label": "Diesel engines",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54238",
+     "code": "CGI_ERT_MVN_MACH",
+     "label": "Earth moving machinery",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54192",
+     "code": "CGI_ELEC_GEN",
+     "label": "Electric generators",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "55365",
+     "code": "CGI_ELEC_MTR_DGTD",
+     "label": "Electric motors (DGTD)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54191",
+     "code": "CGI_ELEC_MTR_IPP",
+     "label": "Electric motors (IPP)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54190",
+     "code": "CGI_ELEC_MTR_SSI",
+     "label": "Electric motors (SSI)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54242",
+     "code": "CGI_ENG_INTL_DISL",
+     "label": "Engines incl.Interanl combustion and diesel engine",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54243",
+     "code": "CGI_GRIND_WHL",
+     "label": "Grinding wheels",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54290",
+     "code": "CGI_LATHES",
+     "label": "Lathes",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54189",
+     "code": "CGI_MACH_TOOLS",
+     "label": "Machine tools",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54267",
+     "code": "CGI_MACH_TOOLS_OTH",
+     "label": "Machine tools for turning, drilling, milling, shaping, planing, boring, grinding etc. (other than lathes)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54188",
+     "code": "CGI_MTR_STR_CON",
+     "label": "Motor starters and contactors",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54241",
+     "code": "CGI_PLAS_MACH",
+     "label": "Plastic machinery incl. moulding machinery",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54269",
+     "code": "CGI_PRINT_MACH",
+     "label": "Printing machinery",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54187",
+     "code": "CGI_RLWY_LOC",
+     "label": "Railway locomotives",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54244",
+     "code": "CGI_REF_BRC",
+     "label": "Refractory bricks",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54237",
+     "code": "CGI_REL_FUS_SWG",
+     "label": "Relays, fuses and switchgears",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54272",
+     "code": "CGI_SHP_BLDG",
+     "label": "Ship building and parts thereof",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54186",
+     "code": "CGI_SHP_BLDG_REP",
+     "label": "Ship building and repairing",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54270",
+     "code": "CGI_STAT_INT_COMB",
+     "label": "Stationary and internal combustion piston engines not for motor vehicles",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54185",
+     "code": "CGI_TEXT_MACH",
+     "label": "Textile machinery",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54245",
+     "code": "CGI_THREE_WHLR",
+     "label": "Three-wheelers (including passenger & goods carrier)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54240",
+     "code": "CGI_TRANSF_SML",
+     "label": "Transformers (small)",
+     "parentId": "54184",
+     "level": 2
+    },
+    {
+     "id": "54212",
+     "code": "CON_GOODS_INDS",
+     "label": "Consumer goods industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54309",
+     "code": "CGI_AGBT",
+     "label": "Agarbatti",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54306",
+     "code": "CGI_ANTI_PYR_ANLG",
+     "label": "Anti-pyretic, analgesic/anti-inflammatory API &amp; formulations",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54258",
+     "code": "CGI_ANTI_BIOTICS_PREP",
+     "label": "Antibiotics and its preparations",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54307",
+     "code": "CGI_ANTI_BIOTICS_FORM",
+     "label": "Antibiotics, API & formulations",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54308",
+     "code": "CGI_API_FORM",
+     "label": "API & formulations of vitamins",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54257",
+     "code": "CGI_APPARELS",
+     "label": "Apparels",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54226",
+     "code": "CGI_ARTF_LEATHR_CLTH",
+     "label": "Artificial leather cloth",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54323",
+     "code": "CGI_AUTO_CMP",
+     "label": "Auto components/ spares and accessories",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54225",
+     "code": "CGI_BEER",
+     "label": "Beer",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54315",
+     "code": "CGI_BEER_OTH",
+     "label": "Beer & other undistilled and fermented alcoholic liqueurs other than wines",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54314",
+     "code": "CGI_BIDI",
+     "label": "Bidi",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54317",
+     "code": "CGI_BISC_COK",
+     "label": "Biscuits/ cookies",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54324",
+     "code": "CGI_FANS",
+     "label": "Ceiling or table or pedestal fans (other than industrial fans/exhaust fans) and parts thereof",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54224",
+     "code": "CGI_CIG",
+     "label": "Cigarettes",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54223",
+     "code": "CGI_CTTN_CLTH",
+     "label": "Cotton cloth",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54310",
+     "code": "CGI_CRM_LOTN",
+     "label": "Creams and lotions for topical application",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54312",
+     "code": "CGI_DTRG_PWDR",
+     "label": "Detergent powder and washing powder",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54304",
+     "code": "CGI_DIG_ENZY",
+     "label": "Digestive enzymes and antacids (incl. PPI drugs)",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54259",
+     "code": "CGI_EDB_HYD_OIL",
+     "label": "Edible hydrogenated oil",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54329",
+     "code": "CGI_FTWEAR",
+     "label": "Footwear - all types",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54318",
+     "code": "CGI_FL_CREAM_MLK",
+     "label": "Full-cream/ Toned/ Skimmed milk, whether or not chilled",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54255",
+     "code": "CGI_DMS_JEWL",
+     "label": "Gems and jewellery",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54327",
+     "code": "CGI_GLS_WARE",
+     "label": "Glassware",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54322",
+     "code": "CGI_JEWL_GLD",
+     "label": "Jewellery of gold (studded with stones or not)",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54260",
+     "code": "CGI_MAIDA",
+     "label": "Maida",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54303",
+     "code": "CGI_MED_SURG_ACC",
+     "label": "Medical/ surgical accessories",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54261",
+     "code": "CGI_MTR_CYC",
+     "label": "Motor cycles",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54254",
+     "code": "CGI_NEWSPAPER",
+     "label": "Newspapers",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54222",
+     "code": "CGI_PPR_BOARDS",
+     "label": "Paper and paper boards",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54313",
+     "code": "CGI_PAPER",
+     "label": "Paper of all kinds excluding newsprint",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54256",
+     "code": "CGI_PSGR_CARS",
+     "label": "Passenger cars",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54221",
+     "code": "CGI_PENCILLIN",
+     "label": "Penicillin",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54328",
+     "code": "CGI_PRNTD_BKS",
+     "label": "Printed Books (incl. Manuals, reports, brochures, catalogs, etc.)",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54330",
+     "code": "CGI_RDY_GRMTS",
+     "label": "Readymade Garments, not knitted",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54220",
+     "code": "CGI_SOAP",
+     "label": "Soaps, all kinds",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54316",
+     "code": "CGI_SPIRITS",
+     "label": "Spirits (Distilled alcoholic liqueurs)- whisky, gin, rum, vodka, etc.",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54326",
+     "code": "CGI_SSTL_UTN",
+     "label": "Stainless steel utensils",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54320",
+     "code": "CGI_STAT_ITM",
+     "label": "Stationery items",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54305",
+     "code": "CGI_STER_HARM",
+     "label": "Steroids and hormonal preparations (including anti-fungal preparations)",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54219",
+     "code": "CGI_SUGAR",
+     "label": "Sugar",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54325",
+     "code": "CGI_TV_SET",
+     "label": "T.V.set",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54218",
+     "code": "CGI_TEA",
+     "label": "Tea",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54217",
+     "code": "CGI_TEL_INST",
+     "label": "Telephone instruments",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54216",
+     "code": "CGI_TETRACYC",
+     "label": "Tetracycline",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54311",
+     "code": "CGI_TOIL_SOP",
+     "label": "Toilet soap (excl. baby soap)- incl. liquid soap and foam",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54321",
+     "code": "CGI_TWO_WHLR",
+     "label": "Two-wheelers (motorcycles/ scooters)",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54319",
+     "code": "CGI_VANASPATI",
+     "label": "Vanaspati  and other vegetable oils &amp; fats",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54215",
+     "code": "CGI_VANASPATI_OTH",
+     "label": "Vanaspati/edible hydrogenated oil",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54214",
+     "code": "CGI_WHT_FLOUR_MAIDA",
+     "label": "Wheat flour/Maida",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54213",
+     "code": "CGI_WRST_WCHS",
+     "label": "Wrist watches",
+     "parentId": "54212",
+     "level": 2
+    },
+    {
+     "id": "54291",
+     "code": "INFRA_CONS_GDS_INDS",
+     "label": "Infrastructure / construction goods industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54298",
+     "code": "CGI_BARS_ROD_STL",
+     "label": "Bars and Rods of Mild steel",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54294",
+     "code": "CGI_CMT_CLK",
+     "label": "Cement Clinkers",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54295",
+     "code": "CGI_CEMENT",
+     "label": "Cement- all types",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54300",
+     "code": "CGI_CR_COIL",
+     "label": "CR Coils & Sheets",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54297",
+     "code": "CGI_GALV_STL",
+     "label": "Galvanised products of Steel (including colour coated, tin plates, TMBP and Tin free steel)",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54302",
+     "code": "CGI_HR_COIL_STL",
+     "label": "HR coils and sheets  of mild steel",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54301",
+     "code": "CGI_HR_PLATES_STL",
+     "label": "HR plates of mild steel",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54296",
+     "code": "CGI_PAINTS",
+     "label": "Paints (all types)",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54293",
+     "code": "CGI_PIP_TUB",
+     "label": "Pipes, tubes & casing of steel/iron",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54292",
+     "code": "CGI_STL_FRMWK",
+     "label": "Steel frameworks or skeletons for construction of towers including pit props",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54299",
+     "code": "CGI_STL_STRUC_INC",
+     "label": "Steel Structurals (including angles, shapes, sections, etc.)",
+     "parentId": "54291",
+     "level": 2
+    },
+    {
+     "id": "54201",
+     "code": "INT_GOOD_INDS",
+     "label": "Intermediate goods industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54279",
+     "code": "IGI_ADHS",
+     "label": "Adhesive formulations other than natural gum",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54283",
+     "code": "IGI_BLT_BLM_ING",
+     "label": "Billets/blooms/ingots/pencil ingots/slabs of Alloy and Stainless Steel",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54246",
+     "code": "IGI_BLOCK_BRD",
+     "label": "Block board",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54211",
+     "code": "IGI_BOLTS_NUTS",
+     "label": "Bolts and nuts",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54276",
+     "code": "IGI_CPR_BAR_ROD",
+     "label": "Copper bars, rods, wire rods",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54275",
+     "code": "IGI_CPR_ELCTD",
+     "label": "Copper electrodes",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54281",
+     "code": "IGI_COTT_WOV_FAB",
+     "label": "Cotton woven fabric",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54210",
+     "code": "IGI_COT_YRN",
+     "label": "Cotton yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54251",
+     "code": "IGI_FSTN",
+     "label": "Fasteners (high tensile)/bolts & nuts",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54278",
+     "code": "IGI_FLM_POLY_PVC",
+     "label": "Films of polythene, polyester, PVC &amp; other forms of plastic",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54253",
+     "code": "IGI_GAS_LP",
+     "label": "Gas, liquified petroleum",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54209",
+     "code": "IGI_GIANT_TYR",
+     "label": "Giant tyres",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54274",
+     "code": "IGI_INDS_VALV",
+     "label": "Industrial Valves of different types- safety, relief and control valves(non-electronic, non-electrical)",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54208",
+     "code": "IGI_JUTE_MESTA",
+     "label": "Jute and mesta textiles",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54285",
+     "code": "IGI_MS_BLM_BLTS",
+     "label": "MS blooms/ billets/ ingots/ pencil ingots",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54284",
+     "code": "IGI_ML_SLABS",
+     "label": "MS slabs",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54247",
+     "code": "IGI_NAPTHALA",
+     "label": "Naphtha",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54280",
+     "code": "IGI_NEWSPRINT",
+     "label": "Newsprint",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54252",
+     "code": "IGI_NON_COT_YRN",
+     "label": "Non-Cotton yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54207",
+     "code": "IGI_VSC_FIL_YRN",
+     "label": "of which Viscose filament yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54206",
+     "code": "IGI_PAINTS_ENAM_VARN",
+     "label": "Paints, enamels and varnishes",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54250",
+     "code": "IGI_PETROL",
+     "label": "Petrol (motor spirit)",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54205",
+     "code": "IGI_PETROL_REF_PRD",
+     "label": "Petroleum refinery products",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54287",
+     "code": "IGI_PIG_IRON",
+     "label": "Pig iron",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54282",
+     "code": "IGI_PIPS_TUB_STL",
+     "label": "Pipes and tubes of Steel",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54277",
+     "code": "IGI_PLAS_PACK_BOTL",
+     "label": "Plastic components of packing/ closing/ bottling articles & of electrical fittings",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54204",
+     "code": "IGI_PLY_COMM",
+     "label": "Plywood commercial",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54273",
+     "code": "IGI_POLY",
+     "label": "Polymers (incl. Polyethylene, PVC, Poly propylene)",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54289",
+     "code": "IGI_RAYON",
+     "label": "Rayon / Viscose blended Spun Yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54286",
+     "code": "IGI_SPNG_IRON",
+     "label": "Sponge Iron/ DRI",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54248",
+     "code": "IGI_STL_STRUC",
+     "label": "Steel Structures",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54249",
+     "code": "IGI_SYNT_YRN",
+     "label": "Synthetic yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54288",
+     "code": "IGI_TXTL_MAN_YARN",
+     "label": "Texturised man-made filament yarn",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54203",
+     "code": "IGI_TIN_CONT",
+     "label": "Tin metal containers",
+     "parentId": "54201",
+     "level": 2
+    },
+    {
+     "id": "54202",
+     "code": "IGI_TTL_YRN",
+     "label": "Total filament yarn of which",
+     "parentId": "54201",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37070",
+     "code": "HP",
+     "label": "Horse Power",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37069",
+     "code": "KG",
+     "label": "Kilograms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37068",
+     "code": "KL",
+     "label": "Kilolitres",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37049",
+     "code": "KW",
+     "label": "Kilowatt",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37067",
+     "code": "LT",
+     "label": "Litres",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37066",
+     "code": "M",
+     "label": "Metre",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37065",
+     "code": "MMU",
+     "label": "Milli Mass Unit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37045",
+     "code": "PN",
+     "label": "Pure Number",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37063",
+     "code": "MQ",
+     "label": "Square Metres",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37064",
+     "code": "TMT",
+     "label": "Thermo Mechanically Treated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37047",
+     "code": "TN",
+     "label": "Tonnes",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

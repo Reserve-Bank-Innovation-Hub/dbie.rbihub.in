@@ -1,0 +1,201 @@
+{
+ "dsdCode": "QTR_GDP_MRKT_PRC_RN",
+ "label": "Quarterly Gross Domestic Product at Market Price",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:08.686Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLASS_EXP_RN",
+   "name": "Classification based on expenses",
+   "column": "class_exp_rn_description",
+   "table": "dim_ebr_class_exp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37216",
+     "code": "CEXP_CHG_STOCK",
+     "label": "Change in Stock",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37218",
+     "code": "CEXP_DISCP",
+     "label": "Discrepencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37217",
+     "code": "CEXP_EXP_GDS_SER",
+     "label": "Exports of Goods and Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37219",
+     "code": "CEXP_GFCE",
+     "label": "GFCE:Government Final Consumption Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37225",
+     "code": "CEXP_GFCF",
+     "label": "GFCF: Gross Fixed Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37220",
+     "code": "CEXP_GDP_MARK_CST",
+     "label": "Gross Domestic Product",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37224",
+     "code": "CEXP_IMP_GDS_SER",
+     "label": "Import of Goods and Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37223",
+     "code": "CEXP_PFCE",
+     "label": "PFCE: Private final consumption expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37222",
+     "code": "CEXP_VAL",
+     "label": "Valuables",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MET_CALC_RN",
+   "name": "Method of Calculation",
+   "column": "met_calc_rn_description",
+   "table": "dim_ebr_met_calc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37297",
+     "code": "MRKT_CST",
+     "label": "Market Prices",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

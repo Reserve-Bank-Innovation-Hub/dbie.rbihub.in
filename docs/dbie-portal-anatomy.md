@@ -4,6 +4,36 @@ A field guide for the next person (or the next pass) scraping RBI's Database on 
 
 Reading this first saves you ~2 days of reverse-engineering.
 
+> **Update 17-09-2026.** Several findings below are superseded; the sections are kept for the record.
+> - **Direct HTTP works for everything the wizard does.** The SPA cipher is AES-256-CBC with a
+>   PBKDF2-SHA1 key and a fixed IV, all three constants baked into `main.*.js`; it is reimplemented in
+>   `scripts/lib/dbie-gateway.mjs`. The scraper (`scripts/scrape-sdmx.mjs`) now drives the gateway
+>   without Playwright: 3–8 s per element instead of ~30 s, full history (no lookback caps), Daily
+>   series in one call (the one-month clamp is a date-picker artefact), and the "intractable" elements
+>   (WPI, state-wise CPI, wage rates) download fine. §3 and §11 describe the old browser flow.
+> - **The Reports and Publications menus are not simply auth-walled.** The catalogue calls are public
+>   (encrypted request fields, plaintext responses; see `scripts/fetch-reports-catalogue.mjs`).
+>   Opening a report needs a guest SAP session from `login_getSapToken`, which the portal grants
+>   intermittently (a rationed pool). When it is refused the SPA shows a "Due to high load on the system"
+>   modal — on every page, including the wizard, whose backdrop blocks clicks (this is what broke the
+>   Playwright scraper). When granted, `dbie_getReportLink` returns an OpenDocument URL carrying the BOE
+>   logon token and the Web Intelligence viewer renders the table.
+> - **Guest BusinessObjects sessions are scarce and shared.** Each `dbie_getReportLink` mints a BOE logon; the
+>   pool is small, orphans only expire after ~15–20 min idle, a second process acquiring the guest logon can
+>   invalidate the first, and a fresh token is often rejected (401) while the pool is full. A token in active
+>   use stays alive (a 17-minute document ran on one). So `scripts/export-reports.mjs` keeps one token per run,
+>   renews only when a call fails, logs off before minting a replacement, opens a brand-new gateway session for
+>   it (an ageing session keeps saying "granted" while handing out dead tokens, and answers 500 to the session
+>   call if a stale bearer is sent), waits in paced steps when a token is rejected, and never runs twice at once.
+> - **`dbie_getReportsDbie` now takes encrypted fields** (`departments`, `menu`, `portal`, `function`),
+>   not the plaintext body shown in §3.
+> - **RBI's main website is not a substitute for the DBIE publication exports.** Its Bulletin and Handbook
+>   listing pages are open, but the document host (rbidocs.rbi.org.in) sits behind an F5 bot defence that
+>   answers scripted downloads with a JavaScript challenge and then a CAPTCHA, and the Bulletin workbooks there
+>   are per-issue snapshots (5–8 periods) rather than the full-history tables. The repo's
+>   `data/publications/*.xlsx` are DBIE report exports (Web Intelligence "Report 1" layout); refresh them
+>   through the Publications menu (`scripts/export-reports.mjs`), not from rbi.org.in.
+
 ---
 
 ## 1. The portal has four layers. Know which layer you're hitting.

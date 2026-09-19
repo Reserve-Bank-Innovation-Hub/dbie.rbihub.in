@@ -1,0 +1,204 @@
+{
+ "dsdCode": "CENT_SEC_PRJ_RN",
+ "label": "Central Sector Projects",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:30.995Z",
+ "dims": [
+  {
+   "code": "IIP_SEC_RN",
+   "name": "Sector",
+   "column": "iip_sec_rn_description",
+   "table": "dim_ebr_iip_sec_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37532",
+     "code": "IIP_ATM_ENG",
+     "label": "Atomic energy",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37533",
+     "code": "IIP_CVL_AVN",
+     "label": "Civil aviation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37534",
+     "code": "IIP_COAL",
+     "label": "Coal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37536",
+     "code": "IIP_FRTZ",
+     "label": "Fertilisers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37535",
+     "code": "IIP_FIN",
+     "label": "Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37545",
+     "code": "IIP_HLT_FML_WFR",
+     "label": "Health & family welfare",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37537",
+     "code": "IIP_MINES",
+     "label": "Mines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37547",
+     "code": "IIP_OTH",
+     "label": "Others",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37539",
+     "code": "IIP_PETRO_CHEM",
+     "label": "Petro-chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37540",
+     "code": "IIP_PETROLEUM",
+     "label": "Petroleum",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37541",
+     "code": "IIP_PWR",
+     "label": "Power",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37542",
+     "code": "IIP_RLWY",
+     "label": "Railways",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37538",
+     "code": "IIP_STEEL",
+     "label": "Steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37543",
+     "code": "IIP_SURF_TRANSP",
+     "label": "Surface transport",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37544",
+     "code": "IIP_TEL_COMM",
+     "label": "Telecommunication",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37546",
+     "code": "IIP_URBN_DEV",
+     "label": "Urban development",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRJ_STS_RN",
+   "name": "Project Status",
+   "column": "prj_sts_rn_description",
+   "table": "dim_ebr_prj_sts_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37522",
+     "code": "PRJ_STATUS_AHD",
+     "label": "Ahead",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37524",
+     "code": "PRJ_STATUS_DEL",
+     "label": "Delayed",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37523",
+     "code": "PRJ_STATUS_ON_SCH",
+     "label": "On Schedule",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37525",
+     "code": "PRJ_STATUS_WT_DOC",
+     "label": "Without D.O.C.",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37045",
+     "code": "PN",
+     "label": "Pure Number",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

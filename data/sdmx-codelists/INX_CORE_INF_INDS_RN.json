@@ -1,0 +1,169 @@
+{
+ "dsdCode": "INX_CORE_INF_INDS_RN",
+ "label": "Index Numbers of Core/Infrastructure Industries",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:35.835Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CORE_INF_INDS_RN",
+   "name": "Types of Core/Infrastructure Industries",
+   "column": "core_inf_inds_rn_description",
+   "table": "dim_ebr_core_inf_inds_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37571",
+     "code": "INF_CEMENT",
+     "label": "Cement",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37569",
+     "code": "INF_COAL",
+     "label": "Coal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37579",
+     "code": "INF_CRD_OIL",
+     "label": "Crude oil",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37572",
+     "code": "INF_CRD_PETR",
+     "label": "Crude Petroleum",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37568",
+     "code": "INF_ELECTY",
+     "label": "Electricity",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37575",
+     "code": "INF_FRTZ",
+     "label": "Fertilisers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37570",
+     "code": "INF_FN_STL",
+     "label": "Finished Steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37574",
+     "code": "INF_NAT_GAS",
+     "label": "Natural Gas",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37576",
+     "code": "OVR_ALL_INDX",
+     "label": "Overall Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37573",
+     "code": "INF_PETR_REF_PRD",
+     "label": "Petroleum Refinery Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37578",
+     "code": "INF_REF_PRD",
+     "label": "Refinery Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37577",
+     "code": "INF_STL",
+     "label": "Steel",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

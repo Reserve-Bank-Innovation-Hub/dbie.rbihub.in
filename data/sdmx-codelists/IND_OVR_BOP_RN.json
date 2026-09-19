@@ -1,0 +1,519 @@
+{
+ "dsdCode": "IND_OVR_BOP_RN",
+ "label": "India's Overall Balance of Payments",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:30.057Z",
+ "dims": [
+  {
+   "code": "IO_BOP_RN",
+   "name": "Indias Overall Balance of Payments Categories",
+   "column": "io_bop_rn_description",
+   "table": "dim_ebr_io_bop_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55456",
+     "code": "MON_MOV",
+     "label": "Monetary Movements",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55457",
+     "code": "MV_FER",
+     "label": "Foreign Exchange Reserves",
+     "parentId": "55456",
+     "level": 2
+    },
+    {
+     "id": "55458",
+     "code": "MV_IMF",
+     "label": "I.M.F",
+     "parentId": "55456",
+     "level": 2
+    },
+    {
+     "id": "55399",
+     "code": "OVR_BAL",
+     "label": "Overall Balance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55407",
+     "code": "CAP_ACC",
+     "label": "Capital Account",
+     "parentId": "55399",
+     "level": 2
+    },
+    {
+     "id": "55445",
+     "code": "CA_BNK_CAP",
+     "label": "Banking Capital",
+     "parentId": "55407",
+     "level": 3
+    },
+    {
+     "id": "55446",
+     "code": "CA_BC_COMM_BNK",
+     "label": "Commercial Banks",
+     "parentId": "55445",
+     "level": 4
+    },
+    {
+     "id": "55453",
+     "code": "CA_BC_CM_AST",
+     "label": "Assets",
+     "parentId": "55446",
+     "level": 5
+    },
+    {
+     "id": "55447",
+     "code": "CA_BC_CM_LIB",
+     "label": "Liabilities",
+     "parentId": "55446",
+     "level": 5
+    },
+    {
+     "id": "55452",
+     "code": "CA_BC_CM_LIB_NRD",
+     "label": "Non-Resident Deposits of Commercial Banks",
+     "parentId": "55447",
+     "level": 6
+    },
+    {
+     "id": "55493",
+     "code": "CA_BC_CM_LIB_OTH",
+     "label": "Others",
+     "parentId": "55447",
+     "level": 6
+    },
+    {
+     "id": "55451",
+     "code": "CA_BC_OTH",
+     "label": "Others",
+     "parentId": "55445",
+     "level": 4
+    },
+    {
+     "id": "55421",
+     "code": "CA_FRG_INV",
+     "label": "Foreign Investment",
+     "parentId": "55407",
+     "level": 3
+    },
+    {
+     "id": "55425",
+     "code": "CA_FI_FDI",
+     "label": "Foreign Direct Investment",
+     "parentId": "55421",
+     "level": 4
+    },
+    {
+     "id": "55426",
+     "code": "CA_FI_FDI_ABD",
+     "label": "Abroad",
+     "parentId": "55425",
+     "level": 5
+    },
+    {
+     "id": "55434",
+     "code": "CA_FI_FDI_ABD_EQT",
+     "label": "Equity",
+     "parentId": "55426",
+     "level": 6
+    },
+    {
+     "id": "55432",
+     "code": "CA_FI_FDI_ABD_OC",
+     "label": "Other Capital",
+     "parentId": "55426",
+     "level": 6
+    },
+    {
+     "id": "55433",
+     "code": "CA_FI_FDI_ABD_RE",
+     "label": "Reinvested Earnings",
+     "parentId": "55426",
+     "level": 6
+    },
+    {
+     "id": "55427",
+     "code": "CA_FI_FDI_IND",
+     "label": "In India",
+     "parentId": "55425",
+     "level": 5
+    },
+    {
+     "id": "55437",
+     "code": "CA_FI_FDI_IND_EQT",
+     "label": "Equity",
+     "parentId": "55427",
+     "level": 6
+    },
+    {
+     "id": "55435",
+     "code": "CA_FI_FDI_IND_OC",
+     "label": "Other Capital",
+     "parentId": "55427",
+     "level": 6
+    },
+    {
+     "id": "55436",
+     "code": "CA_FI_FDI_IND_RE",
+     "label": "Reinvested Earnings",
+     "parentId": "55427",
+     "level": 6
+    },
+    {
+     "id": "55422",
+     "code": "CA_FI_FPI",
+     "label": "Foreign Portfolio Investment",
+     "parentId": "55421",
+     "level": 4
+    },
+    {
+     "id": "55428",
+     "code": "CA_FI_FPI_ABD",
+     "label": "Abroad",
+     "parentId": "55422",
+     "level": 5
+    },
+    {
+     "id": "55423",
+     "code": "CA_FI_FPI_IND",
+     "label": "In India",
+     "parentId": "55422",
+     "level": 5
+    },
+    {
+     "id": "55429",
+     "code": "CA_FI_FPI_IND_GDR_ADR",
+     "label": "ADR/GDRs",
+     "parentId": "55423",
+     "level": 6
+    },
+    {
+     "id": "55424",
+     "code": "CA_FI_FPI_IND_FII",
+     "label": "FIIs",
+     "parentId": "55423",
+     "level": 6
+    },
+    {
+     "id": "55430",
+     "code": "CA_FI_FPI_IND_FII_DBT",
+     "label": "Debt",
+     "parentId": "55424",
+     "level": 7
+    },
+    {
+     "id": "55431",
+     "code": "CA_FI_FPI_IND_FII_EQT",
+     "label": "Equity",
+     "parentId": "55424",
+     "level": 7
+    },
+    {
+     "id": "55438",
+     "code": "CA_LN",
+     "label": "Loans",
+     "parentId": "55407",
+     "level": 3
+    },
+    {
+     "id": "55439",
+     "code": "CA_LN_COMM_BORRW",
+     "label": "Commercial Borrowings",
+     "parentId": "55438",
+     "level": 4
+    },
+    {
+     "id": "55442",
+     "code": "CA_LN_CB_BY_IND",
+     "label": "By India",
+     "parentId": "55439",
+     "level": 5
+    },
+    {
+     "id": "55441",
+     "code": "CA_LN_CB_TO_IND",
+     "label": "To India",
+     "parentId": "55439",
+     "level": 5
+    },
+    {
+     "id": "55440",
+     "code": "CA_LN_EXT_AST",
+     "label": "External Assistance",
+     "parentId": "55438",
+     "level": 4
+    },
+    {
+     "id": "55444",
+     "code": "CA_LN_EXT_AST_BY_IND",
+     "label": "By India",
+     "parentId": "55440",
+     "level": 5
+    },
+    {
+     "id": "55443",
+     "code": "CA_LN_EXT_AST_TO_IND",
+     "label": "To India",
+     "parentId": "55440",
+     "level": 5
+    },
+    {
+     "id": "55448",
+     "code": "CA_LN_STC_TO_IND",
+     "label": "Short Term Credit to India",
+     "parentId": "55438",
+     "level": 4
+    },
+    {
+     "id": "55455",
+     "code": "CA_LN_STCTI_BCSC",
+     "label": "Buyers' credit & Suppliers' Credit Less Than 180 days",
+     "parentId": "55448",
+     "level": 5
+    },
+    {
+     "id": "55454",
+     "code": "CA_LN_STCTI_SC",
+     "label": "Suppliers credit up to 180 days",
+     "parentId": "55448",
+     "level": 5
+    },
+    {
+     "id": "55449",
+     "code": "CA_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "55407",
+     "level": 3
+    },
+    {
+     "id": "55450",
+     "code": "CA_RUP_DBT_SRV",
+     "label": "Rupee Debt Service",
+     "parentId": "55407",
+     "level": 3
+    },
+    {
+     "id": "55400",
+     "code": "CURR_ACC",
+     "label": "Current Account",
+     "parentId": "55399",
+     "level": 2
+    },
+    {
+     "id": "55401",
+     "code": "CURR_INVIS",
+     "label": "Invisibles",
+     "parentId": "55400",
+     "level": 3
+    },
+    {
+     "id": "55402",
+     "code": "CURR_INVIS_TRA_INC",
+     "label": "Income",
+     "parentId": "55401",
+     "level": 4
+    },
+    {
+     "id": "55408",
+     "code": "CURR_INVIS_TRA_INC_COMPNS",
+     "label": "Compensation of Employees",
+     "parentId": "55402",
+     "level": 5
+    },
+    {
+     "id": "55409",
+     "code": "CURR_INVIS_TRA_INC_INV",
+     "label": "Investment Income",
+     "parentId": "55402",
+     "level": 5
+    },
+    {
+     "id": "55404",
+     "code": "CURR_INVIS_SER",
+     "label": "Services",
+     "parentId": "55401",
+     "level": 4
+    },
+    {
+     "id": "55416",
+     "code": "CURR_IS_GNIE",
+     "label": "Government Not Included Elsewhere",
+     "parentId": "55404",
+     "level": 5
+    },
+    {
+     "id": "55417",
+     "code": "CURR_IS_INS",
+     "label": "Insurance",
+     "parentId": "55404",
+     "level": 5
+    },
+    {
+     "id": "55405",
+     "code": "CURR_IS_MISC",
+     "label": "Miscellaneous",
+     "parentId": "55404",
+     "level": 5
+    },
+    {
+     "id": "55414",
+     "code": "CURR_IS_MISC_BUS_SER",
+     "label": "Business Services",
+     "parentId": "55405",
+     "level": 6
+    },
+    {
+     "id": "55412",
+     "code": "CURR_IS_MISC_COMM_SER",
+     "label": "Communication Services",
+     "parentId": "55405",
+     "level": 6
+    },
+    {
+     "id": "55413",
+     "code": "CURR_IS_MISC_FIN_SER",
+     "label": "Financial Services",
+     "parentId": "55405",
+     "level": 6
+    },
+    {
+     "id": "55415",
+     "code": "CURR_IS_MISC_SOFT_SER",
+     "label": "Software Services",
+     "parentId": "55405",
+     "level": 6
+    },
+    {
+     "id": "55418",
+     "code": "CURR_IS_TRANS",
+     "label": "Transportation",
+     "parentId": "55404",
+     "level": 5
+    },
+    {
+     "id": "55419",
+     "code": "CURR_IS_TRV",
+     "label": "Travel",
+     "parentId": "55404",
+     "level": 5
+    },
+    {
+     "id": "55403",
+     "code": "CURR_INVIS_TRA",
+     "label": "Transfers",
+     "parentId": "55401",
+     "level": 4
+    },
+    {
+     "id": "55411",
+     "code": "CURR_INVIS_TRA_OFF",
+     "label": "Official",
+     "parentId": "55403",
+     "level": 5
+    },
+    {
+     "id": "55410",
+     "code": "CURR_INVIS_TRA_PRV",
+     "label": "Private",
+     "parentId": "55403",
+     "level": 5
+    },
+    {
+     "id": "55420",
+     "code": "CURR_MERCH",
+     "label": "Merchandise",
+     "parentId": "55400",
+     "level": 3
+    },
+    {
+     "id": "55406",
+     "code": "ERR_OMM",
+     "label": "Errors and Omissions",
+     "parentId": "55399",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "TRANC_TYP_RN",
+   "name": "Transaction Type",
+   "column": "tranc_typ_rn_description",
+   "table": "dim_ebr_tranc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41741",
+     "code": "TRANC_CRD",
+     "label": "Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41742",
+     "code": "TRANC_DEB",
+     "label": "Debit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41743",
+     "code": "TRANC_NET",
+     "label": "Net",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "dsdCode": "INX_NBR_TERM_FR_TRD_RN",
+ "label": "General Index Numbers and Terms of Foreign Trade",
+ "sector": "External Sector",
+ "subSector": "External Sector Indices",
+ "fetched": "2026-09-18T15:00:45.183Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40135",
+     "code": "BY_1978_79",
+     "label": "Base Year : 1978-79",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40136",
+     "code": "BY_2012_2013",
+     "label": "Base Year : 2012-2013",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_INDX_RN",
+   "name": "Types of Indexes",
+   "column": "typ_indx_rn_description",
+   "table": "dim_ebr_typ_indx_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41368",
+     "code": "INDX_QUANT",
+     "label": "Quantum Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53272",
+     "code": "EXP1",
+     "label": "Export",
+     "parentId": "41368",
+     "level": 2
+    },
+    {
+     "id": "53271",
+     "code": "IMP2",
+     "label": "Import",
+     "parentId": "41368",
+     "level": 2
+    },
+    {
+     "id": "53267",
+     "code": "TERM_TRD",
+     "label": "Terms of Trade",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53270",
+     "code": "TERM_TRD_GROSS",
+     "label": "Gross",
+     "parentId": "53267",
+     "level": 2
+    },
+    {
+     "id": "53268",
+     "code": "TERM_TRD_INC",
+     "label": "Income",
+     "parentId": "53267",
+     "level": 2
+    },
+    {
+     "id": "53269",
+     "code": "TERM_TRD_NET",
+     "label": "Net",
+     "parentId": "53267",
+     "level": 2
+    },
+    {
+     "id": "41367",
+     "code": "INDX_UNT_VAL",
+     "label": "Unit Value Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53274",
+     "code": "EXP",
+     "label": "Export",
+     "parentId": "41367",
+     "level": 2
+    },
+    {
+     "id": "53273",
+     "code": "IMP",
+     "label": "Import",
+     "parentId": "41367",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

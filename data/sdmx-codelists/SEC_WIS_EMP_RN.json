@@ -1,0 +1,69 @@
+{
+ "dsdCode": "SEC_WIS_EMP_RN",
+ "label": "Sector-wise Employment",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:11.920Z",
+ "dims": [
+  {
+   "code": "SEC_NBR_PRS_LIV_REG_RN",
+   "name": "Sector &  Number of Persons on the Live Register",
+   "column": "sec_nbr_prs_liv_reg_rn_description",
+   "table": "dim_ebr_sec_nbr_prs_liv_reg_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37369",
+     "code": "NBR_PRS_LIV_REG",
+     "label": "Number of Persons on the Live Register",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37367",
+     "code": "SEC_PRV",
+     "label": "Private",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37368",
+     "code": "SEC_PUB",
+     "label": "Public",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37060",
+     "code": "PS",
+     "label": "Persons",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

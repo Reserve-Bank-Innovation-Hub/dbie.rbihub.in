@@ -1,0 +1,148 @@
+{
+ "dsdCode": "CSURYCOM_M_RN",
+ "label": "Commercial Survey Component Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:43.551Z",
+ "dims": [
+  {
+   "code": "COM_CSUR_RN",
+   "name": "Components of Commercial Survey",
+   "column": "com_csur_rn_description",
+   "table": "dim_ebr_com_csur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40493",
+     "code": "CCS1",
+     "label": "Aggregate Deposits of Residents",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45138",
+     "code": "CCS11",
+     "label": "Demand Deposits",
+     "parentId": "40493",
+     "level": 2
+    },
+    {
+     "id": "45139",
+     "code": "CCS12",
+     "label": "Time Deposits of Residents",
+     "parentId": "40493",
+     "level": 2
+    },
+    {
+     "id": "45535",
+     "code": "CCS1202",
+     "label": "Long-term Time Deposits",
+     "parentId": "45139",
+     "level": 3
+    },
+    {
+     "id": "45534",
+     "code": "CCS1201",
+     "label": "Short-term Time Deposits",
+     "parentId": "45139",
+     "level": 3
+    },
+    {
+     "id": "40494",
+     "code": "CCS12011",
+     "label": "Certificates of Deposits (CDs)",
+     "parentId": "45534",
+     "level": 4
+    },
+    {
+     "id": "55120",
+     "code": "CCS12012",
+     "label": "Others",
+     "parentId": "45534",
+     "level": 4
+    },
+    {
+     "id": "40495",
+     "code": "CCS2",
+     "label": "Call/Term Funding from Financial Institutions",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40496",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51963",
+     "code": "CCS1_IM",
+     "label": "Aggregate Deposits of Residents",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51962",
+     "code": "CCS12_IM",
+     "label": "Time Deposits of Residents",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

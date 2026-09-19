@@ -1,19 +1,19 @@
-# Data catalogue — 335 tables
+# Data catalogue — 340 tables
 
-Generated 2026-07-02T13:43:43.830Z.
+Generated 2026-09-17T09:06:36.873Z.
 
-**Sources**: SDMX CSV 246; RBIB xlsx 89.
+**Sources**: SDMX CSV 251; RBIB xlsx 89.
 
 ## By theme
 
 | Theme | SDMX | RBIB | Total |
 |---|---:|---:|---:|
-| Prices | 17 | 4 | 21 |
+| Prices | 20 | 4 | 24 |
 | Growth | 38 | 1 | 39 |
 | External | 35 | 12 | 47 |
 | Money & Banking | 28 | 63 | 91 |
 | Markets | 35 | 5 | 40 |
-| Government | 27 | 3 | 30 |
+| Government | 29 | 3 | 32 |
 | Corporate | 65 | 0 | 65 |
 | Payments | 1 | 1 | 2 |
 
@@ -21,9 +21,9 @@ Generated 2026-07-02T13:43:43.830Z.
 
 | Shape | Count |
 |---|---:|
-| other | 223 |
-| index | 36 |
-| flow | 31 |
+| other | 224 |
+| index | 39 |
+| flow | 32 |
 | rate | 24 |
 | stock | 21 |
 
@@ -31,8 +31,8 @@ Generated 2026-07-02T13:43:43.830Z.
 
 | Frequency | Count |
 |---|---:|
-| Annual - Financial Year | 150 |
-| Monthly | 129 |
+| Annual - Financial Year | 152 |
+| Monthly | 132 |
 | Quarterly - Financial Year | 18 |
 | Weekly | 12 |
 | Daily | 11 |
@@ -43,7 +43,7 @@ Generated 2026-07-02T13:43:43.830Z.
 
 ## RBIB ↔ SDMX duplicate links
 
-28 of 89 RBIB tables have a likely SDMX duplicate.
+29 of 89 RBIB tables have a likely SDMX duplicate.
 
 - **rbib:Institutional Sector-Wise Gross Capital Formation (At Current Prices) (Base Year _ 2011-12).xlsx** — Institutional Sector-Wise Gross Capital Formation (At Current Prices) (Base Year _ 2011-12)  →  sdmx:SEC_WIS_CAP_FOM_RN
 - **rbib:Macro-Economic Aggregates (Base Year_ 2011-12 At Constant Prices).xlsx** — Macro-Economic Aggregates (Base Year_ 2011-12 At Constant Prices)  →  sdmx:MACRO_ECN_AGG_RN
@@ -60,7 +60,7 @@ Generated 2026-07-02T13:43:43.830Z.
 - **rbib:Minimum Support Price for Non-Foodgrains According to Crop Year (Fair Average Quality).xlsx** — Minimum Support Price for Non-Foodgrains According to Crop Year (Fair Average Quality)  →  sdmx:MIN_SUP_PRICE_RN
 - **rbib:Pattern of Land Use and Select Inputs for Agricultural Production.xlsx** — Pattern of Land Use and Select Inputs for Agricultural Production  →  sdmx:AGR_PROD_RN
 - **rbib:Sector-Wise Cost Overrun of Delayed Central Sector Projects  (End -March).xlsx** — Sector-Wise Cost Overrun of Delayed Central Sector Projects  (End -March)  →  sdmx:CENT_SEC_PRJ_RN
-- **rbib:Wholesale Price Index - Annual Average.xlsx** — Wholesale Price Index - Annual Average  →  sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN
+- **rbib:Wholesale Price Index - Annual Average.xlsx** — Wholesale Price Index - Annual Average  →  sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN, sdmx:WHOLE_PRICE_INDEX_RN
 - **rbib:32** — Foreign Trade  →  sdmx:INX_NBR_TERM_FR_TRD_RN, sdmx:DIR_FR_TRD_RN, sdmx:IFT_OIL_NON_OIL_A_RN, sdmx:IFT_OIL_NON_OIL_RN
 - **rbib:33** — Foreign Exchange Reserves Weekly  →  sdmx:FR_EXG_RESV_RN
 - **rbib:34** — Nri Deposits  →  sdmx:NRI_DEPOSITS_IN_OUT_A_RN, sdmx:NRI_DEPOSITS_IN_OUT_RN, sdmx:NRI_DEPOSITS_OUTS_RN, sdmx:NRI_DEPOSITS_OUTS_A_RN
@@ -72,4 +72,5 @@ Generated 2026-07-02T13:43:43.830Z.
 - **rbib:30** — Average Daily Turnover In Select Financial Markets  →  sdmx:AVG_TURNOVER_RN
 - **rbib:08** — Monetary Survey  →  sdmx:MSURYCOM_F_RN, sdmx:MSURYSOR_F_RN
 - **rbib:46** — Small Savings  →  sdmx:SMAL_SAV_RN
+- **rbib:22** — Wholesale Price Index Base Year 2011 12  →  sdmx:WHOLE_PRICE_INDEX_RN
 - **rbib:23** — Index Of Industrial Production Base 2004 05 100 2011 12  →  sdmx:INX_INDS_PROD_RN

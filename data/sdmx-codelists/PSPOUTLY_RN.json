@@ -1,0 +1,118 @@
+{
+ "dsdCode": "PSPOUTLY_RN",
+ "label": "Public Sector Plan Outlay",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:56.856Z",
+ "dims": [
+  {
+   "code": "SECTOR_RN",
+   "name": "Sector",
+   "column": "sector_rn_description",
+   "table": "dim_ebr_sector_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "45651",
+     "code": "TTL",
+     "label": "Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40204",
+     "code": "SEC1",
+     "label": "Agriculture  and Allied Services",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40210",
+     "code": "SEC7",
+     "label": "Education including Medical",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40207",
+     "code": "SEC4",
+     "label": "Energy",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40211",
+     "code": "SEC8",
+     "label": "Health",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40208",
+     "code": "SEC5",
+     "label": "Industry and Minerals",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40206",
+     "code": "SEC3",
+     "label": "Irrigation and Flood Control",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40212",
+     "code": "SEC9",
+     "label": "Others",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40205",
+     "code": "SEC2",
+     "label": "Rural Development and Special Area Programmes",
+     "parentId": "45651",
+     "level": 2
+    },
+    {
+     "id": "40209",
+     "code": "SEC6",
+     "label": "Transport",
+     "parentId": "45651",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

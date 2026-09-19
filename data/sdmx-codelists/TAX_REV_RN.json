@@ -1,0 +1,97 @@
+{
+ "dsdCode": "TAX_REV_RN",
+ "label": "Direct and Indirect Tax Revenues",
+ "sector": "Public Finance",
+ "subSector": "Cental & State Govt Finance(Combined)",
+ "fetched": "2026-09-18T15:03:37.491Z",
+ "dims": [
+  {
+   "code": "TYP_TAXES_RN",
+   "name": "Type of Taxes",
+   "column": "typ_taxes_rn_description",
+   "table": "dim_ebr_typ_taxes_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51016",
+     "code": "GR3",
+     "label": "Combine Tax Revenue",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51018",
+     "code": "GR31",
+     "label": "Centre Tax Revenue",
+     "parentId": "51016",
+     "level": 2
+    },
+    {
+     "id": "51022",
+     "code": "GR3101",
+     "label": "Direct Taxes",
+     "parentId": "51018",
+     "level": 3
+    },
+    {
+     "id": "51021",
+     "code": "GR3102",
+     "label": "Indirect Taxes",
+     "parentId": "51018",
+     "level": 3
+    },
+    {
+     "id": "51017",
+     "code": "GR32",
+     "label": "States Tax Revenue",
+     "parentId": "51016",
+     "level": 2
+    },
+    {
+     "id": "51020",
+     "code": "GR3201",
+     "label": "Direct Taxes",
+     "parentId": "51017",
+     "level": 3
+    },
+    {
+     "id": "51019",
+     "code": "GR3202",
+     "label": "Indirect Taxes",
+     "parentId": "51017",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,201 @@
+{
+ "dsdCode": "CPI_IW_AV_YRND_RN",
+ "label": "Consumer Price Index - Industrial worker(Average/Year End)",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:23.224Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40085",
+     "code": "BY_1960",
+     "label": "Base Year : 1960 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40087",
+     "code": "BY_1982",
+     "label": "Base Year : 1982 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40097",
+     "code": "BY_2001",
+     "label": "Base Year : 2001 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40094",
+     "code": "BY_2016",
+     "label": "Base Year : 2016 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "61460",
+     "code": "BY_1986_87",
+     "label": "Base Year: 1986-87 = 100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COMD_ITEM",
+   "name": "Commodity",
+   "column": "comd_item_description",
+   "table": "dim_ebr_comd_item",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55005",
+     "code": "C_GIAG",
+     "label": "General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55006",
+     "code": "C_GIAG_CBF",
+     "label": "Clothing, Bedding and Footwear",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55076",
+     "code": "C_GIAG_FG",
+     "label": "Food Group",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55012",
+     "code": "C_GIAG_FL",
+     "label": "Fuel and Light",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55011",
+     "code": "C_GIAG_HO",
+     "label": "Housing",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55008",
+     "code": "C_GIAG_MS",
+     "label": "Miscellaneous",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55075",
+     "code": "C_GIAG_PSTI",
+     "label": "Pan. Supari, Tobacco and Intoxicants",
+     "parentId": "55005",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51040",
+     "code": "ANN_AVE",
+     "label": "Average",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37293",
+     "code": "YR_END",
+     "label": "Year End",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_CPI_RN",
+   "name": "Type of CPI",
+   "column": "type_cpi_rn_description",
+   "table": "dim_ebr_type_cpi_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55217",
+     "code": "IW",
+     "label": "Industrial Workers",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

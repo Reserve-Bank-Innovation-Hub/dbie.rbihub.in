@@ -1,0 +1,190 @@
+{
+ "dsdCode": "PRF_LNGNFC_PUC_QTR_RN",
+ "label": "Performance of Listed Non-Government Non-Financial Companies Quarterly - Paid-up-Capital",
+ "sector": "Corporate Sector",
+ "subSector": "Listed Non-Government Non-Financial Companies",
+ "fetched": "2026-09-18T14:59:28.418Z",
+ "dims": [
+  {
+   "code": "PERF_IND_RN",
+   "name": "Performance Indicators",
+   "column": "perf_ind_rn_description",
+   "table": "dim_ebr_perf_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41162",
+     "code": "DEPRC",
+     "label": "Depreciation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41161",
+     "code": "EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41155",
+     "code": "EXPD",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41163",
+     "code": "GROSS_PFT_EBIT",
+     "label": "Gross Profits (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41164",
+     "code": "INT",
+     "label": "Interest",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41167",
+     "code": "NET_PFT",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41159",
+     "code": "OPR_PFT",
+     "label": "Operating Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41160",
+     "code": "OTH_INC",
+     "label": "Other Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41149",
+     "code": "PUC_SHARE",
+     "label": "PUC Share",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41151",
+     "code": "SALES",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41150",
+     "code": "SAL_SHARE",
+     "label": "Sales Share",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41166",
+     "code": "TAX_PROV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PUC_CLS_RN",
+   "name": "PUC Class",
+   "column": "puc_cls_rn_description",
+   "table": "dim_ebr_puc_cls_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41190",
+     "code": "10_TO_15",
+     "label": "10 to 15",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41191",
+     "code": "15_TO_25",
+     "label": "15 to 25",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41192",
+     "code": "25_N_ABOVE",
+     "label": "25 and above",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41189",
+     "code": "5_TO_10",
+     "label": "5 to 10",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41193",
+     "code": "ALL_COMP",
+     "label": "All Companies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41188",
+     "code": "LES_THN_5",
+     "label": "Less than 5",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

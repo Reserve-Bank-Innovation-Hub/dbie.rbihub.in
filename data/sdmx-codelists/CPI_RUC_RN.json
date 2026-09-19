@@ -1,0 +1,458 @@
+{
+ "dsdCode": "CPI_RUC_RN",
+ "label": "Consumer Price Index - Rural, Urban, Combined (All India)",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:29.814Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40099",
+     "code": "BY_2010",
+     "label": "Base Year : 2010 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40098",
+     "code": "BY_2012",
+     "label": "Base Year : 2012 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48495",
+     "code": "BY_2012_BS",
+     "label": "Base Year : 2012 = 100 (Back Series)",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COMD_ITEM",
+   "name": "Commodity",
+   "column": "comd_item_description",
+   "table": "dim_ebr_comd_item",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55058",
+     "code": "C_CFPI",
+     "label": "Consumer Food Price Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55005",
+     "code": "C_GIAG",
+     "label": "General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55032",
+     "code": "C_GIAG_CF",
+     "label": "Clothing and footwear",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55035",
+     "code": "C_GIAG_CF_C",
+     "label": "Clothing",
+     "parentId": "55032",
+     "level": 3
+    },
+    {
+     "id": "55034",
+     "code": "C_GIAG_CF_F",
+     "label": "Footwear",
+     "parentId": "55032",
+     "level": 3
+    },
+    {
+     "id": "55006",
+     "code": "C_GIAG_CBF",
+     "label": "Clothing, Bedding and Footwear",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55010",
+     "code": "C_GIAG_CBF_CB",
+     "label": "Clothing and Bedding",
+     "parentId": "55006",
+     "level": 3
+    },
+    {
+     "id": "55009",
+     "code": "C_GIAG_CBF_FW",
+     "label": "Footwear",
+     "parentId": "55006",
+     "level": 3
+    },
+    {
+     "id": "55033",
+     "code": "C_GIAG_FB",
+     "label": "Food and beverages",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55056",
+     "code": "C_GIAG_FB_CP",
+     "label": "Cereals and products",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55040",
+     "code": "C_GIAG_FB_EG",
+     "label": "Egg",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55054",
+     "code": "C_GIAG_FB_FR",
+     "label": "Fruits",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55041",
+     "code": "C_GIAG_FB_MF",
+     "label": "Meat and fish",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55039",
+     "code": "C_GIAG_FB_MP",
+     "label": "Milk and products",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55052",
+     "code": "C_GIAG_FB_NB",
+     "label": "Non-alcoholic beverages",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55055",
+     "code": "C_GIAG_FB_OF",
+     "label": "Oils and fats",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55051",
+     "code": "C_GIAG_FB_PMSS",
+     "label": "Prepared meals, snacks, sweets etc.",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55038",
+     "code": "C_GIAG_FB_PP",
+     "label": "Pulses and products",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55036",
+     "code": "C_GIAG_FB_SP",
+     "label": "Spices",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55037",
+     "code": "C_GIAG_FB_SC",
+     "label": "Sugar and confectionery",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55053",
+     "code": "C_GIAG_FB_VE",
+     "label": "Vegetables",
+     "parentId": "55033",
+     "level": 3
+    },
+    {
+     "id": "55007",
+     "code": "C_GIAG_FBT",
+     "label": "Food, Beverages and Tobacco",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55024",
+     "code": "C_GIAG_FBT_CP",
+     "label": "Cereals and Products",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55019",
+     "code": "C_GIAG_FBT_CS",
+     "label": "Condiments and Spices",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55021",
+     "code": "C_GIAG_FBT_EFM",
+     "label": "Egg, Fish and Meat",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55017",
+     "code": "C_GIAG_FBT_FR",
+     "label": "Fruits",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55020",
+     "code": "C_GIAG_FBT_MP",
+     "label": "Milk and Products",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55015",
+     "code": "C_GIAG_FBT_NB",
+     "label": "Non-Alcoholic Beverages",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55022",
+     "code": "C_GIAG_FBT_OF",
+     "label": "Oils and Fats",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55057",
+     "code": "C_GIAG_FBT_PTI",
+     "label": "Pan, Tobacco and Intoxicants",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "57092",
+     "code": "C_GIAG_FBT_PM",
+     "label": "Prepared meals etc.",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55023",
+     "code": "C_GIAG_FBT_PP",
+     "label": "Pulses and Products",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55016",
+     "code": "C_GIAG_FBT_SG",
+     "label": "Sugar etc.",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55018",
+     "code": "C_GIAG_FBT_VE",
+     "label": "Vegetables",
+     "parentId": "55007",
+     "level": 3
+    },
+    {
+     "id": "55012",
+     "code": "C_GIAG_FL",
+     "label": "Fuel and Light",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55011",
+     "code": "C_GIAG_HO",
+     "label": "Housing",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55008",
+     "code": "C_GIAG_MS",
+     "label": "Miscellaneous",
+     "parentId": "55005",
+     "level": 2
+    },
+    {
+     "id": "55042",
+     "code": "C_GIAG_MS_ED",
+     "label": "Education",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55030",
+     "code": "C_GIAG_MS_ES",
+     "label": "Education, Stationary etc.",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55043",
+     "code": "C_GIAG_MS_HTH",
+     "label": "Health",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55044",
+     "code": "C_GIAG_MS_HHGS",
+     "label": "Household goods and services",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55026",
+     "code": "C_GIAG_MS_HR",
+     "label": "Household Requisites",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55031",
+     "code": "C_GIAG_MS_MD",
+     "label": "Medical Care",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55025",
+     "code": "C_GIAG_MS_OTH",
+     "label": "Others",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55027",
+     "code": "C_GIAG_MS_PCE",
+     "label": "Personal Care and Effects",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55029",
+     "code": "C_GIAG_MS_RA",
+     "label": "Recreation and Amusement",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55028",
+     "code": "C_GIAG_MS_TC",
+     "label": "Transport and Communication",
+     "parentId": "55008",
+     "level": 3
+    },
+    {
+     "id": "55013",
+     "code": "C_GIAG_PTI",
+     "label": "Pan, Tobacco and Intoxicants",
+     "parentId": "55005",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "COVERAGE_GEO_RN",
+   "name": "Geographical coverage",
+   "column": "coverage_geo_rn_description",
+   "table": "dim_ebr_coverage_geo_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37869",
+     "code": "ALL_INDIA",
+     "label": "Combined- All India",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37871",
+     "code": "RUR",
+     "label": "Rural",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37870",
+     "code": "URB",
+     "label": "Urban",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

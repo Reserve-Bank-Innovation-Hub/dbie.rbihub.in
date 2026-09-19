@@ -165,8 +165,10 @@ check(CONCESSIONAL.length === 35,
     `CONCESSIONAL: expected 35 years (1991-2025), got ${CONCESSIONAL.length}`);
 check(EXT_DEBT_TO_GDP.length === 35,
     `EXT_DEBT_TO_GDP: expected 35 years (1991-2025), got ${EXT_DEBT_TO_GDP.length}`);
-check(GG_DEBT_TO_GDP.length === 41,
-    `GG_DEBT_TO_GDP: expected 41 years (1986-2026), got ${GG_DEBT_TO_GDP.length}`);
+// The SDMX source carried 1986-2026 until the 17-09-2026 re-scrape, which fetches the full history
+// (1981 onwards); require the original span to be present rather than an exact row count.
+check(GG_DEBT_TO_GDP.length >= 41 && [1986, 2000, 2026].every((y) => GG_DEBT_TO_GDP.some((r) => r.year === y)),
+    `GG_DEBT_TO_GDP: expected at least the 41 years 1986-2026, got ${GG_DEBT_TO_GDP.length}`);
 
 // Anchor checks.
 const concFind = (yr) => CONCESSIONAL.find((r) => r.year === yr);

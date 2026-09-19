@@ -1,0 +1,526 @@
+{
+ "dsdCode": "IIP_MANF_SEC_MTH_RN",
+ "label": "Indian Industrial Production Manufacturing Sector Monthly",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:42.352Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "INDS_PROD_CLASS_RN",
+   "name": "Industrial Production Classification",
+   "column": "inds_prod_class_rn_description",
+   "table": "dim_ebr_inds_prod_class_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37389",
+     "code": "SEC_BAS_CHEM_PROD",
+     "label": "Basic Chemicals & Chemical Prods.(excpt prods.of Petroleum&Coal)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37390",
+     "code": "SEC_BAS_MTL_ALLOY",
+     "label": "Basic Metal and Alloy Industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37467",
+     "code": "GRWT_BAS_MTL",
+     "label": "Basic metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37391",
+     "code": "SEC_BEV_TOB",
+     "label": "Beverages, Tobacco and related Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37468",
+     "code": "GRWT_CHEM_PRD",
+     "label": "Chemicals and chemical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37477",
+     "code": "GRWT_COK_REF_NCL",
+     "label": "Coke, refined petroleum products & nuclear fuel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37392",
+     "code": "SEC_COTT_TEXT",
+     "label": "Cotton Textiles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37484",
+     "code": "GRWT_ELECT_MACH",
+     "label": "Electrical machinery & apparatus n.e.c.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37479",
+     "code": "GRWT_FSB_MTL_PROD",
+     "label": "Fabricated metal products, except machinery & equipm",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37394",
+     "code": "SEC_FD_PRD",
+     "label": "Food products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37480",
+     "code": "GRWT_FOD_BEV",
+     "label": "Food products and beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37478",
+     "code": "GRWT_FRN_MANF",
+     "label": "Furniture, manufacturing n.e.c.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37396",
+     "code": "SEC_JUTE",
+     "label": "Jute and other vegetable fibre Textiles (except cotton)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37397",
+     "code": "SEC_LEATR",
+     "label": "Leather and Leather & Fur Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37476",
+     "code": "GRWT_LUG_HND_BAG",
+     "label": "Luggage, handbags, saddlery, harness & footwear, tanning and dressing of leather products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37465",
+     "code": "GRWT_MACH_EQP",
+     "label": "Machinery and equipment n.e.c.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37398",
+     "code": "SEC_MACH_EQP",
+     "label": "Machinery and equipment other than transport equipment (1993-94)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37421",
+     "code": "MNF_BSC_MTL",
+     "label": "Manufacture of basic metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37422",
+     "code": "MNF_BEV",
+     "label": "Manufacture of beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37423",
+     "code": "MNF_CHM_PRD",
+     "label": "Manufacture of chemicals and chemical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37424",
+     "code": "MNF_COK_REF_PETR",
+     "label": "Manufacture of coke and refined petroleum products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37425",
+     "code": "MNF_COMP_ELECT_OPT",
+     "label": "Manufacture of computer, electronic and optical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37426",
+     "code": "MNF_ELECT_EQP",
+     "label": "Manufacture of electrical equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37427",
+     "code": "MNF_FAB_MTL_PRD",
+     "label": "Manufacture of fabricated metal products, except machinery and equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37428",
+     "code": "MNF_FOD_PRD",
+     "label": "Manufacture of food products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37429",
+     "code": "MNF_FRN",
+     "label": "Manufacture of furniture",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37430",
+     "code": "MNF_LTHR",
+     "label": "Manufacture of leather and related products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37431",
+     "code": "MNF_MACH_EQUIP",
+     "label": "Manufacture of machinery and equipment n.e.c.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37432",
+     "code": "MNF_MOTR_VHL",
+     "label": "Manufacture of motor vehicles, trailers and semi-trailers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37433",
+     "code": "MNF_OTHR_NON_MET",
+     "label": "Manufacture of other non-metallic mineral products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37434",
+     "code": "MNF_OTHR_TRANS",
+     "label": "Manufacture of other transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37435",
+     "code": "MNF_PPR_PROD",
+     "label": "Manufacture of paper and paper products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37436",
+     "code": "MNF_PHAR_PROD",
+     "label": "Manufacture of pharmaceuticals, medicinal chemical and botanical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37437",
+     "code": "MNF_RUBR_PLA",
+     "label": "Manufacture of rubber and plastics products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37438",
+     "code": "MNF_TXTL",
+     "label": "Manufacture of textiles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37453",
+     "code": "MNF_TOB_PRD",
+     "label": "Manufacture of tobacco products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37440",
+     "code": "MNF_WEAR_APPRL",
+     "label": "Manufacture of wearing apparel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37488",
+     "code": "MNF_WD_FRN",
+     "label": "Manufacture of wood and products of wood and cork, except furniture; manufacture of articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "47970",
+     "code": "MNF_MNF",
+     "label": "Manufacturing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37471",
+     "code": "GRWT_MED_OPT",
+     "label": "Medical, precision & optical instruments, watches and clocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37400",
+     "code": "SEC_METL_PRD",
+     "label": "Metal Products and Parts (except Machinery and Equipment)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37475",
+     "code": "GRWT_MOT_VEH",
+     "label": "Motor vehicles, trailers & semi-trailers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37402",
+     "code": "SEC_NON_MET_MIN",
+     "label": "Non-Metallic Mineral Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37463",
+     "code": "GRWT_OFF_ACC_COMP",
+     "label": "Office, accounting & computing machinery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37485",
+     "code": "MNF_OTHR_MNF",
+     "label": "Other manufacturing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37403",
+     "code": "SEC_OTHR_MNF",
+     "label": "Other Manufacturing Industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37472",
+     "code": "GRWT_OTH_NON_MET",
+     "label": "Other non-metallic mineral products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37483",
+     "code": "GRWT_OTH_TRANS_EQP",
+     "label": "Other transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37404",
+     "code": "SEC_PPR_PRNT",
+     "label": "Paper & Paper Products and Printing, Publishing & Allied Industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37481",
+     "code": "GRWT_PAPR_PRD",
+     "label": "Paper and paper products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37487",
+     "code": "MNF_PRNT_REC_MEDIA",
+     "label": "Printing and reproduction of recorded media",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37473",
+     "code": "GRWT_PUB_PRN_REP",
+     "label": "Publishing, printing & reproduction of recorded medi",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37466",
+     "code": "GRWT_RAD_TV_COMM",
+     "label": "Radio, TV and communication equipment & apparatus",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37474",
+     "code": "GRWT_RUB_PLA_PROD",
+     "label": "Rubber and plastics products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37405",
+     "code": "SEC_RUBR_PLAS",
+     "label": "Rubber, Plastic, Petroleum and Coal Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37406",
+     "code": "SEC_TEXT_PROD",
+     "label": "Textile Products (including Wearing Apparel)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37464",
+     "code": "GRWT_TEXT",
+     "label": "Textiles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37470",
+     "code": "GRWT_TOB_PRD",
+     "label": "Tobacco products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37407",
+     "code": "SEC_TRANS_EQP_PRTS",
+     "label": "Transport Equipment and Parts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37482",
+     "code": "GRWT_WEAR_APPR",
+     "label": "Wearing apparel, dressing and dyeing of fur",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37469",
+     "code": "GRWT_WOD_PROD",
+     "label": "Wood and products of wood & cork except furniture, articles of straw & plating materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37408",
+     "code": "SEC_WD_FRN",
+     "label": "Wood and Wood Products, Furniture and Fixtures",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37409",
+     "code": "SEC_WD_SILK",
+     "label": "Wool, silk and man-made fibre textiles",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

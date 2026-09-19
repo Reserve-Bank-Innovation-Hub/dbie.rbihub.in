@@ -1,0 +1,111 @@
+{
+ "dsdCode": "GSEC_TO_RN",
+ "label": "Turnover In Government Securities Market",
+ "sector": "Financial Markets",
+ "subSector": "Government Securities Market",
+ "fetched": "2026-09-18T15:02:20.796Z",
+ "dims": [
+  {
+   "code": "DAILY_AVG_TO_RN",
+   "name": "Daily Average Turnover",
+   "column": "daily_avg_to_rn_description",
+   "table": "dim_ebr_daily_avg_to_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55494",
+     "code": "OUTR_TRANSC",
+     "label": "Outright Transactions",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55496",
+     "code": "OR_GOVT_SEC",
+     "label": "Govt. of India Dated Securities",
+     "parentId": "55494",
+     "level": 2
+    },
+    {
+     "id": "55495",
+     "code": "OR_STATE_GOVT_SEC",
+     "label": "State Govt. Securities",
+     "parentId": "55494",
+     "level": 2
+    },
+    {
+     "id": "55497",
+     "code": "RBI",
+     "label": "RBI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54463",
+     "code": "TR_BILL",
+     "label": "Treasury Bills",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54475",
+     "code": "TR_BILL_CASH_MNG_BILLS",
+     "label": "Cash Management Bills",
+     "parentId": "54463",
+     "level": 2
+    },
+    {
+     "id": "54477",
+     "code": "TR_BILL_182_DAY",
+     "label": "Treasury Bills of 182-DAY",
+     "parentId": "54463",
+     "level": 2
+    },
+    {
+     "id": "54476",
+     "code": "TR_BILL_364_DAY",
+     "label": "Treasury Bills of 364-Day",
+     "parentId": "54463",
+     "level": 2
+    },
+    {
+     "id": "54478",
+     "code": "TR_BILL_91_DAY",
+     "label": "Treasury Bills of 91-Day",
+     "parentId": "54463",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

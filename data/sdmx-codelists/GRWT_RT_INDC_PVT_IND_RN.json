@@ -1,0 +1,654 @@
+{
+ "dsdCode": "GRWT_RT_INDC_PVT_IND_RN",
+ "label": "Growth Rate Indicators for Private Limited Companies - Industry wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Financial Private Limited Companies",
+ "fetched": "2026-09-18T15:00:12.043Z",
+ "dims": [
+  {
+   "code": "GRWT_RT_RATIOS_RN",
+   "name": "Items",
+   "column": "grwt_rt_ratios_rn_description",
+   "table": "dim_ebr_grwt_rt_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40744",
+     "code": "GRP_BORRW_BNKS",
+     "label": "Borrowings from banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40750",
+     "code": "GRP_CURR_ASST",
+     "label": "Current assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40746",
+     "code": "GRP_CURR_LIB",
+     "label": "Current liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40729",
+     "code": "GRP_DESC_PROV",
+     "label": "Depreciation provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40736",
+     "code": "GRP_DIV_PAID",
+     "label": "Dividend paid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53608",
+     "code": "GRP_EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40730",
+     "code": "GRP_EBIT",
+     "label": "Gross profit (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40738",
+     "code": "GRP_GRS_SAV",
+     "label": "Gross Saving",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40739",
+     "code": "GRP_GVA",
+     "label": "Gross Value Added",
+     "parentId": "40738",
+     "level": 2
+    },
+    {
+     "id": "40740",
+     "code": "GRP_NVA",
+     "label": "Net Value Added",
+     "parentId": "40738",
+     "level": 2
+    },
+    {
+     "id": "40731",
+     "code": "GRP_INT_EXP",
+     "label": "Interest Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40751",
+     "code": "GRP_INVN",
+     "label": "Inventories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53611",
+     "code": "GRP_INV_GRS_PHY_AST",
+     "label": "Gross physical assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "53610",
+     "code": "GRP_INV_NET_PHY_AST",
+     "label": "Net physical assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "40752",
+     "code": "GRP_TGA",
+     "label": "Total gross assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "40753",
+     "code": "GRP_TNA",
+     "label": "Total net assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "40745",
+     "code": "GRP_LNG_BORRW",
+     "label": "Long term borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40725",
+     "code": "GRP_MNF_EXP",
+     "label": "Manufacturing Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40741",
+     "code": "GRP_NET_WRT",
+     "label": "Net worth",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40747",
+     "code": "GRP_NON_CUR_ASST",
+     "label": "Non-current assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40748",
+     "code": "GRP_GFA",
+     "label": "Gross Fixed Assets",
+     "parentId": "40747",
+     "level": 2
+    },
+    {
+     "id": "40749",
+     "code": "GRP_NFA",
+     "label": "Net Fixed Assets",
+     "parentId": "40747",
+     "level": 2
+    },
+    {
+     "id": "40742",
+     "code": "GRP_NC_LIB",
+     "label": "Non-current liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40733",
+     "code": "GRP_NON_OP_SD",
+     "label": "Non-operating surplus / deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40727",
+     "code": "GRP_OP_EXP",
+     "label": "Operating Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40728",
+     "code": "GRP_OP_PFT",
+     "label": "Operating Profit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40735",
+     "code": "GRP_PAT",
+     "label": "Profit After Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40734",
+     "code": "GRP_PBT",
+     "label": "Profit Before Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40732",
+     "code": "GRP_PBT_NON_OP_SD",
+     "label": "Profit before tax and non-operating surplus/deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40737",
+     "code": "GRP_PFT_RET",
+     "label": "Profit Retained",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40726",
+     "code": "GRP_REM_EMP",
+     "label": "Remuneration to employees",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40722",
+     "code": "GRP_SAL",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40785",
+     "code": "GRP_TAX_PRV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40743",
+     "code": "GRP_TTL_BORRW",
+     "label": "Total borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53903",
+     "code": "TTL_BORRW_BNK",
+     "label": "From banks",
+     "parentId": "40743",
+     "level": 2
+    },
+    {
+     "id": "40754",
+     "code": "GRP_TTL_ERN_FC",
+     "label": "Total earnings in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40755",
+     "code": "GRP_TTL_ERN_FC_EXP",
+     "label": "Exports",
+     "parentId": "40754",
+     "level": 2
+    },
+    {
+     "id": "40756",
+     "code": "GRP_TTL_EXP_FC",
+     "label": "Total expenditure in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40757",
+     "code": "GRP_TTL_EXP_FC_IMP",
+     "label": "Imports",
+     "parentId": "40756",
+     "level": 2
+    },
+    {
+     "id": "40724",
+     "code": "GRP_TTL_INC",
+     "label": "Total Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53609",
+     "code": "GRP_TRD_DUE_CURR_LIAB",
+     "label": "Trade dues and other current liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40723",
+     "code": "GRP_VAL_PROD",
+     "label": "Value of production",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "IND_CLASF_RN",
+   "name": "Industry Wise classification",
+   "column": "ind_clasf_rn_description",
+   "table": "dim_ebr_ind_clasf_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40664",
+     "code": "ICC_ALL_INDS",
+     "label": "All Industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40708",
+     "code": "CONSTRN",
+     "label": "Construction",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48156",
+     "code": "ICC_CONS_INC_CIV_ENGI",
+     "label": "Construction including civil engineering",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48157",
+     "code": "ICC_ELEC_GAS_STM_AIR_COND_SUP",
+     "label": "Electricity gas steam and air conditioning supply",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48152",
+     "code": "ICC_MFG",
+     "label": "Manufacturing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53886",
+     "code": "ICC_MFG_BAS_CHEM",
+     "label": "Basic Chemicals",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48160",
+     "code": "ICC_MFG_CHE_PRDS_PHAR_MED_CHE_BOT_PRDS",
+     "label": "Chemical and chemical products, pharmaceuticals, medicinal chemical and botanical products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53887",
+     "code": "ICC_MFG_CHEM_CD",
+     "label": "Chemicals and Chemical Products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48158",
+     "code": "ICC_MFG_ELEC_EQUIP_GEN_PUR_SPE_PUR_MAC_EQUIP_TRANS",
+     "label": "Electrical equipment, general purpose and special purpose machinery & equipment, transport equipment",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53896",
+     "code": "ICC_MFG_EM_APPR",
+     "label": "Electrical Machinery and Apparatus",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53897",
+     "code": "ICC_MFG_FM_PROD_EXC_ME",
+     "label": "Fabricated Metal Products except Machinery & Equip",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53891",
+     "code": "ICC_MFG_FP_BV",
+     "label": "Food Products & Beverages",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48161",
+     "code": "ICC_MFG_FD_BEV_TOB_PRDS",
+     "label": "Food, beverages and tobacco products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53898",
+     "code": "ICC_MFG_IRON_STL",
+     "label": "Iron and Steel",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53895",
+     "code": "ICC_MFG_MACH_EQP_NEC",
+     "label": "Machinery and Equipment nec",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "40623",
+     "code": "ICC_MCH_TOOLS",
+     "label": "Machinery and machine tools",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53901",
+     "code": "ICC_MFG_MP_SI",
+     "label": "Medical Precision and Scientific  Instruments",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48154",
+     "code": "ICC_MFG_MTL_MTL_PRDS",
+     "label": "Metal and metal products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53894",
+     "code": "ICC_MFG_MTR_VEH_OTH_TRAN",
+     "label": "Motor Vehicles and Other Transport Equipment",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "47798",
+     "code": "ICC_MFG_MTR_VEH_TRAILRS_SEMI_TRAILRS_TRANS_VEH",
+     "label": "Motor vehicles, trailers, semi trailers and other transport vehicles",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53888",
+     "code": "ICC_MFG_PPR_PD",
+     "label": "Paper & Paper Products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53885",
+     "code": "ICC_PHARM_MEDS",
+     "label": "Pharmaceuticals & Medicines",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53892",
+     "code": "ICC_MFG_PLAS_PROD",
+     "label": "Plastic Products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48159",
+     "code": "ICC_MFG_PLAS_NON_MET_RUB_FAB_PRDS",
+     "label": "Plastic products, non-metallic mineral products, rubber products, fabricated metal products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53893",
+     "code": "ICC_MFG_RUB_PLAS_PROD",
+     "label": "Rubber and Plastic Products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "48153",
+     "code": "ICC_MFG_TEX_LEA_OTH_APP_PRDS",
+     "label": "Textile, leather and other apparel products",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53890",
+     "code": "ICC_MFG_TXTS",
+     "label": "Textiles",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "53889",
+     "code": "ICC_MFG_WEAR_APP",
+     "label": "Wearing Apparel",
+     "parentId": "48152",
+     "level": 2
+    },
+    {
+     "id": "40661",
+     "code": "ICC_MIN_QUR",
+     "label": "Mining & Quarrying",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40649",
+     "code": "ICC_SRV",
+     "label": "Services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40655",
+     "code": "ICC_SRV_AFSA",
+     "label": "Accomodation and Food Service Activities",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "40652",
+     "code": "ICC_SRV_CRA",
+     "label": "Computer and Related Activities",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "53899",
+     "code": "ICC_SRV_HOTL_REST",
+     "label": "Hotels and Restaurants",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "47796",
+     "code": "ICC_SRV_INFO_COM",
+     "label": "Information and communication",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "40654",
+     "code": "ICC_SRV_RE",
+     "label": "Real Estate",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "40650",
+     "code": "ICC_SRV_WHL_RET_TRD",
+     "label": "Trade wholesale and retail",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "40719",
+     "code": "ICC_SRV_TSS",
+     "label": "Transport and storage services",
+     "parentId": "40649",
+     "level": 2
+    },
+    {
+     "id": "53900",
+     "code": "ICC_TEA_PLANT",
+     "label": "Tea Plantation",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

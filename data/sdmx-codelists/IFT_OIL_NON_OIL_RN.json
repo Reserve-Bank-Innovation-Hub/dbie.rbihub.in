@@ -1,0 +1,76 @@
+{
+ "dsdCode": "IFT_OIL_NON_OIL_RN",
+ "label": "India's Foreign Trade - Oil & Non-Oil",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:26.806Z",
+ "dims": [
+  {
+   "code": "TYP_OF_COM_TRD",
+   "name": "Foreign Trade Commodities",
+   "column": "typ_of_com_trd_description",
+   "table": "dim_ebr_typ_of_com_trd",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51126",
+     "code": "TERM_TRD_EXP",
+     "label": "Export",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51127",
+     "code": "TERM_TRD_IMP",
+     "label": "Import",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51132",
+     "code": "TERM_TTL_TRD_BAL",
+     "label": "Trade Balance",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

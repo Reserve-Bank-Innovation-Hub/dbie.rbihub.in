@@ -1,0 +1,297 @@
+{
+ "dsdCode": "GWT_RT_NGNBFI_AW_RN",
+ "label": "Growth Rate Indicators for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+ "fetched": "2026-09-18T14:59:56.829Z",
+ "dims": [
+  {
+   "code": "ACT_CAT_RN",
+   "name": "Activity wise Category",
+   "column": "act_cat_rn_description",
+   "table": "dim_ebr_act_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41142",
+     "code": "AC_ALL_ACT",
+     "label": "All Activities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41145",
+     "code": "AC_AST_FIN",
+     "label": "Asset Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41146",
+     "code": "AC_DIV",
+     "label": "Diversified",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41144",
+     "code": "AC_LN_FIN",
+     "label": "Loan Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41147",
+     "code": "AC_MISC",
+     "label": "Miscellaneous",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41143",
+     "code": "AC_STIH",
+     "label": "Share Trading and Investment Holding",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "GRWT_RT_RATIOS_RN",
+   "name": "Items",
+   "column": "grwt_rt_ratios_rn_description",
+   "table": "dim_ebr_grwt_rt_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40790",
+     "code": "GRP_BORRW",
+     "label": "Borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40744",
+     "code": "GRP_BORRW_BNKS",
+     "label": "Borrowings from banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40782",
+     "code": "GRP_DEP_PROV",
+     "label": "Depreciation Provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40736",
+     "code": "GRP_DIV_PAID",
+     "label": "Dividend paid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40775",
+     "code": "GRP_FI_DIV_RCV",
+     "label": "Dividend Received",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40783",
+     "code": "GRP_EBT_NOSD",
+     "label": "Earnings before Tax & Non-operating Surplus/Deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40784",
+     "code": "GRP_EBT",
+     "label": "Earnings before Tax (EBT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40780",
+     "code": "GRP_EMP_REM",
+     "label": "Employees' Remuneration",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40779",
+     "code": "GRP_INT_PYT",
+     "label": "Interest Payment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40774",
+     "code": "GRP_FI_INT_RCV",
+     "label": "Interest Received",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40824",
+     "code": "GRP_INVS",
+     "label": "Investments",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40788",
+     "code": "GRP_LNA",
+     "label": "Loans and Advances",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40786",
+     "code": "GRP_NET_PFT",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40741",
+     "code": "GRP_NET_WRT",
+     "label": "Net worth",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40781",
+     "code": "GRP_OP_EBDT",
+     "label": "Operating Profits (EBDT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40787",
+     "code": "GRP_PRF_RET",
+     "label": "Profits Retained",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40785",
+     "code": "GRP_TAX_PRV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40778",
+     "code": "GRP_TTL_EXP",
+     "label": "Total Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40724",
+     "code": "GRP_TTL_INC",
+     "label": "Total Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40760",
+     "code": "GRP_FIN_INC",
+     "label": "Financial Income",
+     "parentId": "40724",
+     "level": 2
+    },
+    {
+     "id": "40776",
+     "code": "GRP_NFI",
+     "label": "Non-Financial Income",
+     "parentId": "40724",
+     "level": 2
+    },
+    {
+     "id": "40777",
+     "code": "GRP_NOSD",
+     "label": "Non-Operating Surplus/Deficit",
+     "parentId": "40724",
+     "level": 2
+    },
+    {
+     "id": "40789",
+     "code": "GRP_TTL_NET_AST",
+     "label": "Total Net Assets",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42035",
+     "code": "CURR_FIN_YR",
+     "label": "Current Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42036",
+     "code": "PREV_FIN_YR",
+     "label": "Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

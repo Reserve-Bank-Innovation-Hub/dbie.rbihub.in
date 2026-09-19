@@ -1,0 +1,423 @@
+{
+ "dsdCode": "CI_NGNBFI_AW_RN",
+ "label": "Combined Income, Expenditure and Appropriation Accounts for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+ "fetched": "2026-09-18T14:59:53.592Z",
+ "dims": [
+  {
+   "code": "ACT_CAT_RN",
+   "name": "Activity wise Category",
+   "column": "act_cat_rn_description",
+   "table": "dim_ebr_act_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41142",
+     "code": "AC_ALL_ACT",
+     "label": "All Activities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41145",
+     "code": "AC_AST_FIN",
+     "label": "Asset Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41146",
+     "code": "AC_DIV",
+     "label": "Diversified",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41144",
+     "code": "AC_LN_FIN",
+     "label": "Loan Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41147",
+     "code": "AC_MISC",
+     "label": "Miscellaneous",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41143",
+     "code": "AC_STIH",
+     "label": "Share Trading and Investment Holding",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "GRWT_RT_RATIOS_RN",
+   "name": "Items",
+   "column": "grwt_rt_ratios_rn_description",
+   "table": "dim_ebr_grwt_rt_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40808",
+     "code": "GRP_ENA_EBT",
+     "label": "Earnings before Tax (EBT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40809",
+     "code": "GRP_ENA_LCT",
+     "label": "Less: Current Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40810",
+     "code": "GRP_ENA_NP",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40811",
+     "code": "GRP_ENA_NP_DIV",
+     "label": "Dividends",
+     "parentId": "40810",
+     "level": 2
+    },
+    {
+     "id": "40812",
+     "code": "GRP_ENA_NP_PR",
+     "label": "Profits Retained",
+     "parentId": "40810",
+     "level": 2
+    },
+    {
+     "id": "40803",
+     "code": "GRP_ENA_OP",
+     "label": "Operating Profits (EBDT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55093",
+     "code": "GRP_TTL_ENA",
+     "label": "Total Expenditure and Appropriations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40805",
+     "code": "GRP_ENA_EBT_NOSD",
+     "label": "Earnings before Tax and Non-Operating Surplus/Deficit",
+     "parentId": "55093",
+     "level": 2
+    },
+    {
+     "id": "40806",
+     "code": "GRP_ENA_NOSD",
+     "label": "Non-Operating Surplus/Deficit",
+     "parentId": "55093",
+     "level": 2
+    },
+    {
+     "id": "40807",
+     "code": "GRP_ENA_TTL_EXP",
+     "label": "Total Expenditure",
+     "parentId": "55093",
+     "level": 2
+    },
+    {
+     "id": "40796",
+     "code": "GRP_ENA_BD",
+     "label": "Bad Debts",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40804",
+     "code": "GRP_ENA_DP",
+     "label": "Depreciation Provisions",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40795",
+     "code": "GRP_ENA_EWE",
+     "label": "Employees Welfare Expenses",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40792",
+     "code": "GRP_ENA_INT",
+     "label": "Interest",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40797",
+     "code": "GRP_ENA_OE",
+     "label": "Other Expenses",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40801",
+     "code": "GRP_ENA_OE_INS",
+     "label": "Insurance",
+     "parentId": "40797",
+     "level": 4
+    },
+    {
+     "id": "55094",
+     "code": "GRP_ENA_OE_OTH",
+     "label": "Others",
+     "parentId": "40797",
+     "level": 4
+    },
+    {
+     "id": "40798",
+     "code": "GRP_ENA_OE_RENT",
+     "label": "Rent",
+     "parentId": "40797",
+     "level": 4
+    },
+    {
+     "id": "40799",
+     "code": "GRP_ENA_OE_RTB",
+     "label": "Repairs to Building",
+     "parentId": "40797",
+     "level": 4
+    },
+    {
+     "id": "40800",
+     "code": "GRP_ENA_OE_RTM",
+     "label": "Repairs to Machinery",
+     "parentId": "40797",
+     "level": 4
+    },
+    {
+     "id": "40802",
+     "code": "GRP_ENA_OTH_PROV",
+     "label": "Other Provisions (Other than Tax and Depreciation)",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40794",
+     "code": "GRP_ENA_PF",
+     "label": "Provident Fund",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40793",
+     "code": "GRP_ENA_SWB",
+     "label": "Salaries, Wages and Bonus",
+     "parentId": "40807",
+     "level": 3
+    },
+    {
+     "id": "40724",
+     "code": "GRP_TTL_INC",
+     "label": "Total Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40760",
+     "code": "GRP_FIN_INC",
+     "label": "Financial Income",
+     "parentId": "40724",
+     "level": 2
+    },
+    {
+     "id": "40770",
+     "code": "GRP_FI_FEE_BI",
+     "label": "Fee-based Income",
+     "parentId": "40760",
+     "level": 3
+    },
+    {
+     "id": "40771",
+     "code": "GRP_FI_FBI_BRK",
+     "label": "Brokerage",
+     "parentId": "40770",
+     "level": 4
+    },
+    {
+     "id": "40772",
+     "code": "GRP_FI_FBI_MB",
+     "label": "Merchant Banking",
+     "parentId": "40770",
+     "level": 4
+    },
+    {
+     "id": "40773",
+     "code": "GRP_FI_FEE_BI_OTH",
+     "label": "Other Fee-based Income",
+     "parentId": "40770",
+     "level": 4
+    },
+    {
+     "id": "40761",
+     "code": "GRP_FI_FND_BI",
+     "label": "Fund-based Income",
+     "parentId": "40760",
+     "level": 3
+    },
+    {
+     "id": "40765",
+     "code": "GRP_FI_FBI_DIV",
+     "label": "Dividends",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40762",
+     "code": "GRP_FI_FBI_INT",
+     "label": "Interest",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40763",
+     "code": "GRP_FI_FBI_INT_LNA",
+     "label": "On Loans and Advances",
+     "parentId": "40762",
+     "level": 5
+    },
+    {
+     "id": "40764",
+     "code": "GRP_FI_FBI_INT_OTH",
+     "label": "Others",
+     "parentId": "40762",
+     "level": 5
+    },
+    {
+     "id": "40768",
+     "code": "GRP_FI_FBI_LR",
+     "label": "Lease Rentals",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40767",
+     "code": "GRP_FI_FBI_NE",
+     "label": "Net Earnings From Hire Purchase Financing",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40766",
+     "code": "GRP_FI_FBI_NP",
+     "label": "Net Profit/Loss in Share Dealings",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40769",
+     "code": "GRP_FI_FND_BI_OTH",
+     "label": "Other Fund-based Income",
+     "parentId": "40761",
+     "level": 4
+    },
+    {
+     "id": "40776",
+     "code": "GRP_NFI",
+     "label": "Non-Financial Income",
+     "parentId": "40724",
+     "level": 2
+    },
+    {
+     "id": "40777",
+     "code": "GRP_NOSD",
+     "label": "Non-Operating Surplus/Deficit",
+     "parentId": "40724",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42035",
+     "code": "CURR_FIN_YR",
+     "label": "Current Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42036",
+     "code": "PREV_FIN_YR",
+     "label": "Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42040",
+     "code": "PREV_TO_PREV_FIN_YR",
+     "label": "Previous to Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

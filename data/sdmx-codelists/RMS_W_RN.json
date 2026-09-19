@@ -1,0 +1,90 @@
+{
+ "dsdCode": "RMS_W_RN",
+ "label": "Reserve Money Sources _Weekly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:22.939Z",
+ "dims": [
+  {
+   "code": "SOUR_RN",
+   "name": "Sources",
+   "column": "sour_rn_description",
+   "table": "dim_ebr_sour_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40440",
+     "code": "SOR7",
+     "label": "Governments Currency Liabilities to the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40439",
+     "code": "SOR6",
+     "label": "Net foreign exchange assets of RBI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40441",
+     "code": "SOR8",
+     "label": "Net non-monetary liabilities of RBI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40434",
+     "code": "SOR1",
+     "label": "RBI's Claims on - Government (net)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40437",
+     "code": "SOR4",
+     "label": "RBI's Claims on Banks (Including NABARD)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40438",
+     "code": "SOR5",
+     "label": "RBI's claims on Commercial sector (Excluding NABARD)",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

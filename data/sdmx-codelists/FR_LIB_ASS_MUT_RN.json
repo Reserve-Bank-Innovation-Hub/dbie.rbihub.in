@@ -1,0 +1,390 @@
+{
+ "dsdCode": "FR_LIB_ASS_MUT_RN",
+ "label": "Foreign Liabilities and Assets for Mutual Fund and Assets Management Companies - Country Wise",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:01:01.959Z",
+ "dims": [
+  {
+   "code": "COUNTRYCODE",
+   "name": "Country",
+   "column": "countrycode_description",
+   "table": "dim_ebr_countrycode",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "6663",
+     "code": "AU",
+     "label": "Australia",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6667",
+     "code": "BH",
+     "label": "Bahrain",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6680",
+     "code": "BR",
+     "label": "Brazil",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6690",
+     "code": "CA",
+     "label": "Canada",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6692",
+     "code": "KY",
+     "label": "Cayman Islands",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6696",
+     "code": "CN",
+     "label": "China",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6725",
+     "code": "FR",
+     "label": "France",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6741",
+     "code": "GG",
+     "label": "Guernsey",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "58037",
+     "code": "HK",
+     "label": "HONG KONG, SAR CHINA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6755",
+     "code": "IE",
+     "label": "Ireland",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6758",
+     "code": "IT",
+     "label": "Italy",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6760",
+     "code": "JP",
+     "label": "Japan",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6764",
+     "code": "KE",
+     "label": "Kenya",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6766",
+     "code": "KW",
+     "label": "Kuwait",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6776",
+     "code": "LU",
+     "label": "Luxembourg",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6781",
+     "code": "MY",
+     "label": "Malaysia",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6788",
+     "code": "MU",
+     "label": "Mauritius",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6802",
+     "code": "NL",
+     "label": "Netherlands",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6814",
+     "code": "OM",
+     "label": "Oman",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45666",
+     "code": "OTH",
+     "label": "Others",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6827",
+     "code": "QA",
+     "label": "Qatar",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6846",
+     "code": "SA",
+     "label": "Saudi Arabia",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6847",
+     "code": "SN",
+     "label": "Senegal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6850",
+     "code": "SL",
+     "label": "Sierra Leone",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6851",
+     "code": "SG",
+     "label": "Singapore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6858",
+     "code": "KR",
+     "label": "South Korea",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6860",
+     "code": "LK",
+     "label": "Sri Lanka",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6866",
+     "code": "CH",
+     "label": "Switzerland",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6868",
+     "code": "TW",
+     "label": "Taiwan",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6871",
+     "code": "TH",
+     "label": "Thailand",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6883",
+     "code": "UA",
+     "label": "Ukraine",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6884",
+     "code": "AE",
+     "label": "United Arab Emirates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6885",
+     "code": "GB",
+     "label": "United Kingdom",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6886",
+     "code": "US",
+     "label": "United States",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6900",
+     "code": "ZM",
+     "label": "Zambia",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "FRG_LIB_ASS_RN",
+   "name": "Liabilities and Assets",
+   "column": "frg_lib_ass_rn_description",
+   "table": "dim_ebr_frg_lib_ass_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41732",
+     "code": "FLA_FR_ASS",
+     "label": "Assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55721",
+     "code": "FLA_FR_EHA",
+     "label": "Equity Held Abroad",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41728",
+     "code": "FLA_FR_LIB",
+     "label": "Liabilities",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55720",
+     "code": "FAC_VAL",
+     "label": "Face Value",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55718",
+     "code": "MRKT_VAL",
+     "label": "Market Value",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_ENT_RN",
+   "name": "Entity Type",
+   "column": "typ_ent_rn_description",
+   "table": "dim_ebr_typ_ent_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41726",
+     "code": "ASST_MGMT_COMP",
+     "label": "Asset Management  Companies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41725",
+     "code": "MTL_FND_COMP",
+     "label": "Mutual Fund Companies",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

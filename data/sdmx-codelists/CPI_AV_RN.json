@@ -1,0 +1,248 @@
+{
+ "dsdCode": "CPI_AV_RN",
+ "label": "Consumer Price Index - Annual Variation",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:19.993Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40088",
+     "code": "BY_1960-61",
+     "label": "Base : 1960-61 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40089",
+     "code": "BY_1984-85",
+     "label": "Base : 1984-85 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40092",
+     "code": "BY_1986-87",
+     "label": "Base : 1986-87 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40095",
+     "code": "BY_2010-11",
+     "label": "Base : 2010-11 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40085",
+     "code": "BY_1960",
+     "label": "Base Year : 1960 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40087",
+     "code": "BY_1982",
+     "label": "Base Year : 1982 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40097",
+     "code": "BY_2001",
+     "label": "Base Year : 2001 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40098",
+     "code": "BY_2012",
+     "label": "Base Year : 2012 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40094",
+     "code": "BY_2016",
+     "label": "Base Year : 2016 = 100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37289",
+     "code": "ANL_VAR",
+     "label": "Annual Variation",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_CPI_RN",
+   "name": "Type of CPI",
+   "column": "type_cpi_rn_description",
+   "table": "dim_ebr_type_cpi_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37817",
+     "code": "AL",
+     "label": "Agricultural Labourer",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45699",
+     "code": "AL_AIGI",
+     "label": "CPI - Agricultural Labourers (AL) : All India General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55215",
+     "code": "IW_AI_FGRP",
+     "label": "CPI - Industrial Worker : All India-Food Group",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45696",
+     "code": "CPI_COM_AIGI",
+     "label": "CPI Combined:  All India  General Index (All Groups)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45695",
+     "code": "CPI_COM_AIFB",
+     "label": "CPI Combined:  All India Food and beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37809",
+     "code": "CPI_IW_AIGI",
+     "label": "CPI Industrial Workers : All India General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45698",
+     "code": "CPI_RUR_AIGI",
+     "label": "CPI Rural:  All India General Index (All Groups)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45697",
+     "code": "CPI_URB_AIGI",
+     "label": "CPI Urban:  All India General Index (All Groups)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55216",
+     "code": "IW_GI",
+     "label": "Industrial Worker - General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37813",
+     "code": "IW_FGRP",
+     "label": "Industrial Worker-Food Group",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37811",
+     "code": "CPI_COM",
+     "label": "New CPI - Combined",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37814",
+     "code": "CPI_RUR",
+     "label": "New CPI - Rural",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37812",
+     "code": "CPI_URB",
+     "label": "New CPI - Urban",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37805",
+     "code": "UNME_GI",
+     "label": "Urban Non-Manual Employee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

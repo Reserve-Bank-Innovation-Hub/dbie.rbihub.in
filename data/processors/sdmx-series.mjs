@@ -371,14 +371,16 @@ function runSelfChecks(summaries, anchorPayloads, allEntries) {
       if (dateIdx < 0) {
         errors.push('agr anchor: date 2022-03-31 not found');
       } else {
-        const targetKey = 'COLD_STORG_CAP|N_A|TN';
+        // The all-India figure. Until the 17-09-2026 re-scrape this row was keyed N_A: the browser
+        // scraper had left the state dimension unselected and the server aggregated it.
+        const targetKey = 'COLD_STORG_CAP|ALL_INDIA|TN';
         const colIdx = agrPayload.columns.findIndex((c) => c.key === targetKey);
         if (colIdx < 0) {
           errors.push(`agr anchor: key "${targetKey}" not found (keys: ${agrPayload.columns.slice(0, 5).map((c) => c.key).join(', ')})`);
         } else {
           const actual = agrPayload.values[colIdx][dateIdx];
           if (actual === null || Math.abs(actual - 38224006) > 1) {
-            errors.push(`agr anchor: COLD_STORG_CAP|N_A|TN at 2022-03-31 expected 38224006, got ${actual}`);
+            errors.push(`agr anchor: ${targetKey} at 2022-03-31 expected 38224006, got ${actual}`);
           }
         }
       }

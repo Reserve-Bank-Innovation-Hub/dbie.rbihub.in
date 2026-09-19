@@ -1,0 +1,62 @@
+{
+ "dsdCode": "IMPT_PETRL_PRD_RN",
+ "label": "Imports of Petroleum Products",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:34.223Z",
+ "dims": [
+  {
+   "code": "TYP_PETR_PRDS_RN",
+   "name": "Types of Petroleum Products",
+   "column": "typ_petr_prds_rn_description",
+   "table": "dim_ebr_typ_petr_prds_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37581",
+     "code": "PETR_CRD_OIL",
+     "label": "Crude oil",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37582",
+     "code": "PETR_OIL_LUB",
+     "label": "Petroleum, Oil and Lubricants",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37047",
+     "code": "TN",
+     "label": "Tonnes",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "dsdCode": "FWC_PRE_D_RN",
+ "label": "FORWARD CASH PREMIA DAILY",
+ "sector": "Financial Markets",
+ "subSector": "Forex Market",
+ "fetched": "2026-09-18T15:02:07.747Z",
+ "dims": [
+  {
+   "code": "TYPE_FW_CASH_RN",
+   "name": "Type of Forward Cash",
+   "column": "type_fw_cash_rn_description",
+   "table": "dim_ebr_type_fw_cash_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55213",
+     "code": "FW_CASH_1M",
+     "label": "Forward Cash 1 Month",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55210",
+     "code": "FW_CASH_12M",
+     "label": "Forward Cash 12 Months",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55212",
+     "code": "FW_CASH_3M",
+     "label": "Forward Cash 3 Months",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55211",
+     "code": "FW_CASH_6M",
+     "label": "Forward Cash 6 Months",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55214",
+     "code": "FW_CASH_SPOT",
+     "label": "Forward Cash-Spot",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55209",
+     "code": "REF_RT",
+     "label": "Reference Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

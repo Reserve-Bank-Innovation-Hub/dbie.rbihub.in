@@ -1,0 +1,155 @@
+{
+ "dsdCode": "HOUSE_PRICE_INDEX_RN",
+ "label": "House Price Index",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:34.690Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40095",
+     "code": "BY_2010-11",
+     "label": "Base : 2010-11 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40096",
+     "code": "BY_2008_09",
+     "label": "Base Year  :  2008-09 =100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CENTER_RN",
+   "name": "Center",
+   "column": "center_rn_description",
+   "table": "dim_ebr_center_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "39994",
+     "code": "AHMEDABAD",
+     "label": "Ahmedabad",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40066",
+     "code": "AL_INDIA",
+     "label": "All India",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40009",
+     "code": "BANGALORE",
+     "label": "Bangalore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40035",
+     "code": "CHENNAI",
+     "label": "Chennai",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "39992",
+     "code": "DELHI",
+     "label": "Delhi",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40032",
+     "code": "JAIPUR",
+     "label": "Jaipur",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40042",
+     "code": "KANPUR",
+     "label": "Kanpur",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40064",
+     "code": "KOCHI",
+     "label": "Kochi",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40049",
+     "code": "KOLKATA",
+     "label": "Kolkata",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40046",
+     "code": "LUCKNOW",
+     "label": "Lucknow",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40021",
+     "code": "MUMBAI",
+     "label": "Mumbai",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

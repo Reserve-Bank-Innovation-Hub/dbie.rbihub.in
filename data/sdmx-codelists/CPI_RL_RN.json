@@ -1,0 +1,113 @@
+{
+ "dsdCode": "CPI_RL_RN",
+ "label": "Consumer Price Index - Rural Labourer",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:26.503Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40092",
+     "code": "BY_1986-87",
+     "label": "Base : 1986-87 = 100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COMD_ITEM",
+   "name": "Commodity",
+   "column": "comd_item_description",
+   "table": "dim_ebr_comd_item",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55062",
+     "code": "CO_GIAG_CBF",
+     "label": "Clothing, Bedding and Footwear",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55064",
+     "code": "CO_FDGP",
+     "label": "Food Group",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55063",
+     "code": "CO_GIAG_FL",
+     "label": "Fuel and light",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55065",
+     "code": "CO_GIAG",
+     "label": "General Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55061",
+     "code": "CO_GIAG_MS",
+     "label": "Miscellaneous",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55060",
+     "code": "CO_GIAG_PSTI",
+     "label": "Pan. Supari, Tobacco and Intoxicants",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

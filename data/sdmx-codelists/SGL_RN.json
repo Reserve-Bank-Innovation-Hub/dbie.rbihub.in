@@ -1,0 +1,146 @@
+{
+ "dsdCode": "SGL_RN",
+ "label": "State Government Liabilities",
+ "sector": "Public Finance",
+ "subSector": "State Govt Finance",
+ "fetched": "2026-09-18T15:04:11.501Z",
+ "dims": [
+  {
+   "code": "TYP_LIABLTY_RN",
+   "name": "Type of Liabilities",
+   "column": "typ_liablty_rn_description",
+   "table": "dim_ebr_typ_liablty_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "45650",
+     "code": "TTL_LIABLITIES",
+     "label": "Liablities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40299",
+     "code": "TLB6",
+     "label": "Contingency Funds",
+     "parentId": "45650",
+     "level": 2
+    },
+    {
+     "id": "40298",
+     "code": "TLB5",
+     "label": "Deposits and Advances",
+     "parentId": "45650",
+     "level": 2
+    },
+    {
+     "id": "40294",
+     "code": "TLB1",
+     "label": "Internal Debt",
+     "parentId": "45650",
+     "level": 2
+    },
+    {
+     "id": "45034",
+     "code": "TLB12",
+     "label": "Compensation and Other Bonds",
+     "parentId": "40294",
+     "level": 3
+    },
+    {
+     "id": "45036",
+     "code": "TLB14",
+     "label": "Loans From Banks and Other institutions",
+     "parentId": "40294",
+     "level": 3
+    },
+    {
+     "id": "45033",
+     "code": "TLB11",
+     "label": "Market Loans",
+     "parentId": "40294",
+     "level": 3
+    },
+    {
+     "id": "45037",
+     "code": "TLB15",
+     "label": "Special Securities issued to NSSF",
+     "parentId": "40294",
+     "level": 3
+    },
+    {
+     "id": "45035",
+     "code": "TLB13",
+     "label": "WMA from RBI",
+     "parentId": "40294",
+     "level": 3
+    },
+    {
+     "id": "40295",
+     "code": "TLB2",
+     "label": "Loans and Advances from Central Governments",
+     "parentId": "45650",
+     "level": 2
+    },
+    {
+     "id": "40296",
+     "code": "TLB3",
+     "label": "Provident Funds",
+     "parentId": "45650",
+     "level": 2
+    },
+    {
+     "id": "45039",
+     "code": "TLB32",
+     "label": "Insurance and Pension Fund Trust and Endowments",
+     "parentId": "40296",
+     "level": 3
+    },
+    {
+     "id": "45038",
+     "code": "TLB31",
+     "label": "State Provident Funds",
+     "parentId": "40296",
+     "level": 3
+    },
+    {
+     "id": "40297",
+     "code": "TLB4",
+     "label": "Reserve Funds",
+     "parentId": "45650",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

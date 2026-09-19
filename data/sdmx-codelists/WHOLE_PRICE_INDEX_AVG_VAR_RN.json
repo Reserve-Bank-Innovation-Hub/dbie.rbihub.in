@@ -1,0 +1,185 @@
+{
+ "dsdCode": "WHOLE_PRICE_INDEX_AVG_VAR_RN",
+ "label": "Wholesale Price Index - Annual Average/Variation",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:47.057Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "46798",
+     "code": "BY_1952_53",
+     "label": "Base Year : 1952-53",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46797",
+     "code": "BY_1961_62",
+     "label": "Base Year : 1961-62",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40090",
+     "code": "BY_1970_71",
+     "label": "Base Year : 1970 - 71 = 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40086",
+     "code": "BY_1981_82",
+     "label": "Base Year : 1981-82",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37292",
+     "code": "ANNUAL_AVE",
+     "label": "Annual Average",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37289",
+     "code": "ANL_VAR",
+     "label": "Annual Variation",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "WPI_COM_CLS_RN",
+   "name": "WPI_Commodity Classification",
+   "column": "wpi_com_cls_rn_description",
+   "table": "dim_ebr_wpi_com_cls_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37931",
+     "code": "WPI01",
+     "label": "All Commodities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37933",
+     "code": "WPI010101",
+     "label": "Food Articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "38106",
+     "code": "WPI0102",
+     "label": "Fuel & Power",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "38141",
+     "code": "WPI0103",
+     "label": "Manufactured Products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "38022",
+     "code": "WPI010102",
+     "label": "Non - Food Articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37932",
+     "code": "WPI0101",
+     "label": "Primary Articles",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

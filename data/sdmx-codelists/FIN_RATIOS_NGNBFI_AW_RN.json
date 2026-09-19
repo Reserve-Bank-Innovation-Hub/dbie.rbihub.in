@@ -1,0 +1,276 @@
+{
+ "dsdCode": "FIN_RATIOS_NGNBFI_AW_RN",
+ "label": "Financial Ratios for Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+ "fetched": "2026-09-18T14:59:55.210Z",
+ "dims": [
+  {
+   "code": "ACT_CAT_RN",
+   "name": "Activity wise Category",
+   "column": "act_cat_rn_description",
+   "table": "dim_ebr_act_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41142",
+     "code": "AC_ALL_ACT",
+     "label": "All Activities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41145",
+     "code": "AC_AST_FIN",
+     "label": "Asset Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41146",
+     "code": "AC_DIV",
+     "label": "Diversified",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41144",
+     "code": "AC_LN_FIN",
+     "label": "Loan Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41147",
+     "code": "AC_MISC",
+     "label": "Miscellaneous",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41143",
+     "code": "AC_STIH",
+     "label": "Share Trading and Investment Holding",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "FINC_RATIOS_RN",
+   "name": "Financial Ratios",
+   "column": "finc_ratios_rn_description",
+   "table": "dim_ebr_finc_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54553",
+     "code": "CAP_STR_RATIOS",
+     "label": "Capital Structure Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54554",
+     "code": "CSR_BNK_BRRW_TTL_BRRW",
+     "label": "Bank Borrowings to Total Borrowings",
+     "parentId": "54553",
+     "level": 2
+    },
+    {
+     "id": "54555",
+     "code": "CSR_BRRW_TTL_NET_AST",
+     "label": "Borrowings to Total Net Assets",
+     "parentId": "54553",
+     "level": 2
+    },
+    {
+     "id": "54557",
+     "code": "CSR_DEBT_EQU",
+     "label": "Debt to Equity",
+     "parentId": "54553",
+     "level": 2
+    },
+    {
+     "id": "54558",
+     "code": "CSR_NET_WRT_TTL_NET_AST",
+     "label": "Net Worth to Total Net Assets",
+     "parentId": "54553",
+     "level": 2
+    },
+    {
+     "id": "54556",
+     "code": "CSR_TTL_OLIB_NET_WRT",
+     "label": "Total outside Liabilities to Net Worth",
+     "parentId": "54553",
+     "level": 2
+    },
+    {
+     "id": "54526",
+     "code": "PR_AL_RTS",
+     "label": "Profit Allocation Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54530",
+     "code": "PAR_DIV_EBT",
+     "label": "Dividends to EBT",
+     "parentId": "54526",
+     "level": 2
+    },
+    {
+     "id": "54528",
+     "code": "PAR_DIV_NET_PFT",
+     "label": "Dividends to Net Profits",
+     "parentId": "54526",
+     "level": 2
+    },
+    {
+     "id": "54529",
+     "code": "PAR_PFT_RET_EBT",
+     "label": "Profits Retained to EBT",
+     "parentId": "54526",
+     "level": 2
+    },
+    {
+     "id": "54527",
+     "code": "PAR_PFT_RET_NET_PFT",
+     "label": "Profits Retained to Net Profits",
+     "parentId": "54526",
+     "level": 2
+    },
+    {
+     "id": "54531",
+     "code": "PAR_TP_EBT",
+     "label": "Tax Provision to EBT",
+     "parentId": "54526",
+     "level": 2
+    },
+    {
+     "id": "54539",
+     "code": "PFT_RATIOS",
+     "label": "Profitability Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54540",
+     "code": "PR_DIV_NET_WRT",
+     "label": "Dividends to Net Worth",
+     "parentId": "54539",
+     "level": 2
+    },
+    {
+     "id": "54541",
+     "code": "PR_DIV_TTL_PUSC",
+     "label": "Dividends to Total Paid-up Share Capital",
+     "parentId": "54539",
+     "level": 2
+    },
+    {
+     "id": "54542",
+     "code": "PR_NET_PFT_NET_WRT",
+     "label": "Net profits to Net Worth",
+     "parentId": "54539",
+     "level": 2
+    },
+    {
+     "id": "54543",
+     "code": "PR_NET_PFT_TTL_NET_AST",
+     "label": "Net profits to Total Net Assets",
+     "parentId": "54539",
+     "level": 2
+    },
+    {
+     "id": "54545",
+     "code": "PR_OP_PFT_FIN_INC",
+     "label": "Operating Profits to Financial Income",
+     "parentId": "54539",
+     "level": 2
+    },
+    {
+     "id": "54544",
+     "code": "PR_OP_PFT_NET_AST",
+     "label": "Operating Profits to Total Net Assets",
+     "parentId": "54539",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42035",
+     "code": "CURR_FIN_YR",
+     "label": "Current Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42036",
+     "code": "PREV_FIN_YR",
+     "label": "Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42040",
+     "code": "PREV_TO_PREV_FIN_YR",
+     "label": "Previous to Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "dsdCode": "MSC_F_RN",
+ "label": "Money Stock Components_Fortnightly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:56.471Z",
+ "dims": [
+  {
+   "code": "COMPONTS_F_RN",
+   "name": "Components",
+   "column": "componts_f_rn_description",
+   "table": "dim_ebr_componts_f_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40457",
+     "code": "CF5",
+     "label": "M3",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40449",
+     "code": "CF1",
+     "label": "Currency with the Public",
+     "parentId": "40457",
+     "level": 2
+    },
+    {
+     "id": "51372",
+     "code": "CF15",
+     "label": "Demand Deposits with Banks",
+     "parentId": "40457",
+     "level": 2
+    },
+    {
+     "id": "51371",
+     "code": "CF16",
+     "label": "Other Deposits with Reserve Bank",
+     "parentId": "40457",
+     "level": 2
+    },
+    {
+     "id": "40456",
+     "code": "CF4",
+     "label": "Time Deposits with Banks",
+     "parentId": "40457",
+     "level": 2
+    },
+    {
+     "id": "40462",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53563",
+     "code": "CF5_IM",
+     "label": "M3",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53562",
+     "code": "CF4_IM",
+     "label": "Time Deposits with Banks",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

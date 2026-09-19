@@ -1,0 +1,150 @@
+{
+ "dsdCode": "GROSS_NET_CAP_FRM_RN",
+ "label": "Gross Net Capital Formation",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:04:57.276Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "GNCF_RN",
+   "name": "Categories of Gross Net Capital Formation",
+   "column": "gncf_rn_description",
+   "table": "dim_ebr_gncf_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37137",
+     "code": "GNCF_CHG_STOCKS",
+     "label": "Changes in stocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37138",
+     "code": "GNCF_GCF",
+     "label": "GCF : Gross Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37135",
+     "code": "GNCF_GDCF",
+     "label": "GDCF : Gross Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37134",
+     "code": "GNCF_GFCF",
+     "label": "GFCF : Gross Fixed Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37139",
+     "code": "GNCF_NCF",
+     "label": "NCF : Net Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37136",
+     "code": "GNCF_NDCF",
+     "label": "NDCF : Net Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

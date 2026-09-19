@@ -1,141 +1,81 @@
-// Enumerates every table in DBIE's Statistics tree by driving the SPA to each
-// subsection and intercepting the dbie_getReportsDbie response. The catalogue
-// endpoint is public; only the reports themselves sit behind SAP BOE auth.
+// Enumerates every table in DBIE's Statistics and Publications menus over plain
+// HTTP (dbie_getReportsDbie, encrypted request fields) and writes
+// data/reports-catalogue.json. No browser needed.
 //
-// Output (reports-catalogue.json) looks like:
-//   [
-//     { "section": "Statistics", "category": "Corporate Sector", "subsection": "Finances of FDI Companies",
-//       "groups": [
-//         { "title": "...", "reports": [
-//             { "reportName": "Statement 01: ...", "reportId": 12345, "frequency": "Annual", "from": "31-Mar-2013", "to": "31-Mar-2024", "raw": {...} },
-//             ...
-//         ] }
-//       ] }
-//   ]
+// Output shape (one entry per menu sub-section):
+//   [{ section, category, subsection, reportPath,
+//      groups: [{ title, reports: [{ reportName, reportId, frequency, from, to, period, tableNo, section, subSection }] }] }]
+// Publications nest deeper than Statistics (publication > section > sub-section > tables);
+// the nesting is flattened into `groups` whose title is the joined path.
 //
 // Usage:
-//   node src/fetch-reports-catalogue.mjs                       # all Statistics subsections
-//   node src/fetch-reports-catalogue.mjs --section Statistics
-//   node src/fetch-reports-catalogue.mjs --sub "External Debt" # single subsection
-//   node src/fetch-reports-catalogue.mjs --headful             # show browser
+//   node scripts/fetch-reports-catalogue.mjs                    # both menus
+//   node scripts/fetch-reports-catalogue.mjs --section Statistics
+//   node scripts/fetch-reports-catalogue.mjs --sub "External Debt"
 
-import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Gateway, enc } from './lib/dbie-gateway.mjs';
 
 const DATA = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'data');
-
 const argv = process.argv.slice(2);
-const flag = n => { const i = argv.indexOf(n); return i >= 0 ? argv[i+1] : null; };
-const has  = n => argv.includes(n);
-
-const filterSection = flag('--section') || 'Statistics';
+const flag = n => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
+const filterSection = flag('--section');
 const filterSub     = flag('--sub');
-const headful       = has('--headful');
-
 const OUT = path.join(DATA, 'reports-catalogue.json');
+const log = msg => console.log(`[${new Date().toISOString().slice(11, 19)}] ${msg}`);
 
-const decode = raw => raw
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+const normalise = r => ({
+    reportName : r.reportName || '',
+    reportId   : r.reportId ?? null,
+    frequency  : r.reportFreq || '',
+    from       : r.fromdate || '',
+    to         : r.todate || '',
+    period     : r.reportPeriod || '',
+    tableNo    : r.tableNo || '',
+    section    : r.section || '',
+    subSection : r.subSection || '',
+});
 
-const log = msg => console.log(`[${new Date().toISOString().slice(11,19)}] ${msg}`);
-
-async function captureReports(page, reportPath) {
-    // Angular router chokes on '&', '#', '(', ')'. URL-encode each segment
-    // independently so '/' is preserved as path separator.
-    const encoded = reportPath
-        .split('/')
-        .map(seg => seg
-            .replace(/&/g, '%26')
-            .replace(/#/g, '%23')
-            .replace(/\(/g, '%28')
-            .replace(/\)/g, '%29'))
-        .join('/');
-    const url = `https://data.rbi.org.in/DBIE/#${encoded}`;
-    const waitReports = page.waitForResponse(
-        r => r.url().endsWith('/dbie_getReportsDbie'),
-        { timeout: 120000 },
-    );
-    // Full page reload so the SPA re-bootstraps a fresh session.
-    await page.goto('about:blank').catch(() => {});
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    const resp = await waitReports;
-    const env = JSON.parse(decode(await resp.text()));
-    if (env.header?.status !== 'success') throw new Error(`api: ${JSON.stringify(env.header)}`);
-    return env.body?.reports || [];
-}
-
-function normaliseReport(r) {
-    // Match what the website exposes: Table Name, Frequency, From, To.
-    return {
-        reportName : r.reportName || '',
-        reportId   : r.reportId ?? null,
-        frequency  : r.reportFreq || '',
-        from       : r.fromdate || '',
-        to         : r.todate || '',
-        period     : r.reportPeriod || '',
-        tableNo    : r.tableNo || '',
-        section    : r.section || '',
-        subSection : r.subSection || '',
-    };
+// Flatten nested {title, subs:[...]} nodes into groups of leaf reports.
+function flatten(nodes, pathTitles = []) {
+    const groups = [];
+    const leaves = [];
+    for (const n of nodes || []) {
+        if (n.reportId !== undefined) { leaves.push(normalise(n)); continue; }
+        groups.push(...flatten(n.subs, [...pathTitles, n.title || '']));
+    }
+    if (leaves.length) groups.unshift({ title: pathTitles.join(' > '), reports: leaves });
+    return groups;
 }
 
 async function main() {
-    const catalogue = JSON.parse(fs.readFileSync(path.join(DATA, 'reports-sections.json'), 'utf8'));
-    const targets = [];
-    for (const sec of catalogue) {
+    const sections = JSON.parse(fs.readFileSync(path.join(DATA, 'reports-sections.json'), 'utf8'));
+    const gw = new Gateway();
+    await gw.openSession();
+    const out = [];
+    let total = 0;
+    for (const sec of sections) {
         if (filterSection && sec.section !== filterSection) continue;
-        for (const cat of sec.categories) {
-            for (const sub of cat.subsections) {
-                if (filterSub && sub.subsection !== filterSub) continue;
-                targets.push({
-                    section: sec.section,
-                    category: cat.category,
-                    subsection: sub.subsection,
-                    reportPath: sub.reportPath,
-                });
-            }
-        }
-    }
-    log(`Planned: ${targets.length} subsection(s).`);
-
-    const browser = await chromium.launch({ headless: !headful });
-    const ctx = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
-    const page = await ctx.newPage();
-
-    const results = [];
-    let ok = 0, failed = 0;
-    try {
-        for (let i = 0; i < targets.length; i++) {
-            const t = targets[i];
-            const prefix = `[${i+1}/${targets.length}] ${t.section}/${t.category}/${t.subsection}`;
+        for (const cat of sec.categories) for (const sub of cat.subsections) {
+            if (filterSub && sub.subsection !== filterSub) continue;
+            // The SPA sends: departments = [category], menu = sub-section, function = section name.
+            const body = { body: { departments: [enc(cat.category)], menu: enc(sub.subsection), portal: enc('DBIE'), function: enc(sec.section) } };
+            let groups = [];
             try {
-                const rawGroups = await captureReports(page, t.reportPath);
-                const groups = (rawGroups || []).map(g => ({
-                    title: g.title || '',
-                    reports: (g.subs || []).map(normaliseReport),
-                }));
-                const nReports = groups.reduce((n, g) => n + g.reports.length, 0);
-                log(`${prefix} — ${groups.length} groups, ${nReports} reports`);
-                results.push({ ...t, groups });
-                ok++;
+                const res = await gw.post('dbie_getReportsDbie', body);
+                groups = flatten(res.reports || []);
             } catch (e) {
-                log(`${prefix} FAIL: ${e.message}`);
-                results.push({ ...t, error: e.message });
-                failed++;
+                log(`  ! ${sec.section}/${cat.category}/${sub.subsection}: ${e.message}`);
             }
-            // polite pause
-            await page.waitForTimeout(800);
+            const n = groups.reduce((s, g) => s + g.reports.length, 0);
+            total += n;
+            out.push({ section: sec.section, category: cat.category, subsection: sub.subsection, reportPath: sub.reportPath, groups });
+            log(`${sec.section.padEnd(12)} ${cat.category.padEnd(28)} ${sub.subsection.slice(0, 60).padEnd(62)} ${String(n).padStart(4)}`);
         }
-    } finally {
-        await browser.close();
     }
-
-    fs.writeFileSync(OUT, JSON.stringify(results, null, 2));
-    const totalReports = results.reduce((n, r) => n + (r.groups?.reduce((m, g) => m + g.reports.length, 0) || 0), 0);
-    log(`\nWrote ${OUT} — ${ok} ok, ${failed} failed, ${totalReports} reports total.`);
+    fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
+    log(`Wrote ${path.relative(process.cwd(), OUT)}: ${out.length} sub-sections, ${total} reports.`);
 }
-
 main().catch(e => { console.error(e); process.exit(1); });

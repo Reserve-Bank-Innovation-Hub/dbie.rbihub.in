@@ -1,0 +1,167 @@
+{
+ "dsdCode": "NOT_COIN_RN",
+ "label": "Notes & Coin in Circulation",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:01.324Z",
+ "dims": [
+  {
+   "code": "DENOMITIN_RN",
+   "name": "Denomination",
+   "column": "denomitin_rn_description",
+   "table": "dim_ebr_denomitin_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40514",
+     "code": "NCC03",
+     "label": "Re. 1 Coins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40513",
+     "code": "NCC02",
+     "label": "Re. 1 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40517",
+     "code": "NCC06",
+     "label": "Rs. 10 Coins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40520",
+     "code": "NCC09",
+     "label": "Rs. 10 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40523",
+     "code": "NCC12",
+     "label": "Rs. 100 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40526",
+     "code": "NCC15",
+     "label": "Rs. 1000 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40515",
+     "code": "NCC04",
+     "label": "Rs. 2 Coins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40518",
+     "code": "NCC07",
+     "label": "Rs. 2 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45653",
+     "code": "NCC17",
+     "label": "Rs. 20 Coins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40521",
+     "code": "NCC10",
+     "label": "Rs. 20 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40524",
+     "code": "NCC13",
+     "label": "Rs. 200 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40527",
+     "code": "NCC16",
+     "label": "Rs. 2000 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40516",
+     "code": "NCC05",
+     "label": "Rs. 5 Coins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40519",
+     "code": "NCC08",
+     "label": "Rs. 5 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40522",
+     "code": "NCC11",
+     "label": "Rs. 50 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40525",
+     "code": "NCC14",
+     "label": "Rs. 500 Notes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40512",
+     "code": "NCC01",
+     "label": "Small Coins",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

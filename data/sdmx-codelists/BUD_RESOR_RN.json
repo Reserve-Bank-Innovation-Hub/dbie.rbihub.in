@@ -1,0 +1,111 @@
+{
+ "dsdCode": "BUD_RESOR_RN",
+ "label": "Budgetary Resources",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:40.720Z",
+ "dims": [
+  {
+   "code": "TYP_BUG_RESOR_RN",
+   "name": "Type of Budgetary Resource",
+   "column": "typ_bug_resor_rn_description",
+   "table": "dim_ebr_typ_bug_resor_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "45642",
+     "code": "TTL_BUG_RESOURCES",
+     "label": "Budgetary Resources",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40214",
+     "code": "BR1",
+     "label": "Gross Capital Formation",
+     "parentId": "45642",
+     "level": 2
+    },
+    {
+     "id": "45021",
+     "code": "BR11",
+     "label": "Fixed Assets",
+     "parentId": "40214",
+     "level": 3
+    },
+    {
+     "id": "45023",
+     "code": "BR13",
+     "label": "Increase in Stocks of Foodgrains & Fertilisers",
+     "parentId": "40214",
+     "level": 3
+    },
+    {
+     "id": "45022",
+     "code": "BR12",
+     "label": "Work Stores",
+     "parentId": "40214",
+     "level": 3
+    },
+    {
+     "id": "40215",
+     "code": "BR2",
+     "label": "Gross Financial Assistance",
+     "parentId": "45642",
+     "level": 2
+    },
+    {
+     "id": "45025",
+     "code": "BR22",
+     "label": "Capital Formation to Non-Departmental Commercial Undertakings",
+     "parentId": "40215",
+     "level": 3
+    },
+    {
+     "id": "45026",
+     "code": "BR23",
+     "label": "Capital Formation to Others",
+     "parentId": "40215",
+     "level": 3
+    },
+    {
+     "id": "45024",
+     "code": "BR21",
+     "label": "Capital Formation to State Government",
+     "parentId": "40215",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

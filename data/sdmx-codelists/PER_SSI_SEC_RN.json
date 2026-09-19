@@ -1,0 +1,113 @@
+{
+ "dsdCode": "PER_SSI_SEC_RN",
+ "label": "Perfomance of SSI Sector",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:43.958Z",
+ "dims": [
+  {
+   "code": "PER_SSI_SEC",
+   "name": "Performance of SSI Sector",
+   "column": "per_ssi_sec_description",
+   "table": "dim_ebr_per_ssi_sec",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56680",
+     "code": "PROD",
+     "label": "Production",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56679",
+     "code": "PROD_PER_EMP",
+     "label": "Production per employee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56678",
+     "code": "SSI_EXP",
+     "label": "SSI Export",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37366",
+     "code": "N_A",
+     "label": "Not Applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

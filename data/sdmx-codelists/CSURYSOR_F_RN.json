@@ -1,0 +1,260 @@
+{
+ "dsdCode": "CSURYSOR_F_RN",
+ "label": "Commercial Survey Sources_Fortnightly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:48.393Z",
+ "dims": [
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51958",
+     "code": "SCSR1201_IM",
+     "label": "Bank Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51959",
+     "code": "SCSR12_IM",
+     "label": "Credit to the Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51960",
+     "code": "SCSR11_IM",
+     "label": "Credit to the Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51961",
+     "code": "SCSR1_IM",
+     "label": "Domestic Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51957",
+     "code": "SCSR12011_IM",
+     "label": "Non-food Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "SOR_CSUR_RN",
+   "name": "Sources of Commercial Survey",
+   "column": "sor_csur_rn_description",
+   "table": "dim_ebr_sor_csur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40501",
+     "code": "SCSR4",
+     "label": "Capital Account",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40497",
+     "code": "SCSR1",
+     "label": "Domestic Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45141",
+     "code": "SCSR12",
+     "label": "Credit to the Commercial Sector",
+     "parentId": "40497",
+     "level": 2
+    },
+    {
+     "id": "45536",
+     "code": "SCSR1201",
+     "label": "Bank Credit",
+     "parentId": "45141",
+     "level": 3
+    },
+    {
+     "id": "51361",
+     "code": "SCSR12011",
+     "label": "Non-food Credit",
+     "parentId": "45536",
+     "level": 4
+    },
+    {
+     "id": "51362",
+     "code": "SCSR12012",
+     "label": "Other",
+     "parentId": "45536",
+     "level": 4
+    },
+    {
+     "id": "45538",
+     "code": "SCSR1203",
+     "label": "Investments in Other Approved Securities",
+     "parentId": "45141",
+     "level": 3
+    },
+    {
+     "id": "45537",
+     "code": "SCSR1202",
+     "label": "Net credit to Primary Dealers",
+     "parentId": "45141",
+     "level": 3
+    },
+    {
+     "id": "45539",
+     "code": "SCSR1204",
+     "label": "Other Investments (in non-SLR Securities)",
+     "parentId": "45141",
+     "level": 3
+    },
+    {
+     "id": "45140",
+     "code": "SCSR11",
+     "label": "Credit to the Government",
+     "parentId": "40497",
+     "level": 2
+    },
+    {
+     "id": "40500",
+     "code": "SCSR3",
+     "label": "Net Bank Reserves",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45145",
+     "code": "SCSR31",
+     "label": "Balances with the RBI",
+     "parentId": "40500",
+     "level": 2
+    },
+    {
+     "id": "45146",
+     "code": "SCSR32",
+     "label": "Cash in Hand",
+     "parentId": "40500",
+     "level": 2
+    },
+    {
+     "id": "45147",
+     "code": "SCSR33",
+     "label": "Loans and Advances from the RBI",
+     "parentId": "40500",
+     "level": 2
+    },
+    {
+     "id": "40499",
+     "code": "SCSR2",
+     "label": "Net Foreign currency Assets of Commercial Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45142",
+     "code": "SCSR21",
+     "label": "Foreign Currency Assets",
+     "parentId": "40499",
+     "level": 2
+    },
+    {
+     "id": "45143",
+     "code": "SCSR22",
+     "label": "Non-resident Foreign Currency Repatriable Fixed Deposits",
+     "parentId": "40499",
+     "level": 2
+    },
+    {
+     "id": "45144",
+     "code": "SCSR23",
+     "label": "Overseas Foreign Currency Borrowings",
+     "parentId": "40499",
+     "level": 2
+    },
+    {
+     "id": "40505",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40502",
+     "code": "SCSR5",
+     "label": "Other items (net)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51359",
+     "code": "SCSR52",
+     "label": "Net Inter-Bank Liabilities (other than to PDs)",
+     "parentId": "40502",
+     "level": 2
+    },
+    {
+     "id": "51360",
+     "code": "SCSR51",
+     "label": "Other Demand & Time Liabilities",
+     "parentId": "40502",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

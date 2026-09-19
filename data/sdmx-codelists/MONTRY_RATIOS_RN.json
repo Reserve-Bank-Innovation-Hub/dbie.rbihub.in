@@ -1,0 +1,111 @@
+{
+ "dsdCode": "MONTRY_RATIOS_RN",
+ "label": "Monetary Ratios",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:51.615Z",
+ "dims": [
+  {
+   "code": "RATIOS_RN",
+   "name": "Ratios",
+   "column": "ratios_rn_description",
+   "table": "dim_ebr_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40532",
+     "code": "RO4",
+     "label": "Bank Reserves (Balances with RBI plus Cash with Banks)/ Aggregate Deposits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40530",
+     "code": "RO2",
+     "label": "Bank Reserves (Balances with RBI plus Cash with Banks)/ Demand Deposits with Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40534",
+     "code": "RO6",
+     "label": "Broad Money/ Reserve Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40529",
+     "code": "RO1",
+     "label": "Currency with the Public/ Demand Deposits with Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40531",
+     "code": "RO3",
+     "label": "Currency with the Public/Aggregate Deposits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40535",
+     "code": "RO7",
+     "label": "Gross Domestic Product at Current Market Prices/ Broad Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40537",
+     "code": "RO9",
+     "label": "Gross Domestic Product at Current Market Prices/ Currency with the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40536",
+     "code": "RO8",
+     "label": "Gross Domestic Product at Current Market Prices/ Narrow Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40533",
+     "code": "RO5",
+     "label": "Narrow Money/ Reserve Money",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37046",
+     "code": "RO",
+     "label": "Ratio",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

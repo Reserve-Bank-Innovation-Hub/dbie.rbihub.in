@@ -1,0 +1,185 @@
+{
+ "dsdCode": "SEC_WIS_CAP_FOM_RN",
+ "label": "Sector-wise Gross Capital Formation",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:13.534Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLS_SEC_GCF_RN",
+   "name": "Classification of sector wise GCF",
+   "column": "cls_sec_gcf_rn_description",
+   "table": "dim_ebr_cls_sec_gcf_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54511",
+     "code": "CSG_GEN_GOV",
+     "label": "General Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54514",
+     "code": "CSG_GROSS_CAP_FRM",
+     "label": "Gross Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54517",
+     "code": "CSG_HOUS_SEC",
+     "label": "Household sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54510",
+     "code": "CSG_HOUS_SEC_NPISH",
+     "label": "Households including NPISH",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54509",
+     "code": "CSG_NET_CAP_FRM",
+     "label": "Net Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54516",
+     "code": "CSG_PRV_CRP_CSEC",
+     "label": "Private Corporate Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54518",
+     "code": "CSG_PRV_FIN_CRP",
+     "label": "Private financial corporations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54513",
+     "code": "CSG_PRV_NON_FIN_CRP",
+     "label": "Private non-financial corporations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54512",
+     "code": "CSG_PUB_FIN_CRP",
+     "label": "Public financial corporations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54519",
+     "code": "CSG_PUB_NON_FIN_CRP",
+     "label": "Public non-financial corporations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54515",
+     "code": "CSG_PUB_SEC",
+     "label": "Public Sector",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

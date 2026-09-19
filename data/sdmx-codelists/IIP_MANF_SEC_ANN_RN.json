@@ -1,0 +1,148 @@
+{
+ "dsdCode": "IIP_MANF_SEC_ANN_RN",
+ "label": "Indian Industrial Production Manufacturing Sector Anually",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:40.728Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40080",
+     "code": "BY_1980_81",
+     "label": "Base Year : 1980-81",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "INDS_PROD_CLASS_RN",
+   "name": "Industrial Production Classification",
+   "column": "inds_prod_class_rn_description",
+   "table": "dim_ebr_inds_prod_class_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37380",
+     "code": "USE_BAS_GDS",
+     "label": "Basic Goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37381",
+     "code": "USE_CAP_GDS",
+     "label": "Capital Goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37382",
+     "code": "USE_CONS_DUR",
+     "label": "Consumer Durables",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37383",
+     "code": "USE_CONS_GDS",
+     "label": "Consumer Goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37384",
+     "code": "USE_CONS_NON_DUR",
+     "label": "Consumer Non-durables",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37385",
+     "code": "USE_INF_CONST_GDS",
+     "label": "Infrastructure/ Construction Goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37386",
+     "code": "USE_INTL_GDS",
+     "label": "Intermediate Goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37387",
+     "code": "USE_PRIM_GDS",
+     "label": "Primary Goods",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

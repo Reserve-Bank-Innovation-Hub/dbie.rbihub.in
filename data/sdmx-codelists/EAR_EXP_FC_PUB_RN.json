@@ -1,0 +1,162 @@
+{
+ "dsdCode": "EAR_EXP_FC_PUB_RN",
+ "label": "Earning or Expenditure in Foreign Currencies of Public Limited Companies",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Financial Public Limited Companies",
+ "fetched": "2026-09-18T15:00:21.865Z",
+ "dims": [
+  {
+   "code": "EAR_EXP_FC_RN",
+   "name": "Earnings/Expenditure in foreign currencies",
+   "column": "ear_exp_fc_rn_description",
+   "table": "dim_ebr_ear_exp_fc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41135",
+     "code": "EAR_FRG_CURR",
+     "label": "Earnings in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41136",
+     "code": "EAR_FC_EG",
+     "label": "Export of Goods (FOB basis)",
+     "parentId": "41135",
+     "level": 2
+    },
+    {
+     "id": "54376",
+     "code": "EAR_FC_OTH",
+     "label": "Others",
+     "parentId": "41135",
+     "level": 2
+    },
+    {
+     "id": "41129",
+     "code": "EXP_FRG_CURR",
+     "label": "Expenditure in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41134",
+     "code": "EXP_OEFC",
+     "label": "Other expenditure in foreign currencies",
+     "parentId": "41129",
+     "level": 2
+    },
+    {
+     "id": "41130",
+     "code": "EXP_VAL_IMP",
+     "label": "Value of Imports (c.i.f basis)",
+     "parentId": "41129",
+     "level": 2
+    },
+    {
+     "id": "41132",
+     "code": "EXP_CG",
+     "label": "Capital goods",
+     "parentId": "41130",
+     "level": 3
+    },
+    {
+     "id": "41133",
+     "code": "EXP_CSP",
+     "label": "Components and spare parts",
+     "parentId": "41130",
+     "level": 3
+    },
+    {
+     "id": "54377",
+     "code": "EXP_VAL_IMP_OTH",
+     "label": "Others",
+     "parentId": "41130",
+     "level": 3
+    },
+    {
+     "id": "41131",
+     "code": "EXP_RM",
+     "label": "Raw materials",
+     "parentId": "41130",
+     "level": 3
+    },
+    {
+     "id": "41137",
+     "code": "NET_INF_OF_FC",
+     "label": "Net inflow/outflow in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42039",
+     "code": "PREV_TO_PREV",
+     "label": "Previous to Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

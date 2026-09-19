@@ -1,0 +1,594 @@
+{
+ "dsdCode": "IMP_PRIN_COMM_RN",
+ "label": "Import of Principal commodities",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:25.198Z",
+ "dims": [
+  {
+   "code": "COMD_RN",
+   "name": "Types of Commodity",
+   "column": "comd_rn_description",
+   "table": "dim_ebr_comd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53401",
+     "code": "N_TERM_TTL_IMP",
+     "label": "Imports (New Series)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53417",
+     "code": "N_IPC_ARTF_RESIN",
+     "label": "Artificial resins, plastic materials, etc",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53418",
+     "code": "N_IPC_CHEM_MATR_PROD",
+     "label": "Chemical material & products",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53411",
+     "code": "N_IPC_COAL_COKE",
+     "label": "Coal, Coke & Briquettes, etc",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53402",
+     "code": "N_IPC_CTTN_RAW",
+     "label": "Cotton Raw & Waste",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53416",
+     "code": "N_IPC_GYE_MTRL",
+     "label": "Dyeing/tanning/colouring mtrls",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53428",
+     "code": "N_IPC_ELEC_GDS",
+     "label": "Electronic goods",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53408",
+     "code": "N_IPC_FERTZ",
+     "label": "Fertilisers, Crude & manufactured",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53405",
+     "code": "N_IPC_FRT_VEG",
+     "label": "Fruits & vegetables",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53430",
+     "code": "N_IPC_GOLD",
+     "label": "Gold",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53421",
+     "code": "N_IPC_IRN_STL",
+     "label": "Iron & Steel",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53414",
+     "code": "N_IPC_LEATH",
+     "label": "Leather & leather products",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53423",
+     "code": "N_IPC_MACH_TOOLS",
+     "label": "Machine tools",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53424",
+     "code": "N_IPC_MACH_ELEC_NON",
+     "label": "Machinery, electrical & non-electrical",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53429",
+     "code": "N_IPC_MEDC_PHARMA",
+     "label": "Medcnl. & Pharmaceutical products",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53410",
+     "code": "N_IPC_MET_ORES",
+     "label": "Metaliferrous ores & other minerals",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53419",
+     "code": "N_IPC_NEWSPRINT",
+     "label": "Newsprint",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53422",
+     "code": "N_IPC_NON_FER_MTL",
+     "label": "Non-ferrous metals",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53415",
+     "code": "N_IPC_ORG_INORG_CHEM",
+     "label": "Organic & Inorganic Chemicals",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53432",
+     "code": "N_IPC_OTH_IMP_COMMD",
+     "label": "Other Import Commodities",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53420",
+     "code": "N_IPC_PEARL",
+     "label": "Pearls, precious & Semi-precious stones",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53412",
+     "code": "N_IPC_PETR_CRUD",
+     "label": "Petroleum, Crude & products",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53427",
+     "code": "N_IPC_PROF_INST",
+     "label": "Professional instrument, Optical goods, etc",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53426",
+     "code": "N_IPC_PRJ_GDS",
+     "label": "Project goods",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53406",
+     "code": "N_IPC_PLP_PPR",
+     "label": "Pulp and Waste paper",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53404",
+     "code": "N_IPC_PUL",
+     "label": "Pulses",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53431",
+     "code": "N_IPC_SILV",
+     "label": "Silver",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53409",
+     "code": "N_IPC_SULPH",
+     "label": "Sulphur & Unroasted Iron Pyrts",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53407",
+     "code": "N_IPC_TEWXT_YRN",
+     "label": "Textile yarn Fabric, made-up articles",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53425",
+     "code": "N_IPC_TRANS_EQP",
+     "label": "Transport equipment",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53403",
+     "code": "N_IPC_VEG_OIL",
+     "label": "Vegetable Oil",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53413",
+     "code": "N_IPC_WOOD_ORD",
+     "label": "Wood & Wood products",
+     "parentId": "53401",
+     "level": 2
+    },
+    {
+     "id": "53487",
+     "code": "O_TERM_TTL_IMP",
+     "label": "Imports (Old Series)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53493",
+     "code": "O_IPC_BLK_IMPRTS",
+     "label": "Bulk Imports",
+     "parentId": "53487",
+     "level": 2
+    },
+    {
+     "id": "53496",
+     "code": "O_IPC_BLK_CONS_GDS",
+     "label": "Bulk Consumption Goods",
+     "parentId": "53493",
+     "level": 3
+    },
+    {
+     "id": "53530",
+     "code": "O_IPC_CERLS_PRERS",
+     "label": "Cereals and Cereal Preparations",
+     "parentId": "53496",
+     "level": 4
+    },
+    {
+     "id": "53529",
+     "code": "O_IPC_EDI_OLS",
+     "label": "Edible Oils",
+     "parentId": "53496",
+     "level": 4
+    },
+    {
+     "id": "53528",
+     "code": "O_IPC_PLSES",
+     "label": "Pulses",
+     "parentId": "53496",
+     "level": 4
+    },
+    {
+     "id": "53527",
+     "code": "O_IPC_SUGR",
+     "label": "Sugar",
+     "parentId": "53496",
+     "level": 4
+    },
+    {
+     "id": "53494",
+     "code": "O_IPC_OTH_BLK_ITMS",
+     "label": "Other Bulk Items",
+     "parentId": "53493",
+     "level": 3
+    },
+    {
+     "id": "53521",
+     "code": "O_IPC_CRD_RBR_INC_SYN_RECLMD",
+     "label": "Crude Rubber, including Synthetic and Reclaimed",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53495",
+     "code": "O_IPC_FERTLSRS",
+     "label": "Fertilisers",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53526",
+     "code": "O_IPC_CRD",
+     "label": "Crude",
+     "parentId": "53495",
+     "level": 5
+    },
+    {
+     "id": "53524",
+     "code": "O_IPC_MFGRD",
+     "label": "Manufactured",
+     "parentId": "53495",
+     "level": 5
+    },
+    {
+     "id": "53525",
+     "code": "O_IPC_SLPHR_UNRSTD_ION_PYRTS",
+     "label": "Sulphur and Unroasted Iron Pyrites",
+     "parentId": "53495",
+     "level": 5
+    },
+    {
+     "id": "53518",
+     "code": "O_IPC_ION_STL",
+     "label": "Iron and Steel",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53519",
+     "code": "O_IPC_METLFEROUS_ORS_METL_SCRP",
+     "label": "Metalliferrous Ores, Metal Scrap, etc.",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53523",
+     "code": "O_IPC_NON_FERROS_MTLS",
+     "label": "Non-Ferrous Metals",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53522",
+     "code": "O_IPC_PPR_BRDS_MFGS_INC_NWS_PRNTS",
+     "label": "Paper, Paper Boards, Manufactures including News Prints",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53520",
+     "code": "O_IPC_PLP_WST_PPR",
+     "label": "Pulp and Waste Paper",
+     "parentId": "53494",
+     "level": 4
+    },
+    {
+     "id": "53531",
+     "code": "O_IPC_PETRO_CRUD",
+     "label": "Petroleum, Crude and Products",
+     "parentId": "53493",
+     "level": 3
+    },
+    {
+     "id": "53488",
+     "code": "O_IPC_NON_BLK_IMPRTS",
+     "label": "Non-Bulk Imports",
+     "parentId": "53487",
+     "level": 2
+    },
+    {
+     "id": "53492",
+     "code": "O_IPC_CAP_GDS",
+     "label": "Capital Goods",
+     "parentId": "53488",
+     "level": 3
+    },
+    {
+     "id": "53512",
+     "code": "O_IPC_CMPTR_GDS",
+     "label": "Computer Goods",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53514",
+     "code": "O_IPC_ELCTCL_MACNRY_EXC_ELECTRNIC",
+     "label": "Electrical Machinery except Electronic",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53513",
+     "code": "O_IPC_ELECTRNIC_GDS",
+     "label": "Electronic Goods",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53516",
+     "code": "O_IPC_MAC_TLS",
+     "label": "Machine Tools",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53515",
+     "code": "O_IPC_MACNRY_EXC_ELCTCL_ELECTRNIC",
+     "label": "Machinery except Electrical and Electronic",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53517",
+     "code": "O_IPC_MFGS_MTLS",
+     "label": "Manufactures of Metals",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53510",
+     "code": "O_IPC_PRJCT_GDS",
+     "label": "Project Goods",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53511",
+     "code": "O_IPC_TRNS_EQUIP",
+     "label": "Transport Equipment",
+     "parentId": "53492",
+     "level": 4
+    },
+    {
+     "id": "53491",
+     "code": "O_IPC_MNLY_EXP_RLT_ITMS",
+     "label": "Mainly Export Related Items",
+     "parentId": "53488",
+     "level": 3
+    },
+    {
+     "id": "53506",
+     "code": "O_IPC_CASH_NTS",
+     "label": "Cashew Nuts",
+     "parentId": "53491",
+     "level": 4
+    },
+    {
+     "id": "53508",
+     "code": "O_IPC_ORG_INORGA_CHEM",
+     "label": "Organic and Inorganic Chemicals",
+     "parentId": "53491",
+     "level": 4
+    },
+    {
+     "id": "53509",
+     "code": "O_IPC_PRLS_PRS_SEM_PRS_STNS",
+     "label": "Pearls, Precious and Semi-Precious Stones",
+     "parentId": "53491",
+     "level": 4
+    },
+    {
+     "id": "53507",
+     "code": "O_IPC_TEX_YRN_FAB_MDUPS",
+     "label": "Textile Yarn, Fabrics, Made-Ups, etc.",
+     "parentId": "53491",
+     "level": 4
+    },
+    {
+     "id": "53489",
+     "code": "O_IPC_OTHRS",
+     "label": "Others",
+     "parentId": "53488",
+     "level": 3
+    },
+    {
+     "id": "53503",
+     "code": "O_IPC_ARTFCL_RSNS_PLSTC_MTRLS",
+     "label": "Artificial Resins and Plastic Materials, etc.",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53499",
+     "code": "O_IPC_CHEM_MTRLS_PRDS",
+     "label": "Chemical Materials and Products",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53501",
+     "code": "O_IPC_COL_COK_BRIQ",
+     "label": "Coal, Coke and Briquittes, etc.",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53490",
+     "code": "O_IPC_GLD_SLVR",
+     "label": "Gold and Silver",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53505",
+     "code": "O_IPC_GLD",
+     "label": "Gold",
+     "parentId": "53490",
+     "level": 5
+    },
+    {
+     "id": "53504",
+     "code": "O_IPC_SLVR",
+     "label": "Silver",
+     "parentId": "53490",
+     "level": 5
+    },
+    {
+     "id": "53500",
+     "code": "O_IPC_MEDNL_PHAR_PRDS",
+     "label": "Medicinal and Pharmaceutical Products",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53498",
+     "code": "O_IPC_NON_METLC_MIN_MFGS",
+     "label": "Non-Metallic Mineral Manufactures",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53497",
+     "code": "O_IPC_OTH_OTH",
+     "label": "Others",
+     "parentId": "53489",
+     "level": 4
+    },
+    {
+     "id": "53502",
+     "code": "O_IPC_PROFS_SCINT_CTRL_INS_PHOT_OPTC_GDS",
+     "label": "Professional, Scientific Controlling Instruments,Photographic Optical Goods",
+     "parentId": "53489",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}
