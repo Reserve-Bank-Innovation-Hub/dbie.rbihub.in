@@ -1,486 +1,287 @@
-// Playwright-driven DBIE SDMX scraper.
+// DBIE SDMX scraper — pure HTTP, no browser.
 //
-// For each element in sdmx-tree.json:
-//   1. Navigate to the SDMX Data Query wizard (auth-free guest access).
-//   2. Click through the sector → sub-sector → element in the tree.
-//   3. Fill the From/To dates in a format suited to the element's frequency.
-//   4. Select all dimensions (expand panels, click Select All and remaining checkboxes).
-//   5. Click View Data to trigger the Impala query.
-//   6. Wait for the Output tab to populate.
-//   7. Select "SDMX CSV" from the Download SDMX dropdown; save the downloaded file.
-//   8. Record status in manifest.json for resumability.
+// For each element in data/sdmx-tree.json the gateway is driven exactly as the
+// portal's Data Query wizard drives it, minus the UI:
+//   1. dbie_getElementDetailsActionEnhanced  → fact table, frequency, flow type
+//   2. dbie_getCodeListActionEnhanced        → dimension codes (no value filter is
+//                                              sent, so every value is selected)
+//   3. dbie_insertPolicyActionEnhanced       → save a query "policy": GROUP BY every
+//                                              dimension + unit, date window
+//   4. dbie_createDDLActionEnhanced          → materialise the query
+//   5. download/dbie_getSDMXExcelData        → the SDMX CSV (despite the name)
+// The Output-tab render (dbie_getImpalaDQActionEnhanced) is not needed for the
+// download; it is only used as a fallback when the CSV export fails server-side
+// (a few alphanumeric series), in which case the rows are saved as JSON.
+//
+// Output:  data/sdmx-raw/<Sector>/<SubSector>/<DSD>.csv   (gitignored staging;
+//          `node scripts/ingest-sdmx.mjs` files them into data/sdmx/)
+//          data/scrape-manifest.json                       (per-element status)
 //
 // Usage:
-//   node src/scrape-sdmx.mjs                            # scrape everything
-//   node src/scrape-sdmx.mjs --sector "External Sector" # filter
-//   node src/scrape-sdmx.mjs --dsd EXT_DBT_RT_RN        # single element
-//   node src/scrape-sdmx.mjs --limit 10                 # first N elements
-//   node src/scrape-sdmx.mjs --headful                  # show the browser (debugging)
+//   node scripts/scrape-sdmx.mjs                     # every element not yet OK in the manifest
+//   node scripts/scrape-sdmx.mjs --force             # re-scrape everything
+//   node scripts/scrape-sdmx.mjs --retry-failures    # only elements whose last status is not OK
+//   node scripts/scrape-sdmx.mjs --dsd A,B [--from YYYY-MM-DD] [--to YYYY-MM-DD]
+//   node scripts/scrape-sdmx.mjs --sector "External Sector" [--sub "External Debt"] [--limit N]
+//   --concurrency N     parallel elements (default 2 — be polite, this is a public service)
+//   --delay MS          pause between elements per worker (default 1500)
+//   --daily-from DATE   window start for Daily series without a start date (default 2011-01-01)
+//   --dry-run           print the plan and the date windows only
+//   --verbose           per-call timings
 
-import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Gateway, GatewayError, enc, encObject } from './lib/dbie-gateway.mjs';
 
-const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-
-const WIZARD_URL = 'https://data.rbi.org.in/DBIE/#/dbie/dataquery_enhanced';
-const DATA_DIR = path.join(REPO, 'data', 'sdmx-raw');   // staging: raw DSD-coded CSVs (gitignored); ingest-sdmx.mjs -> data/sdmx
-const MANIFEST = path.join(REPO, 'data', 'scrape-manifest.json');
+const REPO      = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TREE_FILE = path.join(REPO, 'data', 'sdmx-tree.json');
-const TODAY = new Date();
+const RAW_DIR   = path.join(REPO, 'data', 'sdmx-raw');
+const JSON_DIR  = path.join(RAW_DIR, 'json');
+const MANIFEST  = path.join(REPO, 'data', 'scrape-manifest.json');
 
-// --------- CLI parsing
+// --------- CLI
 const argv = process.argv.slice(2);
-const flag = name => {
-    const idx = argv.indexOf(name);
-    return idx >= 0 ? argv[idx + 1] : null;
+const flag = n => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
+const has  = n => argv.includes(n);
+const opts = {
+    dsd         : flag('--dsd') ? flag('--dsd').split(',').map(s => s.trim()).filter(Boolean) : null,
+    sector      : flag('--sector'),
+    sub         : flag('--sub'),
+    limit       : flag('--limit') ? parseInt(flag('--limit'), 10) : null,
+    from        : flag('--from'),
+    to          : flag('--to'),
+    dailyFrom   : flag('--daily-from') || '2011-01-01',
+    concurrency : Math.max(1, parseInt(flag('--concurrency') || '2', 10)),
+    delayMs     : parseInt(flag('--delay') || '1500', 10),   // pause between elements per worker
+    force       : has('--force'),
+    retry       : has('--retry-failures'),
+    dryRun      : has('--dry-run'),
+    verbose     : has('--verbose'),
+    budgetMs    : parseInt(flag('--budget') || '900000', 10),   // 15 min per element
 };
-const hasFlag = name => argv.includes(name);
+for (const d of [opts.from, opts.to, opts.dailyFrom]) if (d && !/^\d{4}-\d{2}-\d{2}$/.test(d)) { console.error(`bad date: ${d} (want YYYY-MM-DD)`); process.exit(2); }
 
-const filterSector = flag('--sector');
-const filterSubSector = flag('--sub');
-const filterDsd = flag('--dsd');
-const limit = flag('--limit') ? parseInt(flag('--limit'), 10) : null;
-const headful = hasFlag('--headful');
-const verbose = hasFlag('--verbose');
-const skipList = (flag('--skip') || '').split(',').map(s => s.trim()).filter(Boolean);
-const perElementBudgetMs = parseInt(flag('--budget') || '360000', 10);  // 6 min default
-// How long to wait for the Impala query response before declaring a timeout.
-// Heavy tables (WPI's commodity tree, state-wise CPI, wage rates) can exceed
-// the 5-min default; raise with --output-wait for those. Keep --budget above it.
-const outputWaitMs = parseInt(flag('--output-wait') || '300000', 10);
-// Wall-clock cap for the dimension-selection step. The old leaf-by-leaf strategy
-// could grind 6+ min on giant trees (wage rates, state-wise CPI) and blow the
-// budget before the query even ran. The group-level "Select All" path is fast;
-// this guard keeps any fallback from running away.
-const selectBudgetMs = parseInt(flag('--select-budget') || '90000', 10);
-// --thorough: don't trust the group-level "Select All" to cascade. Fully expand
-// every nested accordion and click every unchecked leaf. Slower, but needed when
-// a "Select All" silently picks only a default value for a dimension — e.g. wage
-// rates came back MALE-only because the gender dimension wasn't fully selected.
-const thorough = hasFlag('--thorough');
-const maxYearsOverride = flag('--max-years') ? parseInt(flag('--max-years'), 10) : null;
-const retryFailures = hasFlag('--retry-failures');
-
-// --------- Helpers
+const log = (msg) => console.log(`[${new Date().toISOString().slice(11, 19)}] ${msg}`);
 const slug = s => (s || '').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '_').slice(0, 120);
-const pad = (n, w = 2) => String(n).padStart(w, '0');
+const isoToday = () => new Date().toISOString().slice(0, 10);
+const ddmmyyyy = iso => `${iso.slice(8, 10)}-${iso.slice(5, 7)}-${iso.slice(0, 4)}`;
 
-function log(msg) { console.log(`[${new Date().toISOString().slice(11, 19)}] ${msg}`); }
-
+// --------- Manifest
 function loadManifest() {
     if (fs.existsSync(MANIFEST)) return JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
-    return { started: new Date().toISOString(), results: {} };
+    return { started: new Date().toISOString(), method: 'http', results: {} };
 }
-
 function saveManifest(m) {
-    fs.writeFileSync(MANIFEST, JSON.stringify(m, null, 2));
+    const tmp = MANIFEST + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(m, null, 2));
+    fs.renameSync(tmp, MANIFEST);
 }
 
-// --------- Date formatting
-// The DBIE date picker's format depends on the element's frequency.
-// We cover the eight frequencies observed in sdmx-tree.json.
-//
-// Edge case: for Daily / Weekly / Fortnightly elements, startDate from
-// dbie_getSectorAction is often null. Defaulting to 1990-01-01 then fails
-// because the actual series history is shorter and the Impala query returns
-// no rows. We use frequency-aware fallbacks instead.
-function datesForFreq(freq, startDateIso) {
-    // Lookback cap per frequency. Two purposes:
-    //   (a) if startDate is missing (null in sdmx-tree for Daily series), use this as default
-    //   (b) clamp very deep histories — WPI with a 1982 startDate produces an Impala
-    //       query so large the backend times out past 5 minutes. 25 years of monthly is
-    //       plenty for a narrative layer; full history isn't worth the scrape cost.
-    const maxLookbackYears = {
-        'Daily': 15, 'Weekly': 20, 'Fortnightly': 20,
-        'Monthly': 25, 'Quarterly': 30, 'Quarterly - Financial Year': 30,
-        'Annual - Financial Year': 40, 'Annual - Calendar Year': 40,
-    };
-    const maxYears = maxYearsOverride ?? (maxLookbackYears[freq] ?? 25);
-    const cap = new Date(TODAY.getFullYear() - maxYears, 0, 1);
-
-    const startRaw = startDateIso ? new Date(startDateIso) : cap;
-    let start = isNaN(startRaw.getTime()) ? cap : startRaw;
-    if (start < cap) start = cap;  // clamp to keep queries tractable
-
-    // "To" date slightly in the past so queries never hit future-date rejection.
-    const end = new Date(TODAY.getFullYear(), TODAY.getMonth(), 0); // last day of prev month
-
-    const sY = start.getFullYear();
-    const sM = start.getMonth() + 1;
-    const sD = start.getDate();
-    const eY = end.getFullYear();
-    const eM = end.getMonth() + 1;
-    const eD = end.getDate();
-
-    switch (freq) {
-        case 'Annual - Financial Year':
-        case 'Annual - Calendar Year':
-            // Wizard accepts YYYY for annual.
-            return { from: String(sY), to: String(eY) };
-        case 'Quarterly':
-        case 'Quarterly - Financial Year':
-        case 'Monthly':
-            // MM-YYYY.
-            return { from: `${pad(sM)}-${sY}`, to: `${pad(eM)}-${eY}` };
-        case 'Fortnightly':
-        case 'Weekly':
-        case 'Daily':
-        default:
-            // MM-DD-YYYY.
-            return { from: `${pad(sM)}-${pad(sD)}-${sY}`, to: `${pad(eM)}-${pad(eD)}-${eY}` };
+// --------- Date window per element
+// The portal filters on TIME_PERIOD_SK >= from and <= to; observations are dated
+// at period end, so the element's declared start date works as-is for all but
+// annual series, which the wizard aligns to the financial / calendar year.
+function windowFor(el) {
+    const today = new Date();
+    // ELE_START_DATE is null for Daily elements and the literal string "null" for a few others.
+    const declared = el.startDate && el.startDate !== 'null' ? el.startDate : null;
+    // No declared start: ask for everything (the gateway returns only what exists); Daily uses --daily-from.
+    let from = opts.from || declared || (el.frequency === 'Daily' ? opts.dailyFrom : '1950-01-01');
+    let to   = opts.to   || isoToday();
+    if (el.frequency === 'Annual - Financial Year') {
+        if (!opts.from) { const y = +from.slice(0, 4) - (from.slice(5) <= '03-31' ? 1 : 0); from = `${y}-04-01`; }
+        if (!opts.to)   { const ty = today.getMonth() >= 3 ? today.getFullYear() + 1 : today.getFullYear(); to = `${ty}-03-31`; }
+    } else if (el.frequency === 'Annual - Calendar Year') {
+        if (!opts.from) from = `${from.slice(0, 4)}-01-01`;
+        if (!opts.to)   to   = `${today.getFullYear()}-12-31`;
     }
-}
-
-// --------- Wizard steps
-async function resetWizardPage(page) {
-    // Full reload so the SPA re-bootstraps a session and the wizard starts clean.
-    await page.goto('about:blank').catch(() => {});
-    await page.goto(WIZARD_URL, { waitUntil: 'networkidle', timeout: 90000 });
-    await page.waitForTimeout(4000);
-}
-
-async function selectElementInTree(page, sector, subSector, label, dsdCode) {
-    // Open the sector, then sub-sector, then tick the element's checkbox.
-    // The tree label shows both human label AND the parenthesised DSD code:
-    //   "Exchange Rate Of Indian Rupees - (FOREX_RATE_A_RN)"
-    // Matching on label alone is unsafe because two elements can share a label
-    // (e.g. FOREX_RATE_A_RN / FOREX_RATE_AFY_RN) — picking .first() would
-    // silently download the wrong series. Match on DSD code.
-    await page.getByText(sector, { exact: true }).first().click({ timeout: 15000 });
-    await page.waitForTimeout(1000);
-    if (subSector) {
-        await page.getByText(subSector, { exact: true }).first().click({ timeout: 15000 });
-        await page.waitForTimeout(1000);
-    }
-    const leaf = page.locator(`label:has-text("${dsdCode}")`).first();
-    await leaf.waitFor({ timeout: 10000 });
-    await leaf.click({ timeout: 5000 });
-    await page.waitForTimeout(1200);
-}
-
-async function clickNext(page) {
-    const btn = page.locator('button:has-text("Next")').first();
-    await btn.waitFor({ timeout: 15000 });
-    await btn.click();
-    await page.waitForTimeout(2500);
-}
-
-async function fillDates(page, freq, startDate) {
-    const { from, to } = datesForFreq(freq, startDate);
-    // DBIE inputs are readonly by default to force calendar use — strip first, then type.
-    await page.evaluate(() => {
-        document.querySelectorAll('input[placeholder="Select From Date"],input[placeholder="Select To Date"]')
-            .forEach(el => { el.readOnly = false; el.removeAttribute('readonly'); });
-    });
-    const fromInput = page.locator('input[placeholder="Select From Date"]').first();
-    await fromInput.click();
-    await page.keyboard.type(from, { delay: 35 });
-    await page.keyboard.press('Tab');
-    await page.waitForTimeout(500);
-    const toInput = page.locator('input[placeholder="Select To Date"]').first();
-    await toInput.click();
-    await page.keyboard.type(to, { delay: 35 });
-    await page.keyboard.press('Tab');
-    await page.waitForTimeout(1500);
     return { from, to };
 }
+// Frequency word the policy service expects.
+const freqWord = f => ({ Annual: 'YEARLY' })[f.split(' ')[0]] || f.split(' ')[0].toUpperCase();
 
-async function selectAllDimensions(page) {
-    // Select every dimension value, fast. The old strategy expanded every nested
-    // accordion across 8 rounds and then clicked every leaf checkbox individually
-    // — on giant trees (wage rates: state×district×occupation; state-wise CPI:
-    // state×item×rural/urban) that ran 6+ minutes and exhausted the budget before
-    // the query even fired.
-    //
-    // New strategy: lean on the wizard's own "Select All" controls, which cascade
-    // to all descendants through Angular's real handler (no fighting ngModel).
-    //   1. One expand pass so each dimension's root "Select All" is in the DOM.
-    //   2. Click every "Select All" control once.
-    //   3. Only if nothing got checked, fall back to a single JS force-check pass
-    //      (no per-element click — that was the slow part).
-    // The whole thing is wall-clock bounded by selectBudgetMs.
-    const deadline = Date.now() + selectBudgetMs;
-
-    // 1. Expand top-level collapsed accordions (single pass — the "Select All"
-    //    controls cascade to collapsed children, so we don't need to open all).
-    await page.evaluate(() => {
-        for (const el of document.querySelectorAll('[aria-expanded="false"]')) {
-            try { el.click(); } catch {}
-        }
-    });
-    await page.waitForTimeout(800);
-
-    // 2. Click each "Select All" control once.
-    const sa = page.locator('span.selectAllCss');
-    const saN = await sa.count();
-    for (let i = 0; i < saN && Date.now() < deadline; i++) {
-        try { await sa.nth(i).click({ timeout: 1500, force: true }); } catch {}
+// --------- CSV validation
+const CORE = new Set(['DATAFLOW', 'AUDST', 'FREQ', 'REPYEAREND', 'REPYEARSTART', 'UNIT_MULT', 'TIME_PERIOD', 'UNIT_MEASURE', 'OBS_VALUE']);
+function inspectCsv(buf) {
+    const text = buf.toString('utf8');
+    if (!text.startsWith('DATAFLOW')) return { ok: false, reason: `not a CSV: ${text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120)}` };
+    const lines = text.split(/\r?\n/).filter(Boolean);
+    const header = lines[0].split(',');
+    const tp = header.indexOf('TIME_PERIOD'), ov = header.indexOf('OBS_VALUE');
+    if (tp < 0 || ov < 0) return { ok: false, reason: 'header lacks TIME_PERIOD/OBS_VALUE' };
+    if (lines.length < 2) return { ok: false, reason: 'no observations' };
+    const dimCols = header.map((h, i) => [h, i]).filter(([h]) => !CORE.has(h));
+    const dims = Object.fromEntries(dimCols.map(([h]) => [h, new Set()]));
+    const periods = new Set();
+    let malformed = 0, badDates = 0;
+    for (let i = 1; i < lines.length; i++) {
+        const c = lines[i].split(',');
+        if (c.length !== header.length) { malformed++; continue; }
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(c[tp])) badDates++;
+        periods.add(c[tp]);
+        for (const [h, j] of dimCols) dims[h].add(c[j]);
     }
-    await page.waitForTimeout(1000);
+    const sorted = [...periods].sort();
+    const warnings = [];
+    if (malformed) warnings.push(`${malformed} rows with unexpected column count`);
+    if (badDates) warnings.push(`${badDates} rows with non-ISO TIME_PERIOD`);
+    return { ok: true, rows: lines.length - 1, periods: periods.size, first: sorted[0], last: sorted[sorted.length - 1],
+             dims: Object.fromEntries(Object.entries(dims).map(([k, v]) => [k, v.size])), warnings };
+}
 
-    const countChecked = () => page.evaluate(
-        () => document.querySelectorAll('input[type="checkbox"]:checked').length,
-    );
-    let checkedCount = await countChecked();
+// --------- One element
+const countLeaves = n => (n.children || []).reduce((s, c) => s + countLeaves(c), 0) + (n.element ? 1 : 0);
 
-    // 3. Fallback: if the Select All controls didn't register (or none existed),
-    //    force-check every box in one JS pass. Dispatch change/input so Angular
-    //    sees it — but skip the per-element click() that made the old path crawl.
-    if (checkedCount === 0 && Date.now() < deadline) {
-        await page.evaluate(() => {
-            for (const cb of document.querySelectorAll('input[type="checkbox"]')) {
-                if (!cb.checked) {
-                    cb.checked = true;
-                    cb.dispatchEvent(new Event('input', { bubbles: true }));
-                    cb.dispatchEvent(new Event('change', { bubbles: true }));
-                }
+async function scrapeElement(gw, el) {
+    const t0 = Date.now();
+    const v = (m) => { if (opts.verbose) log(`      ${el.dsdCode}: ${m} (${((Date.now() - t0) / 1000).toFixed(1)}s)`); };
+    const { from, to } = windowFor(el);
+    const fw = freqWord(el.frequency);
+
+    const det = (await gw.post('dbie_getElementDetailsActionEnhanced', { body: { dimData: { elementCodes: enc(el.dsdCode) } } })).result?.[0];
+    if (!det?.table_name) return { status: 'no-details', from, to };
+    v(`table ${det.table_name}`);
+
+    const labelDetails = [encObject({ dsdCode: el.dsdCode, elementName: el.label, elementId: el.elementId, elementType: el.flowType, elementFrequency: el.frequency })];
+    const cl = await gw.post('dbie_getCodeListActionEnhanced', { body: { dimData: { elementCodes: enc(el.dsdCode), elementIds: enc(el.elementId), elementLableDetails: labelDetails } } });
+    const dims = (cl.result?.[0]?.data || []).map(d => ({ code: d.dim_code, name: d.dim_name, values: countLeaves({ children: d.dim_code_list_values }) }));
+    v(`dims ${dims.map(d => `${d.code}(${d.values})`).join(' ')}`);
+
+    const policy = 'dq' + String(Math.floor(Math.random() * 1e8)).padStart(8, '0');
+    const rule = o => encObject(o);
+    const rules = [
+        // One GROUP_BY per code-list dimension (UNIT_MEASURE is a dimension where the element has one; adding it
+        // unconditionally breaks elements without it, e.g. IND_CNTRY_FDI_RN).
+        ...dims.map(d => rule({ database_name: '<ALL_FACT>', rule_category: 'AGGREGATION', column_name: `${d.code.toLowerCase()}_description`, rule_function: 'GROUP_BY', table_name: '<ALL_FACT>', elementName: el.label, dsdList: el.dsdCode })),
+        rule({ database_name: (det.database_name || 'ebr_public_elements').toUpperCase(), rule_category: 'AGGREGATION', column_name: 'OBS_VALUE', rule_function: el.isAlphaNumeric ? 'ALPHANUMERIC' : 'Not Applicable', table_name: det.table_name, elementName: 'COMMON', dsdList: el.dsdCode }),
+        rule({ database_name: '<ALL_FACT>', rule_category: 'TIME_BARRING', column_name: 'TIME_PERIOD_SK', rule_function: 'FROM_DATE', table_name: '<ALL_FACT>', attribute_value: `'${from}'`, elementName: 'COMMON', dsdList: 'COMMON' }),
+        rule({ database_name: '<ALL_FACT>', rule_category: 'TIME_BARRING', column_name: 'TIME_PERIOD_SK', rule_function: 'TO_DATE',   table_name: '<ALL_FACT>', attribute_value: `'${to}'`,   elementName: 'COMMON', dsdList: 'COMMON' }),
+    ];
+    await gw.post('dbie_insertPolicyActionEnhanced', { body: { policyData: {
+        policyName: enc(policy), username: enc('test_user'), polFreq: enc(fw), department: enc('test_dept'), rules,
+        elementDetails: { [enc(det.table_name)]: { Element_Frequency: enc((det.Element_Frequency || el.frequency).toUpperCase()), Element_Code: enc(el.dsdCode), Element_Flow_Type: enc((det.Element_Flow_Type || el.flowType || 'Not Applicable').toUpperCase()) } },
+    } } });
+    const ddl = await gw.post('dbie_createDDLActionEnhanced', { body: { selection: enc('1'), policyName: enc(policy), scrapId: enc('4'), dsdList: enc(el.dsdCode) } });
+    if (!/created/i.test(String(ddl.result))) throw new GatewayError(`createDDL: ${JSON.stringify(ddl).slice(0, 200)}`);
+    v('query created');
+
+    // Download; the servlet returns HTTP 200 + an HTML error page when the export fails.
+    let inspect = null, buf = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        const r = await gw.download('download/dbie_getSDMXExcelData', `{"body":{"dsdCode":"${enc(el.dsdCode.toLowerCase())}", "policyName":"${enc(policy)}"}}`);
+        buf = r.buf; inspect = inspectCsv(buf);
+        if (inspect.ok) break;
+        v(`download attempt ${attempt} failed: ${inspect.reason}`);
+        await new Promise(res => setTimeout(res, 3000 * attempt));
+    }
+    if (!inspect.ok) {
+        // Fallback: the query result as JSON, so the observations are not lost.
+        const q = await gw.post('dbie_getImpalaDQActionEnhanced', { body: { dimData: {
+            dsdCode: enc(el.dsdCode.toLowerCase()), advanceOptions: enc(''), unitMultiplier: enc('actuals'), policyName: enc(policy),
+            isFinancialYear: enc('false'), fromDate: enc(ddmmyyyy(from)), toDate: enc(ddmmyyyy(to)), freqSelected: enc(fw),
+            entitySelection: [{ op_level5: enc('') }, { op_level4: enc('') }, { op_level3: enc('') }, { op_level2: enc('') }, { op_level1: enc('') }, { entity_name: enc('') }],
+            elementLableDetails: labelDetails, isAlphaNumeric: !!el.isAlphaNumeric,
+        } } }, { timeoutMs: 600_000 });
+        const rows = q.result?.[0]?.data?.result || [];
+        fs.mkdirSync(JSON_DIR, { recursive: true });
+        const jf = path.join(JSON_DIR, `${el.dsdCode}.json`);
+        fs.writeFileSync(jf, JSON.stringify({ dsdCode: el.dsdCode, from, to, fetched: new Date().toISOString(), rows }));
+        return { status: 'export-error', error: inspect.reason, jsonRows: rows.length, jsonFile: path.relative(REPO, jf), from, to };
+    }
+    const file = path.join(RAW_DIR, slug(el.sector), slug(el.subSector), `${el.dsdCode}.csv`);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, buf);
+    return { status: 'ok', file: path.relative(REPO, file), bytes: buf.length, rows: inspect.rows, periods: inspect.periods, first: inspect.first, last: inspect.last,
+             dims: inspect.dims, codelist: Object.fromEntries(dims.map(d => [d.code, d.values])), warnings: inspect.warnings, from, to };
+}
+
+const throttled = e => /HTTP (418|429|503)/.test(String(e?.message || ''));
+async function withRetries(fn, tries = 4) {
+    let lastErr;
+    for (let i = 1; i <= tries; i++) {
+        try { return await fn(); }
+        catch (e) {
+            lastErr = e;
+            if (i < tries) {
+                // 418/429/503 come from the portal's firewall or overload: wait well clear of it.
+                const wait = throttled(e) ? 120_000 : ([5000, 20000, 60000][i - 1] || 60000);
+                if (throttled(e)) log(`      throttled (${e.message}); pausing ${wait / 1000}s`);
+                await new Promise(r => setTimeout(r, wait));
             }
-        });
-        await page.waitForTimeout(1000);
-        checkedCount = await countChecked();
-    }
-
-    return checkedCount;
-}
-
-async function clickViewData(page) {
-    const btn = page.locator('button:has-text("View Data")').first();
-    await btn.waitFor({ timeout: 15000 });
-    await btn.click();
-}
-
-async function waitForOutputReady(page, impalaResponsePromise, timeoutMs = 300000) {
-    // Wait primarily on the Impala-query network response. This avoids polling
-    // a massive rendered table via page.evaluate(), which crashes the tab for
-    // series like WPI (100k+ rows in the Output DOM).
-    const deadline = Date.now() + timeoutMs;
-
-    // Race the Impala response against the timeout. Distinguish a genuine
-    // no-response timeout from a response that arrived but whose body we could
-    // not read: the SDMX CSV download is a separate endpoint, so an unreadable
-    // body is no reason to bail — proceed to the download instead.
-    let impalaBody = null;
-    let sawResponse = false;
-    try {
-        const resp = await Promise.race([
-            impalaResponsePromise.then(r => { sawResponse = true; return r; }),
-            new Promise(r => setTimeout(() => r(null), timeoutMs)),
-        ]);
-        if (resp) {
-            try { impalaBody = await resp.text(); } catch {}
-        }
-    } catch {
-        // waitForResponse rejected (its own timeout / page closed) — genuine timeout.
-    }
-    if (!sawResponse) return { status: 'timeout' };
-
-    // Parse the response shape: if the result array is empty, the query ran
-    // but matched no rows. Only meaningful when we actually read the body.
-    if (impalaBody) {
-        try {
-            const decoded = impalaBody
-                .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-                .replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
-            const env = JSON.parse(decoded);
-            const result = env?.body?.result?.[0]?.data?.result;
-            if (Array.isArray(result) && result.length === 0) {
-                return { status: 'no-record' };
-            }
-        } catch {
-            // If parsing fails, we'll still attempt the download below.
         }
     }
-
-    // Once the Impala response has arrived, the Download dropdown is wired up.
-    // Wait a small grace period for the SPA to attach the dropdown handler,
-    // then let the caller drive the download.
-    await page.waitForTimeout(2500);
-
-    // Cheap DOM-free check for session-expired via a lightweight eval.
-    try {
-        const expired = await page.evaluate(() => {
-            const n = document.querySelectorAll('[class*="modal"]:not([class*="hide"])').length;
-            if (n === 0) return false;
-            return /Session has expired/i.test(document.body.innerText || '');
-        });
-        if (expired) return { status: 'session-expired' };
-    } catch {
-        // If even that crashed, the tab is unstable — but we still have the data.
-    }
-
-    return { status: 'ok', tableRows: null };
+    throw lastErr;
 }
 
-async function downloadSdmxCsv(page) {
-    const dropdown = page.locator('select.sdmxDD').first();
-    await dropdown.waitFor({ timeout: 10000 });
-    const [dl] = await Promise.all([
-        page.waitForEvent('download', { timeout: 40000 }),
-        dropdown.selectOption('sdmx'),
-    ]);
-    return dl;
-}
-
-async function scrapeElement(page, el, sector, subSector) {
-    const outDir = path.join(DATA_DIR, slug(sector), slug(subSector));
-    fs.mkdirSync(outDir, { recursive: true });
-    const outFile = path.join(outDir, `${el.dsdCode}.csv`);
-
-    await resetWizardPage(page);
-    await selectElementInTree(page, sector, subSector, el.label, el.dsdCode);
-    await clickNext(page); // → Frequency
-    const dates = await fillDates(page, el.frequency, el.startDate);
-    if (verbose) log(`    dates: ${dates.from} → ${dates.to}`);
-    await clickNext(page); // → Dimension
-    const checkedCount = await selectAllDimensions(page);
-    if (verbose) log(`    dimensions checked: ${checkedCount}`);
-    if (checkedCount === 0) {
-        return { status: 'no-dimensions', reason: 'selectAllDimensions ticked 0 checkboxes' };
-    }
-    await clickNext(page); // → Advanced Options
-
-    // Arm the Impala-response listener BEFORE clicking View Data. Only one
-    // response to this endpoint fires per query, so we capture the right one.
-    const impalaResponsePromise = page.waitForResponse(
-        r => /dbie_getImpalaDQActionEnhanced/.test(r.url()),
-        { timeout: outputWaitMs },
-    );
-    await clickViewData(page);
-
-    const outcome = await waitForOutputReady(page, impalaResponsePromise, outputWaitMs);
-    if (outcome.status !== 'ok') return { status: outcome.status, checkedCount };
-
-    const dl = await downloadSdmxCsv(page);
-    await dl.saveAs(outFile);
-    const stat = fs.statSync(outFile);
-    return { status: 'ok', file: outFile, bytes: stat.size, tableRows: outcome.tableRows, checkedCount };
-}
-
-// --------- Main loop
+// --------- Main
 async function main() {
-    if (!fs.existsSync(TREE_FILE)) {
-        console.error('sdmx-tree.json missing. Run `node scripts/fetch-sdmx-tree.mjs` first.');
+    const tree = JSON.parse(fs.readFileSync(TREE_FILE, 'utf8'));
+    let tasks = tree.flatMap(g => g.elements.map(e => ({ ...e, sector: g.sector, subSector: g.subSector })));
+    if (opts.dsd)    tasks = tasks.filter(e => opts.dsd.includes(e.dsdCode));
+    if (opts.sector) tasks = tasks.filter(e => e.sector === opts.sector);
+    if (opts.sub)    tasks = tasks.filter(e => e.subSector === opts.sub);
+    const manifest = loadManifest();
+    if (opts.retry) {
+        let n = 0;
+        for (const [k, r] of Object.entries(manifest.results)) if (r.status !== 'ok') { delete manifest.results[k]; n++; }
+        log(`--retry-failures: cleared ${n} non-OK manifest entries`);
+        tasks = tasks.filter(e => !manifest.results[e.dsdCode]);
+    } else if (!opts.force) {
+        tasks = tasks.filter(e => manifest.results[e.dsdCode]?.status !== 'ok');
+    }
+    if (opts.limit) tasks = tasks.slice(0, opts.limit);
+    log(`Planned: ${tasks.length} element(s) of ${tree.reduce((n, g) => n + g.elements.length, 0)}; concurrency ${opts.concurrency}`);
+    if (opts.dryRun) {
+        for (const e of tasks) { const w = windowFor(e); console.log(`  ${e.dsdCode.padEnd(28)} ${e.frequency.padEnd(26)} ${w.from} → ${w.to}  ${e.sector} / ${e.subSector}`); }
+        return;
+    }
+    if (!tasks.length) { log('Nothing to do.'); return; }
+
+    // Self-check: one plaintext-in, plaintext-out call that only works if the cipher constants are current.
+    const probe = new Gateway();
+    await probe.openSession();
+    const chk = (await probe.post('dbie_getElementDetailsActionEnhanced', { body: { dimData: { elementCodes: enc('EXT_DBT_RT_RN') } } })).result?.[0];
+    if (chk?.table_name !== 'fact_ebr_ext_dbt_rt_rn') {
+        console.error('Self-check failed: the gateway did not understand an encrypted request. The cipher constants in scripts/lib/dbie-gateway.mjs have probably rotated; see the note there.');
         process.exit(1);
     }
-    const tree = JSON.parse(fs.readFileSync(TREE_FILE, 'utf8'));
-    const manifest = loadManifest();
 
-    // --retry-failures: drop non-OK entries so they re-scrape; keep OKs cached.
-    if (retryFailures) {
-        let wiped = 0;
-        for (const [k, v] of Object.entries(manifest.results)) {
-            if (v.status !== 'ok' && v.status !== 'skipped') {
-                delete manifest.results[k];
-                wiped++;
-            }
-        }
-        log(`--retry-failures: cleared ${wiped} non-OK manifest entries`);
-        saveManifest(manifest);
-    }
-
-    // Flatten tree with sector/subSector context and apply filters.
-    const tasks = [];
-    for (const g of tree) {
-        if (filterSector && g.sector !== filterSector) continue;
-        if (filterSubSector && g.subSector !== filterSubSector) continue;
-        for (const el of g.elements) {
-            if (filterDsd && el.dsdCode !== filterDsd) continue;
-            tasks.push({ sector: g.sector, subSector: g.subSector, ...el });
-        }
-    }
-    const effective = limit ? tasks.slice(0, limit) : tasks;
-    log(`Planned: ${effective.length} element(s) (of ${tasks.length} matching, ${tree.reduce((n, g) => n + g.elements.length, 0)} total).`);
-
-    const browser = await chromium.launch({ headless: !headful });
-
-    // Per-element, we throw away the context and build a fresh one. A previous
-    // attempt reused one long-lived context and FOREX_RATE_A_RN (CY) ended up
-    // with FOREX_RATE_AFY_RN (FY) data byte-for-byte — the download handler
-    // from the prior element apparently leaked forward. A fresh context per
-    // element is ~1s more expensive and eliminates the class of bug.
-    async function makeContext() {
-        const ctx = await browser.newContext({
-            viewport: { width: 1440, height: 1000 },
-            acceptDownloads: true,
-        });
-        const page = await ctx.newPage();
-        return { ctx, page };
-    }
-
-    let ok = 0, failed = 0, skipped = 0, noRecord = 0;
-    try {
-        for (let i = 0; i < effective.length; i++) {
-            const t = effective[i];
-            const key = t.dsdCode;
-            const prev = manifest.results[key];
-            const prefix = `[${i + 1}/${effective.length}] ${t.sector} / ${t.subSector} / ${t.dsdCode}`;
-
-            if (prev?.status === 'ok' && fs.existsSync(prev.file)) {
-                log(`${prefix} — cached (${prev.bytes}b)`);
-                skipped++;
-                continue;
-            }
-            if (skipList.includes(t.dsdCode)) {
-                log(`${prefix} — SKIPPED (via --skip)`);
-                manifest.results[key] = { status: 'skipped', reason: 'in --skip list', at: new Date().toISOString() };
-                saveManifest(manifest);
-                skipped++;
-                continue;
-            }
-
-            log(`${prefix} (${t.frequency})`);
+    manifest.started = new Date().toISOString();
+    manifest.method = 'http';
+    let idx = 0, ok = 0, failed = 0, exportErr = 0;
+    const queue = [...tasks];
+    const worker = async (wid) => {
+        const gw = new Gateway();
+        await gw.openSession();
+        while (queue.length) {
+            const el = queue.shift();
+            const i = ++idx;
             const t0 = Date.now();
-            const { ctx, page } = await makeContext();
+            let r;
             try {
-                const r = await Promise.race([
-                    scrapeElement(page, t, t.sector, t.subSector),
-                    new Promise((_, rej) => setTimeout(
-                        () => rej(new Error(`per-element budget exceeded (${perElementBudgetMs}ms)`)),
-                        perElementBudgetMs,
-                    )),
+                let budgetTimer;
+                r = await Promise.race([
+                    withRetries(() => scrapeElement(gw, el)).finally(() => clearTimeout(budgetTimer)),
+                    new Promise((_, rej) => { budgetTimer = setTimeout(() => rej(new Error(`per-element budget of ${opts.budgetMs / 1000}s exceeded`)), opts.budgetMs); }),
                 ]);
-                const dt = Math.round((Date.now() - t0) / 1000);
-                if (r.status === 'ok') {
-                    manifest.results[key] = {
-                        status: 'ok', file: r.file, bytes: r.bytes,
-                        tableRows: r.tableRows, checkedCount: r.checkedCount,
-                        took: dt, at: new Date().toISOString(),
-                    };
-                    log(`    OK (${r.bytes}b, rows=${r.tableRows}, dims=${r.checkedCount}, ${dt}s) → ${r.file}`);
-                    ok++;
-                } else if (r.status === 'no-record') {
-                    manifest.results[key] = { status: 'no-record', checkedCount: r.checkedCount, took: dt, at: new Date().toISOString() };
-                    log(`    NO RECORDS (${dt}s, dims=${r.checkedCount}) — query ran but empty`);
-                    noRecord++;
-                } else if (r.status === 'no-dimensions') {
-                    manifest.results[key] = { status: 'no-dimensions', reason: r.reason, took: dt, at: new Date().toISOString() };
-                    log(`    NO DIMENSIONS (${dt}s) — checkbox count was 0`);
-                    failed++;
-                } else {
-                    manifest.results[key] = { status: r.status, took: dt, at: new Date().toISOString() };
-                    log(`    ${r.status.toUpperCase()} (${dt}s)`);
-                    failed++;
-                }
             } catch (e) {
-                const dt = Math.round((Date.now() - t0) / 1000);
-                manifest.results[key] = { status: 'error', error: e.message, took: dt, at: new Date().toISOString() };
-                log(`    ERROR (${dt}s): ${e.message}`);
-                failed++;
-            } finally {
-                await ctx.close().catch(() => {});
+                if (e instanceof GatewayError && /session|token|unauthori/i.test(e.message)) { try { await gw.openSession(); } catch {} }
+                r = { status: 'error', error: String(e.message || e).slice(0, 300) };
             }
+            r.took = Math.round((Date.now() - t0) / 1000);
+            r.at = new Date().toISOString();
+            manifest.results[el.dsdCode] = r;
             saveManifest(manifest);
-            // Small pause between elements to avoid hammering DBIE.
-            await new Promise(r => setTimeout(r, 1500));
+            if (queue.length && opts.delayMs) await new Promise(res => setTimeout(res, opts.delayMs));
+            if (r.status === 'ok') { ok++; log(`[${i}/${tasks.length}] ${el.dsdCode.padEnd(28)} ok      rows=${String(r.rows).padStart(7)} periods=${String(r.periods).padStart(5)} ${r.first}..${r.last} ${r.took}s${r.warnings?.length ? '  WARN ' + r.warnings.join('; ') : ''}`); }
+            else if (r.status === 'export-error') { exportErr++; log(`[${i}/${tasks.length}] ${el.dsdCode.padEnd(28)} EXPORT-ERROR (${r.jsonRows} rows saved as JSON) ${r.took}s`); }
+            else { failed++; log(`[${i}/${tasks.length}] ${el.dsdCode.padEnd(28)} ${r.status.toUpperCase()} ${r.error || ''} ${r.took}s`); }
         }
-    } finally {
-        await browser.close();
-    }
-
-    log(`\nDone — ok=${ok}, no-record=${noRecord}, failed=${failed}, skipped=${skipped}.`);
-    log(`Manifest: ${MANIFEST}`);
+    };
+    await Promise.all(Array.from({ length: Math.min(opts.concurrency, tasks.length) }, (_, w) => worker(w)));
+    log(`Done — ok=${ok}, export-error=${exportErr}, failed=${failed}. Manifest: ${path.relative(REPO, MANIFEST)}`);
+    if (failed) process.exitCode = 1;
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+main().catch(e => { console.error(e); process.exit(1); });

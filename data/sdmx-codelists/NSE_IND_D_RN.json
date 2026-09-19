@@ -1,0 +1,106 @@
+{
+ "dsdCode": "NSE_IND_D_RN",
+ "label": "NSE INIDICES",
+ "sector": "Financial Markets",
+ "subSector": "Equity and Corporate Debt Market",
+ "fetched": "2026-09-18T15:01:49.883Z",
+ "dims": [
+  {
+   "code": "NSE_IND_RN",
+   "name": "NSE Indices",
+   "column": "nse_ind_rn_description",
+   "table": "dim_ebr_nse_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56580",
+     "code": "NIFTY_FIFTY",
+     "label": "Nifty 50",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56581",
+     "code": "NSE_SP_CNX",
+     "label": "NSE SP CNX 500 Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_INDICES",
+   "name": "Type of Indices",
+   "column": "type_indices_description",
+   "table": "dim_ebr_type_indices",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56000",
+     "code": "CLOSE",
+     "label": "Close",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55999",
+     "code": "HIGH",
+     "label": "High",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55998",
+     "code": "LOW",
+     "label": "Low",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56001",
+     "code": "OPEN",
+     "label": "Open",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

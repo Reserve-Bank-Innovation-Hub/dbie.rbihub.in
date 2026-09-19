@@ -1,0 +1,437 @@
+{
+ "dsdCode": "BAL_SHT_NGNBFI_AW_RN",
+ "label": "Balance Sheet of Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Banking Financial and Investment Companies",
+ "fetched": "2026-09-18T14:59:50.324Z",
+ "dims": [
+  {
+   "code": "ACT_CAT_RN",
+   "name": "Activity wise Category",
+   "column": "act_cat_rn_description",
+   "table": "dim_ebr_act_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41142",
+     "code": "AC_ALL_ACT",
+     "label": "All Activities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41145",
+     "code": "AC_AST_FIN",
+     "label": "Asset Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41146",
+     "code": "AC_DIV",
+     "label": "Diversified",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41144",
+     "code": "AC_LN_FIN",
+     "label": "Loan Finance",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41147",
+     "code": "AC_MISC",
+     "label": "Miscellaneous",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41143",
+     "code": "AC_STIH",
+     "label": "Share Trading and Investment Holding",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "BAL_SHT_ITMS_RN",
+   "name": "Balance Sheet items",
+   "column": "bal_sht_itms_rn_description",
+   "table": "dim_ebr_bal_sht_itms_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40988",
+     "code": "NCA_TTL_AST",
+     "label": "Total Assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41042",
+     "code": "TTL_AST",
+     "label": "Total Assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41013",
+     "code": "CURR_AST",
+     "label": "Current Assets",
+     "parentId": "41042",
+     "level": 2
+    },
+    {
+     "id": "41014",
+     "code": "CA_CCE",
+     "label": "Cash and cash equivalents",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53839",
+     "code": "CA_CCE_BWB",
+     "label": "Balances with Banks",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "53838",
+     "code": "CA_CCE_CD_OH",
+     "label": "Cheques, drafts, cash in hand",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "55125",
+     "code": "CA_CCE_OTH",
+     "label": "Others",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "41017",
+     "code": "CA_CI",
+     "label": "Current investments",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41018",
+     "code": "CA_CI_DWG",
+     "label": "Deposits with Government",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41019",
+     "code": "CA_CI_DWIDBI",
+     "label": "Deposits with IDBI and Other Financial Institution",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41020",
+     "code": "CA_CI_IC",
+     "label": "Indian companies",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41021",
+     "code": "CA_CI_RP",
+     "label": "Related parties, banks and others",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41034",
+     "code": "CA_TR",
+     "label": "Current Trade receivables",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41028",
+     "code": "CA_INV",
+     "label": "Inventories",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53834",
+     "code": "CA_OCA",
+     "label": "Other current assets",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41036",
+     "code": "CA_STLA",
+     "label": "Short Term Loans and Advances",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "40968",
+     "code": "NCA",
+     "label": "Non Current Assets",
+     "parentId": "41042",
+     "level": 2
+    },
+    {
+     "id": "41004",
+     "code": "NCA_DTA",
+     "label": "Deferred Tax Assets (Net)",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40983",
+     "code": "NCA_DEP",
+     "label": "Depreciation",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40985",
+     "code": "NCA_DEP_INTANG",
+     "label": "Intangible",
+     "parentId": "40983",
+     "level": 4
+    },
+    {
+     "id": "40984",
+     "code": "NCA_DEP_TANG",
+     "label": "Tangible",
+     "parentId": "40983",
+     "level": 4
+    },
+    {
+     "id": "40970",
+     "code": "NCA_GFA",
+     "label": "Gross Fixed Assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40978",
+     "code": "NCA_GFA_AL",
+     "label": "Assets Leased",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "48136",
+     "code": "NCA_GFA_IA_CWIP",
+     "label": "Capital work in progress",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "48135",
+     "code": "NCA_GFA_IA",
+     "label": "Intangible asset",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "53750",
+     "code": "NCA_GFA_TS",
+     "label": "Property plant and equipment/Tangible assets",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40973",
+     "code": "NCA_GFA_TA_BLDG",
+     "label": "Building",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40975",
+     "code": "NCA_GFA_TA_FFO",
+     "label": "Furniture, Fixtures and Office equipments",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40972",
+     "code": "NCA_GFA_TA_LND",
+     "label": "Land",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40974",
+     "code": "NCA_GFA_TA_PM",
+     "label": "Plant and Machinery",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "55689",
+     "code": "NCA_GFA_TA_VEC_OTHS",
+     "label": "Vehicle and Others",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "41005",
+     "code": "NCA_LTLA",
+     "label": "Long term loans and advances",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40986",
+     "code": "NCA_NFA",
+     "label": "Net fixed assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40989",
+     "code": "NCA_NCI",
+     "label": "Non-current investments",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40997",
+     "code": "NCA_NCI_FS",
+     "label": "Foreign Sources",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40998",
+     "code": "NCA_NCI_IC",
+     "label": "Indian companies",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40999",
+     "code": "NCA_NCI_IC_GU",
+     "label": "Government/ Semi-Government Securities",
+     "parentId": "40998",
+     "level": 5
+    },
+    {
+     "id": "41003",
+     "code": "NCA_NCI_IC_OTH",
+     "label": "Others",
+     "parentId": "40998",
+     "level": 5
+    },
+    {
+     "id": "41000",
+     "code": "NCA_NCI_IC_PSU",
+     "label": "Public Sector Undertakings",
+     "parentId": "40998",
+     "level": 5
+    },
+    {
+     "id": "41001",
+     "code": "NCA_NCI_IC_SFIMF",
+     "label": "Securities of Financial Institutions and Mutual Funds",
+     "parentId": "40998",
+     "level": 5
+    },
+    {
+     "id": "41002",
+     "code": "NCA_NCI_IC_SDSH",
+     "label": "Shares and Debentures of Subsidiaries/ Holding",
+     "parentId": "40998",
+     "level": 5
+    },
+    {
+     "id": "40987",
+     "code": "NCA_NFA_OTH",
+     "label": "Other non current assets",
+     "parentId": "40968",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42035",
+     "code": "CURR_FIN_YR",
+     "label": "Current Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42036",
+     "code": "PREV_FIN_YR",
+     "label": "Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42040",
+     "code": "PREV_TO_PREV_FIN_YR",
+     "label": "Previous to Previous Financial Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

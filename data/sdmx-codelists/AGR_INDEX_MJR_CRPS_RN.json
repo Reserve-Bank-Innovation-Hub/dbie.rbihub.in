@@ -1,0 +1,260 @@
+{
+ "dsdCode": "AGR_INDEX_MJR_CRPS_RN",
+ "label": "Agricultural Index - Major crops",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:14.735Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40082",
+     "code": "BY_TE_1981_82",
+     "label": "Triennium Ending 1981-82=100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40083",
+     "code": "BY_TE_1993_94",
+     "label": "Triennium Ending 1993-94=100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40084",
+     "code": "BY_TE_2007_08",
+     "label": "Triennium Ending 2007-08=100",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLASS_PROD_RN",
+   "name": "Classification of Crops",
+   "column": "class_prod_rn_description",
+   "table": "dim_ebr_class_prod_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53951",
+     "code": "ALL_CRPS",
+     "label": "All Crops",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53955",
+     "code": "FDGRAINS",
+     "label": "Foodgrains",
+     "parentId": "53951",
+     "level": 2
+    },
+    {
+     "id": "53957",
+     "code": "FG_CEREALS",
+     "label": "Cereals",
+     "parentId": "53955",
+     "level": 3
+    },
+    {
+     "id": "53986",
+     "code": "FG_CE_CC",
+     "label": "Coarse Cereals",
+     "parentId": "53957",
+     "level": 4
+    },
+    {
+     "id": "53984",
+     "code": "FG_CE_RI",
+     "label": "Rice",
+     "parentId": "53957",
+     "level": 4
+    },
+    {
+     "id": "53983",
+     "code": "FG_CE_WH",
+     "label": "Wheat",
+     "parentId": "53957",
+     "level": 4
+    },
+    {
+     "id": "44973",
+     "code": "FG_PL_PULSES",
+     "label": "Pulses",
+     "parentId": "53955",
+     "level": 3
+    },
+    {
+     "id": "53952",
+     "code": "NON_FDGRAINS",
+     "label": "Non-Foodgrains",
+     "parentId": "53951",
+     "level": 2
+    },
+    {
+     "id": "53976",
+     "code": "NFG_CNUT",
+     "label": "Coconut",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53978",
+     "code": "NFG_CFF",
+     "label": "Coffee",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53977",
+     "code": "NFG_CNS",
+     "label": "Condiments and spices",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53975",
+     "code": "NFG_COTTON",
+     "label": "Cotton",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53974",
+     "code": "NFG_FIB",
+     "label": "Fibres",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53973",
+     "code": "NFG_FNV",
+     "label": "Fruits and vegetables",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53972",
+     "code": "NFG_GUARS",
+     "label": "Guarseed",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53971",
+     "code": "NFG_JUTE",
+     "label": "Jute",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53953",
+     "code": "NFG_OILSEEDS",
+     "label": "Oilseeds",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53970",
+     "code": "NFG_OS_GRDNT",
+     "label": "Groundnut",
+     "parentId": "53953",
+     "level": 4
+    },
+    {
+     "id": "53969",
+     "code": "NFG_OS_RNM",
+     "label": "Rapeseed & Mustard",
+     "parentId": "53953",
+     "level": 4
+    },
+    {
+     "id": "53967",
+     "code": "NFG_OS_SESM",
+     "label": "Sesamum",
+     "parentId": "53953",
+     "level": 4
+    },
+    {
+     "id": "53963",
+     "code": "NFG_PLCRP",
+     "label": "Plantation Crops",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53962",
+     "code": "NFG_RBBR",
+     "label": "Rubber",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "55271",
+     "code": "NFG_SGRCN",
+     "label": "Sugarcane",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53959",
+     "code": "NFG_TEA",
+     "label": "Tea",
+     "parentId": "53952",
+     "level": 3
+    },
+    {
+     "id": "53958",
+     "code": "NFG_TOBB",
+     "label": "Tobacco",
+     "parentId": "53952",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

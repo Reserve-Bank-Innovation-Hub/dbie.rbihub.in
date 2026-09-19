@@ -1,0 +1,451 @@
+{
+ "dsdCode": "MACRO_ECN_AGG_RN",
+ "label": "Macro Economic Aggregates",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:02.182Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "NAT_INC_INDC_RN",
+   "name": "National Income Indicators",
+   "column": "nat_inc_indc_rn_description",
+   "table": "dim_ebr_nat_inc_indc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37300",
+     "code": "NII_CONS_FX_CAP",
+     "label": "Consumption of Fixed Capital",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37309",
+     "code": "NII_GROSS_DOM_CAP_FRM",
+     "label": "GDCF : Gross Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37301",
+     "code": "NII_GDP_FACT_CST",
+     "label": "GDP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37302",
+     "code": "NII_GDP_MARK_CST",
+     "label": "GDP at Market Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37303",
+     "code": "NII_GDP_PUB_SEC",
+     "label": "GDP of Public sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37304",
+     "code": "NII_GFCE",
+     "label": "GFCE",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37305",
+     "code": "NII_GNP_BAS_PRC",
+     "label": "GNP at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37306",
+     "code": "NII_GNP_FACT_PRC",
+     "label": "GNP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37307",
+     "code": "NII_GNP_MARK_PRC",
+     "label": "GNP at Market Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37308",
+     "code": "NII_GROSS_CAP_FRM",
+     "label": "Gross Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37357",
+     "code": "NII_GDP",
+     "label": "Gross Domestic Product",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37311",
+     "code": "NII_GROSS_DOM_SAV",
+     "label": "Gross Domestic Saving",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37312",
+     "code": "NII_GROSS_NAT_DISP_INC",
+     "label": "Gross National Disposable Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37355",
+     "code": "NII_GNI",
+     "label": "Gross National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37314",
+     "code": "NII_GROSS_SAV",
+     "label": "Gross Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37315",
+     "code": "NII_GVA_BAS_PRC",
+     "label": "GVA at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37316",
+     "code": "NII_IND_TX_LES_SUB",
+     "label": "Indirect Taxes less Subsidies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37317",
+     "code": "NII_NDP_FACT_CST",
+     "label": "NDP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37318",
+     "code": "NII_NDP_MARK_CST",
+     "label": "NDP at Market Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37319",
+     "code": "NII_NDP_PUB_CST",
+     "label": "NDP of Public Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37322",
+     "code": "NII_NDP",
+     "label": "NDP: Net Domestic Product",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37320",
+     "code": "NII_NET_CAP_FRM",
+     "label": "Net Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37321",
+     "code": "NII_NET_DOM_CAP_FRM",
+     "label": "Net Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37323",
+     "code": "NII_NDS",
+     "label": "Net Domestic Saving",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37324",
+     "code": "NII_NET_FAC_INC_ABR",
+     "label": "Net factor income from abroad",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37325",
+     "code": "NII_NET_DISP_INC",
+     "label": "Net National Disposable Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37354",
+     "code": "NII_NNI",
+     "label": "Net National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37327",
+     "code": "NII_NET_SAV",
+     "label": "Net Savings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37358",
+     "code": "NII_NET_TAX_PRODCTS",
+     "label": "Net taxes on products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37329",
+     "code": "NII_NNP_BAS_PRC",
+     "label": "NNP at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37330",
+     "code": "NII_NNP_FACT_PRC",
+     "label": "NNP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37331",
+     "code": "NII_NNP_MARK_PRC",
+     "label": "NNP at Market Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37332",
+     "code": "NII_NVA_BAS_PRC",
+     "label": "NVA at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37333",
+     "code": "NII_OTH_CURR_TRANSF",
+     "label": "Other current transfers (net) from ROW",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37334",
+     "code": "NII_PER_CAP_GDP",
+     "label": "Per Capita GDP",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37335",
+     "code": "NII_PER_CAP_GNDI",
+     "label": "Per Capita GNDI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37336",
+     "code": "NII_PER_CAP_GNI",
+     "label": "Per Capita GNI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37353",
+     "code": "NII_PER_CAP_GNI_FAC_CST",
+     "label": "per capita GNI at factor cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37339",
+     "code": "NII_PER_CAP_GNP_FACT_CST",
+     "label": "Per Capita GNP at Factor Cost (Rupees)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37340",
+     "code": "NII_PER_CAP_NNI",
+     "label": "Per Capita NNI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37341",
+     "code": "NII_PER_CAP_NNI_FACT_CST",
+     "label": "Per Capita NNP at Factor Cost (Rupees)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37342",
+     "code": "NII_PER_CAP_PFCE",
+     "label": "Per Capita PFCE",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37343",
+     "code": "NII_PERS_DIS_INC",
+     "label": "Personal Disposable Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37345",
+     "code": "NII_PFCE_DOM",
+     "label": "PFCE in the domestic market",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37344",
+     "code": "NII_PFCE",
+     "label": "PFCE: Private final consumption expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37346",
+     "code": "NII_POPL",
+     "label": "Population",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37356",
+     "code": "NII_PRI_INC_RCV_ROW_NET",
+     "label": "Primary income receivable from ROW (net)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37348",
+     "code": "NII_RT_GROSS_DOM_SAV",
+     "label": "Rate of Gross Domestic Saving",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

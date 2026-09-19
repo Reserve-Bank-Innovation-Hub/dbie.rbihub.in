@@ -1,0 +1,69 @@
+{
+ "dsdCode": "FW_PRE_RN",
+ "label": "FORWARD PREMIA (INTER-BANK)",
+ "sector": "Financial Markets",
+ "subSector": "Forex Market",
+ "fetched": "2026-09-18T15:02:09.364Z",
+ "dims": [
+  {
+   "code": "AVG_MONTH_RN",
+   "name": "Monthly Average",
+   "column": "avg_month_rn_description",
+   "table": "dim_ebr_avg_month_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55050",
+     "code": "1_MON",
+     "label": "1 Month",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55049",
+     "code": "3_MON",
+     "label": "3 Month",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55048",
+     "code": "6_MON",
+     "label": "6 Month",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,285 @@
+{
+ "dsdCode": "MACRO_ECN_AGG_RTS_RN",
+ "label": "Macro Economic Aggregate Rates",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:00.545Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37285",
+     "code": "ANN_GRWT_RT",
+     "label": "Annual Growth Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54458",
+     "code": "INV_RT",
+     "label": "Investment Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54457",
+     "code": "SAV_RT",
+     "label": "Saving Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "NAT_INC_INDC_RN",
+   "name": "National Income Indicators",
+   "column": "nat_inc_indc_rn_description",
+   "table": "dim_ebr_nat_inc_indc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37301",
+     "code": "NII_GDP_FACT_CST",
+     "label": "GDP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37305",
+     "code": "NII_GNP_BAS_PRC",
+     "label": "GNP at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37306",
+     "code": "NII_GNP_FACT_PRC",
+     "label": "GNP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37357",
+     "code": "NII_GDP",
+     "label": "Gross Domestic Product",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37310",
+     "code": "NII_GROSS_DOM_PRD",
+     "label": "Gross Domestic Product",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37355",
+     "code": "NII_GNI",
+     "label": "Gross National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37313",
+     "code": "NII_GROSS_NAT_INC",
+     "label": "Gross National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37362",
+     "code": "NII_GROSS_SAV_RT_OF_GDS",
+     "label": "Gross savings/Rate Of GDS",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37315",
+     "code": "NII_GVA_BAS_PRC",
+     "label": "GVA at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37317",
+     "code": "NII_NDP_FACT_CST",
+     "label": "NDP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37326",
+     "code": "NII_NAT_INC",
+     "label": "Net National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37354",
+     "code": "NII_NNI",
+     "label": "Net National Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37361",
+     "code": "NII_NET_SAV_RT_OF_NDS",
+     "label": "Net savings/Rate Of NDS",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37329",
+     "code": "NII_NNP_BAS_PRC",
+     "label": "NNP at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37330",
+     "code": "NII_NNP_FACT_PRC",
+     "label": "NNP at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37332",
+     "code": "NII_NVA_BAS_PRC",
+     "label": "NVA at Basic Prices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37340",
+     "code": "NII_PER_CAP_NNI",
+     "label": "Per Capita NNI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37352",
+     "code": "NII_PER_CAP_NNP",
+     "label": "Per Capita NNP",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37349",
+     "code": "NII_RT_GDCF",
+     "label": "Rate of GDCF: Gross Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37350",
+     "code": "NII_RT_NDCF",
+     "label": "Rate of NDCF: Net Domestic Capital Formation",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

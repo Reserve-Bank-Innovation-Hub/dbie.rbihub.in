@@ -1,0 +1,134 @@
+{
+ "dsdCode": "SEC_MKT_RN",
+ "label": "Secondary market transactions",
+ "sector": "Financial Markets",
+ "subSector": "Government Securities Market",
+ "fetched": "2026-09-18T15:02:19.166Z",
+ "dims": [
+  {
+   "code": "MKT_TRANSC_RN",
+   "name": "Market Transactions",
+   "column": "mkt_transc_rn_description",
+   "table": "dim_ebr_mkt_transc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "57682",
+     "code": "DAT_SECRS",
+     "label": "Dated Securities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "57683",
+     "code": "CEN_GOV_SEC",
+     "label": "Central Government securities",
+     "parentId": "57682",
+     "level": 2
+    },
+    {
+     "id": "57684",
+     "code": "ST_GOV_SEC",
+     "label": "State Government securities",
+     "parentId": "57682",
+     "level": 2
+    },
+    {
+     "id": "55358",
+     "code": "TR_BILLS",
+     "label": "Treasury Bills",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55362",
+     "code": "TR_182DAY",
+     "label": "182-Day",
+     "parentId": "55358",
+     "level": 2
+    },
+    {
+     "id": "55361",
+     "code": "TR_364DAY",
+     "label": "364-day",
+     "parentId": "55358",
+     "level": 2
+    },
+    {
+     "id": "55363",
+     "code": "TR_91DAY",
+     "label": "91-day",
+     "parentId": "55358",
+     "level": 2
+    },
+    {
+     "id": "55364",
+     "code": "TR_CASH_MNG_BILL",
+     "label": "Cash Management Bills",
+     "parentId": "55358",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "TRANC_TYP_RN",
+   "name": "Transaction Type",
+   "column": "tranc_typ_rn_description",
+   "table": "dim_ebr_tranc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55357",
+     "code": "OUTR_TRANSC",
+     "label": "Outright Transactions",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55356",
+     "code": "REPO_TRANSC",
+     "label": "Repo Transactions",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

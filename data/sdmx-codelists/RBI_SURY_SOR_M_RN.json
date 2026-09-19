@@ -1,0 +1,195 @@
+{
+ "dsdCode": "RBI_SURY_SOR_M_RN",
+ "label": "RBI Survey Sources_Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:14.860Z",
+ "dims": [
+  {
+   "code": "SOR_RBI_SUR_RN",
+   "name": "Sources of RBI Survey",
+   "column": "sor_rbi_sur_rn_description",
+   "table": "dim_ebr_sor_rbi_sur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40472",
+     "code": "SRBI4",
+     "label": "Capital Account",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40468",
+     "code": "SRBI2",
+     "label": "Government's Currency Liabilities to the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40469",
+     "code": "SRBI3",
+     "label": "Net Foreign Exchange Assets of the RBI",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40471",
+     "code": "SRBI32",
+     "label": "Foreign Currency Assets",
+     "parentId": "40469",
+     "level": 2
+    },
+    {
+     "id": "40470",
+     "code": "SRBI31",
+     "label": "Gold",
+     "parentId": "40469",
+     "level": 2
+    },
+    {
+     "id": "40473",
+     "code": "SRBI5",
+     "label": "Other Items (net)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40463",
+     "code": "SRBI1",
+     "label": "RBI's Domestic Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45125",
+     "code": "SRBI11",
+     "label": "Net RBI credit to the Government",
+     "parentId": "40463",
+     "level": 2
+    },
+    {
+     "id": "45527",
+     "code": "SRBI1102",
+     "label": "Net RBI credit to State Governments",
+     "parentId": "45125",
+     "level": 3
+    },
+    {
+     "id": "45526",
+     "code": "SRBI1101",
+     "label": "Net RBI credit to the Central Government",
+     "parentId": "45125",
+     "level": 3
+    },
+    {
+     "id": "45601",
+     "code": "SRBI11015",
+     "label": "Deposits of the Central Government",
+     "parentId": "45526",
+     "level": 4
+    },
+    {
+     "id": "45599",
+     "code": "SRBI11013",
+     "label": "Investments in Dated Government Securities",
+     "parentId": "45526",
+     "level": 4
+    },
+    {
+     "id": "40464",
+     "code": "SRBI110131",
+     "label": "Central Government Securities",
+     "parentId": "45599",
+     "level": 5
+    },
+    {
+     "id": "45598",
+     "code": "SRBI11012",
+     "label": "Investments in Treasury Bills",
+     "parentId": "45526",
+     "level": 4
+    },
+    {
+     "id": "45597",
+     "code": "SRBI11011",
+     "label": "Loans and Advances to the Central Government",
+     "parentId": "45526",
+     "level": 4
+    },
+    {
+     "id": "45600",
+     "code": "SRBI11014",
+     "label": "Rupee Coins",
+     "parentId": "45526",
+     "level": 4
+    },
+    {
+     "id": "45126",
+     "code": "SRBI12",
+     "label": "RBI's Claims on  Banks",
+     "parentId": "40463",
+     "level": 2
+    },
+    {
+     "id": "40465",
+     "code": "SRBI121",
+     "label": "Loans and Advances to Scheduled Commercial Banks",
+     "parentId": "45126",
+     "level": 3
+    },
+    {
+     "id": "45127",
+     "code": "SRBI13",
+     "label": "RBI's Credit to Commercial Sector",
+     "parentId": "40463",
+     "level": 2
+    },
+    {
+     "id": "40467",
+     "code": "SRBI1302",
+     "label": "Loans and Advances to NABARD",
+     "parentId": "45127",
+     "level": 3
+    },
+    {
+     "id": "40466",
+     "code": "SRBI1301",
+     "label": "Loans and Advances to Primary Dealers",
+     "parentId": "45127",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

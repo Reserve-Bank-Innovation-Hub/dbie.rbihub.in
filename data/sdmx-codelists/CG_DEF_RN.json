@@ -1,0 +1,111 @@
+{
+ "dsdCode": "CG_DEF_RN",
+ "label": "Central Government Deficit",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:43.946Z",
+ "dims": [
+  {
+   "code": "TYP_DEF_RN",
+   "name": "Type of Deficit",
+   "column": "typ_def_rn_description",
+   "table": "dim_ebr_typ_def_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51032",
+     "code": "CE5",
+     "label": "GFD expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51033",
+     "code": "CGR3",
+     "label": "GFD receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40137",
+     "code": "DEF1",
+     "label": "Gross fiscal deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40140",
+     "code": "DEF4",
+     "label": "Gross primary deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40138",
+     "code": "DEF2",
+     "label": "Net fiscal deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40141",
+     "code": "DEF5",
+     "label": "Net primary deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51036",
+     "code": "CGB3",
+     "label": "Net RBI credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40143",
+     "code": "DEF7",
+     "label": "Primary revenue deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40142",
+     "code": "DEF6",
+     "label": "Revenue deficit",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "dsdCode": "CALL_MONEY_RN",
+ "label": "Call Money Rates and Volume",
+ "sector": "Financial Markets",
+ "subSector": "Money Market",
+ "fetched": "2026-09-18T15:02:28.998Z",
+ "dims": [
+  {
+   "code": "RATE_CALL_MONEY_RN",
+   "name": "Rate call money",
+   "column": "rate_call_money_rn_description",
+   "table": "dim_ebr_rate_call_money_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "69719",
+     "code": "RANGE_RATE_BORR_LEN",
+     "label": "Range of Rate for Borrowing/Lending Amount",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "69718",
+     "code": "WAR_CALL",
+     "label": "Weighted Average Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

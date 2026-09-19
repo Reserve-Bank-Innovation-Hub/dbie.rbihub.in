@@ -1,0 +1,125 @@
+{
+ "dsdCode": "CG_EXP_RN",
+ "label": "Central Government Expenditures",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:47.167Z",
+ "dims": [
+  {
+   "code": "TYP_CGEXP_RN",
+   "name": "Type of Central Governments Expenditures",
+   "column": "typ_cgexp_rn_description",
+   "table": "dim_ebr_typ_cgexp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40189",
+     "code": "CE2",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45011",
+     "code": "CE22",
+     "label": "Capital expenditure",
+     "parentId": "40189",
+     "level": 2
+    },
+    {
+     "id": "45508",
+     "code": "CE2202",
+     "label": "Capital outlay",
+     "parentId": "45011",
+     "level": 3
+    },
+    {
+     "id": "48986",
+     "code": "CE220201",
+     "label": "Defence expenditure",
+     "parentId": "45508",
+     "level": 4
+    },
+    {
+     "id": "51034",
+     "code": "CE220202",
+     "label": "Others",
+     "parentId": "45508",
+     "level": 4
+    },
+    {
+     "id": "45507",
+     "code": "CE2201",
+     "label": "Loans and advances",
+     "parentId": "45011",
+     "level": 3
+    },
+    {
+     "id": "45010",
+     "code": "CE21",
+     "label": "Revenue expenditure",
+     "parentId": "40189",
+     "level": 2
+    },
+    {
+     "id": "40190",
+     "code": "CE2101",
+     "label": "Defence expenditure",
+     "parentId": "45010",
+     "level": 3
+    },
+    {
+     "id": "40191",
+     "code": "CE2102",
+     "label": "Interest payments",
+     "parentId": "45010",
+     "level": 3
+    },
+    {
+     "id": "51035",
+     "code": "CE2104",
+     "label": "Others",
+     "parentId": "45010",
+     "level": 3
+    },
+    {
+     "id": "40192",
+     "code": "CE2103",
+     "label": "Subsidies",
+     "parentId": "45010",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

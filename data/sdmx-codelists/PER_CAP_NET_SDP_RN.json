@@ -1,0 +1,423 @@
+{
+ "dsdCode": "PER_CAP_NET_SDP_RN",
+ "label": "Per Capita Net State Domestic Product at Factor Cost",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:05.459Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40080",
+     "code": "BY_1980_81",
+     "label": "Base Year : 1980-81",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40119",
+     "code": "BY_1993_94",
+     "label": "Base Year : 1993-94",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "STATE_CODE",
+   "name": "State",
+   "column": "state_code_description",
+   "table": "dim_ebr_state_code",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54589",
+     "code": "ALL_INDIA",
+     "label": "All India",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54590",
+     "code": "ALLS",
+     "label": "All States",
+     "parentId": "54589",
+     "level": 2
+    },
+    {
+     "id": "54592",
+     "code": "CR",
+     "label": "Central Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54602",
+     "code": "CHHT",
+     "label": "Chhattisgarh",
+     "parentId": "54592",
+     "level": 4
+    },
+    {
+     "id": "54601",
+     "code": "MP",
+     "label": "Madhya Pradesh",
+     "parentId": "54592",
+     "level": 4
+    },
+    {
+     "id": "54600",
+     "code": "UP",
+     "label": "Uttar Pradesh",
+     "parentId": "54592",
+     "level": 4
+    },
+    {
+     "id": "54627",
+     "code": "UK",
+     "label": "Uttarakhand",
+     "parentId": "54592",
+     "level": 4
+    },
+    {
+     "id": "54591",
+     "code": "ER",
+     "label": "Eastern Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54596",
+     "code": "BIH",
+     "label": "Bihar",
+     "parentId": "54591",
+     "level": 4
+    },
+    {
+     "id": "54595",
+     "code": "JHK",
+     "label": "Jharkhand",
+     "parentId": "54591",
+     "level": 4
+    },
+    {
+     "id": "54620",
+     "code": "OD",
+     "label": "Odisha",
+     "parentId": "54591",
+     "level": 4
+    },
+    {
+     "id": "54593",
+     "code": "WB",
+     "label": "West Bengal",
+     "parentId": "54591",
+     "level": 4
+    },
+    {
+     "id": "54603",
+     "code": "NER",
+     "label": "North Eastern Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54611",
+     "code": "ARP",
+     "label": "Arunachal Pradesh",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54610",
+     "code": "ASM",
+     "label": "Assam",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54609",
+     "code": "MANI",
+     "label": "Manipur",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54608",
+     "code": "MEG",
+     "label": "Meghalaya",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54607",
+     "code": "MIZO",
+     "label": "Mizoram",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54606",
+     "code": "NAGA",
+     "label": "Nagaland",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54605",
+     "code": "SIKK",
+     "label": "Sikkim",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54604",
+     "code": "TRI",
+     "label": "Tripura",
+     "parentId": "54603",
+     "level": 4
+    },
+    {
+     "id": "54612",
+     "code": "NR",
+     "label": "Northern Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54617",
+     "code": "HAR",
+     "label": "Haryana",
+     "parentId": "54612",
+     "level": 4
+    },
+    {
+     "id": "54616",
+     "code": "HP",
+     "label": "Himachal Pradesh",
+     "parentId": "54612",
+     "level": 4
+    },
+    {
+     "id": "54615",
+     "code": "PUN",
+     "label": "Punjab",
+     "parentId": "54612",
+     "level": 4
+    },
+    {
+     "id": "54614",
+     "code": "RAJA",
+     "label": "Rajasthan",
+     "parentId": "54612",
+     "level": 4
+    },
+    {
+     "id": "54621",
+     "code": "SR",
+     "label": "Southern Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54626",
+     "code": "ANP",
+     "label": "Andhra Pradesh",
+     "parentId": "54621",
+     "level": 4
+    },
+    {
+     "id": "54625",
+     "code": "KAR",
+     "label": "Karnataka",
+     "parentId": "54621",
+     "level": 4
+    },
+    {
+     "id": "54624",
+     "code": "KER",
+     "label": "Kerala",
+     "parentId": "54621",
+     "level": 4
+    },
+    {
+     "id": "54622",
+     "code": "TN",
+     "label": "Tamil Nadu",
+     "parentId": "54621",
+     "level": 4
+    },
+    {
+     "id": "54623",
+     "code": "TEL",
+     "label": "Telangana",
+     "parentId": "54621",
+     "level": 4
+    },
+    {
+     "id": "54628",
+     "code": "WR",
+     "label": "Western Region",
+     "parentId": "54590",
+     "level": 3
+    },
+    {
+     "id": "54631",
+     "code": "GOA",
+     "label": "Goa",
+     "parentId": "54628",
+     "level": 4
+    },
+    {
+     "id": "54630",
+     "code": "GUJ",
+     "label": "Gujarat",
+     "parentId": "54628",
+     "level": 4
+    },
+    {
+     "id": "54629",
+     "code": "MAH",
+     "label": "Maharashtra",
+     "parentId": "54628",
+     "level": 4
+    },
+    {
+     "id": "54633",
+     "code": "UNION_TERT",
+     "label": "Union Territories",
+     "parentId": "54589",
+     "level": 2
+    },
+    {
+     "id": "54637",
+     "code": "ANN",
+     "label": "Andaman & Nicobar",
+     "parentId": "54633",
+     "level": 3
+    },
+    {
+     "id": "54638",
+     "code": "CHD",
+     "label": "Chandigarh",
+     "parentId": "54633",
+     "level": 3
+    },
+    {
+     "id": "54639",
+     "code": "DEL",
+     "label": "Delhi",
+     "parentId": "54633",
+     "level": 3
+    },
+    {
+     "id": "54634",
+     "code": "JNK",
+     "label": "Jammu & Kashmir",
+     "parentId": "54633",
+     "level": 3
+    },
+    {
+     "id": "54640",
+     "code": "PY",
+     "label": "Puducherry",
+     "parentId": "54633",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

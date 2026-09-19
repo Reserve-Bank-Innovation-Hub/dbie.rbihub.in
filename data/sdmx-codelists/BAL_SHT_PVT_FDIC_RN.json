@@ -1,0 +1,897 @@
+{
+ "dsdCode": "BAL_SHT_PVT_FDIC_RN",
+ "label": "Balance Sheet of Foreign Direct Investment Companies",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Financial Private Limited Companies",
+ "fetched": "2026-09-18T15:00:01.744Z",
+ "dims": [
+  {
+   "code": "BAL_SHT_ITMS_RN",
+   "name": "Balance Sheet items",
+   "column": "bal_sht_itms_rn_description",
+   "table": "dim_ebr_bal_sht_itms_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53814",
+     "code": "TTL_CU_N_NONC",
+     "label": "Total",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53819",
+     "code": "ADO_INC_TAX",
+     "label": "Advance of income-tax (net of tax provision)",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53807",
+     "code": "CAN_BB",
+     "label": "Cash and bank balances",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53816",
+     "code": "CAN_BB_CID",
+     "label": "Cash in hand",
+     "parentId": "53807",
+     "level": 3
+    },
+    {
+     "id": "53818",
+     "code": "CAN_BB_FDQB",
+     "label": "Fixed deposits with banks",
+     "parentId": "53807",
+     "level": 3
+    },
+    {
+     "id": "53817",
+     "code": "CAN_BB_OTBB",
+     "label": "Other bank balances",
+     "parentId": "53807",
+     "level": 3
+    },
+    {
+     "id": "56014",
+     "code": "T_INV",
+     "label": "Inventories",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "56019",
+     "code": "T_INV_FG",
+     "label": "Finished goods",
+     "parentId": "56014",
+     "level": 3
+    },
+    {
+     "id": "56016",
+     "code": "T_INV_OTH",
+     "label": "Others",
+     "parentId": "56014",
+     "level": 3
+    },
+    {
+     "id": "56020",
+     "code": "T_INV_RM",
+     "label": "Raw materials",
+     "parentId": "56014",
+     "level": 3
+    },
+    {
+     "id": "56017",
+     "code": "T_INV_SS",
+     "label": "Stores and spares",
+     "parentId": "56014",
+     "level": 3
+    },
+    {
+     "id": "56018",
+     "code": "T_INV_WIP",
+     "label": "Work in progress",
+     "parentId": "56014",
+     "level": 3
+    },
+    {
+     "id": "53809",
+     "code": "INV_MT",
+     "label": "Investments",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53825",
+     "code": "FOR_IG",
+     "label": "Foreign",
+     "parentId": "53809",
+     "level": 3
+    },
+    {
+     "id": "53808",
+     "code": "IND_IAN",
+     "label": "Indian",
+     "parentId": "53809",
+     "level": 3
+    },
+    {
+     "id": "53824",
+     "code": "IND_IAN_GO_SEGO",
+     "label": "Government/ semi-Government securities",
+     "parentId": "53808",
+     "level": 4
+    },
+    {
+     "id": "53822",
+     "code": "IND_IAN_IS",
+     "label": "Industrial securities",
+     "parentId": "53808",
+     "level": 4
+    },
+    {
+     "id": "53820",
+     "code": "IND_IAN_OTH",
+     "label": "Others",
+     "parentId": "53808",
+     "level": 4
+    },
+    {
+     "id": "53823",
+     "code": "IND_IAN_SOF_IN",
+     "label": "Securities of Financial Institutions",
+     "parentId": "53808",
+     "level": 4
+    },
+    {
+     "id": "53821",
+     "code": "IND_IAN_SADS",
+     "label": "Shares and debentures of subsidiaries",
+     "parentId": "53808",
+     "level": 4
+    },
+    {
+     "id": "53826",
+     "code": "INV_MT_QI",
+     "label": "Investments-Quoted investments",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53810",
+     "code": "LADB",
+     "label": "Loans and advances and other debtor balances",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53828",
+     "code": "LADB_DB_WGO",
+     "label": "Deposits/ balances with Government/ others",
+     "parentId": "53810",
+     "level": 3
+    },
+    {
+     "id": "53829",
+     "code": "LADB_IAOLA",
+     "label": "Interest accrued on loans and advances",
+     "parentId": "53810",
+     "level": 3
+    },
+    {
+     "id": "53811",
+     "code": "LADB_LND",
+     "label": "Loans and advances",
+     "parentId": "53810",
+     "level": 3
+    },
+    {
+     "id": "53830",
+     "code": "LADB_LND_OTH",
+     "label": "Others",
+     "parentId": "53811",
+     "level": 4
+    },
+    {
+     "id": "53831",
+     "code": "LADB_LND_TSND",
+     "label": "To subsidiaries and companies under the same management",
+     "parentId": "53811",
+     "level": 4
+    },
+    {
+     "id": "53827",
+     "code": "LADB_OTH",
+     "label": "Others",
+     "parentId": "53810",
+     "level": 3
+    },
+    {
+     "id": "53832",
+     "code": "LADB_SUND",
+     "label": "Sundry debtors",
+     "parentId": "53810",
+     "level": 3
+    },
+    {
+     "id": "56015",
+     "code": "T_NFA",
+     "label": "Net fixed assets",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "56013",
+     "code": "T_OTHR_ASST",
+     "label": "Other Assets",
+     "parentId": "53814",
+     "level": 2
+    },
+    {
+     "id": "53842",
+     "code": "OTHR_ASST_IMP",
+     "label": "Immovable property",
+     "parentId": "56013",
+     "level": 3
+    },
+    {
+     "id": "53841",
+     "code": "OTHR_ASST_INT",
+     "label": "Intangible assets",
+     "parentId": "56013",
+     "level": 3
+    },
+    {
+     "id": "53840",
+     "code": "OTHR_ASST_MNCS",
+     "label": "Miscellaneous non-current assets",
+     "parentId": "56013",
+     "level": 3
+    },
+    {
+     "id": "41042",
+     "code": "TTL_AST",
+     "label": "Total Assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41013",
+     "code": "CURR_AST",
+     "label": "Current Assets",
+     "parentId": "41042",
+     "level": 2
+    },
+    {
+     "id": "48082",
+     "code": "CA_BBOTCCE",
+     "label": "Bank balance other than cash and cash equivalents",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41014",
+     "code": "CA_CCE",
+     "label": "Cash and cash equivalents",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53839",
+     "code": "CA_CCE_BWB",
+     "label": "Balances with Banks",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "53837",
+     "code": "CA_CCE_COH",
+     "label": "Cash on hand",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "53838",
+     "code": "CA_CCE_CD_OH",
+     "label": "Cheques, drafts, cash in hand",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "55125",
+     "code": "CA_CCE_OTH",
+     "label": "Others",
+     "parentId": "41014",
+     "level": 4
+    },
+    {
+     "id": "53833",
+     "code": "CA_CAO_IT",
+     "label": "Current Advance of Income tax",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41017",
+     "code": "CA_CI",
+     "label": "Current investments",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53797",
+     "code": "CA_CI_WQI",
+     "label": "Current investments-Quoted investments",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41025",
+     "code": "CA_CI_QI_DB",
+     "label": "Debentures or bonds",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41023",
+     "code": "CA_CI_QI_EIS",
+     "label": "Equity instruments/shares",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41024",
+     "code": "CA_CI_QI_GTS",
+     "label": "Government or trust securities",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41026",
+     "code": "CA_CI_QI_MF",
+     "label": "Mutual funds",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "41027",
+     "code": "CA_CI_QI_OTH",
+     "label": "Others",
+     "parentId": "41017",
+     "level": 4
+    },
+    {
+     "id": "48083",
+     "code": "CA_CL",
+     "label": "Current loans",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "48080",
+     "code": "CA_CTA",
+     "label": "Current tax assets",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41034",
+     "code": "CA_TR",
+     "label": "Current Trade receivables",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41028",
+     "code": "CA_INV",
+     "label": "Inventories",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "41030",
+     "code": "CA_INV_FG",
+     "label": "Finished goods",
+     "parentId": "41028",
+     "level": 4
+    },
+    {
+     "id": "41033",
+     "code": "CA_INV_OTH",
+     "label": "Others",
+     "parentId": "41028",
+     "level": 4
+    },
+    {
+     "id": "41029",
+     "code": "CA_INV_RM",
+     "label": "Raw materials",
+     "parentId": "41028",
+     "level": 4
+    },
+    {
+     "id": "41032",
+     "code": "CA_INV_SS",
+     "label": "Stores and spares",
+     "parentId": "41028",
+     "level": 4
+    },
+    {
+     "id": "41031",
+     "code": "CA_INV_WIP",
+     "label": "Work in progress",
+     "parentId": "41028",
+     "level": 4
+    },
+    {
+     "id": "53834",
+     "code": "CA_OCA",
+     "label": "Other current assets",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "48081",
+     "code": "CA_OCFA",
+     "label": "Other current financial assets",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53812",
+     "code": "CA_STL_EQU",
+     "label": "Short Term Loans and Advances",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53835",
+     "code": "CA_STL_EQU_RP",
+     "label": "of which, Related Parties",
+     "parentId": "53812",
+     "level": 4
+    },
+    {
+     "id": "55221",
+     "code": "CA_STL_EQU_OTH",
+     "label": "Others",
+     "parentId": "53812",
+     "level": 4
+    },
+    {
+     "id": "53813",
+     "code": "CA_TRA_REC",
+     "label": "Trade receivables",
+     "parentId": "41013",
+     "level": 3
+    },
+    {
+     "id": "53836",
+     "code": "CA_TRA_REC_OFMSM",
+     "label": "of which, outstanding for more than six months",
+     "parentId": "53813",
+     "level": 4
+    },
+    {
+     "id": "55222",
+     "code": "CA_TRA_REC_OTH",
+     "label": "Others",
+     "parentId": "53836",
+     "level": 5
+    },
+    {
+     "id": "40968",
+     "code": "NCA",
+     "label": "Non Current Assets",
+     "parentId": "41042",
+     "level": 2
+    },
+    {
+     "id": "41004",
+     "code": "NCA_DTA",
+     "label": "Deferred Tax Assets (Net)",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40983",
+     "code": "NCA_DEP",
+     "label": "Depreciation",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40985",
+     "code": "NCA_DEP_INTANG",
+     "label": "Intangible",
+     "parentId": "40983",
+     "level": 4
+    },
+    {
+     "id": "55218",
+     "code": "NCA_DE_TAN_OTH",
+     "label": "Others",
+     "parentId": "40985",
+     "level": 5
+    },
+    {
+     "id": "48088",
+     "code": "NCA_DEP_PPE",
+     "label": "Property plant and equipment",
+     "parentId": "40983",
+     "level": 4
+    },
+    {
+     "id": "53916",
+     "code": "NCA_GFA_DE",
+     "label": "Depreciation",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53920",
+     "code": "NCA_DE_INT",
+     "label": "Depreciation - Intangible",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53919",
+     "code": "NCA_DE_TAN",
+     "label": "Depreciation - Tangible",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40970",
+     "code": "NCA_GFA",
+     "label": "Gross Fixed Assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53918",
+     "code": "NCA_GFA_BABP",
+     "label": "Biological assets other than bearer plants",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40979",
+     "code": "NCA_GFA_CWIP",
+     "label": "Capital work in progress",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "48091",
+     "code": "NCA_GFA_GDW",
+     "label": "Goodwill",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40982",
+     "code": "NCA_GFA_IAUD",
+     "label": "Intangible asset under development",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "48090",
+     "code": "NCA_GFA_INV_PRT",
+     "label": "Investment property",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40980",
+     "code": "NCA_GFA_OIA",
+     "label": "Other Intangible asset",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40981",
+     "code": "NCA_GFA_IA_CS",
+     "label": "of which, computer software",
+     "parentId": "40980",
+     "level": 5
+    },
+    {
+     "id": "55219",
+     "code": "NCA_GFA_OIA_OTH",
+     "label": "Others",
+     "parentId": "40980",
+     "level": 5
+    },
+    {
+     "id": "55286",
+     "code": "NCA_GFA_OIA_OTHER",
+     "label": "Others",
+     "parentId": "40980",
+     "level": 5
+    },
+    {
+     "id": "53750",
+     "code": "NCA_GFA_TS",
+     "label": "Property plant and equipment/Tangible assets",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "40973",
+     "code": "NCA_GFA_TA_BLDG",
+     "label": "Building",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40975",
+     "code": "NCA_GFA_TA_FFO",
+     "label": "Furniture, Fixtures and Office equipments",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40972",
+     "code": "NCA_GFA_TA_LND",
+     "label": "Land",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40974",
+     "code": "NCA_GFA_TA_PM",
+     "label": "Plant and Machinery",
+     "parentId": "53750",
+     "level": 5
+    },
+    {
+     "id": "40971",
+     "code": "NCA_GFA_TA",
+     "label": "Tangible assets",
+     "parentId": "40970",
+     "level": 4
+    },
+    {
+     "id": "54985",
+     "code": "NCA_GFA_TA_OTH",
+     "label": "Others",
+     "parentId": "40971",
+     "level": 5
+    },
+    {
+     "id": "48084",
+     "code": "NCA_IAUEM",
+     "label": "Investments accounted for using equity method",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53777",
+     "code": "NCA_LTL_ADV",
+     "label": "Long term loans and advances",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53783",
+     "code": "NCA_LTL_ADV_CD",
+     "label": "Capital advances",
+     "parentId": "53777",
+     "level": 4
+    },
+    {
+     "id": "53780",
+     "code": "NCA_LTL_ADV_OTH",
+     "label": "Others",
+     "parentId": "53777",
+     "level": 4
+    },
+    {
+     "id": "53782",
+     "code": "NCA_LTL_ADV_SD",
+     "label": "Security deposits",
+     "parentId": "53777",
+     "level": 4
+    },
+    {
+     "id": "53781",
+     "code": "NCA_LTL_ADV_TRP",
+     "label": "To related parties",
+     "parentId": "53777",
+     "level": 4
+    },
+    {
+     "id": "40986",
+     "code": "NCA_NFA",
+     "label": "Net fixed assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "53779",
+     "code": "NCA_NCA_IT",
+     "label": "Non-Current Advance of Income Tax",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40989",
+     "code": "NCA_NCI",
+     "label": "Non-current investments",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "40994",
+     "code": "NCA_NCI_QI_DB",
+     "label": "Debentures or bonds",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40992",
+     "code": "NCA_NCI_QI_EIS",
+     "label": "Equity instruments/shares",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40993",
+     "code": "NCA_NCI_QI_GTS",
+     "label": "Government or trust securities",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40995",
+     "code": "NCA_NCI_QI_MF",
+     "label": "Mutual funds",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "53902",
+     "code": "NCA_NCI_OF_QUI",
+     "label": "Non-current investments-Quoted investments",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "40996",
+     "code": "NCA_NCI_QI_OTH",
+     "label": "Others",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "53784",
+     "code": "NCA_PROP",
+     "label": "Property",
+     "parentId": "40989",
+     "level": 4
+    },
+    {
+     "id": "48086",
+     "code": "NCA_NCL",
+     "label": "Non-current loans",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "48087",
+     "code": "NCA_NCTR",
+     "label": "Non-current trade receivables",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "41010",
+     "code": "NCA_ONCA",
+     "label": "Other non current assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "41011",
+     "code": "NCA_ONCA_LTTR",
+     "label": "of which, long term trade receivables",
+     "parentId": "41010",
+     "level": 4
+    },
+    {
+     "id": "55220",
+     "code": "NCA_ONCA_OTH",
+     "label": "Others",
+     "parentId": "41010",
+     "level": 4
+    },
+    {
+     "id": "48085",
+     "code": "NCA_NCFA",
+     "label": "Other non-current financial assets",
+     "parentId": "40968",
+     "level": 3
+    },
+    {
+     "id": "48079",
+     "code": "OTHR_ASST",
+     "label": "Other Assets",
+     "parentId": "41042",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42039",
+     "code": "PREV_TO_PREV",
+     "label": "Previous to Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

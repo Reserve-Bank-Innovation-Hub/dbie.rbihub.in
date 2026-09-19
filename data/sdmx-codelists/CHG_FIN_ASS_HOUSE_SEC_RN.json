@@ -1,0 +1,141 @@
+{
+ "dsdCode": "CHG_FIN_ASS_HOUSE_SEC_RN",
+ "label": "Changes in Financial Assets of the Household Sector",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:04:52.142Z",
+ "dims": [
+  {
+   "code": "FIN_ASS_RN",
+   "name": "Financial assets",
+   "column": "fin_ass_rn_description",
+   "table": "dim_ebr_fin_ass_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37276",
+     "code": "FA_CHNG_FIN_ASS",
+     "label": "Changes in Financial Assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37268",
+     "code": "FA_BNK_DEP",
+     "label": "Bank Deposits",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37272",
+     "code": "FA_CLM_GOV",
+     "label": "Claims on Government",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37267",
+     "code": "FA_CURR",
+     "label": "Currency",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37270",
+     "code": "FA_LIF_INS_FND",
+     "label": "Life Insurance Fund",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37269",
+     "code": "FA_NON_BNK_DEP",
+     "label": "Non- Banking Deposits",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37271",
+     "code": "FA_PRV_PEN_FND",
+     "label": "Provident and Pension Fund",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37273",
+     "code": "FA_SHAR_DEBN",
+     "label": "Shares & Debentures",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37275",
+     "code": "FA_TRD_DB_NET",
+     "label": "Trade Debt(Net)",
+     "parentId": "37276",
+     "level": 2
+    },
+    {
+     "id": "37274",
+     "code": "FA_UNIT_UTI",
+     "label": "Units of UTI",
+     "parentId": "37276",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

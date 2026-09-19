@@ -1,0 +1,97 @@
+{
+ "dsdCode": "FR_EXG_RESV_RN",
+ "label": "Foreign Exchange Reserves",
+ "sector": "External Sector",
+ "subSector": "Forex Reserve",
+ "fetched": "2026-09-18T15:00:52.074Z",
+ "dims": [
+  {
+   "code": "TYP_MAJ_FR_EXC_RES_RN",
+   "name": "Components of Forex Reserve",
+   "column": "typ_maj_fr_exc_res_rn_description",
+   "table": "dim_ebr_typ_maj_fr_exc_res_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41550",
+     "code": "FER_TTL",
+     "label": "Foreign Exchange Reserves",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41546",
+     "code": "FER_FR_CURR_ASS",
+     "label": "Foreign Currency Assets",
+     "parentId": "41550",
+     "level": 2
+    },
+    {
+     "id": "41547",
+     "code": "FER_GLD",
+     "label": "Gold",
+     "parentId": "41550",
+     "level": 2
+    },
+    {
+     "id": "41548",
+     "code": "FER_RES_TRN_POS",
+     "label": "Reserve Tranch Position",
+     "parentId": "41550",
+     "level": 2
+    },
+    {
+     "id": "41549",
+     "code": "FER_SDR",
+     "label": "Special Drawing Right (SDR)",
+     "parentId": "41550",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37058",
+     "code": "SDR",
+     "label": "Special Drawing Right (SDR)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

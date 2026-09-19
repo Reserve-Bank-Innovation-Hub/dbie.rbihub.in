@@ -1,0 +1,1119 @@
+{
+ "dsdCode": "INTR_INV_POS_IND_RN",
+ "label": "International Investment Position of India BPM5",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:01:05.238Z",
+ "dims": [
+  {
+   "code": "INTL_INV_TYP_RN",
+   "name": "International Investment Types",
+   "column": "intl_inv_typ_rn_description",
+   "table": "dim_ebr_intl_inv_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "45656",
+     "code": "IIA_NET_IIP",
+     "label": "Net International Investment Position",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53031",
+     "code": "IIT_AST",
+     "label": "Asset",
+     "parentId": "45656",
+     "level": 2
+    },
+    {
+     "id": "53032",
+     "code": "IIA_DIR_INV_ABR",
+     "label": "Direct Investment - Abroad (Assets)",
+     "parentId": "53031",
+     "level": 3
+    },
+    {
+     "id": "53034",
+     "code": "IIA_DIA_EQT_CAP_RE",
+     "label": "Equity Capital and Reinvested Earnings",
+     "parentId": "53032",
+     "level": 4
+    },
+    {
+     "id": "53038",
+     "code": "IIA_DIA_ECRE_CAE",
+     "label": "Claims on Affiliated Enterprises",
+     "parentId": "53034",
+     "level": 5
+    },
+    {
+     "id": "53037",
+     "code": "IIA_DIA_ECRE_LAE",
+     "label": "Liabilities to Affiliated Enterprises",
+     "parentId": "53034",
+     "level": 5
+    },
+    {
+     "id": "53033",
+     "code": "IIA_DIA_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "53032",
+     "level": 4
+    },
+    {
+     "id": "53036",
+     "code": "IIA_DIA_OC_CAE",
+     "label": "Claims on Affiliated Enterprises",
+     "parentId": "53033",
+     "level": 5
+    },
+    {
+     "id": "53035",
+     "code": "IIA_DIA_OC_LAE",
+     "label": "Liabilities to Affiliated Enterprises",
+     "parentId": "53033",
+     "level": 5
+    },
+    {
+     "id": "53056",
+     "code": "IIA_FIN_DER",
+     "label": "Financial Derivatives",
+     "parentId": "53031",
+     "level": 3
+    },
+    {
+     "id": "53058",
+     "code": "IIA_FD_BANKS",
+     "label": "Banks",
+     "parentId": "53056",
+     "level": 4
+    },
+    {
+     "id": "53059",
+     "code": "IIA_FD_GG",
+     "label": "General Government",
+     "parentId": "53056",
+     "level": 4
+    },
+    {
+     "id": "53060",
+     "code": "IIA_FD_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53056",
+     "level": 4
+    },
+    {
+     "id": "53057",
+     "code": "IIA_FD_OS",
+     "label": "Other Sectors",
+     "parentId": "53056",
+     "level": 4
+    },
+    {
+     "id": "53061",
+     "code": "IIA_OTH_INV",
+     "label": "Other Investment",
+     "parentId": "53031",
+     "level": 3
+    },
+    {
+     "id": "53083",
+     "code": "IIA_OI_CUR_DEP",
+     "label": "Currency and Deposits",
+     "parentId": "53061",
+     "level": 4
+    },
+    {
+     "id": "53087",
+     "code": "IIA_OI_CUR_DEP_BANKS",
+     "label": "Banks",
+     "parentId": "53083",
+     "level": 5
+    },
+    {
+     "id": "53088",
+     "code": "IIA_OI_CUR_DEP_GG",
+     "label": "General Government",
+     "parentId": "53083",
+     "level": 5
+    },
+    {
+     "id": "53084",
+     "code": "IIA_OI_CUR_DEP_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53083",
+     "level": 5
+    },
+    {
+     "id": "53086",
+     "code": "IIA_OI_CUR_DEP_OS",
+     "label": "Other Sectors",
+     "parentId": "53083",
+     "level": 5
+    },
+    {
+     "id": "53069",
+     "code": "IIA_OI_LN",
+     "label": "Loans",
+     "parentId": "53061",
+     "level": 4
+    },
+    {
+     "id": "53077",
+     "code": "IIA_OI_LN_BANKS",
+     "label": "Banks",
+     "parentId": "53069",
+     "level": 5
+    },
+    {
+     "id": "53081",
+     "code": "IIA_OI_LN_BANKS_LT",
+     "label": "Long-term",
+     "parentId": "53077",
+     "level": 6
+    },
+    {
+     "id": "53080",
+     "code": "IIA_OI_LN_BANKS_ST",
+     "label": "Short-term",
+     "parentId": "53077",
+     "level": 6
+    },
+    {
+     "id": "53070",
+     "code": "IIA_OI_LN_GG",
+     "label": "General Government",
+     "parentId": "53069",
+     "level": 5
+    },
+    {
+     "id": "53073",
+     "code": "IIA_OI_LN_GG_LT",
+     "label": "Long-term",
+     "parentId": "53070",
+     "level": 6
+    },
+    {
+     "id": "53072",
+     "code": "IIA_OI_LN_GG_ST",
+     "label": "Short-term",
+     "parentId": "53070",
+     "level": 6
+    },
+    {
+     "id": "53071",
+     "code": "IIA_OI_LN_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53069",
+     "level": 5
+    },
+    {
+     "id": "53075",
+     "code": "IIA_OI_LN_MA_LT",
+     "label": "Long-term",
+     "parentId": "53071",
+     "level": 6
+    },
+    {
+     "id": "53074",
+     "code": "IIA_OI_LN_MA_ST",
+     "label": "Short-term",
+     "parentId": "53071",
+     "level": 6
+    },
+    {
+     "id": "53076",
+     "code": "IIA_OI_LN_OS",
+     "label": "Other Sectors",
+     "parentId": "53069",
+     "level": 5
+    },
+    {
+     "id": "53079",
+     "code": "IIA_OI_LN_OS_LT",
+     "label": "Long-term",
+     "parentId": "53076",
+     "level": 6
+    },
+    {
+     "id": "53078",
+     "code": "IIA_OI_LN_OS_ST",
+     "label": "Short-term",
+     "parentId": "53076",
+     "level": 6
+    },
+    {
+     "id": "53082",
+     "code": "IIA_OI_OTH_ASS",
+     "label": "Other Assets",
+     "parentId": "53061",
+     "level": 4
+    },
+    {
+     "id": "53091",
+     "code": "IIA_OI_OA_BANKS",
+     "label": "Banks",
+     "parentId": "53082",
+     "level": 5
+    },
+    {
+     "id": "53096",
+     "code": "IIA_OI_OA_BANKS_LT",
+     "label": "Long-term",
+     "parentId": "53091",
+     "level": 6
+    },
+    {
+     "id": "53095",
+     "code": "IIA_OI_OA_BANKS_ST",
+     "label": "Short-term",
+     "parentId": "53091",
+     "level": 6
+    },
+    {
+     "id": "53092",
+     "code": "IIA_OI_OA_GG",
+     "label": "General Government",
+     "parentId": "53082",
+     "level": 5
+    },
+    {
+     "id": "53098",
+     "code": "IIA_OI_OA_GG_LT",
+     "label": "Long-term",
+     "parentId": "53092",
+     "level": 6
+    },
+    {
+     "id": "53097",
+     "code": "IIA_OI_OA_GG_ST",
+     "label": "Short-term",
+     "parentId": "53092",
+     "level": 6
+    },
+    {
+     "id": "53085",
+     "code": "IIA_OI_OA_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53082",
+     "level": 5
+    },
+    {
+     "id": "53089",
+     "code": "IIA_OI_OA_MA_LT",
+     "label": "Long-term",
+     "parentId": "53085",
+     "level": 6
+    },
+    {
+     "id": "53099",
+     "code": "IIA_OI_OA_MA_ST",
+     "label": "Short-term",
+     "parentId": "53085",
+     "level": 6
+    },
+    {
+     "id": "53090",
+     "code": "IIA_OI_OA_OS",
+     "label": "Other Sectors",
+     "parentId": "53082",
+     "level": 5
+    },
+    {
+     "id": "53094",
+     "code": "IIA_OI_OA_OS_LT",
+     "label": "Long-term",
+     "parentId": "53090",
+     "level": 6
+    },
+    {
+     "id": "53093",
+     "code": "IIA_OI_OA_OS_ST",
+     "label": "Short-term",
+     "parentId": "53090",
+     "level": 6
+    },
+    {
+     "id": "53062",
+     "code": "IIA_OI_TRD_CRD",
+     "label": "Trade Credits",
+     "parentId": "53061",
+     "level": 4
+    },
+    {
+     "id": "53063",
+     "code": "IIA_OI_TC_GG",
+     "label": "General Government",
+     "parentId": "53062",
+     "level": 5
+    },
+    {
+     "id": "53065",
+     "code": "IIA_OI_TC_GG_LT",
+     "label": "Long-term",
+     "parentId": "53063",
+     "level": 6
+    },
+    {
+     "id": "53064",
+     "code": "IIA_OI_TC_GG_ST",
+     "label": "Short-term",
+     "parentId": "53063",
+     "level": 6
+    },
+    {
+     "id": "53066",
+     "code": "IIA_OI_TC_OS",
+     "label": "Other Sectors",
+     "parentId": "53062",
+     "level": 5
+    },
+    {
+     "id": "53068",
+     "code": "IIA_OI_TC_OS_LT",
+     "label": "Long-term",
+     "parentId": "53066",
+     "level": 6
+    },
+    {
+     "id": "53067",
+     "code": "IIA_OI_TC_OS_ST",
+     "label": "Short-term",
+     "parentId": "53066",
+     "level": 6
+    },
+    {
+     "id": "53039",
+     "code": "IIA_PORTF_INV",
+     "label": "Portfolio Investment",
+     "parentId": "53031",
+     "level": 3
+    },
+    {
+     "id": "53045",
+     "code": "IIA_PI_DEB_SEC",
+     "label": "Debt Securities",
+     "parentId": "53039",
+     "level": 4
+    },
+    {
+     "id": "53046",
+     "code": "IIA_PIDS_BNDS_NTS",
+     "label": "Bonds and Notes",
+     "parentId": "53045",
+     "level": 5
+    },
+    {
+     "id": "53048",
+     "code": "IIA_PIDS_BN_BANKS",
+     "label": "Banks",
+     "parentId": "53046",
+     "level": 6
+    },
+    {
+     "id": "53049",
+     "code": "IIA_PIDS_BN_GG",
+     "label": "General Government",
+     "parentId": "53046",
+     "level": 6
+    },
+    {
+     "id": "53050",
+     "code": "IIA_PIDS_BN_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53046",
+     "level": 6
+    },
+    {
+     "id": "53047",
+     "code": "IIA_PIDS_BN_OS",
+     "label": "Other Sectors",
+     "parentId": "53046",
+     "level": 6
+    },
+    {
+     "id": "53051",
+     "code": "IIA_PIDS_MNY_MAR_INST",
+     "label": "Money-market Instruments",
+     "parentId": "53045",
+     "level": 5
+    },
+    {
+     "id": "53053",
+     "code": "IIA_PIDS_MNY_MI_BANKS",
+     "label": "Banks",
+     "parentId": "53051",
+     "level": 6
+    },
+    {
+     "id": "53054",
+     "code": "IIA_PIDS_MNY_MI_GG",
+     "label": "General Government",
+     "parentId": "53051",
+     "level": 6
+    },
+    {
+     "id": "53055",
+     "code": "IIA_PIDS_MNY_MI_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53051",
+     "level": 6
+    },
+    {
+     "id": "53052",
+     "code": "IIA_PIDS_MNY_MI_OS",
+     "label": "Other Sectors",
+     "parentId": "53051",
+     "level": 6
+    },
+    {
+     "id": "53040",
+     "code": "IIA_PI_EQT_SEC",
+     "label": "Equity Securities",
+     "parentId": "53039",
+     "level": 4
+    },
+    {
+     "id": "53042",
+     "code": "IIA_PI_ES_BANKS",
+     "label": "Banks",
+     "parentId": "53040",
+     "level": 5
+    },
+    {
+     "id": "53043",
+     "code": "IIA_PI_ES_GG",
+     "label": "General Government",
+     "parentId": "53040",
+     "level": 5
+    },
+    {
+     "id": "53044",
+     "code": "IIA_PI_ES_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53040",
+     "level": 5
+    },
+    {
+     "id": "53041",
+     "code": "IIA_PI_ES_OS",
+     "label": "Other Sectors",
+     "parentId": "53040",
+     "level": 5
+    },
+    {
+     "id": "53100",
+     "code": "IIA_RES_ASS",
+     "label": "Reserve Assets",
+     "parentId": "53031",
+     "level": 3
+    },
+    {
+     "id": "53101",
+     "code": "IIA_RA_FR_EXC",
+     "label": "Foreign Exchange",
+     "parentId": "53100",
+     "level": 4
+    },
+    {
+     "id": "53103",
+     "code": "IIA_RA_FE_CUR_DEP",
+     "label": "Currency and Deposits",
+     "parentId": "53101",
+     "level": 5
+    },
+    {
+     "id": "53107",
+     "code": "IIA_RA_FE_CD_BANKS",
+     "label": "Banks",
+     "parentId": "53103",
+     "level": 6
+    },
+    {
+     "id": "53108",
+     "code": "IIA_RA_FE_CD_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53103",
+     "level": 6
+    },
+    {
+     "id": "53104",
+     "code": "IIA_RA_FE_FIN_DER",
+     "label": "Financial Derivatives (net)",
+     "parentId": "53101",
+     "level": 5
+    },
+    {
+     "id": "53102",
+     "code": "IIA_RA_FE_SEC",
+     "label": "Securities",
+     "parentId": "53101",
+     "level": 5
+    },
+    {
+     "id": "53105",
+     "code": "IIA_RA_FE_SEC_BON_NOT",
+     "label": "Bonds and Notes",
+     "parentId": "53102",
+     "level": 6
+    },
+    {
+     "id": "53106",
+     "code": "IIA_RA_FE_SEC_EQT",
+     "label": "Equities",
+     "parentId": "53102",
+     "level": 6
+    },
+    {
+     "id": "56457",
+     "code": "IIA_RA_FE_SEC_MON_MRKT_INS",
+     "label": "Money-market Instruments",
+     "parentId": "53102",
+     "level": 6
+    },
+    {
+     "id": "53111",
+     "code": "IIA_RA_MON_GLD",
+     "label": "Monetary Gold",
+     "parentId": "53100",
+     "level": 4
+    },
+    {
+     "id": "53112",
+     "code": "IIA_RA_OTH_CLM",
+     "label": "Other Claims",
+     "parentId": "53100",
+     "level": 4
+    },
+    {
+     "id": "53109",
+     "code": "IIA_RA_RES_POS_FND",
+     "label": "Reserve Position in the Fund",
+     "parentId": "53100",
+     "level": 4
+    },
+    {
+     "id": "53110",
+     "code": "IIA_RA_SDR",
+     "label": "Special Drawing Rights",
+     "parentId": "53100",
+     "level": 4
+    },
+    {
+     "id": "53113",
+     "code": "IIT_LIB",
+     "label": "Liabilities",
+     "parentId": "45656",
+     "level": 2
+    },
+    {
+     "id": "53114",
+     "code": "IIA_DIRE_INV_RE",
+     "label": "Direct Investment - Reporting economy",
+     "parentId": "53113",
+     "level": 3
+    },
+    {
+     "id": "53116",
+     "code": "IIA_DIRE_EQT_CAP_RE",
+     "label": "Equity Capital and Reinvested Earnings",
+     "parentId": "53114",
+     "level": 4
+    },
+    {
+     "id": "53120",
+     "code": "IIA_DIRE_ECRE_CDI",
+     "label": "Claims on Direct Investors",
+     "parentId": "53116",
+     "level": 5
+    },
+    {
+     "id": "53119",
+     "code": "IIA_DIRE_ECRE_LDI",
+     "label": "Liabilities to Direct Investors",
+     "parentId": "53116",
+     "level": 5
+    },
+    {
+     "id": "53115",
+     "code": "IIA_DIRE_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "53114",
+     "level": 4
+    },
+    {
+     "id": "53118",
+     "code": "IIA_DIRE_OC_CDI",
+     "label": "Claims on Direct Investors",
+     "parentId": "53115",
+     "level": 5
+    },
+    {
+     "id": "53117",
+     "code": "IIA_DIRE_OC_LDI",
+     "label": "Liabilities to Direct Investors",
+     "parentId": "53115",
+     "level": 5
+    },
+    {
+     "id": "53141",
+     "code": "IIA_LI_FIN_DER",
+     "label": "Financial Derivatives",
+     "parentId": "53113",
+     "level": 3
+    },
+    {
+     "id": "53161",
+     "code": "IIA_LI_FD_BANKS",
+     "label": "Banks",
+     "parentId": "53141",
+     "level": 4
+    },
+    {
+     "id": "53162",
+     "code": "IIA_LI_FD_GG",
+     "label": "General Government",
+     "parentId": "53141",
+     "level": 4
+    },
+    {
+     "id": "53163",
+     "code": "IIA_LI_FD_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53141",
+     "level": 4
+    },
+    {
+     "id": "53160",
+     "code": "IIA_LI_FD_OS",
+     "label": "Other Sectors",
+     "parentId": "53141",
+     "level": 4
+    },
+    {
+     "id": "53131",
+     "code": "IIA_LI_OTH_INV",
+     "label": "Other Investment",
+     "parentId": "53113",
+     "level": 3
+    },
+    {
+     "id": "53132",
+     "code": "IIA_LI_OI_CUR_DEP",
+     "label": "Currency and Deposits",
+     "parentId": "53131",
+     "level": 4
+    },
+    {
+     "id": "53144",
+     "code": "IIA_LI_OI_CUR_DEP_BANKS",
+     "label": "Banks",
+     "parentId": "53132",
+     "level": 5
+    },
+    {
+     "id": "53145",
+     "code": "IIA_LI_OI_CUR_DEP_GG",
+     "label": "General Government",
+     "parentId": "53132",
+     "level": 5
+    },
+    {
+     "id": "53146",
+     "code": "IIA_LI_OI_CUR_DEP_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53132",
+     "level": 5
+    },
+    {
+     "id": "53143",
+     "code": "IIA_LI_OI_CUR_DEP_OS",
+     "label": "Other Sectors",
+     "parentId": "53132",
+     "level": 5
+    },
+    {
+     "id": "53133",
+     "code": "IIA_LI_OI_LN",
+     "label": "Loans",
+     "parentId": "53131",
+     "level": 4
+    },
+    {
+     "id": "53135",
+     "code": "IIA_LI_OI_LN_BANKS",
+     "label": "Banks",
+     "parentId": "53133",
+     "level": 5
+    },
+    {
+     "id": "53150",
+     "code": "IIA_LI_OI_LN_BANKS_LT",
+     "label": "Long-term",
+     "parentId": "53135",
+     "level": 6
+    },
+    {
+     "id": "53149",
+     "code": "IIA_LI_OI_LN_BANKS_ST",
+     "label": "Short-term",
+     "parentId": "53135",
+     "level": 6
+    },
+    {
+     "id": "53136",
+     "code": "IIA_LI_OI_LN_GG",
+     "label": "General Government",
+     "parentId": "53133",
+     "level": 5
+    },
+    {
+     "id": "53152",
+     "code": "IIA_LI_OI_LN_GG_LT",
+     "label": "Long-term",
+     "parentId": "53136",
+     "level": 6
+    },
+    {
+     "id": "53151",
+     "code": "IIA_LI_OI_LN_GG_ST",
+     "label": "Short-term",
+     "parentId": "53136",
+     "level": 6
+    },
+    {
+     "id": "53137",
+     "code": "IIA_LI_OI_LN_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53133",
+     "level": 5
+    },
+    {
+     "id": "53154",
+     "code": "IIA_LI_OI_LN_MA_LT",
+     "label": "Other Long-term",
+     "parentId": "53137",
+     "level": 6
+    },
+    {
+     "id": "53153",
+     "code": "IIA_LI_OI_LN_MA_ST",
+     "label": "Short-term",
+     "parentId": "53137",
+     "level": 6
+    },
+    {
+     "id": "53155",
+     "code": "IIA_OI_LN_MA_UFC",
+     "label": "Use of Fund Credit & loans from the fund",
+     "parentId": "53137",
+     "level": 6
+    },
+    {
+     "id": "53134",
+     "code": "IIA_LI_OI_LN_OS",
+     "label": "Other Sectors",
+     "parentId": "53133",
+     "level": 5
+    },
+    {
+     "id": "53148",
+     "code": "IIA_LI_OI_LN_OS_LT",
+     "label": "Long-term",
+     "parentId": "53134",
+     "level": 6
+    },
+    {
+     "id": "53147",
+     "code": "IIA_LI_OI_LN_OS_ST",
+     "label": "Short-term",
+     "parentId": "53134",
+     "level": 6
+    },
+    {
+     "id": "53168",
+     "code": "IIA_OI_OTH_LIA",
+     "label": "Other Liabilities",
+     "parentId": "53131",
+     "level": 4
+    },
+    {
+     "id": "53170",
+     "code": "IIA_OI_OL_BANKS",
+     "label": "Banks",
+     "parentId": "53168",
+     "level": 5
+    },
+    {
+     "id": "53176",
+     "code": "IIA_OI_OL_BANKS_LT",
+     "label": "Long-term",
+     "parentId": "53170",
+     "level": 6
+    },
+    {
+     "id": "53175",
+     "code": "IIA_OI_OL_BANKS_ST",
+     "label": "Short-term",
+     "parentId": "53170",
+     "level": 6
+    },
+    {
+     "id": "53171",
+     "code": "IIA_OI_OL_GG",
+     "label": "General Government",
+     "parentId": "53168",
+     "level": 5
+    },
+    {
+     "id": "53178",
+     "code": "IIA_OI_OL_GG_LT",
+     "label": "Long-term",
+     "parentId": "53171",
+     "level": 6
+    },
+    {
+     "id": "53177",
+     "code": "IIA_OI_OL_GG_ST",
+     "label": "Short-term",
+     "parentId": "53171",
+     "level": 6
+    },
+    {
+     "id": "53172",
+     "code": "IIA_OI_OL_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53168",
+     "level": 5
+    },
+    {
+     "id": "53180",
+     "code": "IIA_OI_OL_MA_LT",
+     "label": "Long-term",
+     "parentId": "53172",
+     "level": 6
+    },
+    {
+     "id": "53179",
+     "code": "IIA_OI_OL_MA_ST",
+     "label": "Short-term",
+     "parentId": "53172",
+     "level": 6
+    },
+    {
+     "id": "53169",
+     "code": "IIA_OI_OL_OS",
+     "label": "Other Sectors",
+     "parentId": "53168",
+     "level": 5
+    },
+    {
+     "id": "53174",
+     "code": "IIA_OI_OL_OS_LT",
+     "label": "Long-term",
+     "parentId": "53169",
+     "level": 6
+    },
+    {
+     "id": "53173",
+     "code": "IIA_OI_OL_OS_ST",
+     "label": "Short-term",
+     "parentId": "53169",
+     "level": 6
+    },
+    {
+     "id": "53138",
+     "code": "IIA_LI_OI_TRD_CRD",
+     "label": "Trade Credits",
+     "parentId": "53131",
+     "level": 4
+    },
+    {
+     "id": "53140",
+     "code": "IIA_LI_OI_TC_GG",
+     "label": "General Government",
+     "parentId": "53138",
+     "level": 5
+    },
+    {
+     "id": "53159",
+     "code": "IIA_LI_OI_TC_GG_LT",
+     "label": "Long-term",
+     "parentId": "53140",
+     "level": 6
+    },
+    {
+     "id": "53158",
+     "code": "IIA_LI_OI_TC_GG_ST",
+     "label": "Short-term",
+     "parentId": "53140",
+     "level": 6
+    },
+    {
+     "id": "53139",
+     "code": "IIA_LI_OI_TC_OS",
+     "label": "Other Sectors",
+     "parentId": "53138",
+     "level": 5
+    },
+    {
+     "id": "53157",
+     "code": "IIA_LI_OI_TC_OS_LT",
+     "label": "Long-term",
+     "parentId": "53139",
+     "level": 6
+    },
+    {
+     "id": "53156",
+     "code": "IIA_LI_OI_TC_OS_ST",
+     "label": "Short-term",
+     "parentId": "53139",
+     "level": 6
+    },
+    {
+     "id": "53121",
+     "code": "IIA_LI_PORTF_INV",
+     "label": "Portfolio Investment",
+     "parentId": "53113",
+     "level": 3
+    },
+    {
+     "id": "53122",
+     "code": "IIA_LI_PI_DEB_SEC",
+     "label": "Debt Securities",
+     "parentId": "53121",
+     "level": 4
+    },
+    {
+     "id": "53123",
+     "code": "IIA_LI_PIDS_BNDS_NTS",
+     "label": "Bonds and Notes",
+     "parentId": "53122",
+     "level": 5
+    },
+    {
+     "id": "53126",
+     "code": "IIA_LI_PIDS_BN_BANKS",
+     "label": "Banks",
+     "parentId": "53123",
+     "level": 6
+    },
+    {
+     "id": "53127",
+     "code": "IIA_LI_PIDS_BN_GG",
+     "label": "General Government",
+     "parentId": "53123",
+     "level": 6
+    },
+    {
+     "id": "53128",
+     "code": "IIA_LI_PIDS_BN_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53123",
+     "level": 6
+    },
+    {
+     "id": "53125",
+     "code": "IIA_LI_PIDS_BN_OS",
+     "label": "Other Sectors",
+     "parentId": "53123",
+     "level": 6
+    },
+    {
+     "id": "53142",
+     "code": "IIA_LI_PIDS_MNY_MAR_INST",
+     "label": "Money-market Instruments",
+     "parentId": "53122",
+     "level": 5
+    },
+    {
+     "id": "53165",
+     "code": "IIA_LI_PIDS_MNY_MI_BANKS",
+     "label": "Banks",
+     "parentId": "53142",
+     "level": 6
+    },
+    {
+     "id": "53166",
+     "code": "IIA_LI_PIDS_MNY_MI_GG",
+     "label": "General Government",
+     "parentId": "53142",
+     "level": 6
+    },
+    {
+     "id": "53167",
+     "code": "IIA_LI_PIDS_MNY_MI_MA",
+     "label": "Monetary Authorities",
+     "parentId": "53142",
+     "level": 6
+    },
+    {
+     "id": "53164",
+     "code": "IIA_LI_PIDS_MNY_MI_OS",
+     "label": "Other Sectors",
+     "parentId": "53142",
+     "level": 6
+    },
+    {
+     "id": "53124",
+     "code": "IIA_LI_PI_EQT_SEC",
+     "label": "Equity Securities",
+     "parentId": "53121",
+     "level": 4
+    },
+    {
+     "id": "53130",
+     "code": "IIA_LI_PI_ES_BANKS",
+     "label": "Banks",
+     "parentId": "53124",
+     "level": 5
+    },
+    {
+     "id": "53129",
+     "code": "IIA_LI_PI_ES_OS",
+     "label": "Other Sectors",
+     "parentId": "53124",
+     "level": 5
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

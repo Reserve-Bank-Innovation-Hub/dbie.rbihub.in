@@ -1,0 +1,104 @@
+{
+ "dsdCode": "SG_EXP_RN",
+ "label": "Expenditure Pattern of the State Governments",
+ "sector": "Public Finance",
+ "subSector": "State Govt Finance",
+ "fetched": "2026-09-18T15:04:01.707Z",
+ "dims": [
+  {
+   "code": "TYP_SGEXP_RN",
+   "name": "Type of State Governments Expenditures",
+   "column": "typ_sgexp_rn_description",
+   "table": "dim_ebr_typ_sgexp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40200",
+     "code": "SE2",
+     "label": "Developmental Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45014",
+     "code": "SE21",
+     "label": "Economic Services",
+     "parentId": "40200",
+     "level": 2
+    },
+    {
+     "id": "45015",
+     "code": "SE22",
+     "label": "Social Services",
+     "parentId": "40200",
+     "level": 2
+    },
+    {
+     "id": "40201",
+     "code": "SE3",
+     "label": "Non-Developmental Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45018",
+     "code": "SE32",
+     "label": "Admn. Services",
+     "parentId": "40201",
+     "level": 2
+    },
+    {
+     "id": "45017",
+     "code": "SE31",
+     "label": "Interest Payments",
+     "parentId": "40201",
+     "level": 2
+    },
+    {
+     "id": "45020",
+     "code": "SE34",
+     "label": "Others",
+     "parentId": "40201",
+     "level": 2
+    },
+    {
+     "id": "45019",
+     "code": "SE33",
+     "label": "Pension and Misc. General Services",
+     "parentId": "40201",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

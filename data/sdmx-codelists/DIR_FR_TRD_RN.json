@@ -1,0 +1,526 @@
+{
+ "dsdCode": "DIR_FR_TRD_RN",
+ "label": "Direction of Foreign Trade",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:20.181Z",
+ "dims": [
+  {
+   "code": "CAT_CNTR_TRD_RN",
+   "name": "Country",
+   "column": "cat_cntr_trd_rn_description",
+   "table": "dim_ebr_cat_cntr_trd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51041",
+     "code": "CCT_COUN",
+     "label": "Groups of Country",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51045",
+     "code": "CCT_DC_AF",
+     "label": "Africa",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51052",
+     "code": "CCT_DC_AF_BEN",
+     "label": "Benin",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51051",
+     "code": "CCT_DC_AF_EGY",
+     "label": "Egypt Arab Republic",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51050",
+     "code": "CCT_DC_AF_KEN",
+     "label": "Kenya",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "55348",
+     "code": "CCT_DC_AF_OTH",
+     "label": "Others",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51049",
+     "code": "CCT_DC_AF_SAF",
+     "label": "South Africa",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51048",
+     "code": "CCT_DC_AF_SUD",
+     "label": "Sudan",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51047",
+     "code": "CCT_DC_AF_TAZ",
+     "label": "Tanzania",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51046",
+     "code": "CCT_DC_AF_ZAM",
+     "label": "Zambia",
+     "parentId": "51045",
+     "level": 3
+    },
+    {
+     "id": "51044",
+     "code": "CCT_DC_AS",
+     "label": "Asia",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51057",
+     "code": "CCT_DC_AS_OTH",
+     "label": "Other Asian countries",
+     "parentId": "51044",
+     "level": 3
+    },
+    {
+     "id": "51098",
+     "code": "CCT_ODC_AS_HKG",
+     "label": "Hong Kong",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51093",
+     "code": "CCT_ODC_AS_INDN",
+     "label": "Indonesia",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51096",
+     "code": "CCT_ODC_AS_MALY",
+     "label": "Malaysia",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "55349",
+     "code": "CCT_DC_OAC_OTH",
+     "label": "Others",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51099",
+     "code": "CCT_ODC_AS_PRC",
+     "label": "People's Republic of China",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51095",
+     "code": "CCT_ODC_AS_SIN",
+     "label": "Singapore",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51097",
+     "code": "CCT_ODC_AS_SKOR",
+     "label": "South Korea",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51094",
+     "code": "CCT_ODC_AS_THAI",
+     "label": "Thailand",
+     "parentId": "51057",
+     "level": 4
+    },
+    {
+     "id": "51055",
+     "code": "CCT_DC_AS_SAARC",
+     "label": "SAARC",
+     "parentId": "51044",
+     "level": 3
+    },
+    {
+     "id": "51106",
+     "code": "CCT_DC_AS_SA_AFG",
+     "label": "Afghanistan",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51105",
+     "code": "CCT_DC_AS_SA_BAN",
+     "label": "Bangladesh",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51104",
+     "code": "CCT_DC_AS_SA_BHU",
+     "label": "Bhutan",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51103",
+     "code": "CCT_DC_AS_SA_MALD",
+     "label": "Maldives",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51102",
+     "code": "CCT_DC_AS_SA_NEP",
+     "label": "Nepal",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51101",
+     "code": "CCT_DC_AS_SA_PAK",
+     "label": "Pakistan",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51100",
+     "code": "CCT_DC_AS_SA_SRI_LNK",
+     "label": "Sri Lanka",
+     "parentId": "51055",
+     "level": 4
+    },
+    {
+     "id": "51065",
+     "code": "CCT_EAST_EU",
+     "label": "Eastern Europe",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "55350",
+     "code": "CT_EU_OTH",
+     "label": "Others",
+     "parentId": "51065",
+     "level": 3
+    },
+    {
+     "id": "51067",
+     "code": "CCT_EE_ROM",
+     "label": "Romania",
+     "parentId": "51065",
+     "level": 3
+    },
+    {
+     "id": "51066",
+     "code": "CCT_EE_RUS",
+     "label": "Russia",
+     "parentId": "51065",
+     "level": 3
+    },
+    {
+     "id": "51043",
+     "code": "CCT_DC_LAT_AM",
+     "label": "Latin American countries",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51068",
+     "code": "CCT_OECD",
+     "label": "OECD countries",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51070",
+     "code": "CCT_OECD_AS_OC",
+     "label": "Asia and Oceania",
+     "parentId": "51068",
+     "level": 3
+    },
+    {
+     "id": "51078",
+     "code": "CCT_OECD_AS_OC_AUS",
+     "label": "Australia",
+     "parentId": "51070",
+     "level": 4
+    },
+    {
+     "id": "51077",
+     "code": "CCT_OECD_AS_OC_JAP",
+     "label": "Japan",
+     "parentId": "51070",
+     "level": 4
+    },
+    {
+     "id": "55351",
+     "code": "CT_OECD_AO_OTH",
+     "label": "Others",
+     "parentId": "51070",
+     "level": 4
+    },
+    {
+     "id": "51069",
+     "code": "CCT_OECD_EU",
+     "label": "European Union",
+     "parentId": "51068",
+     "level": 3
+    },
+    {
+     "id": "51076",
+     "code": "CCT_OECD_EU_BEL",
+     "label": "Belgium",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "51075",
+     "code": "CCT_OECD_EU_FRA",
+     "label": "France",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "51074",
+     "code": "CCT_OECD_EU_GER",
+     "label": "Germany",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "51073",
+     "code": "CCT_OECD_EU_ITL",
+     "label": "Italy",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "51072",
+     "code": "CCT_OECD_EU_NET",
+     "label": "Netherlands",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "55352",
+     "code": "CT_OECD_EU_OTH",
+     "label": "Others",
+     "parentId": "51069",
+     "level": 4
+    },
+    {
+     "id": "51080",
+     "code": "CCT_OECD_NRT_AM",
+     "label": "North America",
+     "parentId": "51068",
+     "level": 3
+    },
+    {
+     "id": "51082",
+     "code": "CCT_OECD_NA_CAN",
+     "label": "Canada",
+     "parentId": "51080",
+     "level": 4
+    },
+    {
+     "id": "55353",
+     "code": "CT_OECD_NA_OTH",
+     "label": "Others",
+     "parentId": "51080",
+     "level": 4
+    },
+    {
+     "id": "51081",
+     "code": "CCT_OECD_NA_USA",
+     "label": "U.S.A",
+     "parentId": "51080",
+     "level": 4
+    },
+    {
+     "id": "51084",
+     "code": "CCT_OTH_OECD",
+     "label": "Other OECD countries",
+     "parentId": "51068",
+     "level": 3
+    },
+    {
+     "id": "55354",
+     "code": "CT_OECD_OOECD_OTH",
+     "label": "Others",
+     "parentId": "51084",
+     "level": 4
+    },
+    {
+     "id": "51086",
+     "code": "CCT_OTH_OECD_SWZ",
+     "label": "Switzerland",
+     "parentId": "51084",
+     "level": 4
+    },
+    {
+     "id": "51071",
+     "code": "CCT_OECD_EU_UK",
+     "label": "U.K.",
+     "parentId": "51084",
+     "level": 4
+    },
+    {
+     "id": "51087",
+     "code": "CCT_OPEC",
+     "label": "OPEC",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51092",
+     "code": "CCT_OPEC_IRN",
+     "label": "Iran",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "51091",
+     "code": "CCT_OPEC_IRQ",
+     "label": "Iraq",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "51090",
+     "code": "CCT_OPEC_KUW",
+     "label": "Kuwait",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "55355",
+     "code": "CT_OPEC_OTH",
+     "label": "Others",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "51089",
+     "code": "CCT_OPEC_SAU_ARB",
+     "label": "Saudi Arabia",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "51088",
+     "code": "CCT_OPEC_UAE",
+     "label": "U.A.E.",
+     "parentId": "51087",
+     "level": 3
+    },
+    {
+     "id": "51108",
+     "code": "CCT_OTH",
+     "label": "Others",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51109",
+     "code": "CCT_OTHS_UNSPC",
+     "label": "Others/Unspecified",
+     "parentId": "51041",
+     "level": 2
+    },
+    {
+     "id": "51107",
+     "code": "CCT_UNSPC",
+     "label": "Unspecified",
+     "parentId": "51041",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "TERM_EXT_TRD_RN",
+   "name": "Type of Trade",
+   "column": "term_ext_trd_rn_description",
+   "table": "dim_ebr_term_ext_trd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41370",
+     "code": "TERM_TRD_EXP",
+     "label": "Export",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41371",
+     "code": "TERM_TRD_IMP",
+     "label": "Import",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

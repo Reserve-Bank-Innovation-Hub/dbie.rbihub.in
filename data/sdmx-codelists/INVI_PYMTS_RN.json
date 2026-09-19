@@ -1,0 +1,916 @@
+{
+ "dsdCode": "INVI_PYMTS_RN",
+ "label": "Invisibles Payments",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:35.146Z",
+ "dims": [
+  {
+   "code": "INVI_PYMTS_CAT_RN",
+   "name": "Invisibles Payments by Category of Transactions",
+   "column": "invi_pymts_cat_rn_description",
+   "table": "dim_ebr_invi_pymts_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55849",
+     "code": "IVS_PMT",
+     "label": "Invisibles Payments",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55947",
+     "code": "IC_PIP",
+     "label": "Primary Income Payments",
+     "parentId": "55849",
+     "level": 2
+    },
+    {
+     "id": "55951",
+     "code": "IC_PIP_CE",
+     "label": "Compensation of Employee",
+     "parentId": "55947",
+     "level": 3
+    },
+    {
+     "id": "55968",
+     "code": "IC_PIP_CE_WR",
+     "label": "Payment of wages/salary to Non-residents working in India or Indians working on projects abroad",
+     "parentId": "55951",
+     "level": 4
+    },
+    {
+     "id": "55949",
+     "code": "IC_PIP_II",
+     "label": "Investment Income",
+     "parentId": "55947",
+     "level": 3
+    },
+    {
+     "id": "55961",
+     "code": "IC_PIP_II_COSDR",
+     "label": "Charges on SDRs",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55960",
+     "code": "IC_PIP_II_IPO",
+     "label": "Interest paid on overdraft on VOSTRO a/c Holders/ OD on NOSTRO a/c",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55950",
+     "code": "IC_PIP_II_DP_NRSH",
+     "label": "Payment of dividend/profit to non-resident  share holder",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55965",
+     "code": "IC_PIP_II_DP_DIV",
+     "label": "of which: Dividend",
+     "parentId": "55950",
+     "level": 5
+    },
+    {
+     "id": "55964",
+     "code": "IC_PIP_II_DP_PFT",
+     "label": "of which: Profits",
+     "parentId": "55950",
+     "level": 5
+    },
+    {
+     "id": "55962",
+     "code": "IC_PIP_II_POI_DFRN",
+     "label": "Payment of interest on  debentures,FRNs, CPs fixed deposits, Government securities etc.",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55966",
+     "code": "IC_PIP_II_POI_LFNR",
+     "label": "Payment of interest on loans from non-residents",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55967",
+     "code": "IC_PIP_II_POI_NRID",
+     "label": "Payment of interest on NRI deposits",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55963",
+     "code": "IC_PIP_II_RE",
+     "label": "Reinvested Earning",
+     "parentId": "55949",
+     "level": 4
+    },
+    {
+     "id": "55948",
+     "code": "IC_PIP_OPI",
+     "label": "Other Primary Income",
+     "parentId": "55947",
+     "level": 3
+    },
+    {
+     "id": "55958",
+     "code": "IC_PIP_OPI_IEECB_CP",
+     "label": "Issue Expenses ECB/GDR/ADR and Commitment Payments",
+     "parentId": "55948",
+     "level": 4
+    },
+    {
+     "id": "55959",
+     "code": "IC_PIP_OPI_POT_GNR",
+     "label": "Payment of taxes by the Indians/refund of  taxes by government  to non-residents",
+     "parentId": "55948",
+     "level": 4
+    },
+    {
+     "id": "55944",
+     "code": "IC_SIP",
+     "label": "Secondary Income Payments",
+     "parentId": "55849",
+     "level": 2
+    },
+    {
+     "id": "55957",
+     "code": "IC_SIP_OT",
+     "label": "Official Transfers",
+     "parentId": "55944",
+     "level": 3
+    },
+    {
+     "id": "55945",
+     "code": "IC_SIP_PT",
+     "label": "Private Transfers",
+     "parentId": "55944",
+     "level": 3
+    },
+    {
+     "id": "55946",
+     "code": "IC_SIP_PT_PG_CRI",
+     "label": "Personal gifts/donations to charitable/ religious institutions",
+     "parentId": "55945",
+     "level": 4
+    },
+    {
+     "id": "55954",
+     "code": "IC_SIP_PT_RTDRCIB",
+     "label": "Of which: Remittance towards donations to religious and charitable institutions abroad",
+     "parentId": "55946",
+     "level": 5
+    },
+    {
+     "id": "55953",
+     "code": "IC_SIP_PT_RTGDOGCIEBG",
+     "label": "Of which: Remittance towards grants and donations to other governments and charitable institutions established by the governments",
+     "parentId": "55946",
+     "level": 5
+    },
+    {
+     "id": "55955",
+     "code": "IC_SIP_PT_RTPGD",
+     "label": "Of which: Remittance towards personal gifts and donations",
+     "parentId": "55946",
+     "level": 5
+    },
+    {
+     "id": "55956",
+     "code": "IC_SIP_PT_IR_IWA_FM",
+     "label": "Remittance by non-residents towards family maintenance and savings",
+     "parentId": "55945",
+     "level": 4
+    },
+    {
+     "id": "55850",
+     "code": "IC_SERV",
+     "label": "Services",
+     "parentId": "55849",
+     "level": 2
+    },
+    {
+     "id": "55858",
+     "code": "IC_CUIP",
+     "label": "Charges for the use of intellectual property n.i.e. (Royalties, copyright and license fees)",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55903",
+     "code": "IC_CUIP_FS",
+     "label": "Franchises services",
+     "parentId": "55858",
+     "level": 4
+    },
+    {
+     "id": "55902",
+     "code": "IC_CUIP_RCPT",
+     "label": "Receipts for use, through licensing arrangements, of produced originals or prototypes, patents, copyrights, trademarks, industrial processes, franchises etc.",
+     "parentId": "55858",
+     "level": 4
+    },
+    {
+     "id": "55861",
+     "code": "IC_CS",
+     "label": "Construction services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55908",
+     "code": "IC_CS_ABD",
+     "label": "Construction Abroad",
+     "parentId": "55861",
+     "level": 4
+    },
+    {
+     "id": "55907",
+     "code": "IC_CS_RE",
+     "label": "Construction in the reporting economy",
+     "parentId": "55861",
+     "level": 4
+    },
+    {
+     "id": "55859",
+     "code": "IC_FS",
+     "label": "Financial services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55860",
+     "code": "IC_FS_EC",
+     "label": "Explicitly charged and other financial services",
+     "parentId": "55859",
+     "level": 4
+    },
+    {
+     "id": "55906",
+     "code": "IC_FS_EC_FI_BC_CC_LCC",
+     "label": "Financial intermediation except investment banking, Bank charges, collection charges, LC charges, etc.",
+     "parentId": "55860",
+     "level": 5
+    },
+    {
+     "id": "55905",
+     "code": "IC_FS_EC_IBB_UWC",
+     "label": "Investment banking brokerage, under writing commission etc.",
+     "parentId": "55860",
+     "level": 5
+    },
+    {
+     "id": "55904",
+     "code": "IC_FS_FISIM",
+     "label": "Financial intermediation services indirectly measured",
+     "parentId": "55859",
+     "level": 4
+    },
+    {
+     "id": "55865",
+     "code": "IC_SERV_GNIE",
+     "label": "Government Not Included Elsewhere",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55915",
+     "code": "IC_SGNIE_MOI_DMA",
+     "label": "Maintenance of Indian embassies  and diplomatic mission abroad",
+     "parentId": "55865",
+     "level": 4
+    },
+    {
+     "id": "55914",
+     "code": "IC_SGNIE_RFEMI",
+     "label": "Remittances by foreign embassies and mission in India",
+     "parentId": "55865",
+     "level": 4
+    },
+    {
+     "id": "55866",
+     "code": "IC_SERV_INS",
+     "label": "Insurance",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55918",
+     "code": "IC_SI_AI",
+     "label": "Auxilary Insurance",
+     "parentId": "55866",
+     "level": 4
+    },
+    {
+     "id": "55920",
+     "code": "IC_SI_DI",
+     "label": "Direct Insurance",
+     "parentId": "55866",
+     "level": 4
+    },
+    {
+     "id": "55867",
+     "code": "IC_SI_PSGS",
+     "label": "Pension & standardized guarantee service",
+     "parentId": "55866",
+     "level": 4
+    },
+    {
+     "id": "55916",
+     "code": "IC_SI_PSGS_PPF",
+     "label": "Premium for pension funds",
+     "parentId": "55867",
+     "level": 5
+    },
+    {
+     "id": "55917",
+     "code": "IC_SI_PSGS_SGS",
+     "label": "Standardized guarantee services",
+     "parentId": "55867",
+     "level": 5
+    },
+    {
+     "id": "55919",
+     "code": "IC_SI_RIS",
+     "label": "Reinsurance",
+     "parentId": "55866",
+     "level": 4
+    },
+    {
+     "id": "55952",
+     "code": "IC_MRS",
+     "label": "Maintenance and Repair Services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55971",
+     "code": "IC_MRS_RCPT_ASRMA",
+     "label": "Receipts of maintenance and repair services rendered for  aircrafts, Space shuttles, Rockets,  military aircrafts, etc.",
+     "parentId": "55952",
+     "level": 4
+    },
+    {
+     "id": "55972",
+     "code": "IC_MRS_RCPT_VSBW",
+     "label": "Receipts on account of maintenance and repair services rendered for  Vessels, Ships, Boats, Warships, etc.",
+     "parentId": "55952",
+     "level": 4
+    },
+    {
+     "id": "55970",
+     "code": "IC_MRS_PI",
+     "label": "Manufacturing services on physical inputs owned by others",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55854",
+     "code": "IC_OBS",
+     "label": "Other Business services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55856",
+     "code": "IC_OBS_PMCS",
+     "label": "Professional and management consulting services",
+     "parentId": "55854",
+     "level": 4
+    },
+    {
+     "id": "55898",
+     "code": "IC_OBS_PMCS_AABKS",
+     "label": "Accounting, auditing, book keeping services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55896",
+     "code": "IC_OBS_PMCS_ATFS",
+     "label": "Advertising, trade fair service",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55895",
+     "code": "IC_OBS_PMCS_AS",
+     "label": "Architectural services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55897",
+     "code": "IC_OBS_PMCS_BMC_PRS",
+     "label": "Business and management consultancy and public relations services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55894",
+     "code": "IC_OBS_PMCS_ES",
+     "label": "Engineering Services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55899",
+     "code": "IC_OBS_PMCS_LS",
+     "label": "Legal services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55893",
+     "code": "IC_OBS_PMCS_TCS",
+     "label": "Tax consulting services",
+     "parentId": "55856",
+     "level": 5
+    },
+    {
+     "id": "55857",
+     "code": "IC_OBS_RND",
+     "label": "Research & Developments",
+     "parentId": "55854",
+     "level": 4
+    },
+    {
+     "id": "55900",
+     "code": "IC_OBS_RND_MR",
+     "label": "Market research and public opinion polling service",
+     "parentId": "55857",
+     "level": 5
+    },
+    {
+     "id": "55901",
+     "code": "IC_OBS_RND_SERV",
+     "label": "Research & Development services",
+     "parentId": "55857",
+     "level": 5
+    },
+    {
+     "id": "55855",
+     "code": "IC_OBS_TTROBS",
+     "label": "Technical, trade-related, and other business services",
+     "parentId": "55854",
+     "level": 4
+    },
+    {
+     "id": "55890",
+     "code": "IC_OBS_TTROBS_AS",
+     "label": "Agricultural services like protection against insects & disease, increasing of harvest yields, forestry services.",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55885",
+     "code": "IC_OBS_TTROBS_CAS",
+     "label": "Commission agent services",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55888",
+     "code": "IC_OBS_TTROBS_ES",
+     "label": "Environmental Services",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55886",
+     "code": "IC_OBS_TTROBS_MS",
+     "label": "Mining services like on-site processing services analysis of ores etc.",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55891",
+     "code": "IC_OBS_TTROBS_OLS_AC",
+     "label": "Operational leasing services (other than financial leasing) without operating crew, including charter hire- Airlines companies",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55883",
+     "code": "IC_OBS_TTROBS_OLS_SC",
+     "label": "Operational leasing services (other than financial leasing) without operating crew, including charter hire- Shipping  companies",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55882",
+     "code": "IC_OBS_TTROBS_OTS",
+     "label": "Other Technical Services including scientific/space services",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55889",
+     "code": "IC_OBS_TTROBS_OR",
+     "label": "Outward remittance for maintenance of offices abroad",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55887",
+     "code": "IC_OBS_TTROBS_PPS",
+     "label": "Publishing and printing services",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55892",
+     "code": "IC_OBS_TTROBS_EI",
+     "label": "Trade related - commission on exports / imports",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55884",
+     "code": "IC_OBS_TTROBS_WRTS",
+     "label": "Wholesale and retailing trade services",
+     "parentId": "55855",
+     "level": 5
+    },
+    {
+     "id": "55969",
+     "code": "IC_OSNI",
+     "label": "Other Services not included elsewhere",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55851",
+     "code": "IC_PCRS",
+     "label": "Personal, cultural & Recreational services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55853",
+     "code": "IC_PCRS_ARS",
+     "label": "Audiovisual and related services",
+     "parentId": "55851",
+     "level": 4
+    },
+    {
+     "id": "55881",
+     "code": "IC_PCRS_ARS_AVMP_VTP_DPS",
+     "label": "Audio-visual and related services like Motion picture and video tape production, distribution and projection services",
+     "parentId": "55853",
+     "level": 5
+    },
+    {
+     "id": "55880",
+     "code": "IC_PCRS_ARS_RTP_DTS",
+     "label": "Radio and television production, distribution and transmission services",
+     "parentId": "55853",
+     "level": 5
+    },
+    {
+     "id": "55852",
+     "code": "IC_PCRS_OPCRS",
+     "label": "Other personal, cultural, and recreational services",
+     "parentId": "55851",
+     "level": 4
+    },
+    {
+     "id": "55876",
+     "code": "IC_PCRS_OPCRS_ED",
+     "label": "Education (e.g. fees for correspondence courses abroad )",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55879",
+     "code": "IC_PCRS_OPCRS_ES",
+     "label": "Entertainment services",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55875",
+     "code": "IC_PCRS_OPCRS_HS",
+     "label": "Health Service ( payment towards services received from hospitals, doctors, nurses, paramedical and similar services etc. rendered remotely or on-site)",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55878",
+     "code": "IC_PCRS_OPCRS_MLAS",
+     "label": "Museums, library and archival services",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55874",
+     "code": "IC_PCRS_OPCRS_OPCRS",
+     "label": "Other  Personal, Cultural & Recreational services",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55877",
+     "code": "IC_PCRS_OPCRS_RSAS",
+     "label": "Recreation and sporting activity services",
+     "parentId": "55852",
+     "level": 5
+    },
+    {
+     "id": "55862",
+     "code": "IC_TCIS",
+     "label": "Telecommunications, computer and information services",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55863",
+     "code": "IC_TCIS_IS",
+     "label": "Information Services (News agency)",
+     "parentId": "55862",
+     "level": 4
+    },
+    {
+     "id": "55910",
+     "code": "IC_TCIS_IS_NAS",
+     "label": "News agency services",
+     "parentId": "55863",
+     "level": 5
+    },
+    {
+     "id": "55909",
+     "code": "IC_TCIS_IS_OIS_SN",
+     "label": "Other information services- Subscription to newspapers, periodicals, etc.",
+     "parentId": "55863",
+     "level": 5
+    },
+    {
+     "id": "55911",
+     "code": "IC_TCIS_SS",
+     "label": "Software services",
+     "parentId": "55862",
+     "level": 4
+    },
+    {
+     "id": "55864",
+     "code": "IC_TCIS_TS",
+     "label": "Telecommunication services",
+     "parentId": "55862",
+     "level": 4
+    },
+    {
+     "id": "55912",
+     "code": "IC_TCIS_TS_SSISSR",
+     "label": "Satellite services including space shuttle and rockets, etc.",
+     "parentId": "55864",
+     "level": 5
+    },
+    {
+     "id": "55913",
+     "code": "IC_TCIS_TS_TSIEMSVMS",
+     "label": "Telecommunication services including electronic mail services and voice mail services",
+     "parentId": "55864",
+     "level": 5
+    },
+    {
+     "id": "55868",
+     "code": "IC_SERV_TRNSP",
+     "label": "Transport",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55870",
+     "code": "IC_STR_AT",
+     "label": "Air Transport",
+     "parentId": "55868",
+     "level": 4
+    },
+    {
+     "id": "55928",
+     "code": "IC_STR_AT_CHC",
+     "label": "Charter hire charges",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55926",
+     "code": "IC_STR_AT_FE",
+     "label": "Freight on Exports",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55927",
+     "code": "IC_STR_AT_FI",
+     "label": "Freight on imports",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55929",
+     "code": "IC_STR_AT_OEICA",
+     "label": "Operating expenses of Indian companies abroad",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55925",
+     "code": "IC_STR_AT_RPBA",
+     "label": "Remittance of passage booking abroad",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55930",
+     "code": "IC_STR_AT_SR_FCOI",
+     "label": "Surplus remitted by Foreign companies operating in India",
+     "parentId": "55870",
+     "level": 5
+    },
+    {
+     "id": "55921",
+     "code": "IC_STR_OTH",
+     "label": "Others (includes port charges, bunker, stevedoring, demurrage and other port facilities)",
+     "parentId": "55868",
+     "level": 4
+    },
+    {
+     "id": "55869",
+     "code": "IC_STR_PCS",
+     "label": "Postal and Courier Services",
+     "parentId": "55868",
+     "level": 4
+    },
+    {
+     "id": "55924",
+     "code": "IC_STR_PCS_AIR",
+     "label": "By Air",
+     "parentId": "55869",
+     "level": 5
+    },
+    {
+     "id": "55922",
+     "code": "IC_STR_PCS_OTH",
+     "label": "By Others",
+     "parentId": "55869",
+     "level": 5
+    },
+    {
+     "id": "55923",
+     "code": "IC_STR_PCS_SEA",
+     "label": "By Sea",
+     "parentId": "55869",
+     "level": 5
+    },
+    {
+     "id": "55871",
+     "code": "IC_STR_ST",
+     "label": "Sea Transport",
+     "parentId": "55868",
+     "level": 4
+    },
+    {
+     "id": "55872",
+     "code": "IC_STR_ST_BPA",
+     "label": "Booking of passages abroad",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55934",
+     "code": "IC_STR_ST_BOPA",
+     "label": "Booking of passages abroad Shipping companies",
+     "parentId": "55872",
+     "level": 6
+    },
+    {
+     "id": "55933",
+     "code": "IC_STR_ST_PFP",
+     "label": "Payments for Passenger - Shipping companies",
+     "parentId": "55872",
+     "level": 6
+    },
+    {
+     "id": "55935",
+     "code": "IC_STR_ST_CHC",
+     "label": "Charter hire charges",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55931",
+     "code": "IC_STR_ST_FOE",
+     "label": "Freight on Exports",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55932",
+     "code": "IC_STR_ST_FOI",
+     "label": "Freight on imports",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55936",
+     "code": "IC_STR_ST_OE_ICA",
+     "label": "Operating expenses of Indian companies abroad",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55937",
+     "code": "IC_STR_SRFCOI",
+     "label": "Surplus remitted by Foreign companies operating in India",
+     "parentId": "55871",
+     "level": 5
+    },
+    {
+     "id": "55873",
+     "code": "IC_SERV_TRV",
+     "label": "Travel",
+     "parentId": "55850",
+     "level": 3
+    },
+    {
+     "id": "55940",
+     "code": "IC_STV_BTQ",
+     "label": "Basic travel quota",
+     "parentId": "55873",
+     "level": 4
+    },
+    {
+     "id": "55943",
+     "code": "IC_STV_BUSS",
+     "label": "Business",
+     "parentId": "55873",
+     "level": 4
+    },
+    {
+     "id": "55941",
+     "code": "IC_STV_ER",
+     "label": "Education Related",
+     "parentId": "55873",
+     "level": 4
+    },
+    {
+     "id": "55942",
+     "code": "IC_STV_HR",
+     "label": "Health Related",
+     "parentId": "55873",
+     "level": 4
+    },
+    {
+     "id": "55938",
+     "code": "IC_STV_OTH",
+     "label": "Others (Includes settlements of intenational credit cards",
+     "parentId": "55873",
+     "level": 4
+    },
+    {
+     "id": "55939",
+     "code": "IC_STV_PIL",
+     "label": "Pilgrimage",
+     "parentId": "55873",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

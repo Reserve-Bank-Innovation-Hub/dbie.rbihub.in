@@ -1,0 +1,125 @@
+{
+ "dsdCode": "EXTR_ASSIST_RN",
+ "label": "External assistance",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:00:55.304Z",
+ "dims": [
+  {
+   "code": "CAT_EXT_AST_RN",
+   "name": "Category of External assistance",
+   "column": "cat_ext_ast_rn_description",
+   "table": "dim_ebr_cat_ext_ast_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "49041",
+     "code": "TTL_AUTH",
+     "label": "Authorisation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49047",
+     "code": "GRNT",
+     "label": "Grants",
+     "parentId": "49041",
+     "level": 2
+    },
+    {
+     "id": "49048",
+     "code": "LN",
+     "label": "Loans",
+     "parentId": "49041",
+     "level": 2
+    },
+    {
+     "id": "49039",
+     "code": "DSP_TTL",
+     "label": "Debt Service Payments",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49044",
+     "code": "AMORT",
+     "label": "Amortisation",
+     "parentId": "49039",
+     "level": 2
+    },
+    {
+     "id": "49043",
+     "code": "INT",
+     "label": "Interest",
+     "parentId": "49039",
+     "level": 2
+    },
+    {
+     "id": "49042",
+     "code": "NET_INFL_AID",
+     "label": "Net Inflow of Aid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49040",
+     "code": "UTL_TTL",
+     "label": "Utilisation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "49045",
+     "code": "GRANTS",
+     "label": "Grants",
+     "parentId": "49040",
+     "level": 2
+    },
+    {
+     "id": "49046",
+     "code": "LOANS",
+     "label": "Loans",
+     "parentId": "49040",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

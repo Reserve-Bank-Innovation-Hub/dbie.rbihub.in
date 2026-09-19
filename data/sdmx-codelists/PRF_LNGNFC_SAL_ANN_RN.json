@@ -1,0 +1,190 @@
+{
+ "dsdCode": "PRF_LNGNFC_SAL_ANN_RN",
+ "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Sales",
+ "sector": "Corporate Sector",
+ "subSector": "Listed Non-Government Non-Financial Companies",
+ "fetched": "2026-09-18T14:59:25.189Z",
+ "dims": [
+  {
+   "code": "PERF_IND_RN",
+   "name": "Performance Indicators",
+   "column": "perf_ind_rn_description",
+   "table": "dim_ebr_perf_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41162",
+     "code": "DEPRC",
+     "label": "Depreciation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41161",
+     "code": "EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41155",
+     "code": "EXPD",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41163",
+     "code": "GROSS_PFT_EBIT",
+     "label": "Gross Profits (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41164",
+     "code": "INT",
+     "label": "Interest",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41167",
+     "code": "NET_PFT",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41159",
+     "code": "OPR_PFT",
+     "label": "Operating Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41160",
+     "code": "OTH_INC",
+     "label": "Other Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41151",
+     "code": "SALES",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41150",
+     "code": "SAL_SHARE",
+     "label": "Sales Share",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41166",
+     "code": "TAX_PROV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "SALE_SZ_CLS_RN",
+   "name": "Sales Size Class",
+   "column": "sale_sz_cls_rn_description",
+   "table": "dim_ebr_sale_sz_cls_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54350",
+     "code": "100_TO_500",
+     "label": "100 to 500",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41200",
+     "code": "100_N_ABOVE",
+     "label": "1000 and above",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41196",
+     "code": "25_TO_50",
+     "label": "25 to 50",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41197",
+     "code": "50_TO_100",
+     "label": "50 to 100",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54349",
+     "code": "500_TO_1000",
+     "label": "500 to 1000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41202",
+     "code": "ALL_COMP",
+     "label": "All Companies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41195",
+     "code": "LES_CLS_THAN_25",
+     "label": "Less than 25",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

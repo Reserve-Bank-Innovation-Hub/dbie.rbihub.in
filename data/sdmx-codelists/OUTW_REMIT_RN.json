@@ -1,0 +1,125 @@
+{
+ "dsdCode": "OUTW_REMIT_RN",
+ "label": "Outward Remittance",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:01:15.254Z",
+ "dims": [
+  {
+   "code": "MOD_OUTW_REMT_RN",
+   "name": "Mode of Outward Remittance",
+   "column": "mod_outw_remt_rn_description",
+   "table": "dim_ebr_mod_outw_remt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41598",
+     "code": "OUTW_REMT_LRS_TTL",
+     "label": "Outward Remittance Under LRS",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41588",
+     "code": "OUTW_REMT_DEP",
+     "label": "Deposit",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41592",
+     "code": "OUTW_REMT_DON",
+     "label": "Donations",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41591",
+     "code": "OUTW_REMT_GFT",
+     "label": "Gift",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41590",
+     "code": "OUTW_REMT_INV_EQT_DEB",
+     "label": "Investment in equity/debt",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41594",
+     "code": "OUTW_REMT_MANT_CLS_RELV",
+     "label": "Maintenance of close relatives",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41595",
+     "code": "OUTW_REMT_MED_TRT",
+     "label": "Medical Treatment",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41597",
+     "code": "OUTW_REMT_OTH",
+     "label": "Others Outward Remittance",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41589",
+     "code": "OUTW_REMT_PUR_IMV_PROP",
+     "label": "Purchase of immovable property",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41596",
+     "code": "OUTW_REMT_STD_ABD",
+     "label": "Studies Abroad",
+     "parentId": "41598",
+     "level": 2
+    },
+    {
+     "id": "41593",
+     "code": "OUTW_REMT_TRV",
+     "label": "Travels",
+     "parentId": "41598",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

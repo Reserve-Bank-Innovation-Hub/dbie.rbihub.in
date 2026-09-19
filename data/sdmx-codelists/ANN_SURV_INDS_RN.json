@@ -1,0 +1,286 @@
+{
+ "dsdCode": "ANN_SURV_INDS_RN",
+ "label": "Details captured under Annual Survey of Industries",
+ "sector": "Real Sector",
+ "subSector": "Industrial Statistics",
+ "fetched": "2026-09-18T15:04:32.617Z",
+ "dims": [
+  {
+   "code": "INDS_PRI_CHAR_RN",
+   "name": "Industry",
+   "column": "inds_pri_char_rn_description",
+   "table": "dim_ebr_inds_pri_char_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37504",
+     "code": "DEPREC",
+     "label": "Depreciation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37492",
+     "code": "FIX_CAP",
+     "label": "Fixed capital",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37505",
+     "code": "FUEL_CONS",
+     "label": "Fuels consumed",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37493",
+     "code": "GROSS_CAP_FORM",
+     "label": "Gross capital formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37506",
+     "code": "GRS_FXD_CAP_FORM",
+     "label": "Gross fixed capital formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37507",
+     "code": "INT_PAID",
+     "label": "Interest paid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37494",
+     "code": "INV_CAP",
+     "label": "Invested capital",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37495",
+     "code": "MAN_DAYS_EMP",
+     "label": "Mandays-employees (In Thousand)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37496",
+     "code": "MAN_DAYS_WRK",
+     "label": "Mandays-workers (In Thousand)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37508",
+     "code": "MAT_CONSUMED",
+     "label": "Material consumed",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46780",
+     "code": "NET_FIXD_CAPIT_FORMAT",
+     "label": "Net fixed capital formation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37510",
+     "code": "NET_INCOME",
+     "label": "Net income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37511",
+     "code": "NET_VALUE_ADDED",
+     "label": "Net value added",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37497",
+     "code": "NBR_EMP",
+     "label": "Number of employees",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37498",
+     "code": "NBR_FACT",
+     "label": "Number of factories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37499",
+     "code": "NBR_WRKRS",
+     "label": "Number of workers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37500",
+     "code": "OUT_STND_LNS",
+     "label": "Outstanding loans",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37512",
+     "code": "PROD_BY_PROD",
+     "label": "Products and by-products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37501",
+     "code": "PFT",
+     "label": "Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37513",
+     "code": "PRV_OTH_FNDS",
+     "label": "Provident & other funds",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37514",
+     "code": "RENT_PAID",
+     "label": "Rent paid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37502",
+     "code": "TTL_ADN_STOCK",
+     "label": "Total Addition in stock",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54148",
+     "code": "ADD_STC_FIN_GDS",
+     "label": "Finished goods",
+     "parentId": "37502",
+     "level": 2
+    },
+    {
+     "id": "37490",
+     "code": "ADD_STC_MAT_FUEL",
+     "label": "Material, fuels, etc",
+     "parentId": "37502",
+     "level": 2
+    },
+    {
+     "id": "37491",
+     "code": "ADD_STC_SEMI_FIN_GDS",
+     "label": "Semi finished goods",
+     "parentId": "37502",
+     "level": 2
+    },
+    {
+     "id": "37515",
+     "code": "TOT_EMOLUMENTS",
+     "label": "Total emoluments",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37516",
+     "code": "TOT_INPUTS",
+     "label": "Total inputs",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37517",
+     "code": "TOTAL_PERSNS_ENGAGED",
+     "label": "Total persons engaged",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37518",
+     "code": "VAL_OF_OUTPUT",
+     "label": "Value of output",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37519",
+     "code": "WGS_TO_WRKRS",
+     "label": "Wages to workers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37503",
+     "code": "WRK_CAP",
+     "label": "Working capital",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37520",
+     "code": "WRK_STAF_WELF_EXPENS",
+     "label": "Workmen & staff welfare expenses",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37060",
+     "code": "PS",
+     "label": "Persons",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37045",
+     "code": "PN",
+     "label": "Pure Number",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

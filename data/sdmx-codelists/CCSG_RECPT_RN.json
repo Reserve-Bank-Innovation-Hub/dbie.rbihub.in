@@ -1,0 +1,83 @@
+{
+ "dsdCode": "CCSG_RECPT_RN",
+ "label": "Combined Central & State Government Receipts",
+ "sector": "Public Finance",
+ "subSector": "Cental & State Govt Finance(Combined)",
+ "fetched": "2026-09-18T15:03:31.039Z",
+ "dims": [
+  {
+   "code": "TYP_GRECPT_RN",
+   "name": "Type of Government Receipts",
+   "column": "typ_grecpt_rn_description",
+   "table": "dim_ebr_typ_grecpt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40146",
+     "code": "GR1",
+     "label": "Aggregate Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "44991",
+     "code": "GR12",
+     "label": "Capital Receipts",
+     "parentId": "40146",
+     "level": 2
+    },
+    {
+     "id": "44990",
+     "code": "GR11",
+     "label": "Revenue Receipts",
+     "parentId": "40146",
+     "level": 2
+    },
+    {
+     "id": "52948",
+     "code": "OTHERS",
+     "label": "Of Which Others",
+     "parentId": "44990",
+     "level": 3
+    },
+    {
+     "id": "40147",
+     "code": "GR1101",
+     "label": "Tax Revenues",
+     "parentId": "44990",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

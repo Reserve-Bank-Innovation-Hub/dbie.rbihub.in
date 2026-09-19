@@ -1,0 +1,512 @@
+{
+ "dsdCode": "PRF_LNGNFC_INDUS_ANN_RN",
+ "label": "Performance of Listed Non-Government Non-Financial Companies Annually - Industry wise",
+ "sector": "Corporate Sector",
+ "subSector": "Listed Non-Government Non-Financial Companies",
+ "fetched": "2026-09-18T14:59:21.967Z",
+ "dims": [
+  {
+   "code": "INDS_GRP_RN",
+   "name": "Industry Group",
+   "column": "inds_grp_rn_description",
+   "table": "dim_ebr_inds_grp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41212",
+     "code": "AGR_REL_ACT",
+     "label": "Agriculture and Related Activities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41214",
+     "code": "AGR_REL_ACT_OTH",
+     "label": "Others",
+     "parentId": "41212",
+     "level": 2
+    },
+    {
+     "id": "41213",
+     "code": "ARA_TCP",
+     "label": "Tea and Coffee Plantation",
+     "parentId": "41212",
+     "level": 2
+    },
+    {
+     "id": "41263",
+     "code": "INDS_GRP_ALL_COMP",
+     "label": "All Companies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41251",
+     "code": "CONSTRN",
+     "label": "Construction",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41250",
+     "code": "ELC_GAS_SPLY",
+     "label": "Electricity and Gas - Supply",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41262",
+     "code": "IT_CSRS",
+     "label": "IT : Computer software and related services",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41216",
+     "code": "MNF",
+     "label": "Manufacturing",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41237",
+     "code": "MNF_CCP",
+     "label": "Cement and Cement Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41228",
+     "code": "MNF_CHM_PRD",
+     "label": "Chemicals and Chemical Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41229",
+     "code": "MNF_CP_BASIC",
+     "label": "Basic Chemicals",
+     "parentId": "41228",
+     "level": 3
+    },
+    {
+     "id": "41230",
+     "code": "MNF_CP_FNP",
+     "label": "Fertilizers and Pesticides",
+     "parentId": "41228",
+     "level": 3
+    },
+    {
+     "id": "41232",
+     "code": "MNF_CP_OTH",
+     "label": "Other Chemicals",
+     "parentId": "41228",
+     "level": 3
+    },
+    {
+     "id": "41231",
+     "code": "MNF_CP_PNV",
+     "label": "Paints and Varnishes",
+     "parentId": "41228",
+     "level": 3
+    },
+    {
+     "id": "41241",
+     "code": "MNF_CEE",
+     "label": "Computer and Electronic Equipments",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41242",
+     "code": "MNF_EMA",
+     "label": "Electrical Machinery and Apparatus",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41240",
+     "code": "MNF_FMP",
+     "label": "Fabricated Metal Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41217",
+     "code": "MNF_FPB",
+     "label": "Food Products and Beverages",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41218",
+     "code": "MNF_FPB_DAIRY_PRD",
+     "label": "Dairy Products",
+     "parentId": "41217",
+     "level": 3
+    },
+    {
+     "id": "41219",
+     "code": "MNF_FPB_EDD_OIL",
+     "label": "Edible Oil",
+     "parentId": "41217",
+     "level": 3
+    },
+    {
+     "id": "41221",
+     "code": "MNF_FPB_OFP",
+     "label": "Other Food Products",
+     "parentId": "41217",
+     "level": 3
+    },
+    {
+     "id": "41220",
+     "code": "MNF_FPB_ESGR",
+     "label": "Sugar",
+     "parentId": "41217",
+     "level": 3
+    },
+    {
+     "id": "41236",
+     "code": "MNF_GGP",
+     "label": "Glass and Glass Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41238",
+     "code": "MNF_INS",
+     "label": "Iron and Steel",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41247",
+     "code": "MNF_JRA",
+     "label": "Jewellery and Related Articles",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41224",
+     "code": "MNF_LTH",
+     "label": "Leather",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41243",
+     "code": "MNF_MMT",
+     "label": "Machinery and Machine Tools",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41248",
+     "code": "MNF_MPOSE",
+     "label": "Medical Precision and Other Scientific Equipments",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41244",
+     "code": "MNF_MMT_OTH",
+     "label": "Motor Vehicles and Other Transport Equipments",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41245",
+     "code": "MNF_MMT_MV",
+     "label": "Motor Vehicles",
+     "parentId": "41244",
+     "level": 3
+    },
+    {
+     "id": "41246",
+     "code": "MNF_MMT_PRTS",
+     "label": "Parts, Accessories and Other Transport Equipments",
+     "parentId": "41244",
+     "level": 3
+    },
+    {
+     "id": "41249",
+     "code": "MNF_OTH",
+     "label": "Other Manufacturing",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41226",
+     "code": "MNF_PNPD",
+     "label": "Paper and Paper Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41227",
+     "code": "MNF_PETR_PRD",
+     "label": "Petroleum Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41233",
+     "code": "MNF_PM",
+     "label": "Pharmaceuticals and Medicines",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41235",
+     "code": "MNF_PP",
+     "label": "Plastic Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41239",
+     "code": "MNF_PNFFM",
+     "label": "Precious and Non-Ferrous Metals",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41234",
+     "code": "MNF_RRP",
+     "label": "Rubber and Rubber Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41223",
+     "code": "MNF_TXT",
+     "label": "Textiles",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41222",
+     "code": "MNF_TBC_PRD",
+     "label": "Tobacco Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41225",
+     "code": "MNF_WOOD_PRD",
+     "label": "Wood Products",
+     "parentId": "41216",
+     "level": 2
+    },
+    {
+     "id": "41215",
+     "code": "MIN_N_QUARY",
+     "label": "Mining and Quarrying",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41252",
+     "code": "SERV_OTH_IT",
+     "label": "Services (other than IT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41258",
+     "code": "SOI_BSS",
+     "label": "Business Support Services",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41259",
+     "code": "SOI_HS",
+     "label": "Hospital Services",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41255",
+     "code": "SOI_HNR",
+     "label": "Hotel and Restaurant",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41261",
+     "code": "SOI_OTH",
+     "label": "Other Services",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41257",
+     "code": "SOI_RE",
+     "label": "Real Estate",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41256",
+     "code": "SOI_TCOMM",
+     "label": "Telecommunication",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41254",
+     "code": "SOI_TSS",
+     "label": "Transport and Storage Services",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41260",
+     "code": "SOI_VTPB",
+     "label": "Video and Television Programming and Broadcasting",
+     "parentId": "41252",
+     "level": 2
+    },
+    {
+     "id": "41253",
+     "code": "SOI_WRT",
+     "label": "Wholesale and Retail Trade",
+     "parentId": "41252",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "PERF_IND_RN",
+   "name": "Performance Indicators",
+   "column": "perf_ind_rn_description",
+   "table": "dim_ebr_perf_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41162",
+     "code": "DEPRC",
+     "label": "Depreciation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41161",
+     "code": "EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41155",
+     "code": "EXPD",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41163",
+     "code": "GROSS_PFT_EBIT",
+     "label": "Gross Profits (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41164",
+     "code": "INT",
+     "label": "Interest",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41167",
+     "code": "NET_PFT",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41159",
+     "code": "OPR_PFT",
+     "label": "Operating Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41160",
+     "code": "OTH_INC",
+     "label": "Other Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41152",
+     "code": "PC_SHARE_SAL",
+     "label": "Per cent share in sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41151",
+     "code": "SALES",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41166",
+     "code": "TAX_PROV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

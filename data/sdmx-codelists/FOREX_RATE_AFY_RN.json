@@ -1,0 +1,113 @@
+{
+ "dsdCode": "FOREX_RATE_AFY_RN",
+ "label": "Exchange rate of indian rupees",
+ "sector": "Financial Markets",
+ "subSector": "Forex Market",
+ "fetched": "2026-09-18T15:01:56.384Z",
+ "dims": [
+  {
+   "code": "CURRENCY",
+   "name": "Currency",
+   "column": "currency_description",
+   "table": "dim_ebr_currency",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "3033",
+     "code": "EUR",
+     "label": "EURO (EUROPEAN UNION)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "3126",
+     "code": "JPY",
+     "label": "JAPANESE YEN",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "3097",
+     "code": "GBP",
+     "label": "POUND STERLING",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "69215",
+     "code": "SDR",
+     "label": "Special Drawing Right",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "3217",
+     "code": "USD",
+     "label": "UNITED STATES DOLLAR",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55069",
+     "code": "AVG",
+     "label": "Average",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37293",
+     "code": "YR_END",
+     "label": "Year End",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

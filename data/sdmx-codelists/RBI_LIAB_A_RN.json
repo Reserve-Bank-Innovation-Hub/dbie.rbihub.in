@@ -1,0 +1,139 @@
+{
+ "dsdCode": "RBI_LIAB_A_RN",
+ "label": "RBI Liabilities_Annual",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:08.366Z",
+ "dims": [
+  {
+   "code": "LIAB_ITEMS_RN",
+   "name": "Liability Items",
+   "column": "liab_items_rn_description",
+   "table": "dim_ebr_liab_items_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48783",
+     "code": "LIA",
+     "label": "Liabilities of Banking Department",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48787",
+     "code": "LI3",
+     "label": "Deposits",
+     "parentId": "48783",
+     "level": 2
+    },
+    {
+     "id": "48797",
+     "code": "LI31",
+     "label": "Central Government",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48792",
+     "code": "LI36",
+     "label": "Non-Scheduled State Co-operative Banks",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48791",
+     "code": "LI37",
+     "label": "Other Banks",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48790",
+     "code": "LI38",
+     "label": "Others",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48794",
+     "code": "LI34",
+     "label": "Scheduled Commercial Banks",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48793",
+     "code": "LI35",
+     "label": "Scheduled State Co-operative Banks",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48795",
+     "code": "LI33",
+     "label": "State Governments",
+     "parentId": "48787",
+     "level": 3
+    },
+    {
+     "id": "48798",
+     "code": "LI4",
+     "label": "Other Liabilities",
+     "parentId": "48783",
+     "level": 2
+    },
+    {
+     "id": "48784",
+     "code": "NT_ISSU_TTL",
+     "label": "Liabilities of Issue Department",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48799",
+     "code": "LI2",
+     "label": "Notes held in Banking Department",
+     "parentId": "48784",
+     "level": 2
+    },
+    {
+     "id": "48800",
+     "code": "LI1",
+     "label": "Notes in Circulation",
+     "parentId": "48784",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

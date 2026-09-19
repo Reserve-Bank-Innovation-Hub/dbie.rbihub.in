@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-02T13:43:43.830Z",
-  "total": 335,
+  "generatedAt": "2026-09-17T09:06:36.873Z",
+  "total": 340,
   "bySource": {
-    "sdmx": 246,
+    "sdmx": 251,
     "rbib": 89
   },
   "themes": [
@@ -16,18 +16,18 @@
     "Payments"
   ],
   "themeCounts": {
-    "Prices": 21,
+    "Prices": 24,
     "Growth": 39,
     "External": 47,
     "Money & Banking": 91,
     "Markets": 40,
-    "Government": 30,
+    "Government": 32,
     "Corporate": 65,
     "Payments": 2
   },
   "themeBySource": {
     "Prices": {
-      "sdmx": 17,
+      "sdmx": 20,
       "rbib": 4
     },
     "Growth": {
@@ -47,7 +47,7 @@
       "rbib": 5
     },
     "Government": {
-      "sdmx": 27,
+      "sdmx": 29,
       "rbib": 3
     },
     "Corporate": {
@@ -398,7 +398,10 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 589715
+      "bytes": 589715,
+      "sdmxDuplicates": [
+        "sdmx:WHOLE_PRICE_INDEX_RN"
+      ]
     },
     {
       "id": "rbib:23",
@@ -1542,7 +1545,8 @@
       "shape": "index",
       "bytes": 11116,
       "sdmxDuplicates": [
-        "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN"
+        "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN",
+        "sdmx:WHOLE_PRICE_INDEX_RN"
       ]
     },
     {
@@ -1592,7 +1596,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 11940
+      "bytes": 389033
     },
     {
       "id": "sdmx:AGR_INDEX_MJR_CRPS_RN",
@@ -1609,7 +1613,7 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 27133
+      "bytes": 29157
     },
     {
       "id": "sdmx:AGR_INDEX_RN",
@@ -1626,7 +1630,7 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 5547
+      "bytes": 6510
     },
     {
       "id": "sdmx:AGR_PROD_RN",
@@ -1643,7 +1647,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 45302
+      "bytes": 80346
     },
     {
       "id": "sdmx:AGR_PROD_ST_RN",
@@ -1660,7 +1664,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 29719
+      "bytes": 883491
     },
     {
       "id": "sdmx:AGR_PRODUCTIVITY_RN",
@@ -1677,7 +1681,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 51347
+      "bytes": 90819
     },
     {
       "id": "sdmx:AMAGG_RN",
@@ -1694,7 +1698,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 42731
+      "bytes": 69987
     },
     {
       "id": "sdmx:ANN_GDP_FACT_CST_RN",
@@ -1711,7 +1715,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 9976
+      "bytes": 808814
     },
     {
       "id": "sdmx:ANN_GDP_MRKT_PRC_RN",
@@ -1728,7 +1732,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 190222
+      "bytes": 402623
     },
     {
       "id": "sdmx:ANN_SURV_INDS_RN",
@@ -1762,7 +1766,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 56308
+      "bytes": 100490
     },
     {
       "id": "sdmx:AUC_LAF_RN",
@@ -1779,7 +1783,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 6303
+      "bytes": 4265335
     },
     {
       "id": "sdmx:AVG_FOR_RAT_RN",
@@ -1796,7 +1800,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 82512
+      "bytes": 168365
     },
     {
       "id": "sdmx:AVG_NFTY_RN",
@@ -1813,7 +1817,7 @@
         "Markets"
       ],
       "shape": "index",
-      "bytes": 21882
+      "bytes": 32347
     },
     {
       "id": "sdmx:AVG_TURNOVER_RN",
@@ -1830,7 +1834,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 843742
+      "bytes": 844809
     },
     {
       "id": "sdmx:BAL_SHT_FDI_COMP_RN",
@@ -1864,7 +1868,7 @@
         "Corporate"
       ],
       "shape": "stock",
-      "bytes": 152739
+      "bytes": 168524
     },
     {
       "id": "sdmx:BAL_SHT_NGNBFI_AW_RN",
@@ -1983,7 +1987,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 297452
+      "bytes": 341405
     },
     {
       "id": "sdmx:BK_VAL_RAT_BSE_RN",
@@ -2000,7 +2004,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 21838
+      "bytes": 30669
     },
     {
       "id": "sdmx:BMC_M_RN",
@@ -2017,7 +2021,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 167691
+      "bytes": 229354
     },
     {
       "id": "sdmx:BOP_INDI_RN",
@@ -2034,7 +2038,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 33999
+      "bytes": 46598
     },
     {
       "id": "sdmx:BSE_IND_D_RN",
@@ -2051,7 +2055,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 5298
+      "bytes": 3806642
     },
     {
       "id": "sdmx:BUD_RESOR_RN",
@@ -2068,7 +2072,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 22375
+      "bytes": 32404
     },
     {
       "id": "sdmx:CALL_MONEY_W_RN",
@@ -2102,7 +2106,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 15429
+      "bytes": 17264
     },
     {
       "id": "sdmx:CCS_EXP_RN",
@@ -2119,7 +2123,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 33310
+      "bytes": 37293
     },
     {
       "id": "sdmx:CCSG_DEF_RN",
@@ -2136,7 +2140,7 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 12360
+      "bytes": 13830
     },
     {
       "id": "sdmx:CCSG_RECPT_RN",
@@ -2153,7 +2157,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 16055
+      "bytes": 17964
     },
     {
       "id": "sdmx:CENT_SEC_DEL_PRJ_RN",
@@ -2204,7 +2208,7 @@
         "Markets"
       ],
       "shape": "stock",
-      "bytes": 14154
+      "bytes": 18454
     },
     {
       "id": "sdmx:CG_BOR_RN",
@@ -2221,7 +2225,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 17968
+      "bytes": 20824
     },
     {
       "id": "sdmx:CG_DEF_RN",
@@ -2238,7 +2242,7 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 26830
+      "bytes": 30038
     },
     {
       "id": "sdmx:CG_DEFM_RN",
@@ -2255,7 +2259,7 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 19528
+      "bytes": 24813
     },
     {
       "id": "sdmx:CG_DEV_NDEV_EXP_RN",
@@ -2272,7 +2276,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 17000
+      "bytes": 19030
     },
     {
       "id": "sdmx:CG_EXP_RN",
@@ -2289,7 +2293,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 33600
+      "bytes": 45588
     },
     {
       "id": "sdmx:CG_RECPT_RN",
@@ -2306,7 +2310,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 66438
+      "bytes": 80718
     },
     {
       "id": "sdmx:CGL_RN",
@@ -2323,7 +2327,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 32314
+      "bytes": 36131
     },
     {
       "id": "sdmx:CHG_FIN_ASS_HOUSE_SEC_RN",
@@ -2340,7 +2344,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 39024
+      "bytes": 54358
     },
     {
       "id": "sdmx:CHG_FIN_LIB_HOUSE_SEC_RN",
@@ -2357,7 +2361,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 19435
+      "bytes": 27381
     },
     {
       "id": "sdmx:CI_NGNBFI_AW_RN",
@@ -2425,7 +2429,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 4700508
+      "bytes": 4807378
     },
     {
       "id": "sdmx:CPI_AG_RN",
@@ -2442,7 +2446,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 135069
+      "bytes": 286762
     },
     {
       "id": "sdmx:CPI_AGR_AVG_YRND_RN",
@@ -2459,7 +2463,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 43992
+      "bytes": 60655
     },
     {
       "id": "sdmx:CPI_ALRL_ST_RN",
@@ -2476,7 +2480,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 1111312
+      "bytes": 1345920
     },
     {
       "id": "sdmx:CPI_ANN_AVG_VAR_RN",
@@ -2493,7 +2497,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 35285
+      "bytes": 43165
     },
     {
       "id": "sdmx:CPI_AV_RN",
@@ -2510,7 +2514,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 142703
+      "bytes": 272043
     },
     {
       "id": "sdmx:CPI_IW_AISC_RN",
@@ -2527,7 +2531,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 1988831
+      "bytes": 2476888
     },
     {
       "id": "sdmx:CPI_IW_AV_YRND_RN",
@@ -2544,7 +2548,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 48253
+      "bytes": 55127
     },
     {
       "id": "sdmx:CPI_IW_RN",
@@ -2561,7 +2565,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 156758
+      "bytes": 239604
     },
     {
       "id": "sdmx:CPI_RL_AV_YRND_RN",
@@ -2595,7 +2599,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 135073
+      "bytes": 163531
     },
     {
       "id": "sdmx:CPI_RUC_RN",
@@ -2615,6 +2619,40 @@
       "bytes": 1563248
     },
     {
+      "id": "sdmx:CPI_RUC_ST_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/cpi-rural-urban-combined-all-india-statewise.csv",
+      "label": "CPI - Rural, Urban, Combined (All India- Statewise)",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "CPI_RUC_ST_RN",
+      "frequency": "Monthly",
+      "startDate": "2011-01-31",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 11420773
+    },
+    {
+      "id": "sdmx:CSG_DEF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/combined-state-government-deficit.csv",
+      "label": "Combined State Government Deficit",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "CSG_DEF_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "flow",
+      "bytes": 30698
+    },
+    {
       "id": "sdmx:CSURYCOM_F_RN",
       "source": "sdmx",
       "format": "sdmx-csv",
@@ -2629,7 +2667,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 24130
+      "bytes": 32044
     },
     {
       "id": "sdmx:CSURYCOM_M_RN",
@@ -2646,7 +2684,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 202690
+      "bytes": 217523
     },
     {
       "id": "sdmx:CSURYSOR_F_RN",
@@ -2663,7 +2701,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 71135
+      "bytes": 94759
     },
     {
       "id": "sdmx:CSURYSOR_M_RN",
@@ -2680,7 +2718,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 529078
+      "bytes": 567928
     },
     {
       "id": "sdmx:DG_GDP_RN",
@@ -2697,7 +2735,7 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 7840
+      "bytes": 8771
     },
     {
       "id": "sdmx:DIG_GDP_RN",
@@ -2714,7 +2752,7 @@
         "Government"
       ],
       "shape": "stock",
-      "bytes": 16060
+      "bytes": 17984
     },
     {
       "id": "sdmx:DIR_FR_TRD_RN",
@@ -2731,7 +2769,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 888766
+      "bytes": 888531
     },
     {
       "id": "sdmx:EAR_EXP_FC_PUB_RN",
@@ -2799,7 +2837,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 21830
+      "bytes": 31264
     },
     {
       "id": "sdmx:EXP_PRIN_COMM_RN",
@@ -2816,7 +2854,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 352615
+      "bytes": 352610
     },
     {
       "id": "sdmx:EXP_SEL_PRIN_COMM_RN",
@@ -2833,7 +2871,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 113153
+      "bytes": 1193539
     },
     {
       "id": "sdmx:EXT_DBT_RT_RN",
@@ -2867,7 +2905,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 62125
+      "bytes": 68289
     },
     {
       "id": "sdmx:FICG_GDP_RN",
@@ -2884,7 +2922,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 59782
+      "bytes": 81832
     },
     {
       "id": "sdmx:FIN_RATIOS_COUN_RN",
@@ -2901,7 +2939,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 985757
+      "bytes": 1073422
     },
     {
       "id": "sdmx:FIN_RATIOS_IND_RN",
@@ -2918,7 +2956,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 1254661
+      "bytes": 1359895
     },
     {
       "id": "sdmx:FIN_RATIOS_NGNBFI_AW_RN",
@@ -3054,7 +3092,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 80055
+      "bytes": 87080
     },
     {
       "id": "sdmx:FISG_GDP_RN",
@@ -3071,7 +3109,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 27126
+      "bytes": 35317
     },
     {
       "id": "sdmx:FOREX_RATE_A_RN",
@@ -3088,7 +3126,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 14456
+      "bytes": 20115
     },
     {
       "id": "sdmx:FOREX_RATE_A_RN",
@@ -3105,7 +3143,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 16644
+      "bytes": 44889
     },
     {
       "id": "sdmx:FOREX_RATE_D_RN",
@@ -3122,7 +3160,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 5571
+      "bytes": 1052211
     },
     {
       "id": "sdmx:FOREX_RATE_RN",
@@ -3139,7 +3177,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 44653
+      "bytes": 186162
     },
     {
       "id": "sdmx:FOREX_RT_REF_RN",
@@ -3156,7 +3194,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 83258
+      "bytes": 176239
     },
     {
       "id": "sdmx:FOREXRT_AVG_RN",
@@ -3173,7 +3211,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 116775
+      "bytes": 308023
     },
     {
       "id": "sdmx:FOREXRT_HL_RN",
@@ -3190,7 +3228,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 81424
+      "bytes": 157535
     },
     {
       "id": "sdmx:FR_EXG_RESV_M_RN",
@@ -3207,7 +3245,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 260882
+      "bytes": 367613
     },
     {
       "id": "sdmx:FR_EXG_RESV_RN",
@@ -3224,7 +3262,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 925655
+      "bytes": 1124595
     },
     {
       "id": "sdmx:FR_INV_INFLW_A_RN",
@@ -3258,7 +3296,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 480877
+      "bytes": 532322
     },
     {
       "id": "sdmx:FR_LIB_ASS_MUT_RN",
@@ -3275,7 +3313,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 102523
+      "bytes": 108781
     },
     {
       "id": "sdmx:FR_LIB_ASSTS_MUT_RN",
@@ -3326,7 +3364,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 64779
+      "bytes": 81068
     },
     {
       "id": "sdmx:FWC_PRE_D_RN",
@@ -3343,7 +3381,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 8661
+      "bytes": 1554697
     },
     {
       "id": "sdmx:GOV_TR_BILL_OUTSD_RN",
@@ -3360,7 +3398,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 348904
+      "bytes": 1108976
     },
     {
       "id": "sdmx:GOVT_LIAB_RN",
@@ -3377,7 +3415,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 18795
+      "bytes": 21031
     },
     {
       "id": "sdmx:GROSS_NET_CAP_FRM_RN",
@@ -3394,7 +3432,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 30640
+      "bytes": 61173
     },
     {
       "id": "sdmx:GROSS_STATE_DOM_PRD_RN",
@@ -3428,7 +3466,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 66940
+      "bytes": 72523
     },
     {
       "id": "sdmx:GRWT_RT_INDC_PUB_PUC_RN",
@@ -3530,7 +3568,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 745777
+      "bytes": 810033
     },
     {
       "id": "sdmx:GRWT_RT_INDCT_FDI_RN",
@@ -3547,7 +3585,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 143424
+      "bytes": 155385
     },
     {
       "id": "sdmx:GRWT_RT_INDIC_FDI_RN",
@@ -3564,7 +3602,7 @@
         "Corporate"
       ],
       "shape": "rate",
-      "bytes": 972926
+      "bytes": 1050147
     },
     {
       "id": "sdmx:GRWT_RT_INDIC_PUB_RN",
@@ -3598,7 +3636,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 521893
+      "bytes": 694615
     },
     {
       "id": "sdmx:GWT_RT_NGNBFI_AW_RN",
@@ -3649,7 +3687,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 7459
+      "bytes": 1373175
     },
     {
       "id": "sdmx:IFT_OIL_NON_OIL_A_RN",
@@ -3666,7 +3704,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 67109
+      "bytes": 91245
     },
     {
       "id": "sdmx:IFT_OIL_NON_OIL_RN",
@@ -3683,7 +3721,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 160792
+      "bytes": 232505
     },
     {
       "id": "sdmx:IIP_MANF_SEC_ANN_RN",
@@ -3700,7 +3738,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 28077
+      "bytes": 30457
     },
     {
       "id": "sdmx:IIP_MANF_SEC_MTH_RN",
@@ -3717,7 +3755,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 897050
+      "bytes": 1033845
     },
     {
       "id": "sdmx:IMP_PRIN_COMM_RN",
@@ -3734,7 +3772,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 308500
+      "bytes": 308455
     },
     {
       "id": "sdmx:IMPT_PETRL_PRD_RN",
@@ -3751,7 +3789,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 6899
+      "bytes": 9070
     },
     {
       "id": "sdmx:IND_CNTRY_FDI_RN",
@@ -3802,7 +3840,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 1135215
+      "bytes": 1135218
     },
     {
       "id": "sdmx:IND_OVR_BOP_RN",
@@ -3819,7 +3857,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 3914617
+      "bytes": 4439857
     },
     {
       "id": "sdmx:INT_RATE_RN",
@@ -3836,7 +3874,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 6821
+      "bytes": 20151
     },
     {
       "id": "sdmx:INTR_INV_POS_IND_BPM6_RN",
@@ -3887,7 +3925,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 178223
+      "bytes": 316451
     },
     {
       "id": "sdmx:INVI_PYMTS_RN",
@@ -3938,7 +3976,7 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 33575
+      "bytes": 34472
     },
     {
       "id": "sdmx:INX_CORE_INF_INDS_RN",
@@ -3955,7 +3993,7 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 28398
+      "bytes": 29256
     },
     {
       "id": "sdmx:INX_INDS_PROD_RN",
@@ -3972,7 +4010,7 @@
         "Growth"
       ],
       "shape": "index",
-      "bytes": 1321992
+      "bytes": 1550408
     },
     {
       "id": "sdmx:INX_NBR_TERM_FR_TRD_RN",
@@ -3989,7 +4027,7 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 51254
+      "bytes": 65012
     },
     {
       "id": "sdmx:INX_NEER_REER_A_RN",
@@ -4006,7 +4044,7 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 39075
+      "bytes": 39114
     },
     {
       "id": "sdmx:INX_NEER_REER_M_RN",
@@ -4023,7 +4061,7 @@
         "External"
       ],
       "shape": "index",
-      "bytes": 495040
+      "bytes": 536327
     },
     {
       "id": "sdmx:INX_WPI_RN",
@@ -4040,7 +4078,7 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 1985471
+      "bytes": 7264786
     },
     {
       "id": "sdmx:KCI_BOP_RN",
@@ -4057,7 +4095,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 102947
+      "bytes": 175632
     },
     {
       "id": "sdmx:LIBOOR_RN",
@@ -4074,7 +4112,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 5103
+      "bytes": 697322
     },
     {
       "id": "sdmx:LNA_SCB_SR_OCC_BSR1_A_RN",
@@ -4091,7 +4129,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 21869
+      "bytes": 21425
     },
     {
       "id": "sdmx:MACRO_ECN_AGG_RN",
@@ -4108,7 +4146,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 414048
+      "bytes": 865544
     },
     {
       "id": "sdmx:MACRO_ECN_AGG_RTS_RN",
@@ -4125,7 +4163,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 157780
+      "bytes": 288444
     },
     {
       "id": "sdmx:METAL_PRICE_A_RN",
@@ -4142,7 +4180,7 @@
         "Prices"
       ],
       "shape": "other",
-      "bytes": 23622
+      "bytes": 32420
     },
     {
       "id": "sdmx:METAL_PRICE_RN",
@@ -4159,7 +4197,7 @@
         "Prices"
       ],
       "shape": "other",
-      "bytes": 162189
+      "bytes": 235979
     },
     {
       "id": "sdmx:MIN_SUP_PRICE_RN",
@@ -4176,7 +4214,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 57150
+      "bytes": 68456
     },
     {
       "id": "sdmx:MON_AG_RN",
@@ -4193,7 +4231,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 31513
+      "bytes": 45690
     },
     {
       "id": "sdmx:MONTRY_RATIOS_RN",
@@ -4210,7 +4248,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 25212
+      "bytes": 46313
     },
     {
       "id": "sdmx:MRKT_BOR_CSG_RN",
@@ -4227,7 +4265,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 6695
+      "bytes": 22370
     },
     {
       "id": "sdmx:MRKT_BOR_GOI_SG_RN",
@@ -4244,7 +4282,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 279632
+      "bytes": 283805
     },
     {
       "id": "sdmx:MRKT_INFO_BSE_D_RN",
@@ -4261,7 +4299,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 3376
+      "bytes": 876746
     },
     {
       "id": "sdmx:MRKT_INFO_NSE_D_RN",
@@ -4278,7 +4316,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 5095
+      "bytes": 937829
     },
     {
       "id": "sdmx:MSC_F_RN",
@@ -4295,7 +4333,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 23258
+      "bytes": 31874
     },
     {
       "id": "sdmx:MSS_F_RN",
@@ -4312,7 +4350,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 12306
+      "bytes": 70228
     },
     {
       "id": "sdmx:MSS_M_RN",
@@ -4329,7 +4367,7 @@
         "Money & Banking"
       ],
       "shape": "stock",
-      "bytes": 37778
+      "bytes": 482153
     },
     {
       "id": "sdmx:MSURYCOM_F_RN",
@@ -4346,7 +4384,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 61578
+      "bytes": 86230
     },
     {
       "id": "sdmx:MSURYSOR_F_RN",
@@ -4363,7 +4401,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 72925
+      "bytes": 102519
     },
     {
       "id": "sdmx:NET_SDP_FAC_CST_RN",
@@ -4380,7 +4418,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 275006
+      "bytes": 307325
     },
     {
       "id": "sdmx:NOT_COIN_RN",
@@ -4397,7 +4435,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 38878
+      "bytes": 48100
     },
     {
       "id": "sdmx:NRI_DEPOSITS_IN_OUT_A_RN",
@@ -4431,7 +4469,7 @@
         "External"
       ],
       "shape": "flow",
-      "bytes": 97746
+      "bytes": 98617
     },
     {
       "id": "sdmx:NRI_DEPOSITS_OUTS_A_RN",
@@ -4448,7 +4486,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 29733
+      "bytes": 31013
     },
     {
       "id": "sdmx:NRI_DEPOSITS_OUTS_RN",
@@ -4465,7 +4503,7 @@
         "External"
       ],
       "shape": "other",
-      "bytes": 108762
+      "bytes": 123584
     },
     {
       "id": "sdmx:NSE_IND_D_RN",
@@ -4482,7 +4520,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 3453
+      "bytes": 2454863
     },
     {
       "id": "sdmx:OPN_MKT_OP_RN",
@@ -4533,7 +4571,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 20668
+      "bytes": 38106
     },
     {
       "id": "sdmx:PDS_AGR_PROD_RN",
@@ -4550,7 +4588,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 27313
+      "bytes": 39749
     },
     {
       "id": "sdmx:PER_CAP_NET_SDP_RN",
@@ -4567,7 +4605,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 4279
+      "bytes": 303967
     },
     {
       "id": "sdmx:PER_SSI_SEC_RN",
@@ -4584,7 +4622,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 13457
+      "bytes": 23840
     },
     {
       "id": "sdmx:PNL_FDI_COMP_RN",
@@ -4601,7 +4639,7 @@
         "Corporate"
       ],
       "shape": "other",
-      "bytes": 146033
+      "bytes": 159074
     },
     {
       "id": "sdmx:PNL_PUB_RN",
@@ -4822,7 +4860,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 6908
+      "bytes": 9071
     },
     {
       "id": "sdmx:PROD_SEL_INDS_RN",
@@ -4839,7 +4877,7 @@
         "Growth"
       ],
       "shape": "flow",
-      "bytes": 259622
+      "bytes": 279188
     },
     {
       "id": "sdmx:PSPOUTLY_RN",
@@ -4907,7 +4945,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 367246
+      "bytes": 382732
     },
     {
       "id": "sdmx:RATIO_LNGNFC_ANN_RN",
@@ -5094,7 +5132,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 65395
+      "bytes": 88191
     },
     {
       "id": "sdmx:RBI_ASSET_M_RN",
@@ -5111,7 +5149,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 344246
+      "bytes": 345881
     },
     {
       "id": "sdmx:RBI_ASSET_W_RN",
@@ -5128,7 +5166,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 1142701
+      "bytes": 1192163
     },
     {
       "id": "sdmx:RBI_LIAB_A_RN",
@@ -5145,7 +5183,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 39461
+      "bytes": 53782
     },
     {
       "id": "sdmx:RBI_LIAB_M_RN",
@@ -5162,7 +5200,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 265996
+      "bytes": 267117
     },
     {
       "id": "sdmx:RBI_LIAB_W_RN",
@@ -5179,7 +5217,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 1067955
+      "bytes": 1144168
     },
     {
       "id": "sdmx:RBI_SF_RN",
@@ -5213,7 +5251,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 121184
+      "bytes": 167827
     },
     {
       "id": "sdmx:RBI_SURY_SOR_M_RN",
@@ -5230,7 +5268,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 495425
+      "bytes": 532991
     },
     {
       "id": "sdmx:RMC_M_RN",
@@ -5247,7 +5285,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 86480
+      "bytes": 119178
     },
     {
       "id": "sdmx:RMC_W_RN",
@@ -5264,7 +5302,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 300690
+      "bytes": 366841
     },
     {
       "id": "sdmx:RMS_M_RN",
@@ -5281,7 +5319,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 163348
+      "bytes": 165593
     },
     {
       "id": "sdmx:RMS_W_RN",
@@ -5298,7 +5336,7 @@
         "Money & Banking"
       ],
       "shape": "other",
-      "bytes": 442539
+      "bytes": 539933
     },
     {
       "id": "sdmx:SEC_MKT_RN",
@@ -5315,7 +5353,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 150864
+      "bytes": 393562
     },
     {
       "id": "sdmx:SEC_WIS_CAP_FOM_RN",
@@ -5332,7 +5370,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 4118
+      "bytes": 50306
     },
     {
       "id": "sdmx:SEC_WIS_DOM_SAV_RN",
@@ -5349,7 +5387,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 47352
+      "bytes": 77240
     },
     {
       "id": "sdmx:SEC_WIS_EMP_RN",
@@ -5366,7 +5404,7 @@
         "Growth"
       ],
       "shape": "other",
-      "bytes": 7339
+      "bytes": 10883
     },
     {
       "id": "sdmx:SG_BOR_RN",
@@ -5383,7 +5421,7 @@
         "Government"
       ],
       "shape": "flow",
-      "bytes": 13463
+      "bytes": 14871
     },
     {
       "id": "sdmx:SG_CAP_REV_EXP_RN",
@@ -5400,7 +5438,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 19616
+      "bytes": 26781
     },
     {
       "id": "sdmx:SG_EXP_RN",
@@ -5417,7 +5455,24 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 20338
+      "bytes": 27458
+    },
+    {
+      "id": "sdmx:SG_RECPT_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/public-finance/state-govt-finance/pattern-of-receipts-of-the-state-governments.csv",
+      "label": "Pattern of Receipts of the State Governments",
+      "sector": "Public Finance",
+      "subSector": "State Govt Finance",
+      "dsdCode": "SG_RECPT_RN",
+      "frequency": "Annual - Financial Year",
+      "startDate": "1971-03-31",
+      "themes": [
+        "Government"
+      ],
+      "shape": "other",
+      "bytes": 84811
     },
     {
       "id": "sdmx:SGL_RN",
@@ -5434,7 +5489,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 37526
+      "bytes": 42005
     },
     {
       "id": "sdmx:SMAL_SAV_RN",
@@ -5451,7 +5506,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 27909
+      "bytes": 30650
     },
     {
       "id": "sdmx:SRC_FND_FDI_COMP_RN",
@@ -5536,7 +5591,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 189808
+      "bytes": 6097156
     },
     {
       "id": "sdmx:TAX_REV_RN",
@@ -5553,7 +5608,7 @@
         "Government"
       ],
       "shape": "other",
-      "bytes": 21601
+      "bytes": 24171
     },
     {
       "id": "sdmx:TRD_INX_NBR_RN",
@@ -5587,7 +5642,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 24659
+      "bytes": 34780
     },
     {
       "id": "sdmx:TURNO_NSE_RN",
@@ -5604,7 +5659,7 @@
         "Markets"
       ],
       "shape": "flow",
-      "bytes": 20882
+      "bytes": 25902
     },
     {
       "id": "sdmx:USE_FBD_FDI_COMP_RN",
@@ -5689,7 +5744,7 @@
         "Prices"
       ],
       "shape": "other",
-      "bytes": 3957434
+      "bytes": 7660568
     },
     {
       "id": "sdmx:WAR_CALL_MONEY_RN",
@@ -5706,7 +5761,7 @@
         "Markets"
       ],
       "shape": "other",
-      "bytes": 69159
+      "bytes": 96953
     },
     {
       "id": "sdmx:WHOLE_PRICE_INDEX_AVG_VAR_RN",
@@ -5723,7 +5778,41 @@
         "Prices"
       ],
       "shape": "index",
-      "bytes": 61494
+      "bytes": 87404
+    },
+    {
+      "id": "sdmx:WHOLE_PRICE_INDEX_INF_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/wholesale-price-index-inflation.csv",
+      "label": "Wholesale Price Index Inflation",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "WHOLE_PRICE_INDEX_INF_RN",
+      "frequency": "Monthly",
+      "startDate": "2005-04-30",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 26886738
+    },
+    {
+      "id": "sdmx:WHOLE_PRICE_INDEX_RN",
+      "source": "sdmx",
+      "format": "sdmx-csv",
+      "path": "data/sdmx/real-sector/prices-wages/wholesale-price-index.csv",
+      "label": "Wholesale Price Index",
+      "sector": "Real Sector",
+      "subSector": "Prices & Wages",
+      "dsdCode": "WHOLE_PRICE_INDEX_RN",
+      "frequency": "Monthly",
+      "startDate": "1982-04-30",
+      "themes": [
+        "Prices"
+      ],
+      "shape": "index",
+      "bytes": 45061214
     },
     {
       "id": "sdmx:YIELD_GOV_SEC_RN",
@@ -5740,7 +5829,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 25350
+      "bytes": 708773
     },
     {
       "id": "sdmx:YIELD_TB_RN",
@@ -5757,7 +5846,7 @@
         "Markets"
       ],
       "shape": "rate",
-      "bytes": 76045
+      "bytes": 89935
     }
   ]
 }

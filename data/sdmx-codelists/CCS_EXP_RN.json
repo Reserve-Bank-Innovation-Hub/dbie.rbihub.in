@@ -1,0 +1,125 @@
+{
+ "dsdCode": "CCS_EXP_RN",
+ "label": "Combined Central & State Expenditures",
+ "sector": "Public Finance",
+ "subSector": "Cental & State Govt Finance(Combined)",
+ "fetched": "2026-09-18T15:03:26.183Z",
+ "dims": [
+  {
+   "code": "TYP_GEXP_RN",
+   "name": "Type of Government Expenditures",
+   "column": "typ_gexp_rn_description",
+   "table": "dim_ebr_typ_gexp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40182",
+     "code": "GE3",
+     "label": "Central and States Combined",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45003",
+     "code": "GE31",
+     "label": "Developmental Expenditure",
+     "parentId": "40182",
+     "level": 2
+    },
+    {
+     "id": "45004",
+     "code": "GE32",
+     "label": "Non Developmental Expenditure",
+     "parentId": "40182",
+     "level": 2
+    },
+    {
+     "id": "45005",
+     "code": "GE33",
+     "label": "Other Expenditure",
+     "parentId": "40182",
+     "level": 2
+    },
+    {
+     "id": "40180",
+     "code": "GE1",
+     "label": "Central's Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "44998",
+     "code": "GE11",
+     "label": "Developmental Expenditure",
+     "parentId": "40180",
+     "level": 2
+    },
+    {
+     "id": "44999",
+     "code": "GE12",
+     "label": "Non Developmental Expenditure",
+     "parentId": "40180",
+     "level": 2
+    },
+    {
+     "id": "40181",
+     "code": "GE2",
+     "label": "States's Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45000",
+     "code": "GE21",
+     "label": "Developmental Expenditure",
+     "parentId": "40181",
+     "level": 2
+    },
+    {
+     "id": "45001",
+     "code": "GE22",
+     "label": "Non Developmental Expenditure",
+     "parentId": "40181",
+     "level": 2
+    },
+    {
+     "id": "45002",
+     "code": "GE23",
+     "label": "Other Expenditure",
+     "parentId": "40181",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

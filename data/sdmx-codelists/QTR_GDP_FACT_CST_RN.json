@@ -1,0 +1,264 @@
+{
+ "dsdCode": "QTR_GDP_FACT_CST_RN",
+ "label": "Quarterly Gross Domestic Product at Factor cost / Gross value added at basic price",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:05:07.075Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40078",
+     "code": "BY_2004_05",
+     "label": "Base Year : 2004-05",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40079",
+     "code": "BY_2011_12",
+     "label": "Base Year : 2011-12",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "CLASS_ECNY_RN",
+   "name": "Classification based on economy",
+   "column": "class_ecny_rn_description",
+   "table": "dim_ebr_class_ecny_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37161",
+     "code": "CECN_GDP_FACT_CST",
+     "label": "GDP (Gross Domestic Product) at Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54335",
+     "code": "CECN_AGR_ALL_ACV",
+     "label": "Agriculture & Allied activities",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54336",
+     "code": "CECN_COMM_SOL_PERS_SER",
+     "label": "Community, Social & Personal Services",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54331",
+     "code": "CECN_CONST",
+     "label": "Construction",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54332",
+     "code": "CECN_ELCTY_GAS_WTR",
+     "label": "Electricity, Gas & Water Supply",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54337",
+     "code": "CECN_FIN_INS_REAL_BUS_SER",
+     "label": "Finance, Insurance, Real Estate & Business Services",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54333",
+     "code": "CECN_MANF",
+     "label": "Manufacturing",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54334",
+     "code": "CECN_MIN_QUAR",
+     "label": "Mining & Quarrying",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54338",
+     "code": "CECN_TRD_HTL_TRAN_COMM",
+     "label": "Trade, Hotel, Transport and Communications",
+     "parentId": "37161",
+     "level": 2
+    },
+    {
+     "id": "54339",
+     "code": "CECN_TTL_GRS_VAL_ADD_BAS_PRC",
+     "label": "Gross Value Added at Basic Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54347",
+     "code": "CECN_AGR_FOR_FISHNG",
+     "label": "Agriculture, Forestry and Fishing",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54343",
+     "code": "CECN_CONSTRCTN",
+     "label": "Construction",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54344",
+     "code": "CECN_ELCTY_GAS_WTR_OTH",
+     "label": "Electricity, Gas, Water Supply & Other Utility",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54341",
+     "code": "CECN_FIN_REAL_PROF_SER",
+     "label": "Financial, Real Estate and Professional Services",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54345",
+     "code": "CECN_MANFRNG",
+     "label": "Manufacturing",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54346",
+     "code": "CECN_MIN_QUARNG",
+     "label": "Mining & Quarrying",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54340",
+     "code": "CECN_PUB_ADM_DEF_OTH_SER",
+     "label": "Public Administration, Defence and Other Services",
+     "parentId": "54339",
+     "level": 2
+    },
+    {
+     "id": "54342",
+     "code": "CECN_TRD_HTL_TRAN_COMMCN",
+     "label": "Trade, Hotel, Transport and Communications",
+     "parentId": "54339",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "MET_CALC_RN",
+   "name": "Method of Calculation",
+   "column": "met_calc_rn_description",
+   "table": "dim_ebr_met_calc_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37296",
+     "code": "FACT_CST",
+     "label": "Factor Cost",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37364",
+     "code": "CNST_PRC",
+     "label": "Constant Price",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

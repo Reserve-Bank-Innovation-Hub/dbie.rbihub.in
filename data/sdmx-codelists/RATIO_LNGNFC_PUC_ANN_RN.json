@@ -1,0 +1,218 @@
+{
+ "dsdCode": "RATIO_LNGNFC_PUC_ANN_RN",
+ "label": "Ratios of Listed Non-Government Non-Financial Companies Annually Paid-up-Capital",
+ "sector": "Corporate Sector",
+ "subSector": "Listed Non-Government Non-Financial Companies",
+ "fetched": "2026-09-18T14:59:38.969Z",
+ "dims": [
+  {
+   "code": "PUC_CLS_RN",
+   "name": "PUC Class",
+   "column": "puc_cls_rn_description",
+   "table": "dim_ebr_puc_cls_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41190",
+     "code": "10_TO_15",
+     "label": "10 to 15",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41191",
+     "code": "15_TO_25",
+     "label": "15 to 25",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41192",
+     "code": "25_N_ABOVE",
+     "label": "25 and above",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41189",
+     "code": "5_TO_10",
+     "label": "5 to 10",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41193",
+     "code": "ALL_COMP",
+     "label": "All Companies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41188",
+     "code": "LES_THN_5",
+     "label": "Less than 5",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_RATIO_RN",
+   "name": "Type of Ratios",
+   "column": "typ_ratio_rn_description",
+   "table": "dim_ebr_typ_ratio_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54157",
+     "code": "COFS",
+     "label": "Components of Expenditure to Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54169",
+     "code": "CORM_TO_SAL",
+     "label": "Cost of Raw Materials to Sales",
+     "parentId": "54157",
+     "level": 2
+    },
+    {
+     "id": "54168",
+     "code": "SC_TO_SAL",
+     "label": "Staff Cost to Sales",
+     "parentId": "54157",
+     "level": 2
+    },
+    {
+     "id": "54155",
+     "code": "IIR",
+     "label": "Interest linked Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54164",
+     "code": "CSH_CVG_RATIO",
+     "label": "Cash Coverage Ratio(times)",
+     "parentId": "54155",
+     "level": 2
+    },
+    {
+     "id": "54162",
+     "code": "INT_TO_SAL",
+     "label": "Interest  to Sales",
+     "parentId": "54155",
+     "level": 2
+    },
+    {
+     "id": "54163",
+     "code": "INT_CVG",
+     "label": "Interest Coverage(times)",
+     "parentId": "54155",
+     "level": 2
+    },
+    {
+     "id": "54156",
+     "code": "PAR",
+     "label": "Profit Allocation Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54167",
+     "code": "INT_BURDEN",
+     "label": "Interest Burden",
+     "parentId": "54156",
+     "level": 2
+    },
+    {
+     "id": "54165",
+     "code": "OTH_INC_NET_PFT",
+     "label": "Other Income to Net Profit",
+     "parentId": "54156",
+     "level": 2
+    },
+    {
+     "id": "54166",
+     "code": "TAX_PROV_TO_EBT",
+     "label": "Tax Provisions to EBT",
+     "parentId": "54156",
+     "level": 2
+    },
+    {
+     "id": "54154",
+     "code": "PR",
+     "label": "Profitability Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54159",
+     "code": "EBIT_TO_SAL",
+     "label": "EBIT to Sales",
+     "parentId": "54154",
+     "level": 2
+    },
+    {
+     "id": "54160",
+     "code": "EBITDA_TO_SAL",
+     "label": "EBITDA to Sales",
+     "parentId": "54154",
+     "level": 2
+    },
+    {
+     "id": "54158",
+     "code": "NET_PFT_TO_SAL",
+     "label": "Net Profit  to Sales",
+     "parentId": "54154",
+     "level": 2
+    },
+    {
+     "id": "54161",
+     "code": "OPR_PFTS_TO_SAL",
+     "label": "Operating Profits to Sales",
+     "parentId": "54154",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55112",
+     "code": "RPT",
+     "label": "Ratio in Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,146 @@
+{
+ "dsdCode": "CLEARING_HOU_RN",
+ "label": "Clearing House",
+ "sector": "Financial Sector",
+ "subSector": "Payment Systems",
+ "fetched": "2026-09-18T15:03:24.562Z",
+ "dims": [
+  {
+   "code": "OPERTED_RN",
+   "name": "Operated By",
+   "column": "operted_rn_description",
+   "table": "dim_ebr_operted_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48745",
+     "code": "TTL_OPR",
+     "label": "Clearing House",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40541",
+     "code": "OPR3",
+     "label": "Associates of State Bank of India",
+     "parentId": "48745",
+     "level": 2
+    },
+    {
+     "id": "55152",
+     "code": "OPR302",
+     "label": "Others",
+     "parentId": "40541",
+     "level": 3
+    },
+    {
+     "id": "55151",
+     "code": "OPR301",
+     "label": "Out of which MICR and CTS",
+     "parentId": "40541",
+     "level": 3
+    },
+    {
+     "id": "40542",
+     "code": "OPR4",
+     "label": "Nationalized Banks",
+     "parentId": "48745",
+     "level": 2
+    },
+    {
+     "id": "55154",
+     "code": "OPR402",
+     "label": "Others",
+     "parentId": "40542",
+     "level": 3
+    },
+    {
+     "id": "55153",
+     "code": "OPR401",
+     "label": "Out of which MICR and CTS",
+     "parentId": "40542",
+     "level": 3
+    },
+    {
+     "id": "40543",
+     "code": "OPR5",
+     "label": "Other",
+     "parentId": "48745",
+     "level": 2
+    },
+    {
+     "id": "40539",
+     "code": "OPR1",
+     "label": "Reserve Bank  of India",
+     "parentId": "48745",
+     "level": 2
+    },
+    {
+     "id": "55145",
+     "code": "OPR102",
+     "label": "Others",
+     "parentId": "40539",
+     "level": 3
+    },
+    {
+     "id": "48747",
+     "code": "OPR101",
+     "label": "Out of which MICR and CTS",
+     "parentId": "40539",
+     "level": 3
+    },
+    {
+     "id": "40540",
+     "code": "OPR2",
+     "label": "State Bank of India",
+     "parentId": "48745",
+     "level": 2
+    },
+    {
+     "id": "55146",
+     "code": "OPR202",
+     "label": "Others",
+     "parentId": "40540",
+     "level": 3
+    },
+    {
+     "id": "48748",
+     "code": "OPR201",
+     "label": "Out of which MICR and CTS",
+     "parentId": "40540",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37045",
+     "code": "PN",
+     "label": "Pure Number",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

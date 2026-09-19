@@ -1,0 +1,437 @@
+{
+ "dsdCode": "GRWT_RT_INDCO_FDI_RN",
+ "label": "Growth Rate Indicators for FDI - Country wise",
+ "sector": "Corporate Sector",
+ "subSector": "Finances of FDI Companies",
+ "fetched": "2026-09-18T14:59:05.618Z",
+ "dims": [
+  {
+   "code": "COUNTRYCODE",
+   "name": "Country",
+   "column": "countrycode_description",
+   "table": "dim_ebr_countrycode",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "6725",
+     "code": "FR",
+     "label": "France",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6732",
+     "code": "DE",
+     "label": "Germany",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6760",
+     "code": "JP",
+     "label": "Japan",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6788",
+     "code": "MU",
+     "label": "Mauritius",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6802",
+     "code": "NL",
+     "label": "Netherlands",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45666",
+     "code": "OTH",
+     "label": "Others",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6851",
+     "code": "SG",
+     "label": "Singapore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6866",
+     "code": "CH",
+     "label": "Switzerland",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6884",
+     "code": "AE",
+     "label": "United Arab Emirates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6885",
+     "code": "GB",
+     "label": "United Kingdom",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "6886",
+     "code": "US",
+     "label": "United States",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "GRWT_RT_RATIOS_RN",
+   "name": "Items",
+   "column": "grwt_rt_ratios_rn_description",
+   "table": "dim_ebr_grwt_rt_ratios_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40744",
+     "code": "GRP_BORRW_BNKS",
+     "label": "Borrowings from banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40750",
+     "code": "GRP_CURR_ASST",
+     "label": "Current assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40746",
+     "code": "GRP_CURR_LIB",
+     "label": "Current liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40729",
+     "code": "GRP_DESC_PROV",
+     "label": "Depreciation provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40736",
+     "code": "GRP_DIV_PAID",
+     "label": "Dividend paid",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53608",
+     "code": "GRP_EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40730",
+     "code": "GRP_EBIT",
+     "label": "Gross profit (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40738",
+     "code": "GRP_GRS_SAV",
+     "label": "Gross Saving",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40739",
+     "code": "GRP_GVA",
+     "label": "Gross Value Added",
+     "parentId": "40738",
+     "level": 2
+    },
+    {
+     "id": "40740",
+     "code": "GRP_NVA",
+     "label": "Net Value Added",
+     "parentId": "40738",
+     "level": 2
+    },
+    {
+     "id": "40731",
+     "code": "GRP_INT_EXP",
+     "label": "Interest Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40751",
+     "code": "GRP_INVN",
+     "label": "Inventories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40752",
+     "code": "GRP_TGA",
+     "label": "Total gross assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "40753",
+     "code": "GRP_TNA",
+     "label": "Total net assets",
+     "parentId": "40751",
+     "level": 2
+    },
+    {
+     "id": "40745",
+     "code": "GRP_LNG_BORRW",
+     "label": "Long term borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40725",
+     "code": "GRP_MNF_EXP",
+     "label": "Manufacturing Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40741",
+     "code": "GRP_NET_WRT",
+     "label": "Net worth",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "47802",
+     "code": "GRP_NON_CURR_BORRW",
+     "label": "Non Current borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40747",
+     "code": "GRP_NON_CUR_ASST",
+     "label": "Non-current assets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40748",
+     "code": "GRP_GFA",
+     "label": "Gross Fixed Assets",
+     "parentId": "40747",
+     "level": 2
+    },
+    {
+     "id": "40749",
+     "code": "GRP_NFA",
+     "label": "Net Fixed Assets",
+     "parentId": "40747",
+     "level": 2
+    },
+    {
+     "id": "40742",
+     "code": "GRP_NC_LIB",
+     "label": "Non-current liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40733",
+     "code": "GRP_NON_OP_SD",
+     "label": "Non-operating surplus / deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40727",
+     "code": "GRP_OP_EXP",
+     "label": "Operating Expenses",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40728",
+     "code": "GRP_OP_PFT",
+     "label": "Operating Profit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40735",
+     "code": "GRP_PAT",
+     "label": "Profit After Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40734",
+     "code": "GRP_PBT",
+     "label": "Profit Before Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40732",
+     "code": "GRP_PBT_NON_OP_SD",
+     "label": "Profit before tax and non-operating surplus/deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40737",
+     "code": "GRP_PFT_RET",
+     "label": "Profit Retained",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40726",
+     "code": "GRP_REM_EMP",
+     "label": "Remuneration to employees",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40722",
+     "code": "GRP_SAL",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40743",
+     "code": "GRP_TTL_BORRW",
+     "label": "Total borrowings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40754",
+     "code": "GRP_TTL_ERN_FC",
+     "label": "Total earnings in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40755",
+     "code": "GRP_TTL_ERN_FC_EXP",
+     "label": "Exports",
+     "parentId": "40754",
+     "level": 2
+    },
+    {
+     "id": "40756",
+     "code": "GRP_TTL_EXP_FC",
+     "label": "Total expenditure in foreign currencies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40757",
+     "code": "GRP_TTL_EXP_FC_IMP",
+     "label": "Imports",
+     "parentId": "40756",
+     "level": 2
+    },
+    {
+     "id": "40724",
+     "code": "GRP_TTL_INC",
+     "label": "Total Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40723",
+     "code": "GRP_VAL_PROD",
+     "label": "Value of production",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

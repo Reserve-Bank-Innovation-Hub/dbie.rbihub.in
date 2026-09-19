@@ -1,0 +1,218 @@
+{
+ "dsdCode": "MSURYSOR_F_RN",
+ "label": "Monetary Survey Sources_Fortnightly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:54.852Z",
+ "dims": [
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53218",
+     "code": "SMSR12_IM",
+     "label": "Bank Credit to the Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53217",
+     "code": "SMSR1202_IM",
+     "label": "Credit to the Commercial Sector by  the Banking System",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53219",
+     "code": "SMSR1102_IM",
+     "label": "Credit to the Government by the Banking System",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53221",
+     "code": "SMSR1_IM",
+     "label": "Domestic Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53220",
+     "code": "SMSR11_IM",
+     "label": "Net Bank Credit to the Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "SOR_MSUR_RN",
+   "name": "Sources of Monetary Survey",
+   "column": "sor_msur_rn_description",
+   "table": "dim_ebr_sor_msur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40482",
+     "code": "SMSR4",
+     "label": "Capital Account",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40478",
+     "code": "SMSR1",
+     "label": "Domestic Credit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45132",
+     "code": "SMSR12",
+     "label": "Bank Credit to the Commercial Sector",
+     "parentId": "40478",
+     "level": 2
+    },
+    {
+     "id": "45531",
+     "code": "SMSR1202",
+     "label": "Credit to the Commercial Sector by  the Banking System",
+     "parentId": "45132",
+     "level": 3
+    },
+    {
+     "id": "40479",
+     "code": "SMSR12021",
+     "label": "Other Investments ( Non-SLR Securities)",
+     "parentId": "45531",
+     "level": 4
+    },
+    {
+     "id": "54958",
+     "code": "SMSR12022",
+     "label": "Others",
+     "parentId": "45531",
+     "level": 4
+    },
+    {
+     "id": "45530",
+     "code": "SMSR1201",
+     "label": "RBI Credit to the Commercial Sector",
+     "parentId": "45132",
+     "level": 3
+    },
+    {
+     "id": "45131",
+     "code": "SMSR11",
+     "label": "Net Bank Credit to the Government",
+     "parentId": "40478",
+     "level": 2
+    },
+    {
+     "id": "45529",
+     "code": "SMSR1102",
+     "label": "Credit to the Government by the Banking System",
+     "parentId": "45131",
+     "level": 3
+    },
+    {
+     "id": "45528",
+     "code": "SMSR1101",
+     "label": "Net RBI credit to the Government",
+     "parentId": "45131",
+     "level": 3
+    },
+    {
+     "id": "40480",
+     "code": "SMSR2",
+     "label": "Government's Currency Liabilities to the Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40481",
+     "code": "SMSR3",
+     "label": "Net Foreign Exchange Assets of the banking sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45134",
+     "code": "SMSR32",
+     "label": "Net Foreign Currency Assets of the Banking System",
+     "parentId": "40481",
+     "level": 2
+    },
+    {
+     "id": "45133",
+     "code": "SMSR31",
+     "label": "Net Foreign Exchange Assets of the RBI",
+     "parentId": "40481",
+     "level": 2
+    },
+    {
+     "id": "40484",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40483",
+     "code": "SMSR5",
+     "label": "Other items (net)",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

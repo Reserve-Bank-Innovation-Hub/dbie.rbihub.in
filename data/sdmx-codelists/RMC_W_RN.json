@@ -1,0 +1,76 @@
+{
+ "dsdCode": "RMC_W_RN",
+ "label": "Reserve Money Components_Weekly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:19.709Z",
+ "dims": [
+  {
+   "code": "COMP_RN",
+   "name": "Components",
+   "column": "comp_rn_description",
+   "table": "dim_ebr_comp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40432",
+     "code": "COM1",
+     "label": "Reserve Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45114",
+     "code": "COM13",
+     "label": "Bankers deposits with RBI",
+     "parentId": "40432",
+     "level": 2
+    },
+    {
+     "id": "45112",
+     "code": "COM11",
+     "label": "Currency in circulation -Total",
+     "parentId": "40432",
+     "level": 2
+    },
+    {
+     "id": "45113",
+     "code": "COM12",
+     "label": "Other deposits with RBI",
+     "parentId": "40432",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

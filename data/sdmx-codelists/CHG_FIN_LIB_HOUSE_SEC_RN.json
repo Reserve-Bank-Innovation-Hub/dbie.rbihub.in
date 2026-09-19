@@ -1,0 +1,106 @@
+{
+ "dsdCode": "CHG_FIN_LIB_HOUSE_SEC_RN",
+ "label": "Changes in Financial Liabilities of the Household Sector",
+ "sector": "Real Sector",
+ "subSector": "National Income",
+ "fetched": "2026-09-18T15:04:53.759Z",
+ "dims": [
+  {
+   "code": "FIN_LIB_RN",
+   "name": "Financial liabilities",
+   "column": "fin_lib_rn_description",
+   "table": "dim_ebr_fin_lib_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37282",
+     "code": "FL_CHNG_FIN_LIB",
+     "label": "Changes in Financial Liabilities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54355",
+     "code": "FL_BNK_ADV",
+     "label": "Bank Advances",
+     "parentId": "37282",
+     "level": 2
+    },
+    {
+     "id": "54352",
+     "code": "FL_LN_ADV_COP_NON_CRD_SOC",
+     "label": "Loans & Advances from Co-operative Non-Credit Societies",
+     "parentId": "37282",
+     "level": 2
+    },
+    {
+     "id": "54353",
+     "code": "FL_LN_ADV_GOV",
+     "label": "Loans & Advances from Government",
+     "parentId": "37282",
+     "level": 2
+    },
+    {
+     "id": "54354",
+     "code": "FL_LN_ADV_OTH_FIN",
+     "label": "Loans & Advances from other Financial Institutions",
+     "parentId": "37282",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "PRC_TYP_RN",
+   "name": "Price Type",
+   "column": "prc_typ_rn_description",
+   "table": "dim_ebr_prc_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37365",
+     "code": "CURR_PRC",
+     "label": "Current Price",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,533 @@
+{
+ "dsdCode": "IND_EXTRN_DEBT_RN",
+ "label": "India's External Debt",
+ "sector": "External Sector",
+ "subSector": "External Debt",
+ "fetched": "2026-09-18T15:00:43.572Z",
+ "dims": [
+  {
+   "code": "EXT_DBT_IND_RN",
+   "name": "External Debt Indicator",
+   "column": "ext_dbt_ind_rn_description",
+   "table": "dim_ebr_ext_dbt_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41352",
+     "code": "CON_DBT_AS_PER_TTL_DBT",
+     "label": "Concessional Debt as % of Total Debt",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41355",
+     "code": "DBT_SERV_RATIO",
+     "label": "Debt Service Ratio (%)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41354",
+     "code": "DBT_STK_GDP",
+     "label": "Debt Stock - GDP Ratio",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41356",
+     "code": "N_A",
+     "label": "Not Applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41353",
+     "code": "STD_AS_PER_TTL_DBT",
+     "label": "Short Term Debt As % of Total Debt",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_EXT_DEBT_RN",
+   "name": "Type of External Debt",
+   "column": "typ_ext_debt_rn_description",
+   "table": "dim_ebr_typ_ext_debt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41328",
+     "code": "GROSS_TTL_DBT",
+     "label": "Gross Debt",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41283",
+     "code": "LTD_MULT",
+     "label": "Long Term Debt",
+     "parentId": "41328",
+     "level": 2
+    },
+    {
+     "id": "52965",
+     "code": "LTD_BILT",
+     "label": "Bilateral",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "52969",
+     "code": "LB_GOVT_BORW",
+     "label": "Government Borrowing",
+     "parentId": "52965",
+     "level": 4
+    },
+    {
+     "id": "52978",
+     "code": "BI_GB_CONCESSION",
+     "label": "Concessional",
+     "parentId": "52969",
+     "level": 5
+    },
+    {
+     "id": "52977",
+     "code": "BI_GB_NON_CON",
+     "label": "Non-Concessional",
+     "parentId": "52969",
+     "level": 5
+    },
+    {
+     "id": "52966",
+     "code": "LB_NON_GOVT_BORW",
+     "label": "Non-Government Borrowing",
+     "parentId": "52965",
+     "level": 4
+    },
+    {
+     "id": "52968",
+     "code": "BI_NGB_CONCESSION",
+     "label": "Concessional",
+     "parentId": "52966",
+     "level": 5
+    },
+    {
+     "id": "52975",
+     "code": "CON_FIN_INC",
+     "label": "Financial Institutions",
+     "parentId": "52968",
+     "level": 6
+    },
+    {
+     "id": "52974",
+     "code": "CON_PRV_SEC",
+     "label": "Private Sector",
+     "parentId": "52968",
+     "level": 6
+    },
+    {
+     "id": "52976",
+     "code": "CON_PUB_SEC",
+     "label": "Public Sector",
+     "parentId": "52968",
+     "level": 6
+    },
+    {
+     "id": "52967",
+     "code": "BI_NGB_NON_CONCE",
+     "label": "Non-Concessional",
+     "parentId": "52966",
+     "level": 5
+    },
+    {
+     "id": "52972",
+     "code": "BI_NON_CON_FIN_INS",
+     "label": "Financial Institutions",
+     "parentId": "52967",
+     "level": 6
+    },
+    {
+     "id": "52971",
+     "code": "BI_NON_CON_PRI_SEC",
+     "label": "Private Sector",
+     "parentId": "52967",
+     "level": 6
+    },
+    {
+     "id": "52973",
+     "code": "BI_NON_CON_PUB_SEC",
+     "label": "Public Sector",
+     "parentId": "52967",
+     "level": 6
+    },
+    {
+     "id": "52983",
+     "code": "LTD_COMM_BORW",
+     "label": "Commercial Borrowing",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "52993",
+     "code": "LCB_COM_BNK_LN",
+     "label": "Commercial bank loans",
+     "parentId": "52983",
+     "level": 4
+    },
+    {
+     "id": "52991",
+     "code": "LCB_LN_SEC_MUL_BIL_GUR",
+     "label": "Loans/securitized multi/bilateral guarantee and IFC(W)",
+     "parentId": "52983",
+     "level": 4
+    },
+    {
+     "id": "52992",
+     "code": "LCB_SEC_BORW",
+     "label": "Securitized borrowings(inclu. IDBs and FCCBs)",
+     "parentId": "52983",
+     "level": 4
+    },
+    {
+     "id": "52990",
+     "code": "LCB_SEL_LIQ_LN",
+     "label": "Self Liquidating Loans",
+     "parentId": "52983",
+     "level": 4
+    },
+    {
+     "id": "52998",
+     "code": "LTD_IMF",
+     "label": "International Monetary Fund",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "41284",
+     "code": "LTD_TTL_MULT",
+     "label": "Multilateral",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "41285",
+     "code": "LM_GOVT_BORW",
+     "label": "Government borrowing",
+     "parentId": "41284",
+     "level": 4
+    },
+    {
+     "id": "52950",
+     "code": "CONCESSION",
+     "label": "Concessional",
+     "parentId": "41285",
+     "level": 5
+    },
+    {
+     "id": "52952",
+     "code": "CON_IDA",
+     "label": "IDA",
+     "parentId": "52950",
+     "level": 6
+    },
+    {
+     "id": "52951",
+     "code": "CON_OTH",
+     "label": "Others",
+     "parentId": "52950",
+     "level": 6
+    },
+    {
+     "id": "52957",
+     "code": "NON_CON",
+     "label": "Non-concessional",
+     "parentId": "41285",
+     "level": 5
+    },
+    {
+     "id": "52964",
+     "code": "NON_CON_IBRD",
+     "label": "IBRD",
+     "parentId": "52957",
+     "level": 6
+    },
+    {
+     "id": "52963",
+     "code": "NON_CON_OTH",
+     "label": "Others",
+     "parentId": "52957",
+     "level": 6
+    },
+    {
+     "id": "52953",
+     "code": "LM_NON_GOVT_BORW",
+     "label": "Non-Government borrowing",
+     "parentId": "41284",
+     "level": 4
+    },
+    {
+     "id": "52962",
+     "code": "NGB_CONCS",
+     "label": "Concessional",
+     "parentId": "52953",
+     "level": 5
+    },
+    {
+     "id": "52954",
+     "code": "NGB_NON_CON",
+     "label": "Non-concessional",
+     "parentId": "52953",
+     "level": 5
+    },
+    {
+     "id": "52955",
+     "code": "NON_CON_FIN_INS",
+     "label": "Financial institutions",
+     "parentId": "52954",
+     "level": 6
+    },
+    {
+     "id": "52959",
+     "code": "NCFI_IBRD",
+     "label": "IBRD",
+     "parentId": "52955",
+     "level": 7
+    },
+    {
+     "id": "52958",
+     "code": "NCFI_OTH",
+     "label": "Others",
+     "parentId": "52955",
+     "level": 7
+    },
+    {
+     "id": "52970",
+     "code": "NON_CON_PRI_SEC",
+     "label": "Private Sector",
+     "parentId": "52954",
+     "level": 6
+    },
+    {
+     "id": "52980",
+     "code": "NCPS_PRI_IBRD",
+     "label": "IBRD",
+     "parentId": "52970",
+     "level": 7
+    },
+    {
+     "id": "52979",
+     "code": "NCPS_PRI_OTH",
+     "label": "Others",
+     "parentId": "52970",
+     "level": 7
+    },
+    {
+     "id": "52956",
+     "code": "NON_CON_PUB_SEC",
+     "label": "Public Sector",
+     "parentId": "52954",
+     "level": 6
+    },
+    {
+     "id": "52961",
+     "code": "NCPS_PUB_IBRD",
+     "label": "IBRD",
+     "parentId": "52956",
+     "level": 7
+    },
+    {
+     "id": "52960",
+     "code": "NCPS_PUB_OTH",
+     "label": "Others",
+     "parentId": "52956",
+     "level": 7
+    },
+    {
+     "id": "53010",
+     "code": "LTD_NRI_FCBO_DEP",
+     "label": "NRI & FC(B&O) Deposits",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "52981",
+     "code": "LTD_RUP_DEB",
+     "label": "Rupee Debt",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "52985",
+     "code": "RUP_CIV",
+     "label": "Civilian",
+     "parentId": "52981",
+     "level": 4
+    },
+    {
+     "id": "52986",
+     "code": "RUP_DEF",
+     "label": "Defence",
+     "parentId": "52981",
+     "level": 4
+    },
+    {
+     "id": "52984",
+     "code": "LTD_EXP_TRD_CRD",
+     "label": "Trade Credit",
+     "parentId": "41283",
+     "level": 3
+    },
+    {
+     "id": "52997",
+     "code": "LETC_BUY_CRD",
+     "label": "Buyers Credit",
+     "parentId": "52984",
+     "level": 4
+    },
+    {
+     "id": "52995",
+     "code": "LETC_EXP_CRD_BILT",
+     "label": "Export credit component of bilateral credit",
+     "parentId": "52984",
+     "level": 4
+    },
+    {
+     "id": "52994",
+     "code": "LETC_EXP_CRD_DEF",
+     "label": "Export credit for defence purposes",
+     "parentId": "52984",
+     "level": 4
+    },
+    {
+     "id": "52996",
+     "code": "LETC_SUP_CRD",
+     "label": "Suppliers Credit",
+     "parentId": "52984",
+     "level": 4
+    },
+    {
+     "id": "52999",
+     "code": "SHT_TRM_DEB",
+     "label": "Short Term Debt",
+     "parentId": "41328",
+     "level": 2
+    },
+    {
+     "id": "53000",
+     "code": "STD_EXT_DEB_LIB",
+     "label": "External Debt Liabilities",
+     "parentId": "52999",
+     "level": 3
+    },
+    {
+     "id": "53003",
+     "code": "STD_EXT_DEB_LIB_CENT",
+     "label": "Central Bank",
+     "parentId": "53000",
+     "level": 4
+    },
+    {
+     "id": "53002",
+     "code": "STD_EXT_DEB_LIB_COMM",
+     "label": "Commercial Bank",
+     "parentId": "53000",
+     "level": 4
+    },
+    {
+     "id": "53005",
+     "code": "STD_FII_INV_GOV",
+     "label": "FII Investments in Govt T Bills an other instruments",
+     "parentId": "52999",
+     "level": 3
+    },
+    {
+     "id": "53004",
+     "code": "STD_INV_TREAS_BIL",
+     "label": "Investment in Treasury Bills by Foreign central Banks and International Institutions etc",
+     "parentId": "52999",
+     "level": 3
+    },
+    {
+     "id": "53008",
+     "code": "SHT_NRI_DEP_UPTO_1YR_MAT",
+     "label": "NRI deposits (up to 1 year maturity)",
+     "parentId": "52999",
+     "level": 3
+    },
+    {
+     "id": "53001",
+     "code": "STD_OTH",
+     "label": "Others (Trade related Credits)",
+     "parentId": "52999",
+     "level": 3
+    },
+    {
+     "id": "53011",
+     "code": "STDO_6MTH_UP_1YR",
+     "label": "Of which 6 months and above up to 1 year",
+     "parentId": "53001",
+     "level": 4
+    },
+    {
+     "id": "53006",
+     "code": "STDO_UPTO_6MTH",
+     "label": "Of which short-term debt of up to 6 months",
+     "parentId": "53001",
+     "level": 4
+    },
+    {
+     "id": "41329",
+     "code": "N_A",
+     "label": "Not Applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

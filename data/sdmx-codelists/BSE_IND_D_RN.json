@@ -1,0 +1,113 @@
+{
+ "dsdCode": "BSE_IND_D_RN",
+ "label": "BSE INIDICES",
+ "sector": "Financial Markets",
+ "subSector": "Equity and Corporate Debt Market",
+ "fetched": "2026-09-18T15:01:43.256Z",
+ "dims": [
+  {
+   "code": "BSE_IND",
+   "name": "BSE Indices",
+   "column": "bse_ind_description",
+   "table": "dim_ebr_bse_ind",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55995",
+     "code": "BSE_BANK_INDEX",
+     "label": "BSE BANK INDEX",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55996",
+     "code": "BSE_HUNDRED_INDEX",
+     "label": "BSE HUNDRED INDEX",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55997",
+     "code": "BSE_SENSEX_THIRTY",
+     "label": "BSE SENSEX THIRTY INDEX",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_INDICES",
+   "name": "Type of Indices",
+   "column": "type_indices_description",
+   "table": "dim_ebr_type_indices",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "56000",
+     "code": "CLOSE",
+     "label": "Close",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55999",
+     "code": "HIGH",
+     "label": "High",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55998",
+     "code": "LOW",
+     "label": "Low",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "56001",
+     "code": "OPEN",
+     "label": "Open",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37062",
+     "code": "IX",
+     "label": "Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

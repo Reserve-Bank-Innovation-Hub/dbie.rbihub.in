@@ -1,0 +1,657 @@
+{
+ "dsdCode": "EXP_PRIN_COMM_RN",
+ "label": "Export of Principal commodities",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:21.927Z",
+ "dims": [
+  {
+   "code": "COMD_RN",
+   "name": "Types of Commodity",
+   "column": "comd_rn_description",
+   "table": "dim_ebr_comd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53366",
+     "code": "N_TTL_EXP",
+     "label": "Export (New Series)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53387",
+     "code": "N_EPC_CARPET",
+     "label": "Carpets",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53398",
+     "code": "N_EPC_CHW",
+     "label": "Cashew",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53377",
+     "code": "N_EPC_CERMIC_PRDCS_GLSWRE",
+     "label": "Ceramic products & glassware",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53373",
+     "code": "N_EPC_CELS_PREPS_MISS_PROC_ITMS",
+     "label": "Cereal preparations & miscellaneous processed items",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53368",
+     "code": "N_EPC_CFF",
+     "label": "Coffee",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53383",
+     "code": "N_EPC_CTTN_YRN",
+     "label": "Cotton Yarn/Fabs./made-ups, Handloom Products etc.",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53379",
+     "code": "N_EPC_DRGS_PHARCTCLS",
+     "label": "Drugs & Pharmaceuticals",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53382",
+     "code": "N_EPC_ELC_GDS",
+     "label": "Electronic Goods",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53381",
+     "code": "N_EPC_ENG_GDS",
+     "label": "Engineering Goods",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53395",
+     "code": "N_EPC_FRTS_VEGG",
+     "label": "Fruits & Vegetables",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53378",
+     "code": "N_EPC_GEMS",
+     "label": "Gems and Jewellery",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53388",
+     "code": "N_EPC_HNDICRFTS",
+     "label": "Handicrafts (excluding Handmade Carpets)",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53393",
+     "code": "N_EPC_IRN_ORE",
+     "label": "Iron Ore",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53386",
+     "code": "N_EPC_JTE_MFG_FLR_COVRNG",
+     "label": "Jute Mfg. including Floor Covering",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53392",
+     "code": "N_EPC_LEA_PRDS",
+     "label": "Leather & leather products",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53384",
+     "code": "N_EPC_MAN_MDE_YRN_FABS_MDUPS",
+     "label": "Man-made Yarn/Fabs./made-ups etc.",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53394",
+     "code": "N_EPC_MAR_PRDS",
+     "label": "Marine Products",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53374",
+     "code": "N_EPC_MEAT_DRY_PLTRY_PRDS",
+     "label": "Meat, dairy & poultry products",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53375",
+     "code": "N_EPC_MICA_COAL_OTH_ORES_MINRS_PROCSD",
+     "label": "Mica, Coal & Other Ores, Minerals including processed minerals",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53397",
+     "code": "N_EPC_OL_MLS",
+     "label": "Oil Meals",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53396",
+     "code": "N_EPC_SEEDS",
+     "label": "Oil Seeds",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53380",
+     "code": "N_EPC_ORG_INORG_CHEMCLS",
+     "label": "Organic & Inorganic Chemicals",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53370",
+     "code": "N_EPC_OTH_CERS",
+     "label": "Other cereals",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53391",
+     "code": "N_EPC_OTHS_COMM",
+     "label": "Others (All Commodities)",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53389",
+     "code": "N_EPC_PETR_PRD",
+     "label": "Petroleum Products",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53390",
+     "code": "N_EPC_PLASTIC",
+     "label": "Plastic and Linoleum Products",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53369",
+     "code": "N_EPC_RIC",
+     "label": "Rice",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53385",
+     "code": "N_EPC_RMG_TEXTLS",
+     "label": "RMG of all Textiles",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53399",
+     "code": "N_EPC_SPI",
+     "label": "Spices",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53367",
+     "code": "N_EPC_TEA",
+     "label": "Tea",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53400",
+     "code": "N_EPC_TOC",
+     "label": "Tobacco",
+     "parentId": "53366",
+     "level": 2
+    },
+    {
+     "id": "53433",
+     "code": "O_TTL_EXP",
+     "label": "Export (Old Series)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53434",
+     "code": "O_EPC_MFG_GDS",
+     "label": "Manufactured Goods",
+     "parentId": "53433",
+     "level": 2
+    },
+    {
+     "id": "53438",
+     "code": "O_EPC_CHEM_RLTD_PRDS",
+     "label": "Chemicals and Related Products",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53467",
+     "code": "O_EPC_BAS_CHEMS_PHARS_COSMS",
+     "label": "Basic Chemicals, Pharmaceuticals & Cosmetics",
+     "parentId": "53438",
+     "level": 4
+    },
+    {
+     "id": "53466",
+     "code": "O_EPC_PLASTIC",
+     "label": "Plastic and Linoleum Products",
+     "parentId": "53438",
+     "level": 4
+    },
+    {
+     "id": "53464",
+     "code": "O_EPC_RESI_CHEMS_ALL_PRDS",
+     "label": "Residual Chemicals and Allied Products",
+     "parentId": "53438",
+     "level": 4
+    },
+    {
+     "id": "53465",
+     "code": "O_EPC_RUBB_GLS_PAINTS_ENAMLS_PRDS",
+     "label": "Rubber, Glass, Paints, Enamels and Products",
+     "parentId": "53438",
+     "level": 4
+    },
+    {
+     "id": "53437",
+     "code": "O_EPC_ENG_GDS",
+     "label": "Engineering Goods",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53459",
+     "code": "O_EPC_ELC_GDS",
+     "label": "Electronic Goods",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53463",
+     "code": "O_EPC_IRO_STEEL",
+     "label": "Iron & Steel",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53461",
+     "code": "O_EPC_MACH_INSTRS",
+     "label": "Machinery and Instruments",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53462",
+     "code": "O_EPC_MFG_MTLS",
+     "label": "Manufacture of Metals",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53458",
+     "code": "O_EPC_OTH_ENGI_GDS",
+     "label": "Other Engineering Goods",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53460",
+     "code": "O_EPC_TRNS_EQUIP",
+     "label": "Transport Equipnment",
+     "parentId": "53437",
+     "level": 4
+    },
+    {
+     "id": "53446",
+     "code": "O_EPC_GEMS",
+     "label": "Gems and Jewellery",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53445",
+     "code": "O_EPC_HNDICRFTS",
+     "label": "Handicrafts (excluding Handmade Carpets)",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53468",
+     "code": "O_EPC_LEA_MFGS",
+     "label": "Leather and Manufactures",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53444",
+     "code": "O_EPC_OTH_MFG_GDS",
+     "label": "Other Manufactured Goods",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53435",
+     "code": "O_EPC_TEX_TEX_PRDS",
+     "label": "Textile and Textile Products",
+     "parentId": "53434",
+     "level": 3
+    },
+    {
+     "id": "53436",
+     "code": "O_EPC_CARPET",
+     "label": "Carpets",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53449",
+     "code": "O_EPC_CRPT_HNDMDE",
+     "label": "Carpet Handmade",
+     "parentId": "53436",
+     "level": 5
+    },
+    {
+     "id": "53448",
+     "code": "O_EPC_CRPT_MILMDE",
+     "label": "Carpet Millmade",
+     "parentId": "53436",
+     "level": 5
+    },
+    {
+     "id": "53447",
+     "code": "O_EPC_SLK_CRPTS",
+     "label": "Silk Carpets",
+     "parentId": "53436",
+     "level": 5
+    },
+    {
+     "id": "53450",
+     "code": "O_EPC_COIR_MFGS",
+     "label": "Coir & Coir Manufactures",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53457",
+     "code": "O_COMD_CTN_YRN_FAB",
+     "label": "Cotton Yarn, Fabrics, Madeups, etc.",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53451",
+     "code": "O_EPC_JUT_MANF",
+     "label": "Jute & Jute Manufactures",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53454",
+     "code": "O_EPC_MMDE_STPL_FIB",
+     "label": "Manmade Staple Fibre",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53455",
+     "code": "O_EPC_MMDE_YRN_FAB_MDUPS",
+     "label": "Manmade Yarn, Fabrics, Madeups, etc.",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53456",
+     "code": "O_EPC_NAT_SLK_YRN_FAB_MDUPS_SLK_WST",
+     "label": "Natural Silk Yarn, Fabrics, Madeups, etc.,incl. Silk Waste",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53452",
+     "code": "O_EPC_REDY_GARM",
+     "label": "Readymade Garments",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53453",
+     "code": "O_EPC_WOOLN_YRN_FAB_MDUPS",
+     "label": "Woolen Yarn, Fabrics, Madeups, etc.",
+     "parentId": "53435",
+     "level": 4
+    },
+    {
+     "id": "53442",
+     "code": "O_EPC_OTHS_COMM",
+     "label": "Others (All Commodities)",
+     "parentId": "53433",
+     "level": 2
+    },
+    {
+     "id": "53443",
+     "code": "O_EPC_PETR_PRD",
+     "label": "Petroleum Products",
+     "parentId": "53433",
+     "level": 2
+    },
+    {
+     "id": "53439",
+     "code": "O_EPC_PRM_PRDS",
+     "label": "Primary Products",
+     "parentId": "53433",
+     "level": 2
+    },
+    {
+     "id": "53441",
+     "code": "O_EPC_AGRI_ALL_PRDS",
+     "label": "Agriculture and Allied Products",
+     "parentId": "53439",
+     "level": 3
+    },
+    {
+     "id": "53480",
+     "code": "O_EPC_CASH_NUT_SHL_LIQ",
+     "label": "Cashew including Cashew Nut Shell Liquid",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53485",
+     "code": "O_EPC_CFF",
+     "label": "Coffee",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53482",
+     "code": "O_EPC_CTTN_RAW_WST",
+     "label": "Cotton Raw including Waste",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53477",
+     "code": "O_EPC_FRT_VEG",
+     "label": "Fruits and Vegetables",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53475",
+     "code": "O_EPC_MAR_PRD",
+     "label": "Marine Products",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53473",
+     "code": "O_EPC_MEAT_PREPARTNS",
+     "label": "Meat and Meat Preparations",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53478",
+     "code": "O_EPC_OIL_ML",
+     "label": "Oil Meals",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53472",
+     "code": "O_EPC_OTH_AGRI_ALL_PRDS",
+     "label": "Other Agriculture and Allied Products",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53476",
+     "code": "O_EPC_PROC_FRUIT_JUIC_MIS_PROC_ITEMS",
+     "label": "Processed Fruits, Juices, Miscellaneous Processed Items",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53484",
+     "code": "O_EPC_RIC",
+     "label": "Rice",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53479",
+     "code": "O_EPC_SPI",
+     "label": "Spices",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53474",
+     "code": "O_EPC_SUG_MOLLSES",
+     "label": "Sugar and Mollases",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53486",
+     "code": "O_EPC_TEA",
+     "label": "Tea",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53481",
+     "code": "O_EPC_TOC",
+     "label": "Tobacco",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53483",
+     "code": "O_EPC_WHEAT",
+     "label": "Wheat",
+     "parentId": "53441",
+     "level": 4
+    },
+    {
+     "id": "53440",
+     "code": "O_EPC_ORES_MIN",
+     "label": "Ores and Minerals",
+     "parentId": "53439",
+     "level": 3
+    },
+    {
+     "id": "53471",
+     "code": "O_EPC_IRN_ORE",
+     "label": "Iron Ore",
+     "parentId": "53440",
+     "level": 4
+    },
+    {
+     "id": "53470",
+     "code": "O_EPC_MICA",
+     "label": "Mica",
+     "parentId": "53440",
+     "level": 4
+    },
+    {
+     "id": "53469",
+     "code": "O_EPC_OTH_ORES_MINS",
+     "label": "Other Ores and Minerals",
+     "parentId": "53440",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

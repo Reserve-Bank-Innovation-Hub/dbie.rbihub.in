@@ -1,0 +1,344 @@
+{
+ "dsdCode": "FR_INV_INFLW_RN",
+ "label": "Foreign Investment Inflows",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:00:57.045Z",
+ "dims": [
+  {
+   "code": "INVT_CAT_OLD_RN",
+   "name": "Investment Category(Old Items - Inflows)",
+   "column": "invt_cat_old_rn_description",
+   "table": "dim_ebr_invt_cat_old_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53311",
+     "code": "INV_FII",
+     "label": "Foreign Investment Inflows",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53313",
+     "code": "INV_CAT_DI_IND",
+     "label": "Direct Investment to India",
+     "parentId": "53311",
+     "level": 2
+    },
+    {
+     "id": "53314",
+     "code": "INV_EQT",
+     "label": "Equity",
+     "parentId": "53313",
+     "level": 3
+    },
+    {
+     "id": "53321",
+     "code": "EQT_ACQ_SHAR",
+     "label": "Acquisition of shares",
+     "parentId": "53314",
+     "level": 4
+    },
+    {
+     "id": "53320",
+     "code": "EQT_CAP_UNINC_BOD",
+     "label": "Equity capital of unincorporated bodies",
+     "parentId": "53314",
+     "level": 4
+    },
+    {
+     "id": "53324",
+     "code": "EQT_GOVT_SIA_FIPB",
+     "label": "Government (SIA/FIPB)",
+     "parentId": "53314",
+     "level": 4
+    },
+    {
+     "id": "53322",
+     "code": "EQT_NRI",
+     "label": "NRI",
+     "parentId": "53314",
+     "level": 4
+    },
+    {
+     "id": "53323",
+     "code": "EQT_RBI",
+     "label": "RBI",
+     "parentId": "53314",
+     "level": 4
+    },
+    {
+     "id": "53318",
+     "code": "INV_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "53313",
+     "level": 3
+    },
+    {
+     "id": "53319",
+     "code": "INV_RE_INV_EAR",
+     "label": "Reinvested earnings",
+     "parentId": "53313",
+     "level": 3
+    },
+    {
+     "id": "53312",
+     "code": "INV_CAT_PORTF_INV",
+     "label": "Portfolio Investment",
+     "parentId": "53311",
+     "level": 2
+    },
+    {
+     "id": "53316",
+     "code": "INV_CAT_PI_FII",
+     "label": "FIIs",
+     "parentId": "53312",
+     "level": 3
+    },
+    {
+     "id": "53317",
+     "code": "INV_CAT_PI_GDR_ADR",
+     "label": "GDRs/ADRs",
+     "parentId": "53312",
+     "level": 3
+    },
+    {
+     "id": "53315",
+     "code": "INV_CAT_PI_OFF_FND_OTH",
+     "label": "Offshore funds and others",
+     "parentId": "53312",
+     "level": 3
+    },
+    {
+     "id": "53331",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "INVT_CAT_RN",
+   "name": "Investment Category(Inflows)",
+   "column": "invt_cat_rn_description",
+   "table": "dim_ebr_invt_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41552",
+     "code": "INV_FII",
+     "label": "Foreign Investment Inflows",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41553",
+     "code": "INV_CAT_NET_FR_DIR_INV",
+     "label": "Net Foreign Direct Investment",
+     "parentId": "41552",
+     "level": 2
+    },
+    {
+     "id": "41554",
+     "code": "INV_CAT_NFDI_DI_IND",
+     "label": "Direct Investment to India",
+     "parentId": "41553",
+     "level": 3
+    },
+    {
+     "id": "41555",
+     "code": "INV_CAT_NFDI_DII_GROSS_INF_INV",
+     "label": "Gross Inflows/Gross Investments",
+     "parentId": "41554",
+     "level": 4
+    },
+    {
+     "id": "53013",
+     "code": "INV_EQT",
+     "label": "Equity",
+     "parentId": "41555",
+     "level": 5
+    },
+    {
+     "id": "53017",
+     "code": "EQT_ACQ_SHAR",
+     "label": "Acquisition of shares",
+     "parentId": "53013",
+     "level": 6
+    },
+    {
+     "id": "53016",
+     "code": "EQT_CAP_UNINC_BOD",
+     "label": "Equity capital of unincorporated bodies",
+     "parentId": "53013",
+     "level": 6
+    },
+    {
+     "id": "53019",
+     "code": "EQT_GOVT_SIA_FIPB",
+     "label": "Government (SIA/FIPB)",
+     "parentId": "53013",
+     "level": 6
+    },
+    {
+     "id": "53018",
+     "code": "EQT_RBI",
+     "label": "RBI",
+     "parentId": "53013",
+     "level": 6
+    },
+    {
+     "id": "53014",
+     "code": "INV_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "41555",
+     "level": 5
+    },
+    {
+     "id": "53015",
+     "code": "INV_RE_INV_EAR",
+     "label": "Reinvested earnings",
+     "parentId": "41555",
+     "level": 5
+    },
+    {
+     "id": "53020",
+     "code": "INV_RPTN_DINVT",
+     "label": "Repatriation/Disinvestment",
+     "parentId": "41554",
+     "level": 4
+    },
+    {
+     "id": "53022",
+     "code": "INV_REP_EQT",
+     "label": "Equity",
+     "parentId": "53020",
+     "level": 5
+    },
+    {
+     "id": "53021",
+     "code": "INV_REP_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "53020",
+     "level": 5
+    },
+    {
+     "id": "41557",
+     "code": "INV_CAT_NFDI_FDII",
+     "label": "Foreign Direct Investment by India",
+     "parentId": "41553",
+     "level": 3
+    },
+    {
+     "id": "53026",
+     "code": "INV_FDI_EQT",
+     "label": "Equity capital",
+     "parentId": "41557",
+     "level": 4
+    },
+    {
+     "id": "53024",
+     "code": "INV_FDI_OTH_CAP",
+     "label": "Other Capital",
+     "parentId": "41557",
+     "level": 4
+    },
+    {
+     "id": "53025",
+     "code": "INV_FDI_RE_INV_EAR",
+     "label": "Reinvested earnings",
+     "parentId": "41557",
+     "level": 4
+    },
+    {
+     "id": "53023",
+     "code": "INV_FDI_RPTN_DINVT",
+     "label": "Repatriation/Disinvestment",
+     "parentId": "41557",
+     "level": 4
+    },
+    {
+     "id": "41558",
+     "code": "INV_CAT_NET_PORTF_INV",
+     "label": "Net Portfolio Investment",
+     "parentId": "41552",
+     "level": 2
+    },
+    {
+     "id": "53029",
+     "code": "INV_CAT_NPI_FII",
+     "label": "FIIs",
+     "parentId": "41558",
+     "level": 3
+    },
+    {
+     "id": "53030",
+     "code": "INV_CAT_NPI_GDR_ADR",
+     "label": "GDRs/ADRs",
+     "parentId": "41558",
+     "level": 3
+    },
+    {
+     "id": "53028",
+     "code": "INV_CAT_NPI_OFF_FND_OTH",
+     "label": "Offshore funds and others",
+     "parentId": "41558",
+     "level": 3
+    },
+    {
+     "id": "53027",
+     "code": "INV_CAT_NPI_PORTF_INV_IND",
+     "label": "Portfolio investment by India",
+     "parentId": "41558",
+     "level": 3
+    },
+    {
+     "id": "41563",
+     "code": "N_A",
+     "label": "Not Applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

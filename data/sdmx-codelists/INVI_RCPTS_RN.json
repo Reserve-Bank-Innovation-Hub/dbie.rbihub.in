@@ -1,0 +1,881 @@
+{
+ "dsdCode": "INVI_RCPTS_RN",
+ "label": "Invisibles Receipts",
+ "sector": "External Sector",
+ "subSector": "International Trade",
+ "fetched": "2026-09-18T15:01:36.802Z",
+ "dims": [
+  {
+   "code": "INVI_RCPTS_CAT_RN",
+   "name": "Invisibles Receipts by Category of Transactions",
+   "column": "invi_rcpts_cat_rn_description",
+   "table": "dim_ebr_invi_rcpts_cat_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55729",
+     "code": "IVS_REC",
+     "label": "Invisibles Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55820",
+     "code": "IC_PIR",
+     "label": "Primary Income Receipts",
+     "parentId": "55729",
+     "level": 2
+    },
+    {
+     "id": "55824",
+     "code": "IC_PIR_CE",
+     "label": "Compensation of Employee",
+     "parentId": "55820",
+     "level": 3
+    },
+    {
+     "id": "55838",
+     "code": "IC_PIR_CE_WR",
+     "label": "Wages received by Indians working on foreign contracts or the foreigners working in India on foreign contracts",
+     "parentId": "55824",
+     "level": 4
+    },
+    {
+     "id": "55822",
+     "code": "IC_PIR_II",
+     "label": "Investment Income Receipts",
+     "parentId": "55820",
+     "level": 3
+    },
+    {
+     "id": "55823",
+     "code": "IC_PIR_II_DP",
+     "label": "Dividend/Profit received by Indian on Foreign Investment",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55836",
+     "code": "IC_PIR_II_DP_DIV",
+     "label": "of which: Dividend",
+     "parentId": "55823",
+     "level": 5
+    },
+    {
+     "id": "55835",
+     "code": "IC_PIR_II_DP_PFT",
+     "label": "of which: Profits",
+     "parentId": "55823",
+     "level": 5
+    },
+    {
+     "id": "55828",
+     "code": "IC_PIR_II_IDE",
+     "label": "Interest / discount  earnings etc. earnings on RBI investment",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55827",
+     "code": "IC_PIR_II_IRSDR",
+     "label": "Interest / remuneration on SDR holdings",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55833",
+     "code": "IC_PIR_II_IR_FRN",
+     "label": "Interest Received on debentures, FRNs, CPs Fixed deposits and funds held abroad by ADs out of foreign currency loans/exports proceeds",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55829",
+     "code": "IC_PIR_II_IRO",
+     "label": "Interest received on overdraft of Vostro account of foreign correspondents/branches by ADs",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55830",
+     "code": "IC_PIR_II_IR_IRDA_PIM_IFS",
+     "label": "Inward remittance of dividends on account of Portfolio Investment made abroad by India on equity and investment fund shares",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55831",
+     "code": "IC_PIR_II_IR_IR_PIMAI",
+     "label": "Inward remittance of interest income on account of Portfolio Investment made abroad by India",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55832",
+     "code": "IC_PIR_II_IR_IRIP_PCI",
+     "label": "Inward remittance on account of interest payment by Indian FDI enterprises operating abroad to their Parent company in India",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55837",
+     "code": "IC_PIR_II_IR",
+     "label": "Inward remittance towards interest on loans extended to non-residents (ST/MT/LT loans)",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55834",
+     "code": "IC_PIR_II_RE",
+     "label": "Reinvested Earning",
+     "parentId": "55822",
+     "level": 4
+    },
+    {
+     "id": "55821",
+     "code": "IC_PIR_OPI",
+     "label": "Other Primary Income",
+     "parentId": "55820",
+     "level": 3
+    },
+    {
+     "id": "55825",
+     "code": "IC_PIR_OPI_OIR",
+     "label": "Other Income receipts",
+     "parentId": "55821",
+     "level": 4
+    },
+    {
+     "id": "55826",
+     "code": "IC_PIR_OPI_PT_NRI",
+     "label": "Payment of taxes by non-Residents/Refund of taxes by foreign Government to Indians",
+     "parentId": "55821",
+     "level": 4
+    },
+    {
+     "id": "55839",
+     "code": "IC_SIR",
+     "label": "Secondary Income Receipts",
+     "parentId": "55729",
+     "level": 2
+    },
+    {
+     "id": "55847",
+     "code": "IC_SIR_OT",
+     "label": "Official Transfers",
+     "parentId": "55839",
+     "level": 3
+    },
+    {
+     "id": "55840",
+     "code": "IC_SIR_PT",
+     "label": "Private Transfers",
+     "parentId": "55839",
+     "level": 3
+    },
+    {
+     "id": "55844",
+     "code": "IC_SIR_PT_GS_PB",
+     "label": "Gold and silver brought through passenger baggage",
+     "parentId": "55840",
+     "level": 4
+    },
+    {
+     "id": "55846",
+     "code": "IC_SIR_PT_IR_IWA_FM",
+     "label": "Inward Remittance from Indian workers abroad for family maintenance etc.",
+     "parentId": "55840",
+     "level": 4
+    },
+    {
+     "id": "55845",
+     "code": "IC_SIR_PT_LWR_NRD",
+     "label": "Local withdrawals/redemptions from non-resident deposits",
+     "parentId": "55840",
+     "level": 4
+    },
+    {
+     "id": "55841",
+     "code": "IC_SIR_PT_PGD_CRI_IND",
+     "label": "Personal gifts/donations to charitable/religious institutions in India",
+     "parentId": "55840",
+     "level": 4
+    },
+    {
+     "id": "55842",
+     "code": "IC_SIR_PT_PGD_CRI_IND_DRCI",
+     "label": "Donations to religious and charitable institutions in India",
+     "parentId": "55841",
+     "level": 5
+    },
+    {
+     "id": "55843",
+     "code": "IC_SIR_PT_PGD_CRI_IND_PGD",
+     "label": "Personal gifts and donations",
+     "parentId": "55841",
+     "level": 5
+    },
+    {
+     "id": "55730",
+     "code": "IC_SERV",
+     "label": "Services",
+     "parentId": "55729",
+     "level": 2
+    },
+    {
+     "id": "55751",
+     "code": "IC_BS",
+     "label": "Business services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55752",
+     "code": "IC_BS_PMCS",
+     "label": "Professional and management consulting services",
+     "parentId": "55751",
+     "level": 4
+    },
+    {
+     "id": "55765",
+     "code": "IC_BS_PMCS_AABKS",
+     "label": "Accounting, auditing, book keeping services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55819",
+     "code": "IC_BS_PMCS_ATFS",
+     "label": "Advertising, trade fair service",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55818",
+     "code": "IC_BS_PMCS_AS",
+     "label": "Architectural services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55764",
+     "code": "IC_BS_PMCS_BMC_PRS",
+     "label": "Business and management consultancy and public relations services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55817",
+     "code": "IC_BS_PMCS_ES",
+     "label": "Engineering Services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55766",
+     "code": "IC_BS_PMCS_LS",
+     "label": "Legal services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55816",
+     "code": "IC_BS_PMCS_TCS",
+     "label": "Tax consulting services",
+     "parentId": "55752",
+     "level": 5
+    },
+    {
+     "id": "55753",
+     "code": "IC_BS_RND",
+     "label": "Research & Developments",
+     "parentId": "55751",
+     "level": 4
+    },
+    {
+     "id": "55767",
+     "code": "IC_BS_RND_MR",
+     "label": "Market research and public opinion polling service",
+     "parentId": "55753",
+     "level": 5
+    },
+    {
+     "id": "55768",
+     "code": "IC_BS_RND_SERV",
+     "label": "Research & Development services",
+     "parentId": "55753",
+     "level": 5
+    },
+    {
+     "id": "55792",
+     "code": "IC_BS_TTRBS",
+     "label": "Technical, trade-related, and other business services",
+     "parentId": "55751",
+     "level": 4
+    },
+    {
+     "id": "55813",
+     "code": "IC_BS_TTRBS_AS",
+     "label": "Agricultural services like protection against insects & disease, increasing of harvest yields, forestry services.",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55808",
+     "code": "IC_BS_TTRBS_CAS",
+     "label": "Commission agent services",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55811",
+     "code": "IC_BS_TTRBS_ES",
+     "label": "Environmental Services",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55812",
+     "code": "IC_BS_TTRBS_IR",
+     "label": "Inward remittance for maintenance of offices in India",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55809",
+     "code": "IC_BS_TTRBS_MS",
+     "label": "Mining services like on-site processing services analysis of ores etc.",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55814",
+     "code": "IC_BS_TTRBS_OLS_AC",
+     "label": "Operational leasing services (other than financial leasing) without operating crew, including charter hire- Airlines companies",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55806",
+     "code": "IC_BS_TTRBS_OLS_SC",
+     "label": "Operational leasing services (other than financial leasing) without operating crew, including charter hire- Shipping  companies",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55805",
+     "code": "IC_BS_TTRBS_OTS",
+     "label": "Other Technical Services including scientific/space services",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55810",
+     "code": "IC_BS_TTRBS_PPS",
+     "label": "Publishing and printing services",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55815",
+     "code": "IC_BS_TTRBS_EI",
+     "label": "Trade related commission on exports / imports",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55807",
+     "code": "IC_BS_TTRBS_WRTS",
+     "label": "Wholesale and retailing trade services",
+     "parentId": "55792",
+     "level": 5
+    },
+    {
+     "id": "55757",
+     "code": "IC_CS",
+     "label": "Construction services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55775",
+     "code": "IC_CS_ABD",
+     "label": "Construction Abroad",
+     "parentId": "55757",
+     "level": 4
+    },
+    {
+     "id": "55774",
+     "code": "IC_CS_RE",
+     "label": "Construction in the reporting economy",
+     "parentId": "55757",
+     "level": 4
+    },
+    {
+     "id": "55755",
+     "code": "IC_FS",
+     "label": "Financial services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55756",
+     "code": "IC_FS_EC",
+     "label": "Explicitly charged and other financial services",
+     "parentId": "55755",
+     "level": 4
+    },
+    {
+     "id": "55773",
+     "code": "IC_FS_EC_FI_BC_CC_LCC",
+     "label": "Financial intermediation except investment banking, Bank charges, collection charges, LC charges, etc.",
+     "parentId": "55756",
+     "level": 5
+    },
+    {
+     "id": "55772",
+     "code": "IC_FS_EC_IBB_UWC",
+     "label": "Investment banking brokerage, under writing commission etc.",
+     "parentId": "55756",
+     "level": 5
+    },
+    {
+     "id": "55771",
+     "code": "IC_FS_FISIM",
+     "label": "Financial intermediation services indirectly measured",
+     "parentId": "55755",
+     "level": 4
+    },
+    {
+     "id": "55761",
+     "code": "IC_SERV_GNIE",
+     "label": "Government Not Included Elsewhere",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55782",
+     "code": "IC_SGNIE_MIF_DMI",
+     "label": "Maintenance of foreign embassies  and diplomatic missions in India",
+     "parentId": "55761",
+     "level": 4
+    },
+    {
+     "id": "55781",
+     "code": "IC_SGNIE_MI_RII",
+     "label": "Maintenance of international and  regional institution in India",
+     "parentId": "55761",
+     "level": 4
+    },
+    {
+     "id": "55762",
+     "code": "IC_SERV_INS",
+     "label": "Insurance",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55785",
+     "code": "IC_SI_AI",
+     "label": "Auxilary Insurance",
+     "parentId": "55762",
+     "level": 4
+    },
+    {
+     "id": "55787",
+     "code": "IC_SI_DI",
+     "label": "Direct Insurance",
+     "parentId": "55762",
+     "level": 4
+    },
+    {
+     "id": "55763",
+     "code": "IC_SI_PSGS",
+     "label": "Pension & standardized guarantee service",
+     "parentId": "55762",
+     "level": 4
+    },
+    {
+     "id": "55783",
+     "code": "IC_SI_PSGS_PPF",
+     "label": "Premium for pension funds",
+     "parentId": "55763",
+     "level": 5
+    },
+    {
+     "id": "55784",
+     "code": "IC_SI_PSGS_SGS",
+     "label": "Standardized guarantee services",
+     "parentId": "55763",
+     "level": 5
+    },
+    {
+     "id": "55786",
+     "code": "IC_SI_RIS",
+     "label": "Reinsurance",
+     "parentId": "55762",
+     "level": 4
+    },
+    {
+     "id": "55788",
+     "code": "IC_MRS",
+     "label": "Maintenance and Repair Services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55795",
+     "code": "IC_MRS_RCPT_ASRMA",
+     "label": "Receipts of maintenance and repair services rendered for  aircrafts, Space shuttles, Rockets,  military aircrafts, etc.",
+     "parentId": "55788",
+     "level": 4
+    },
+    {
+     "id": "55796",
+     "code": "IC_MRS_RCPT_VSBW",
+     "label": "Receipts on account of maintenance and repair services rendered for  Vessels, Ships, Boats, Warships, etc.",
+     "parentId": "55788",
+     "level": 4
+    },
+    {
+     "id": "55794",
+     "code": "IC_MRS_PI",
+     "label": "Manufacturing services on physical inputs owned by others",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55793",
+     "code": "IC_OSNI",
+     "label": "Other Services not included elsewhere",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55789",
+     "code": "IC_PCRS",
+     "label": "Personal, cultural & Recreational services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55791",
+     "code": "IC_PCRS_ARS",
+     "label": "Audiovisual and related services",
+     "parentId": "55789",
+     "level": 4
+    },
+    {
+     "id": "55804",
+     "code": "IC_PCRS_ARS_AVMP_VTP_DPS",
+     "label": "Audio-visual and related services like Motion picture and video tape production, distribution and projection services",
+     "parentId": "55791",
+     "level": 5
+    },
+    {
+     "id": "55803",
+     "code": "IC_PCRS_ARS_RTP_DTS",
+     "label": "Radio and television production, distribution and transmission services",
+     "parentId": "55791",
+     "level": 5
+    },
+    {
+     "id": "55790",
+     "code": "IC_PCRS_OPCRS",
+     "label": "Other personal, cultural, and recreational services",
+     "parentId": "55789",
+     "level": 4
+    },
+    {
+     "id": "55799",
+     "code": "IC_PCRS_OPCRS_EDS",
+     "label": "Educational services (e.g. fees received for correspondence courses offered to non-resident by Indian institutions)",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55802",
+     "code": "IC_PCRS_OPCRS_ES",
+     "label": "Entertainment services",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55798",
+     "code": "IC_PCRS_OPCRS_HS",
+     "label": "Health Service (Receipts on account of services provided by Indian hospitals, doctors, nurses, paramedical and similar services etc. rendered remotely or on-site)",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55801",
+     "code": "IC_PCRS_OPCRS_MLAS",
+     "label": "Museums, library and archival services",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55797",
+     "code": "IC_PCRS_OPCRS_OPCRS",
+     "label": "Other  Personal, Cultural & Recreational services",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55800",
+     "code": "IC_PCRS_OPCRS_RSAS",
+     "label": "Recreation and sporting activity services",
+     "parentId": "55790",
+     "level": 5
+    },
+    {
+     "id": "55754",
+     "code": "IC_RCLF",
+     "label": "Royalties, copyright and license fees",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55770",
+     "code": "IC_RCLF_FS",
+     "label": "Franchises services",
+     "parentId": "55754",
+     "level": 4
+    },
+    {
+     "id": "55769",
+     "code": "IC_RCLF_RCPT",
+     "label": "Receipts for use, through licensing arrangements, of produced originals or prototypes, patents, copyrights, trademarks, industrial processes, franchises etc.",
+     "parentId": "55754",
+     "level": 4
+    },
+    {
+     "id": "55758",
+     "code": "IC_TCIS",
+     "label": "Telecommunications, computer and information services",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55759",
+     "code": "IC_TCIS_IS",
+     "label": "Information Services (News agency)",
+     "parentId": "55758",
+     "level": 4
+    },
+    {
+     "id": "55777",
+     "code": "IC_TCIS_IS_NAS",
+     "label": "News agency services",
+     "parentId": "55759",
+     "level": 5
+    },
+    {
+     "id": "55776",
+     "code": "IC_TCIS_IS_OIS_SN",
+     "label": "Other information services- Subscription to newspapers, periodicals, etc.",
+     "parentId": "55759",
+     "level": 5
+    },
+    {
+     "id": "55778",
+     "code": "IC_TCIS_SS",
+     "label": "Software services",
+     "parentId": "55758",
+     "level": 4
+    },
+    {
+     "id": "55760",
+     "code": "IC_TCIS_TS",
+     "label": "Telecommunication services",
+     "parentId": "55758",
+     "level": 4
+    },
+    {
+     "id": "55779",
+     "code": "IC_TCIS_TS_SSISSR",
+     "label": "Satellite services including space shuttle and rockets, etc.",
+     "parentId": "55760",
+     "level": 5
+    },
+    {
+     "id": "55780",
+     "code": "IC_TCIS_TS_TSIEMSVMS",
+     "label": "Telecommunication services including electronic mail services and voice mail services",
+     "parentId": "55760",
+     "level": 5
+    },
+    {
+     "id": "55731",
+     "code": "IC_SERV_TRNSP",
+     "label": "Transport",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55733",
+     "code": "IC_STR_AT",
+     "label": "Air Transport",
+     "parentId": "55731",
+     "level": 4
+    },
+    {
+     "id": "55741",
+     "code": "IC_STR_AT_CHC",
+     "label": "Charter hire charges",
+     "parentId": "55733",
+     "level": 5
+    },
+    {
+     "id": "55742",
+     "code": "IC_STR_AT_OEFCI",
+     "label": "Operating expenses of foreign companies in India",
+     "parentId": "55733",
+     "level": 5
+    },
+    {
+     "id": "55743",
+     "code": "IC_STR_AT_SRP_ICOA",
+     "label": "Surplus  remitted by Indian companies operating abroad",
+     "parentId": "55733",
+     "level": 5
+    },
+    {
+     "id": "55740",
+     "code": "IC_STR_AT_FE",
+     "label": "Freight on Exports",
+     "parentId": "55731",
+     "level": 4
+    },
+    {
+     "id": "55736",
+     "code": "IC_STR_OTH",
+     "label": "Others (includes port charges, bunker, stevedoring, demurrage and other port facilities)",
+     "parentId": "55731",
+     "level": 4
+    },
+    {
+     "id": "55732",
+     "code": "IC_STR_PCS",
+     "label": "Postal and Courier Services",
+     "parentId": "55731",
+     "level": 4
+    },
+    {
+     "id": "55739",
+     "code": "IC_STR_PCS_AIR",
+     "label": "By Air",
+     "parentId": "55732",
+     "level": 5
+    },
+    {
+     "id": "55737",
+     "code": "IC_STR_PCS_OTH",
+     "label": "By Others",
+     "parentId": "55732",
+     "level": 5
+    },
+    {
+     "id": "55738",
+     "code": "IC_STR_PCS_SEA",
+     "label": "By Sea",
+     "parentId": "55732",
+     "level": 5
+    },
+    {
+     "id": "55734",
+     "code": "IC_STR_ST",
+     "label": "Sea Transport",
+     "parentId": "55731",
+     "level": 4
+    },
+    {
+     "id": "55744",
+     "code": "IC_STR_ST_CHC",
+     "label": "Charter hire charges",
+     "parentId": "55734",
+     "level": 5
+    },
+    {
+     "id": "55745",
+     "code": "IC_STR_ST_OE_FCI",
+     "label": "Operating expenses of foreign companies in India",
+     "parentId": "55734",
+     "level": 5
+    },
+    {
+     "id": "55746",
+     "code": "IC_STR_ST_SR_ICOA",
+     "label": "Surplus  remitted by Indian companies operating abroad",
+     "parentId": "55734",
+     "level": 5
+    },
+    {
+     "id": "55735",
+     "code": "IC_SERV_TRV",
+     "label": "Travel",
+     "parentId": "55730",
+     "level": 3
+    },
+    {
+     "id": "55750",
+     "code": "IC_STV_BUSS",
+     "label": "Business",
+     "parentId": "55735",
+     "level": 4
+    },
+    {
+     "id": "55748",
+     "code": "IC_STV_ER",
+     "label": "Education",
+     "parentId": "55735",
+     "level": 4
+    },
+    {
+     "id": "55749",
+     "code": "IC_STV_HR",
+     "label": "Health",
+     "parentId": "55735",
+     "level": 4
+    },
+    {
+     "id": "55747",
+     "code": "IC_STV_OTH",
+     "label": "Others",
+     "parentId": "55735",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

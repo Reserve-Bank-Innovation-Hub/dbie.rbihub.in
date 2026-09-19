@@ -1,0 +1,83 @@
+{
+ "dsdCode": "RBI_SURY_COM_M_RN",
+ "label": "RBI Survey Components_Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:13.225Z",
+ "dims": [
+  {
+   "code": "COM_RBI_SUR_RN",
+   "name": "Components of RBI Survey",
+   "column": "com_rbi_sur_rn_description",
+   "table": "dim_ebr_com_rbi_sur_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40475",
+     "code": "CRBIS1",
+     "label": "Reserve Money",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45129",
+     "code": "CRBIS12",
+     "label": "Bankers Deposits with the RBI",
+     "parentId": "40475",
+     "level": 2
+    },
+    {
+     "id": "40476",
+     "code": "CRBIS1201",
+     "label": "Scheduled Commercial Banks",
+     "parentId": "45129",
+     "level": 3
+    },
+    {
+     "id": "45128",
+     "code": "CRBIS11",
+     "label": "Currency in Circulation",
+     "parentId": "40475",
+     "level": 2
+    },
+    {
+     "id": "45130",
+     "code": "CRBIS13",
+     "label": "Other Deposits with the RBI",
+     "parentId": "40475",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

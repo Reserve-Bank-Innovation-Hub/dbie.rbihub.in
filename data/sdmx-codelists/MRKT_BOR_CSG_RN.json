@@ -1,0 +1,99 @@
+{
+ "dsdCode": "MRKT_BOR_CSG_RN",
+ "label": "Market Borrowings of Governments",
+ "sector": "Public Finance",
+ "subSector": "Cental & State Govt Finance(Combined)",
+ "fetched": "2026-09-18T15:03:39.100Z",
+ "dims": [
+  {
+   "code": "AMOUNT_TYP_RN",
+   "name": "Amount Type",
+   "column": "amount_typ_rn_description",
+   "table": "dim_ebr_amount_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40378",
+     "code": "GROS",
+     "label": "Gross",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40379",
+     "code": "NET",
+     "label": "Net",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "MRKT_BOR_RN",
+   "name": "Market Borrowings",
+   "column": "mrkt_bor_rn_description",
+   "table": "dim_ebr_mrkt_bor_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40301",
+     "code": "MB1",
+     "label": "Central & State",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45040",
+     "code": "MB11",
+     "label": "Central",
+     "parentId": "40301",
+     "level": 2
+    },
+    {
+     "id": "45041",
+     "code": "MB12",
+     "label": "State",
+     "parentId": "40301",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

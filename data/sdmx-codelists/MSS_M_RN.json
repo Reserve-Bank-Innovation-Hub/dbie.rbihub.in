@@ -1,0 +1,225 @@
+{
+ "dsdCode": "MSS_M_RN",
+ "label": "Money Stock Sources_Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:02:59.702Z",
+ "dims": [
+  {
+   "code": "COSO_MER_RN",
+   "name": "Components and sources (Merger)",
+   "column": "coso_mer_rn_description",
+   "table": "dim_ebr_coso_mer_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53241",
+     "code": "SMS2_IM",
+     "label": "Bank Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53243",
+     "code": "SMS1_IM",
+     "label": "Net Bank Credit to Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53239",
+     "code": "SMS5_IM",
+     "label": "Net Non-Monetary Liabilities of Banking Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53240",
+     "code": "SMS52_IM",
+     "label": "Net Non-monetary liabilities of Other Banks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53326",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53244",
+     "code": "SMS13_IM",
+     "label": "Other Banks Investments in Government Securities",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53242",
+     "code": "SMS22_IM",
+     "label": "Other Banks' Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "SOUR_MS_RN",
+   "name": "Sources of Money Stock",
+   "column": "sour_ms_rn_description",
+   "table": "dim_ebr_sour_ms_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40426",
+     "code": "SMS2",
+     "label": "Bank Credit to Commercial Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45107",
+     "code": "SMS22",
+     "label": "Other Banks' Credit to Commercial Sector",
+     "parentId": "40426",
+     "level": 2
+    },
+    {
+     "id": "45106",
+     "code": "SMS21",
+     "label": "RBI Credit to Commercial Sector",
+     "parentId": "40426",
+     "level": 2
+    },
+    {
+     "id": "40428",
+     "code": "SMS4",
+     "label": "Government's Currency Liabilities to Public",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40425",
+     "code": "SMS1",
+     "label": "Net Bank Credit to Government",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45103",
+     "code": "SMS11",
+     "label": "Net RBI Credit to Central Government",
+     "parentId": "40425",
+     "level": 2
+    },
+    {
+     "id": "45104",
+     "code": "SMS12",
+     "label": "Net RBI Credit to State Governments",
+     "parentId": "40425",
+     "level": 2
+    },
+    {
+     "id": "45105",
+     "code": "SMS13",
+     "label": "Other Banks' Investments in Government Securities",
+     "parentId": "40425",
+     "level": 2
+    },
+    {
+     "id": "40427",
+     "code": "SMS3",
+     "label": "Net Foreign Exchange Assets of the Banking Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45109",
+     "code": "SMS32",
+     "label": "Net Foreign Exchange Assets of Other Banks",
+     "parentId": "40427",
+     "level": 2
+    },
+    {
+     "id": "45108",
+     "code": "SMS31",
+     "label": "Net Foreign Exchange Assets of the RBI",
+     "parentId": "40427",
+     "level": 2
+    },
+    {
+     "id": "40429",
+     "code": "SMS5",
+     "label": "Net Non-Monetary Liabilities of Banking Sector",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45111",
+     "code": "SMS52",
+     "label": "Net Non-monetary liabilities of Other Banks",
+     "parentId": "40429",
+     "level": 2
+    },
+    {
+     "id": "45110",
+     "code": "SMS51",
+     "label": "Net Non-monetary Liabilities of RBI",
+     "parentId": "40429",
+     "level": 2
+    },
+    {
+     "id": "40431",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40430",
+     "code": "SMS6",
+     "label": "RBI's Gross Claims on Banks",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

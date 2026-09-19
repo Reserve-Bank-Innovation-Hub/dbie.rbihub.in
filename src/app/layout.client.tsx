@@ -17,7 +17,7 @@ export const RootLayoutClient = ({children} : { children : ReactNode }) => {
     const listOfThemes = [ "theme-light", "theme-dark" ];
 
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
         <body>
         <ThemeProvider
             themeList={listOfThemes}

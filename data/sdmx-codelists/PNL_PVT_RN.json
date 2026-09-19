@@ -1,0 +1,519 @@
+{
+ "dsdCode": "PNL_PVT_RN",
+ "label": "Profit & Loss appriations of Private Limited Companies",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Financial Private Limited Companies",
+ "fetched": "2026-09-18T15:00:13.667Z",
+ "dims": [
+  {
+   "code": "PFT_LOSS_RN",
+   "name": "Profit & Loss major heads",
+   "column": "pft_loss_rn_description",
+   "table": "dim_ebr_pft_loss_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53696",
+     "code": "EA_CURR_TAX",
+     "label": "Current Tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40904",
+     "code": "EA_DIV",
+     "label": "Dividend",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53695",
+     "code": "EA_DIV_ORD",
+     "label": "Ordinary",
+     "parentId": "40904",
+     "level": 2
+    },
+    {
+     "id": "53694",
+     "code": "EA_DIV_PRE",
+     "label": "Preference",
+     "parentId": "40904",
+     "level": 2
+    },
+    {
+     "id": "55304",
+     "code": "EA_DIVI_TAX",
+     "label": "Dividend tax",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53693",
+     "code": "EA_EBI",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40890",
+     "code": "EA_GROSS_PFT",
+     "label": "Gross profit (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53922",
+     "code": "IVP_TTL",
+     "label": "Income and Value of Production",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53748",
+     "code": "IVP_NO_SURP_DEF",
+     "label": "Non-operating surplus (+)/deficit(-)",
+     "parentId": "53922",
+     "level": 2
+    },
+    {
+     "id": "53739",
+     "code": "IVP_OTH_INC",
+     "label": "Other Income",
+     "parentId": "53922",
+     "level": 2
+    },
+    {
+     "id": "53747",
+     "code": "IVP_OC_DIV",
+     "label": "Dividends",
+     "parentId": "53739",
+     "level": 3
+    },
+    {
+     "id": "53746",
+     "code": "IVP_OC_INT",
+     "label": "Interest",
+     "parentId": "53739",
+     "level": 3
+    },
+    {
+     "id": "55002",
+     "code": "IVP_OC_OTH",
+     "label": "Others",
+     "parentId": "53739",
+     "level": 3
+    },
+    {
+     "id": "55298",
+     "code": "IVP_OC_OTHER",
+     "label": "Others",
+     "parentId": "53739",
+     "level": 3
+    },
+    {
+     "id": "53745",
+     "code": "IVP_OC_RENT",
+     "label": "Rent",
+     "parentId": "53739",
+     "level": 3
+    },
+    {
+     "id": "53744",
+     "code": "IVP_OTH_OP_REV",
+     "label": "Other Operating Revenues",
+     "parentId": "53922",
+     "level": 2
+    },
+    {
+     "id": "53741",
+     "code": "IVP_VAL_PRD",
+     "label": "Value of production (1+2)",
+     "parentId": "53922",
+     "level": 2
+    },
+    {
+     "id": "40860",
+     "code": "IVP_STCK_FIN_GDS",
+     "label": "Increase or decrease in value of stock of finished goods and work in progress",
+     "parentId": "53741",
+     "level": 3
+    },
+    {
+     "id": "53740",
+     "code": "IVP_SALES",
+     "label": "Sales",
+     "parentId": "53741",
+     "level": 3
+    },
+    {
+     "id": "40893",
+     "code": "EA_NO_SURP_DEF",
+     "label": "Non-operating surplus/deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53719",
+     "code": "EA_EXC_IT",
+     "label": "Exceptional items",
+     "parentId": "40893",
+     "level": 2
+    },
+    {
+     "id": "53717",
+     "code": "EA_NO_EXT_IT",
+     "label": "Extra-ordinary items",
+     "parentId": "40893",
+     "level": 2
+    },
+    {
+     "id": "55059",
+     "code": "EA_NO_SURP_OTH",
+     "label": "Others",
+     "parentId": "40893",
+     "level": 2
+    },
+    {
+     "id": "40888",
+     "code": "EA_OPR_PFT",
+     "label": "Operating Profit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40903",
+     "code": "EA_PAT",
+     "label": "Profit After Tax (PAT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40897",
+     "code": "EA_PBT",
+     "label": "Profit Before Tax (PBT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40900",
+     "code": "EA_PBT_DO",
+     "label": "Profit Before Tax (PBT) - Discontinuing Operations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40892",
+     "code": "EA_PBT_NO_SURP_DEF",
+     "label": "Profit before tax and non-operating surplus/deficit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40905",
+     "code": "EA_PFT_RETND",
+     "label": "Profit retained",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40898",
+     "code": "EA_TAX_EXP",
+     "label": "Tax Expense",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40901",
+     "code": "EA_TAX_EXP_DO",
+     "label": "Tax Expense - Discontinuing Operations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53727",
+     "code": "EA_TAX_ON_DIVI",
+     "label": "Tax on dividend",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53718",
+     "code": "EA_LES_TP",
+     "label": "Tax provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48035",
+     "code": "EA_TTL_COMP_INC",
+     "label": "Total comprehensive income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48036",
+     "code": "EA_CHG_COMP_INC_COMPS",
+     "label": "Changes in comprehensive income components",
+     "parentId": "48035",
+     "level": 2
+    },
+    {
+     "id": "40899",
+     "code": "EA_PAT_CO",
+     "label": "Profit After Tax (PAT) - Continuing Operations",
+     "parentId": "48035",
+     "level": 2
+    },
+    {
+     "id": "40902",
+     "code": "EA_PAT_DO",
+     "label": "Profit After Tax (PAT) - Discontinuing Operations",
+     "parentId": "48035",
+     "level": 2
+    },
+    {
+     "id": "40896",
+     "code": "EA_TTL_EXP",
+     "label": "Total expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40889",
+     "code": "EA_DEP_PROV",
+     "label": "Depreciation provision",
+     "parentId": "40896",
+     "level": 2
+    },
+    {
+     "id": "40891",
+     "code": "EA_LESS_INT",
+     "label": "Less: Interest",
+     "parentId": "40896",
+     "level": 2
+    },
+    {
+     "id": "40887",
+     "code": "EA_OPR_EXP",
+     "label": "Operating expenses",
+     "parentId": "40896",
+     "level": 2
+    },
+    {
+     "id": "53682",
+     "code": "EA_ADV",
+     "label": "Advertisement",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40880",
+     "code": "EA_BAD_DBT",
+     "label": "Bad debts",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53697",
+     "code": "EA_CON_PRO_FD",
+     "label": "Contribution to Providend fund",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40875",
+     "code": "EA_EWF",
+     "label": "Employees welfare expenses",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40883",
+     "code": "EA_INS",
+     "label": "Insurance",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40876",
+     "code": "EA_MGR_RMN",
+     "label": "Managerial remuneration",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40885",
+     "code": "EA_OTH_EXP",
+     "label": "Other expenses",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53722",
+     "code": "EA_OT_MA_EXP",
+     "label": "Other manufacturing expenses",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53721",
+     "code": "EA_OTH_PRO",
+     "label": "Other provision (excl. depreciation & tax)",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53724",
+     "code": "EA_POW_A_FU",
+     "label": "Power and Fuel",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40874",
+     "code": "EA_PF",
+     "label": "Providend fund",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53731",
+     "code": "EA_RT_TXS",
+     "label": "Rates and taxes",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40869",
+     "code": "EA_RAW_MAT",
+     "label": "Raw materials, components etc. consumed",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40881",
+     "code": "EA_RENT",
+     "label": "Rent",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40878",
+     "code": "EA_REP_BLDG",
+     "label": "Repairs to buildings",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40879",
+     "code": "EA_RPR_MACH",
+     "label": "Repairs to Machinery",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53732",
+     "code": "EA_RS_DEV",
+     "label": "Research and development",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "40877",
+     "code": "EA_ROYALTY",
+     "label": "Royalty",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53730",
+     "code": "EA_SAL_WAG_BON",
+     "label": "Salaries, wages and bonus",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53729",
+     "code": "EA_SEL_COM",
+     "label": "Selling commission",
+     "parentId": "40887",
+     "level": 3
+    },
+    {
+     "id": "53728",
+     "code": "EA_STO_SPA_CON",
+     "label": "Stores and spares consumed",
+     "parentId": "40887",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42039",
+     "code": "PREV_TO_PREV",
+     "label": "Previous to Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

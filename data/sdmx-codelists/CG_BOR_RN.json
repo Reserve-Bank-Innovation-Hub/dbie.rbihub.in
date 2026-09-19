@@ -1,0 +1,90 @@
+{
+ "dsdCode": "CG_BOR_RN",
+ "label": "Central Government Borrowings",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:42.343Z",
+ "dims": [
+  {
+   "code": "CGB_GFD_RN",
+   "name": "Central Government Borrowing of GFD",
+   "column": "cgb_gfd_rn_description",
+   "table": "dim_ebr_cgb_gfd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48979",
+     "code": "CGB",
+     "label": "Financing of GFD",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48985",
+     "code": "CGB1",
+     "label": "External Finance",
+     "parentId": "48979",
+     "level": 2
+    },
+    {
+     "id": "48981",
+     "code": "CGB2",
+     "label": "Internal Finance",
+     "parentId": "48979",
+     "level": 2
+    },
+    {
+     "id": "52949",
+     "code": "CGB23",
+     "label": "Draw down of cash balances",
+     "parentId": "48981",
+     "level": 3
+    },
+    {
+     "id": "48984",
+     "code": "CGB21",
+     "label": "Market borrowings",
+     "parentId": "48981",
+     "level": 3
+    },
+    {
+     "id": "48983",
+     "code": "CGB22",
+     "label": "Other borrowings",
+     "parentId": "48981",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

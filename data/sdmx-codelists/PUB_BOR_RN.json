@@ -1,0 +1,111 @@
+{
+ "dsdCode": "PUB_BOR_RN",
+ "label": "Public Sector Borrowings",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:55.248Z",
+ "dims": [
+  {
+   "code": "PUB_BORWING_RN",
+   "name": "Public Borrowing",
+   "column": "pub_borwing_rn_description",
+   "table": "dim_ebr_pub_borwing_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40319",
+     "code": "TTL_RESOURCES",
+     "label": "Resources",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40311",
+     "code": "PBOR1",
+     "label": "Balance from Current Revenue (including ARM)",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40313",
+     "code": "PBOR3",
+     "label": "Borrowings (including long and medium term borrowings)",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40317",
+     "code": "PBOR7",
+     "label": "Central Assistance",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40312",
+     "code": "PBOR2",
+     "label": "Contribution of Public Enterprise",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40315",
+     "code": "PBOR5",
+     "label": "Deficit Financing",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40316",
+     "code": "PBOR6",
+     "label": "Net Capital Inflow from Abroad",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40318",
+     "code": "PBOR8",
+     "label": "Others",
+     "parentId": "40319",
+     "level": 2
+    },
+    {
+     "id": "40314",
+     "code": "PBOR4",
+     "label": "Small Savings",
+     "parentId": "40319",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

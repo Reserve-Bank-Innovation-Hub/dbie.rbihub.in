@@ -1,0 +1,174 @@
+{
+ "dsdCode": "MIN_SUP_PRICE_RN",
+ "label": "Minimum Support Price",
+ "sector": "Real Sector",
+ "subSector": "Agriculture",
+ "fetched": "2026-09-18T15:04:22.823Z",
+ "dims": [
+  {
+   "code": "CLS_OF_CRPS",
+   "name": "Classification of Crops",
+   "column": "cls_of_crps_description",
+   "table": "dim_ebr_cls_of_crps",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "48595",
+     "code": "FDGRNS",
+     "label": "Foodgrains",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54133",
+     "code": "FG_PL_ARH",
+     "label": "Arhar",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54134",
+     "code": "FG_PL_GRM",
+     "label": "Gram",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54480",
+     "code": "FG_MAI",
+     "label": "Maize",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54132",
+     "code": "FG_PL_MOG",
+     "label": "Moong",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54135",
+     "code": "FG_CE_PC",
+     "label": "Paddy Common",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54131",
+     "code": "FG_PL_URAD",
+     "label": "Urad",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "54145",
+     "code": "FG_CE_WH",
+     "label": "Wheat",
+     "parentId": "48595",
+     "level": 2
+    },
+    {
+     "id": "48731",
+     "code": "MJR_COM_CRPS",
+     "label": "Major Commercial Crops",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54143",
+     "code": "NFG_COTTON",
+     "label": "Cotton",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "55397",
+     "code": "NFG_OS_GRDNT_SL",
+     "label": "Groundnut (in shell)",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "55398",
+     "code": "NFG_JTE",
+     "label": "Jute",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54137",
+     "code": "NFG_OS_RNM",
+     "label": "Rapeseed & Mustard",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54136",
+     "code": "NFG_OS_SAFFLWR",
+     "label": "Safflower",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54140",
+     "code": "NFG_OS_SOY_BL",
+     "label": "Soyabean Black",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54139",
+     "code": "NFG_OS_SOY_YL",
+     "label": "Soyabean Yellow",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54144",
+     "code": "NFG_SGRCN",
+     "label": "Sugarcane",
+     "parentId": "48731",
+     "level": 2
+    },
+    {
+     "id": "54138",
+     "code": "NFG_OS_SUNFLWR",
+     "label": "Sunflower Seed",
+     "parentId": "48731",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37055",
+     "code": "RUP_QNTL",
+     "label": "Rupees per quintal",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

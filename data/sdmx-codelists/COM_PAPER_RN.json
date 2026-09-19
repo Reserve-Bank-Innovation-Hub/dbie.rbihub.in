@@ -1,0 +1,76 @@
+{
+ "dsdCode": "COM_PAPER_RN",
+ "label": "Commercial Paper",
+ "sector": "Financial Markets",
+ "subSector": "Money Market",
+ "fetched": "2026-09-18T15:02:32.216Z",
+ "dims": [
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54425",
+     "code": "AMT",
+     "label": "Amount",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54656",
+     "code": "ISSUED_FORTNIGHT",
+     "label": "Issued during fortnight",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54424",
+     "code": "MAX_RATE",
+     "label": "Maximum Rate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "54423",
+     "code": "MIN_RATE",
+     "label": "Minimum Rate",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

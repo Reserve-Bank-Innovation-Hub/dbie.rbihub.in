@@ -1,0 +1,143 @@
+{
+ "dsdCode": "METAL_PRICE_RN",
+ "label": "Metal Price",
+ "sector": "Real Sector",
+ "subSector": "Prices & Wages",
+ "fetched": "2026-09-18T15:05:38.021Z",
+ "dims": [
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55069",
+     "code": "AVG",
+     "label": "Average",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PICE_REF_CITY_RN",
+   "name": "Price Refrence Cities",
+   "column": "pice_ref_city_rn_description",
+   "table": "dim_ebr_pice_ref_city_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37922",
+     "code": "PRC2",
+     "label": "London",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37921",
+     "code": "PRC1",
+     "label": "Mumbai",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37923",
+     "code": "PRC3",
+     "label": "New York",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "PREC_METL_RN",
+   "name": "Precious Metal",
+   "column": "prec_metl_rn_description",
+   "table": "dim_ebr_prec_metl_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37918",
+     "code": "GOLD",
+     "label": "Gold",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37919",
+     "code": "SILVER",
+     "label": "Silver",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55487",
+     "code": "CTNS_PER_TROY_OZ",
+     "label": "Cents per troy ounce",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55489",
+     "code": "DOL_PER_TROY_OZ",
+     "label": "Dollar per troy ounce",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55490",
+     "code": "RUP_PER_10_GMS",
+     "label": "Rupees per 10 grams",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55488",
+     "code": "RUP_PER_KG",
+     "label": "Rupees per kilo grams",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

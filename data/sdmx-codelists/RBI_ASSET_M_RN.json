@@ -1,0 +1,223 @@
+{
+ "dsdCode": "RBI_ASSET_M_RN",
+ "label": "RBI Asset_Monthly",
+ "sector": "Financial Sector",
+ "subSector": "Monetary Statistics",
+ "fetched": "2026-09-18T15:03:02.940Z",
+ "dims": [
+  {
+   "code": "ASET_ITEMS_RN",
+   "name": "Asset Items",
+   "column": "aset_items_rn_description",
+   "table": "dim_ebr_aset_items_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "51110",
+     "code": "A1",
+     "label": "Assets of Banking Department",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48807",
+     "code": "AI06",
+     "label": "Balances held Abroad",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "48805",
+     "code": "AI08",
+     "label": "Bills Purchased and Discounted",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "51120",
+     "code": "AI082",
+     "label": "Government Treasury Bills",
+     "parentId": "48805",
+     "level": 3
+    },
+    {
+     "id": "51121",
+     "code": "AI081",
+     "label": "Internal",
+     "parentId": "48805",
+     "level": 3
+    },
+    {
+     "id": "48804",
+     "code": "AI10",
+     "label": "Investments",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "48806",
+     "code": "AI07",
+     "label": "Loans and Advances",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "51111",
+     "code": "AI071",
+     "label": "Central Government",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51114",
+     "code": "AI077",
+     "label": "EXIM Bank",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51112",
+     "code": "AI079",
+     "label": "Financial Institution Outside India",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51116",
+     "code": "AI075",
+     "label": "Industrial Dev. Bank of India",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51115",
+     "code": "AI076",
+     "label": "NABARD",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51113",
+     "code": "AI078",
+     "label": "Others",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51118",
+     "code": "AI073",
+     "label": "Scheduled Commercial Banks",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51117",
+     "code": "AI074",
+     "label": "Scheduled State Co-op.Banks",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "51119",
+     "code": "AI072",
+     "label": "State Governments",
+     "parentId": "48806",
+     "level": 3
+    },
+    {
+     "id": "48808",
+     "code": "AI05",
+     "label": "Notes and Coins",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "48803",
+     "code": "AI11",
+     "label": "Other Assets",
+     "parentId": "51110",
+     "level": 2
+    },
+    {
+     "id": "51123",
+     "code": "AI1101",
+     "label": "Gold",
+     "parentId": "48803",
+     "level": 3
+    },
+    {
+     "id": "51122",
+     "code": "AI1102",
+     "label": "Of which Others",
+     "parentId": "48803",
+     "level": 3
+    },
+    {
+     "id": "48810",
+     "code": "A2",
+     "label": "Assets of Issue Department",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48813",
+     "code": "AI02",
+     "label": "Foreign Securities",
+     "parentId": "48810",
+     "level": 2
+    },
+    {
+     "id": "48814",
+     "code": "AI01",
+     "label": "Gold",
+     "parentId": "48810",
+     "level": 2
+    },
+    {
+     "id": "48811",
+     "code": "AI04",
+     "label": "Government of India Rupee Securities",
+     "parentId": "48810",
+     "level": 2
+    },
+    {
+     "id": "48812",
+     "code": "AI03",
+     "label": "Rupee Coin",
+     "parentId": "48810",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

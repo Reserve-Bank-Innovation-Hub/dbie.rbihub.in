@@ -1,0 +1,167 @@
+{
+ "dsdCode": "PRF_LNGNFC_ANN_RN",
+ "label": "Performance of Listed Non-Government Non-Financial Companies Annually",
+ "sector": "Corporate Sector",
+ "subSector": "Listed Non-Government Non-Financial Companies",
+ "fetched": "2026-09-18T14:59:18.705Z",
+ "dims": [
+  {
+   "code": "PERF_IND_RN",
+   "name": "Performance Indicators",
+   "column": "perf_ind_rn_description",
+   "table": "dim_ebr_perf_ind_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41162",
+     "code": "DEPRC",
+     "label": "Depreciation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41161",
+     "code": "EBITDA",
+     "label": "EBITDA",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41165",
+     "code": "EBT_BEFORE_NOP",
+     "label": "EBT (before NOP)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41155",
+     "code": "EXPD",
+     "label": "Expenditure",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55107",
+     "code": "EXPD_OTH",
+     "label": "Others",
+     "parentId": "41155",
+     "level": 2
+    },
+    {
+     "id": "41158",
+     "code": "EXPD_PNF",
+     "label": "Power & fuel",
+     "parentId": "41155",
+     "level": 2
+    },
+    {
+     "id": "41156",
+     "code": "EXPD_RAW_MATR",
+     "label": "Raw Material",
+     "parentId": "41155",
+     "level": 2
+    },
+    {
+     "id": "41157",
+     "code": "EXPD_STAFF_COST",
+     "label": "Staff Cost",
+     "parentId": "41155",
+     "level": 2
+    },
+    {
+     "id": "41163",
+     "code": "GROSS_PFT_EBIT",
+     "label": "Gross Profits (EBIT)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41164",
+     "code": "INT",
+     "label": "Interest",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41167",
+     "code": "NET_PFT",
+     "label": "Net Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41159",
+     "code": "OPR_PFT",
+     "label": "Operating Profits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41160",
+     "code": "OTH_INC",
+     "label": "Other Income",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41151",
+     "code": "SALES",
+     "label": "Sales",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41166",
+     "code": "TAX_PROV",
+     "label": "Tax Provision",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41154",
+     "code": "VAL_OF_PROD",
+     "label": "Value of Production",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

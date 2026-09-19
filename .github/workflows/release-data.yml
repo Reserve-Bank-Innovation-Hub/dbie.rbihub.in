@@ -1,0 +1,74 @@
+name: Release site data
+
+# Builds the site's data bundle from a scrape archive and publishes it as a release (see scripts/data-release.mjs):
+# fetch the scrape's raw files from the public archive bucket, run the processors, verify their output against the
+# committed oracles, upload the bundle to dbie-common-site-data/releases/<version>/ and point latest.json at it.
+# Runs on demand, or when the processors or their oracles change on dev. The Amplify build then downloads the
+# current release (pnpm data:pull); with the AMPLIFY_WEBHOOK_URL secret set, the site rebuilds at once.
+on:
+    workflow_dispatch:
+        inputs:
+            scrape_version:
+                description: "Scrape archive to build from (scrapes/<YYYY-MM-DD>), or latest"
+                default: latest
+                required: true
+    push:
+        branches:
+            - dev
+        paths:
+            - "data/processors/**"
+            - "data/sdmx-codelists/**"
+            - "data/*.json"
+            - "scripts/data-*.mjs"
+            - ".github/workflows/release-data.yml"
+
+# OIDC: GitHub mints a short-lived JWT per run; AWS exchanges it for ~1h credentials for the release role in the
+# common-projects account (infra/terraform/common/iam-github-oidc.tf). `id-token: write` lets the action request the JWT.
+permissions:
+    id-token: write
+    contents: read
+
+concurrency:
+    group: release-data-${{ github.ref }}
+    cancel-in-progress: false
+
+env:
+    AWS_REGION: ap-south-1
+
+jobs:
+    release:
+        # Belt-and-braces guard so a fork can never run this workflow against our infra.
+        if: github.repository_owner == 'Reserve-Bank-Innovation-Hub'
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+            -   name: Set up pnpm
+                uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413  # v6.1.0
+                with:
+                    version: 9
+
+            -   name: Set up Node
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
+                with:
+                    node-version: 22
+                    cache: pnpm
+
+            -   name: Configure AWS credentials
+                uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd  # v6.3.0
+                with:
+                    role-to-assume: arn:aws:iam::588387717844:role/dbie-github-actions-release
+                    aws-region: ${{ env.AWS_REGION }}
+
+            -   name: Install dependencies
+                run: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm install --frozen-lockfile
+
+            -   name: Fetch the scrape archive
+                run: pnpm data:fetch --version "${{ github.event.inputs.scrape_version || 'latest' }}"
+
+            -   name: Build, verify and publish the release
+                env:
+                    AMPLIFY_WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
+                run: pnpm data:release

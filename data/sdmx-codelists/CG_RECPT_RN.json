@@ -1,0 +1,202 @@
+{
+ "dsdCode": "CG_RECPT_RN",
+ "label": "Central Government Receipts",
+ "sector": "Public Finance",
+ "subSector": "Central Govt Finance",
+ "fetched": "2026-09-18T15:03:50.388Z",
+ "dims": [
+  {
+   "code": "TYP_CGRECPT_RN",
+   "name": "Type of Central Government's Receipts",
+   "column": "typ_cgrecpt_rn_description",
+   "table": "dim_ebr_typ_cgrecpt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "45640",
+     "code": "TTL_RECEIPTS",
+     "label": "Receipts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "51023",
+     "code": "CGR2",
+     "label": "Capital receipts",
+     "parentId": "45640",
+     "level": 2
+    },
+    {
+     "id": "51026",
+     "code": "CGR26",
+     "label": "Disinvestment receipts",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51025",
+     "code": "CGR27",
+     "label": "External loans (net)",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51031",
+     "code": "CGR21",
+     "label": "Market borrowings (net)",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51024",
+     "code": "OTHR",
+     "label": "Others",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51029",
+     "code": "CGR23",
+     "label": "Provident funds",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51027",
+     "code": "CGR25",
+     "label": "Recovery of loans",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51030",
+     "code": "CGR22",
+     "label": "Small savings",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "51028",
+     "code": "CGR24",
+     "label": "Special deposits",
+     "parentId": "51023",
+     "level": 3
+    },
+    {
+     "id": "40151",
+     "code": "CGR1",
+     "label": "Revenue Receipts",
+     "parentId": "45640",
+     "level": 2
+    },
+    {
+     "id": "44995",
+     "code": "CGR12",
+     "label": "Non Tax Revenue",
+     "parentId": "40151",
+     "level": 3
+    },
+    {
+     "id": "45503",
+     "code": "CGR1201",
+     "label": "Of Which Interest receipts",
+     "parentId": "44995",
+     "level": 4
+    },
+    {
+     "id": "49125",
+     "code": "OTHE",
+     "label": "Others",
+     "parentId": "44995",
+     "level": 4
+    },
+    {
+     "id": "44994",
+     "code": "CGR11",
+     "label": "Tax Revenue",
+     "parentId": "40151",
+     "level": 3
+    },
+    {
+     "id": "45501",
+     "code": "CGR1101",
+     "label": "Direct Tax",
+     "parentId": "44994",
+     "level": 4
+    },
+    {
+     "id": "40153",
+     "code": "CGR11012",
+     "label": "Of Which Corporation tax",
+     "parentId": "45501",
+     "level": 5
+    },
+    {
+     "id": "40152",
+     "code": "CGR11011",
+     "label": "Of Which Personal income tax",
+     "parentId": "45501",
+     "level": 5
+    },
+    {
+     "id": "48976",
+     "code": "CGR1102",
+     "label": "Indirect Tax",
+     "parentId": "44994",
+     "level": 4
+    },
+    {
+     "id": "48977",
+     "code": "CGR11022",
+     "label": "Of Which Customs duties",
+     "parentId": "48976",
+     "level": 5
+    },
+    {
+     "id": "48978",
+     "code": "CGR11021",
+     "label": "Of Which Excise duties",
+     "parentId": "48976",
+     "level": 5
+    },
+    {
+     "id": "49124",
+     "code": "OTH",
+     "label": "Others",
+     "parentId": "48976",
+     "level": 5
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

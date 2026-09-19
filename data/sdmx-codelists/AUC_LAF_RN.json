@@ -1,0 +1,157 @@
+{
+ "dsdCode": "AUC_LAF_RN",
+ "label": "Auction under LAF",
+ "sector": "Financial Markets",
+ "subSector": "Money Market",
+ "fetched": "2026-09-18T15:02:25.656Z",
+ "dims": [
+  {
+   "code": "MEASURE_RN",
+   "name": "Measure",
+   "column": "measure_rn_description",
+   "table": "dim_ebr_measure_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "54425",
+     "code": "AMT",
+     "label": "Amount",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55118",
+     "code": "CUT_OFF_RT",
+     "label": "Cut-off Rate (%)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55119",
+     "code": "NUM",
+     "label": "Number",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55131",
+     "code": "PERIOD_DAYS",
+     "label": "Period Days",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_BID_RN",
+   "name": "Type of Bids",
+   "column": "type_bid_rn_description",
+   "table": "dim_ebr_type_bid_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55128",
+     "code": "BIDS_ACCEPTED",
+     "label": "Bids Accepted",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55129",
+     "code": "BIDS_RECEIVED",
+     "label": "Bids Received",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55709",
+     "code": "N_A",
+     "label": "Not applicable",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYPE_LAF_RN",
+   "name": "Type of Liquidity Adjustment Facilities",
+   "column": "type_laf_rn_description",
+   "table": "dim_ebr_type_laf_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55117",
+     "code": "FIX_REPO",
+     "label": "Repo (Fixed Rate)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55115",
+     "code": "VAR_REPO",
+     "label": "Repo(Variable Rate)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55116",
+     "code": "FIX_REV_REPO",
+     "label": "Reverse Repo (Fixed Rate)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55114",
+     "code": "VAR_REV_REPO",
+     "label": "Reverse Repo (Variable Rate)",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,493 @@
+{
+ "dsdCode": "FIN_RATIOS_PUB_PUC_RN",
+ "label": "Financial Ratios for Public Limited Companies - PUC wise",
+ "sector": "Corporate Sector",
+ "subSector": "Non-Government Non-Financial Public Limited Companies",
+ "fetched": "2026-09-18T15:00:25.124Z",
+ "dims": [
+  {
+   "code": "PUC_SZ_GRP_RN",
+   "name": "Paid Up Capital (PUC) Size Group",
+   "column": "puc_sz_grp_rn_description",
+   "table": "dim_ebr_puc_sz_grp_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41203",
+     "code": "LESS_THN_1CR",
+     "label": "Less than ₹ 1 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41204",
+     "code": "1CR_TO_2CR",
+     "label": "₹ 1 crore -  ₹ 2 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48142",
+     "code": "ONE_CR_TO_FIV_CR",
+     "label": "₹ 1 crore -  ₹ 5 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41207",
+     "code": "10CR_TO_25CR",
+     "label": "₹ 10 crore -  ₹ 25 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41210",
+     "code": "100CR_N_ABOVE",
+     "label": "₹ 100 crore & above",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41205",
+     "code": "2CR_TO_5CR",
+     "label": "₹ 2 crore -  ₹ 5 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "48141",
+     "code": "TWNTY_FIV_CR_TO_HUN_CR",
+     "label": "₹ 25 crore  - ₹ 100 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41208",
+     "code": "25CR_TO_50CR",
+     "label": "₹ 25 crore -  ₹ 50 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41206",
+     "code": "5CR_TO_10CR",
+     "label": "₹ 5 crore -  ₹ 10 crore",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41209",
+     "code": "50CR_TO_100CR",
+     "label": "₹ 50 crore -  ₹ 100 crore",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42039",
+     "code": "PREV_TO_PREV",
+     "label": "Previous to Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_FIN_RT_RN",
+   "name": "Types of Financial Ratios",
+   "column": "typ_fin_rt_rn_description",
+   "table": "dim_ebr_typ_fin_rt_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "53626",
+     "code": "AUTR",
+     "label": "Assets utilization and turnover ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "53632",
+     "code": "AUTR_EXP_SAL",
+     "label": "Exports to sales",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53633",
+     "code": "AUTR_GVA_GFA",
+     "label": "Gross value added to gross fixed assets",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53635",
+     "code": "AUTR_INV_SAL",
+     "label": "Inventories to sales",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53630",
+     "code": "AUTR_RM_CON_TO_VP",
+     "label": "Raw materials consumed to value of production",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53636",
+     "code": "AUTR_SAL_GFA",
+     "label": "Sales to gross fixed assets",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53637",
+     "code": "AUTR_SAL_TNA",
+     "label": "Sales to total net assets",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53631",
+     "code": "AUTR_SD_TO_SL",
+     "label": "Sundry debtors to sales",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53634",
+     "code": "AUTR_TR_SAL",
+     "label": "Trade Receivables to sales",
+     "parentId": "53626",
+     "level": 2
+    },
+    {
+     "id": "53613",
+     "code": "CSR",
+     "label": "Capital Structure Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40827",
+     "code": "CSR_DEB_EQT",
+     "label": "Debt to equity",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "53615",
+     "code": "CSR_DTE_ADJ",
+     "label": "Debt to equity (equity adjusted for revaluation reserve)",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "40825",
+     "code": "CSR_NFA_TNA",
+     "label": "Net fixed assets to total net assets",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "40826",
+     "code": "CSR_NW_TNA",
+     "label": "Net worth to total net assets",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "40829",
+     "code": "CSR_STBB_INV",
+     "label": "Short term bank borrowings to inventories",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "40828",
+     "code": "CSR_TB_EQT",
+     "label": "Total borrowings to equity",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "53614",
+     "code": "CSR_TOL_TNW",
+     "label": "Total outside liabilities to net worth",
+     "parentId": "53613",
+     "level": 2
+    },
+    {
+     "id": "53658",
+     "code": "ER",
+     "label": "Expenditure ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40846",
+     "code": "ER_CRM_TE",
+     "label": "Cost of raw materials to total expenditure",
+     "parentId": "53658",
+     "level": 2
+    },
+    {
+     "id": "40849",
+     "code": "ER_ICR",
+     "label": "Interest coverage ratio (EBIT to interest)",
+     "parentId": "53658",
+     "level": 2
+    },
+    {
+     "id": "40848",
+     "code": "ER_IP_TE",
+     "label": "Interest paid to total expenditure",
+     "parentId": "53658",
+     "level": 2
+    },
+    {
+     "id": "40847",
+     "code": "ER_RTE_TE",
+     "label": "Remuneration to employees to total expenditure",
+     "parentId": "53658",
+     "level": 2
+    },
+    {
+     "id": "53616",
+     "code": "LQ_RATIO",
+     "label": "Liquidity Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40830",
+     "code": "LR_CA_CL",
+     "label": "Current assets to current liabilities",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "40832",
+     "code": "LR_CA_TNA",
+     "label": "Current assets to total net assets",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "40831",
+     "code": "LR_QA_CL",
+     "label": "Quick assets to current liabilities",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "53618",
+     "code": "LR_SC_TO_CA",
+     "label": "Sundry creditors to current assets",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "53617",
+     "code": "LR_SC_TO_NWC",
+     "label": "Sundry creditors to net working capital",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "40833",
+     "code": "LR_TP_CA",
+     "label": "Trade Payables to current assets",
+     "parentId": "53616",
+     "level": 2
+    },
+    {
+     "id": "53644",
+     "code": "PPAR",
+     "label": "Profitability and Profit Allocation Ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40857",
+     "code": "PPAR_DIV_NW",
+     "label": "Dividends to net worth",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "53646",
+     "code": "PPAR_EBD_SAL",
+     "label": "EBITDA to sales",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40851",
+     "code": "PPAR_GP_SAL",
+     "label": "Gross profit (EBIT) to sales",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40853",
+     "code": "PPAR_GP_TNA",
+     "label": "Gross profit (EBIT) to total net assets",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40850",
+     "code": "PPAR_OP_SAL",
+     "label": "Operating profit to sales",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "53645",
+     "code": "PPAR_OD_TO_OPC",
+     "label": "Ordinary dividends to ordinary paid-up capital",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40854",
+     "code": "PPAR_PAT_TNW",
+     "label": "Profit after tax to net worth",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40852",
+     "code": "PPAR_PAT_SAL",
+     "label": "Profit after tax to sales",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40856",
+     "code": "PPAR_PR_PAT",
+     "label": "Profit retained to profit after tax",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "40855",
+     "code": "PPAR_TP_PBT",
+     "label": "Tax provision to profit before tax",
+     "parentId": "53644",
+     "level": 2
+    },
+    {
+     "id": "53641",
+     "code": "SUFR",
+     "label": "Sources and uses of funds ratios",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40842",
+     "code": "SUFR_ESF_TSF",
+     "label": "External sources of funds to Total sources of funds",
+     "parentId": "53641",
+     "level": 2
+    },
+    {
+     "id": "40841",
+     "code": "SUFR_GCF_TUF",
+     "label": "Gross capital formation to Total uses of funds",
+     "parentId": "53641",
+     "level": 2
+    },
+    {
+     "id": "40840",
+     "code": "SUFR_GFAF_TUF",
+     "label": "Gross fixed assets formation to Total uses of funds",
+     "parentId": "53641",
+     "level": 2
+    },
+    {
+     "id": "40844",
+     "code": "SUFR_GS_GCF",
+     "label": "Gross savings to gross capital formation",
+     "parentId": "53641",
+     "level": 2
+    },
+    {
+     "id": "40843",
+     "code": "SUFR_IBB_TES",
+     "label": "Increase in bank borrowings to Total external sources",
+     "parentId": "53641",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37048",
+     "code": "PT",
+     "label": "Percent",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

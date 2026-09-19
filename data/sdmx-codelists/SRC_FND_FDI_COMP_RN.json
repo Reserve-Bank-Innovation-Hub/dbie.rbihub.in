@@ -1,0 +1,547 @@
+{
+ "dsdCode": "SRC_FND_FDI_COMP_RN",
+ "label": "Sources of funds - FDI companies",
+ "sector": "Corporate Sector",
+ "subSector": "Finances of FDI Companies",
+ "fetched": "2026-09-18T14:59:13.781Z",
+ "dims": [
+  {
+   "code": "REF_TIME_RN",
+   "name": "Reference Time",
+   "column": "ref_time_rn_description",
+   "table": "dim_ebr_ref_time_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "42037",
+     "code": "CURR_YR",
+     "label": "Current Year",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "42038",
+     "code": "PREV_YR",
+     "label": "Previous Year",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_SRC_FNDS_RN",
+   "name": "Type of Sources of Funds",
+   "column": "typ_src_fnds_rn_description",
+   "table": "dim_ebr_typ_src_fnds_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41091",
+     "code": "TTL_INT_EXT_SRC",
+     "label": "Total sources",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41060",
+     "code": "EXT_SRC",
+     "label": "External Sources",
+     "parentId": "41091",
+     "level": 2
+    },
+    {
+     "id": "41081",
+     "code": "ES_CURR_LIB",
+     "label": "Current liabilities",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "48118",
+     "code": "ES_CL_CB",
+     "label": "Current borrowings",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "48112",
+     "code": "ES_CL_CB_CP",
+     "label": "Commercial paper",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48113",
+     "code": "ES_CL_CB_DEPSTS",
+     "label": "Deposits",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48111",
+     "code": "ES_CL_CB_LNA_RP",
+     "label": "Loans advances from related parties",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48114",
+     "code": "ES_CL_CB_LROD",
+     "label": "Loans repayables on demand",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48110",
+     "code": "ES_CL_CB_OTHS",
+     "label": "Others",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48117",
+     "code": "ES_CL_CB_TL",
+     "label": "Term loans",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48116",
+     "code": "ES_CL_CB_TL_BNK",
+     "label": "From banks",
+     "parentId": "48117",
+     "level": 6
+    },
+    {
+     "id": "54654",
+     "code": "ES_CL_CB_TL_OTH",
+     "label": "Term loans-Others",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48115",
+     "code": "ES_CL_CB_WCLFB",
+     "label": "Working capital loans from banks",
+     "parentId": "48118",
+     "level": 5
+    },
+    {
+     "id": "48109",
+     "code": "ES_CL_CTP",
+     "label": "Current trade payables",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "41089",
+     "code": "ES_CL_OCL",
+     "label": "Other current liabilities",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "48108",
+     "code": "ES_CL_OEL",
+     "label": "Other equity and liabilities",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "53805",
+     "code": "ES_CL_STBR",
+     "label": "Short-term borrowings",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "53846",
+     "code": "ES_CL_STBR_DEP",
+     "label": "Deposits",
+     "parentId": "53805",
+     "level": 5
+    },
+    {
+     "id": "53843",
+     "code": "ES_CL_STBR_LROD",
+     "label": "Loans repayables on demand",
+     "parentId": "53805",
+     "level": 5
+    },
+    {
+     "id": "53848",
+     "code": "STBR_LROD_BNK",
+     "label": "From Banks",
+     "parentId": "53843",
+     "level": 6
+    },
+    {
+     "id": "54655",
+     "code": "STBR_LROD_OTH",
+     "label": "Others",
+     "parentId": "53843",
+     "level": 6
+    },
+    {
+     "id": "53845",
+     "code": "ES_CL_STBR_OLA",
+     "label": "Other loans and advances",
+     "parentId": "53805",
+     "level": 5
+    },
+    {
+     "id": "53844",
+     "code": "ES_CL_TRD_PAYS",
+     "label": "Trade payables",
+     "parentId": "41081",
+     "level": 4
+    },
+    {
+     "id": "41078",
+     "code": "ES_DEF_TAX_LIB",
+     "label": "Deferred tax liabilities (Net)",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "53789",
+     "code": "ES_MON_AGST_SHR_WAR",
+     "label": "Money received against share warrants",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "53792",
+     "code": "ES_NON_CURR_LIB",
+     "label": "Non-current liabilities",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "53793",
+     "code": "ES_NCL_LNG_BRW",
+     "label": "Long-term borrowings",
+     "parentId": "53792",
+     "level": 4
+    },
+    {
+     "id": "53791",
+     "code": "ES_NCL_LTB_BND",
+     "label": "Bonds / Debentures",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53799",
+     "code": "ES_NCL_LTB_DPLS",
+     "label": "Deferred payment liabilities",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53802",
+     "code": "ES_NCL_LTB_DEPS",
+     "label": "Deposits",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53801",
+     "code": "ES_NCL_LTB_LAAFP",
+     "label": "Loan and advances from related parties",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53804",
+     "code": "ESL_NCL_LTB_LTM_OF_FLO",
+     "label": "Long-term maturities of finance lease obligation",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53803",
+     "code": "ES_NCL_LTB_OTH",
+     "label": "Others",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53798",
+     "code": "ES_NCL_LTB_TLS",
+     "label": "Term loans",
+     "parentId": "53793",
+     "level": 5
+    },
+    {
+     "id": "53800",
+     "code": "ES_NCL_LTB_TLS_BNK",
+     "label": "From banks",
+     "parentId": "53798",
+     "level": 6
+    },
+    {
+     "id": "54563",
+     "code": "ES_NCL_LTB_TLS_OTH",
+     "label": "Others",
+     "parentId": "53798",
+     "level": 6
+    },
+    {
+     "id": "48127",
+     "code": "ES_NCL_NCB",
+     "label": "Non current borrowings",
+     "parentId": "53792",
+     "level": 4
+    },
+    {
+     "id": "48126",
+     "code": "ES_NCL_NCB_BD",
+     "label": "Bonds / Debentures",
+     "parentId": "48127",
+     "level": 5
+    },
+    {
+     "id": "48123",
+     "code": "ES_NCL_NCB_DPL",
+     "label": "Deferred payment liabilities",
+     "parentId": "48127",
+     "level": 5
+    },
+    {
+     "id": "48121",
+     "code": "ES_NCL_NCB_FO",
+     "label": "From others",
+     "parentId": "48127",
+     "level": 5
+    },
+    {
+     "id": "48122",
+     "code": "ES_NCL_NCB_LNA_RP",
+     "label": "Loan and advances from related parties",
+     "parentId": "48127",
+     "level": 5
+    },
+    {
+     "id": "48125",
+     "code": "ES_NCL_NCB_TL",
+     "label": "Term loans",
+     "parentId": "48127",
+     "level": 5
+    },
+    {
+     "id": "48124",
+     "code": "ES_NCL_NCB_TL_BNK",
+     "label": "From banks",
+     "parentId": "48125",
+     "level": 6
+    },
+    {
+     "id": "54653",
+     "code": "ES_NCL_NCB_TL_OTH",
+     "label": "Others",
+     "parentId": "48125",
+     "level": 6
+    },
+    {
+     "id": "48120",
+     "code": "ES_NCL_NCB_NCTP",
+     "label": "Non-current trade payables",
+     "parentId": "53792",
+     "level": 4
+    },
+    {
+     "id": "53806",
+     "code": "ES_OTH_LTA",
+     "label": "Other long-term liabilities",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "48119",
+     "code": "ES_ONCL",
+     "label": "Other non current liabilities",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "53788",
+     "code": "ES_SHR_APP_MON_PEN_ALT",
+     "label": "Share application money pending allotment",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "41061",
+     "code": "ES_SHR_CAP_PRM",
+     "label": "Share Capital and premium",
+     "parentId": "41060",
+     "level": 3
+    },
+    {
+     "id": "53787",
+     "code": "ES_PRM_ON_SHR",
+     "label": "Premium on shares",
+     "parentId": "41061",
+     "level": 4
+    },
+    {
+     "id": "41045",
+     "code": "INT_SRC",
+     "label": "Internal Sources",
+     "parentId": "41091",
+     "level": 2
+    },
+    {
+     "id": "48129",
+     "code": "IS_DGG",
+     "label": "Deferred government grants",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "48128",
+     "code": "IS_NCI",
+     "label": "Non-controlling interest",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "48134",
+     "code": "IS_OTH_EQU",
+     "label": "Other equity",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "48133",
+     "code": "IS_OTH_EQU_RES_SRP",
+     "label": "Reserves and Surplus",
+     "parentId": "48134",
+     "level": 4
+    },
+    {
+     "id": "48132",
+     "code": "IS_OE_RS_CR",
+     "label": "Capital Reserve",
+     "parentId": "48133",
+     "level": 5
+    },
+    {
+     "id": "48131",
+     "code": "IS_OE_RS_GR",
+     "label": "General reserve",
+     "parentId": "48133",
+     "level": 5
+    },
+    {
+     "id": "48130",
+     "code": "IS_OE_RS_OR",
+     "label": "Other reserves",
+     "parentId": "48133",
+     "level": 5
+    },
+    {
+     "id": "41046",
+     "code": "IS_PU_CAP",
+     "label": "Paid-up Capital",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "41053",
+     "code": "IS_PRV",
+     "label": "Provisions",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "41054",
+     "code": "IS_PRV_DEP",
+     "label": "Depreciation",
+     "parentId": "41053",
+     "level": 4
+    },
+    {
+     "id": "41059",
+     "code": "IS_PRV_OCP",
+     "label": "Other current provisions",
+     "parentId": "41053",
+     "level": 4
+    },
+    {
+     "id": "41058",
+     "code": "IS_PRV_ONCP",
+     "label": "Other non-current provisions",
+     "parentId": "41053",
+     "level": 4
+    },
+    {
+     "id": "53771",
+     "code": "IS_RES_SRPLS",
+     "label": "Reserves and Surplus",
+     "parentId": "41045",
+     "level": 3
+    },
+    {
+     "id": "53773",
+     "code": "IS_RES_CAP_RES",
+     "label": "Capital reserve",
+     "parentId": "53771",
+     "level": 4
+    },
+    {
+     "id": "53772",
+     "code": "IS_RES_DEB_RED",
+     "label": "Debenture redemption reserve",
+     "parentId": "53771",
+     "level": 4
+    },
+    {
+     "id": "53774",
+     "code": "IS_RES_OTH",
+     "label": "Other Reserves",
+     "parentId": "53771",
+     "level": 4
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

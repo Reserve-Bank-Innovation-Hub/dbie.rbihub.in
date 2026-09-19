@@ -7,15 +7,12 @@ frontend:
         - export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
         - npm install -g pnpm@9
         - pnpm install
-        # The data payload is derived in-CI from the committed sources
-        # (data/sdmx CSVs + data/publications xlsx): run all processors,
-        # verify the outputs byte-exact against the committed oracles,
-        # then copy into public/data for the app build. No S3 involved —
-        # an environment serves exactly what its branch's processors
-        # produce from its branch's data.
-        - pnpm data:build
-        - pnpm data:verify
-        - pnpm data:sync
+        # The site's data is a release: the processors run wherever `pnpm data:release`
+        # runs (a laptop or the release-data workflow), their output is verified against
+        # the committed oracles there, and the bundle is published to the public
+        # dbie-common-site-data bucket. The build only downloads the current release,
+        # checking every file against the release manifest. See docs/database.md.
+        - pnpm data:pull
     build:
       commands:
         # Amplify exposes env vars at build time only; write the enni ones

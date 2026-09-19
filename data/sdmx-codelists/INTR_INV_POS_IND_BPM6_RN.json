@@ -1,0 +1,3177 @@
+{
+ "dsdCode": "INTR_INV_POS_IND_BPM6_RN",
+ "label": "International Investment Position of India BPM6",
+ "sector": "External Sector",
+ "subSector": "International Finance",
+ "fetched": "2026-09-18T15:01:07.029Z",
+ "dims": [
+  {
+   "code": "INTER_INVS_TYP_RN",
+   "name": "International Investment Type",
+   "column": "inter_invs_typ_rn_description",
+   "table": "dim_ebr_inter_invs_typ_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "55974",
+     "code": "IIA_NET_IIP",
+     "label": "Net International Investment Position",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "55975",
+     "code": "IIP_AST",
+     "label": "A -  Asset",
+     "parentId": "55974",
+     "level": 2
+    },
+    {
+     "id": "55976",
+     "code": "IIA_DI",
+     "label": "1 - Direct investment",
+     "parentId": "55975",
+     "level": 3
+    },
+    {
+     "id": "55979",
+     "code": "IIA_DI_EIFS",
+     "label": "1.1 - Equity and investment fund shares",
+     "parentId": "55976",
+     "level": 4
+    },
+    {
+     "id": "55982",
+     "code": "IIA_DI_EIFS_BFE_CPU_IFSU",
+     "label": "1.1.0.1 - Of which: Investment fund shares or units",
+     "parentId": "55979",
+     "level": 5
+    },
+    {
+     "id": "55988",
+     "code": "IIA_DI_EIFS_BFE_CPU_IFSU_MMFSU",
+     "label": "1.1.0.1.1 -  Of which: Money market fund shares or units",
+     "parentId": "55982",
+     "level": 6
+    },
+    {
+     "id": "56050",
+     "code": "IIA_DI_EIFS_DRT_INV_DIE",
+     "label": "1.1.1 - Direct investor in direct investment enterprises",
+     "parentId": "55979",
+     "level": 5
+    },
+    {
+     "id": "55978",
+     "code": "IIA_DI_EIFS_DRT_INV_DIE_DRT_INV_RES_INV",
+     "label": "1.1.2 - Direct investment enterprises in direct investor (reverse investment)",
+     "parentId": "55979",
+     "level": 5
+    },
+    {
+     "id": "55977",
+     "code": "IIA_DI_EIFS_BFE",
+     "label": "1.1.3 - Between fellow enterprises",
+     "parentId": "55979",
+     "level": 5
+    },
+    {
+     "id": "55991",
+     "code": "IIA_DI_EIFS_BFE_CPR",
+     "label": "1.1.3.1 - If ultimate controlling parent is resident",
+     "parentId": "55977",
+     "level": 6
+    },
+    {
+     "id": "55990",
+     "code": "IIA_DI_EIFS_BFE_CPNR",
+     "label": "1.1.3.2 - If ultimate controlling parent is nonresident",
+     "parentId": "55977",
+     "level": 6
+    },
+    {
+     "id": "55989",
+     "code": "IIA_DI_EIFS_BFE_CPU",
+     "label": "1.1.3.3 - If ultimate controlling parent is unknown",
+     "parentId": "55977",
+     "level": 6
+    },
+    {
+     "id": "55980",
+     "code": "IIA_DI_DBT_INS",
+     "label": "1.2 - Debt instruments",
+     "parentId": "55976",
+     "level": 4
+    },
+    {
+     "id": "56035",
+     "code": "IIA_DI_DBT_BFE_CPU_DS",
+     "label": "1.2.0.1 - Of which Debt securities",
+     "parentId": "55980",
+     "level": 5
+    },
+    {
+     "id": "56049",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_DRT_INV_DIE",
+     "label": "1.2.0.1.1 - Direct investor in direct investment enterprises",
+     "parentId": "56035",
+     "level": 6
+    },
+    {
+     "id": "56048",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_DIE_DRT_INV_RES_INV",
+     "label": "1.2.0.1.2 - Direct investment enterprises in direct investor (reverse investment)",
+     "parentId": "56035",
+     "level": 6
+    },
+    {
+     "id": "56036",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_BFE",
+     "label": "1.2.0.1.3 -  Between fellow enterprises",
+     "parentId": "56035",
+     "level": 6
+    },
+    {
+     "id": "56047",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_BFE_CPR",
+     "label": "1.2.0.1.3.1 - If ultimate controlling parent is resident",
+     "parentId": "56036",
+     "level": 7
+    },
+    {
+     "id": "56046",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_BFE_CPNR",
+     "label": "1.2.0.1.3.2 - If ultimate controlling parent is non resident",
+     "parentId": "56036",
+     "level": 7
+    },
+    {
+     "id": "56045",
+     "code": "IIA_DI_DBT_BFE_CPU_DS_BFE_CPU",
+     "label": "1.2.0.1.3.3 - If ultimate controlling parent is unknown",
+     "parentId": "56036",
+     "level": 7
+    },
+    {
+     "id": "55987",
+     "code": "IIA_DI_DBT_INS_DRT_INV_DIE",
+     "label": "1.2.1 - Direct investor in direct investment enterprises",
+     "parentId": "55980",
+     "level": 5
+    },
+    {
+     "id": "55986",
+     "code": "IIA_DI_DBT_INS_DIE_DRT_INV_RES_INV",
+     "label": "1.2.2 - Direct investment enterprises in direct investor (reverse investment)",
+     "parentId": "55980",
+     "level": 5
+    },
+    {
+     "id": "55981",
+     "code": "IIA_DI_DBT_BFE",
+     "label": "1.2.3 - Between fellow enterprises",
+     "parentId": "55980",
+     "level": 5
+    },
+    {
+     "id": "55985",
+     "code": "IIA_DI_DBT_BFE_CPR",
+     "label": "1.2.3.1 - If ultimate controlling parent is resident",
+     "parentId": "55981",
+     "level": 6
+    },
+    {
+     "id": "55984",
+     "code": "IIA_DI_DBT_BFE_CPNR",
+     "label": "1.2.3.2 - If ultimate controlling parent is nonresident",
+     "parentId": "55981",
+     "level": 6
+    },
+    {
+     "id": "55983",
+     "code": "IIA_DI_DBT_BFE_CPU",
+     "label": "1.2.3.3 - If ultimate controlling parent is unknown",
+     "parentId": "55981",
+     "level": 6
+    },
+    {
+     "id": "56029",
+     "code": "IIA_PI",
+     "label": "2 - Portfolio investment",
+     "parentId": "55975",
+     "level": 3
+    },
+    {
+     "id": "56030",
+     "code": "IIA_PI_EIFS",
+     "label": "2.1 - Equity and investment fund shares",
+     "parentId": "56029",
+     "level": 4
+    },
+    {
+     "id": "56032",
+     "code": "IIA_PI_EIFS_OS_ESOTIFS",
+     "label": "2.1.0.1 - Equity securities other than investment fund shares",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56039",
+     "code": "IIA_PI_EIFS_OS_ESOTIFS_LIS",
+     "label": "2.1.0.1.1 - Listed",
+     "parentId": "56032",
+     "level": 6
+    },
+    {
+     "id": "56038",
+     "code": "IIA_PI_EIFS_OS_ESOTIFS_UNLIS",
+     "label": "2.1.0.1.2 - Unlisted",
+     "parentId": "56032",
+     "level": 6
+    },
+    {
+     "id": "56031",
+     "code": "IIA_PI_EIFS_OS_IFSU",
+     "label": "2.1.0.2 - Investment fund shares or units",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56037",
+     "code": "IIA_PI_EIFS_OS_IFSU_MMFSU",
+     "label": "2.1.0.2.1 - Of which Money market fund shares or units",
+     "parentId": "56031",
+     "level": 6
+    },
+    {
+     "id": "56034",
+     "code": "IIA_PI_EIFS_CB",
+     "label": "2.1.1 - Central bank",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56044",
+     "code": "IIA_PI_EIFS_CB_MAWR",
+     "label": "2.1.1.9 - Central bank - Monetary authorities (where relevant)",
+     "parentId": "56034",
+     "level": 6
+    },
+    {
+     "id": "56043",
+     "code": "IIA_PI_EIFS_DTCECB",
+     "label": "2.1.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56042",
+     "code": "IIA_PI_EIFS_GG",
+     "label": "2.1.3 - General government",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56033",
+     "code": "IIA_PI_EIFS_OS",
+     "label": "2.1.4 - Other sectors",
+     "parentId": "56030",
+     "level": 5
+    },
+    {
+     "id": "56041",
+     "code": "IIA_PI_EIFS_OS_OFC",
+     "label": "2.1.4.1 - Other financial corporations",
+     "parentId": "56033",
+     "level": 6
+    },
+    {
+     "id": "56040",
+     "code": "IIA_PI_EIFS_OS_NFCH_NPISH",
+     "label": "2.1.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56033",
+     "level": 6
+    },
+    {
+     "id": "56051",
+     "code": "IIA_PI_DS",
+     "label": "2.2 - Debt securities",
+     "parentId": "56029",
+     "level": 4
+    },
+    {
+     "id": "56058",
+     "code": "IIA_PI_DS_CB",
+     "label": "2.2.1 - Central bank",
+     "parentId": "56051",
+     "level": 5
+    },
+    {
+     "id": "56069",
+     "code": "IIA_PI_DS_CB_SHT_TRM",
+     "label": "2.2.1.1 - Short-term",
+     "parentId": "56058",
+     "level": 6
+    },
+    {
+     "id": "56068",
+     "code": "IIA_PI_DS_CB_LNG_TRM",
+     "label": "2.2.1.2 - Long-term",
+     "parentId": "56058",
+     "level": 6
+    },
+    {
+     "id": "56057",
+     "code": "IIA_PI_DS_CB_MAWR",
+     "label": "2.2.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56051",
+     "level": 5
+    },
+    {
+     "id": "56067",
+     "code": "IIA_PI_DS_CB_MAWR_SHT_TRM",
+     "label": "2.2.1.9.1 - Short-term",
+     "parentId": "56057",
+     "level": 6
+    },
+    {
+     "id": "56066",
+     "code": "IIA_PI_DS_CB_MAWR_LNG_TRM",
+     "label": "2.2.1.9.2 - Long-term",
+     "parentId": "56057",
+     "level": 6
+    },
+    {
+     "id": "56055",
+     "code": "IIA_PI_DS_DTCECB",
+     "label": "2.2.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56051",
+     "level": 5
+    },
+    {
+     "id": "56056",
+     "code": "IIA_PI_DS_DTCECB_SHT_TRM",
+     "label": "2.2.2.1 - Short-term",
+     "parentId": "56055",
+     "level": 6
+    },
+    {
+     "id": "56065",
+     "code": "IIA_PI_DS_DTCECB_LNG_TRM",
+     "label": "2.2.2.2 - Long-term",
+     "parentId": "56055",
+     "level": 6
+    },
+    {
+     "id": "56054",
+     "code": "IIA_PI_DS_GG",
+     "label": "2.2.3 - General government",
+     "parentId": "56051",
+     "level": 5
+    },
+    {
+     "id": "56064",
+     "code": "IIA_PI_DS_GG_SHT_TRM",
+     "label": "2.2.3.1 - Short-term",
+     "parentId": "56054",
+     "level": 6
+    },
+    {
+     "id": "56063",
+     "code": "IIA_PI_DS_GG_LNG_TRM",
+     "label": "2.2.3.2 - Long-term",
+     "parentId": "56054",
+     "level": 6
+    },
+    {
+     "id": "56052",
+     "code": "IIA_PI_DS_OS",
+     "label": "2.2.4 - Other sectors",
+     "parentId": "56051",
+     "level": 5
+    },
+    {
+     "id": "56062",
+     "code": "IIA_PI_DS_OS_SHT_TRM",
+     "label": "2.2.4.0.1 - Short-term",
+     "parentId": "56052",
+     "level": 6
+    },
+    {
+     "id": "56061",
+     "code": "IIA_PI_DS_OS_LNG_TRM",
+     "label": "2.2.4.0.2 - Long-term",
+     "parentId": "56052",
+     "level": 6
+    },
+    {
+     "id": "56053",
+     "code": "IIA_PI_DS_OS_OTH_FIN_CO",
+     "label": "2.2.4.1 - Other financial corporations",
+     "parentId": "56052",
+     "level": 6
+    },
+    {
+     "id": "56060",
+     "code": "IIA_PI_DS_OS_OFC_SHT_TRM",
+     "label": "2.2.4.1.1 - Short-term",
+     "parentId": "56053",
+     "level": 7
+    },
+    {
+     "id": "56059",
+     "code": "IIA_PI_DS_OS_OFC_LNG_TRM",
+     "label": "2.2.4.1.2 - Long-term",
+     "parentId": "56053",
+     "level": 7
+    },
+    {
+     "id": "56070",
+     "code": "IIA_PI_DS_OS_NFCH_NPISH",
+     "label": "2.2.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56052",
+     "level": 6
+    },
+    {
+     "id": "56072",
+     "code": "IIA_PI_DS_OS_NFCH_NPISH_SHT_TRM",
+     "label": "2.2.4.2.1 - Short-term",
+     "parentId": "56070",
+     "level": 7
+    },
+    {
+     "id": "56071",
+     "code": "IIA_PI_DS_OS_NFCH_NPISH_LNG_TRM",
+     "label": "2.2.4.2.2 - Long-term",
+     "parentId": "56070",
+     "level": 7
+    },
+    {
+     "id": "56073",
+     "code": "IIA_FD_OTR_ESO",
+     "label": "3 - Financial derivatives (other than reserves) and employee stock options",
+     "parentId": "55975",
+     "level": 3
+    },
+    {
+     "id": "56074",
+     "code": "IIA_FD_OTR_ESO_OS_FD_OTR",
+     "label": "3.0.1 - Financial derivatives (other than reserves)",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56075",
+     "code": "IIA_FD_OTR_ESO_OS_FD_OTR_OPT",
+     "label": "3.0.1.1 - Options",
+     "parentId": "56074",
+     "level": 5
+    },
+    {
+     "id": "56079",
+     "code": "IIA_FD_OTR_ESO_OS_FD_OTR_FWD_CTRT",
+     "label": "3.0.1.2 - Forward-type contracts",
+     "parentId": "56075",
+     "level": 6
+    },
+    {
+     "id": "56078",
+     "code": "IIA_FD_OTR_ESO_OS_ESO",
+     "label": "3.0.2 - Employee stock options",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56077",
+     "code": "IIA_FD_OTR_ESO_CB",
+     "label": "3.1 - Central bank",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56084",
+     "code": "IIA_FD_OTR_ESO_CB_MAWR",
+     "label": "3.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56083",
+     "code": "IIA_FD_OTR_ESO_DTCECB",
+     "label": "3.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56082",
+     "code": "IIA_FD_OTR_ESO_GG",
+     "label": "3.3 - General government",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56076",
+     "code": "IIA_FD_OTR_ESO_OS",
+     "label": "3.4 - Other sectors",
+     "parentId": "56073",
+     "level": 4
+    },
+    {
+     "id": "56081",
+     "code": "IIA_FD_OTR_ESO_OS_OFC",
+     "label": "3.4.1 - Other financial corporations",
+     "parentId": "56076",
+     "level": 5
+    },
+    {
+     "id": "56080",
+     "code": "IIA_FD_OTR_ESO_OS_NFCH_NPISH",
+     "label": "3.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56076",
+     "level": 5
+    },
+    {
+     "id": "56085",
+     "code": "IIA_OTH_INVS",
+     "label": "4 - Other investment",
+     "parentId": "55975",
+     "level": 3
+    },
+    {
+     "id": "56134",
+     "code": "IIA_OI_OTH_EQ",
+     "label": "4.1 - Other equity",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56094",
+     "code": "IIA_OI_CURR_DEP",
+     "label": "4.2 - Currency and deposits",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56101",
+     "code": "IIA_OI_CD_CB",
+     "label": "4.2.1 - Central banks",
+     "parentId": "56094",
+     "level": 5
+    },
+    {
+     "id": "56133",
+     "code": "IIA_OI_CD_CB_SHT_TRM",
+     "label": "4.2.1.1 - Short-term",
+     "parentId": "56101",
+     "level": 6
+    },
+    {
+     "id": "56132",
+     "code": "IIA_OI_CD_CB_LNG_TRM",
+     "label": "4.2.1.2 - Long-term",
+     "parentId": "56101",
+     "level": 6
+    },
+    {
+     "id": "56100",
+     "code": "IIA_OI_CD_CB_MAWR",
+     "label": "4.2.1.9 -  Monetary authorities (where relevant)",
+     "parentId": "56094",
+     "level": 5
+    },
+    {
+     "id": "56131",
+     "code": "IIA_OI_CD_CB_MAWR_SHT_TRM",
+     "label": "4.2.1.9.1 - Short-term",
+     "parentId": "56100",
+     "level": 6
+    },
+    {
+     "id": "56130",
+     "code": "IIA_OI_CD_CB_MAWR_LNG_TRM",
+     "label": "4.2.1.9.2 - Long-term",
+     "parentId": "56100",
+     "level": 6
+    },
+    {
+     "id": "56099",
+     "code": "IIA_OI_CD_DTCECB",
+     "label": "4.2.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56094",
+     "level": 5
+    },
+    {
+     "id": "56127",
+     "code": "IIA_OI_CD_DTCECB_LNG_TRM_INTBNK_POS",
+     "label": "4.2.2.0.1 - Of which: Interbank positions",
+     "parentId": "56099",
+     "level": 6
+    },
+    {
+     "id": "56129",
+     "code": "IIA_OI_CD_DTCECB_SHT_TRM",
+     "label": "4.2.2.1 - Short-term",
+     "parentId": "56099",
+     "level": 6
+    },
+    {
+     "id": "56128",
+     "code": "IIA_OI_CD_DTCECB_LNG_TRM",
+     "label": "4.2.2.2 - Long-term",
+     "parentId": "56099",
+     "level": 6
+    },
+    {
+     "id": "56098",
+     "code": "IIA_OI_CD_GG",
+     "label": "4.2.3 - General government",
+     "parentId": "56094",
+     "level": 5
+    },
+    {
+     "id": "56126",
+     "code": "IIA_OI_CD_GG_SHT_TRM",
+     "label": "4.2.3.1 - Short-term",
+     "parentId": "56098",
+     "level": 6
+    },
+    {
+     "id": "56125",
+     "code": "IIA_OI_CD_GG_LNG_TRM",
+     "label": "4.2.3.2 - Long-term",
+     "parentId": "56098",
+     "level": 6
+    },
+    {
+     "id": "56095",
+     "code": "IIA_OI_CD_OS",
+     "label": "4.2.4 - Other sectors",
+     "parentId": "56094",
+     "level": 5
+    },
+    {
+     "id": "56124",
+     "code": "IIA_OI_CD_OS_SHT_TRM",
+     "label": "4.2.4.0.1 - Short-term",
+     "parentId": "56095",
+     "level": 6
+    },
+    {
+     "id": "56123",
+     "code": "IIA_OI_CD_OS_LNG_TRM",
+     "label": "4.2.4.0.2 - Long-term",
+     "parentId": "56095",
+     "level": 6
+    },
+    {
+     "id": "56097",
+     "code": "IIA_OI_CD_OS_OFC",
+     "label": "4.2.4.1 - Other financial corporations",
+     "parentId": "56095",
+     "level": 6
+    },
+    {
+     "id": "56122",
+     "code": "IIA_OI_CD_OS_OFC_SHT_TRM",
+     "label": "4.2.4.1.1 - Short-term",
+     "parentId": "56097",
+     "level": 7
+    },
+    {
+     "id": "56121",
+     "code": "IIA_OI_CD_OS_OFC_LNG_TRM",
+     "label": "4.2.4.1.2 - Long-term",
+     "parentId": "56097",
+     "level": 7
+    },
+    {
+     "id": "56096",
+     "code": "IIA_OI_CD_OS_NFCH_NPISH",
+     "label": "4.2.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56095",
+     "level": 6
+    },
+    {
+     "id": "56120",
+     "code": "IIA_OI_CD_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.2.4.2.1 - Short-term",
+     "parentId": "56096",
+     "level": 7
+    },
+    {
+     "id": "56119",
+     "code": "IIA_OI_CD_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.2.4.2.2 - Long-term",
+     "parentId": "56096",
+     "level": 7
+    },
+    {
+     "id": "56086",
+     "code": "IIA_OI_LOANS",
+     "label": "4.3 -  Loans",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56093",
+     "code": "IIA_OI_LNS_CB",
+     "label": "4.3.1 - Central bank",
+     "parentId": "56086",
+     "level": 5
+    },
+    {
+     "id": "56118",
+     "code": "IIA_OI_LNS_CB_CL_IMF_OTR",
+     "label": "4.3.1.1 - Credit and loans with the IMF (other than reserves)",
+     "parentId": "56093",
+     "level": 6
+    },
+    {
+     "id": "56117",
+     "code": "IIA_OI_LNS_CB_OTH_SHT_TRM",
+     "label": "4.3.1.2 - Other short-term",
+     "parentId": "56093",
+     "level": 6
+    },
+    {
+     "id": "56116",
+     "code": "IIA_OI_LNS_CB_OTH_LNG_TRM",
+     "label": "4.3.1.3 - Other long-term",
+     "parentId": "56093",
+     "level": 6
+    },
+    {
+     "id": "56092",
+     "code": "IIA_OI_LNS_CB_MAWR",
+     "label": "4.3.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56086",
+     "level": 5
+    },
+    {
+     "id": "56115",
+     "code": "IIA_OI_LNS_CB_MAWR_CL_IMF_OTR",
+     "label": "4.3.1.9.1 - Credit and loans with the IMF (other than reserves)",
+     "parentId": "56092",
+     "level": 6
+    },
+    {
+     "id": "56114",
+     "code": "IIA_OI_LNS_CB_MAWR_OTH_SHT_TRM",
+     "label": "4.3.1.9.2 - Other short-term",
+     "parentId": "56092",
+     "level": 6
+    },
+    {
+     "id": "56113",
+     "code": "IIA_OI_LNS_CB_MAWR_OTH_LNG_TRM",
+     "label": "4.3.1.9.3 - Other long-term",
+     "parentId": "56092",
+     "level": 6
+    },
+    {
+     "id": "56091",
+     "code": "IIA_OI_LNS_CB_DTCECB",
+     "label": "4.3.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56086",
+     "level": 5
+    },
+    {
+     "id": "56112",
+     "code": "IIA_OI_LNS_CB_DTCECB_SHT_TRM",
+     "label": "4.3.2.1 - Short-term",
+     "parentId": "56091",
+     "level": 6
+    },
+    {
+     "id": "56111",
+     "code": "IIA_OI_LNS_CB_DTCECB_LNG_TRM",
+     "label": "4.3.2.2 - Long-term",
+     "parentId": "56091",
+     "level": 6
+    },
+    {
+     "id": "56090",
+     "code": "IIA_OI_LNS_CB_GG",
+     "label": "4.3.3 - General government",
+     "parentId": "56086",
+     "level": 5
+    },
+    {
+     "id": "56110",
+     "code": "IIA_OI_LNS_CB_GG_CL_IMF_OTR",
+     "label": "4.3.3.1 - Credit and loans with the IMF (other than reserves)",
+     "parentId": "56090",
+     "level": 6
+    },
+    {
+     "id": "56109",
+     "code": "IIA_OI_LNS_CB_GG_CL_IMF_OTR_OTH_SHT_TRM",
+     "label": "4.3.3.2 - Other short-term",
+     "parentId": "56090",
+     "level": 6
+    },
+    {
+     "id": "56108",
+     "code": "IIA_OI_LNS_CB_GG_CL_IMF_OTR_OTH_LNG_TRM",
+     "label": "4.3.3.3 - Other long-term",
+     "parentId": "56090",
+     "level": 6
+    },
+    {
+     "id": "56087",
+     "code": "IIA_OI_LNS_CB_OS",
+     "label": "4.3.4 - Other sectors",
+     "parentId": "56086",
+     "level": 5
+    },
+    {
+     "id": "56107",
+     "code": "IIA_OI_LNS_CB_OS_SHT_TRM",
+     "label": "4.3.4.0.1 - Short-term",
+     "parentId": "56087",
+     "level": 6
+    },
+    {
+     "id": "56106",
+     "code": "IIA_OI_LNS_CB_OS_LNG_TRM",
+     "label": "4.3.4.0.2 - Long-term",
+     "parentId": "56087",
+     "level": 6
+    },
+    {
+     "id": "56089",
+     "code": "IIA_OI_LNS_CB_OS_OFC",
+     "label": "4.3.4.1 - Other financial corporations",
+     "parentId": "56087",
+     "level": 6
+    },
+    {
+     "id": "56105",
+     "code": "IIA_OI_LNS_CB__OFC_SHT_TRM",
+     "label": "4.3.4.1.1 - Short-term",
+     "parentId": "56089",
+     "level": 7
+    },
+    {
+     "id": "56104",
+     "code": "IIA_OI_LNS_CB_OS_OFC_LNG_TRM",
+     "label": "4.3.4.1.2 - Long-term",
+     "parentId": "56089",
+     "level": 7
+    },
+    {
+     "id": "56088",
+     "code": "IIA_OI_LNS_CB_OS_NFCH_NPISH",
+     "label": "4.3.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56087",
+     "level": 6
+    },
+    {
+     "id": "56103",
+     "code": "IIA_OI_LNS_CB_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.3.4.2.1 - Short-term",
+     "parentId": "56088",
+     "level": 7
+    },
+    {
+     "id": "56102",
+     "code": "IIA_OI_LNS_CB_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.3.4.2.2 - Long-term",
+     "parentId": "56088",
+     "level": 7
+    },
+    {
+     "id": "56135",
+     "code": "IIA_OI_IPSGS",
+     "label": "4.4 - Insurance, pension, and standardized guarantee schemes",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56142",
+     "code": "IIA_OI_IPSGS_OS_NLITR",
+     "label": "4.4.0.1 - Nonlife insurance technical reserves",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56141",
+     "code": "IIA_OI_IPSGS_OS_LIAE",
+     "label": "4.4.0.2 - Life insurance and annuity entitlements",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56140",
+     "code": "IIA_OI_IPSGS_OS_PE",
+     "label": "4.4.0.3 - Pension entitlements",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56139",
+     "code": "IIA_OI_IPSGS_OS_CPFS",
+     "label": "4.4.0.4 - Claims of pension funds on sponsors",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56138",
+     "code": "IIA_OI_IPSGS_OS_ETNPB",
+     "label": "4.4.0.5 - Entitlements to nonpension benefits",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56137",
+     "code": "IIA_OI_IPSGS_OS_PFCUSG",
+     "label": "4.4.0.6 - Provisions for calls under standardized guarantees",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56148",
+     "code": "IIA_OI_IPSGS_CB",
+     "label": "4.4.1 - Central bank",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56147",
+     "code": "IIA_OI_IPSGS_CB_MAWR",
+     "label": "4.4.1.9 - Central bank - Monetary authorities (where relevant)",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56146",
+     "code": "IIA_OI_IPSGS_DTCECB",
+     "label": "4.4.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56145",
+     "code": "IIA_OI_IPSGS_GG",
+     "label": "4.4.3 - General government",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56136",
+     "code": "IIA_OI_IPSGS_OS",
+     "label": "4.4.4 - Other sectors",
+     "parentId": "56135",
+     "level": 5
+    },
+    {
+     "id": "56144",
+     "code": "IIA_OI_IPSGS_OS_OFC",
+     "label": "4.4.4.1 - Other financial corporations",
+     "parentId": "56136",
+     "level": 6
+    },
+    {
+     "id": "56143",
+     "code": "IIA_OI_IPSGS_OS_NFCH_NPISH",
+     "label": "4.4.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56136",
+     "level": 6
+    },
+    {
+     "id": "56149",
+     "code": "IIA_OI_TCA",
+     "label": "4.5 - Trade credit and advances",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56156",
+     "code": "IIA_OI_TCA_CB",
+     "label": "4.5.1 - Central bank",
+     "parentId": "56149",
+     "level": 5
+    },
+    {
+     "id": "56169",
+     "code": "IIA_OI_TCA_CB_SHT_TRM",
+     "label": "4.5.1.1 - Short-term",
+     "parentId": "56156",
+     "level": 6
+    },
+    {
+     "id": "56168",
+     "code": "IIA_OI_TCA_CB_LNG_TRM",
+     "label": "4.5.1.2 - Long-term",
+     "parentId": "56156",
+     "level": 6
+    },
+    {
+     "id": "56155",
+     "code": "IIA_OI_TCA_CB_MAWR",
+     "label": "4.5.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56149",
+     "level": 5
+    },
+    {
+     "id": "56167",
+     "code": "IIA_OI_TCA_CB_MAWR_SHT_TRM",
+     "label": "4.5.1.9.1 - Short-term",
+     "parentId": "56155",
+     "level": 6
+    },
+    {
+     "id": "56166",
+     "code": "IIA_OI_TCA_CB_MAWR_LNG_TRM",
+     "label": "4.5.1.9.2 - Long-term",
+     "parentId": "56155",
+     "level": 6
+    },
+    {
+     "id": "56154",
+     "code": "IIA_OI_TCA_DTCECB",
+     "label": "4.5.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56149",
+     "level": 5
+    },
+    {
+     "id": "56165",
+     "code": "IIA_OI_TCA_DTCECB_SHT_TRM",
+     "label": "4.5.2.1 - Short-term",
+     "parentId": "56154",
+     "level": 6
+    },
+    {
+     "id": "56164",
+     "code": "IIA_OI_TCA_DTCECB_LNG_TRM",
+     "label": "4.5.2.2 - Long-term",
+     "parentId": "56154",
+     "level": 6
+    },
+    {
+     "id": "56153",
+     "code": "IIA_OI_TCA_GG",
+     "label": "4.5.3 - General government",
+     "parentId": "56149",
+     "level": 5
+    },
+    {
+     "id": "56163",
+     "code": "IIA_OI_TCA_GG_SHT_TRM",
+     "label": "4.5.3.1 - Short-term",
+     "parentId": "56153",
+     "level": 6
+    },
+    {
+     "id": "56162",
+     "code": "IIA_OI_TCA_GG_LNG_TRM",
+     "label": "4.5.3.2 - Long-term",
+     "parentId": "56153",
+     "level": 6
+    },
+    {
+     "id": "56150",
+     "code": "IIA_OI_TCA_OS",
+     "label": "4.5.4 - Other sectors",
+     "parentId": "56149",
+     "level": 5
+    },
+    {
+     "id": "56161",
+     "code": "IIA_OI_TCA_OS_SHT_TRM",
+     "label": "4.5.4.0.1 - Short-term",
+     "parentId": "56150",
+     "level": 6
+    },
+    {
+     "id": "56160",
+     "code": "IIA_OI_TCA_OS_LNG_TRM",
+     "label": "4.5.4.0.2 - Long-term",
+     "parentId": "56150",
+     "level": 6
+    },
+    {
+     "id": "56152",
+     "code": "IIA_OI_TCA_OS_OFC",
+     "label": "4.5.4.1 - Other financial corporations",
+     "parentId": "56150",
+     "level": 6
+    },
+    {
+     "id": "56159",
+     "code": "IIA_OI_TCA_OS_OFC_SHT_TRM",
+     "label": "4.5.4.1.1 - Short-term",
+     "parentId": "56152",
+     "level": 7
+    },
+    {
+     "id": "56158",
+     "code": "IIA_OI_TCA_OS_OFC_LNG_TRM",
+     "label": "4.5.4.1.2 - Long-term",
+     "parentId": "56152",
+     "level": 7
+    },
+    {
+     "id": "56151",
+     "code": "IIA_OI_TCA_OS_NFCH_NPISH",
+     "label": "4.5.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56150",
+     "level": 6
+    },
+    {
+     "id": "56157",
+     "code": "IIA_OI_TCA_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.5.4.2.1 - Short-term",
+     "parentId": "56151",
+     "level": 7
+    },
+    {
+     "id": "56170",
+     "code": "IIA_OI_TCA_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.5.4.2.2 - Long-term",
+     "parentId": "56151",
+     "level": 7
+    },
+    {
+     "id": "56171",
+     "code": "IIA_OI_OAR",
+     "label": "4.6 - Other accounts receivable",
+     "parentId": "56085",
+     "level": 4
+    },
+    {
+     "id": "56172",
+     "code": "IIA_OI_OAR_CB",
+     "label": "4.6.1 - Central bank",
+     "parentId": "56171",
+     "level": 5
+    },
+    {
+     "id": "56175",
+     "code": "IIA_OI_OAR_CB_SHT_TRM",
+     "label": "4.6.1.1 - Short-term",
+     "parentId": "56172",
+     "level": 6
+    },
+    {
+     "id": "56174",
+     "code": "IIA_OI_OAR_CB_LNG_TRM",
+     "label": "4.6.1.2 - Long-term",
+     "parentId": "56172",
+     "level": 6
+    },
+    {
+     "id": "56173",
+     "code": "IIA_OI_OAR_CB_MAWR",
+     "label": "4.6.1.9 - Central bank - Monetary authorities (where relevant)",
+     "parentId": "56171",
+     "level": 5
+    },
+    {
+     "id": "56192",
+     "code": "IIA_OI_OAR_CB_MAWR_SHT_TRM",
+     "label": "4.6.1.9.1 - Short-term",
+     "parentId": "56173",
+     "level": 6
+    },
+    {
+     "id": "56191",
+     "code": "IIA_OI_OAR_CB_MAWR_LNG_TRM",
+     "label": "4.6.1.9.2 - Long-term",
+     "parentId": "56173",
+     "level": 6
+    },
+    {
+     "id": "56180",
+     "code": "IIA_OI_OAR_DTCECB",
+     "label": "4.6.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56171",
+     "level": 5
+    },
+    {
+     "id": "56190",
+     "code": "IIA_OI_OAR_DTCECB_SHT_TRM",
+     "label": "4.6.2.1 - Short-term",
+     "parentId": "56180",
+     "level": 6
+    },
+    {
+     "id": "56189",
+     "code": "IIA_OI_OAR_DTCECB_LNG_TRM",
+     "label": "4.6.2.2 - Long-term",
+     "parentId": "56180",
+     "level": 6
+    },
+    {
+     "id": "56179",
+     "code": "IIA_OI_OAR_GG",
+     "label": "4.6.3 - General government",
+     "parentId": "56171",
+     "level": 5
+    },
+    {
+     "id": "56188",
+     "code": "IIA_OI_OAR_GG_SHT_TRM",
+     "label": "4.6.3.1 - Short-term",
+     "parentId": "56179",
+     "level": 6
+    },
+    {
+     "id": "56187",
+     "code": "IIA_OI_OAR_GG_LNG_TRM",
+     "label": "4.6.3.2 - Long-term",
+     "parentId": "56179",
+     "level": 6
+    },
+    {
+     "id": "56176",
+     "code": "IIA_OI_OAR_OS",
+     "label": "4.6.4 - Other sectors",
+     "parentId": "56171",
+     "level": 5
+    },
+    {
+     "id": "56186",
+     "code": "IIA_OI_OAR_OS_SHT_TRM",
+     "label": "4.6.4.0.1 - Short-term",
+     "parentId": "56176",
+     "level": 6
+    },
+    {
+     "id": "56185",
+     "code": "IIA_OI_OAR_OS_LNG_TRM",
+     "label": "4.6.4.0.2 - Long-term",
+     "parentId": "56176",
+     "level": 6
+    },
+    {
+     "id": "56178",
+     "code": "IIA_OI_OAR_OS_OFC",
+     "label": "4.6.4.1 - Other financial corporations",
+     "parentId": "56176",
+     "level": 6
+    },
+    {
+     "id": "56184",
+     "code": "IIA_OI_OAR_OS_OFC_SHT_TRM",
+     "label": "4.6.4.1.1 - Short-term",
+     "parentId": "56178",
+     "level": 7
+    },
+    {
+     "id": "56183",
+     "code": "IIA_OI_OAR_OS_OFC_LNG_TRM",
+     "label": "4.6.4.1.2 - Long-term",
+     "parentId": "56178",
+     "level": 7
+    },
+    {
+     "id": "56177",
+     "code": "IIA_OI_OAR_OS_NFCH_NPISH",
+     "label": "4.6.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56176",
+     "level": 6
+    },
+    {
+     "id": "56182",
+     "code": "IIA_OI_OAR_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.6.4.2.1 - Short-term",
+     "parentId": "56177",
+     "level": 7
+    },
+    {
+     "id": "56181",
+     "code": "IIA_OI_OAR_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.6.4.2.2 - Long-term",
+     "parentId": "56177",
+     "level": 7
+    },
+    {
+     "id": "56193",
+     "code": "IIA_RES_ASS",
+     "label": "5 - Reserve Asset",
+     "parentId": "55975",
+     "level": 3
+    },
+    {
+     "id": "56198",
+     "code": "IIA_RA_MON_GLD",
+     "label": "5.1 - Monetary gold",
+     "parentId": "56193",
+     "level": 4
+    },
+    {
+     "id": "56209",
+     "code": "IIA_RA_MG_UGA_MGUSFCC",
+     "label": "5.1.0.1 - Monetary gold under swap for cash collateral",
+     "parentId": "56198",
+     "level": 5
+    },
+    {
+     "id": "56211",
+     "code": "IIA_RA_MG_GB",
+     "label": "5.1.1 - Gold bullion",
+     "parentId": "56198",
+     "level": 5
+    },
+    {
+     "id": "56210",
+     "code": "IIA_RA_MG_UGA",
+     "label": "5.1.2 - Unallocated gold accounts",
+     "parentId": "56198",
+     "level": 5
+    },
+    {
+     "id": "56208",
+     "code": "IIA_RA_MG_SDR",
+     "label": "5.2 - Special drawing rights",
+     "parentId": "56193",
+     "level": 4
+    },
+    {
+     "id": "56207",
+     "code": "IIA_RA_MG_RPIMF",
+     "label": "5.3 - Reserve position in the IMF",
+     "parentId": "56193",
+     "level": 4
+    },
+    {
+     "id": "56194",
+     "code": "IIA_RA_MG_ORA",
+     "label": "5.4 - Other reserve assets",
+     "parentId": "56193",
+     "level": 4
+    },
+    {
+     "id": "56197",
+     "code": "IIA_RA_MG_ORA_CD",
+     "label": "5.4.1 - Currency and deposits",
+     "parentId": "56194",
+     "level": 5
+    },
+    {
+     "id": "56206",
+     "code": "IIA_RA_MG_ORA_CD_COMA",
+     "label": "5.4.1.1 - Claims on monetary authorities",
+     "parentId": "56197",
+     "level": 6
+    },
+    {
+     "id": "56205",
+     "code": "IIA_RA_MG_ORA_CD_COOE",
+     "label": "5.4.1.2 - Claims on other entities",
+     "parentId": "56197",
+     "level": 6
+    },
+    {
+     "id": "56195",
+     "code": "IIA_RA_MG_ORA_SEC",
+     "label": "5.4.2 - Securities",
+     "parentId": "56194",
+     "level": 5
+    },
+    {
+     "id": "56201",
+     "code": "IIA_RA_MG_ORA_SEC_EIFS_SURFCC",
+     "label": "5.4.2.0.1 - Securities under repo for cash collateral",
+     "parentId": "56195",
+     "level": 6
+    },
+    {
+     "id": "56196",
+     "code": "IIA_RA_MG_ORA_SEC_DS",
+     "label": "5.4.2.1 - Debt securities",
+     "parentId": "56195",
+     "level": 6
+    },
+    {
+     "id": "56204",
+     "code": "IIA_RA_MG_ORA_SEC_DS_SHT_TRM",
+     "label": "5.4.2.1.1 - Debt Short-term",
+     "parentId": "56196",
+     "level": 7
+    },
+    {
+     "id": "56203",
+     "code": "IIA_RA_MG_ORA_SEC_DS_LNG_TRM",
+     "label": "5.4.2.1.2 - Debt Long-term",
+     "parentId": "56196",
+     "level": 7
+    },
+    {
+     "id": "56202",
+     "code": "IIA_RA_MG_ORA_SEC_EIFS",
+     "label": "5.4.2.2 - Equity and investment fund shares",
+     "parentId": "56195",
+     "level": 6
+    },
+    {
+     "id": "56200",
+     "code": "IIA_RA_MG_ORA_SEC_FD",
+     "label": "5.4.3 - Financial derivatives",
+     "parentId": "56194",
+     "level": 5
+    },
+    {
+     "id": "56199",
+     "code": "IIA_RA_MG_ORA_SEC_OC",
+     "label": "5.4.4 - Other claims",
+     "parentId": "56194",
+     "level": 5
+    },
+    {
+     "id": "56212",
+     "code": "IIP_LIB",
+     "label": "B - Liabilities",
+     "parentId": "55974",
+     "level": 2
+    },
+    {
+     "id": "56238",
+     "code": "IIL_DI",
+     "label": "1 - Direct investment",
+     "parentId": "56212",
+     "level": 3
+    },
+    {
+     "id": "56243",
+     "code": "IIL_DI_EIFS",
+     "label": "1.1 - Equity and investment fund shares",
+     "parentId": "56238",
+     "level": 4
+    },
+    {
+     "id": "56244",
+     "code": "IIL_DI_EIFS_BFE_CPU_IFSU",
+     "label": "1.1.0.1 - Investment fund shares or units",
+     "parentId": "56243",
+     "level": 5
+    },
+    {
+     "id": "56304",
+     "code": "IIL_DI_EIFS_BFE_CPU_IFSU_MMFSU",
+     "label": "1.1.0.1.1 - Money market fund shares or units",
+     "parentId": "56244",
+     "level": 6
+    },
+    {
+     "id": "56309",
+     "code": "IIL_DI_EIFS_DRT_INV_DIE",
+     "label": "1.1.1 - Direct investor in direct investment  enterprises",
+     "parentId": "56243",
+     "level": 5
+    },
+    {
+     "id": "56308",
+     "code": "IIL_DI_EIFS_DRT_INV_DIE_DRT_INV_RES_INV",
+     "label": "1.1.2 - direct investor (reverse investment)",
+     "parentId": "56243",
+     "level": 5
+    },
+    {
+     "id": "56245",
+     "code": "IIL_DI_EIFS_BFE",
+     "label": "1.1.3 - Between fellow enterprises",
+     "parentId": "56243",
+     "level": 5
+    },
+    {
+     "id": "56307",
+     "code": "IIL_DI_EIFS_BFE_CPR",
+     "label": "1.1.3.1 - if ultimate controlling parent is resident",
+     "parentId": "56245",
+     "level": 6
+    },
+    {
+     "id": "56306",
+     "code": "IIL_DI_EIFS_BFE_CPNR",
+     "label": "1.1.3.2 - if ultimate controlling parent is nonresident",
+     "parentId": "56245",
+     "level": 6
+    },
+    {
+     "id": "56305",
+     "code": "IIL_DI_EIFS_BFE_CPU",
+     "label": "1.1.3.3 - controlling parent is unknown",
+     "parentId": "56245",
+     "level": 6
+    },
+    {
+     "id": "56239",
+     "code": "IIL_DI_DBT_INS",
+     "label": "1.2 - Debt instruments",
+     "parentId": "56238",
+     "level": 4
+    },
+    {
+     "id": "56240",
+     "code": "IIL_DI_DBT_BFE_CPU_DS",
+     "label": "1.2.0.1 - Debt securities",
+     "parentId": "56239",
+     "level": 5
+    },
+    {
+     "id": "56298",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_DRT_INV_DIE",
+     "label": "1.2.0.1.1 - Direct investor in direct investment enterprises",
+     "parentId": "56240",
+     "level": 6
+    },
+    {
+     "id": "56297",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_DIE_DRT_INV_RES_INV",
+     "label": "1.2.0.1.2 - Direct investment enterprises in direct investor (reverse investment)",
+     "parentId": "56240",
+     "level": 6
+    },
+    {
+     "id": "56241",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_BFE",
+     "label": "1.2.0.1.3 - Between fellow enterprises",
+     "parentId": "56240",
+     "level": 6
+    },
+    {
+     "id": "56296",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_BFE_CPR",
+     "label": "1.2.0.1.3.1 - controlling parent is resident",
+     "parentId": "56241",
+     "level": 7
+    },
+    {
+     "id": "56295",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_BFE_CPNR",
+     "label": "1.2.0.1.3.2 - controlling parent is nonresident",
+     "parentId": "56241",
+     "level": 7
+    },
+    {
+     "id": "56294",
+     "code": "IIL_DI_DBT_BFE_CPU_DS_BFE_CPU",
+     "label": "1.2.0.1.3.3 - controlling parent is unknown",
+     "parentId": "56241",
+     "level": 7
+    },
+    {
+     "id": "56303",
+     "code": "IIL_DI_DBT_INS_DRT_INV_DIE",
+     "label": "1.2.1 - Direct investor in direct investment enterprises",
+     "parentId": "56239",
+     "level": 5
+    },
+    {
+     "id": "56302",
+     "code": "IIL_DI_DBT_INS_DIE_DRT_INV_RES_INV",
+     "label": "1.2.2 - Direct investment enterprises in direct investor (reverse investment)",
+     "parentId": "56239",
+     "level": 5
+    },
+    {
+     "id": "56242",
+     "code": "IIL_DI_DBT_BFE",
+     "label": "1.2.3 - Between fellow enterprises",
+     "parentId": "56239",
+     "level": 5
+    },
+    {
+     "id": "56301",
+     "code": "IIL_DI_DBT_BFE_CPR",
+     "label": "1.2.3.1 - controlling parent is resident",
+     "parentId": "56242",
+     "level": 6
+    },
+    {
+     "id": "56300",
+     "code": "IIL_DI_DBT_BFE_CPNR",
+     "label": "1.2.3.2 - controlling parent is non resident",
+     "parentId": "56242",
+     "level": 6
+    },
+    {
+     "id": "56299",
+     "code": "IIL_DI_DBT_BFE_CPU",
+     "label": "1.2.3.3 - controlling parent is unknown",
+     "parentId": "56242",
+     "level": 6
+    },
+    {
+     "id": "56225",
+     "code": "IIL_PI",
+     "label": "2 - Portfolio investment",
+     "parentId": "56212",
+     "level": 3
+    },
+    {
+     "id": "56234",
+     "code": "IIL_PI_EIFS",
+     "label": "2.1 - Equity and investment fund shares",
+     "parentId": "56225",
+     "level": 4
+    },
+    {
+     "id": "56236",
+     "code": "IIL_PI_EIFS_OS_ESOTIFS",
+     "label": "2.1.0.1 - Equity securities other than investment fund shares",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56287",
+     "code": "IIL_PI_EIFS_OS_ESOTIFS_LIS",
+     "label": "2.1.0.1.1 - Listed",
+     "parentId": "56236",
+     "level": 6
+    },
+    {
+     "id": "56286",
+     "code": "IIL_PI_EIFS_OS_ESOTIFS_UNLIS",
+     "label": "2.1.0.1.2 - Unlisted",
+     "parentId": "56236",
+     "level": 6
+    },
+    {
+     "id": "56235",
+     "code": "IIL_PI_EIFS_OS_IFSU",
+     "label": "2.1.0.2 - Investment fund shares or units",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56285",
+     "code": "IIL_PI_EIFS_OS_IFSU_MMFSU",
+     "label": "2.1.0.2.1 - Money market fund shares or units",
+     "parentId": "56235",
+     "level": 6
+    },
+    {
+     "id": "56293",
+     "code": "IIL_PI_EIFS_CB",
+     "label": "2.1.1 - Central bank",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56292",
+     "code": "IIL_PI_EIFS_CB_MAWR",
+     "label": "2.1.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56290",
+     "code": "IIL_PI_EIFS_DTCECB",
+     "label": "2.1.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56291",
+     "code": "IIL_PI_EIFS_GG",
+     "label": "2.1.3 - General government",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56237",
+     "code": "IIL_PI_EIFS_OS",
+     "label": "2.1.4 - Other sectors",
+     "parentId": "56234",
+     "level": 5
+    },
+    {
+     "id": "56289",
+     "code": "IIL_PI_EIFS_OS_OFC",
+     "label": "2.1.4.1 - Other financial corporations",
+     "parentId": "56237",
+     "level": 6
+    },
+    {
+     "id": "56288",
+     "code": "IIL_PI_EIFS_OS_NFCH_NPISH",
+     "label": "2.1.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56237",
+     "level": 6
+    },
+    {
+     "id": "56226",
+     "code": "IIL_PI_DS",
+     "label": "2.2 - Debt securities",
+     "parentId": "56225",
+     "level": 4
+    },
+    {
+     "id": "56233",
+     "code": "IIL_PI_DS_CB",
+     "label": "2.2.1 - Central bank",
+     "parentId": "56226",
+     "level": 5
+    },
+    {
+     "id": "56284",
+     "code": "IIL_PI_DS_CB_SHT_TRM",
+     "label": "2.2.1.1 - Short-term",
+     "parentId": "56233",
+     "level": 6
+    },
+    {
+     "id": "56283",
+     "code": "IIL_PI_DS_CB_LNG_TRM",
+     "label": "2.2.1.2 - Long-term",
+     "parentId": "56233",
+     "level": 6
+    },
+    {
+     "id": "56232",
+     "code": "IIL_PI_DS_CB_MAWR",
+     "label": "2.2.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56226",
+     "level": 5
+    },
+    {
+     "id": "56282",
+     "code": "IIL_PI_DS_CB_MAWR_SHT_TRM",
+     "label": "2.2.1.9.1 - Short-term",
+     "parentId": "56232",
+     "level": 6
+    },
+    {
+     "id": "56281",
+     "code": "IIL_PI_DS_CB_MAWR_LNG_TRM",
+     "label": "2.2.1.9.2 - Long-term",
+     "parentId": "56232",
+     "level": 6
+    },
+    {
+     "id": "56231",
+     "code": "IIL_PI_DS_DTCECB",
+     "label": "2.2.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56226",
+     "level": 5
+    },
+    {
+     "id": "56280",
+     "code": "IIL_PI_DS_DTCECB_SHT_TRM",
+     "label": "2.2.2.1 - Short-term",
+     "parentId": "56231",
+     "level": 6
+    },
+    {
+     "id": "56279",
+     "code": "IIL_PI_DS_DTCECB_LNG_TRM",
+     "label": "2.2.2.2 - Long-term",
+     "parentId": "56231",
+     "level": 6
+    },
+    {
+     "id": "56230",
+     "code": "IIL_PI_DS_GG",
+     "label": "2.2.3 - General government",
+     "parentId": "56226",
+     "level": 5
+    },
+    {
+     "id": "56278",
+     "code": "IIL_PI_DS_GG_SHT_TRM",
+     "label": "2.2.3.1 - Short-term",
+     "parentId": "56230",
+     "level": 6
+    },
+    {
+     "id": "56277",
+     "code": "IIL_PI_DS_GG_LNG_TRM",
+     "label": "2.2.3.2 - Long-term",
+     "parentId": "56230",
+     "level": 6
+    },
+    {
+     "id": "56227",
+     "code": "IIL_PI_DS_OS",
+     "label": "2.2.4 - Other sectors",
+     "parentId": "56226",
+     "level": 5
+    },
+    {
+     "id": "56276",
+     "code": "IIL_PI_DS_OS_SHT_TRM",
+     "label": "2.2.4.0.1 - Short-term",
+     "parentId": "56227",
+     "level": 6
+    },
+    {
+     "id": "56275",
+     "code": "IIL_PI_DS_OS_LNG_TRM",
+     "label": "2.2.4.0.2 - Long-term",
+     "parentId": "56227",
+     "level": 6
+    },
+    {
+     "id": "56229",
+     "code": "IIL_PI_DS_OS_OTH_FIN_CO",
+     "label": "2.2.4.1 - Other financial corporations",
+     "parentId": "56227",
+     "level": 6
+    },
+    {
+     "id": "56274",
+     "code": "IIL_PI_DS_OS_OFC_SHT_TRM",
+     "label": "2.2.4.1.1 - Short-term",
+     "parentId": "56229",
+     "level": 7
+    },
+    {
+     "id": "56273",
+     "code": "IIL_PI_DS_OS_OFC_LNG_TRM",
+     "label": "2.2.4.1.2 - Long-term",
+     "parentId": "56229",
+     "level": 7
+    },
+    {
+     "id": "56228",
+     "code": "IIL_PI_DS_OS_NFCH_NPISH",
+     "label": "2.2.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56227",
+     "level": 6
+    },
+    {
+     "id": "56272",
+     "code": "IIL_PI_DS_OS_NFCH_NPISH_SHT_TRM",
+     "label": "2.2.4.2.1 - Short-term",
+     "parentId": "56228",
+     "level": 7
+    },
+    {
+     "id": "56271",
+     "code": "IIL_PI_DS_OS_NFCH_NPISH_LNG_TRM",
+     "label": "2.2.4.2.2 - Long-term",
+     "parentId": "56228",
+     "level": 7
+    },
+    {
+     "id": "56222",
+     "code": "IIL_FD_OTR_ESO",
+     "label": "3 - Financial derivatives (other than reserves) and employee stock options",
+     "parentId": "56212",
+     "level": 3
+    },
+    {
+     "id": "56223",
+     "code": "IIL_FD_OTR_ESO_OS_FD_OTR",
+     "label": "3.0.1 - Financial derivatives (other than reserves)",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56264",
+     "code": "IIL_FD_OTR_ESO_OS_FD_OTR_OPT",
+     "label": "3.0.1.1 - Options",
+     "parentId": "56223",
+     "level": 5
+    },
+    {
+     "id": "56263",
+     "code": "IIL_FD_OTR_ESO_OS_FD_OTR_FWD_CTRT",
+     "label": "3.0.1.2 - Forward-type contracts",
+     "parentId": "56223",
+     "level": 5
+    },
+    {
+     "id": "56262",
+     "code": "IIL_FD_OTR_ESO_OS_ESO",
+     "label": "3.0.2 - Employee stock options",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56270",
+     "code": "IIL_FD_OTR_ESO_CB",
+     "label": "3.1 - Central bank",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56269",
+     "code": "IIL_FD_OTR_ESO_CB_MAWR",
+     "label": "3.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56268",
+     "code": "IIL_FD_OTR_ESO_DTCECB",
+     "label": "3.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56267",
+     "code": "IIL_FD_OTR_ESO_GG",
+     "label": "3.3 - General government",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56224",
+     "code": "IIL_FD_OTR_ESO_OS",
+     "label": "3.4 - Other sectors",
+     "parentId": "56222",
+     "level": 4
+    },
+    {
+     "id": "56266",
+     "code": "IIL_FD_OTR_ESO_OS_OFC",
+     "label": "3.4.1 - Other financial corporations",
+     "parentId": "56224",
+     "level": 5
+    },
+    {
+     "id": "56265",
+     "code": "IIL_FD_OTR_ESO_OS_NFCH_NPISH",
+     "label": "3.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56224",
+     "level": 5
+    },
+    {
+     "id": "56213",
+     "code": "IIL_OTH_INVS",
+     "label": "4 - Other investment",
+     "parentId": "56212",
+     "level": 3
+    },
+    {
+     "id": "56261",
+     "code": "IIL_OI_OTH_EQ",
+     "label": "4.1 - Other equity",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56214",
+     "code": "IIL_OI_CURR_DEP",
+     "label": "4.2 - Currency and deposits",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56221",
+     "code": "IIL_OI_CD_CB",
+     "label": "4.2.1 - Central banks",
+     "parentId": "56214",
+     "level": 5
+    },
+    {
+     "id": "56260",
+     "code": "IIL_OI_CD_CB_SHT_TRM",
+     "label": "4.2.1.1 - Short-term",
+     "parentId": "56221",
+     "level": 6
+    },
+    {
+     "id": "56259",
+     "code": "IIL_OI_CD_CB_LNG_TRM",
+     "label": "4.2.1.2 - Long-term",
+     "parentId": "56221",
+     "level": 6
+    },
+    {
+     "id": "56220",
+     "code": "IIL_OI_CD_CB_MAWR",
+     "label": "4.2.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56214",
+     "level": 5
+    },
+    {
+     "id": "56258",
+     "code": "IIL_OI_CD_CB_MAWR_SHT_TRM",
+     "label": "4.2.1.9.1 - Short-term",
+     "parentId": "56220",
+     "level": 6
+    },
+    {
+     "id": "56257",
+     "code": "IIL_OI_CD_CB_MAWR_LNG_TRM",
+     "label": "4.2.1.9.2 - Long-term",
+     "parentId": "56220",
+     "level": 6
+    },
+    {
+     "id": "56219",
+     "code": "IIL_OI_CD_CB_DTCECB",
+     "label": "4.2.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56214",
+     "level": 5
+    },
+    {
+     "id": "56254",
+     "code": "IIL_OI_CD_CB_DTCECB_LNG_TRM_INTBNK_POS",
+     "label": "4.2.2.0.1 - Of which: Interbank positions",
+     "parentId": "56219",
+     "level": 6
+    },
+    {
+     "id": "56256",
+     "code": "IIL_OI_CD_CB_DTCECB_SHT_TRM",
+     "label": "4.2.2.1 - Short-term",
+     "parentId": "56219",
+     "level": 6
+    },
+    {
+     "id": "56255",
+     "code": "IIL_OI_CD_CB_DTCECB_LNG_TRM",
+     "label": "4.2.2.2 - Long-term",
+     "parentId": "56219",
+     "level": 6
+    },
+    {
+     "id": "56218",
+     "code": "IIL_OI_CD_CB_GG",
+     "label": "4.2.3 - General government",
+     "parentId": "56214",
+     "level": 5
+    },
+    {
+     "id": "56253",
+     "code": "IIL_OI_CD_CB_GG_SHT_TRM",
+     "label": "4.2.3.1 - Short-term",
+     "parentId": "56218",
+     "level": 6
+    },
+    {
+     "id": "56252",
+     "code": "IIL_OI_CD_CB_GG_LNG_TRM",
+     "label": "4.2.3.2 - Long-term",
+     "parentId": "56218",
+     "level": 6
+    },
+    {
+     "id": "56215",
+     "code": "IIL_OI_CD_CB_OS",
+     "label": "4.2.4 - Other sectors",
+     "parentId": "56214",
+     "level": 5
+    },
+    {
+     "id": "56251",
+     "code": "IIL_OI_CD_CB_OS_SHT_TRM",
+     "label": "4.2.4.0.1 - Short-term",
+     "parentId": "56215",
+     "level": 6
+    },
+    {
+     "id": "56250",
+     "code": "IIL_OI_CD_CB_OS_LNG_TRM",
+     "label": "4.2.4.0.2 - Long-term",
+     "parentId": "56215",
+     "level": 6
+    },
+    {
+     "id": "56217",
+     "code": "IIL_OI_CD_CB_OS_OFC",
+     "label": "4.2.4.1 - Other sectors - Other financial corporations",
+     "parentId": "56215",
+     "level": 6
+    },
+    {
+     "id": "56249",
+     "code": "IIL_OI_CD_CB_OS_OFC_SHT_TRM",
+     "label": "4.2.4.1.1 - Short-term",
+     "parentId": "56217",
+     "level": 7
+    },
+    {
+     "id": "56248",
+     "code": "IIL_OI_CD_CB_OS_OFC_LNG_TRM",
+     "label": "4.2.4.1.2 - Long-term",
+     "parentId": "56217",
+     "level": 7
+    },
+    {
+     "id": "56216",
+     "code": "IIL_OI_CD_CB_OS_NFCH_NPISH",
+     "label": "4.2.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56215",
+     "level": 6
+    },
+    {
+     "id": "56247",
+     "code": "IIL_OI_CD_CB_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.2.4.2.1 - Short-term",
+     "parentId": "56216",
+     "level": 7
+    },
+    {
+     "id": "56246",
+     "code": "IIL_OI_CD_CB_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.2.4.2.2 - Long-term",
+     "parentId": "56216",
+     "level": 7
+    },
+    {
+     "id": "56310",
+     "code": "IIL_OI_LOANS",
+     "label": "4.3 -  Loans",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56311",
+     "code": "IIL_OI_LNS_CB",
+     "label": "4.3.1 - Central bank",
+     "parentId": "56310",
+     "level": 5
+    },
+    {
+     "id": "56314",
+     "code": "IIL_OI_LNS_CB_CL_IMF_OTR",
+     "label": "4.3.1.1 - Credit and loans with the IMF",
+     "parentId": "56311",
+     "level": 6
+    },
+    {
+     "id": "56313",
+     "code": "IIL_OI_LNS_CB_OTH_SHT_TRM",
+     "label": "4.3.1.2 - Other short-term",
+     "parentId": "56311",
+     "level": 6
+    },
+    {
+     "id": "56312",
+     "code": "IIL_OI_LNS_CB_OTH_LNG_TRM",
+     "label": "4.3.1.3 - Other long-term",
+     "parentId": "56311",
+     "level": 6
+    },
+    {
+     "id": "56315",
+     "code": "IIL_OI_LNS_CB_MAWR",
+     "label": "4.3.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56310",
+     "level": 5
+    },
+    {
+     "id": "56316",
+     "code": "IIL_OI_LNS_CB_MAWR_CL_IMF_OTR",
+     "label": "4.3.1.9.1 - Credit and loans with the IMF",
+     "parentId": "56315",
+     "level": 6
+    },
+    {
+     "id": "56348",
+     "code": "IIL_OI_LNS_CB_MAWR_OTH_SHT_TRM",
+     "label": "4.3.1.9.2 - Other short-term",
+     "parentId": "56315",
+     "level": 6
+    },
+    {
+     "id": "56347",
+     "code": "IIL_OI_LNS_CB_MAWR_OTH_LNG_TRM",
+     "label": "4.3.1.9.3 - Other long-term",
+     "parentId": "56315",
+     "level": 6
+    },
+    {
+     "id": "56323",
+     "code": "IIL_OI_LNS_CB_DTCECB",
+     "label": "4.3.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56310",
+     "level": 5
+    },
+    {
+     "id": "56346",
+     "code": "IIL_OI_LNS_CB_DTCECB_SHT_TRM",
+     "label": "4.3.2.1 - Short-term",
+     "parentId": "56323",
+     "level": 6
+    },
+    {
+     "id": "56345",
+     "code": "IIL_OI_LNS_CB_DTCECB_LNG_TRM",
+     "label": "4.3.2.2 - Long-term",
+     "parentId": "56323",
+     "level": 6
+    },
+    {
+     "id": "56322",
+     "code": "IIL_OI_LNS_CB_GG",
+     "label": "4.3.3 - General government",
+     "parentId": "56310",
+     "level": 5
+    },
+    {
+     "id": "56344",
+     "code": "IIL_OI_LNS_CB_GG_CL_IMF_OTR",
+     "label": "4.3.3.1 - Credit and loans with the IMF",
+     "parentId": "56322",
+     "level": 6
+    },
+    {
+     "id": "56343",
+     "code": "IIL_OI_LNS_CB_GG_CL_IMF_OTR_OTH_SHT_TRM",
+     "label": "4.3.3.2 - Other short-term",
+     "parentId": "56322",
+     "level": 6
+    },
+    {
+     "id": "56342",
+     "code": "IIL_OI_LNS_CB_GG_CL_IMF_OTR_OTH_LNG_TRM",
+     "label": "4.3.3.3 - Other long-term",
+     "parentId": "56322",
+     "level": 6
+    },
+    {
+     "id": "56319",
+     "code": "IIL_OI_LNS_CB_OS",
+     "label": "4.3.4 - Other sectors",
+     "parentId": "56310",
+     "level": 5
+    },
+    {
+     "id": "56341",
+     "code": "IIL_OI_LNS_CB_OS_SHT_TRM",
+     "label": "4.3.4.0.1 - Short-term",
+     "parentId": "56319",
+     "level": 6
+    },
+    {
+     "id": "56340",
+     "code": "IIL_OI_LNS_CB_OS_LNG_TRM",
+     "label": "4.3.4.0.2 - Long-term",
+     "parentId": "56319",
+     "level": 6
+    },
+    {
+     "id": "56321",
+     "code": "IIL_OI_LNS_CB_OS_OFC",
+     "label": "4.3.4.1 - Other financial corporations",
+     "parentId": "56319",
+     "level": 6
+    },
+    {
+     "id": "56339",
+     "code": "IIL_OI_LNS_CB__OFC_SHT_TRM",
+     "label": "4.3.4.1.1 - Short-term",
+     "parentId": "56321",
+     "level": 7
+    },
+    {
+     "id": "56338",
+     "code": "IIL_OI_LNS_CB_OS_OFC_LNG_TRM",
+     "label": "4.3.4.1.2 - Long-term",
+     "parentId": "56321",
+     "level": 7
+    },
+    {
+     "id": "56320",
+     "code": "IIL_OI_LNS_CB_OS_NFCH_NPISH",
+     "label": "4.3.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56319",
+     "level": 6
+    },
+    {
+     "id": "56337",
+     "code": "IIL_OI_LNS_CB_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.3.4.2.1 - Short-term",
+     "parentId": "56320",
+     "level": 7
+    },
+    {
+     "id": "56336",
+     "code": "IIL_OI_LNS_CB_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.3.4.2.2 - Long-term",
+     "parentId": "56320",
+     "level": 7
+    },
+    {
+     "id": "56317",
+     "code": "IIL_OI_IPSGS",
+     "label": "4.4 -   Insurance, pension, and standardized guarantee schemes",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56329",
+     "code": "IIL_OI_IPSGS_OS_NLITR",
+     "label": "4.4.0.1 - Nonlife insurance technical reserves",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56328",
+     "code": "IIL_OI_IPSGS_OS_LIAE",
+     "label": "4.4.0.2 - Life insurance and annuity entitlements",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56327",
+     "code": "IIL_OI_IPSGS_OS_PE",
+     "label": "4.4.0.3 - Pension entitlements",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56326",
+     "code": "IIL_OI_IPSGS_OS_CPFS",
+     "label": "4.4.0.4 - Claims of pension funds on sponsors",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56325",
+     "code": "IIL_OI_IPSGS_OS_ETNPB",
+     "label": "4.4.0.5 - Entitlements to nonpension benefits",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56324",
+     "code": "IIL_OI_IPSGS_OS_PFCUSG",
+     "label": "4.4.0.6 - Provisions for calls under standardized guarantees",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56335",
+     "code": "IIL_OI_IPSGS_CB",
+     "label": "4.4.1 - Central bank",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56334",
+     "code": "IIL_OI_IPSGS_CB_MAWR",
+     "label": "4.4.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56333",
+     "code": "IIL_OI_IPSGS_DTCECB",
+     "label": "4.4.2 - Deposit-taking corporations, except the central bank",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56332",
+     "code": "IIL_OI_IPSGS_GG",
+     "label": "4.4.3 - General government",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56318",
+     "code": "IIL_OI_IPSGS_OS",
+     "label": "4.4.4 - Other sectors",
+     "parentId": "56317",
+     "level": 5
+    },
+    {
+     "id": "56331",
+     "code": "IIL_OI_IPSGS_OS_OFC",
+     "label": "4.4.4.1 - Other financial corporations",
+     "parentId": "56318",
+     "level": 6
+    },
+    {
+     "id": "56330",
+     "code": "IIL_OI_IPSGS_OS_NFCH_NPISH",
+     "label": "4.4.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56318",
+     "level": 6
+    },
+    {
+     "id": "56349",
+     "code": "IIL_OI_TCA",
+     "label": "4.5 - Trade credit and advances",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56356",
+     "code": "IIL_OI_TCA_CB",
+     "label": "4.5.1 - Central bank",
+     "parentId": "56349",
+     "level": 5
+    },
+    {
+     "id": "56370",
+     "code": "IIL_OI_TCA_CB_SHT_TRM",
+     "label": "4.5.1.1 - Short-term",
+     "parentId": "56356",
+     "level": 6
+    },
+    {
+     "id": "56369",
+     "code": "IIL_OI_TCA_CB_LNG_TRM",
+     "label": "4.5.1.2 - Long-term",
+     "parentId": "56356",
+     "level": 6
+    },
+    {
+     "id": "56355",
+     "code": "IIL_OI_TCA_CB_MAWR",
+     "label": "4.5.1.9 - Monetary authorities (where relevant)",
+     "parentId": "56349",
+     "level": 5
+    },
+    {
+     "id": "56368",
+     "code": "IIL_OI_TCA_CB_MAWR_SHT_TRM",
+     "label": "4.5.1.9.1 - Short-term",
+     "parentId": "56355",
+     "level": 6
+    },
+    {
+     "id": "56367",
+     "code": "IIL_OI_TCA_CB_MAWR_LNG_TRM",
+     "label": "4.5.1.9.2 - Long-term",
+     "parentId": "56355",
+     "level": 6
+    },
+    {
+     "id": "56354",
+     "code": "IIL_OI_TCA_DTCECB",
+     "label": "4.5.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56349",
+     "level": 5
+    },
+    {
+     "id": "56366",
+     "code": "IIL_OI_TCA_DTCECB_SHT_TRM",
+     "label": "4.5.2.1 - Short-term",
+     "parentId": "56354",
+     "level": 6
+    },
+    {
+     "id": "56365",
+     "code": "IIL_OI_TCA_DTCECB_LNG_TRM",
+     "label": "4.5.2.2 - Long-term",
+     "parentId": "56354",
+     "level": 6
+    },
+    {
+     "id": "56353",
+     "code": "IIL_OI_TCA_GG",
+     "label": "4.5.3 - General government",
+     "parentId": "56349",
+     "level": 5
+    },
+    {
+     "id": "56364",
+     "code": "IIL_OI_TCA_GG_SHT_TRM",
+     "label": "4.5.3.1 - Short-term",
+     "parentId": "56353",
+     "level": 6
+    },
+    {
+     "id": "56363",
+     "code": "IIL_OI_TCA_GG_LNG_TRM",
+     "label": "4.5.3.2 - Long-term",
+     "parentId": "56353",
+     "level": 6
+    },
+    {
+     "id": "56350",
+     "code": "IIL_OI_TCA_OS",
+     "label": "4.5.4 - Other sectors",
+     "parentId": "56349",
+     "level": 5
+    },
+    {
+     "id": "56362",
+     "code": "IIL_OI_TCA_OS_SHT_TRM",
+     "label": "4.5.4.0.1 - Short-term",
+     "parentId": "56350",
+     "level": 6
+    },
+    {
+     "id": "56361",
+     "code": "IIL_OI_TCA_OS_LNG_TRM",
+     "label": "4.5.4.0.2 - Long-term",
+     "parentId": "56350",
+     "level": 6
+    },
+    {
+     "id": "56352",
+     "code": "IIL_OI_TCA_OS_OFC",
+     "label": "4.5.4.1 - Other financial corporations",
+     "parentId": "56350",
+     "level": 6
+    },
+    {
+     "id": "56360",
+     "code": "IIL_OI_TCA_OS_OFC_SHT_TRM",
+     "label": "4.5.4.1.1 - Short-term",
+     "parentId": "56352",
+     "level": 7
+    },
+    {
+     "id": "56359",
+     "code": "IIL_OI_TCA_OS_OFC_LNG_TRM",
+     "label": "4.5.4.1.2 - Long-term",
+     "parentId": "56352",
+     "level": 7
+    },
+    {
+     "id": "56351",
+     "code": "IIL_OI_TCA_OS_NFCH_NPISH",
+     "label": "4.5.4.2 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56350",
+     "level": 6
+    },
+    {
+     "id": "56358",
+     "code": "IIL_OI_TCA_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.5.4.2.1 - Short-term",
+     "parentId": "56351",
+     "level": 7
+    },
+    {
+     "id": "56357",
+     "code": "IIL_OI_TCA_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.5.4.2.2 - Long-term",
+     "parentId": "56351",
+     "level": 7
+    },
+    {
+     "id": "56371",
+     "code": "IIL_OI_OAP",
+     "label": "4.6 - Other accounts payable",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56378",
+     "code": "IIL_OI_OAP_CB",
+     "label": "4.6.1 - Central bank",
+     "parentId": "56371",
+     "level": 5
+    },
+    {
+     "id": "56392",
+     "code": "IIL_OI_OAP_CB_SHT_TRM",
+     "label": "4.6.1.1 - Short-term",
+     "parentId": "56378",
+     "level": 6
+    },
+    {
+     "id": "56391",
+     "code": "IIL_OI_OAP_CB_LNG_TRM",
+     "label": "4.6.1.2 - Long-term",
+     "parentId": "56378",
+     "level": 6
+    },
+    {
+     "id": "56377",
+     "code": "IIL_OI_OAP_CB_MAWR",
+     "label": "4.6.1.9 - Monetary authorities (where relevant",
+     "parentId": "56371",
+     "level": 5
+    },
+    {
+     "id": "56390",
+     "code": "IIL_OI_OAP_CB_MAWR_SHT_TRM",
+     "label": "4.6.1.9.1 - Short-term",
+     "parentId": "56377",
+     "level": 6
+    },
+    {
+     "id": "56389",
+     "code": "IIL_OI_OAP_CB_MAWR_LNG_TRM",
+     "label": "4.6.1.9.2 - Long-term",
+     "parentId": "56377",
+     "level": 6
+    },
+    {
+     "id": "56376",
+     "code": "IIL_OI_OAP_DTCECB",
+     "label": "4.6.2 - Deposit-taking corporations, except central bank",
+     "parentId": "56371",
+     "level": 5
+    },
+    {
+     "id": "56388",
+     "code": "IIL_OI_OAP_DTCECB_SHT_TRM",
+     "label": "4.6.2.1 - Short-term",
+     "parentId": "56376",
+     "level": 6
+    },
+    {
+     "id": "56387",
+     "code": "IIL_OI_OAP_DTCECB_LNG_TRM",
+     "label": "4.6.2.2 - Long-term",
+     "parentId": "56376",
+     "level": 6
+    },
+    {
+     "id": "56375",
+     "code": "IIL_OI_OAP_GG",
+     "label": "4.6.3 - General government",
+     "parentId": "56371",
+     "level": 5
+    },
+    {
+     "id": "56386",
+     "code": "IIL_OI_OAP_GG_SHT_TRM",
+     "label": "4.6.3.1 - Short-term",
+     "parentId": "56375",
+     "level": 6
+    },
+    {
+     "id": "56385",
+     "code": "IIL_OI_OAP_GG_LNG_TRM",
+     "label": "4.6.3.2 - Long-term",
+     "parentId": "56375",
+     "level": 6
+    },
+    {
+     "id": "56372",
+     "code": "IIL_OI_OAP_OS",
+     "label": "4.6.4 - Other sectors",
+     "parentId": "56371",
+     "level": 5
+    },
+    {
+     "id": "56384",
+     "code": "IIL_OI_OAP_OS_SHT_TRM",
+     "label": "4.6.4.0.1 - Short-term",
+     "parentId": "56372",
+     "level": 6
+    },
+    {
+     "id": "56383",
+     "code": "IIL_OI_OAP_OS_LNG_TRM",
+     "label": "4.6.4.0.2 - Long-term",
+     "parentId": "56372",
+     "level": 6
+    },
+    {
+     "id": "56374",
+     "code": "IIL_OI_OAP_OS_OFC",
+     "label": "4.6.4.1 - Other financial corporations",
+     "parentId": "56372",
+     "level": 6
+    },
+    {
+     "id": "56382",
+     "code": "IIL_OI_OAP_OS_OFC_SHT_TRM",
+     "label": "4.6.4.1.1 - Short-term",
+     "parentId": "56374",
+     "level": 7
+    },
+    {
+     "id": "56381",
+     "code": "IIL_OI_OAP_OS_OFC_LNG_TRM",
+     "label": "4.6.4.1.2 - Long-term",
+     "parentId": "56374",
+     "level": 7
+    },
+    {
+     "id": "56373",
+     "code": "IIL_OI_OAP_OS_NFCH_NPISH",
+     "label": "4.6.4.2 - Nonfinancial corporations, households, NPISHs",
+     "parentId": "56372",
+     "level": 6
+    },
+    {
+     "id": "56380",
+     "code": "IIL_OI_OAP_OS_NFCH_NPISH_SHT_TRM",
+     "label": "4.6.4.2.1 - Short-term",
+     "parentId": "56373",
+     "level": 7
+    },
+    {
+     "id": "56379",
+     "code": "IIL_OI_OAP_OS_NFCH_NPISH_LNG_TRM",
+     "label": "4.6.4.2.2 - Long-term",
+     "parentId": "56373",
+     "level": 7
+    },
+    {
+     "id": "56419",
+     "code": "IIL_OI_SDR",
+     "label": "4.7 - Special drawing rights  (Net incurrence of liabilities)",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56393",
+     "code": "IIL_OI_SI",
+     "label": "4.7 - Supplementary Items",
+     "parentId": "56213",
+     "level": 4
+    },
+    {
+     "id": "56400",
+     "code": "IIL_OI_SI_DI",
+     "label": "4.7.1 - Direct Investment",
+     "parentId": "56393",
+     "level": 5
+    },
+    {
+     "id": "56418",
+     "code": "IIL_OI_SI_DI_AOP",
+     "label": "4.7.1.1 - Arrears on principal",
+     "parentId": "56400",
+     "level": 6
+    },
+    {
+     "id": "56417",
+     "code": "IIL_OI_SI_DI_AOOI",
+     "label": "4.7.1.2 - Arrears on original interest/coupon",
+     "parentId": "56400",
+     "level": 6
+    },
+    {
+     "id": "56416",
+     "code": "IIL_OI_SI_DI_AOPI",
+     "label": "4.7.1.3 - Arrears on penalty interest",
+     "parentId": "56400",
+     "level": 6
+    },
+    {
+     "id": "56394",
+     "code": "IIL_OI_SI_PI",
+     "label": "4.7.2 - Portfolio investment",
+     "parentId": "56393",
+     "level": 5
+    },
+    {
+     "id": "56399",
+     "code": "IIL_OI_SI_PI_CB",
+     "label": "4.7.2.1 - Central bank",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56415",
+     "code": "IIL_OI_SI_PI_CB_AOP",
+     "label": "4.7.2.1.1 - Arrears on principal",
+     "parentId": "56399",
+     "level": 7
+    },
+    {
+     "id": "56414",
+     "code": "IIL_OI_SI_PI_CB_AOOI",
+     "label": "4.7.2.1.2 - Arrears on original interest/coupon",
+     "parentId": "56399",
+     "level": 7
+    },
+    {
+     "id": "56413",
+     "code": "IIL_OI_SI_PI_CB_AOPI",
+     "label": "4.7.2.1.3 - Arrears on penalty interest",
+     "parentId": "56399",
+     "level": 7
+    },
+    {
+     "id": "56398",
+     "code": "IIL_OI_SI_PI_MAWR",
+     "label": "4.7.2.2 - Monetary authorities (where relevant)",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56412",
+     "code": "IIL_OI_SI_PI_MAWR_AOP",
+     "label": "4.7.2.2.1 - Arrears on principal",
+     "parentId": "56398",
+     "level": 7
+    },
+    {
+     "id": "56411",
+     "code": "IIL_OI_SI_PI_MAWR_AOOI",
+     "label": "4.7.2.2.2 - Arrears on original interest/coupon",
+     "parentId": "56398",
+     "level": 7
+    },
+    {
+     "id": "56410",
+     "code": "IIL_OI_SI_PI_MAWR_AOPI",
+     "label": "4.7.2.2.3 - Arrears on penalty interest",
+     "parentId": "56398",
+     "level": 7
+    },
+    {
+     "id": "56397",
+     "code": "IIL_OI_SI_PI_DTCECB",
+     "label": "4.7.2.3 - Deposit-taking corporations, except the central bank",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56409",
+     "code": "IIL_OI_SI_PI_DTCECB_AOP",
+     "label": "4.7.2.3.1 - Arrears on principal",
+     "parentId": "56397",
+     "level": 7
+    },
+    {
+     "id": "56408",
+     "code": "IIL_OI_SI_PI_DTCECB_AOOI",
+     "label": "4.7.2.3.2 - Arrears on original interest/coupon",
+     "parentId": "56397",
+     "level": 7
+    },
+    {
+     "id": "56407",
+     "code": "IIL_OI_SI_PI_DTCECB_AOPI",
+     "label": "4.7.2.3.3 - Arrears on penalty interest",
+     "parentId": "56397",
+     "level": 7
+    },
+    {
+     "id": "56396",
+     "code": "IIL_OI_SI_PI_GG",
+     "label": "4.7.2.4 - General government",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56406",
+     "code": "IIL_OI_SI_PI_GG_AOP",
+     "label": "4.7.2.4.1 - Arrears on principal",
+     "parentId": "56396",
+     "level": 7
+    },
+    {
+     "id": "56405",
+     "code": "IIL_OI_SI_PI_GG_AOOI",
+     "label": "4.7.2.4.2 - Arrears on original interest/coupon",
+     "parentId": "56396",
+     "level": 7
+    },
+    {
+     "id": "56404",
+     "code": "IIL_OI_SI_PI_GG_AOPI",
+     "label": "4.7.2.4.3 - Arrears on penalty interest",
+     "parentId": "56396",
+     "level": 7
+    },
+    {
+     "id": "56395",
+     "code": "IIL_OI_SI_PI_OS",
+     "label": "4.7.2.5 - Other sectors",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56403",
+     "code": "IIL_OI_SI_PI_OS_AOP",
+     "label": "4.7.2.5.1 - Arrears on principal",
+     "parentId": "56395",
+     "level": 7
+    },
+    {
+     "id": "56402",
+     "code": "IIL_OI_SI_PI_OS_AOOI",
+     "label": "4.7.2.5.2 - Arrears on original interest/coupon",
+     "parentId": "56395",
+     "level": 7
+    },
+    {
+     "id": "56401",
+     "code": "IIL_OI_SI_PI_OS_AOPI",
+     "label": "4.7.2.5.3 - Arrears on penalty interest",
+     "parentId": "56395",
+     "level": 7
+    },
+    {
+     "id": "56429",
+     "code": "IIL_OI_SI_PI_OFC",
+     "label": "4.7.2.6 - Other financial corporations",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56456",
+     "code": "IIL_OI_SI_PI_OFC_AOP",
+     "label": "4.7.2.6.1 - Arrears on principal",
+     "parentId": "56429",
+     "level": 7
+    },
+    {
+     "id": "56455",
+     "code": "IIL_OI_SI_PI_OFC_AOOI",
+     "label": "4.7.2.6.2 - Arrears on original interest/coupon",
+     "parentId": "56429",
+     "level": 7
+    },
+    {
+     "id": "56454",
+     "code": "IIL_OI_SI_PI_OFC_AOPI",
+     "label": "4.7.2.6.3 - Arrears on penalty interest",
+     "parentId": "56429",
+     "level": 7
+    },
+    {
+     "id": "56428",
+     "code": "IIL_OI_SI_PI_NFCH_NPISH",
+     "label": "4.7.2.7 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56394",
+     "level": 6
+    },
+    {
+     "id": "56453",
+     "code": "IIL_OI_SI_PI_NFCH_NPISH_AOP",
+     "label": "4.7.2.7.1 - Arrears on principal",
+     "parentId": "56428",
+     "level": 7
+    },
+    {
+     "id": "56452",
+     "code": "IIL_OI_SI_PI_NFCH_NPISH_AOOI",
+     "label": "4.7.2.7.2 - Arrears on original interest/coupon",
+     "parentId": "56428",
+     "level": 7
+    },
+    {
+     "id": "56451",
+     "code": "IIL_OI_SI_PI_NFCH_NPISH_AOPI",
+     "label": "4.7.2.7.3 - Arrears on penalty interest",
+     "parentId": "56428",
+     "level": 7
+    },
+    {
+     "id": "56420",
+     "code": "IIL_OI_SI_OI",
+     "label": "4.7.3 - Other investment",
+     "parentId": "56393",
+     "level": 5
+    },
+    {
+     "id": "56427",
+     "code": "IIL_OI_SI_OI_CB",
+     "label": "4.7.3.1 - Central bank",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56450",
+     "code": "IIL_OI_SI_OI_CB_AOP",
+     "label": "4.7.3.1.1 - Arrears on principal",
+     "parentId": "56427",
+     "level": 7
+    },
+    {
+     "id": "56449",
+     "code": "IIL_OI_SI_OI_CB_AOOI",
+     "label": "4.7.3.1.2 - Arrears on original interest",
+     "parentId": "56427",
+     "level": 7
+    },
+    {
+     "id": "56448",
+     "code": "IIL_OI_SI_OI_CB_AOPI",
+     "label": "4.7.3.1.3 - Arrears on penalty interest",
+     "parentId": "56427",
+     "level": 7
+    },
+    {
+     "id": "56426",
+     "code": "IIL_OI_SI_OI_MAWR",
+     "label": "4.7.3.2 - Monetary authorities (where relevant)",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56447",
+     "code": "IIL_OI_SI_OI_MAWR_AOP",
+     "label": "4.7.3.2.1 - Arrears on principal",
+     "parentId": "56426",
+     "level": 7
+    },
+    {
+     "id": "56446",
+     "code": "IIL_OI_SI_OI_MAWR_AOOI",
+     "label": "4.7.3.2.2 - Arrears on original interest",
+     "parentId": "56426",
+     "level": 7
+    },
+    {
+     "id": "56445",
+     "code": "IIL_OI_SI_OI_MAWR_AOPI",
+     "label": "4.7.3.2.3 - Arrears on penalty interest",
+     "parentId": "56426",
+     "level": 7
+    },
+    {
+     "id": "56425",
+     "code": "IIL_OI_SI_OI_DTCECB",
+     "label": "4.7.3.3 - Deposit-taking corporations, except the central bank",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56444",
+     "code": "IIL_OI_SI_OI_DTCECB_AOP",
+     "label": "4.7.3.3.1 - Arrears on principal",
+     "parentId": "56425",
+     "level": 7
+    },
+    {
+     "id": "56443",
+     "code": "IIL_OI_SI_OI_DTCECB_AOOI",
+     "label": "4.7.3.3.2 - Arrears on original interest",
+     "parentId": "56425",
+     "level": 7
+    },
+    {
+     "id": "56442",
+     "code": "IIL_OI_SI_OI_DTCECB_AOPI",
+     "label": "4.7.3.3.3 - Arrears on penalty interest",
+     "parentId": "56425",
+     "level": 7
+    },
+    {
+     "id": "56424",
+     "code": "IIL_OI_SI_OI_GG",
+     "label": "4.7.3.4 - General government",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56441",
+     "code": "IIL_OI_SI_OI_GG_AOP",
+     "label": "4.7.3.4.1 - Arrears on principal",
+     "parentId": "56424",
+     "level": 7
+    },
+    {
+     "id": "56440",
+     "code": "IIL_OI_SI_OI_GG_AOOI",
+     "label": "4.7.3.4.2 - Arrears on original interest",
+     "parentId": "56424",
+     "level": 7
+    },
+    {
+     "id": "56439",
+     "code": "IIL_OI_SI_OI_GG_AOPI",
+     "label": "4.7.3.4.3 - Arrears on penalty interest",
+     "parentId": "56424",
+     "level": 7
+    },
+    {
+     "id": "56423",
+     "code": "IIL_OI_SI_OI_OS",
+     "label": "4.7.3.5 - Other sectors",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56438",
+     "code": "IIL_OI_SI_OI_OS_AOP",
+     "label": "4.7.3.5.1 - Arrears on principal",
+     "parentId": "56423",
+     "level": 7
+    },
+    {
+     "id": "56437",
+     "code": "IIL_OI_SI_OI_OS_AOOI",
+     "label": "4.7.3.5.2 - Arrears on original interest",
+     "parentId": "56423",
+     "level": 7
+    },
+    {
+     "id": "56436",
+     "code": "IIL_OI_SI_OI_OS_AOPI",
+     "label": "4.7.3.5.3 - Arrears on penalty interest",
+     "parentId": "56423",
+     "level": 7
+    },
+    {
+     "id": "56422",
+     "code": "IIL_OI_SI_OI_OFC",
+     "label": "4.7.3.6 - Other financial corporations",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56435",
+     "code": "IIL_OI_SI_OI_OFC_AOP",
+     "label": "4.7.3.6.1 - Arrears on principal",
+     "parentId": "56422",
+     "level": 7
+    },
+    {
+     "id": "56434",
+     "code": "IIL_OI_SI_OI_OFC_AOOI",
+     "label": "4.7.3.6.2 - Arrears on original interest",
+     "parentId": "56422",
+     "level": 7
+    },
+    {
+     "id": "56433",
+     "code": "IIL_OI_SI_OI_OFC_AOPI",
+     "label": "4.7.3.6.3 - Arrears on penalty interest",
+     "parentId": "56422",
+     "level": 7
+    },
+    {
+     "id": "56421",
+     "code": "IIL_OI_SI_OI_NFCH_NPISH",
+     "label": "4.7.3.7 - Nonfinancial corporations, households, and NPISHs",
+     "parentId": "56420",
+     "level": 6
+    },
+    {
+     "id": "56432",
+     "code": "IIL_OI_SI_OI_NFCH_NPISH_AOP",
+     "label": "4.7.3.7.1 - Arrears on principal",
+     "parentId": "56421",
+     "level": 7
+    },
+    {
+     "id": "56431",
+     "code": "IIL_OI_SI_OI_NFCH_NPISH_AOOI",
+     "label": "4.7.3.7.2 - Arrears on original interest",
+     "parentId": "56421",
+     "level": 7
+    },
+    {
+     "id": "56430",
+     "code": "IIL_OI_SI_OI_NFCH_NPISH_AOPI",
+     "label": "4.7.3.7.3 - Arrears on penalty interest",
+     "parentId": "56421",
+     "level": 7
+    }
+   ]
+  },
+  {
+   "code": "UNIT_MEASURE",
+   "name": "Unit",
+   "column": "unit_measure_description",
+   "table": "dim_ebr_unit_measure",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "37039",
+     "code": "INR",
+     "label": "Indian rupee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "37044",
+     "code": "USD",
+     "label": "US dollar",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}

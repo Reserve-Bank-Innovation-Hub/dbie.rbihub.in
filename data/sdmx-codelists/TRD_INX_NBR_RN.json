@@ -1,0 +1,3139 @@
+{
+ "dsdCode": "TRD_INX_NBR_RN",
+ "label": "Trade Index Numbers",
+ "sector": "External Sector",
+ "subSector": "External Sector Indices",
+ "fetched": "2026-09-18T15:00:50.455Z",
+ "dims": [
+  {
+   "code": "BASE_PER",
+   "name": "Base Period",
+   "column": "base_per_description",
+   "table": "dim_ebr_base_per",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "40077",
+     "code": "BY_1999_2000",
+     "label": "Base Year : 1999-2000",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "40136",
+     "code": "BY_2012_2013",
+     "label": "Base Year : 2012-2013",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TERM_EXT_TRD_RN",
+   "name": "Type of Trade",
+   "column": "term_ext_trd_rn_description",
+   "table": "dim_ebr_term_ext_trd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41370",
+     "code": "TERM_TRD_EXP",
+     "label": "Export",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41371",
+     "code": "TERM_TRD_IMP",
+     "label": "Import",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_COMD_RN",
+   "name": "Type of Commodities",
+   "column": "typ_comd_rn_description",
+   "table": "dim_ebr_typ_comd_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "46112",
+     "code": "COMMODITY_721",
+     "label": "Agricultural machinery (excluding tractors) and parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46063",
+     "code": "COMMODITY_792",
+     "label": "Aircraft and associated equipment; spacecraft (including satellites) and spacecraft launch vehicles; parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46002",
+     "code": "COMMODITY_112",
+     "label": "Alcoholic beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45925",
+     "code": "COMMODITY_512",
+     "label": "Alcohols, phenols, phenol-alcohols, and their halogenated, sulphonated, nitrated or nitrosated derivatives",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46135",
+     "code": "COMMODITY_684",
+     "label": "Aluminium",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45960",
+     "code": "COMMODITY_285",
+     "label": "Aluminium ores and concentrates (including alumi)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41419",
+     "code": "COMD_ANIM_VEG_OIL",
+     "label": "Animal & vegetable oil, fats & waxes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41420",
+     "code": "COMD_AVOF_FXD_VEG_FATS_OILS",
+     "label": "Animal & vegetable oil, fats & waxes - Fixed vegetables fats and oils",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41421",
+     "code": "COMD_AVOF_CRD_REF_FRAC",
+     "label": "Animal & vegetable oil, fats & waxes - Fixed vegetables fats and oils, crude, refined or fractionated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45936",
+     "code": "COMMODITY_4",
+     "label": "Animal and vegetable oils, fats and waxes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45935",
+     "code": "COMMODITY_41",
+     "label": "Animal oils and fats",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45934",
+     "code": "COMMODITY_411",
+     "label": "Animal oils and fats",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45930",
+     "code": "COMMODITY_43",
+     "label": "Animal or vegetable fats and oils, processed; waxes of animal or vegetable origin; inedible mixtures or preparations of animal or vegetable fats or oils, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45929",
+     "code": "COMMODITY_431",
+     "label": "Animal or vegetable fats and oils, processed; waxes; inedible mixtures or preparations of animal or vegetable fats or oils, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46157",
+     "code": "COMMODITY_891",
+     "label": "Arms and ammunition",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46179",
+     "code": "COMMODITY_84",
+     "label": "Articles of apparel and clothing accessories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46172",
+     "code": "COMMODITY_848",
+     "label": "Articles of apparel and clothing accessories of other than textile fabrics; headgear of all materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46174",
+     "code": "COMMODITY_845",
+     "label": "Articles of apparel, of textile fabrics, whether or not knitted or crocheted, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45876",
+     "code": "COMMODITY_629",
+     "label": "Articles of rubber, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46155",
+     "code": "COMMODITY_893",
+     "label": "Articles, n.e.s., of plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46087",
+     "code": "COMMODITY_752",
+     "label": "Automatic data-processing machines and units thereof; magnetic or optical readers, machines for transcribing data onto data media in coded form and machines for processing such data, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46154",
+     "code": "COMMODITY_894",
+     "label": "Baby carriages, toys, games and sporting goods",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46093",
+     "code": "COMMODITY_746",
+     "label": "Ball- or roller bearings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46031",
+     "code": "COMMODITY_043",
+     "label": "Barley, unmilled",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46004",
+     "code": "COMMODITY_11",
+     "label": "Beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41395",
+     "code": "COMD_BEV_TOB",
+     "label": "Beverages & tobacco",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41396",
+     "code": "COMD_BT_BEV",
+     "label": "Beverages & tobacco - Beverages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41397",
+     "code": "COMD_BT_TOB",
+     "label": "Beverages & tobacco - Tobacco and tobacco manufactures",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46005",
+     "code": "COMMODITY_1",
+     "label": "Beverages and tobacco",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45949",
+     "code": "COMMODITY_322",
+     "label": "Briquettes, lignite and peat",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46042",
+     "code": "COMMODITY_023",
+     "label": "Butter and other fats and oils derived from milk",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45924",
+     "code": "COMMODITY_513",
+     "label": "Carboxylic acids and their anhydrides, halides, peroxides and peroxyacids; their halogenated, sulphonated, nitrated or nitrosated derivatives",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46026",
+     "code": "COMMODITY_048",
+     "label": "Cereal preparations and preparations of flour or starch of fruits or vegetables",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46034",
+     "code": "COMMODITY_04",
+     "label": "Cereals and cereal preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46029",
+     "code": "COMMODITY_045",
+     "label": "Cereals, unmilled (other than wheat, rice, barley and maize)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46041",
+     "code": "COMMODITY_024",
+     "label": "Cheese and curd",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45891",
+     "code": "COMMODITY_59",
+     "label": "Chemical materials and products, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41422",
+     "code": "COMD_CHEM_REL_PROD",
+     "label": "Chemicals & related products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41424",
+     "code": "COMD_CRP_DYE_TAN",
+     "label": "Chemicals & related products - Dyeing, tanning and colouring materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41425",
+     "code": "COMD_CRP_FERTZ",
+     "label": "Chemicals & related products - Fertilisers, manufactured",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41426",
+     "code": "COMD_CRP_ING_CHEM",
+     "label": "Chemicals & related products - Inorganic chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41427",
+     "code": "COMD_CRP_INSC_ROD",
+     "label": "Chemicals & related products - Insecticides, rodenticides, fungicides, herbicides, etc",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41428",
+     "code": "COMD_CRP_MED_PHAR_PROD",
+     "label": "Chemicals & related products - Medicinal & pharmaceutical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41423",
+     "code": "COMD_CRP_ORG_CHM",
+     "label": "Chemicals & related products - Organic chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41429",
+     "code": "COMD_CRP_PLAS",
+     "label": "Chemicals & related products - Plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41430",
+     "code": "COMD_CRP_PLAS_PRIM",
+     "label": "Chemicals & related products - Plastics in primary & non primary form",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41431",
+     "code": "COMD_CRP_ADT_MIN_OILS",
+     "label": "Chemicals & related products - Prepared additives for mineral oils and the like",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41432",
+     "code": "COMD_CRP_STAR_INSUL",
+     "label": "Chemicals & related products - Starches, inulin and wheat gluten, albuminoidal substances, glues",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45928",
+     "code": "COMMODITY_5",
+     "label": "Chemicals and related products, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46013",
+     "code": "COMMODITY_073",
+     "label": "Chocolate and other food preparations containing cocoa, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46161",
+     "code": "COMMODITY_883",
+     "label": "Cinematographic film, exposed and developed, whether or not incorporating soundtrack or consisting only of soundtrack",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46110",
+     "code": "COMMODITY_723",
+     "label": "Civil engineering and contractors' plant and equipment; parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45856",
+     "code": "COMMODITY_662",
+     "label": "Clay construction materials and refractory construction materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46173",
+     "code": "COMMODITY_846",
+     "label": "Clothing accessories, of textile fabrics, whether or not knitted or crocheted (other than those for babies)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45939",
+     "code": "COMMODITY_345",
+     "label": "Coal gas, water gas, producer gas and similar gases, other than petroleum gases and other gaseous hydrocarbons",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45951",
+     "code": "COMMODITY_32",
+     "label": "Coal, coke and briquettes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45950",
+     "code": "COMMODITY_321",
+     "label": "Coal, whether or not pulverized, but not agglomerated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46014",
+     "code": "COMMODITY_072",
+     "label": "Cocoa",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46015",
+     "code": "COMMODITY_071",
+     "label": "Coffee and coffee substitutes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46016",
+     "code": "COMMODITY_07",
+     "label": "Coffee, tea, cocoa, spices, and manufactures thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46143",
+     "code": "COMMODITY_96",
+     "label": "Coin (other than gold coin), not being legal tender",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46142",
+     "code": "COMMODITY_961",
+     "label": "Coin (other than gold coin), not being legal tender",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45948",
+     "code": "COMMODITY_325",
+     "label": "Coke and semi-coke (including char) of coal, of lignite or of peat, whether or not agglomerated; retort carbon",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46148",
+     "code": "COMMODITY_9",
+     "label": "Commodities and transactions not classified elsewhere in the SITC",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46137",
+     "code": "COMMODITY_682",
+     "label": "Copper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45962",
+     "code": "COMMODITY_283",
+     "label": "Copper ores and concentrates; copper mattes; cement copper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45988",
+     "code": "COMMODITY_24",
+     "label": "Cork and wood",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45875",
+     "code": "COMMODITY_63",
+     "label": "Cork and wood manufactures (excluding furniture)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45874",
+     "code": "COMMODITY_633",
+     "label": "Cork manufactures",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45987",
+     "code": "COMMODITY_244",
+     "label": "Cork, natural, raw and waste (including natural cork in blocks or sheets)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45978",
+     "code": "COMMODITY_263",
+     "label": "Cotton",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45866",
+     "code": "COMMODITY_652",
+     "label": "Cotton fabrics, woven (not including narrow or special fabrics)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45955",
+     "code": "COMMODITY_29",
+     "label": "Crude animal and vegetable materials, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45954",
+     "code": "COMMODITY_291",
+     "label": "Crude animal materials, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45971",
+     "code": "COMMODITY_27",
+     "label": "Crude fertilizers, other than those of Division 56, and crude minerals (excluding coal, petroleum and precious stones)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41398",
+     "code": "COMD_CRD_INEDIB",
+     "label": "Crude materials, inedible, except fuels",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45998",
+     "code": "COMMODITY_2",
+     "label": "Crude materials, inedible, except fuels",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41408",
+     "code": "COMD_CMIEF_CRK_WOOD",
+     "label": "Crude materials, inedible, except fuels - Cork and wood",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41406",
+     "code": "COMD_CMIEF_CRD_ANIM",
+     "label": "Crude materials, inedible, except fuels - Crude animals and vegetables material n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41410",
+     "code": "COMD_CMIEF_CRD_FERTZ",
+     "label": "Crude materials, inedible, except fuels - Crude fertilisers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41407",
+     "code": "COMD_CMIEF_CRD_RUB",
+     "label": "Crude materials, inedible, except fuels - Crude rubber including synthetic & reclaimed",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41402",
+     "code": "COMD_CMIEF_MET_ORE",
+     "label": "Crude materials, inedible, except fuels - Metalliferous ores and metal scrap",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41405",
+     "code": "COMD_CMIEF_MOMS_COP",
+     "label": "Crude materials, inedible, except fuels - Metalliferous ores and metal scrap - Copper ores & concentrates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41404",
+     "code": "COMD_CMIEF_MOMS_FER",
+     "label": "Crude materials, inedible, except fuels - Metalliferous ores and metal scrap - Ferrous waste and scrap",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41403",
+     "code": "COMD_CMIEF_MOMS_IRN",
+     "label": "Crude materials, inedible, except fuels - Metalliferous ores and metal scrap - Iron ore and concentrates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41401",
+     "code": "COMD_CMIEF_MIN",
+     "label": "Crude materials, inedible, except fuels - Minerals (excluding coal, petroleum, crude fertilisers, sulphur and precious stones)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41409",
+     "code": "COMD_CMIEF_PULP",
+     "label": "Crude materials, inedible, except fuels - Pulp & waste paper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41399",
+     "code": "COMD_CMIEF_TEXTL_FIB",
+     "label": "Crude materials, inedible, except fuels - Textile fibers and their  wastes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41400",
+     "code": "COMD_CMIEF_TF_RAW_CTTN",
+     "label": "Crude materials, inedible, except fuels - Textile fibers and their  wastes - Raw cotton",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45991",
+     "code": "COMMODITY_23",
+     "label": "Crude rubber (including synthetic and reclaimed)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45953",
+     "code": "COMMODITY_292",
+     "label": "Crude vegetable materials, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46036",
+     "code": "COMMODITY_036",
+     "label": "Crustaceans, molluscs and aquatic invertebrates, whether in shell or not, fresh (live or dead), chilled, frozen, dried, salted or in brine; crustaceans, in shell, cooked by steaming or boiling in water, whether or not chilled, frozen, dried, salted or in",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46124",
+     "code": "COMMODITY_696",
+     "label": "Cutlery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46044",
+     "code": "COMMODITY_02",
+     "label": "Dairy products and birds' eggs",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45913",
+     "code": "COMMODITY_532",
+     "label": "Dyeing and tanning extracts, and synthetic tanning materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45915",
+     "code": "COMMODITY_53",
+     "label": "Dyeing, tanning and colouring materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46006",
+     "code": "COMMODITY_098",
+     "label": "Edible products and preparations, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46040",
+     "code": "COMMODITY_025",
+     "label": "Eggs, birds', and egg yolks, fresh, dried or otherwise preserved, sweetened or not; egg albumin",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45938",
+     "code": "COMMODITY_35",
+     "label": "Electric current",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45937",
+     "code": "COMMODITY_351",
+     "label": "Electric current",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46079",
+     "code": "COMMODITY_771",
+     "label": "Electric power machinery (other than rotating electric plant of group 716) and parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46078",
+     "code": "COMMODITY_772",
+     "label": "Electrical apparatus for switching or protecting electrical circuits or for making connections to or in electrical circuits (e.g., switches, relays, fuses, lightning arresters, voltage limiters, surge suppressors, plugs and sockets, lamp-holders and junct",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46073",
+     "code": "COMMODITY_778",
+     "label": "Electrical machinery and apparatus, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46080",
+     "code": "COMMODITY_77",
+     "label": "Electrical machinery, apparatus and appliances, n.e.s., and electrical parts thereof (including non-electrical counterparts, n.e.s., of electrical household-type equipment)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46076",
+     "code": "COMMODITY_774",
+     "label": "Electrodiagnostic apparatus for medical, surgical, dental or veterinary purposes, and radiological apparatus",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46116",
+     "code": "COMMODITY_714",
+     "label": "Engines and motors, non-electric (other than those of groups 712, 713 and 718); parts, n.e.s., of these engines and motors",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46077",
+     "code": "COMMODITY_773",
+     "label": "Equipment for distributing electricity, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45908",
+     "code": "COMMODITY_55",
+     "label": "Essential oils and resinoids and perfume materials; toilet, polishing and cleansing preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45907",
+     "code": "COMMODITY_551",
+     "label": "Essential oils, perfume and flavour materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45888",
+     "code": "COMMODITY_593",
+     "label": "Explosives and pyrotechnic products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45865",
+     "code": "COMMODITY_653",
+     "label": "Fabrics, woven, of man-made textile materials (not including narrow or special fabrics)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46010",
+     "code": "COMMODITY_08",
+     "label": "Feeding stuff for animals (not including unmilled cereals)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46009",
+     "code": "COMMODITY_081",
+     "label": "Feeding stuff for animals (not including unmilled cereals)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45963",
+     "code": "COMMODITY_282",
+     "label": "Ferrous waste and scrap; remelting scrap ingots of iron or steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45904",
+     "code": "COMMODITY_56",
+     "label": "Fertilizers (other than those of group 272)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45903",
+     "code": "COMMODITY_562",
+     "label": "Fertilizers (other than those of group 272)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45970",
+     "code": "COMMODITY_272",
+     "label": "Fertilizers, crude, other than those of division 56",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46039",
+     "code": "COMMODITY_03",
+     "label": "Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46035",
+     "code": "COMMODITY_037",
+     "label": "Fish, crustaceans, molluscs and other aquatic invertebrates, prepared or preserved, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46037",
+     "code": "COMMODITY_035",
+     "label": "Fish, dried, salted or in brine; smoked fish (whether or not cooked before or during the smoking process); flours, meals and pellets of fish, fit for human consumption",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46038",
+     "code": "COMMODITY_034",
+     "label": "Fish, fresh (live or dead), chilled or frozen",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45932",
+     "code": "COMMODITY_421",
+     "label": "Fixed vegetable fats and oils, \"soft\", crude, refined or fractionated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45933",
+     "code": "COMMODITY_42",
+     "label": "Fixed vegetable fats and oils, crude, refined or fractionated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45931",
+     "code": "COMMODITY_422",
+     "label": "Fixed vegetable fats and oils, crude, refined or fractionated, other than \"soft\"",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45845",
+     "code": "COMMODITY_675",
+     "label": "Flat-rolled products of alloy steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45846",
+     "code": "COMMODITY_674",
+     "label": "Flat-rolled products of iron or non-alloy steel, clad, plated or coated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45847",
+     "code": "COMMODITY_673",
+     "label": "Flat-rolled products of iron or non-alloy steel, not clad, plated or coated",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45859",
+     "code": "COMMODITY_659",
+     "label": "Floor coverings, etc.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41380",
+     "code": "COMD_FD_LIV_ANIM",
+     "label": "Food & live animals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41383",
+     "code": "COMD_FLA_CER_PREP",
+     "label": "Food & live animals - Cereals and cereal preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41384",
+     "code": "COMD_FLA_CP_RIC",
+     "label": "Food & live animals - Cereals and cereal preparations - Rice",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41388",
+     "code": "COMD_FLA_CTCS_MANF",
+     "label": "Food & live animals - Coffee, tea, cocoa, spices and manufactures thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41389",
+     "code": "COMD_FLA_CTCS_COF",
+     "label": "Food & live animals - Coffee, tea, cocoa, spices and manufactures thereof - Coffee",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41391",
+     "code": "COMD_FLA_CTCS_SPI",
+     "label": "Food & live animals - Coffee, tea, cocoa, spices and manufactures thereof - Spices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41390",
+     "code": "COMD_FLA_CTCS_TEA",
+     "label": "Food & live animals - Coffee, tea, cocoa, spices and manufactures thereof - Tea",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41393",
+     "code": "COMD_FLA_DAIRY_BRD_EGG",
+     "label": "Food & live animals - Dairy products & bird's eggs",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41394",
+     "code": "COMD_FLA_FED_STF_ANIM",
+     "label": "Food & live animals - Feeding stuff for animals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41382",
+     "code": "COMD_FLA_FSH_PREP",
+     "label": "Food & live animals - Fish and fish preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41381",
+     "code": "COMD_FLA_MEAT_PREP",
+     "label": "Food & live animals - Meat and meat preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41392",
+     "code": "COMD_FLA_OIL_CAK",
+     "label": "Food & live animals - Oilseed cake",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41385",
+     "code": "COMD_FLA_VEG_FRT_NUT",
+     "label": "Food & live animals - Vegetables, fruit and nuts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41387",
+     "code": "COMD_FLA_VFN_FRT_NUT",
+     "label": "Food & live animals - Vegetables, fruit and nuts - Fruits and nuts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41386",
+     "code": "COMD_FLA_VFN_VEG",
+     "label": "Food & live animals - Vegetables, fruit and nuts - Vegetables",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46052",
+     "code": "COMMODITY_0",
+     "label": "Food and live animals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46106",
+     "code": "COMMODITY_727",
+     "label": "Food-processing machines (excluding domestic); parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46171",
+     "code": "COMMODITY_85",
+     "label": "Footwear",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46170",
+     "code": "COMMODITY_851",
+     "label": "Footwear",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46022",
+     "code": "COMMODITY_057",
+     "label": "Fruit and nuts (not including oil nuts), fresh or dried",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46020",
+     "code": "COMMODITY_059",
+     "label": "Fruit juices (including grape must) and vegetable juices, unfermented and not containing added spirit, whether or not containing added sugar or other sweetening matter",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46021",
+     "code": "COMMODITY_058",
+     "label": "Fruit, preserved, and fruit preparations (excluding fruit juices)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45986",
+     "code": "COMMODITY_245",
+     "label": "Fuel wood (excluding wood waste) and wood charcoal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46056",
+     "code": "COMMODITY_82",
+     "label": "Furniture and parts thereof; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46055",
+     "code": "COMMODITY_821",
+     "label": "Furniture and parts thereof; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45995",
+     "code": "COMMODITY_212",
+     "label": "Furskins, raw (including heads, tails, paws and other pieces or  cuttings, suitable for furriers' use), other than hides and skins of group 211",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45880",
+     "code": "COMMODITY_613",
+     "label": "Furskins, tanned or dressed (including heads, tails, paws and other pieces or cuttings), unssembled, or assembled (without the addition of other materials), other than those of heading 848.31",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45943",
+     "code": "COMMODITY_34",
+     "label": "Gas, natural and manufactured",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41470",
+     "code": "COMD_GEN_IDX",
+     "label": "General index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46099",
+     "code": "COMMODITY_74",
+     "label": "General industrial machinery and equipment, n.e.s., and machine parts, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45854",
+     "code": "COMMODITY_664",
+     "label": "Glass",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45853",
+     "code": "COMMODITY_665",
+     "label": "Glassware",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46138",
+     "code": "COMMODITY_II",
+     "label": "Gold coin and current coin",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46139",
+     "code": "COMMODITY_I",
+     "label": "Gold, monetary",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46141",
+     "code": "COMMODITY_97",
+     "label": "Gold, non-monetary (excluding gold ores and concentrates)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46140",
+     "code": "COMMODITY_971",
+     "label": "Gold, non-monetary (excluding gold ores and concentrates)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46098",
+     "code": "COMMODITY_741",
+     "label": "Heating and cooling equipment and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45996",
+     "code": "COMMODITY_211",
+     "label": "Hides and skins (except furskins), raw",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45997",
+     "code": "COMMODITY_21",
+     "label": "Hides, skins and furskins, raw",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46123",
+     "code": "COMMODITY_697",
+     "label": "Household equipment of base metal, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46075",
+     "code": "COMMODITY_775",
+     "label": "Household-type electrical and non-electrical equipment, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45926",
+     "code": "COMMODITY_511",
+     "label": "Hydrocarbons, n.e.s., and their halogenated, sulphonated, nitrated or nitrosated derivatives",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45848",
+     "code": "COMMODITY_672",
+     "label": "Ingots and other primary forms, of iron or steel; semi-finished products of iron or steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45919",
+     "code": "COMMODITY_522",
+     "label": "Inorganic chemical elements, oxides and halogen salts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45920",
+     "code": "COMMODITY_52",
+     "label": "Inorganic chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45890",
+     "code": "COMMODITY_591",
+     "label": "Insecticides, rodenticides, fungicides, herbicides, anti-sprouting products and plant- growth regulators, disinfectants and similar products, put up in forms or packings for retail sale or as preparations or articles (e.g., sulphur- treated bands, wicks and",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46167",
+     "code": "COMMODITY_872",
+     "label": "Instruments and appliances, n.e.s., for medical, surgical, dental or veterinary purposes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46117",
+     "code": "COMMODITY_713",
+     "label": "Internal combustion piston engines and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45850",
+     "code": "COMMODITY_67",
+     "label": "Iron and steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45844",
+     "code": "COMMODITY_676",
+     "label": "Iron and steel bars, rods, angles, shapes and sections (including sheet piling)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45964",
+     "code": "COMMODITY_281",
+     "label": "Iron ore and concentrates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46151",
+     "code": "COMMODITY_897",
+     "label": "Jewellery, goldsmiths' and silversmiths' wares, and other articles of precious or semiprecious materials, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45977",
+     "code": "COMMODITY_264",
+     "label": "Jute and other textile bast fibres, n.e.s., raw or processed but not spun; tow and waste of these fibres (including yarn waste and garnetted stock)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45863",
+     "code": "COMMODITY_655",
+     "label": "Knitted or crocheted fabrics (including tubular knit fabrics, n.e.s., pile fabrics and openwork fabrics), n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46134",
+     "code": "COMMODITY_685",
+     "label": "Lead",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45882",
+     "code": "COMMODITY_611",
+     "label": "Leather",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45883",
+     "code": "COMMODITY_61",
+     "label": "Leather, leather manufactures, n.e.s., and dressed furskins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46057",
+     "code": "COMMODITY_813",
+     "label": "Lighting fixtures and fittings, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45857",
+     "code": "COMMODITY_661",
+     "label": "Lime, cement, and fabricated construction materials (except glass and clay materials)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45942",
+     "code": "COMMODITY_342",
+     "label": "Liquefied propane and butane",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46051",
+     "code": "COMMODITY_00",
+     "label": "Live animals other than animals of division 03",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46050",
+     "code": "COMMODITY_001",
+     "label": "Live animals other than animals of division 03",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46102",
+     "code": "COMMODITY_733",
+     "label": "Machine tools for working metal, sintered metal carbides or cermets, without removing material",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46103",
+     "code": "COMMODITY_731",
+     "label": "Machine tools working by removing metal or other material",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41449",
+     "code": "COMD_MACH_TRANS_EQP",
+     "label": "Machinery & transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41456",
+     "code": "COMD_MTE_ELEC_MACH",
+     "label": "Machinery & transport equipment - Electrical machinery, apparatus, appliances and electrical parts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41458",
+     "code": "COMD_MTE_EM_ELECTRO_MAG",
+     "label": "Machinery & transport equipment - Electrical machinery, apparatus, appliances and electrical parts - Electro diagnostic apparatus for medical & radiological apparatus",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41457",
+     "code": "COMD_MTE_EM_SWTC",
+     "label": "Machinery & transport equipment - Electrical machinery, apparatus, appliances and electrical parts - Switches, voltage limiters, plugs and sockets & junction boxes, etc.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41453",
+     "code": "COMD_MTE_GIM",
+     "label": "Machinery & transport equipment - General industrial machinery, equipment & machine parts",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41451",
+     "code": "COMD_MTE_MACH_PART_INDS",
+     "label": "Machinery & transport equipment - Machinery specialised for particular industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41452",
+     "code": "COMD_MTE_MTL_WRK_MACH",
+     "label": "Machinery & transport equipment - Metal working machinery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41454",
+     "code": "COMD_MTE_OTH_MACH",
+     "label": "Machinery & transport equipment - Office machines and automatic data processing machines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41460",
+     "code": "COMD_MTE_OTH_TRNSP_EQP",
+     "label": "Machinery & transport equipment - Other transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41450",
+     "code": "COMD_MTE_PWR_GEN_MACH",
+     "label": "Machinery & transport equipment - Power generating machinery & equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41459",
+     "code": "COMD_MTE_ROAD_VHC",
+     "label": "Machinery & transport equipment - Road vehicles (including air cushion), parts and accessories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41455",
+     "code": "COMD_MTE_TELCM",
+     "label": "Machinery & transport equipment - Telecommunication, sound recording/ reproducing appratus and equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46121",
+     "code": "COMMODITY_7",
+     "label": "Machinery and transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46113",
+     "code": "COMMODITY_72",
+     "label": "Machinery specialized for particular industries",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45860",
+     "code": "COMMODITY_658",
+     "label": "Made-up articles, wholly or chiefly of textile materials, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46030",
+     "code": "COMMODITY_044",
+     "label": "Maize (not including sweet corn), unmilled",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41433",
+     "code": "COMD_MNF_MAT",
+     "label": "Manufactured goods classified chiefly by material",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45884",
+     "code": "COMMODITY_6",
+     "label": "Manufactured goods classified chiefly by material",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41442",
+     "code": "COMD_MM_IRN_STL",
+     "label": "Manufactured goods classified chiefly by material - Iron & steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41434",
+     "code": "COMD_MM_LEATH",
+     "label": "Manufactured goods classified chiefly by material - Leather & leather manufactures and dressed fur skins",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41447",
+     "code": "COMD_MM_NAIL_SCR",
+     "label": "Manufactured goods classified chiefly by material - Nails, screws, nuts, bolts rivets and the like of metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41444",
+     "code": "COMD_MM_NON_FER",
+     "label": "Manufactured goods classified chiefly by material - Non-ferrous metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41446",
+     "code": "COMD_MM_NFM_AL",
+     "label": "Manufactured goods classified chiefly by material - Non-ferrous metals - Aluminum",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41445",
+     "code": "COMD_MM_NFM_CU",
+     "label": "Manufactured goods classified chiefly by material - Non-ferrous metals - Copper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41443",
+     "code": "COMD_MM_PPR",
+     "label": "Manufactured goods classified chiefly by material - Paper, paperboard & articles of paper pulp",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41441",
+     "code": "COMD_MM_PEARL",
+     "label": "Manufactured goods classified chiefly by material - Pearls and precious or semiprecious stones",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41435",
+     "code": "COMD_MM_TEXTL_YARN_REL",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41437",
+     "code": "COMD_MM_TY_COTT",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products - Cotton fabrics woven",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41440",
+     "code": "COMD_MM_TY_FLR_CVR",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products - Floor coverings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41439",
+     "code": "COMD_MM_TY_MADE_ART_TEXT",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products - Made-up articles of textile materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41438",
+     "code": "COMD_MM_TY_TEXT_FIB",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products - Textile fibers other than cotton",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41436",
+     "code": "COMD_MM_TY_TEXTL_YARN",
+     "label": "Manufactured goods classified chiefly by material - Textile yarn, fabrics, made-up articles and related products - Textile yarn",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41448",
+     "code": "COMD_MM_TOOLS",
+     "label": "Manufactured goods classified chiefly by material - Tools for use in the hand or in machines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46122",
+     "code": "COMMODITY_699",
+     "label": "Manufactures of base metal, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45881",
+     "code": "COMMODITY_612",
+     "label": "Manufactures of leather or of composition leather, n.e.s.; saddlery and harness",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46130",
+     "code": "COMMODITY_69",
+     "label": "Manufactures of metals, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46007",
+     "code": "COMMODITY_091",
+     "label": "Margarine and shortening",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45878",
+     "code": "COMMODITY_621",
+     "label": "Materials of rubber (e.g., pastes, plates, sheets, rods, thread, tubes, of rubber)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46028",
+     "code": "COMMODITY_046",
+     "label": "Meal and flour of wheat and flour of meslin",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46165",
+     "code": "COMMODITY_874",
+     "label": "Measuring, checking, analysing and controlling instruments and apparatus, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46045",
+     "code": "COMMODITY_017",
+     "label": "Meat and edible meat offal, prepared or preserved, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46046",
+     "code": "COMMODITY_016",
+     "label": "Meat and edible meat offal, salted, in brine, dried or smoked; edible flours and meals of meat or meat offal",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46049",
+     "code": "COMMODITY_01",
+     "label": "Meat and meat preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46048",
+     "code": "COMMODITY_011",
+     "label": "Meat of bovine animals, fresh, chilled or frozen",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46095",
+     "code": "COMMODITY_744",
+     "label": "Mechanical handling equipment and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45909",
+     "code": "COMMODITY_542",
+     "label": "Medicaments (including veterinary medicaments)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45911",
+     "code": "COMMODITY_54",
+     "label": "Medicinal and pharmaceutical products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45910",
+     "code": "COMMODITY_541",
+     "label": "Medicinal and pharmaceutical products, other than medicaments of group 542",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46176",
+     "code": "COMMODITY_843",
+     "label": "Men's or boys' coats, capes, jackets, suits, blazers, trousers, shorts, shirts, underwear, nightwear and similar articles of textile fabrics, knitted or crocheted (other than those of subgroup 845.2)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46178",
+     "code": "COMMODITY_841",
+     "label": "Men's or boys' coats, capes, jackets, suits, blazers, trousers, shorts, shirts, underwear, nightwear and similar articles of textile fabrics, not knitted or crocheted (other than those of subgroup 845.2)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46128",
+     "code": "COMMODITY_692",
+     "label": "Metal containers for storage or transport",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45965",
+     "code": "COMMODITY_28",
+     "label": "Metalliferous ores and metal scrap",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46104",
+     "code": "COMMODITY_73",
+     "label": "Metalworking machinery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46100",
+     "code": "COMMODITY_737",
+     "label": "Metalworking machinery (other than machine tools) and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46166",
+     "code": "COMMODITY_873",
+     "label": "Meters and counters, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46043",
+     "code": "COMMODITY_022",
+     "label": "Milk and cream and milk products other than butter or cheese",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41412",
+     "code": "COMD_MIN_FUEL_LUB",
+     "label": "Mineral fuels, lubricants and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45952",
+     "code": "COMMODITY_3",
+     "label": "Mineral fuels, lubricants and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41413",
+     "code": "COMD_MFL_COAL_COK_BRI",
+     "label": "Mineral fuels, lubricants and related materials - Coal, coke and briquettes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41418",
+     "code": "COMD_MFL_GAS",
+     "label": "Mineral fuels, lubricants and related materials - Gas, natural and manufactured",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41414",
+     "code": "COMD_MFL_PETR_PROD",
+     "label": "Mineral fuels, lubricants and related materials - Petroleum, petroleum products and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41415",
+     "code": "COMD_MFL_PPRM_PETR_CRUDE",
+     "label": "Mineral fuels, lubricants and related materials - Petroleum, petroleum products and related materials - Petroleum crude",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41416",
+     "code": "COMD_MFL_PPRM_PETR_OTH_CRUDE",
+     "label": "Mineral fuels, lubricants and related materials - Petroleum, petroleum products and related materials - Petroleum other than crude",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41417",
+     "code": "COMD_MFL_PPRM_PETR_PROD",
+     "label": "Mineral fuels, lubricants and related materials - Petroleum, petroleum products and related materials - Petroleum products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45855",
+     "code": "COMMODITY_663",
+     "label": "Mineral manufactures, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41411",
+     "code": "COMD_MIN_EXC_CPCFSPS",
+     "label": "Minerals (excluding coal, petroleum, crude fertilisers, sulphur and precious stones)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45886",
+     "code": "COMMODITY_598",
+     "label": "Miscellaneous chemical products, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46008",
+     "code": "COMMODITY_09",
+     "label": "Miscellaneous edible products and preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41461",
+     "code": "COMD_MISCL_MANF_ART",
+     "label": "Miscellaneous manufactured articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46061",
+     "code": "COMMODITY_8",
+     "label": "Miscellaneous manufactured articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41463",
+     "code": "COMD_MMA_ART_APPR",
+     "label": "Miscellaneous manufactured articles - Articles of apparel and clothing accessories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41464",
+     "code": "COMD_MMA_FTWR",
+     "label": "Miscellaneous manufactured articles - Footwear",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41465",
+     "code": "COMD_MMA_MMA",
+     "label": "Miscellaneous manufactured articles - Miscellaneous manufactured articles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41466",
+     "code": "COMD_MMA_JEWL",
+     "label": "Miscellaneous manufactured articles - Miscellaneous manufactured articles - Jewellery, goldsmiths' and silver smiths' wares",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41467",
+     "code": "COMD_MUSIC_INST",
+     "label": "Miscellaneous manufactured articles - Miscellaneous manufactured articles - Musical instruments, parts and accessories",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41469",
+     "code": "COMD_PHOTO_APP",
+     "label": "Miscellaneous manufactured articles - Photographic apparatus, equipments & supplies and optical goods, watches & clocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41468",
+     "code": "COMD_SCI_APP",
+     "label": "Miscellaneous manufactured articles - Professional, scientific and controlling investment and apparatus",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41462",
+     "code": "COMD_MMA_TRV_GDS",
+     "label": "Miscellaneous manufactured articles - Travel goods, handicrafts and similar containers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46158",
+     "code": "COMMODITY_89",
+     "label": "Miscellaneous manufactured articles, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46149",
+     "code": "COMMODITY_899",
+     "label": "Miscellaneous manufactured articles, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46131",
+     "code": "COMMODITY_689",
+     "label": "Miscellaneous non-ferrous base metals employed in metallurgy, and cermets",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46084",
+     "code": "COMMODITY_761",
+     "label": "Monitors and projectors, not incorporating television reception apparatus; reception apparatus for television, whether or not incorporating radio-broadcast receivers or sound or video recording or reproducing apparatus",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45892",
+     "code": "COMMODITY_583",
+     "label": "Monofilament of which any cross-sectional dimension exceeds 1 mm, rods, sticks and profile shapes, whether or not surface-worked but not otherwise worked, of plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46071",
+     "code": "COMMODITY_781",
+     "label": "Motor cars and other motor vehicles principally designed for the transport of persons (other than motor vehicles for the transport of ten or more persons, including the driver), including station-wagons and racing cars",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46067",
+     "code": "COMMODITY_785",
+     "label": "Motor cycles (including mopeds) and cycles, motorized and non-motirized; invalid carriages",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46070",
+     "code": "COMMODITY_782",
+     "label": "Motor vehicles for the transport of goods and special-purpose motor vehicles",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46150",
+     "code": "COMMODITY_898",
+     "label": "Musical instruments and parts and accessories thereof; records, tapes and other sound or similar recordings (excluding goods of groups 763 and 883)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45967",
+     "code": "COMMODITY_277",
+     "label": "Natural abrasives, n.e.s. (including industrial diamonds)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45941",
+     "code": "COMMODITY_343",
+     "label": "Natural gas, whether or not liquefied",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45990",
+     "code": "COMMODITY_231",
+     "label": "Natural rubber, balata, gutta-percha, guayule, chicle and similar natural gums, in primary forms (including latex) or in plates, sheets or strip",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46136",
+     "code": "COMMODITY_683",
+     "label": "Nickel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45961",
+     "code": "COMMODITY_284",
+     "label": "Nickel ores and concentrates; nickel mattes, nickel oxide sinters and other intermediate products of nickel metallurgy",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45923",
+     "code": "COMMODITY_514",
+     "label": "Nitrogen-function compounds",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46003",
+     "code": "COMMODITY_111",
+     "label": "Non-alcoholic beverages, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46090",
+     "code": "COMMODITY_749",
+     "label": "Non-electric parts and accessories of machinery, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46094",
+     "code": "COMMODITY_745",
+     "label": "Non-electrical machinery, tools and mechanical apparatus and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45957",
+     "code": "COMMODITY_288",
+     "label": "Non-ferrous base metal waste and scrap, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45840",
+     "code": "COMMODITY_68",
+     "label": "Non-ferrous metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45858",
+     "code": "COMMODITY_66",
+     "label": "Non-metallic mineral manufactures, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46153",
+     "code": "COMMODITY_895",
+     "label": "Office and stationery supplies, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46088",
+     "code": "COMMODITY_751",
+     "label": "Office machines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46089",
+     "code": "COMMODITY_75",
+     "label": "Office machines and automatic data-processing machines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45994",
+     "code": "COMMODITY_22",
+     "label": "Oil-seeds and oleaginous fruits",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45993",
+     "code": "COMMODITY_222",
+     "label": "Oil-seeds and oleaginous fruits of a kind used for the extraction of \"soft\" fixed vegetable oils (excluding flours and meals)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45992",
+     "code": "COMMODITY_223",
+     "label": "Oil-seeds and oleaginous fruits, whole or broken, of a kind used for the extraction of other fixed vegetable oils (including flours and meals of oil-seeds or oleaginous fruit, n.e.s.)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46126",
+     "code": "COMMODITY_694",
+     "label": "Oils, screws, nuts, bolts, rivets and the like, of iron, steel, copper or aluminium",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46160",
+     "code": "COMMODITY_884",
+     "label": "Optical goods, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46168",
+     "code": "COMMODITY_871",
+     "label": "Optical instruments and apparatus, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45958",
+     "code": "COMMODITY_287",
+     "label": "Ores and concentrates of base metals, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45956",
+     "code": "COMMODITY_289",
+     "label": "Ores and concentrates of precious metals; waste, scrap and sweepings of precious metals (other than of gold)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45927",
+     "code": "COMMODITY_51",
+     "label": "Organic chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45922",
+     "code": "COMMODITY_515",
+     "label": "Organo-inorganic compounds, heterocyclic compounds, nucleic acids and their salts, and sulphonamides",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46027",
+     "code": "COMMODITY_047",
+     "label": "Other cereal meals and flours",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45966",
+     "code": "COMMODITY_278",
+     "label": "Other crude minerals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45917",
+     "code": "COMMODITY_524",
+     "label": "Other inorganic chemicals; organic and inorganic compounds of precious metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46105",
+     "code": "COMMODITY_728",
+     "label": "Other machinery and equipment specialized for particular industries; parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45974",
+     "code": "COMMODITY_267",
+     "label": "Other man-made fibres suitable for spinning; waste of man-made fibres",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46047",
+     "code": "COMMODITY_012",
+     "label": "Other meat and edible meat offal, fresh, chilled or frozen (except meat and meat offal unfit or unsuitable for human consumption)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45921",
+     "code": "COMMODITY_516",
+     "label": "Other organic chemicals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45897",
+     "code": "COMMODITY_575",
+     "label": "Other plastics, in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45864",
+     "code": "COMMODITY_654",
+     "label": "Other textile fabrics, woven",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46065",
+     "code": "COMMODITY_79",
+     "label": "Other transport equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45870",
+     "code": "COMMODITY_641",
+     "label": "Paper and paperboard",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45869",
+     "code": "COMMODITY_642",
+     "label": "Paper and paperboard, cut to size or shape, and articles of paper or paperboard",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46108",
+     "code": "COMMODITY_725",
+     "label": "Paper mill and pulp mill machinery, paper- cutting machines and other machinery for the manufacture of paper articles; parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45871",
+     "code": "COMMODITY_64",
+     "label": "Paper, paperboard and articles of paper pulp, of paper or of paperboard",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46086",
+     "code": "COMMODITY_759",
+     "label": "Parts and accessories (other than covers, carrying cases and the like) suitable for use solely or principally with machines falling withing groups 751 and 752",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46068",
+     "code": "COMMODITY_784",
+     "label": "Parts and accessories of the motor vehicles of groups 722, 781, 782 and 783",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46101",
+     "code": "COMMODITY_735",
+     "label": "Parts, n.e.s., and accessories suitable for use solely or principally with the machines falling within groups 731 and 733 (including work or tool holders, self-opening die-heads, dividing heads and other special attachments for machine tools); tool holder",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45851",
+     "code": "COMMODITY_667",
+     "label": "Pearls and precious or semiprecious stones, unworked or worked",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45906",
+     "code": "COMMODITY_553",
+     "label": "Perfumery, cosmetic or toilet preparations (excluding soaps)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45940",
+     "code": "COMMODITY_344",
+     "label": "Petroleum gases and other gaseous hydrocarbons, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45945",
+     "code": "COMMODITY_334",
+     "label": "Petroleum oils and oils obtained from bituminous minerals (other than crude); preparations, n.e.s., containing by weight 70% or more of petroleum oils or of oils obtained from bituminous minerals, these oils being the basic constituents of the preparation",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45946",
+     "code": "COMMODITY_333",
+     "label": "Petroleum oils and oils obtained from bituminous minerals, crude",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45947",
+     "code": "COMMODITY_33",
+     "label": "Petroleum, petroleum products and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46162",
+     "code": "COMMODITY_882",
+     "label": "Photographic and cinematographic supplies",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46163",
+     "code": "COMMODITY_881",
+     "label": "Photographic apparatus and equipment, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46164",
+     "code": "COMMODITY_88",
+     "label": "Photographic apparatus, equipment and supplies and optical goods, n.e.s.; watches and clocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45849",
+     "code": "COMMODITY_671",
+     "label": "Pig-iron, spiegeleisen, sponge iron, iron or steel granules and powders and ferro-alloys",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45912",
+     "code": "COMMODITY_533",
+     "label": "Pigments, paints, varnishes and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45895",
+     "code": "COMMODITY_58",
+     "label": "Plastics in non-primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45902",
+     "code": "COMMODITY_57",
+     "label": "Plastics in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45893",
+     "code": "COMMODITY_582",
+     "label": "Plates, sheets, film, foil and strip, of plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45898",
+     "code": "COMMODITY_574",
+     "label": "Polyacetals, other polyethers and epoxide resins, in primary forms; polycarbonates, alkyd resins, polyallyl esters and other polyesters, in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45901",
+     "code": "COMMODITY_571",
+     "label": "Polymers of ethylene, in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45900",
+     "code": "COMMODITY_572",
+     "label": "Polymers of styrene, in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45899",
+     "code": "COMMODITY_573",
+     "label": "Polymers of vinyl chloride or of other halogenated olefins, in primary forms",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46147",
+     "code": "COMMODITY_91",
+     "label": "Postal packages not classified according to kind",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46146",
+     "code": "COMMODITY_911",
+     "label": "Postal packages not classified according to kind",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45852",
+     "code": "COMMODITY_666",
+     "label": "Pottery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46120",
+     "code": "COMMODITY_71",
+     "label": "Power-generating machinery and equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46114",
+     "code": "COMMODITY_718",
+     "label": "Power-generating machinery and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46059",
+     "code": "COMMODITY_811",
+     "label": "Prefabricated buildings",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46060",
+     "code": "COMMODITY_81",
+     "label": "Prefabricated buildings; sanitary, plumbing, heating and lighting fixtures and fittings, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45887",
+     "code": "COMMODITY_597",
+     "label": "Prepared additives for mineral oils and the like; prepared liquids for hydraulic transmission; anti-freezing preparations and prepared de-icing fluids; lubricating preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46156",
+     "code": "COMMODITY_892",
+     "label": "Printed matter",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46107",
+     "code": "COMMODITY_726",
+     "label": "Printing and bookbinding machinery and parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46169",
+     "code": "COMMODITY_87",
+     "label": "Professional, scientific and controlling instruments and apparatus, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45982",
+     "code": "COMMODITY_25",
+     "label": "Pulp and waste paper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45981",
+     "code": "COMMODITY_251",
+     "label": "Pulp and waste paper",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46096",
+     "code": "COMMODITY_743",
+     "label": "Pumps (other than pumps for liquids), air or other gas compressors and fans; ventilating or recycling hoods incorporating a fan, whether or not fitted with filters; centrifuges; filtering or purifying apparatus; parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46097",
+     "code": "COMMODITY_742",
+     "label": "Pumps for liquids, whether or not fitted with a measuring device; liquid elevators; parts for such pumps and liquid elevators",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45916",
+     "code": "COMMODITY_525",
+     "label": "Radioactive and associated materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45843",
+     "code": "COMMODITY_677",
+     "label": "Rails or railway track construction material, of iron or steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46064",
+     "code": "COMMODITY_791",
+     "label": "Railway vehicles (including hovertrains) and associated equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46083",
+     "code": "COMMODITY_762",
+     "label": "Reception apparatus for radio-broadcasting, whether or not combined, in the same housing, with sound recording or reproducing apparatus or a clock",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45944",
+     "code": "COMMODITY_335",
+     "label": "Residual petroleum products, n.e.s., and related materials",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45885",
+     "code": "COMMODITY_599",
+     "label": "Residual products of the chemical or allied industries, n.e.s.; municipal waste; sewage sludge; other wastes",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46032",
+     "code": "COMMODITY_042",
+     "label": "Rice",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46069",
+     "code": "COMMODITY_783",
+     "label": "Road motor vehicles, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46072",
+     "code": "COMMODITY_78",
+     "label": "Road vehicles (including air-cushion vehicles)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46115",
+     "code": "COMMODITY_716",
+     "label": "Rotating electric plant and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45879",
+     "code": "COMMODITY_62",
+     "label": "Rubber manufactures, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45877",
+     "code": "COMMODITY_625",
+     "label": "Rubber tyres, interchangeable tyre treads, tyre flaps and inner tubes for wheels of all kinds",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45918",
+     "code": "COMMODITY_523",
+     "label": "Salts and peroxysalts, of inorganic acids and metals",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46058",
+     "code": "COMMODITY_812",
+     "label": "Sanitary, plumbing and heating fixtures and fittings, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46062",
+     "code": "COMMODITY_793",
+     "label": "Ships, boats (including hovercraft) and floating structures",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45979",
+     "code": "COMMODITY_261",
+     "label": "Silk",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45839",
+     "code": "COMMODITY_681",
+     "label": "Silver, platinum and other metals of the platinum group",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45905",
+     "code": "COMMODITY_554",
+     "label": "Soap, cleansing and polishing preparations",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46082",
+     "code": "COMMODITY_763",
+     "label": "Sound recording or reproducing apparatus; video recording or reproducing apparatus; whether or not incorporating a video tuner",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46145",
+     "code": "COMMODITY_93",
+     "label": "Special transactions and commodities not classified according to kind",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46144",
+     "code": "COMMODITY_931",
+     "label": "Special transactions and commodities not classified according to kind",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45861",
+     "code": "COMMODITY_657",
+     "label": "Special yarns, special textile fabrics and related products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46011",
+     "code": "COMMODITY_075",
+     "label": "Spices",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45889",
+     "code": "COMMODITY_592",
+     "label": "Starches, inulin and wheat gluten; albuminoidal substances; glues",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46119",
+     "code": "COMMODITY_711",
+     "label": "Steam or other vapour-generating boilers, superheated water boilers, and auxiliary plant for use therewith; parts thereof",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46118",
+     "code": "COMMODITY_712",
+     "label": "Steam turbines and other vapour turbines and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45969",
+     "code": "COMMODITY_273",
+     "label": "Stone, sand and gravel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46129",
+     "code": "COMMODITY_691",
+     "label": "Structures and parts of structures, n.e.s., of iron, steel or aluminium",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46017",
+     "code": "COMMODITY_062",
+     "label": "Sugar confectionery",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46018",
+     "code": "COMMODITY_061",
+     "label": "Sugars, molasses and honey",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46019",
+     "code": "COMMODITY_06",
+     "label": "Sugars, sugar preparations and honey",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45968",
+     "code": "COMMODITY_274",
+     "label": "Sulphur and unroasted iron pyrites",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45975",
+     "code": "COMMODITY_266",
+     "label": "Synthetic fibres suitable for spinning",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45914",
+     "code": "COMMODITY_531",
+     "label": "Synthetic organic colouring matter and colour lakes, and preparations based thereon",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45989",
+     "code": "COMMODITY_232",
+     "label": "Synthetic rubber; reclaimed rubber; waste, parings and scrap of unhardened rubber",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46092",
+     "code": "COMMODITY_747",
+     "label": "Taps, cocks, valves and similar appliances for pipes, boiler shells, tanks, vats or the like, including pressure-reducing valves and thermostatically controlled valves",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46012",
+     "code": "COMMODITY_074",
+     "label": "Tea and mate",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46085",
+     "code": "COMMODITY_76",
+     "label": "Telecommunications and sound-recording and reproducing apparatus and equipment",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46081",
+     "code": "COMMODITY_764",
+     "label": "Telecommunications equipment, n.e.s., and parts, n.e.s., and accessories of apparatus falling within division 76",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46109",
+     "code": "COMMODITY_724",
+     "label": "Textile and leather machinery and parts thereof, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45980",
+     "code": "COMMODITY_26",
+     "label": "Textile fibres (other than wool tops and other combed wool) and their wastes (not manufactured into yarn or fabric)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45867",
+     "code": "COMMODITY_651",
+     "label": "Textile yarn",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45868",
+     "code": "COMMODITY_65",
+     "label": "Textile yarn, fabrics, made-up articles, n.e.s., and related products",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46074",
+     "code": "COMMODITY_776",
+     "label": "Thermionic, cold cathode or photo-cathode valves and tubes (e.g., vacuum or vapour or gas-filled valves and tubes, mercury arc rectifying valves and tubes, cathode-ray tubes, television camera tubes); diodes, transistors and similar semiconductor devices;",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46132",
+     "code": "COMMODITY_687",
+     "label": "Tin",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46001",
+     "code": "COMMODITY_12",
+     "label": "Tobacco and tobacco manufactures",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45999",
+     "code": "COMMODITY_122",
+     "label": "Tobacco, manufactured (whether or not containing tobacco substitutes)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46000",
+     "code": "COMMODITY_121",
+     "label": "Tobacco, unmanufactured; tobacco refuse",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46125",
+     "code": "COMMODITY_695",
+     "label": "Tools for use in the hand or in machines",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46111",
+     "code": "COMMODITY_722",
+     "label": "Tractors (other than those of headings 744.14 and 744.15)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46066",
+     "code": "COMMODITY_786",
+     "label": "Trailers and semi-trailers; other vehicles, not mechanically-propelled; specially designed and equipped transport containers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46091",
+     "code": "COMMODITY_748",
+     "label": "Transmission shafts (including camshafts and crankshafts) and cranks; bearing housings and plain shaft bearings; gears and gearing; ball or roller screws; gearboxes and other speed changers (including torque converters); flywheels and pulleys (including",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46054",
+     "code": "COMMODITY_83",
+     "label": "Travel goods, handbags and similar containers",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46053",
+     "code": "COMMODITY_831",
+     "label": "Trunks, suitcases, vanity cases, executive cases, briefcases, school satches, spectacle cases, binocular cases, camera cases, musical instrument cases, gun cases, holsters and similar containers; travelling bags, insulated food or beverages bags, toilet b",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45841",
+     "code": "COMMODITY_679",
+     "label": "Tubes, pipes and hollow profiles, and tube or pipe fittings, of iron or steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45894",
+     "code": "COMMODITY_581",
+     "label": "Tubes, pipes and hoses, and fittings therefor, of plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45862",
+     "code": "COMMODITY_656",
+     "label": "Tulles, lace, embroidery, ribbons, trimmings and other smallwares",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45959",
+     "code": "COMMODITY_286",
+     "label": "Uranium or thorium ores and concentrates",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45976",
+     "code": "COMMODITY_265",
+     "label": "Vegetable textile fibres (other than cotton and jute), raw or processed but not spun; waste of these fibres",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46025",
+     "code": "COMMODITY_05",
+     "label": "Vegetables and fruit",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46024",
+     "code": "COMMODITY_054",
+     "label": "Vegetables, fresh, chilled, frozen or simply preserved (including dried leguminous vegetables); roots, tubers and other edible vegetable products, n.e.s., fresh or dried",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46023",
+     "code": "COMMODITY_056",
+     "label": "Vegetables, roots and tubers, prepared or preserved, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45873",
+     "code": "COMMODITY_634",
+     "label": "Veneers, plywood, particle board, and other wood, worked, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45896",
+     "code": "COMMODITY_579",
+     "label": "Waste, parings and scrap, of plastics",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46159",
+     "code": "COMMODITY_885",
+     "label": "Watches and clocks",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46033",
+     "code": "COMMODITY_041",
+     "label": "Wheat (including spelt) and meslin, unmilled",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45842",
+     "code": "COMMODITY_678",
+     "label": "Wire of iron or steel",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46127",
+     "code": "COMMODITY_693",
+     "label": "Wire products (excluding insulated electrical wiring) and fencing grills",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46175",
+     "code": "COMMODITY_844",
+     "label": "Women's or girls' coats, capes, jackets, suits, trousers, shorts, shirts, dresses and skirts, underwear, nightwear and similar articles of textile fabrics, knitted or crocheted (other than those of subgroup 845.2)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46177",
+     "code": "COMMODITY_842",
+     "label": "Women's or girls' coats, capes, jackets, suits, trousers, shorts, shirts, dresses and skirts, underwear, nightwear and similar articles of textile fabrics, not knitted or crocheted (other than those of subgroup 845.2)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45985",
+     "code": "COMMODITY_246",
+     "label": "Wood in chips or particles and wood waste",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45984",
+     "code": "COMMODITY_247",
+     "label": "Wood in the rough, whether or not stripped of bark or sapwood, or roughly squared",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45872",
+     "code": "COMMODITY_635",
+     "label": "Wood manufactures, n.e.s.",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45983",
+     "code": "COMMODITY_248",
+     "label": "Wood, simply worked, and railway sleepers of wood",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45973",
+     "code": "COMMODITY_268",
+     "label": "Wool and other animal hair (including wool tops)",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46152",
+     "code": "COMMODITY_896",
+     "label": "Works of art, collectors' pieces and antiques",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "45972",
+     "code": "COMMODITY_269",
+     "label": "Worn clothing and other worn textile articles; rags",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "46133",
+     "code": "COMMODITY_686",
+     "label": "Zinc",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "code": "TYP_INDX_RN",
+   "name": "Types of Indexes",
+   "column": "typ_indx_rn_description",
+   "table": "dim_ebr_typ_indx_rn",
+   "database": "ebr_public_elements",
+   "values": [
+    {
+     "id": "&lt;CL_VALUES_ID&gt;",
+     "code": "&lt;CL_VALUE_CODE&gt;",
+     "label": "&lt;CL_Value_Lable&gt;",
+     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
+     "level": 0
+    },
+    {
+     "id": "41368",
+     "code": "INDX_QUANT",
+     "label": "Quantum Index",
+     "parentId": "NULL",
+     "level": 1
+    },
+    {
+     "id": "41367",
+     "code": "INDX_UNT_VAL",
+     "label": "Unit Value Index",
+     "parentId": "NULL",
+     "level": 1
+    }
+   ]
+  }
+ ]
+}
