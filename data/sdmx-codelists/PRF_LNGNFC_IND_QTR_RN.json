@@ -1,6 +1,6 @@
 {
  "dsdCode": "PRF_LNGNFC_IND_QTR_RN",
- "label": "Performance Indicators – Industry-wise Growth Rates (Y-o-Y per cent) Quarterly",
+ "label": "Performance Indicators \u2013 Industry-wise Growth Rates (Y-o-Y per cent) Quarterly",
  "sector": "Corporate Sector",
  "subSector": "Listed Non-Government Non-Financial Companies",
  "fetched": "2026-09-18T14:59:17.100Z",
@@ -12,13 +12,6 @@
    "table": "dim_ebr_inds_grp_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "41212",
      "code": "AGR_REL_ACT",
@@ -393,13 +386,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "41162",
      "code": "DEPRC",
      "label": "Depreciation",
@@ -485,13 +471,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37039",
      "code": "INR",

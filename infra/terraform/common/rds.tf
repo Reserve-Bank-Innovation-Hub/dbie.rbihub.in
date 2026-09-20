@@ -36,8 +36,9 @@ resource "aws_db_parameter_group" "pg18" {
     value = "1000" # ms: log statements slower than a second
   }
   parameter {
-    name  = "rds.force_ssl"
-    value = "1"
+    name         = "rds.force_ssl"
+    value        = "1"
+    apply_method = "pending-reboot" # how RDS reports this parameter; "immediate" would show as drift on every plan
   }
 }
 

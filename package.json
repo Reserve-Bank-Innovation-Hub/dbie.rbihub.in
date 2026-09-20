@@ -7,6 +7,8 @@
         "dev": "next dev",
         "build": "next build --webpack",
         "start": "next start",
+        "start:api": "cd dbie-backend/data-api && go run ./cmd/server",
+        "test:api": "cd dbie-backend/data-api && go vet ./... && go test ./...",
         "scrape": "node scripts/scrape-sdmx.mjs",
         "scrape:tree": "node scripts/fetch-sdmx-tree.mjs",
         "scrape:catalogue": "node scripts/fetch-reports-catalogue.mjs",

@@ -1,0 +1,77 @@
+name: Deploy data API
+
+# Builds dbie-backend/data-api as a multi-arch image, pushes it to ECR (dbie/data-api:common) and forces a new
+# deployment of the ECS Express service, the way Pratirupa deploys its services. One service serves every site
+# branch (dev, staging, main all read the same database), so it deploys from main, the production branch, only.
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "dbie-backend/data-api/**"
+            - ".github/workflows/deploy-data-api.yml"
+    workflow_dispatch:
+
+# OIDC: GitHub mints a short-lived JWT per run; AWS exchanges it for ~1h credentials for the deploy role in the
+# common-projects account (infra/terraform/common/iam-github-oidc.tf). `id-token: write` lets the action request the JWT.
+permissions:
+    id-token: write
+    contents: read
+
+concurrency:
+    group: deploy-data-api-${{ github.ref }}
+    cancel-in-progress: false
+
+env:
+    AWS_REGION: ap-south-1
+    ECR_REPOSITORY: dbie/data-api
+    ECS_CLUSTER: dbie-common
+    ECS_SERVICE: data-api
+    IMAGE_TAG: common
+
+jobs:
+    deploy:
+        # Belt-and-braces guard so a fork can never run this workflow against our infra.
+        if: github.repository_owner == 'Reserve-Bank-Innovation-Hub'
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+            -   name: Configure AWS credentials
+                uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd  # v6.3.0
+                with:
+                    role-to-assume: arn:aws:iam::588387717844:role/dbie-github-actions-deploy
+                    aws-region: ${{ env.AWS_REGION }}
+
+            -   name: Login to Amazon ECR
+                id: login-ecr
+                uses: aws-actions/amazon-ecr-login@fa648b43de3d4d023bcb3f89ed6940096949c419  # v2.1.5
+
+            # Multi-arch so the service can run on either architecture; the Go build cross-compiles natively.
+            -   name: Set up Docker Buildx
+                uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c  # v4.2.0
+
+            -   name: Build and push Docker image
+                env:
+                    ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                run: |
+                    cd dbie-backend/data-api
+                    docker buildx build \
+                      --platform linux/amd64,linux/arm64 \
+                      -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+                      -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} \
+                      --push .
+                    echo "Pushed (amd64 + arm64): $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+            -   name: Deploy to ECS Express
+                run: |
+                    # The service is created once by scripts/deploy/create-data-api-service.sh; until then the
+                    # workflow only publishes the image.
+                    if aws ecs describe-services --cluster $ECS_CLUSTER --services $ECS_SERVICE --query 'services[?status==`ACTIVE`].serviceName' --output text | grep -q "$ECS_SERVICE"; then
+                      aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --force-new-deployment >/dev/null
+                      echo "Forced new deployment: $ECS_SERVICE on $ECS_CLUSTER"
+                    else
+                      echo "Image published; service $ECS_SERVICE does not exist yet on $ECS_CLUSTER (run scripts/deploy/create-data-api-service.sh)"
+                    fi

@@ -1,0 +1,14 @@
+root = "."
+testdata_dir = "testdata"
+tmp_dir = "tmp"
+
+[build]
+  bin = "./tmp/main"
+  cmd = "go build -o ./tmp/main ./cmd/server"
+  delay = 1000
+  exclude_dir = ["tmp", "vendor", "testdata"]
+  exclude_regex = ["_test.go"]
+  include_ext = ["go"]
+  log = "build-errors.log"
+
+[color]
