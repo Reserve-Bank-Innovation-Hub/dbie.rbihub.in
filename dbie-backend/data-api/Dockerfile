@@ -1,7 +1,7 @@
 # $BUILDPLATFORM pins this stage to the build host's own architecture while TARGETARCH below selects what we
 # emit. CGO is off, so Go cross-compiles natively and one runner produces both amd64 and arm64 for a multi-arch
 # manifest (the service runs on Graviton).
-FROM --platform=$BUILDPLATFORM golang:1.24-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.25-alpine AS builder
 
 WORKDIR /app
 
