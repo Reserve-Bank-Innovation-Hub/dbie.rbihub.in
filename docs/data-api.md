@@ -3,8 +3,9 @@
 `dbie-backend/data-api` is a read-only HTTP API over the DBIE Postgres database: every loaded table (1,033 on
 18-09-2026), the catalogue of DBIE's menus, and the SDMX code lists. It connects with the `dbie_reader` role, so
 it can only read. All endpoints are `GET`, answer JSON in snake_case, allow any origin, and carry
-`Cache-Control: public, max-age=300` (the data changes only when a load runs). Errors are `{"error": "..."}` with
-400 for a bad parameter, 404 for an unknown table, 500 for a database fault.
+`Cache-Control: public, max-age=300` (the data changes only when a load runs), and are gzip-compressed for clients
+that accept it (the whole catalogue is 880 KB of JSON, 65 KB compressed; CloudFront caches each encoding). Errors
+are `{"error": "..."}` with 400 for a bad parameter, 404 for an unknown table, 500 for a database fault.
 
 | Endpoint | What it returns |
 |---|---|

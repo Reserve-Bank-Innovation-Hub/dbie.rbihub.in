@@ -40,8 +40,14 @@ const UsingTheSitePage = () => {
                             dashboard listing its tables with a one-line description.
                         </li>
                         <li>
-                            <strong>The <Link href="/tables">Tables</Link> catalogue</strong> — every one of
-                            the 335 tables and series on a single page, grouped by source sector.
+                            <strong><Link href="/tables">Tables</Link></strong> — every table in DBIE&apos;s
+                            Statistics and Publication menus, with the Data Query datasets in their sectors, opened
+                            one at a time straight from the database. The sidebar follows DBIE&apos;s own hierarchy
+                            down to the table; a report is
+                            shown as DBIE lays it out, one tab at a time, an SDMX dataset as a time series that its
+                            dimensions narrow. Every column sorts from its header and filters from the funnel beside
+                            it (contains, equals, greater than, between, and so on), and every view can be
+                            downloaded as CSV.
                         </li>
                         <li>
                             <strong>Search</strong> — press <kbd>⌘</kbd> <kbd>/</kbd> (or <kbd>Ctrl</kbd>{" "}

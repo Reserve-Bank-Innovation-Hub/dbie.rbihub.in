@@ -1,0 +1,221 @@
+{
+ "capturedAt": "2026-09-20",
+ "source": "DBIE gateway: dbie_mainMenuList (the top menu, in order) and dbie_menuMappingList (each menu's tree), fetched with scripts/lib/dbie-gateway.mjs",
+ "mainMenu": [
+  "Subscribe to DBIE Reports",
+  "Home",
+  "Indicators",
+  "Dashboard",
+  "Statistics",
+  "Publication",
+  "Unit Level Data",
+  "SDMX Data Query",
+  "Banking Outlet",
+  "About Us",
+  "SAARC Finance Database",
+  "50 Macroeconomic Indicators",
+  "Other Macroeconomic Indicators"
+ ],
+ "menus": [
+  {
+   "id": 4,
+   "title": "Statistics",
+   "url": "/dbie/statistics",
+   "items": [
+    {
+     "title": "Corporate Sector",
+     "items": [
+      {
+       "title": "Non-Government Non-Banking Financial and Investment Companies"
+      },
+      {
+       "title": "Non-Government Non-Financial Private Limited Companies"
+      },
+      {
+       "title": "Non-Government Non-Financial Public Limited Companies"
+      },
+      {
+       "title": "Finances of FDI Companies"
+      },
+      {
+       "title": "Listed Non-Government Non-Financial Companies"
+      }
+     ]
+    },
+    {
+     "title": "External Sector",
+     "items": [
+      {
+       "title": "External Sector Indices"
+      },
+      {
+       "title": "Forex Reserve"
+      },
+      {
+       "title": "International Finance"
+      },
+      {
+       "title": "International Trade"
+      },
+      {
+       "title": "External Debt"
+      }
+     ]
+    },
+    {
+     "title": "Financial Market",
+     "items": [
+      {
+       "title": "Equity and Corporate Debt Market"
+      },
+      {
+       "title": "Money Market"
+      },
+      {
+       "title": "Government Securities Market"
+      },
+      {
+       "title": "Forex Market"
+      }
+     ]
+    },
+    {
+     "title": "Financial Sector",
+     "items": [
+      {
+       "title": "Key Rates"
+      },
+      {
+       "title": "Financial Institutions"
+      },
+      {
+       "title": "Monetary Statistics"
+      },
+      {
+       "title": "Non Banking Financial Companies"
+      },
+      {
+       "title": "Banking - Sectoral Statistics"
+      },
+      {
+       "title": "Banking - Performance Indicators"
+      },
+      {
+       "title": "Payment Systems"
+      },
+      {
+       "title": "Banking - Assets & Liabilities"
+      }
+     ]
+    },
+    {
+     "title": "Public Finance",
+     "items": [
+      {
+       "title": "Central & State Govt. Finance (Combined)"
+      },
+      {
+       "title": "Central Govt. Finance"
+      },
+      {
+       "title": "State Govt. Finance"
+      }
+     ]
+    },
+    {
+     "title": "Real Sector",
+     "items": [
+      {
+       "title": "Agriculture"
+      },
+      {
+       "title": "Prices & Wages"
+      },
+      {
+       "title": "National Income"
+      },
+      {
+       "title": "Industrial Statistics"
+      }
+     ]
+    },
+    {
+     "title": "Socio-Economic Indicators",
+     "items": [
+      {
+       "title": "Socio-Economic Indicators"
+      }
+     ]
+    },
+    {
+     "title": "Surveys – Aggregated Data",
+     "items": [
+      {
+       "title": "Survey of Professional Forecasters"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "title": "Publication",
+   "url": "/dbie/publications",
+   "items": [
+    {
+     "title": "Time-Series Publications",
+     "items": [
+      {
+       "title": "Data on International Banking Statistics of India"
+      },
+      {
+       "title": "Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+      },
+      {
+       "title": "Quarterly Spatial Distribution of Deposits and Credit"
+      },
+      {
+       "title": "Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)"
+      },
+      {
+       "title": "Report on Trend and Progress of Banking in India"
+      },
+      {
+       "title": "Weekly Statistical Supplement"
+      },
+      {
+       "title": "Handbook of Statistics on Indian States"
+      },
+      {
+       "title": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)"
+      },
+      {
+       "title": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+      },
+      {
+       "title": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)"
+      },
+      {
+       "title": "Primary (Urban) Co-operative Banks' Outlook"
+      },
+      {
+       "title": "Bank Branch Statistics"
+      },
+      {
+       "title": "Statistical Tables Relating to Banks in India"
+      },
+      {
+       "title": "Public Debt Statistics"
+      },
+      {
+       "title": "Handbook of Statistics on the Indian Economy"
+      },
+      {
+       "title": "Monthly RBI Bulletin"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

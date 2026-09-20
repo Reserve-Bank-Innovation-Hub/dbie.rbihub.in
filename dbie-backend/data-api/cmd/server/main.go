@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gin-contrib/cors"
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/rbih/dbie-data-api/internal/config"
@@ -60,6 +61,9 @@ func main() {
 	}
 	router := gin.New()
 	router.Use(gin.Recovery(), middleware.Logger())
+	// Compress for clients that accept it. The catalogue and the wider tables run to hundreds of kilobytes of JSON
+	// that gzip to a tenth; CloudFront passes the encoding through and caches it per encoding.
+	router.Use(gzip.Gzip(gzip.DefaultCompression))
 	// Public, read-only data: any origin may read it, without credentials.
 	corsConfig := cors.DefaultConfig()
 	if len(cfg.AllowedOrigins) > 0 {

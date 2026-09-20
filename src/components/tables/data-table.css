@@ -1,0 +1,348 @@
+/* The site's table for DBIE data: a sticky header, a sticky row-label column, figures right-aligned in tabular
+   numerals, hairline rules, and the title, unit and notes DBIE prints around the figures. */
+.data-table-block {
+    display        : flex;
+    flex-direction : column;
+    min-width      : 0;
+}
+
+/* Title, subtitle and unit, or an SDMX table's fixed dimensions =================================================== */
+.data-table-head {
+    display        : flex;
+    flex-direction : column;
+    gap            : 3px;
+    padding        : 0 0 10px;
+
+    .data-table-title {
+        font-size   : 1.05rem;
+        font-weight : 700;
+        color       : var(--heading-text-colour);
+    }
+
+    .data-table-sub {
+        font-size : 0.82rem;
+        color     : var(--paragraph-subtext-colour);
+    }
+
+    .data-table-context {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 4px 18px;
+        font-size : 0.8rem;
+        color     : var(--paragraph-subtext-colour);
+
+        b {
+            font-weight : 600;
+            color       : var(--paragraph-text-colour);
+        }
+    }
+}
+
+/* The scrolling table ============================================================================================= */
+.data-table-wrap {
+    overflow      : auto;
+    max-height    : calc(100vh - 160px);
+    min-height    : 240px;
+    border        : 1px solid var(--grey-light80);
+    border-radius : 6px;
+}
+
+.data-table {
+    border-collapse : separate;
+    border-spacing  : 0;
+    min-width       : 100%;
+    font-size       : 0.86rem;
+    line-height     : 1.3;
+
+    th,
+    td {
+        padding        : 6px 12px;
+        border-bottom  : 1px solid var(--grey-light90);
+        vertical-align : bottom;
+        white-space    : nowrap;
+    }
+
+    /* Header rows stay put; headings may wrap so wide tables stay readable */
+    thead {
+        position : sticky;
+        top      : 0;
+        z-index  : 2;
+    }
+
+    thead th {
+        background-color : color-mix(in oklch, hsl(var(--indivara)) 7%, var(--white));
+        font-size        : 0.8rem;
+        font-weight      : 600;
+        color            : var(--paragraph-text-colour);
+        text-align       : left;
+        white-space      : normal;
+        min-width        : 96px;
+        max-width        : 240px;
+        vertical-align   : bottom;
+    }
+
+    thead tr:last-child th { border-bottom : 1px solid var(--grey-light70); }
+
+    thead th[colspan] { text-align : center; }
+
+    thead th.num { text-align : right; }
+
+    thead tr.numbering th {
+        font-size   : 0.7rem;
+        font-weight : 400;
+        color       : var(--grey-light20);
+        text-align  : right;
+        padding-top : 2px;
+    }
+
+    /* The row label column stays put while the figures scroll */
+    tbody th {
+        position         : sticky;
+        left             : 0;
+        z-index          : 1;
+        background-color : var(--white);
+        font-weight      : 500;
+        color            : var(--paragraph-text-colour);
+        text-align       : left;
+        white-space      : normal;
+        min-width        : 160px;
+        max-width        : 380px;
+    }
+
+    thead th:first-child {
+        position : sticky;
+        left     : 0;
+        z-index  : 3;
+    }
+
+    td.num {
+        text-align           : right;
+        font-family          : var(--font-mono);
+        font-size            : 0.82rem;
+        font-variant-numeric : tabular-nums;
+    }
+
+    td.empty { color : var(--grey-light50); }
+
+    tbody tr:nth-child(even) {
+        th, td { background-color : color-mix(in oklch, var(--grey-light90) 45%, var(--white)); }
+    }
+
+    tbody tr:hover {
+        th, td { background-color : hsla(var(--indivara), 0.07); }
+    }
+
+    /* Rows of figures without a label (percentages under a row, in DBIE's style) */
+    tbody tr.is-subrow td {
+        padding-top : 2px;
+        font-size   : 0.78rem;
+        color       : var(--paragraph-subtext-colour);
+    }
+
+    /* The period column of a time series */
+    tbody th.period {
+        min-width            : 110px;
+        font-family          : var(--font-mono);
+        font-size            : 0.82rem;
+        font-weight          : 500;
+        font-variant-numeric : tabular-nums;
+    }
+}
+
+.data-table-notes {
+    padding   : 10px 0 14px;
+    font-size : 0.8rem;
+    color     : var(--paragraph-subtext-colour);
+
+    p { margin : 0 0 4px; }
+}
+
+.data-table-empty {
+    padding : 24px 12px;
+    color   : var(--paragraph-subtext-colour);
+}
+
+/* Long form, when a dataset has too many series to lay across ===================================================== */
+.data-table-pager {
+    display     : flex;
+    align-items : center;
+    gap         : 12px;
+    padding     : 8px 0;
+    font-size   : 0.8rem;
+    color       : var(--paragraph-subtext-colour);
+    border-top  : 1px solid var(--grey-light90);
+
+    button {
+        padding       : 4px 10px;
+        border        : 1px solid var(--grey-light80);
+        border-radius : 6px;
+        background    : var(--white);
+        color         : var(--paragraph-text-colour);
+        font          : inherit;
+        cursor        : pointer;
+
+        &:disabled {
+            opacity : 0.4;
+            cursor  : default;
+        }
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .data-table-wrap { max-height : 75vh; }
+
+    .data-table tbody th { max-width : 200px; }
+}
+
+/* Column sorting and filtering, in the header cells ================================================================ */
+.data-table thead th.header-cell {
+    padding-right : 8px;
+
+    .header-inner {
+        display     : inline-flex;
+        align-items : flex-end;
+        gap         : 4px;
+        max-width   : 100%;
+    }
+
+    .header-sort {
+        display     : inline-flex;
+        align-items : center;
+        gap         : 4px;
+        min-width   : 0;
+        padding     : 0;
+        border      : none;
+        background  : none;
+        color       : inherit;
+        font        : inherit;
+        text-align  : inherit;
+        cursor      : pointer;
+
+        &:hover .header-label { color : var(--paragraph-text-colour); }
+    }
+
+    .header-label { white-space : normal; }
+
+    .sort-icon {
+        flex-shrink : 0;
+        color       : hsl(var(--indivara));
+    }
+
+    .header-filter {
+        display         : inline-flex;
+        align-items     : center;
+        justify-content : center;
+        flex-shrink     : 0;
+        width           : 20px;
+        height          : 20px;
+        padding         : 0;
+        border          : none;
+        border-radius   : 4px;
+        background      : none;
+        color           : var(--paragraph-subtext-colour);
+        opacity         : 0.35;
+        cursor          : pointer;
+        transition      : opacity 0.15s ease;
+
+        &:hover,
+        &.is-open {
+            opacity    : 1;
+            background : hsla(var(--indivara), 0.1);
+        }
+
+        &.is-active {
+            opacity : 1;
+            color   : hsl(var(--indivara));
+        }
+    }
+
+    &:hover .header-filter { opacity : 1; }
+
+    &.is-sorted .header-label { color : var(--paragraph-text-colour); }
+}
+
+.data-table thead th.header-cell.num .header-inner { justify-content : flex-end; }
+
+.column-filter-popover {
+    position       : fixed;
+    z-index        : 6000;
+    display        : flex;
+    flex-direction : column;
+    gap            : 8px;
+    width          : 280px;
+    padding        : 10px;
+    background     : var(--white);
+    border         : 1px solid var(--grey-light80);
+    border-radius  : 8px;
+    box-shadow     : 0 16px 32px -12px rgba(0, 0, 0, 0.3);
+    font-size      : 0.85rem;
+    color          : var(--paragraph-text-colour);
+
+    .popover-head {
+        display         : flex;
+        align-items     : center;
+        justify-content : space-between;
+        font-size       : 0.78rem;
+        font-weight     : 600;
+        color           : var(--paragraph-subtext-colour);
+    }
+
+    .popover-close {
+        display    : inline-flex;
+        padding    : 2px;
+        border     : none;
+        background : none;
+        color      : var(--paragraph-subtext-colour);
+        cursor     : pointer;
+
+        &:hover { color : var(--paragraph-text-colour); }
+    }
+
+    select,
+    input {
+        width         : 100%;
+        padding       : 6px 8px;
+        border        : 1px solid var(--grey-light80);
+        border-radius : 6px;
+        background    : var(--white);
+        color         : var(--paragraph-text-colour);
+        font          : inherit;
+        font-size     : 0.88rem;
+
+        &:focus {
+            outline      : none;
+            border-color : hsl(var(--indivara));
+        }
+    }
+
+    .popover-actions {
+        display         : flex;
+        justify-content : flex-end;
+    }
+
+    .popover-clear {
+        padding       : 4px 8px;
+        border        : none;
+        border-radius : 4px;
+        background    : none;
+        color         : hsl(var(--indivara));
+        font          : inherit;
+        font-size     : 0.8rem;
+        font-weight   : 600;
+        cursor        : pointer;
+
+        &:hover:not(:disabled) { background : hsla(var(--indivara), 0.08); }
+
+        &:disabled {
+            color  : var(--paragraph-subtext-colour);
+            cursor : default;
+        }
+    }
+}
+
+.data-table-filtered-note {
+    padding   : 6px 0;
+    font-size : 0.78rem;
+    color     : var(--paragraph-subtext-colour);
+    border-top: 1px solid var(--grey-light90);
+}
