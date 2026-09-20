@@ -75,3 +75,22 @@ provider "aws" {
     }
   }
 }
+
+# us-east-1 provider alias: a CloudFront distribution's certificate must live in us-east-1.
+provider "aws" {
+  alias  = "use1"
+  region = "us-east-1"
+
+  assume_role {
+    role_arn     = "arn:aws:iam::${var.common_account_id}:role/OrganizationAccountAccessRole"
+    session_name = "tf-dbie-common-use1"
+  }
+
+  default_tags {
+    tags = {
+      Project   = "dbie"
+      ManagedBy = "terraform"
+      Account   = "common-projects"
+    }
+  }
+}

@@ -66,8 +66,11 @@ them on CPU, health check on `/health`, the reader secret through the task role,
 Terraform (`infra/terraform/common`: `ecr.tf`, `ecs.tf`, `acm.tf`) holds the repository, cluster, roles, security
 group, certificate and DNS; the service itself was created once with `scripts/deploy/create-data-api-service.sh`,
 the way Pratirupa creates its services (20-09-2026). ECS gave it an internet-facing load balancer with HTTPS on its
-own name, `da-9a220423d40d4f1896457f6dd2675b48.ecs.ap-south-1.on.aws`; `data-api.dbie.rbihub.in` is a CNAME to
-that name and our certificate is attached to the listener as an extra (SNI) certificate, both from `terraform.tfvars`. One service serves every site branch (dev, staging and main read the same
+own name, `da-9a220423d40d4f1896457f6dd2675b48.ecs.ap-south-1.on.aws`, and it answers only requests addressed to
+that name (ECS also moves the service between two target groups on every deployment), so `data-api.dbie.rbihub.in`
+is served by CloudFront in front of it (`cloudfront.tf`): our certificate on the edge, requests forwarded to the
+gateway under the gateway's name, the API's own `Cache-Control` honoured at the edge. The gateway endpoint is the one
+value in `terraform.tfvars`. One service serves every site branch (dev, staging and main read the same
 database), so it deploys from `main`, the production branch: every push to `main` that touches
 `dbie-backend/data-api/` runs `.github/workflows/deploy-data-api.yml`, a multi-arch image to `dbie/data-api:common`
 and a forced new deployment.
