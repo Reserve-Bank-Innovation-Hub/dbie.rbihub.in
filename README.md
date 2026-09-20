@@ -7,7 +7,8 @@ markets, banking, external sector, government finance and payments, each with a 
 page, AG Grid table and (where it fits) a Plotly chart—and an MCP server so AI assistants
 can use the data too.
 
-Built by the [Reserve Bank Innovation Hub](https://rbihub.in). MIT licensed.
+Built by the [Reserve Bank Innovation Hub](https://rbihub.in). MIT licensed. Start with
+[`docs/architecture.md`](docs/architecture.md) for how it all fits together.
 
 ## Quickstart
 
@@ -78,7 +79,7 @@ DBIE ──scrape──▶ data/ (raw files; not in git) ──pnpm db:load─�
 | `mcp/`                                                                    | `@reserve-bank-innovation-hub/dbie-mcp` — MCP server over the site's data                    |
 | `scripts/db/`                                                             | Loaders for the project's Postgres database (schemas, SDMX and report tables, catalogue, checks; `docs/database.md`) |
 | `dbie-backend/data-api/`                                                  | Read-only Go API over the database: every table, rows, CSV, catalogue, code lists (`docs/data-api.md`)          |
-| `docs/`                                                                   | Architecture, scraper internals, data learnings                                              |
+| `docs/`                                                                   | `architecture.md` (the map), `database.md`, `data-api.md`, `scraper.md`, `dbie-portal-anatomy.md` |
 
 ## Data refresh
 
