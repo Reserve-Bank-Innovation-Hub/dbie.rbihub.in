@@ -17,11 +17,33 @@ variable "api_gateway_dns_name" {
   default     = ""
 }
 
-# AWS-managed policies.
-data "aws_cloudfront_cache_policy" "origin_cache_control" {
-  name = "UseOriginCacheControlHeaders-QueryStrings"
+# Cache policy of our own. The managed "UseOriginCacheControlHeaders" policies put the Host header in the cache
+# key, and whatever is in the key is forwarded to the origin, which overrides the "except Host" origin request
+# policy below and makes the gateway reject the request. This one keys on the query string only (filters, paging),
+# forwards no headers, and honours the API's own Cache-Control: nothing is cached without it.
+resource "aws_cloudfront_cache_policy" "api" {
+  name        = "dbie-data-api"
+  comment     = "Query string in the key, no headers; TTL from the API's Cache-Control only"
+  min_ttl     = 0
+  default_ttl = 0
+  max_ttl     = 31536000
+
+  parameters_in_cache_key_and_forwarded_to_origin {
+    enable_accept_encoding_gzip   = true
+    enable_accept_encoding_brotli = true
+    headers_config {
+      header_behavior = "none"
+    }
+    cookies_config {
+      cookie_behavior = "none"
+    }
+    query_strings_config {
+      query_string_behavior = "all"
+    }
+  }
 }
 
+# AWS-managed: forward every viewer header except Host, which becomes the origin's domain name.
 data "aws_cloudfront_origin_request_policy" "all_viewer_except_host" {
   name = "Managed-AllViewerExceptHostHeader"
 }
@@ -56,7 +78,7 @@ resource "aws_cloudfront_distribution" "api" {
     allowed_methods          = ["GET", "HEAD", "OPTIONS"]
     cached_methods           = ["GET", "HEAD"]
     compress                 = true
-    cache_policy_id          = data.aws_cloudfront_cache_policy.origin_cache_control.id
+    cache_policy_id          = aws_cloudfront_cache_policy.api.id
     origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host.id
   }
 
