@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "40099",
      "code": "BY_2010",
      "label": "Base Year : 2010 = 100",
@@ -42,13 +35,6 @@
    "table": "dim_ebr_comd_item",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "55005",
      "code": "C_GIAG",
@@ -122,13 +108,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "37869",
      "code": "ALL_INDIA",
      "label": "Combined- All India",
@@ -158,13 +137,6 @@
    "table": "dim_ebr_state_code",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "54589",
      "code": "ALL_INDIA",
@@ -489,13 +461,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37062",
      "code": "IX",

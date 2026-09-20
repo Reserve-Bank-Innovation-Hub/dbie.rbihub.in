@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "40088",
      "code": "BY_1960-61",
      "label": "Base : 1960-61 = 100",
@@ -92,13 +85,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "37289",
      "code": "ANL_VAR",
      "label": "Annual Variation",
@@ -114,13 +100,6 @@
    "table": "dim_ebr_type_cpi_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37817",
      "code": "AL",
@@ -228,13 +207,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37048",
      "code": "PT",

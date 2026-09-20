@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "40085",
      "code": "BY_1960",
      "label": "Base Year : 1960 = 100",
@@ -56,13 +49,6 @@
    "table": "dim_ebr_center_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "40045",
      "code": "AGRA",
@@ -969,13 +955,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "54589",
      "code": "ALL_INDIA",
      "label": "All India",
@@ -1250,13 +1229,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37062",
      "code": "IX",

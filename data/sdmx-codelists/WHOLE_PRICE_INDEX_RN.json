@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "40086",
      "code": "BY_1981_82",
      "label": "Base Year : 1981-82",
@@ -57,13 +50,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "37062",
      "code": "IX",
      "label": "Index",
@@ -79,13 +65,6 @@
    "table": "dim_ebr_wpi_com_cls_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "39649",
      "code": "WPI0103240206",

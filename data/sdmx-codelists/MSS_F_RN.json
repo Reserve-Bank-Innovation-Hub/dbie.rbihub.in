@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "53559",
      "code": "SF2_IM",
      "label": "Bank Credit to Commercial Sector",
@@ -70,13 +63,6 @@
    "table": "dim_ebr_sor_f_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "40444",
      "code": "SF2",
@@ -170,13 +156,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37039",
      "code": "INR",

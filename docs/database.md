@@ -26,6 +26,13 @@ credentials: `AWS_PROFILE=default terraform -chdir=infra/terraform/common plan` 
 security groups and parameter group were created by hand on 18-09-2026 and imported (`terraform import`, ids in the
 resource comments and the git history); the buckets, secrets and release role were created by Terraform.
 
+The data API's pieces live in the same root: the ECR repository `dbie/data-api`, the ECS cluster `dbie-common` with
+the execution and infrastructure roles an Express service needs, the API's task role (read on the reader secret
+only) and security group (the database security group admits 5432 from it), the log group `/ecs/dbie-data-api`, the
+certificate and DNS for `data-api.dbie.rbihub.in` in the `dbie.rbihub.in` zone this account hosts, and the GitHub
+deploy role. The service and its load balancer are created once by `scripts/deploy/create-data-api-service.sh`; see
+`docs/data-api.md`.
+
 Buckets, both readable by anyone because the data is public:
 
 - `dbie-common-scrapes`: `scrapes/<date>/` holds every raw file of a scrape with a `MANIFEST.json` of sizes and

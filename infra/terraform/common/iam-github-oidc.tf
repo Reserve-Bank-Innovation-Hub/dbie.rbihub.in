@@ -65,3 +65,74 @@ resource "aws_iam_role_policy" "github_actions_release" {
     ]
   })
 }
+
+# -----------------------------------------------------------------------------
+# GitHub Actions OIDC deploy role — lets .github/workflows/deploy-data-api.yml
+# push the API image and force a new deployment of the ECS service, with no
+# static keys. Pratirupa's <project>-github-actions-deploy, for this account.
+# -----------------------------------------------------------------------------
+
+resource "aws_iam_role" "github_actions_deploy" {
+  name                 = "dbie-github-actions-deploy"
+  max_session_duration = 3600
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = { Federated = aws_iam_openid_connect_provider.github.arn }
+      Action    = "sts:AssumeRoleWithWebIdentity"
+      Condition = {
+        StringEquals = {
+          "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
+        }
+        StringLike = {
+          "token.actions.githubusercontent.com:sub" = [for b in var.release_branches : "repo:${var.github_repo}:ref:refs/heads/${b}"]
+        }
+      }
+    }]
+  })
+
+  tags = { Name = "dbie-github-actions-deploy" }
+}
+
+resource "aws_iam_role_policy" "github_actions_deploy" {
+  name = "deploy-permissions"
+  role = aws_iam_role.github_actions_deploy.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "ECRAuthToken"
+        Effect   = "Allow"
+        Action   = "ecr:GetAuthorizationToken"
+        Resource = "*"
+      },
+      {
+        Sid    = "ECRPush"
+        Effect = "Allow"
+        Action = [
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload",
+          "ecr:PutImage",
+          "ecr:BatchGetImage",
+          "ecr:GetDownloadUrlForLayer",
+        ]
+        Resource = aws_ecr_repository.data_api.arn
+      },
+      {
+        Sid      = "ECSForceDeploy"
+        Effect   = "Allow"
+        Action   = ["ecs:UpdateService", "ecs:DescribeServices"]
+        Resource = "arn:aws:ecs:${var.region}:${var.common_account_id}:service/${aws_ecs_cluster.main.name}/*"
+      },
+    ]
+  })
+}
+
+output "github_actions_deploy_role_arn" {
+  value = aws_iam_role.github_actions_deploy.arn
+}

@@ -33,7 +33,8 @@ if (dryRun) process.exit(0);
 
 const cli = ['--region', process.env.AWS_REGION || 'ap-south-1', ...(process.env.AWS_PROFILE ? ['--profile', process.env.AWS_PROFILE] : [])];
 const run = args => execFileSync('aws', [...args, ...cli], { stdio: ['ignore', 'inherit', 'inherit'], cwd: ROOT });
-run(['s3', 'sync', OUT, `s3://${BUCKET}/releases/${version}`, '--exclude', '*', '--include', '*.json', '--only-show-errors', '--content-type', 'application/json']);
+// A version never changes once published, so its files may be cached for a year; latest.json is the only moving part.
+run(['s3', 'sync', OUT, `s3://${BUCKET}/releases/${version}`, '--exclude', '*', '--include', '*.json', '--only-show-errors', '--content-type', 'application/json', '--cache-control', 'public, max-age=31536000, immutable']);
 const tmp = path.join(OUT, '.release-manifest.json');
 fs.writeFileSync(tmp, JSON.stringify(record, null, 1));
 run(['s3', 'cp', tmp, `s3://${BUCKET}/releases/${version}/MANIFEST.json`, '--only-show-errors', '--content-type', 'application/json']);

@@ -16,6 +16,7 @@ await psql(async write => {
         const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
         const seen = new Set();
         for (const d of j.dims) for (const v of d.values) {
+            if (/^(<|&lt;)CL_/i.test(String(v.code ?? ''))) continue; // the tree's root template row, not a code
             const key = `${d.code}\u0000${v.id}`;
             if (seen.has(key)) continue;
             seen.add(key);

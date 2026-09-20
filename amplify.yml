@@ -19,6 +19,13 @@ frontend:
         # into .env.production so the Next SSR runtime can read them too.
         - env | grep -E '^ENNI_' >> .env.production || true
         - pnpm build
+    postBuild:
+      commands:
+        # The pulled JSON served its purpose at build time (pages pre-rendered from it, and
+        # next.config.js baked the release version into a /data/* rewrite). Shipping it too
+        # would push the deployable output past Amplify's 220 MB limit, so the browser fetches
+        # /data/*.json from the release in the bucket instead.
+        - rm -rf public/data
   artifacts:
     baseDirectory: .next
     files:

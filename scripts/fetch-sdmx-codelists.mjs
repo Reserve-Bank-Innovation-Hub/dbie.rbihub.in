@@ -18,10 +18,12 @@ const tree = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'sdmx-tree.json'
 const elements = tree.flatMap(g => g.elements.map(e => ({ ...e, sector: g.sector, subSector: g.subSector })));
 
 // dim_code_list_values is a tree of { element: {CL_VALUE_CODE, CL_VALUE_LABLE, …}, children: [...] }.
+const isPlaceholder = code => /^(<|&lt;)CL_/i.test(String(code ?? ''));
 function walk(nodes, out) {
     for (const n of nodes || []) {
         const e = n.element;
-        if (e) out.push({ id: e.CL_VALUES_ID, code: e.CL_VALUE_CODE, label: e.CL_VALUE_LABLE, parentId: e.PARENT_CL_VALUES_ID_FK, level: e.LEVEL == null ? null : Number(e.LEVEL) });
+        // The tree's root carries a template row ("<CL_VALUE_CODE>", "<CL_Value_Lable>"), not a code; skip it.
+        if (e && !isPlaceholder(e.CL_VALUE_CODE)) out.push({ id: e.CL_VALUES_ID, code: e.CL_VALUE_CODE, label: e.CL_VALUE_LABLE, parentId: e.PARENT_CL_VALUES_ID_FK, level: e.LEVEL == null ? null : Number(e.LEVEL) });
         walk(n.children, out);
     }
     return out;

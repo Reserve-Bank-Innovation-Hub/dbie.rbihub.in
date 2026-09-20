@@ -13,13 +13,6 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "40744",
      "code": "GRP_BORRW_BNKS",
      "label": "Borrowings from banks",
@@ -330,79 +323,72 @@
    "database": "ebr_public_elements",
    "values": [
     {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
-    {
      "id": "41203",
      "code": "LESS_THN_1CR",
-     "label": "Less than ₹ 1 crore",
+     "label": "Less than \u20b9 1 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41204",
      "code": "1CR_TO_2CR",
-     "label": "₹ 1 crore -  ₹ 2 crore",
+     "label": "\u20b9 1 crore -  \u20b9 2 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "48142",
      "code": "ONE_CR_TO_FIV_CR",
-     "label": "₹ 1 crore -  ₹ 5 crore",
+     "label": "\u20b9 1 crore -  \u20b9 5 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41207",
      "code": "10CR_TO_25CR",
-     "label": "₹ 10 crore -  ₹ 25 crore",
+     "label": "\u20b9 10 crore -  \u20b9 25 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41210",
      "code": "100CR_N_ABOVE",
-     "label": "₹ 100 crore & above",
+     "label": "\u20b9 100 crore & above",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41205",
      "code": "2CR_TO_5CR",
-     "label": "₹ 2 crore -  ₹ 5 crore",
+     "label": "\u20b9 2 crore -  \u20b9 5 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "48141",
      "code": "TWNTY_FIV_CR_TO_HUN_CR",
-     "label": "₹ 25 crore  - ₹ 100 crore",
+     "label": "\u20b9 25 crore  - \u20b9 100 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41208",
      "code": "25CR_TO_50CR",
-     "label": "₹ 25 crore -  ₹ 50 crore",
+     "label": "\u20b9 25 crore -  \u20b9 50 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41206",
      "code": "5CR_TO_10CR",
-     "label": "₹ 5 crore -  ₹ 10 crore",
+     "label": "\u20b9 5 crore -  \u20b9 10 crore",
      "parentId": "NULL",
      "level": 1
     },
     {
      "id": "41209",
      "code": "50CR_TO_100CR",
-     "label": "₹ 50 crore -  ₹ 100 crore",
+     "label": "\u20b9 50 crore -  \u20b9 100 crore",
      "parentId": "NULL",
      "level": 1
     }
@@ -415,13 +401,6 @@
    "table": "dim_ebr_ref_time_rn",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "42037",
      "code": "CURR_YR",
@@ -445,13 +424,6 @@
    "table": "dim_ebr_unit_measure",
    "database": "ebr_public_elements",
    "values": [
-    {
-     "id": "&lt;CL_VALUES_ID&gt;",
-     "code": "&lt;CL_VALUE_CODE&gt;",
-     "label": "&lt;CL_Value_Lable&gt;",
-     "parentId": "&lt;PARENT_CL_VALUES_ID_FK&gt;",
-     "level": 0
-    },
     {
      "id": "37048",
      "code": "PT",

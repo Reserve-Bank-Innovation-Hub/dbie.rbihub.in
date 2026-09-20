@@ -3,8 +3,9 @@ name: Release site data
 # Builds the site's data bundle from a scrape archive and publishes it as a release (see scripts/data-release.mjs):
 # fetch the scrape's raw files from the public archive bucket, run the processors, verify their output against the
 # committed oracles, upload the bundle to dbie-common-site-data/releases/<version>/ and point latest.json at it.
-# Runs on demand, or when the processors or their oracles change on dev. The Amplify build then downloads the
-# current release (pnpm data:pull); with the AMPLIFY_WEBHOOK_URL secret set, the site rebuilds at once.
+# Runs on demand, or when the processors or their oracles change on main: every site branch's build downloads
+# the current release (pnpm data:pull), so releases come from production code only. With the AMPLIFY_WEBHOOK_URL
+# secret set, the site rebuilds at once.
 on:
     workflow_dispatch:
         inputs:
@@ -14,7 +15,7 @@ on:
                 required: true
     push:
         branches:
-            - dev
+            - main
         paths:
             - "data/processors/**"
             - "data/sdmx-codelists/**"

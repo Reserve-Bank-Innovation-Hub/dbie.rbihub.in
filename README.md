@@ -54,6 +54,8 @@ DBIE ──scrape──▶ data/ (raw files; not in git) ──pnpm db:load─�
 
 - The **database is the system of record** for everything scraped (1,033 tables plus a catalogue and code lists);
   git holds code and small metadata only, and every scrape's raw files are archived to S3 under their date.
+- The **data API** (`dbie-backend/data-api`) serves every table, its rows and CSV, the catalogue and the code lists
+  from the database, read-only (`docs/data-api.md`).
 - Pages are **pre-rendered at build time** from a data release in `public/data/`: no API, no database in the
   request path.
 - All interactivity (Plotly charts, AG Grid, search) is client-side.
@@ -75,6 +77,7 @@ DBIE ──scrape──▶ data/ (raw files; not in git) ──pnpm db:load─�
 | `data/coverage-report.md`                                                 | What the scrape covers vs the DBIE Reports catalogue                                         |
 | `mcp/`                                                                    | `@reserve-bank-innovation-hub/dbie-mcp` — MCP server over the site's data                    |
 | `scripts/db/`                                                             | Loaders for the project's Postgres database (schemas, SDMX and report tables, catalogue, checks; `docs/database.md`) |
+| `dbie-backend/data-api/`                                                  | Read-only Go API over the database: every table, rows, CSV, catalogue, code lists (`docs/data-api.md`)          |
 | `docs/`                                                                   | Architecture, scraper internals, data learnings                                              |
 
 ## Data refresh
@@ -87,7 +90,8 @@ DBIE ──scrape──▶ data/ (raw files; not in git) ──pnpm db:load─�
    rebuild the site (Amplify picks up the current release with `pnpm data:pull`).
 5. Commit the code and metadata changes (catalogues, code lists, oracles); the raw files stay out of git.
 
-The `release-data` workflow does steps 4 from an archived scrape on demand or when the processors change.
+The `release-data` workflow does step 4 from an archived scrape, on demand or when the processors change on
+`main`; every site branch's build downloads the current release.
 
 ## AI access (MCP)
 
