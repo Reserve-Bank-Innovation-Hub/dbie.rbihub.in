@@ -1,0 +1,150 @@
+.tables-menubar {
+    position : relative;
+    width    : 100%;
+
+    /* THE BAR ====================================================================================================== */
+    .menubar-items {
+        display     : flex;
+        flex-wrap   : wrap;
+        align-items : stretch;
+        gap         : 4px;
+        padding     : 8px 12px;
+    }
+
+    .menubar-item {
+        display       : inline-flex;
+        align-items   : center;
+        gap           : 8px;
+        padding       : 8px 12px;
+        border        : 1px solid transparent;
+        border-radius : 6px;
+        background    : transparent;
+        color         : var(--paragraph-text-colour);
+        font          : inherit;
+        font-size     : 0.92rem;
+        font-weight   : 600;
+        cursor        : pointer;
+
+        &:hover { background : hsla(var(--indivara), 0.08); }
+
+        &.is-current { color : hsl(var(--indivara)); }
+
+        &.is-open { background : hsla(var(--indivara), 0.12); }
+
+        .item-count {
+            font-family : var(--font-mono);
+            font-size   : 80%;
+            font-weight : 400;
+            color       : var(--paragraph-subtext-colour);
+        }
+
+        .item-chevron {
+            color      : var(--paragraph-subtext-colour);
+            transition : transform 0.15s ease;
+        }
+
+        &.is-open .item-chevron { transform : rotate(180deg); }
+    }
+
+    /* THE PANEL ==================================================================================================== */
+    .menubar-panel {
+        position              : absolute;
+        top                   : 100%;
+        left                  : 0;
+        right                 : 0;
+        z-index               : 100;
+        display               : grid;
+        grid-template-columns : minmax(220px, 1fr) minmax(240px, 1.2fr) 2fr;
+        max-height            : min(72vh, 720px);
+        overflow              : hidden;
+        background            : var(--white);
+        border                : 1px solid var(--grey-light80);
+        border-top            : none;
+        box-shadow            : 0 16px 32px -16px rgba(0, 0, 0, 0.3);
+    }
+
+    .panel-column {
+        list-style : none;
+        margin     : 0;
+        padding    : 8px;
+        max-height : inherit;
+        overflow-y : auto;
+    }
+
+    .panel-sectors,
+    .panel-sections { border-right : 1px solid var(--grey-light80); }
+
+    /* A group within a section: a publication's chapter, the Data Query datasets */
+    .panel-group {
+        padding        : 12px 10px 4px;
+        font-size      : 70%;
+        font-weight    : 600;
+        letter-spacing : 0.04em;
+        text-transform : uppercase;
+        color          : var(--paragraph-subtext-colour);
+    }
+
+    .panel-entry {
+        display               : grid;
+        grid-template-columns : 1fr auto auto;
+        align-items           : center;
+        gap                   : 8px;
+        width                 : 100%;
+        padding               : 8px 10px;
+        border                : none;
+        border-radius         : 6px;
+        background            : transparent;
+        color                 : var(--paragraph-text-colour);
+        font                  : inherit;
+        font-size             : 0.92rem;
+        text-align            : left;
+        cursor                : pointer;
+
+        &:hover,
+        &.is-highlighted { background : hsla(var(--indivara), 0.08); }
+
+        &.is-current {
+            color       : hsl(var(--indivara));
+            font-weight : 600;
+        }
+
+        .entry-count {
+            font-family : var(--font-mono);
+            font-size   : 80%;
+            color       : var(--paragraph-subtext-colour);
+        }
+
+        .entry-chevron { color : var(--paragraph-subtext-colour); }
+
+        /* An entry DBIE has but the database does not: shown, not clickable */
+        &.is-unavailable {
+            cursor : default;
+            color  : var(--paragraph-subtext-colour);
+
+            &:hover { background : transparent; }
+
+            .entry-state {
+                grid-column : span 2;
+                font-size   : 72%;
+                white-space : nowrap;
+            }
+        }
+    }
+}
+
+/* Narrow screens: the panel sits in the flow and its two columns stack ============================================= */
+@media (max-width : 768px) {
+    .tables-menubar .menubar-panel {
+        position              : static;
+        grid-template-columns : 1fr;
+        max-height            : none;
+        box-shadow            : none;
+        border-top            : 1px solid var(--grey-light80);
+    }
+
+    .tables-menubar .panel-sectors,
+    .tables-menubar .panel-sections {
+        border-right  : none;
+        border-bottom : 1px solid var(--grey-light80);
+    }
+}

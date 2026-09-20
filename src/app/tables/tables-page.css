@@ -1,34 +1,268 @@
 #tables-page {
-    display        : flex;
-    flex-direction : column;
-    gap            : 16px;
-
-    #title-card {
-        display         : flex;
-        flex-direction  : column;
-        justify-content : space-between;
+    /* The menubar pads itself; its panel hangs over the table below. */
+    .controls-cell {
+        padding : 0;
+        z-index : 3;
     }
 
-    .table-list {
-        list-style : none;
-        margin     : 0;
-        padding    : 0;
+    .menubar-placeholder {
+        padding : 16px;
+    }
 
-        li {
-            padding       : 6px 0;
-            border-bottom : 1px solid rgba(0, 0, 0, 0.06);
+    .table-cell {
+        min-height : 100vh;
+    }
 
-            &:last-child {
-                border-bottom : none;
+    /* layout.css stretches every child of a table cell; here nothing needs to. */
+    .table-cell > * { flex : 0 0 auto; }
+
+    /* HEADER ======================================================================================================= */
+    .section-crumbs {
+        display       : flex;
+        flex-wrap     : wrap;
+        align-items   : baseline;
+        gap           : 6px;
+        margin-bottom : 8px;
+        font-size     : 0.9rem;
+        font-weight   : 600;
+        color         : var(--paragraph-text-colour);
+
+        .crumb-menu { color : var(--paragraph-subtext-colour); }
+
+        .crumb-sep { color : var(--paragraph-subtext-colour); }
+    }
+
+    .table-links {
+        display     : flex;
+        flex-wrap   : wrap;
+        align-items : center;
+        gap         : 12px;
+        font-size   : 0.85rem;
+
+        a {
+            color           : hsl(var(--indivara));
+            font-weight     : 600;
+            text-decoration : none;
+
+            &:hover { text-decoration : underline; }
+        }
+
+        .table-id {
+            font-family : var(--font-mono);
+            font-size   : 72%;
+            color       : var(--paragraph-subtext-colour);
+            word-break  : break-all;
+        }
+    }
+
+    /* SECTION STRIP: step through the section's tables ============================================================= */
+    .section-strip {
+        display          : flex;
+        flex-wrap        : wrap;
+        align-items      : center;
+        gap              : 8px;
+        padding          : 10px 16px;
+        background-color : var(--white);
+        border-bottom    : 1px solid var(--grey-light80);
+    }
+
+    .strip-step {
+        display         : inline-flex;
+        align-items     : center;
+        justify-content : center;
+        width           : 32px;
+        height          : 32px;
+        border          : 1px solid var(--grey-light80);
+        border-radius   : 6px;
+        background      : var(--white);
+        color           : var(--paragraph-text-colour);
+        cursor          : pointer;
+
+        &:hover:not(:disabled) { background : hsla(var(--indivara), 0.08); }
+
+        &:disabled {
+            opacity : 0.35;
+            cursor  : default;
+        }
+    }
+
+    .strip-select {
+        display     : inline-flex;
+        align-items : center;
+        gap         : 8px;
+        font-size   : 0.85rem;
+
+        > span {
+            color       : var(--paragraph-subtext-colour);
+            font-weight : 600;
+            white-space : nowrap;
+        }
+
+        select {
+            max-width     : 100%;
+            padding       : 6px 10px;
+            border        : 1px solid var(--grey-light80);
+            border-radius : 6px;
+            background    : var(--white);
+            color         : var(--paragraph-text-colour);
+            font          : inherit;
+            font-size     : 0.9rem;
+
+            &:focus {
+                outline      : none;
+                border-color : hsl(var(--indivara));
             }
         }
     }
+
+    .strip-select {
+        flex     : 1 1 320px;
+        min-width : 0;
+
+        select {
+            flex      : 1;
+            min-width : 0;
+        }
+    }
+
+    .strip-count {
+        font-family : var(--font-mono);
+        font-size   : 76%;
+        color       : var(--paragraph-subtext-colour);
+        white-space : nowrap;
+    }
+
+    /* VIEW CONTROLS: the file of a report, the dimensions of an SDMX table, find, download ======================== */
+    .view-controls {
+        display       : flex;
+        flex-wrap     : wrap;
+        align-items   : center;
+        gap           : 8px 20px;
+        padding       : 10px 16px;
+        border-bottom : 1px solid var(--grey-light90);
+    }
+
+    .view-control {
+        display     : inline-flex;
+        align-items : center;
+        gap         : 8px;
+        font-size   : 0.85rem;
+
+        > span {
+            color       : var(--paragraph-subtext-colour);
+            font-weight : 600;
+            white-space : nowrap;
+        }
+
+        select {
+            max-width     : 420px;
+            padding       : 6px 10px;
+            border        : 1px solid var(--grey-light80);
+            border-radius : 6px;
+            background    : var(--white);
+            color         : var(--paragraph-text-colour);
+            font          : inherit;
+            font-size     : 0.9rem;
+
+            &:focus {
+                outline      : none;
+                border-color : hsl(var(--indivara));
+            }
+        }
+    }
+
+    .view-find {
+        position : relative;
+
+        svg {
+            position  : absolute;
+            left      : 10px;
+            top       : 50%;
+            transform : translateY(-50%);
+            color     : var(--paragraph-subtext-colour);
+        }
+
+        input {
+            min-width     : 200px;
+            padding       : 6px 10px 6px 30px;
+            border        : 1px solid var(--grey-light80);
+            border-radius : 6px;
+            background    : var(--white);
+            color         : var(--paragraph-text-colour);
+            font          : inherit;
+            font-size     : 0.9rem;
+
+            &:focus {
+                outline      : none;
+                border-color : hsl(var(--indivara));
+            }
+        }
+    }
+
+    .view-capped {
+        background-color : var(--amber-light90);
+        border-bottom    : 1px solid var(--amber-light70);
+    }
+
+    /* A section with nothing loaded: what DBIE lists, and why it is not here ======================================= */
+    .section-list {
+        list-style : none;
+        margin     : 0;
+        padding    : 8px 16px;
+
+        li {
+            display         : flex;
+            justify-content : space-between;
+            align-items     : center;
+            gap             : 16px;
+            padding         : 8px 0;
+            border-bottom   : 1px solid var(--grey-light90);
+            font-size       : 0.92rem;
+        }
+    }
+
+    .status {
+        display       : inline-block;
+        padding       : 2px 8px;
+        border-radius : 999px;
+        font-size     : 76%;
+        font-weight   : 600;
+        white-space   : nowrap;
+    }
+
+    .status-loaded        { background : var(--green-light80); color : var(--green-dark40); }
+    .status-not-exported  { background : var(--amber-light80); color : var(--amber-dark40); }
+    .status-archive       { background : var(--grey-light80);  color : var(--grey-dark30);  }
+    .status-empty         { background : var(--red-light80);   color : var(--red-dark30);   }
+    .status-documentation { background : var(--blue-light80);  color : var(--blue-dark30);  }
 }
 
-#tables-page .table-link {
-    text-decoration : none;
+@media screen and (max-width : 768px) {
+    #tables-page .strip-count { display : none; }
 
-    &:hover p {
-        text-decoration : underline;
+    #tables-page .section-strip { flex-wrap : nowrap; }
+
+    #tables-page .strip-select {
+        flex : 1 1 auto;
+
+        > span { display : none; }
     }
+
+    #tables-page .view-control {
+        flex      : 1 1 100%;
+        min-width : 0;
+
+        select {
+            flex      : 1;
+            width     : 100%;
+            min-width : 0;
+            max-width : 100%;
+        }
+    }
+
+    #tables-page .strip-select select { width : 100%; }
+
+    #tables-page .view-download { margin-left : 0; }
+
+    #tables-page .view-find input { width : 100%; }
 }
