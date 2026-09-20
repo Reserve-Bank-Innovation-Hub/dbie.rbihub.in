@@ -131,13 +131,16 @@ export const SeriesTable = ({ pivot, find } : SeriesTableProps) => {
 
     return (
         <div className="data-table-block">
-            {pivot.context.length > 0 && (
-                <div className="data-table-head">
+            <div className="data-table-head">
+                <div className="data-table-title">
+                    {shown.length.toLocaleString("en-IN")} {shown.length === 1 ? "series" : "series"} · {pivot.periods.length.toLocaleString("en-IN")} periods, newest first
+                </div>
+                {pivot.context.length > 0 && (
                     <div className="data-table-context">
                         {pivot.context.map(c => <span key={c.name}><b>{c.name}</b> {c.value}</span>)}
                     </div>
-                </div>
-            )}
+                )}
+            </div>
 
             {shown.length === 0 ? (
                 <div className="data-table-empty">No series matches “{find.trim()}”.</div>

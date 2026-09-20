@@ -94,12 +94,12 @@ export interface SectionRef {
     section : Section;
 }
 
-// DBIE's Statistics and Publication menus, in the order DBIE's own top menu has them. DBIE's third menu, SDMX Data
-// Query, is folded into Statistics: each dataset sits in the sector and sub-section of the same name, in a "Data
-// Query" group after the section's report tables. DATA_QUERY_HOME holds the few names that differ.
+// DBIE's Publication and Statistics menus, publications first. DBIE's third menu, SDMX Data Query, is folded into
+// Statistics: each dataset sits in the sector and sub-section of the same name, in a "Data Query" group after the
+// section's report tables. DATA_QUERY_HOME holds the few names that differ.
 const MENUS : { key : string; label : string; sources : CatalogueSource[]; hint : string }[] = [
-    { key : "statistics",  label : "Statistics",  sources : [ "statistics", "sdmx" ], hint : "Report tables and Data Query datasets by sector, as DBIE's Statistics menu lists them" },
-    { key : "publication", label : "Publication", sources : [ "publications" ],      hint : "DBIE's time-series publications, table by table" },
+    { key : "publication", label : "Publications", sources : [ "publications" ],      hint : "DBIE's time-series publications, table by table" },
+    { key : "statistics",  label : "Statistics",   sources : [ "statistics", "sdmx" ], hint : "Report tables and Data Query datasets by sector, as DBIE's Statistics menu lists them" },
 ];
 
 export const DATA_QUERY_GROUP = "Data Query";
@@ -330,6 +330,26 @@ export function findEntry(menus : Menu[], key : string | null | undefined) : Ent
 
 // The first entry of a section that is in the database, in DBIE's order.
 export const firstLoaded = (section : Section) : CatalogueEntry | null => section.entries.find(isLoaded) ?? null;
+
+// The table the page opens on when none is asked for: the Monthly RBI Bulletin's "Select Economic Indicators",
+// DBIE report 41, the Bulletin's first table and the usual place to start; failing that, the first loaded table.
+const DEFAULT_REPORT = 41;
+
+export function defaultEntry(menus : Menu[]) : EntryRef | null {
+    let first : EntryRef | null = null;
+    for (const menu of menus) {
+        for (const sector of menu.sectors) {
+            for (const section of sector.sections) {
+                for (const entry of section.entries) {
+                    if (!isLoaded(entry)) continue;
+                    if (entry.report_id === DEFAULT_REPORT) return { menu, sector, section, entry };
+                    first ??= { menu, sector, section, entry };
+                }
+            }
+        }
+    }
+    return first;
+}
 
 export const sectionCount = (menus : Menu[]) : number =>
     menus.reduce((n, m) => n + m.sectors.reduce((k, s) => k + s.sections.length, 0), 0);

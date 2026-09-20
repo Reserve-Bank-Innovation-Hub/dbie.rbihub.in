@@ -8,10 +8,11 @@
 
 // REACT CORE ==========================================================================================================
 import React, { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Div, Text } from "fictoan-react";
-import { Search } from "lucide-react";
+import { Div, ListBox, Text } from "fictoan-react";
+import { Braces, Download, LineChart, Search } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { ReportTable } from "@components/tables/ReportTable";
@@ -19,7 +20,7 @@ import { SeriesTable } from "@components/tables/SeriesTable";
 import { Loading }     from "@components/Loading/Loading";
 
 // LIB =================================================================================================================
-import { CatalogueEntry, formatRange } from "@/lib/api/catalogue";
+import { CatalogueEntry, formatRange, periodRange } from "@/lib/api/catalogue";
 import {
     AllRows,
     Codelist,
@@ -31,26 +32,30 @@ import {
     fetchTable,
     fileName,
     reportFiles,
+    rowsUrl,
 } from "@/lib/api/tables";
 import { parseReportGrid } from "@/lib/tables/report-grid";
 import { pivotSdmx }       from "@/lib/tables/sdmx-pivot";
 
 const MAX_ROWS = 20000;
+const ALL      = "__all__";   // the "All" choice of a dimension list
 
 interface TableViewProps {
     entry    : CatalogueEntry;
-    onTotal  : (total : number | null) => void;    // rows the current selects match, once counted
-    onPeriod : (period : string | null) => void;   // the period the table covers, from its provenance
+    crumbs   : string[];                                    // where the table sits in DBIE's menus
+    pageLink : { href : string; label : string } | null;   // the site's own page for it, if any
 }
 
 // A file's name in the tab selector: its tab, and its period when the tab was exported per period.
 const fileLabel = (f : ReportFile) : string =>
     f.period && f.period !== "full-history" ? `${f.tab} · ${f.period}` : f.tab;
 
-export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
+export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
     const schema = entry.schema_name!;
     const table  = entry.table_name!;
 
+    const [ period,    setPeriod ]    = useState<string | null>(null);                 // from the provenance
+    const [ total,     setTotal ]     = useState<number | null>(null);                 // rows the selects match
     const [ info,      setInfo ]      = useState<TableInfo | null>(null);
     const [ codelists, setCodelists ] = useState<Record<string, Codelist>>({});
     const [ error,     setError ]     = useState<string | null>(null);
@@ -70,14 +75,14 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
         setDims({});
         setRows(null);
         setFind("");
-        onTotal(null);
-        onPeriod(null);
+        setTotal(null);
+        setPeriod(null);
 
         fetchTable(schema, table, controller.signal)
             .then(async fetched => {
                 if (controller.signal.aborted) return;
                 const prov = (fetched.provenance ?? {}) as Record<string, string | null | undefined>;
-                onPeriod(fetched.data.layout === "typed"
+                setPeriod(fetched.data.layout === "typed"
                     ? formatRange(prov.first_period, prov.last_period)
                     : formatRange(prov.period_from, prov.period_to));
                 const files = reportFiles(fetched);
@@ -91,7 +96,7 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
                 if (!controller.signal.aborted) setError(err instanceof Error ? err.message : String(err));
             });
         return () => controller.abort();
-    }, [ schema, table, onTotal, onPeriod ]);
+    }, [ schema, table ]);
 
     const isSdmx = info?.data.layout === "typed";
     const files  = useMemo(() => (info ? reportFiles(info) : []), [ info ]);
@@ -122,7 +127,7 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
                 if (controller.signal.aborted) return;
                 setRows(fetched);
                 setProgress(null);
-                onTotal(fetched.total);
+                setTotal(fetched.total);
             })
             .catch((err : unknown) => {
                 if (!controller.signal.aborted) {
@@ -131,7 +136,7 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
                 }
             });
         return () => controller.abort();
-    }, [ info, isSdmx, files, file, filters, schema, table, onTotal ]);
+    }, [ info, isSdmx, files, file, filters, schema, table ]);
 
     const grid  = useMemo(() => (rows && info && !isSdmx ? parseReportGrid(rows.columns, rows.rows, info.data.width) : null), [ rows, info, isSdmx ]);
     const pivot = useMemo(() => (rows && info && isSdmx ? pivotSdmx(rows.columns, rows.rows, info.data.dimensions ?? [], codelists) : null), [ rows, info, isSdmx, codelists ]);
@@ -139,48 +144,98 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
     // ------------------------------------------------------------------------------------------------------------------
     // Render
     // ------------------------------------------------------------------------------------------------------------------
+    const identity = entry.dsd_code ? `SDMX dataset ${entry.dsd_code}` : `DBIE report ${entry.report_id}`;
+    const subline  = [
+        crumbs.join(" › "),
+        identity,
+        entry.frequency ?? "",
+        period ?? periodRange(entry),
+        total != null ? `${total.toLocaleString("en-IN")} rows` : (entry.row_count != null ? `${entry.row_count.toLocaleString("en-IN")} rows` : ""),
+    ].filter(Boolean).join(" · ");
+    const download = csvUrl(schema, table, filters);
+
+    const head = (
+        <header className="page-head">
+            <div className="page-head-text">
+                <h2 className="page-title">{entry.title}</h2>
+                <p className="page-sub">{subline}</p>
+                {entry.notes && <p className="page-sub page-notes">{entry.notes}</p>}
+            </div>
+
+            <div className="page-actions">
+                <a className="icon-button" href={download} title="Download this view as CSV" aria-label="Download this view as CSV">
+                    <Download size={18} />
+                </a>
+                <a className="icon-button" href={rowsUrl(schema, table, filters)} target="_blank" rel="noreferrer" title="Rows as JSON from the data API" aria-label="Rows as JSON from the data API">
+                    <Braces size={18} />
+                </a>
+                {pageLink && (
+                    <Link className="icon-button" href={pageLink.href} title={pageLink.label} aria-label={pageLink.label}>
+                        <LineChart size={18} />
+                    </Link>
+                )}
+            </div>
+        </header>
+    );
+
     if (error && !info) {
         return (
-            <Div className="view-note">
-                <Text>Could not open this table. {error}</Text>
-            </Div>
+            <>
+                {head}
+                <Div className="view-note">
+                    <Text>Could not open this table. {error}</Text>
+                </Div>
+            </>
         );
     }
-    if (!info) return <Loading name={entry.title} />;
+    if (!info) {
+        return (
+            <>
+                {head}
+                <Loading name={entry.title} />
+            </>
+        );
+    }
 
     const dimensionFilters = isSdmx
         ? (info.data.codelists ?? []).filter(dim => codelists[dim]).map(dim => ({ dim, list : codelists[dim] }))
         : [];
-    const download = csvUrl(schema, table, filters);
 
     return (
         <>
+            {head}
+
             <Div className="view-controls">
                 {files.length > 1 && (
-                    <label className="view-control">
+                    <div className="view-control view-control-tab">
                         <span>Tab</span>
-                        <select value={file} onChange={e => setFile(e.target.value)}>
-                            {files.map(f => (
-                                <option key={f.file} value={fileName(f.file)}>
-                                    {fileLabel(f)} ({f.rows.toLocaleString("en-IN")} rows)
-                                </option>
-                            ))}
-                        </select>
-                    </label>
+                        <ListBox
+                            size="small"
+                            isFullWidth
+                            options={files.map(f => ({ value : fileName(f.file), label : `${fileLabel(f)} · ${f.rows.toLocaleString("en-IN")} rows` }))}
+                            value={file}
+                            onChange={v => setFile(Array.isArray(v) ? (v[0] ?? "") : v)}
+                        />
+                    </div>
                 )}
 
                 {dimensionFilters.map(({ dim, list }) => (
-                    <label key={dim} className="view-control">
+                    <div key={dim} className="view-control">
                         <span>{list.dim_name || dim.toUpperCase()}</span>
-                        <select value={dims[dim] ?? ""} onChange={e => setDims(d => ({ ...d, [dim] : e.target.value }))}>
-                            <option value="">All</option>
-                            {list.values.map(v => (
-                                <option key={v.value_id} value={v.code}>
-                                    {"  ".repeat(Math.max(0, (v.level ?? 1) - 1))}{v.label}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
+                        <ListBox
+                            size="small"
+                            isFullWidth
+                            options={[
+                                { value : ALL, label : "All" },
+                                ...list.values.map(v => ({ value : v.code, label : `${"  ".repeat(Math.max(0, (v.level ?? 1) - 1))}${v.label}` })),
+                            ]}
+                            value={dims[dim] || ALL}
+                            onChange={v => {
+                                const code = Array.isArray(v) ? (v[0] ?? ALL) : v;
+                                setDims(d => ({ ...d, [dim] : code === ALL ? "" : code }));
+                            }}
+                        />
+                    </div>
                 ))}
 
                 <label className="view-control view-find">
@@ -193,8 +248,6 @@ export const TableView = ({ entry, onTotal, onPeriod } : TableViewProps) => {
                         onChange={e => setFind(e.target.value)}
                     />
                 </label>
-
-                <a className="view-download" href={download}>Download this view as CSV</a>
             </Div>
 
             {error && (

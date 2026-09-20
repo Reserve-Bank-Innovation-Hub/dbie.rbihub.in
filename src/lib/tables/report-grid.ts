@@ -41,6 +41,11 @@ const isNumberingRow = (cells : string[]) : boolean => {
 
 const NOTE = /^(notes?\b|source\b|\*|#|@|†|\(\*|see\b|figures\b)/i;
 
+// A trailing single-cell row is a note when it reads like one: it starts the way DBIE's notes start, or it is a
+// sentence of several words. A lone date or label (a row whose figures are all blank) is a row of the table.
+const looksLikeNote = (text : string) : boolean =>
+    NOTE.test(text) || (!isNumeric(text) && text.split(/\s+/).length >= 5);
+
 const filled = (row : string[]) : number => row.filter(Boolean).length;
 
 export function parseReportGrid(columns : string[], rows : unknown[][], width ? : number) : ReportGrid {
@@ -104,7 +109,7 @@ export function parseReportGrid(columns : string[], rows : unknown[][], width ? 
         const n    = filled(row);
         const text = row.find(Boolean) ?? "";
         if (n === 0) { end--; continue; }
-        if ((n === 1 && !isNumeric(text)) || NOTE.test(text)) {
+        if ((n === 1 && looksLikeNote(text)) || NOTE.test(text)) {
             notes.unshift(row.filter(Boolean).join(" "));
             end--;
             continue;

@@ -42,7 +42,7 @@ const UsingTheSitePage = () => {
                         <li>
                             <strong><Link href="/tables">Tables</Link></strong> — every table in DBIE&apos;s
                             Statistics and Publication menus, with the Data Query datasets in their sectors, opened
-                            one at a time straight from the database. The menubar follows DBIE&apos;s own hierarchy
+                            one at a time straight from the database. The sidebar follows DBIE&apos;s own hierarchy
                             down to the table; a report is
                             shown as DBIE lays it out, one tab at a time, an SDMX dataset as a time series that its
                             dimensions narrow. Every column sorts from its header and filters from the funnel beside

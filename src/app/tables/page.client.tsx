@@ -1,19 +1,22 @@
 "use client";
 
+// The tables page: the site's page sidebar to move through DBIE's menus, and the chosen table on the right. The
+// sidebar has two levels. At the top: Publications and Statistics, each a group of links (the publications, the
+// sectors). Inside one: its sections as group headings and their tables as links, with a way back up.
+
 // REACT CORE ==========================================================================================================
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 // UI ==================================================================================================================
-import { Article, Div, Heading4, Heading6, Text } from "fictoan-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Article, Div, Divider, Main, Text } from "fictoan-react";
+import { BookOpen, ChevronLeft, FileX2, Layers, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import { TablesMenubar } from "@components/TablesMenubar/TablesMenubar";
-import { DataUnit }      from "@components/DataUnit/DataUnit";
-import { Loading }       from "@components/Loading/Loading";
-import { TableView }     from "./TableView";
+import { LinkGroup, PageSidebar } from "@components/PageSidebars/PageSidebar";
+import { Loading }                from "@components/Loading/Loading";
+import { TableView }              from "./TableView";
 
 // LIB =================================================================================================================
 import {
@@ -21,20 +24,20 @@ import {
     EntryRef,
     Menu,
     MenuOrder,
+    Section,
     SectionRef,
     STATE_LABELS,
     buildMenus,
-    defaultSection,
+    defaultEntry,
     entryState,
     fetchCatalogue,
     findEntry,
     findSection,
     firstLoaded,
     isLoaded,
-    periodRange,
     tableKey,
 } from "@/lib/api/catalogue";
-import { DATA_API_URL, tableCsvUrl, tableRowsUrl } from "@/lib/api/dataApi";
+import { DATA_API_URL } from "@/lib/api/dataApi";
 
 // STYLES ==============================================================================================================
 import "./tables-page.css";
@@ -55,6 +58,9 @@ function pageFor(entry : CatalogueEntry, curated : Record<string, string>, serie
     return null;
 }
 
+// A section's tables in the sidebar, grouped as DBIE groups them.
+const groupTitle = (section : Section, label : string) : string => (label ? `${section.label} · ${label}` : section.label);
+
 const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
     const router       = useRouter();
     const pathname     = usePathname();
@@ -62,8 +68,7 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
 
     const [ entries,    setEntries ]    = useState<CatalogueEntry[] | null>(null);
     const [ fetchError, setFetchError ] = useState<string | null>(null);
-    const [ total,      setTotal ]      = useState<number | null>(null);    // rows in the view, once the API has counted
-    const [ period,     setPeriod ]     = useState<string | null>(null);    // the table's period, from its provenance
+    const [ showRoot,   setShowRoot ]   = useState(false);   // the sidebar's top level, on request
 
     // The catalogue comes from the data API in the browser, so the page always shows what the database holds.
     useEffect(() => {
@@ -79,13 +84,13 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
     const menus : Menu[] = useMemo(() => (entries ? buildMenus(entries, order) : []), [ entries, order ]);
 
     // ?table=<schema>.<table> names the table on show; ?section=<menu>/<sector>/<section> a section, whose first
-    // loaded table is shown; nothing names the first loaded table in DBIE's order.
+    // loaded table is shown; nothing opens the default table.
     const requestedTable   = searchParams.get("table");
     const requestedSection = searchParams.get("section");
     const current : SectionRef | null = useMemo(() => {
         const byTable = findEntry(menus, requestedTable);
         if (byTable) return byTable;
-        return findSection(menus, requestedSection) ?? defaultSection(menus);
+        return findSection(menus, requestedSection) ?? defaultEntry(menus);
     }, [ menus, requestedTable, requestedSection ]);
     const entry : CatalogueEntry | null = useMemo(() => {
         if (!current) return null;
@@ -93,90 +98,128 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
     }, [ current ]);
     const currentKey = entry ? tableKey(entry) : null;
 
-    const goTable   = useCallback((e : CatalogueEntry) => {
-        const key = tableKey(e);
-        if (key) router.replace(`${pathname}?table=${key}`, { scroll : false });
-    }, [ router, pathname ]);
-    const goSection = useCallback((key : string) => router.replace(`${pathname}?section=${key}`, { scroll : false }), [ router, pathname ]);
+    // A new place in the menus closes the top level.
+    useEffect(() => { setShowRoot(false); }, [ currentKey, current?.section.key ]);
 
-    // Previous and next loaded tables within the section.
-    const loadedInSection = useMemo(() => (current ? current.section.entries.filter(isLoaded) : []), [ current ]);
-    const position = entry ? loadedInSection.findIndex(e => e.entry_id === entry.entry_id) : -1;
-    const previous = position > 0 ? loadedInSection[position - 1] : null;
-    const next     = position >= 0 && position < loadedInSection.length - 1 ? loadedInSection[position + 1] : null;
+    const goSection = (key : string) => router.replace(`${pathname}?section=${key}`, { scroll : false });
+    const goTable   = (key : string) => router.replace(`${pathname}?table=${key}`, { scroll : false });
 
-    const page = entry ? pageFor(entry, curated, seriesSlugs) : null;
-    const identity = entry
-        ? (entry.dsd_code ? `SDMX dataset ${entry.dsd_code}` : `DBIE report ${entry.report_id}`)
-        : "";
+    const crumbs = current
+        ? [ current.menu.label, current.sector.label, ...(current.section.implicit ? [] : [ current.section.label ]) ]
+        : [];
 
     return (
-        <Article id="tables-page" className="page-grid">
-            {/* HEADER: the table on show //////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" className="grid-cell" padding="micro">
-                <Div>
-                    {current && (
-                        <Div className="section-crumbs">
-                            <span className="crumb crumb-menu">{current.menu.label}</span>
-                            <span className="crumb-sep">›</span>
-                            <span className="crumb">{current.sector.label}</span>
-                            {!current.section.implicit && (
-                                <>
-                                    <span className="crumb-sep">›</span>
-                                    <span className="crumb">{current.section.label}</span>
-                                </>
-                            )}
-                        </Div>
-                    )}
-
-                    <Heading4 weight="700" marginBottom="nano">
-                        {entry ? entry.title : current ? current.section.label : "Tables"}
-                    </Heading4>
-
-                    <Heading6 weight="400" opacity="60">
-                        {!entries && !fetchError && "Loading DBIE's menus…"}
-                        {entry && identity}
-                        {entry && entry.notes && ` · ${entry.notes}`}
-                        {!entry && current && `None of this section's ${current.section.count} tables is in the database yet.`}
-                    </Heading6>
-                </Div>
-            </Div>
-
-            {/* META CARD ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="meta-card" className="grid-cell" padding="micro">
-                <DataUnit label="Source" value="Reserve Bank of India (DBIE)" />
-                <DataUnit label="Frequency" value={entry?.frequency ?? "—"} />
-                <DataUnit label="Period" value={period || (entry ? periodRange(entry) : "") || "—"} />
-                <DataUnit label="Rows" value={total != null ? total.toLocaleString("en-IN") : (entry?.row_count?.toLocaleString("en-IN") ?? "—")} />
-                {entry && currentKey && (
-                    <Div className="table-links">
-                        <a href={tableCsvUrl(entry.schema_name!, entry.table_name!)}>CSV</a>
-                        <a href={tableRowsUrl(entry.schema_name!, entry.table_name!)} target="_blank" rel="noreferrer">JSON</a>
-                        {page && <Link href={page.href}>{page.label}</Link>}
-                        <span className="table-id">{currentKey}</span>
-                    </Div>
-                )}
-            </Div>
-
-            {/* MENUBAR //////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="controls-cell grid-cell">
-                {entries ? (
-                    <TablesMenubar
-                        menus={menus}
-                        current={current}
-                        currentTable={currentKey}
-                        onSelectTable={goTable}
-                        onSelectSection={goSection}
-                    />
-                ) : (
-                    <Div className="menubar-placeholder">
+        <Article id="tables-page" className="page-with-sidebar">
+            {/* SIDEBAR //////////////////////////////////////////////////////////////////////////////////////////// */}
+            <PageSidebar id="tables-sidebar" headerIcon={<Table2 />} headerLabel="Tables">
+                {!entries && (
+                    <Div className="sidebar-note">
                         <Text size="small" opacity="60">{fetchError ? "Menus unavailable" : "Loading DBIE's menus…"}</Text>
                     </Div>
                 )}
-            </Div>
+
+                {/* TOP LEVEL: the publications, then the sectors ------------------------------------------------ */}
+                {entries && (showRoot || !current) && menus.map((menu, i) => (
+                    <React.Fragment key={menu.key}>
+                        {i > 0 && <Divider />}
+                        <LinkGroup title={menu.label}>
+                            {menu.sectors.map(sector => {
+                                const isHere = current?.sector === sector;
+                                return (
+                                    <button
+                                        key={sector.slug}
+                                        type="button"
+                                        className={`link-item ${isHere ? "active" : ""}`}
+                                        onClick={() => goSection(`${menu.key}/${sector.slug}`)}
+                                    >
+                                        {menu.key === "publication" ? <BookOpen /> : <Layers />}
+                                        <Text>{sector.label}</Text>
+                                    </button>
+                                );
+                            })}
+                        </LinkGroup>
+                    </React.Fragment>
+                ))}
+
+                {/* INSIDE A PUBLICATION OR SECTOR: its sections, their tables -------------------------------------- */}
+                {entries && current && !showRoot && (
+                    <>
+                        <button type="button" className="sidebar-back" onClick={() => setShowRoot(true)}>
+                            <ChevronLeft size={16} />
+                            <span>{current.menu.label}</span>
+                        </button>
+                        <Text className="sidebar-current" weight="700">{current.sector.label}</Text>
+
+                        {current.sector.sections.map((section, s) => section.groups.map((group, g) => (
+                            <React.Fragment key={`${section.slug}/${group.label || "(root)"}`}>
+                                {(s > 0 || g > 0) && <Divider />}
+                                <LinkGroup title={current.sector.sections.length > 1 || group.label ? groupTitle(section, group.label) : "Tables"}>
+                                    {group.entries.map(e => {
+                                        const key = tableKey(e);
+                                        if (!isLoaded(e) || !key) {
+                                            return (
+                                                <span
+                                                    key={e.entry_id}
+                                                    className="link-item is-unavailable"
+                                                    title={`${STATE_LABELS[entryState(e)]}${e.notes ? ` · ${e.notes}` : ""}`}
+                                                >
+                                                    <FileX2 />
+                                                    <Text>{e.title}</Text>
+                                                </span>
+                                            );
+                                        }
+                                        return (
+                                            <Link
+                                                key={e.entry_id}
+                                                href={`${pathname}?table=${key}`}
+                                                scroll={false}
+                                                className={`link-item ${key === currentKey ? "active" : ""}`}
+                                                aria-current={key === currentKey ? "page" : undefined}
+                                            >
+                                                <Table2 />
+                                                <Text>{e.title}</Text>
+                                            </Link>
+                                        );
+                                    })}
+                                </LinkGroup>
+                            </React.Fragment>
+                        )))}
+                    </>
+                )}
+            </PageSidebar>
 
             {/* THE TABLE ////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div className="table-cell grid-cell">
+            <Main>
+                {current && (
+                    <Div className="mobile-nav">
+                        <label>
+                            <span>Publication or sector</span>
+                            <select value={`${current.menu.key}/${current.sector.slug}`} onChange={e => goSection(e.target.value)} aria-label="Publication or sector">
+                                {menus.map(menu => (
+                                    <optgroup key={menu.key} label={menu.label}>
+                                        {menu.sectors.map(sector => (
+                                            <option key={sector.slug} value={`${menu.key}/${sector.slug}`}>{sector.label}</option>
+                                        ))}
+                                    </optgroup>
+                                ))}
+                            </select>
+                        </label>
+                        <label>
+                            <span>Table</span>
+                            <select value={currentKey ?? ""} onChange={e => goTable(e.target.value)} aria-label="Table">
+                                {!currentKey && <option value="">—</option>}
+                                {current.sector.sections.map(section => (
+                                    <optgroup key={section.slug} label={section.label}>
+                                        {section.entries.filter(isLoaded).map(e => (
+                                            <option key={e.entry_id} value={tableKey(e)!}>{e.title}</option>
+                                        ))}
+                                    </optgroup>
+                                ))}
+                            </select>
+                        </label>
+                    </Div>
+                )}
+
                 {fetchError && (
                     <Div className="view-note">
                         <Text>Could not load the catalogue from the data API at {DATA_API_URL}.</Text>
@@ -186,60 +229,34 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
 
                 {!entries && !fetchError && <Loading name="the DBIE catalogue" />}
 
-                {current && (
-                    <Div className="section-strip">
-                        <button type="button" className="strip-step" disabled={!previous} onClick={() => previous && goTable(previous)} aria-label="Previous table in this section">
-                            <ChevronLeft size={16} />
-                        </button>
-
-                        <label className="strip-select">
-                            <span>Table</span>
-                            <select
-                                value={entry ? String(entry.entry_id) : ""}
-                                onChange={e => {
-                                    const chosen = current.section.entries.find(x => String(x.entry_id) === e.target.value);
-                                    if (chosen) goTable(chosen);
-                                }}
-                            >
-                                {!entry && <option value="">—</option>}
-                                {current.section.groups.map(group => {
-                                    const options = group.entries.map(e => (
-                                        <option key={e.entry_id} value={String(e.entry_id)} disabled={!isLoaded(e)}>
-                                            {e.title}{isLoaded(e) ? "" : ` (${STATE_LABELS[entryState(e)].toLowerCase()})`}
-                                        </option>
-                                    ));
-                                    return group.label
-                                        ? <optgroup key={group.label} label={group.label}>{options}</optgroup>
-                                        : <React.Fragment key="(root)">{options}</React.Fragment>;
-                                })}
-                            </select>
-                        </label>
-
-                        <button type="button" className="strip-step" disabled={!next} onClick={() => next && goTable(next)} aria-label="Next table in this section">
-                            <ChevronRight size={16} />
-                        </button>
-
-                        <span className="strip-count">
-                            {position >= 0 ? `${position + 1} of ${loadedInSection.length} loaded` : `${loadedInSection.length} loaded`}
-                            {" · "}
-                            {current.section.count} in DBIE
-                        </span>
-                    </Div>
+                {entry && current && (
+                    <TableView
+                        key={currentKey ?? entry.entry_id}
+                        entry={entry}
+                        crumbs={crumbs}
+                        pageLink={pageFor(entry, curated, seriesSlugs)}
+                    />
                 )}
-
-                {entry && <TableView key={currentKey ?? entry.entry_id} entry={entry} onTotal={setTotal} onPeriod={setPeriod} />}
 
                 {current && !entry && (
-                    <ul className="section-list">
-                        {current.section.entries.map(e => (
-                            <li key={e.entry_id} title={e.notes ?? undefined}>
-                                <span>{e.title}</span>
-                                <span className={`status status-${entryState(e)}`}>{STATE_LABELS[entryState(e)]}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    <>
+                        <header className="page-head">
+                            <div className="page-head-text">
+                                <h2 className="page-title">{current.section.label}</h2>
+                                <p className="page-sub">{crumbs.join(" › ")} · none of this section&apos;s {current.section.count} tables is in the database yet</p>
+                            </div>
+                        </header>
+                        <ul className="section-list">
+                            {current.section.entries.map(e => (
+                                <li key={e.entry_id} title={e.notes ?? undefined}>
+                                    <span>{e.title}</span>
+                                    <span className={`status status-${entryState(e)}`}>{STATE_LABELS[entryState(e)]}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
                 )}
-            </Div>
+            </Main>
         </Article>
     );
 };

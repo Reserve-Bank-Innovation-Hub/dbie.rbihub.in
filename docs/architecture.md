@@ -111,10 +111,15 @@ Different, with the reason:
 - 263 Statistics menu entries were not exported because a same-topic SDMX dataset exists (title similarity, not
   verified); `meta.catalogue.notes` records the candidate. Exporting them is a few hours of the report exporter.
 - The MCP server still reads the site's JSON (335 tables); pointing it at the API gives it all 1,033.
-- The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API, chosen through a menubar
-  that mirrors DBIE's Statistics and Publication menus in DBIE's own order (`data/dbie-menu.json`); the SDMX Data
-  Query datasets are folded into the Statistics section of the same sector and sub-sector, as a group after its
-  report tables (`src/lib/api/catalogue.ts` holds the few names that differ). A report is shown as the table DBIE
+- The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API. It is laid out like
+  Pratirupa's product pages (the site's page sidebar, Anek Latin). The sidebar has two levels: Publications and
+  Statistics, each a group of links (the 14 publications, the 8 sectors, in DBIE's own order from
+  `data/dbie-menu.json`); inside one, its sections as group headings and their tables as links, with a way back
+  up. The SDMX Data Query datasets are folded into the Statistics section of the same sector and sub-sector, as a
+  group after its report tables (`src/lib/api/catalogue.ts` holds the few names that differ). With nothing asked
+  for, the page opens on the Monthly RBI Bulletin's Select Economic Indicators (DBIE report 41). The main area
+  is the table's title, one line of context, icon actions (CSV, JSON, the site's own page where one exists), the
+  tab or dimension pickers (fictoan list boxes) and the table. A report is shown as the table DBIE
   exported, one tab at a time (`src/lib/tables/report-grid.ts` reads the title, headers, figures and notes back
   out of the rows); an SDMX dataset as a time series, periods down and series across, narrowed by its
   dimensions (`src/lib/tables/sdmx-pivot.ts`). Every column sorts and filters from its header, with the
