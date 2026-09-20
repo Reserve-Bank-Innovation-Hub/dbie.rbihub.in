@@ -65,7 +65,9 @@ as an ECS Express gateway service in the common-projects account: 0.5 vCPU / 1 G
 them on CPU, health check on `/health`, the reader secret through the task role, logs in `/ecs/dbie-data-api`.
 Terraform (`infra/terraform/common`: `ecr.tf`, `ecs.tf`, `acm.tf`) holds the repository, cluster, roles, security
 group, certificate and DNS; the service itself was created once with `scripts/deploy/create-data-api-service.sh`,
-the way Pratirupa creates its services. One service serves every site branch (dev, staging and main read the same
+the way Pratirupa creates its services (20-09-2026). ECS gave it an internet-facing load balancer with HTTPS on its
+own name, `da-9a220423d40d4f1896457f6dd2675b48.ecs.ap-south-1.on.aws`; `data-api.dbie.rbihub.in` is a CNAME to
+that name and our certificate is attached to the listener as an extra (SNI) certificate, both from `terraform.tfvars`. One service serves every site branch (dev, staging and main read the same
 database), so it deploys from `main`, the production branch: every push to `main` that touches
 `dbie-backend/data-api/` runs `.github/workflows/deploy-data-api.yml`, a multi-arch image to `dbie/data-api:common`
 and a forced new deployment.

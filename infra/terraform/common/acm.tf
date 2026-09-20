@@ -17,7 +17,13 @@ variable "api_domain" {
 }
 
 variable "api_gateway_dns_name" {
-  description = "DNS name of the data API's Express gateway load balancer; empty until the service exists."
+  description = "The data API's Express gateway endpoint (describe-express-gateway-service → ingressPaths); empty until the service exists."
+  type        = string
+  default     = ""
+}
+
+variable "api_gateway_listener_arn" {
+  description = "The HTTPS listener of the load balancer ECS created for the Express gateway; empty until the service exists."
   type        = string
   default     = ""
 }
@@ -60,6 +66,16 @@ resource "aws_route53_record" "api" {
   type    = "CNAME"
   ttl     = 300
   records = [var.api_gateway_dns_name]
+}
+
+# The gateway's listener carries an AWS-managed certificate for the gateway's own *.on.aws name; Express has no
+# custom-domain option, so our certificate is attached to that listener as an extra (SNI) certificate. ECS owns
+# the load balancer: if it ever recreates the gateway, update the two variables above and apply again.
+resource "aws_lb_listener_certificate" "api" {
+  count = var.api_gateway_listener_arn == "" ? 0 : 1
+
+  listener_arn    = var.api_gateway_listener_arn
+  certificate_arn = aws_acm_certificate_validation.api.certificate_arn
 }
 
 output "api_domain" {
