@@ -1,19 +1,16 @@
 "use client";
 
-// The tables page: the site's page sidebar to move through DBIE's menus, and the chosen table on the page grid.
-// The sidebar has two levels, both made of the sidebar's own link groups. At the top: Publications and Statistics
-// as groups of links (the publications, the sectors). Inside one: its sections as group headings and their loaded
-// tables as links, with a link back up. Which level shows, and which table, is all in the URL: ?table=<schema>.<table>
-// names the table, ?section=<menu>/<sector>[/<section>] a section (its first loaded table is shown), and ?menu=<menu>
-// shows the top level while the table stays on show.
+// The tables page: the site's page sidebar listing every loaded table under its DBIE menu, Publications then
+// Statistics, in DBIE's own order, and the chosen table on the page grid. ?table=<schema>.<table> names the table;
+// with nothing asked for, the page opens on the Monthly RBI Bulletin's Select Economic Indicators.
 
 // REACT CORE ==========================================================================================================
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 // UI ==================================================================================================================
 import { Article, Div, Divider, Heading4, Heading6, Main, Text } from "fictoan-react";
-import { BookOpen, ChevronLeft, Layers, Table2 } from "lucide-react";
+import { Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { LinkGroup, LinkItem, PageSidebar } from "@components/PageSidebars/PageSidebar";
@@ -26,14 +23,10 @@ import {
     EntryRef,
     Menu,
     MenuOrder,
-    Section,
-    SectionRef,
     buildMenus,
     defaultEntry,
     fetchCatalogue,
     findEntry,
-    findSection,
-    firstLoaded,
     isLoaded,
     tableKey,
 } from "@/lib/api/catalogue";
@@ -58,11 +51,11 @@ function pageFor(entry : CatalogueEntry, curated : Record<string, string>, serie
     return null;
 }
 
-// A section's tables in the sidebar, grouped as DBIE groups them.
-const groupTitle = (section : Section, label : string, sections : number) : string => {
-    if (label) return `${section.label} · ${label}`;
-    return sections > 1 || !section.implicit ? section.label : "Tables";
-};
+// Every loaded table of a menu, in DBIE's order: sector by sector, section by section, a section's Data Query
+// datasets after its report tables.
+const tablesOf = (menu : Menu) : CatalogueEntry[] =>
+    menu.sectors.flatMap(sector => sector.sections.flatMap(section => section.groups.flatMap(group =>
+        group.entries.filter(e => isLoaded(e) && tableKey(e)))));
 
 const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
     const searchParams = useSearchParams();
@@ -81,81 +74,56 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
         return () => controller.abort();
     }, []);
 
-    const menus : Menu[] = useMemo(() => (entries ? buildMenus(entries, order) : []), [ entries, order ]);
+    const menus = useMemo(() => (entries ? buildMenus(entries, order) : []), [ entries, order ]);
+    const lists = useMemo(() => menus.map(menu => ({ menu, tables : tablesOf(menu) })), [ menus ]);
 
-    const requestedTable   = searchParams.get("table");
-    const requestedSection = searchParams.get("section");
-    const atRoot           = searchParams.get("menu") != null;
-    const current : SectionRef | null = useMemo(() => {
-        const byTable = findEntry(menus, requestedTable);
-        if (byTable) return byTable;
-        return findSection(menus, requestedSection) ?? defaultEntry(menus);
-    }, [ menus, requestedTable, requestedSection ]);
-    const entry : CatalogueEntry | null = useMemo(() => {
-        if (!current) return null;
-        return (current as EntryRef).entry ?? firstLoaded(current.section) ?? current.sector.sections.map(firstLoaded).find(Boolean) ?? null;
-    }, [ current ]);
+    const requestedTable = searchParams.get("table");
+    const current : EntryRef | null = useMemo(() => findEntry(menus, requestedTable) ?? defaultEntry(menus), [ menus, requestedTable ]);
+    const entry      = current?.entry ?? null;
     const currentKey = entry ? tableKey(entry) : null;
+
+    // The sidebar lists a thousand tables; the one on show is brought into view: centred the first time, by the
+    // least movement after that, and once more when the site's font is in, since the list reflows on it.
+    const centred = useRef(false);
+    useEffect(() => {
+        const show = () => {
+            const active = document.querySelector("#tables-sidebar .link-item.active");
+            if (!active) return;
+            active.scrollIntoView({ block : centred.current ? "nearest" : "center" });
+            centred.current = true;
+        };
+        show();
+        document.fonts?.ready.then(show);
+    }, [ currentKey ]);
 
     const crumbs = current
         ? [ current.menu.label, current.sector.label, ...(current.section.implicit ? [] : [ current.section.label ]) ]
         : [];
-    const sectorIcon = (menu : Menu) => (menu.key === "publication" ? <BookOpen /> : <Layers />);
 
     return (
         <Article id="tables-page" className="page-with-sidebar">
-            {/* SIDEBAR //////////////////////////////////////////////////////////////////////////////////////////// */}
-            {current && !atRoot ? (
-                <PageSidebar id="tables-sidebar" headerIcon={sectorIcon(current.menu)} headerLabel={current.sector.label}>
-                    <LinkGroup>
-                        <LinkItem
-                            icon={<ChevronLeft />}
-                            label={current.menu.label}
-                            linkTo={`/tables?menu=${current.menu.key}${currentKey ? `&table=${currentKey}` : ""}`}
-                        />
-                    </LinkGroup>
-
-                    {current.sector.sections.map(section => section.groups.map(group => {
-                        const loaded = group.entries.filter(e => isLoaded(e) && tableKey(e));
-                        if (loaded.length === 0) return null;
-                        return (
-                            <React.Fragment key={`${section.slug}/${group.label}`}>
-                                <Divider />
-                                <LinkGroup title={groupTitle(section, group.label, current.sector.sections.length)}>
-                                    {loaded.map(e => (
-                                        <LinkItem
-                                            key={e.entry_id}
-                                            icon={<Table2 />}
-                                            label={e.title}
-                                            linkTo={`/tables?table=${tableKey(e)}`}
-                                            isActive={tableKey(e) === currentKey}
-                                        />
-                                    ))}
-                                </LinkGroup>
-                            </React.Fragment>
-                        );
-                    }))}
-                </PageSidebar>
-            ) : (
-                <PageSidebar id="tables-sidebar" headerIcon={<Table2 />} headerLabel="Tables">
-                    {menus.map((menu, i) => (
-                        <React.Fragment key={menu.key}>
-                            {i > 0 && <Divider />}
-                            <LinkGroup title={menu.label}>
-                                {menu.sectors.map(sector => (
+            {/* SIDEBAR: every table under its menu //////////////////////////////////////////////////////////////// */}
+            <PageSidebar id="tables-sidebar" headerIcon={<Table2 />} headerLabel="Tables">
+                {lists.map(({ menu, tables }, i) => (
+                    <React.Fragment key={menu.key}>
+                        {i > 0 && <Divider />}
+                        <LinkGroup title={menu.label}>
+                            {tables.map(e => {
+                                const key = tableKey(e)!;
+                                return (
                                     <LinkItem
-                                        key={sector.slug}
-                                        icon={sectorIcon(menu)}
-                                        label={sector.label}
-                                        linkTo={`/tables?section=${menu.key}/${sector.slug}`}
-                                        isActive={current?.sector === sector}
+                                        key={e.entry_id}
+                                        icon={<Table2 />}
+                                        label={e.title}
+                                        linkTo={`/tables?table=${key}`}
+                                        isActive={key === currentKey}
                                     />
-                                ))}
-                            </LinkGroup>
-                        </React.Fragment>
-                    ))}
-                </PageSidebar>
-            )}
+                                );
+                            })}
+                        </LinkGroup>
+                    </React.Fragment>
+                ))}
+            </PageSidebar>
 
             {/* THE TABLE ////////////////////////////////////////////////////////////////////////////////////////// */}
             <Main>
@@ -164,7 +132,6 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
                         <TableView
                             key={currentKey ?? entry.entry_id}
                             entry={entry}
-                            section={current.section}
                             crumbs={crumbs}
                             pageLink={pageFor(entry, curated, seriesSlugs)}
                         />

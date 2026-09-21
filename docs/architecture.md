@@ -113,18 +113,17 @@ Different, with the reason:
 - The MCP server still reads the site's JSON (335 tables); pointing it at the API gives it all 1,033.
 - The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API and is built only from the
   site's shared pieces: the page sidebar, the page grid with its title, meta, controls, table and notes cells,
-  fictoan selects, and AG Grid in the theme every grid on the site uses. The sidebar has two levels of the
-  sidebar's own link groups: Publications and Statistics with their 14 publications and 8 sectors, in DBIE's own
-  order from `data/dbie-menu.json`; inside one, its sections as group headings with the loaded tables as links
-  and a link back up. Which level shows (`?menu=`), which table (`?table=<schema>.<table>`) or section
-  (`?section=`) is all in the URL. The SDMX Data Query datasets are folded into the Statistics section of the
-  same sector and sub-sector, as a group after its report tables (`src/lib/api/catalogue.ts` holds the few
-  names that differ). With nothing asked for, the page opens on the Monthly RBI Bulletin's Select Economic
-  Indicators (DBIE report 41). A report is shown one tab at a time: `src/lib/tables/report-grid.ts` reads the
-  title, header rows, figures and notes back out of the export's rows and `src/components/tables/ReportGrid.tsx`
+  fictoan selects, and AG Grid in the theme every grid on the site uses. The sidebar is two of the sidebar's own
+  link groups, Publications then Statistics, each listing every loaded table in DBIE's own order (sector by
+  sector, section by section, from `data/dbie-menu.json`, a section's Data Query datasets after its report
+  tables); `?table=<schema>.<table>` names the table on show, which is highlighted and scrolled into view. The
+  SDMX Data Query datasets sit in the Statistics section of the same sector and sub-sector (`src/lib/api/catalogue.ts`
+  holds the few names that differ). With nothing asked for, the page opens on the Monthly RBI Bulletin's Select
+  Economic Indicators (DBIE report 41). A report is shown one tab at a time: `src/lib/tables/report-grid.ts` reads
+  the title, header rows, figures and notes back out of the export's rows and `src/components/tables/ReportGrid.tsx`
   lays them out with DBIE's header rows as column groups, figures sorted and filtered as numbers. An SDMX dataset
   is pivoted into periods × series by `src/lib/tables/sdmx-pivot.ts` and shown by the same `SdmxSeriesGrid` the
   series pages use (one line per observation past 100 series), narrowed by a select per dimension. Sorting and
-  filtering are the grid's own. Entries DBIE has but the database does not are not listed; the meta card counts
-  them. Curated pages and the SDMX series pages with charts are linked from it.
+  filtering are the grid's own. Entries DBIE has but the database does not are not listed. Curated pages and the
+  SDMX series pages with charts are linked from it.
 - The organisation's GitHub Actions billing lock blocks both workflows (and Pratirupa's).

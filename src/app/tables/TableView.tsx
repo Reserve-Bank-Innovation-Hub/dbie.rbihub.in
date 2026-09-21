@@ -21,7 +21,7 @@ import { DataUnit }                     from "@components/DataUnit/DataUnit";
 import { Loading }                      from "@components/Loading/Loading";
 
 // LIB =================================================================================================================
-import { CatalogueEntry, Section, formatRange, periodRange } from "@/lib/api/catalogue";
+import { CatalogueEntry, formatRange, periodRange } from "@/lib/api/catalogue";
 import {
     AllRows,
     Codelist,
@@ -45,8 +45,7 @@ const INDENT      = String.fromCharCode(160).repeat(2);   // a code list's level
 
 interface TableViewProps {
     entry    : CatalogueEntry;
-    section  : Section;                                     // where the table sits in DBIE's menus
-    crumbs   : string[];
+    crumbs   : string[];                                    // where the table sits in DBIE's menus
     pageLink : { href : string; label : string } | null;   // the site's own page for it, if any
 }
 
@@ -54,7 +53,7 @@ interface TableViewProps {
 const fileLabel = (f : ReportFile) : string =>
     f.period && f.period !== "full-history" ? `${f.tab} · ${f.period}` : f.tab;
 
-export const TableView = ({ entry, section, crumbs, pageLink } : TableViewProps) => {
+export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
     const schema = entry.schema_name!;
     const table  = entry.table_name!;
 
@@ -211,7 +210,6 @@ export const TableView = ({ entry, section, crumbs, pageLink } : TableViewProps)
                 <DataUnit label="Frequency" value={entry.frequency ?? "—"} />
                 <DataUnit label="Period" value={period ?? periodRange(entry) ?? "—"} />
                 <DataUnit label="Rows" value={rowCount != null ? rowCount.toLocaleString("en-IN") : "—"} />
-                <DataUnit label="Tables in this section" value={`${section.loaded} of ${section.count} loaded`} />
                 <Text size="small">
                     <a href={csvUrl(schema, table, filters)}>Download CSV</a>
                     {" · "}
