@@ -11,18 +11,20 @@ import "./page-sidebar.css";
 
 // LINK ITEM ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 interface LinkItemProps {
-    icon   : ReactNode;
-    label  : string;
-    linkTo : string;
+    icon       : ReactNode;
+    label      : string;
+    linkTo     : string;
+    isActive ? : boolean;   // an item is active when the path matches; links that differ by query string say so themselves
 }
 
-export const LinkItem = ({ icon, label, linkTo }: LinkItemProps) => {
+export const LinkItem = ({ icon, label, linkTo, isActive }: LinkItemProps) => {
     const pathname = usePathname();
+    const active   = isActive ?? pathname === linkTo;
 
     return (
         <Link
             href={linkTo}
-            className={`link-item ${pathname === linkTo ? "active" : ""}`}
+            className={`link-item ${active ? "active" : ""}`}
         >
             {icon}
             <Text>{label}</Text>

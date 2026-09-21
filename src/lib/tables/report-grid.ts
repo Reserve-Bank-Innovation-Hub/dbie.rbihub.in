@@ -24,6 +24,20 @@ const clean = (v : unknown) : string => (v == null ? "" : String(v).replace(/\s+
 // "1,82,950", "(4.0)", "-12.5", "41,24,767*", "3.2%": what DBIE prints where a number goes.
 export const isNumeric = (s : string) : boolean => /\d/.test(s) && /^\(?[-–+]?(\d[\d,]*)?(\.\d+)?\)?[*#@†^]*%?$/.test(s);
 
+// The figure a cell holds, for sorting and filtering: grouping commas and DBIE's markers dropped, a bracketed
+// figure read as it stands. Null where the cell is not a figure.
+export const parseNumber = (s : string) : number | null => {
+    if (!isNumeric(s)) return null;
+    const n = Number(s.replace(/[^\d.+\-–]/g, "").replace("–", "-"));
+    return Number.isFinite(n) ? n : null;
+};
+
+// A column holds figures when most of its filled cells are figures.
+export const isNumericColumn = (cells : string[]) : boolean => {
+    const filled = cells.filter(Boolean);
+    return filled.length > 0 && filled.filter(isNumeric).length >= filled.length * 0.6;
+};
+
 // "1 2 3 4 …" or "(1) (2) (3) …", counting up.
 const isNumberingRow = (cells : string[]) : boolean => {
     const filled = cells.filter(Boolean);
