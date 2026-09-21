@@ -118,8 +118,8 @@ Different, with the reason:
   sector, section by section, from `data/dbie-menu.json`, a section's Data Query datasets after its report
   tables); `?table=<schema>.<table>` names the table on show, which is highlighted and scrolled into view. Titles are set in
   sentence case (`src/lib/tables/titles.ts` keeps the acronyms and names DBIE's titles use: SCBs, RBI, NEER, India),
-  and in the list shortened with standard abbreviations (SCBs, RBI, govt., no., avg., FY, USD, "St. 1" for
-  "Statement No. 1", a long form DBIE follows with its acronym reduced to the acronym, "according to" said as
+  and in the list shortened with standard abbreviations (SCBs, RBI, govt., no., avg., FY, USD, "St. 1" and
+  "T. 3.5" for "Statement No. 1" and "Table No. 3.5", a long form DBIE follows with its acronym reduced to the acronym, "according to" said as
   "by"); the full title is the link's tooltip and the page heading. The
   SDMX Data Query datasets sit in the Statistics section of the same sector and sub-sector (`src/lib/api/catalogue.ts`
   holds the few names that differ). With nothing asked for, the page opens on the Monthly RBI Bulletin's Select

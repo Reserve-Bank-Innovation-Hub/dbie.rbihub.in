@@ -1,7 +1,7 @@
 // DBIE's titles as the site shows them. DBIE writes them in Title Case, some in capitals; here they are set in
 // sentence case, keeping the acronyms and proper nouns its titles use (SCBs, RBI, NEER, India, Nifty). The sidebar
 // then shortens them with the standard abbreviations for the terms DBIE's titles repeat (SCBs, RBI, govt., no.,
-// avg., FY, USD …), "Statement No. 1 :" and "Table No 3.3A" cut to "St. 1:" and "Table 3.3A:", a long form that
+// avg., FY, USD …), "Statement No. 1 :" and "Table No 3.3A" cut to "St. 1:" and "T. 3.3A:", a long form that
 // DBIE itself follows with its acronym, such as "nominal effective exchange rate (NEER)", reduced to the acronym,
 // and "according to" said as "by". Nothing is cut that the name does not still say; the full title is the link's
 // tooltip and the page's heading.
@@ -72,7 +72,7 @@ const cased = (short : string) => (m : string) : string => (m[0] === m[0].toUppe
 const PHRASES : [ RegExp, string | ((m : string) => string) ][] = [
     // Prefixes
     [ /^Statement\s*(?:No\.?)?\s*([\dIVX]+[A-Za-z]?)\s*:\s*/i,           "St. $1: " ],
-    [ /^Table\s*(?:No\.?)?\s*(\d+(?:\.\d+)?[A-Za-z]?)\s*[-–:]?\s*/i,      "Table $1: " ],
+    [ /^Table\s*(?:No\.?)?\s*(\d+(?:\.\d+)?[A-Za-z]?)\s*[-–:]?\s*/i,      "T. $1: " ],
 
     // Institutions
     [ /\bScheduled? Commercial Banks(')?/gi,                            "SCBs$1" ],
