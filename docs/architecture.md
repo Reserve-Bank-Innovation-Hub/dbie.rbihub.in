@@ -111,20 +111,23 @@ Different, with the reason:
 - 263 Statistics menu entries were not exported because a same-topic SDMX dataset exists (title similarity, not
   verified); `meta.catalogue.notes` records the candidate. Exporting them is a few hours of the report exporter.
 - The MCP server still reads the site's JSON (335 tables); pointing it at the API gives it all 1,033.
-- The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API. It is laid out like
-  Pratirupa's product pages (the site's page sidebar, Anek Latin). The sidebar has two levels: Publications and
-  Statistics, each a group of links (the 14 publications, the 8 sectors, in DBIE's own order from
-  `data/dbie-menu.json`); inside one, its sections as group headings and their tables as links, with a way back
-  up. The SDMX Data Query datasets are folded into the Statistics section of the same sector and sub-sector, as a
-  group after its report tables (`src/lib/api/catalogue.ts` holds the few names that differ). With nothing asked
-  for, the page opens on the Monthly RBI Bulletin's Select Economic Indicators (DBIE report 41). The main area
-  is the table's title, one line of context, icon actions (CSV, JSON, the site's own page where one exists), the
-  tab or dimension pickers (fictoan list boxes) and the table. A report is shown as the table DBIE
-  exported, one tab at a time (`src/lib/tables/report-grid.ts` reads the title, headers, figures and notes back
-  out of the rows); an SDMX dataset as a time series, periods down and series across, narrowed by its
-  dimensions (`src/lib/tables/sdmx-pivot.ts`). Every column sorts and filters from its header, with the
-  conditions AG Grid's column filters offer (the ones Pratirupa's DataGrid turns on): text by contains, equals,
-  starts with; figures by greater than, less than, between; periods by before, after, between
-  (`src/lib/tables/column-filters.ts`, `src/components/tables/HeaderCell.tsx`). Entries DBIE has but the database
-  does not are listed with their status. Curated pages and the SDMX series pages with charts are linked from it.
+- The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API and is built only from the
+  site's shared pieces: the page sidebar, the page grid with its title, meta, controls, table and notes cells,
+  fictoan selects, and AG Grid in the theme every grid on the site uses. The sidebar is two of the sidebar's own
+  link groups, Publications then Statistics, each listing every loaded table in DBIE's own order (sector by
+  sector, section by section, from `data/dbie-menu.json`, a section's Data Query datasets after its report
+  tables); `?table=<schema>.<table>` names the table on show, which is highlighted and scrolled into view. Titles are set in
+  sentence case (`src/lib/tables/titles.ts` keeps the acronyms and names DBIE's titles use: SCBs, RBI, NEER, India),
+  and in the list shortened with standard abbreviations (SCBs, RBI, govt., no., avg., FY, USD, "St. 1" and
+  "T. 3.5" for "Statement No. 1" and "Table No. 3.5", a long form DBIE follows with its acronym reduced to the acronym, "according to" said as
+  "by"); the full title is the link's tooltip and the page heading. The
+  SDMX Data Query datasets sit in the Statistics section of the same sector and sub-sector (`src/lib/api/catalogue.ts`
+  holds the few names that differ). With nothing asked for, the page opens on the Monthly RBI Bulletin's Select
+  Economic Indicators (DBIE report 41). A report is shown one tab at a time: `src/lib/tables/report-grid.ts` reads
+  the title, header rows, figures and notes back out of the export's rows and `src/components/tables/ReportGrid.tsx`
+  lays them out with DBIE's header rows as column groups, figures sorted and filtered as numbers. An SDMX dataset
+  is pivoted into periods × series by `src/lib/tables/sdmx-pivot.ts` and shown by the same `SdmxSeriesGrid` the
+  series pages use (one line per observation past 100 series), narrowed by a select per dimension. Sorting and
+  filtering are the grid's own. Entries DBIE has but the database does not are not listed. Curated pages and the
+  SDMX series pages with charts are linked from it.
 - The organisation's GitHub Actions billing lock blocks both workflows (and Pratirupa's).

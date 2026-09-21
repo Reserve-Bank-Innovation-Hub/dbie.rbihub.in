@@ -70,10 +70,12 @@ const SdmxSeriesGrid : React.FC<SdmxSeriesGridProps> = ({ columns, rows }) => {
     }, [columns]);
 
     const defaultColDef = useMemo<ColDef>(() => ({
-        sortable        : true,
-        filter          : true,
-        resizable       : true,
-        suppressMovable : true,
+        sortable         : true,
+        filter           : true,
+        resizable        : true,
+        suppressMovable  : true,
+        wrapHeaderText   : true,   // series names are long; the header grows rather than cuts them
+        autoHeaderHeight : true,
     }), []);
 
     return (
@@ -176,10 +178,12 @@ export const SdmxLongGrid : React.FC<SdmxLongGridProps> = ({ dimensions, rows })
     }, [dimensions]);
 
     const defaultColDef = useMemo<ColDef>(() => ({
-        sortable        : true,
-        filter          : true,
-        resizable       : true,
-        suppressMovable : true,
+        sortable         : true,
+        filter           : true,
+        resizable        : true,
+        suppressMovable  : true,
+        wrapHeaderText   : true,   // series names are long; the header grows rather than cuts them
+        autoHeaderHeight : true,
     }), []);
 
     return (

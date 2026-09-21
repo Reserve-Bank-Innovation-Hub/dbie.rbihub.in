@@ -24,6 +24,20 @@ const clean = (v : unknown) : string => (v == null ? "" : String(v).replace(/\s+
 // "1,82,950", "(4.0)", "-12.5", "41,24,767*", "3.2%": what DBIE prints where a number goes.
 export const isNumeric = (s : string) : boolean => /\d/.test(s) && /^\(?[-–+]?(\d[\d,]*)?(\.\d+)?\)?[*#@†^]*%?$/.test(s);
 
+// The figure a cell holds, for sorting and filtering: grouping commas and DBIE's markers dropped, a bracketed
+// figure read as it stands. Null where the cell is not a figure.
+export const parseNumber = (s : string) : number | null => {
+    if (!isNumeric(s)) return null;
+    const n = Number(s.replace(/[^\d.+\-–]/g, "").replace("–", "-"));
+    return Number.isFinite(n) ? n : null;
+};
+
+// A column holds figures when most of its filled cells are figures.
+export const isNumericColumn = (cells : string[]) : boolean => {
+    const filled = cells.filter(Boolean);
+    return filled.length > 0 && filled.filter(isNumeric).length >= filled.length * 0.6;
+};
+
 // "1 2 3 4 …" or "(1) (2) (3) …", counting up.
 const isNumberingRow = (cells : string[]) : boolean => {
     const filled = cells.filter(Boolean);
@@ -70,12 +84,14 @@ export function parseReportGrid(columns : string[], rows : unknown[][], width ? 
         return out;
     });
 
-    // Preamble: leading rows with at most one cell.
+    // Preamble: leading rows with at most one cell. A note DBIE prints up there (an instruction about its export)
+    // is a note, and goes with the others below the table.
     let i = 0;
     const preamble : string[] = [];
+    const notes : string[] = [];
     while (i < norm.length && filled(norm[i]) <= 1) {
         const text = norm[i].find(Boolean);
-        if (text) preamble.push(text);
+        if (text) (NOTE.test(text) ? notes : preamble).push(text);
         i++;
     }
 
@@ -103,19 +119,20 @@ export function parseReportGrid(columns : string[], rows : unknown[][], width ? 
 
     // Notes: trailing rows that are a sentence rather than figures.
     let end = norm.length;
-    const notes : string[] = [];
+    const trailing : string[] = [];
     while (end > i) {
         const row  = norm[end - 1];
         const n    = filled(row);
         const text = row.find(Boolean) ?? "";
         if (n === 0) { end--; continue; }
         if ((n === 1 && looksLikeNote(text)) || NOTE.test(text)) {
-            notes.unshift(row.filter(Boolean).join(" "));
+            trailing.unshift(row.filter(Boolean).join(" "));
             end--;
             continue;
         }
         break;
     }
+    notes.push(...trailing);
 
     const body = norm.slice(i, end).filter(row => filled(row) > 0);
 

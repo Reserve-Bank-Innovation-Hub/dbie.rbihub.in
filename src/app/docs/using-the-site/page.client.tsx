@@ -42,12 +42,11 @@ const UsingTheSitePage = () => {
                         <li>
                             <strong><Link href="/tables">Tables</Link></strong> — every table in DBIE&apos;s
                             Statistics and Publication menus, with the Data Query datasets in their sectors, opened
-                            one at a time straight from the database. The sidebar follows DBIE&apos;s own hierarchy
-                            down to the table; a report is
+                            one at a time straight from the database. The sidebar lists every table, Publications then Statistics, in
+                            DBIE&apos;s own order; a report is
                             shown as DBIE lays it out, one tab at a time, an SDMX dataset as a time series that its
-                            dimensions narrow. Every column sorts from its header and filters from the funnel beside
-                            it (contains, equals, greater than, between, and so on), and every view can be
-                            downloaded as CSV.
+                            dimensions narrow. The grid is the same as on every other page: sort by clicking a header, filter
+                            from its menu, page through it, and download the view as CSV.
                         </li>
                         <li>
                             <strong>Search</strong> — press <kbd>⌘</kbd> <kbd>/</kbd> (or <kbd>Ctrl</kbd>{" "}
