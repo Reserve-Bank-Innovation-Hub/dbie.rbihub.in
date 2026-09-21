@@ -167,8 +167,9 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
     // ------------------------------------------------------------------------------------------------------------------
     // Render
     // ------------------------------------------------------------------------------------------------------------------
-    const identity = entry.dsd_code ? `SDMX dataset ${entry.dsd_code}` : `DBIE report ${entry.report_id}`;
-    const context  = [
+    // What DBIE prints with the table: a report's subtitle and unit, a dataset's fixed dimensions. DBIE's own ids
+    // (report id, DSD code) are not shown; DBIE does not show them either, and the download links carry them.
+    const context = [
         ...(grid ? grid.subtitles : []),
         ...(pivot ? pivot.context.map(c => `${c.name}: ${c.value}`) : []),
     ];
@@ -181,10 +182,11 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
 
     const notes = [
         ...(rows?.capped
-            ? [ `Showing the newest ${rows.rows.length.toLocaleString("en-IN")} of ${rows.total.toLocaleString("en-IN")} observations. Narrow the dataset with the selects above, or download the CSV for all of them.` ]
+            ? [ isSdmx
+                ? `Showing the newest ${rows.rows.length.toLocaleString("en-IN")} of ${rows.total.toLocaleString("en-IN")} observations. Narrow the dataset with the selects above, or download the CSV for all of them.`
+                : `Showing the first ${rows.rows.length.toLocaleString("en-IN")} of ${rows.total.toLocaleString("en-IN")} rows of this tab. Download the CSV for all of them.` ]
             : []),
         ...(grid ? grid.notes : []),
-        ...(entry.notes ? [ entry.notes ] : []),
     ];
 
     return (
@@ -201,9 +203,11 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
                     </Heading6>
                 </Div>
 
-                <Text>
-                    {[ identity, ...context ].join(" · ")}
-                </Text>
+                {context.length > 0 && (
+                    <Text>
+                        {context.join(" · ")}
+                    </Text>
+                )}
             </Div>
 
             {/* META CARD ////////////////////////////////////////////////////////////////////////////////////////// */}

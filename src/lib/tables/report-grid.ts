@@ -84,12 +84,14 @@ export function parseReportGrid(columns : string[], rows : unknown[][], width ? 
         return out;
     });
 
-    // Preamble: leading rows with at most one cell.
+    // Preamble: leading rows with at most one cell. A note DBIE prints up there (an instruction about its export)
+    // is a note, and goes with the others below the table.
     let i = 0;
     const preamble : string[] = [];
+    const notes : string[] = [];
     while (i < norm.length && filled(norm[i]) <= 1) {
         const text = norm[i].find(Boolean);
-        if (text) preamble.push(text);
+        if (text) (NOTE.test(text) ? notes : preamble).push(text);
         i++;
     }
 
@@ -117,19 +119,20 @@ export function parseReportGrid(columns : string[], rows : unknown[][], width ? 
 
     // Notes: trailing rows that are a sentence rather than figures.
     let end = norm.length;
-    const notes : string[] = [];
+    const trailing : string[] = [];
     while (end > i) {
         const row  = norm[end - 1];
         const n    = filled(row);
         const text = row.find(Boolean) ?? "";
         if (n === 0) { end--; continue; }
         if ((n === 1 && looksLikeNote(text)) || NOTE.test(text)) {
-            notes.unshift(row.filter(Boolean).join(" "));
+            trailing.unshift(row.filter(Boolean).join(" "));
             end--;
             continue;
         }
         break;
     }
+    notes.push(...trailing);
 
     const body = norm.slice(i, end).filter(row => filled(row) > 0);
 
