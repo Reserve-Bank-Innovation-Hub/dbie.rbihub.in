@@ -31,7 +31,7 @@ import {
     tableKey,
 } from "@/lib/api/catalogue";
 import { DATA_API_URL } from "@/lib/api/dataApi";
-import { abbreviate }   from "@/lib/tables/abbreviate";
+import { sentenceCase, shortTitle } from "@/lib/tables/titles";
 
 // STYLES ==============================================================================================================
 import "./tables-page.css";
@@ -98,7 +98,7 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
     }, [ currentKey ]);
 
     const crumbs = current
-        ? [ current.menu.label, current.sector.label, ...(current.section.implicit ? [] : [ current.section.label ]) ]
+        ? [ current.menu.label, current.sector.label, ...(current.section.implicit ? [] : [ current.section.label ]) ].map(sentenceCase)
         : [];
 
     return (
@@ -115,8 +115,8 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
                                     <LinkItem
                                         key={e.entry_id}
                                         icon={<Table2 />}
-                                        label={abbreviate(e.title)}
-                                        title={e.title}
+                                        label={shortTitle(e.title)}
+                                        title={sentenceCase(e.title)}
                                         linkTo={`/tables?table=${key}`}
                                         isActive={key === currentKey}
                                     />

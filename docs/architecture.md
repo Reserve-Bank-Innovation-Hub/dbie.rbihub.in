@@ -116,10 +116,11 @@ Different, with the reason:
   fictoan selects, and AG Grid in the theme every grid on the site uses. The sidebar is two of the sidebar's own
   link groups, Publications then Statistics, each listing every loaded table in DBIE's own order (sector by
   sector, section by section, from `data/dbie-menu.json`, a section's Data Query datasets after its report
-  tables); `?table=<schema>.<table>` names the table on show, which is highlighted and scrolled into view. The names in the
-  list are shortened with standard abbreviations (`src/lib/tables/abbreviate.ts`: SCBs, RBI, Govt., No., Avg., FY,
-  USD, "St. 1" for "Statement No. 1", a long form DBIE follows with its acronym reduced to the acronym, "according
-  to" said as "by"); the full title is the link's tooltip and the page heading. The
+  tables); `?table=<schema>.<table>` names the table on show, which is highlighted and scrolled into view. Titles are set in
+  sentence case (`src/lib/tables/titles.ts` keeps the acronyms and names DBIE's titles use: SCBs, RBI, NEER, India),
+  and in the list shortened with standard abbreviations (SCBs, RBI, govt., no., avg., FY, USD, "St. 1" for
+  "Statement No. 1", a long form DBIE follows with its acronym reduced to the acronym, "according to" said as
+  "by"); the full title is the link's tooltip and the page heading. The
   SDMX Data Query datasets sit in the Statistics section of the same sector and sub-sector (`src/lib/api/catalogue.ts`
   holds the few names that differ). With nothing asked for, the page opens on the Monthly RBI Bulletin's Select
   Economic Indicators (DBIE report 41). A report is shown one tab at a time: `src/lib/tables/report-grid.ts` reads

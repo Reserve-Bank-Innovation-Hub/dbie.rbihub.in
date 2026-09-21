@@ -36,6 +36,7 @@ import {
     rowsUrl,
 } from "@/lib/api/tables";
 import { parseReportGrid } from "@/lib/tables/report-grid";
+import { sentenceCase }    from "@/lib/tables/titles";
 import { pivotSdmx }       from "@/lib/tables/sdmx-pivot";
 
 const MAX_ROWS    = 20000;
@@ -56,6 +57,7 @@ const fileLabel = (f : ReportFile) : string =>
 export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
     const schema = entry.schema_name!;
     const table  = entry.table_name!;
+    const title  = sentenceCase(entry.title);
 
     const [ period,    setPeriod ]    = useState<string | null>(null);                 // from the provenance
     const [ total,     setTotal ]     = useState<number | null>(null);                 // rows the selects match
@@ -191,7 +193,7 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
-                        {entry.title}
+                        {title}
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">
@@ -260,7 +262,7 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
                     <Loading
                         name={progress && progress.total > 0
                             ? `${progress.loaded.toLocaleString("en-IN")} of ${Math.min(progress.total, MAX_ROWS).toLocaleString("en-IN")} rows`
-                            : entry.title}
+                            : title}
                     />
                 )}
 
