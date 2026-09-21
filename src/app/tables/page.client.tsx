@@ -31,6 +31,7 @@ import {
     tableKey,
 } from "@/lib/api/catalogue";
 import { DATA_API_URL } from "@/lib/api/dataApi";
+import { abbreviate }   from "@/lib/tables/abbreviate";
 
 // STYLES ==============================================================================================================
 import "./tables-page.css";
@@ -114,7 +115,8 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
                                     <LinkItem
                                         key={e.entry_id}
                                         icon={<Table2 />}
-                                        label={e.title}
+                                        label={abbreviate(e.title)}
+                                        title={e.title}
                                         linkTo={`/tables?table=${key}`}
                                         isActive={key === currentKey}
                                     />
