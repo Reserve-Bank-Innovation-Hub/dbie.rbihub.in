@@ -26,7 +26,11 @@ DBIE ──scrape──▶ data/ (raw files, not in git) ──pnpm db:load─�
 
 One AWS account, **common-projects** (588387717844), region ap-south-1 (Mumbai), one environment. Everything is
 Terraform under `infra/terraform/` (`bootstrap/` makes the state bucket; `common/` holds the rest, one file per
-concern), applied by a person with management credentials (`AWS_PROFILE=default terraform -chdir=infra/terraform/common apply`).
+concern), applied by a person with management credentials: `AWS_PROFILE=<management-profile> terraform
+-chdir=infra/terraform/common apply`, where the profile is an IAM user or role in the management account
+(737771471493), the same one the `common-projects` profile names as its `source_profile`. The provider and backend
+assume `OrganizationAccountAccessRole` into the account from it, so a `default` profile that belongs to any other
+account will not do.
 
 | Piece | What | Where documented |
 |---|---|---|
@@ -110,7 +114,13 @@ Different, with the reason:
   the file's `DATAFLOW` column instead, so the database is right, the catalogue file is not.
 - 263 Statistics menu entries were not exported because a same-topic SDMX dataset exists (title similarity, not
   verified); `meta.catalogue.notes` records the candidate. Exporting them is a few hours of the report exporter.
-- The MCP server still reads the site's JSON (335 tables); pointing it at the API gives it all 1,033.
+- The MCP server still reads the site's JSON (the release's search index, 345 entries on 22-09-2026); pointing it
+  at the API gives it all 1,033.
+- The site data release is still built from files, not from the database: no processor reads Postgres. The
+  curated pages' sources are the spreadsheets committed under `data/publications` and `data/sources` (DBIE's own
+  report exports, copied over by hand from the scrape's `data/reports`; 37 of them on 22-09-2026) and one SDMX
+  CSV. A new scrape therefore reaches the API-backed pages as soon as it is loaded, and the curated charts only
+  after that copy and a fresh oracle capture.
 - The tables page (`/tables`) opens any of the 1,033 loaded tables from the data API and is built only from the
   site's shared pieces: the page sidebar, the page grid with its title, meta, controls, table and notes cells,
   fictoan selects, and AG Grid in the theme every grid on the site uses. The sidebar is two of the sidebar's own

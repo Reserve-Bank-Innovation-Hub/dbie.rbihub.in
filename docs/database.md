@@ -22,7 +22,9 @@ AWS account and is reached over the RBIH tailnet, the way Pratirupa's databases 
 `infra/terraform/bootstrap` creates the state bucket (`dbie-common-terraform-state`); `infra/terraform/common` holds
 everything else: network, database, bastion, the two data buckets, the secret containers and the GitHub Actions
 release role. Provider and backend assume `OrganizationAccountAccessRole` in the account, so run with management
-credentials: `AWS_PROFILE=default terraform -chdir=infra/terraform/common plan` then `apply`. The database, bastion,
+credentials, a profile that is an IAM user or role in the management account (737771471493, the `source_profile`
+of the `common-projects` profile): `AWS_PROFILE=<management-profile> terraform -chdir=infra/terraform/common plan`
+then `apply`. A `default` profile that belongs to another account will not do. The database, bastion,
 security groups and parameter group were created by hand on 18-09-2026 and imported (`terraform import`, ids in the
 resource comments and the git history); the buckets, secrets and release role were created by Terraform.
 
@@ -87,7 +89,7 @@ menu entry (1,164) and per SDMX dataset (252) with its status, including what wa
 |---|---|---|---|
 | SDMX datasets | 252 | 2,175,286 | every table: row count, exact sum of `obs_value`, date range, fingerprint over text columns |
 | Report tables (Statistics 134, Publications 647) | 781 | 5,520,256 | every export file: row count, bytes, fingerprint |
-| `meta.sdmx_codelist` | 1 | 12,916 code → label entries | every code used in the SDMX tables has a label bar two |
+| `meta.sdmx_codelist` | 1 | 12,193 code → label entries (the tree's root placeholder rows dropped on 20-09-2026) | every code used in the SDMX tables has a label bar two |
 | `meta.catalogue` | 1 | 1,416 entries | one per DBIE menu entry (1,164) and SDMX dataset (252) |
 
 Database size 2780 MB. By schema: `financial_sector` 484 tables, `real_sector` 133, `financial_markets` 129,

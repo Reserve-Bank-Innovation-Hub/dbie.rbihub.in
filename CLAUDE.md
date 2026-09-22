@@ -47,7 +47,9 @@ latest archived scrape from the public bucket; `pnpm data:pull` fetches the site
   `dbie-backend/data-api/.env.common` pointing at the reader secret.
 - The database is reached over the RBIH tailnet (Tailscale must be connected); DataGrip and psql use the
   `dbie/db-common-reader` secret's fields.
-- Terraform runs with management credentials: `AWS_PROFILE=default terraform -chdir=infra/terraform/common plan|apply`.
+- Terraform runs with management credentials: `AWS_PROFILE=<management-profile> terraform -chdir=infra/terraform/common plan|apply`,
+  where the profile is an IAM user or role in the management account (737771471493), the `source_profile` the
+  `common-projects` profile assumes its role from; not a `default` profile that belongs to another account.
   A person applies; agents write, import and plan.
 
 ## Things that look wrong but are right

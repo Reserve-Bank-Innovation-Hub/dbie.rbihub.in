@@ -10,6 +10,13 @@ menus into `data/reports-catalogue.json`.
 `pnpm scrape:tree`). By frequency: 153 Annual-FY, 50 Monthly, 18 Quarterly-FY, 11 Weekly,
 10 Daily, 8 Fortnightly, 1 Quarterly, 1 Annual-CY.
 
+The `FREQ` column carries DBIE's short codes: `D` daily, `W` weekly, `2W` or `F` fortnightly, `M` monthly,
+`Q` quarterly (calendar year), `QFY` quarterly (financial year), `AFY` annual (financial year), `ACY` annual
+(calendar year). A financial year runs April to March: `REPYEARSTART` 2023 with `REPYEAREND` 2024 is FY 2023-24.
+Codes with the `_RN` suffix are RBI's own (dataset and dimension codes such as `EXT_DBT_RT_RN` and
+`TYP_EXT_DEBT_RN`); the SDMX-global columns (`FREQ`, `TIME_PERIOD`, `OBS_VALUE`, `UNIT_MEASURE`) carry none.
+`DATAFLOW` spells the full reference, `RBI:EXT_DBT_RT_RN(1.0)`: agency, code, version.
+
 Each element is saved as SDMX CSV at `data/sdmx-raw/<Sector>/<SubSector>/<DSD_CODE>.csv`
 (gitignored staging); `pnpm data:ingest` files them into `data/sdmx/` under readable names.
 Sample:
