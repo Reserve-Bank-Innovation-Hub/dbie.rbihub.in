@@ -6,7 +6,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
-import { Aside, Div, Divider, Text } from "fictoan-react";
+import { Aside, Div, Divider, Main, Text } from "fictoan-react";
 import {
     BookMarked,
     Building2,
@@ -119,85 +119,87 @@ export const PrimaryNav = () => {
                 />
             </NavGroup>
 
-            <NavGroup>
-                <NavItem
-                    icon={<Search />}
-                    label="Search"
-                    onClick={() => setIsSearchOpen(true)}
-                />
-            </NavGroup>
+            <Main>
+                <NavGroup>
+                    <NavItem
+                        icon={<Search />}
+                        label="Search"
+                        onClick={() => setIsSearchOpen(true)}
+                    />
+                </NavGroup>
 
-            <Divider />
+                <Divider />
 
-            <NavGroup title="Database">
-                <NavItem
-                    icon={<ChartColumn />}
-                    linkTo="/statistics"
-                    label="Statistics"
-                />
+                <NavGroup title="Database">
+                    <NavItem
+                        icon={<ChartColumn />}
+                        linkTo="/statistics"
+                        label="Statistics"
+                    />
 
-                <NavItem
-                    icon={<Newspaper />}
-                    linkTo="/publications"
-                    label="Publications"
-                />
-            </NavGroup>
+                    <NavItem
+                        icon={<Newspaper />}
+                        linkTo="/publications"
+                        label="Publications"
+                    />
+                </NavGroup>
 
-            <Divider />
+                <Divider />
 
-            <NavGroup title="Themes">
-                <NavItem
-                    icon={<Tags />}
-                    linkTo="/prices"
-                    label="Prices"
-                />
+                <NavGroup title="Themes">
+                    <NavItem
+                        icon={<Tags />}
+                        linkTo="/prices"
+                        label="Prices"
+                    />
 
-                <NavItem
-                    icon={<TrendingUp />}
-                    linkTo="/growth"
-                    label="Growth"
-                />
+                    <NavItem
+                        icon={<TrendingUp />}
+                        linkTo="/growth"
+                        label="Growth"
+                    />
 
-                <NavItem
-                    icon={<LineChart />}
-                    linkTo="/markets"
-                    label="Markets"
-                />
+                    <NavItem
+                        icon={<LineChart />}
+                        linkTo="/markets"
+                        label="Markets"
+                    />
 
-                <NavItem
-                    icon={<Landmark />}
-                    linkTo="/banking"
-                    label="Banking"
-                />
+                    <NavItem
+                        icon={<Landmark />}
+                        linkTo="/banking"
+                        label="Banking"
+                    />
 
-                <NavItem
-                    icon={<Globe />}
-                    linkTo="/external"
-                    label="External"
-                />
+                    <NavItem
+                        icon={<Globe />}
+                        linkTo="/external"
+                        label="External"
+                    />
 
-                <NavItem
-                    icon={<Building2 />}
-                    linkTo="/government"
-                    label="Government"
-                />
+                    <NavItem
+                        icon={<Building2 />}
+                        linkTo="/government"
+                        label="Government"
+                    />
 
-                <NavItem
-                    icon={<CreditCard />}
-                    linkTo="/payments"
-                    label="Payments"
-                />
-            </NavGroup>
+                    <NavItem
+                        icon={<CreditCard />}
+                        linkTo="/payments"
+                        label="Payments"
+                    />
+                </NavGroup>
 
-            <Divider />
+                <Divider />
 
-            <NavGroup>
-                <NavItem
-                    icon={<Feather />}
-                    linkTo="/stories"
-                    label="Stories"
-                />
-            </NavGroup>
+                <NavGroup>
+                    <NavItem
+                        icon={<Feather />}
+                        linkTo="/stories"
+                        label="Stories"
+                    />
+                </NavGroup>
+            </Main>
 
             <NavGroup>
                 <NavItem
