@@ -1,33 +1,33 @@
-"use client";
-
 // REACT CORE ==========================================================================================================
-import React, { Suspense } from "react";
+import React from "react";
 
 // UI ==================================================================================================================
 import { Article, Main } from "fictoan-react";
-import { Tags } from "lucide-react";
+import { ChartColumn, Layers } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import { ThemeSidebar } from "@components/PageSidebars/ThemeSidebar";
+import { MenuSidebar } from "@components/PageSidebars/MenuSidebar";
 
-// OTHER ===============================================================================================================
-import curatedPages from "../tables/curated-pages.json";
+// LIB =================================================================================================================
+import { statisticsMenu } from "@/lib/dbie-menu";
 
-// The sidebar lists the theme's own tables, which it reads from the data API's catalogue, so it is a client
-// component; it also reads ?table= to mark the table on show, which needs a Suspense boundary on a static route.
+// The sidebar's sectors come from DBIE's Statistics menu at build time (src/lib/dbie-menu.ts), so the layout is a
+// server component; the sidebar is a client component, for its active link.
 export default function PageWithSidebarLayout({children} : { children : React.ReactNode; }) {
+    const { sectors } = statisticsMenu();
+
     return (
         <Article className="page-with-sidebar">
             {/* SIDEBAR //////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Suspense>
-                <ThemeSidebar
-                    id="prices-sidebar"
-                    headerIcon={<Tags />}
-                    headerLabel="Prices"
-                    path="/prices"
-                    curated={curatedPages}
-                />
-            </Suspense>
+            <MenuSidebar
+                id="statistics-sidebar"
+                headerIcon={<ChartColumn />}
+                headerLabel="Statistics"
+                groupTitle="Sectors"
+                itemIcon={<Layers />}
+                base="/statistics"
+                items={sectors}
+            />
 
             {/* PAGE CONTENT ======================================================================================= */}
             <Main>

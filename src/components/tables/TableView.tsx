@@ -6,17 +6,19 @@
 // reads its title, headers, figures and notes back out of the rows); an SDMX dataset as a time series, newest
 // first, narrowed by a select per dimension that has a code list (src/lib/tables/sdmx-pivot.ts). Up to 20,000
 // rows are fetched for a view; beyond that the selects narrow it. Sorting and filtering are the grid's own.
+// The tables page (src/app/tables/page.client.tsx) and a publication's page
+// (src/app/publications/[publication]/page.client.tsx) both render it on their own page grid.
 
 // REACT CORE ==========================================================================================================
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 // UI ==================================================================================================================
-import { Div, Heading4, Heading6, Select, Text } from "fictoan-react";
+import { Breadcrumbs, Div, Heading4, Select, Text } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import ReportGrid                       from "@/components/tables/ReportGrid";
-import SdmxSeriesGrid, { SdmxLongGrid } from "@/components/tables/SdmxSeriesGrid";
+import ReportGrid                       from "./ReportGrid";
+import SdmxSeriesGrid, { SdmxLongGrid } from "./SdmxSeriesGrid";
 import { DataUnit }                     from "@components/DataUnit/DataUnit";
 import { Loading }                      from "@components/Loading/Loading";
 
@@ -39,14 +41,25 @@ import { parseReportGrid } from "@/lib/tables/report-grid";
 import { sentenceCase }    from "@/lib/tables/titles";
 import { pivotSdmx }       from "@/lib/tables/sdmx-pivot";
 
+// STYLES ==============================================================================================================
+import "./table-view.css";
+
 const MAX_ROWS    = 20000;
 const MAX_ACROSS  = 100;        // series laid across as columns; past this the observations are listed
 const ALL         = "";         // the "All" choice of a dimension select
 const INDENT      = String.fromCharCode(160).repeat(2);   // a code list's levels, in a native select
 
+// One step of the path to the table, for the breadcrumb: a link where the site has a page or an anchor for that
+// level, plain text where it has none. The path stops above the table, whose own title is the heading below it.
+export interface Crumb {
+    label   : string;
+    href  ? : string;
+    title ? : string;   // the full name, as a tooltip, where the label is a short form of it
+}
+
 interface TableViewProps {
     entry    : CatalogueEntry;
-    crumbs   : string[];                                    // where the table sits in DBIE's menus
+    crumbs   : Crumb[];                                     // the levels above the table, in DBIE's menus
     pageLink : { href : string; label : string } | null;   // the site's own page for it, if any
 }
 
@@ -194,13 +207,15 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <Breadcrumbs separator="›" marginBottom="nano" className="table-view-crumbs">
+                        {crumbs.map((crumb, i) => (crumb.href
+                            ? <Link key={i} href={crumb.href} title={crumb.title}>{crumb.label}</Link>
+                            : <span key={i} title={crumb.title}>{crumb.label}</span>))}
+                    </Breadcrumbs>
+
                     <Heading4 weight="700" marginBottom="nano">
                         {title}
                     </Heading4>
-
-                    <Heading6 weight="400" opacity="60" marginBottom="micro">
-                        {crumbs.join(" › ")}
-                    </Heading6>
                 </Div>
 
                 {context.length > 0 && (
@@ -231,7 +246,7 @@ export const TableView = ({ entry, crumbs, pageLink } : TableViewProps) => {
 
             {/* CONTROLS: a report's tabs, an SDMX table's dimensions ///////////////////////////////////////////// */}
             {hasControls && (
-                <Div id="table-controls" className="controls-cell grid-cell" padding="micro">
+                <Div id="table-controls" className="table-view-controls controls-cell grid-cell" padding="micro">
                     {files.length > 1 && (
                         <Select
                             label="Tab"

@@ -7,15 +7,15 @@ import { SectorListPage } from "@components/SectorPage/SectorListPage";
 
 // LIB =================================================================================================================
 import { menuHint } from "@/lib/api/catalogue";
-import { publicationsMenu } from "@/lib/dbie-menu";
+import { menuOrder, statisticsMenu } from "@/lib/dbie-menu";
 
-const TITLE       = "Publications — Database on Indian Economy";
-const DESCRIPTION = "DBIE's time-series publications, table by table: the Monthly RBI Bulletin, the Handbook of Statistics on the Indian Economy, the Basic Statistical Returns, the Weekly Statistical Supplement and the rest.";
+const TITLE       = "Statistics — Database on Indian Economy";
+const DESCRIPTION = "DBIE's Statistics menu sector by sector: the report tables of each sub-section and the Data Query datasets filed with them, straight from the database.";
 
 export const metadata : Metadata = {
     title       : TITLE,
     description : DESCRIPTION,
-    keywords    : [ "publications", "RBI reports", "statistical releases", "Monthly RBI Bulletin", "Handbook of Statistics on the Indian Economy", "Basic Statistical Returns", "India economy", "RBI" ],
+    keywords    : [ "statistics", "corporate sector", "external sector", "financial market", "financial sector", "public finance", "real sector", "Data Query", "India economy", "RBI" ],
     openGraph   : {
         title       : TITLE,
         description : DESCRIPTION,
@@ -30,17 +30,18 @@ export const metadata : Metadata = {
 };
 
 export default function Page() {
-    const { category, publications } = publicationsMenu();
+    const { sectors } = statisticsMenu();
 
     return (
         <SectorListPage
-            id="publications-page"
-            menuKey="publication"
-            base="/publications"
-            title="Publications"
-            subtitle={menuHint("publication")}
-            groupTitle={category}
-            items={publications}
+            id="statistics-page"
+            menuKey="statistics"
+            base="/statistics"
+            title="Statistics"
+            subtitle={menuHint("statistics")}
+            groupTitle="Sectors"
+            items={sectors}
+            order={menuOrder()}
         />
     );
 }

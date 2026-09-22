@@ -1,19 +1,35 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import React from "react";
+import React, { Suspense } from "react";
 
 // UI ==================================================================================================================
 import { Article, Main } from "fictoan-react";
+import { Globe } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
-import { ExternalSidebar } from "@components/PageSidebars/ExternalSidebar";
+import { ThemeSidebar } from "@components/PageSidebars/ThemeSidebar";
 
+// OTHER ===============================================================================================================
+import curatedPages from "../tables/curated-pages.json";
+
+// The sidebar lists the theme's own tables, which it reads from the data API's catalogue, so it is a client
+// component; it also reads ?table= to mark the table on show, which needs a Suspense boundary on a static route.
 export default function PageWithSidebarLayout({children} : { children : React.ReactNode; }) {
     return (
         <Article className="page-with-sidebar">
-            <ExternalSidebar />
+            {/* SIDEBAR //////////////////////////////////////////////////////////////////////////////////////////// */}
+            <Suspense>
+                <ThemeSidebar
+                    id="external-sidebar"
+                    headerIcon={<Globe />}
+                    headerLabel="External"
+                    path="/external"
+                    curated={curatedPages}
+                />
+            </Suspense>
 
+            {/* PAGE CONTENT ======================================================================================= */}
             <Main>
                 {children}
             </Main>

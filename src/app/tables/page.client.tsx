@@ -15,7 +15,7 @@ import { Table2 } from "lucide-react";
 // LOCAL COMPONENTS ====================================================================================================
 import { LinkGroup, LinkItem, PageSidebar } from "@components/PageSidebars/PageSidebar";
 import { Loading }                          from "@components/Loading/Loading";
-import { TableView }                        from "./TableView";
+import { Crumb, TableView }                 from "@components/tables/TableView";
 
 // LIB =================================================================================================================
 import {
@@ -31,10 +31,8 @@ import {
     tableKey,
 } from "@/lib/api/catalogue";
 import { DATA_API_URL } from "@/lib/api/dataApi";
+import { pageFor } from "@/lib/tables/page-for";
 import { sentenceCase, shortTitle } from "@/lib/tables/titles";
-
-// STYLES ==============================================================================================================
-import "./tables-page.css";
 
 interface TablesPageProps {
     curated     : Record<string, string>;   // "report:<id>" or "dsd:<code>" → the site's curated page
@@ -42,14 +40,18 @@ interface TablesPageProps {
     order       : MenuOrder;                // DBIE's own order of sectors and sections
 }
 
-// The page the site already has for an entry, if any: a curated page, else the SDMX series page with its chart.
-function pageFor(entry : CatalogueEntry, curated : Record<string, string>, seriesSlugs : Record<string, string>) : { href : string; label : string } | null {
-    if (entry.report_id != null && curated[`report:${entry.report_id}`]) return { href : curated[`report:${entry.report_id}`], label : "Curated page" };
-    if (entry.dsd_code) {
-        if (curated[`dsd:${entry.dsd_code}`]) return { href : curated[`dsd:${entry.dsd_code}`], label : "Curated page" };
-        if (seriesSlugs[entry.dsd_code]) return { href : `/tables/${seriesSlugs[entry.dsd_code]}`, label : "Chart page" };
-    }
-    return null;
+// The trail above the view's heading: the menus the table sits in, the table itself being the heading. Each menu
+// has a section of the site of its own, the sector a page in it and the section an anchor in that page, so every
+// crumb is a link. The group below the section is not a level this page shows.
+const MENU_BASE : Record<string, string> = { publication : "/publications", statistics : "/statistics" };
+
+function crumbsFor({ menu, sector, section } : EntryRef) : Crumb[] {
+    const base = MENU_BASE[menu.key];
+    return [
+        { label : sentenceCase(menu.label), href : base },
+        { label : shortTitle(sector.label), title : sentenceCase(sector.label), href : `${base}/${sector.slug}` },
+        ...(section.implicit ? [] : [ { label : sentenceCase(section.label), href : `${base}/${sector.slug}#${section.slug}` } ]),
+    ];
 }
 
 // Every loaded table of a menu, in DBIE's order: sector by sector, section by section, a section's Data Query
@@ -97,9 +99,7 @@ const TablesPage = ({ curated, seriesSlugs, order } : TablesPageProps) => {
         document.fonts?.ready.then(show);
     }, [ currentKey ]);
 
-    const crumbs = current
-        ? [ current.menu.label, current.sector.label, ...(current.section.implicit ? [] : [ current.section.label ]) ].map(sentenceCase)
-        : [];
+    const crumbs = current ? crumbsFor(current) : [];
 
     return (
         <Article id="tables-page" className="page-with-sidebar">

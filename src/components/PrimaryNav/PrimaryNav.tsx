@@ -6,14 +6,13 @@ import React, { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
-import { Aside, Div, Text } from "fictoan-react";
+import { Aside, Div, Divider, Text } from "fictoan-react";
 import {
     BookMarked,
-    BookOpen,
     Building2,
+    ChartColumn,
     CreditCard,
     Feather,
-    FlagTriangleLeft,
     Globe,
     Landmark,
     LineChart,
@@ -78,12 +77,20 @@ export const NavItem = ({icon, label, linkTo, isLogo, onClick} : NavItemProps) =
 };
 
 // NAV GROUP ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// A title names a group the way the page sidebar's link groups are named; it shows only when the rail is expanded,
+// but its space is kept in both states so the rail does not jump.
 interface NavGroupProps {
+    title  ? : string;
     children : ReactNode;
 }
 
-export const NavGroup = ({children} : NavGroupProps) => {
-    return <Div className="links-group">{children}</Div>;
+export const NavGroup = ({title, children} : NavGroupProps) => {
+    return (
+        <Div className="links-group">
+            {title && <Text className="group-title">{title}</Text>}
+            {children}
+        </Div>
+    );
 };
 
 // PRIMARY NAV /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -120,11 +127,13 @@ export const PrimaryNav = () => {
                 />
             </NavGroup>
 
-            <NavGroup>
+            <Divider />
+
+            <NavGroup title="Database">
                 <NavItem
-                    icon={<FlagTriangleLeft />}
-                    linkTo="/indicators"
-                    label="Indicators"
+                    icon={<ChartColumn />}
+                    linkTo="/statistics"
+                    label="Statistics"
                 />
 
                 <NavItem
@@ -132,13 +141,11 @@ export const PrimaryNav = () => {
                     linkTo="/publications"
                     label="Publications"
                 />
+            </NavGroup>
 
-                <NavItem
-                    icon={<BookOpen />}
-                    linkTo="/handbook"
-                    label="Handbook"
-                />
+            <Divider />
 
+            <NavGroup title="Themes">
                 <NavItem
                     icon={<Tags />}
                     linkTo="/prices"
@@ -180,8 +187,9 @@ export const PrimaryNav = () => {
                     linkTo="/payments"
                     label="Payments"
                 />
-
             </NavGroup>
+
+            <Divider />
 
             <NavGroup>
                 <NavItem
