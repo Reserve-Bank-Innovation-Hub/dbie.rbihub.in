@@ -1,12 +1,30 @@
 #home-page {
-    grid-template-rows  : 240px auto auto repeat(3, minmax(480px, auto));
+    /* Rows: the title, two rows of stat tiles, then four sections, each a heading row sized to its text followed by
+       its chart rows at 480px minimum. The retail payments mix is two bars tall, so it gets a shorter row. */
+    grid-template-rows  : 240px auto auto
+                          auto repeat(4, minmax(480px, auto))
+                          auto repeat(3, minmax(480px, auto))
+                          auto minmax(480px, auto) minmax(320px, auto)
+                          auto repeat(2, minmax(480px, auto));
     grid-template-areas :
-            "title      title      title      title"
-            "markers    markers    markers    markers"
-            "markers    markers    markers    markers"
-            "usdInr     usdInr     inflation  inflation"
-            "corridor   corridor   upi        upi"
-            "trade      trade      reserves   reserves";
+            "title        title        title        title"
+            "markers      markers      markers      markers"
+            "markers      markers      markers      markers"
+            "indicators   indicators   indicators   indicators"
+            "gdp          gdp          gdp          gdp"
+            "contributions contributions contributions contributions"
+            "inflation    inflation    corridor     corridor"
+            "cpiHeatmap   cpiHeatmap   cpiHeatmap   cpiHeatmap"
+            "money        money        money        money"
+            "yields       yields       yieldCurve   yieldCurve"
+            "transmission transmission liquidity    liquidity"
+            "credit       credit       creditSector creditSector"
+            "payments     payments     payments     payments"
+            "upiValue     upiValue     upiVolume    upiVolume"
+            "paymentsMix  paymentsMix  paymentsMix  paymentsMix"
+            "external     external     external     external"
+            "usdInr       usdInr       trade        trade"
+            "flows        flows        reserves     reserves";
 
     #title-card {
         grid-area       : title;
@@ -27,24 +45,46 @@
 
     #rbi-seal { width : 80px; }
 
+    /* minmax(0, 1fr), not 1fr: a stat tile's own minimum width must not set the column's. */
     #markers {
         grid-area             : markers;
         display               : grid;
-        grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : repeat(2, 1fr);
+        grid-template-columns : repeat(4, minmax(0, 1fr));
+        grid-template-rows    : repeat(2, auto);
         gap                   : 1px;
     }
 
-    .marker-card {
-        height : fit-content;
+    .marker-card { min-height : 132px; }
+
+    /* Section headings sit on the page background, a band between two groups of white cells */
+    .section-heading {
+        display     : flex;
+        align-items : flex-end;
     }
 
-    #usd-inr-card   { grid-area : usdInr; }
-    #inflation-card { grid-area : inflation; }
-    #corridor-card  { grid-area : corridor; }
-    #upi-card       { grid-area : upi; }
-    #trade-card     { grid-area : trade; }
-    #reserves-card  { grid-area : reserves; }
+    #economic-indicators { grid-area : indicators; }
+    #money-and-banking   { grid-area : money; }
+    #payment-systems     { grid-area : payments; }
+    #external-sector     { grid-area : external; }
+
+    #gdp-card              { grid-area : gdp; }
+    #contributions-card    { grid-area : contributions; }
+    #inflation-card        { grid-area : inflation; }
+    #corridor-card         { grid-area : corridor; }
+    #cpi-heatmap-card      { grid-area : cpiHeatmap; }
+    #yields-card           { grid-area : yields; }
+    #yield-curve-card      { grid-area : yieldCurve; }
+    #transmission-card     { grid-area : transmission; }
+    #liquidity-card        { grid-area : liquidity; }
+    #credit-card           { grid-area : credit; }
+    #credit-by-sector-card { grid-area : creditSector; }
+    #upi-value-card        { grid-area : upiValue; }
+    #upi-volume-card       { grid-area : upiVolume; }
+    #payments-mix-card     { grid-area : paymentsMix; }
+    #usd-inr-card          { grid-area : usdInr; }
+    #trade-card            { grid-area : trade; }
+    #flows-card            { grid-area : flows; }
+    #reserves-card         { grid-area : reserves; }
 
     .home-chart-card {
         display        : flex;
@@ -56,8 +96,69 @@
         min-height : 0;   /* let the chart track the flex cell, not overflow it */
     }
 
+    /* A line under a chart for what the chart itself cannot say — a series that stops early,
+       a colour scale that saturates at its ends. */
+    .home-chart-note {
+        margin     : 0 8px 4px;
+        max-width  : 72ch;
+        line-height: 1.4;
+    }
+
     .grid-cell.has-full-view:hover .full-view-link {
         opacity        : 1;
         pointer-events : auto;
+    }
+}
+
+/* Below a laptop the four-column grid stops helping: the page becomes one column in DOM order,
+   which is the same order as the desktop layout reads, with the stat tiles two abreast. Every
+   card is named here because the grid-area rules above are ID selectors and would otherwise win. */
+@media screen and (max-width : 1024px) {
+    #home-page {
+        grid-template-columns : minmax(0, 1fr);
+        grid-template-rows    : auto;
+        grid-template-areas   : none;
+
+        #title-card,
+        #markers,
+        #economic-indicators,
+        #money-and-banking,
+        #payment-systems,
+        #external-sector,
+        #gdp-card,
+        #contributions-card,
+        #inflation-card,
+        #corridor-card,
+        #cpi-heatmap-card,
+        #yields-card,
+        #yield-curve-card,
+        #transmission-card,
+        #liquidity-card,
+        #credit-card,
+        #credit-by-sector-card,
+        #upi-value-card,
+        #upi-volume-card,
+        #payments-mix-card,
+        #usd-inr-card,
+        #trade-card,
+        #flows-card,
+        #reserves-card {
+            grid-area   : auto;
+            grid-column : 1 / -1;
+        }
+
+        #title-card { min-height : 200px; }
+
+        #markers {
+            grid-template-columns : repeat(2, minmax(0, 1fr));
+            grid-template-rows    : auto;
+        }
+
+        .home-chart-card { min-height : 440px; }
+
+        /* The charts that carry a row per category need a row's worth of height each. */
+        #payments-mix-card     { min-height : 420px; }
+        #credit-by-sector-card { min-height : 500px; }
+        #cpi-heatmap-card      { min-height : 620px; }
     }
 }
