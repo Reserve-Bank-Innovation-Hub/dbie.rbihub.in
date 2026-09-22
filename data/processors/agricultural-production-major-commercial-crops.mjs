@@ -143,8 +143,8 @@ function selfCheck(out) {
   // Col order: groundnut(2) | rapeseed_mustard(3) | soyabean(4) | total_oilseeds(5)
   //            | coffee(6) | cotton_lint(7) | raw_jute_mesta(8) | sugarcane(9) | tea(10)
   const known = [
-    { year: '2025-26', field: 'groundnut',      value: 110.93  },
-    { year: '2025-26', field: 'sugarcane',      value: 4756.14 },
+    { year: '2025-26', field: 'groundnut',      value: 130.74  },
+    { year: '2025-26', field: 'sugarcane',      value: 5000.63 },
     { year: '2024-25', field: 'total_oilseeds', value: 429.89  },
     { year: '2024-25', field: 'tea',            value: 13157.7 },
     { year: '1950-51', field: 'cotton_lint',    value: 30.4    },

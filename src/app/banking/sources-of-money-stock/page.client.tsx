@@ -12,6 +12,7 @@ import SourcesOfMoneyStockChart from "@/components/charts/SourcesOfMoneyStockCha
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { SourcesOfMoneyStock } from "@/lib/api/tables/sources-of-money-stock";
 
 
@@ -25,14 +26,20 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
     const latest = sourcesData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestM3Row = newestWith(sourcesData.data, (r) => r.values["m3"]);
+        const latestNBCGovRow = newestWith(sourcesData.data, (r) => r.values["netBankCreditToGovernment"]);
         const crores = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN")} cr`;
         return {
-            latestDate   : latest?.date || "—",
-            latestM3     : crores(latest?.values["m3"] ?? null),
-            latestNBCGov : crores(latest?.values["netBankCreditToGovernment"] ?? null),
+            latestDate       : latest?.date || "—",
+            latestM3         : crores(latestM3Row?.values["m3"] ?? null),
+            latestM3Date     : latestM3Row?.date || "—",
+            latestNBCGov     : crores(latestNBCGovRow?.values["netBankCreditToGovernment"] ?? null),
+            latestNBCGovDate : latestNBCGovRow?.date || "—",
         };
-    }, [ latest ]);
+    }, [ latest, sourcesData ]);
 
     return (
         <Article id="sources-of-money-stock-page" className="page-grid">
@@ -77,7 +84,7 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M3</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestM3Date})`}
                     value={stats.latestM3}
                     size="large"
                     align="right"
@@ -88,7 +95,7 @@ const SourcesOfMoneyStockPage : React.FC<SourcesOfMoneyStockPageProps> = ({ sour
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net bank credit to government</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestNBCGovDate})`}
                     value={stats.latestNBCGov}
                     size="large"
                     align="right"

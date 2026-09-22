@@ -12,6 +12,7 @@ import ForexReservesWeeklyGrid from "@/components/tables/ForexReservesWeeklyGrid
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ForexReservesWeekly } from "@/lib/api/tables/forex-reserves-weekly";
 
 // DATA VIZ ============================================================================================================
@@ -31,14 +32,20 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
     const latest = reservesData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const totalReservesUSDRow = newestWith(reservesData.data, (r) => r.totalReservesUSD);
+        const goldUSDRow = newestWith(reservesData.data, (r) => r.goldUSD);
         const fmtUSD = (v : number | null) =>
-            v == null ? "—" : `$${v.toLocaleString("en-IN")} mn.`;
+            v == null ? "—" : `${v.toLocaleString("en-IN")} mn.`;
         return {
-            latestWeek      : latest?.weekEnded || "—",
-            totalReservesUSD: fmtUSD(latest?.totalReservesUSD ?? null),
-            goldUSD         : fmtUSD(latest?.goldUSD ?? null),
+            latestWeek           : latest?.weekEnded || "—",
+            totalReservesUSD     : fmtUSD(totalReservesUSDRow?.totalReservesUSD ?? null),
+            totalReservesUSDDate : totalReservesUSDRow?.weekEnded || "—",
+            goldUSD              : fmtUSD(goldUSDRow?.goldUSD ?? null),
+            goldUSDDate          : goldUSDRow?.weekEnded || "—",
         };
-    }, [ latest ]);
+    }, [ latest, reservesData ]);
 
     // Chart: last 52 weeks, reversed to chronological order.
     const chartData = useMemo(() => [ ...reservesData.data.slice(0, 52) ].reverse(), [ reservesData.data ]);
@@ -131,7 +138,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total reserves</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestWeek})`}
+                    label={`Latest (${stats.totalReservesUSDDate})`}
                     value={stats.totalReservesUSD}
                     size="large"
                     align="right"
@@ -142,7 +149,7 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gold</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestWeek})`}
+                    label={`Latest (${stats.goldUSDDate})`}
                     value={stats.goldUSD}
                     size="large"
                     align="right"

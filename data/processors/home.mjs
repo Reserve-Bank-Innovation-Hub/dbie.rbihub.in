@@ -174,7 +174,7 @@ for (const [name, c] of Object.entries(out.charts)) {
 // Anchors — known values in committed history (update alongside a source revision).
 const at = (c, date, key) => c.series.find((s) => s.key === key).values[c.dates.indexOf(date)];
 check(at(corridor, '2025-03-01', 'repo') === 6.25, 'anchor: repo rate Mar-2025 should be 6.25');
-check(at(inflation, '2025-03-01', 'cpi') === 3.34, 'anchor: CPI inflation Mar-2025 should be 3.34');
+check(at(inflation, '2025-03-01', 'cpi') === 3.56, 'anchor: CPI inflation Mar-2025 should be 3.56');   // RBI revised it from 3.34 in the 17-09-2026 export
 check(at(upi, '2019-11-01', 'value') === 1.89, 'anchor: UPI value Nov-2019 should be ₹1.89 lakh crore');
 check(at(trade, '1990-04-01', 'exports') === 1.44, 'anchor: exports Apr-1990 should be US$1.44bn');
 check(at(usd_inr, '2026-07-01', 'usd') === 94.7323, 'anchor: USD/INR 01-Jul-2026 should be 94.7323');

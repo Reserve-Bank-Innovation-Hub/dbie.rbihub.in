@@ -83,8 +83,9 @@ function selfCheck(out) {
   const { data } = out;
   const errors = [];
 
-  if (!Array.isArray(data) || data.length !== 51) {
-    errors.push(`expected 51 data rows, got ${data ? data.length : 'n/a'}`);
+  // The 17-09-2026 export adds the 2026-27 crop year, taking the table to 52 rows.
+  if (!Array.isArray(data) || data.length !== 52) {
+    errors.push(`expected 52 data rows, got ${data ? data.length : 'n/a'}`);
   }
 
   const row202526 = data.find((r) => r.year === '2025-26');

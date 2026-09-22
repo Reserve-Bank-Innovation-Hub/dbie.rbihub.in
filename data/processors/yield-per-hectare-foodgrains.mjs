@@ -111,8 +111,8 @@ function selfCheck(out) {
 
   // Known cells verified against the source sheet.
   const known = [
-    { year: '2025-26', field: 'rice',         expect: 2819  },
-    { year: '2025-26', field: 'wheat',         expect: null  }, // "-" in source
+    { year: '2025-26', field: 'rice',         expect: 2915  },
+    { year: '2025-26', field: 'wheat',         expect: 3591  }, // was "-" in the old download; published in the 17-09-2026 export
     { year: '2024-25', field: 'totalCereals',  expect: 3023  },
     { year: '1950-51', field: 'pulses',        expect: 441   },
     { year: '1950-51', field: 'rice',          expect: 668   },

@@ -31,10 +31,23 @@
     gap                   : 1px;
     min-height            : 100vh;
 
+    /* A section is its title on the left and its items on the right. A section inside a section is the next level
+       of a hierarchy, its own title column then its items, so the levels run left to right. */
     section {
         display               : grid;
         grid-template-columns : 24vw auto;
         gap                   : 1px;
+        /* An anchored section lands below the sticky section header, not under it */
+        scroll-margin-top     : 64px;
+
+        section {
+            grid-template-columns : 16vw auto;
+        }
+
+        /* A section with no title of its own: its items take the whole row */
+        &.untitled {
+            grid-template-columns : 1fr;
+        }
     }
 
     .section-title {

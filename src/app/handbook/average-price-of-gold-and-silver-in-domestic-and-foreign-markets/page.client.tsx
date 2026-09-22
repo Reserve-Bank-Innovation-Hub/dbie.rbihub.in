@@ -12,6 +12,7 @@ import AveragePriceOfGoldAndSilverGrid from "@/components/tables/AveragePriceOfG
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { AveragePriceOfGoldAndSilver } from "@/lib/api/tables/average-price-of-gold-and-silver-in-domestic-and-foreign-markets";
 
 // CHART CONFIG ========================================================================================================
@@ -33,13 +34,19 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
     const latest = pricesData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestGoldRow = newestWith(pricesData.data, (r) => r.gold_mumbai);
+        const latestSilverRow = newestWith(pricesData.data, (r) => r.silver_mumbai);
         const rupees = (v : number | null) => (v == null ? "—" : `₹${v.toLocaleString("en-IN")}`);
         return {
-            latestYear    : latest?.year || "—",
-            latestGold    : rupees(latest?.gold_mumbai ?? null),
-            latestSilver  : rupees(latest?.silver_mumbai ?? null),
+            latestYear       : latest?.year || "—",
+            latestGold       : rupees(latestGoldRow?.gold_mumbai ?? null),
+            latestGoldDate   : latestGoldRow?.year || "—",
+            latestSilver     : rupees(latestSilverRow?.silver_mumbai ?? null),
+            latestSilverDate : latestSilverRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, pricesData ]);
 
     // Reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...pricesData.data ].reverse(), [ pricesData.data ]);
@@ -163,7 +170,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gold (Mumbai)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestGoldDate})`}
                     value={stats.latestGold}
                     size="large"
                     align="right"
@@ -174,7 +181,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Silver (Mumbai)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestSilverDate})`}
                     value={stats.latestSilver}
                     size="large"
                     align="right"

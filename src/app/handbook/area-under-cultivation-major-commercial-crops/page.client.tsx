@@ -12,6 +12,7 @@ import AreaUnderCultivationMajorCommercialCropsChart from "@/components/charts/A
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { AreaUnderCultivationMajorCommercialCrops } from "@/lib/api/tables/area-under-cultivation-major-commercial-crops";
 
 
@@ -23,13 +24,19 @@ const AreaUnderCultivationMajorCommercialCropsPage : React.FC<AreaUnderCultivati
     const latest = tableData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestOilseedsRow = newestWith(tableData.data, (r) => r.total_oilseeds);
+        const latestCottonRow = newestWith(tableData.data, (r) => r.cotton_lint);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear      : latest?.year || "—",
-            latestOilseeds  : fmt(latest?.total_oilseeds ?? null),
-            latestCotton    : fmt(latest?.cotton_lint ?? null),
+            latestYear         : latest?.year || "—",
+            latestOilseeds     : fmt(latestOilseedsRow?.total_oilseeds ?? null),
+            latestOilseedsDate : latestOilseedsRow?.year || "—",
+            latestCotton       : fmt(latestCottonRow?.cotton_lint ?? null),
+            latestCottonDate   : latestCottonRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, tableData ]);
 
     return (
         <Article id="area-under-cultivation-major-commercial-crops-page" className="page-grid">

@@ -12,6 +12,7 @@ import CertificatesOfDepositChart from "@/components/charts/CertificatesOfDeposi
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { CertificatesOfDeposit } from "@/lib/api/tables/certificates-of-deposit";
 
 // STYLES ==============================================================================================================
@@ -25,14 +26,20 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
     const latest = cdData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestOutstandingRow = newestWith(cdData.data, (r) => r.amountOutstanding);
+        const latestIssuedRow = newestWith(cdData.data, (r) => r.amountIssued);
         const crores = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN")} Cr`;
         return {
-            latestFortnight    : latest?.fortnightEnded || "—",
-            latestOutstanding  : crores(latest?.amountOutstanding ?? null),
-            latestIssued       : crores(latest?.amountIssued ?? null),
+            latestFortnight       : latest?.fortnightEnded || "—",
+            latestOutstanding     : crores(latestOutstandingRow?.amountOutstanding ?? null),
+            latestOutstandingDate : latestOutstandingRow?.fortnightEnded || "—",
+            latestIssued          : crores(latestIssuedRow?.amountIssued ?? null),
+            latestIssuedDate      : latestIssuedRow?.fortnightEnded || "—",
         };
-    }, [ latest ]);
+    }, [ latest, cdData ]);
 
     return (
         <Article id="certificates-of-deposit-page" className="page-grid">
@@ -76,7 +83,7 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount outstanding</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestFortnight})`}
+                    label={`Latest (${stats.latestOutstandingDate})`}
                     value={stats.latestOutstanding}
                     size="large"
                     align="right"
@@ -87,7 +94,7 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount issued</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestFortnight})`}
+                    label={`Latest (${stats.latestIssuedDate})`}
                     value={stats.latestIssued}
                     size="large"
                     align="right"

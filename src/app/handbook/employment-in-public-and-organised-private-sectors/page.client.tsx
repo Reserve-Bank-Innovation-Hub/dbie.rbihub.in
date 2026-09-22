@@ -12,6 +12,7 @@ import EmploymentInPublicAndOrganisedPrivateSectorsChart from "@/components/char
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { EmploymentInPublicAndOrganisedPrivateSectors } from "@/lib/api/tables/employment-in-public-and-organised-private-sectors";
 
 
@@ -25,12 +26,18 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
 
     const stats = useMemo(() => {
         const lakhs = (v : number | null) => (v == null ? "—" : `${v.toLocaleString("en-IN")} L`);
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const publicRow  = newestWith(employmentData.data, (r) => r.public_sector);
+        const privateRow = newestWith(employmentData.data, (r) => r.private_sector);
         return {
-            latestYear    : latestWithData?.year || "—",
-            latestPublic  : lakhs(latestWithData?.public_sector ?? null),
-            latestPrivate : lakhs(latestWithData?.private_sector ?? null),
+            latestYear        : latestWithData?.year || "—",
+            latestPublic      : lakhs(publicRow?.public_sector ?? null),
+            latestPublicYear  : publicRow?.year || "—",
+            latestPrivate     : lakhs(privateRow?.private_sector ?? null),
+            latestPrivateYear : privateRow?.year || "—",
         };
-    }, [ latestWithData ]);
+    }, [ latestWithData, employmentData ]);
 
     return (
         <Article id="employment-in-public-and-organised-private-sectors-page" className="page-grid">
@@ -73,7 +80,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Public sector</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestPublicYear})`}
                     value={stats.latestPublic}
                     size="large"
                     align="right"
@@ -84,7 +91,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsPage : React.FC<EmploymentInPu
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Private sector</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestPrivateYear})`}
                     value={stats.latestPrivate}
                     size="large"
                     align="right"

@@ -12,6 +12,7 @@ import IndexNumbersOfIndustrialProductionUseBasedGrid from "@/components/tables/
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { IndexNumbersOfIndustrialProductionUseBased } from "@/lib/api/tables/index-numbers-of-industrial-production-use-based-classification";
 
 // CHART CONFIG ========================================================================================================
@@ -48,12 +49,18 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
 
     const stats = useMemo(() => {
         if (!latestRow) return [];
-        return primarySeries.columns.map((col, i) => ({
-            label : col,
-            value : latestRow.values[i] != null
-                ? latestRow.values[i]!.toLocaleString("en-IN", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-                : "—",
-        }));
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off the newest row alone would read "—" (src/lib/tables/latest.ts).
+        return primarySeries.columns.map((col, i) => {
+            const row = newestWith(primarySeries.data, (r) => r.values[i]);
+            return {
+                label : col,
+                year  : row?.year ?? "—",
+                value : row?.values[i] != null
+                    ? row.values[i]!.toLocaleString("en-IN", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+                    : "—",
+            };
+        });
     }, [ latestRow, primarySeries ]);
 
     // Bar chart: one bar per category, for the latest year.
@@ -128,7 +135,7 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
                 <Div key={i} className="stat-cell grid-cell" padding="micro">
                     <Text weight="600" marginBottom="nano">{stat.label}</Text>
                     <DataUnit
-                        label={`Latest (${latestYear})`}
+                        label={`Latest (${stat.year})`}
                         value={stat.value}
                         size="large"
                         align="right"

@@ -12,6 +12,7 @@ import ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart from "@/comp
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSector } from "@/lib/api/tables/changes-in-financial-assets-liabilities-of-the-household-sector";
 
 
@@ -24,14 +25,20 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
     const latest = data.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestChangesInFinancialAssetsRow = newestWith(data.data, (r) => r.changes_in_financial_assets);
+        const latestBankDepositsRow = newestWith(data.data, (r) => r.bank_deposits);
         const crore = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN")} cr`;
         return {
-            latestYear                   : latest?.year || "—",
-            latestChangesInFinancialAssets: crore(latest?.changes_in_financial_assets ?? null),
-            latestBankDeposits           : crore(latest?.bank_deposits ?? null),
+            latestYear                         : latest?.year || "—",
+            latestChangesInFinancialAssets     : crore(latestChangesInFinancialAssetsRow?.changes_in_financial_assets ?? null),
+            latestChangesInFinancialAssetsDate : latestChangesInFinancialAssetsRow?.year || "—",
+            latestBankDeposits                 : crore(latestBankDepositsRow?.bank_deposits ?? null),
+            latestBankDepositsDate             : latestBankDepositsRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, data ]);
 
     return (
         <Article id="changes-in-financial-assets-liabilities-of-the-household-sector-page" className="page-grid">
@@ -76,7 +83,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Changes in financial assets</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestChangesInFinancialAssetsDate})`}
                     value={stats.latestChangesInFinancialAssets}
                     size="large"
                     align="right"
@@ -87,7 +94,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorPage : React.FC<Cha
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Bank deposits</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestBankDepositsDate})`}
                     value={stats.latestBankDeposits}
                     size="large"
                     align="right"

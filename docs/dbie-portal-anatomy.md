@@ -71,7 +71,8 @@ SAP BusinessObjects (BOE)  ←  /BOE/OpenDocument/...  — auth-walled for repor
 - Catalogue enumeration is public (via `dbie_getReportsDbie` — 398 Statistics tables)
 - Opening any report → SAP BOE WebI popup → redirects to `UI5logon.jsp` for guests
 - Unlock requires an RBI-issued named-user account on the BOE tenant
-- For now: **download RBIB (Monthly Bulletin) tables manually** from RBI's Bulletin pages; they're the same data in xlsx
+- RBIB (Monthly Bulletin) tables come from the Publications menu through `scripts/export-reports.mjs`, the same
+  Web Intelligence documents the committed `data/publications/*.xlsx` hold (see `data/README.md` for the refresh)
 
 Coverage against the authoritative Reports list: ~60% of Statistics tables overlap with SDMX sub-sectors; the full cluster of **Banking + NBFC + Key Rates + SPF + Socio-Economic** (88 tables) is behind the wall.
 

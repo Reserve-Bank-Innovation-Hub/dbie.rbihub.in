@@ -39,17 +39,40 @@ interface CataloguePage {
 
 const PAGE = 2000;   // the API's maximum
 
-// Every catalogue entry, paging if the catalogue ever outgrows one page.
-export async function fetchCatalogue(signal ? : AbortSignal) : Promise<CatalogueEntry[]> {
+async function readCatalogue() : Promise<CatalogueEntry[]> {
     const entries : CatalogueEntry[] = [];
     for (let offset = 0; ; offset += PAGE) {
-        const res = await fetch(apiUrl(`/api/catalogue?limit=${PAGE}&offset=${offset}`), { signal });
+        const res = await fetch(apiUrl(`/api/catalogue?limit=${PAGE}&offset=${offset}`));
         if (!res.ok) throw new Error(`HTTP ${res.status} from the data API`);
         const page : CataloguePage = await res.json();
         entries.push(...page.data);
         if (entries.length >= page.total || page.data.length === 0) break;
     }
     return entries;
+}
+
+// The one in-flight or finished read of the catalogue, kept for the life of the page. A failed read is not kept,
+// so the next caller tries again.
+let shared : Promise<CatalogueEntry[]> | null = null;
+
+// Every catalogue entry, paging if the catalogue ever outgrows one page. Several components of a page ask for the
+// catalogue — the page itself and its sidebar — so the request is made once and its answer serves them all. A
+// caller's signal therefore only stops that caller waiting, with the AbortError its own catch expects; the read
+// itself runs on for the others.
+export function fetchCatalogue(signal ? : AbortSignal) : Promise<CatalogueEntry[]> {
+    shared ??= readCatalogue().catch((err : unknown) => {
+        shared = null;
+        throw err;
+    });
+    const reading = shared;
+    if (!signal) return reading;
+
+    return new Promise<CatalogueEntry[]>((resolve, reject) => {
+        const stop = () => reject(new DOMException("The catalogue read was aborted", "AbortError"));
+        if (signal.aborted) return stop();
+        signal.addEventListener("abort", stop, { once : true });
+        reading.then(resolve, reject).finally(() => signal.removeEventListener("abort", stop));
+    });
 }
 
 // =====================================================================================================================
@@ -167,6 +190,12 @@ export const isLoaded = (e : CatalogueEntry) : boolean => e.status === "loaded";
 // The database table an entry is loaded into, as "<schema>.<table>", or null when it is not loaded.
 export const tableKey = (e : CatalogueEntry) : string | null =>
     e.schema_name && e.table_name ? `${e.schema_name}.${e.table_name}` : null;
+
+// The keys src/app/tables/curated-pages.json can file an entry under: its DBIE report id, its SDMX dataset code.
+export const curatedKeys = (e : CatalogueEntry) : string[] => [
+    ...(e.report_id != null ? [ `report:${e.report_id}` ] : []),
+    ...(e.dsd_code ? [ `dsd:${e.dsd_code}` ] : []),
+];
 
 // =====================================================================================================================
 // DBIE's own order, from its menu tree
@@ -380,15 +409,24 @@ const MONTHS : Record<string, string> = {
     jul : "07", aug : "08", sep : "09", oct : "10", nov : "11", dec : "12",
 };
 
-// DBIE writes periods as 31-Mar-2026 or 31-MAR-2026; SDMX start dates arrive as 2013-03-31. All shown DD-MM-YYYY.
+// DBIE writes periods as 31-Mar-2026 or 31-MAR-2026, a few as 2026-MAR-31 or in Excel's d-mmm-yy (31-Mar-06, where
+// 00–29 is 2000–2029 and 30–99 is 1930–1999, as Excel reads it); SDMX start dates arrive as 2013-03-31. All shown
+// DD-MM-YYYY.
 export function formatPeriod(value : string | null | undefined) : string {
     if (!value) return "";
-    const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    const text = value.replace(/\s+/g, "");
+    const iso = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
     if (iso) return `${iso[3]}-${iso[2]}-${iso[1]}`;
-    const dbie = value.match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/);
+    const isoMonth = text.match(/^(\d{4})-([A-Za-z]{3})-(\d{1,2})$/);
+    if (isoMonth) {
+        const month = MONTHS[isoMonth[2].toLowerCase()];
+        if (month) return `${isoMonth[3].padStart(2, "0")}-${month}-${isoMonth[1]}`;
+    }
+    const dbie = text.match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4}|\d{2})$/);
     if (dbie) {
         const month = MONTHS[dbie[2].toLowerCase()];
-        if (month) return `${dbie[1].padStart(2, "0")}-${month}-${dbie[3]}`;
+        const year  = dbie[3].length === 4 ? dbie[3] : `${Number(dbie[3]) <= 29 ? "20" : "19"}${dbie[3]}`;
+        if (month) return `${dbie[1].padStart(2, "0")}-${month}-${year}`;
     }
     return value;
 }

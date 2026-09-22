@@ -1,0 +1,59 @@
+/* The view sits on the site's page grid; the one thing of its own is that the selects in its controls cell sit in a
+   row, each no wider than its share (a native select otherwise grows to its longest option). */
+.table-view-controls {
+    display     : flex;
+    flex-wrap   : wrap;
+    align-items : flex-end;
+    gap         : var(--micro);
+
+    > [data-form-item] {
+        flex      : 1 1 240px;
+        max-width : 480px;
+        min-width : 0;
+
+        [data-input-wrapper],
+        [data-select],
+        select {
+            width     : 100%;
+            max-width : 100%;
+        }
+    }
+}
+
+/* The breadcrumb above the heading is the path to the table, not the table itself, and reads as navigation rather
+   than a second heading: the sidebar's link text size, and not the weight fictoan gives every link. fictoan puts
+   each separator in a list item of its own, which can be left dangling at the end of a wrapped line, so those are
+   hidden and every crumb but the first draws its own — the separator travels with the crumb it introduces. The
+   list flows as text, so a long trail wraps at word boundaries and sits on one line when it fits. Colour is by
+   element, not by fictoan's current item: a crumb that links is a link wherever it sits in the trail, and one with
+   nowhere to go is plain text. (fictoan's only rule for the current item is its colour; nothing there disables the
+   pointer or the cursor.) */
+.table-view-crumbs {
+    font-size : 0.92rem;
+
+    [data-breadcrumbs-wrapper] {
+        display : block;
+    }
+
+    li[data-breadcrumb-item] {
+        display : inline;
+    }
+
+    li[role="presentation"] {
+        display : none;
+    }
+
+    li[data-breadcrumb-item]:not(:first-of-type)::before {
+        content : " \203a\00a0";
+        color   : var(--breadcrumb-item-separator-colour);
+    }
+
+    a {
+        color       : var(--breadcrumb-item-text);
+        font-weight : 400;
+    }
+
+    .breadcrumb-content > span {
+        color : var(--breadcrumb-item-text-active);
+    }
+}

@@ -1,15 +1,18 @@
 // Processor: sources-of-money-stock — Table 7 of the Monthly RBI Bulletin
 // (money-and-banking section). The workbook carries one sheet ("Report 1")
 // with fortnightly observations of the sources of M3 (money stock), newest-first
-// from 15-Mar-2026 back to 30-Mar-1951. Layout:
+// from 31-Aug-2026 back to 30-Mar-1951. Layout:
 //
 //   row 0         blank
 //   row 1 (col 1) report title "Sources of Money Stock (M3)"
 //   row 2         blank
 //   row 3 (col 1) units note "(Rupees Crores)"
 //   row 4         blank
-//   row 5         header row — col 1 "Date", cols 2-35 item labels
-//   rows 6…       data rows (col 1 = "DD-Mon-YY" date, cols 2-35 = values)
+//   row 5         header row — col 1 "Date", cols 2-36 item labels
+//   rows 6…       data rows (col 1 = "DD-Mon-YY" date, cols 2-36 = values)
+//
+// Columns are taken from the header row rather than fixed, so the "RBI's Net Claims on Banks" column the report
+// export added (the 35th) is carried without a change here.
 //   blank row + "See Notes on Table" footer row (ignored)
 //
 // Columns with "(Excluding Merger)" suffix are retained alongside their primary

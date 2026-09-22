@@ -12,6 +12,7 @@ import PublicDistributionSystemChart from "@/components/charts/PublicDistributio
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { PublicDistributionSystemData } from "@/lib/api/tables/public-distribution-system-procurement-off-take-and-stocks";
 
 // STYLES ==============================================================================================================
@@ -25,15 +26,23 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
     const latest = data.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const procTotalRow = newestWith(data.data, (r) => r.proc_total);
+        const offtTotalRow = newestWith(data.data, (r) => r.offt_total);
+        const stckTotalRow = newestWith(data.data, (r) => r.stck_total);
         const lakhT = (v : number | null) =>
             v == null ? "—" : `${v.toLocaleString("en-IN")} lakh T`;
         return {
             latestYear    : latest?.year || "—",
-            procTotal     : lakhT(latest?.proc_total ?? null),
-            offtTotal     : lakhT(latest?.offt_total ?? null),
-            stckTotal     : lakhT(latest?.stck_total ?? null),
+            procTotal     : lakhT(procTotalRow?.proc_total ?? null),
+            procTotalDate : procTotalRow?.year || "—",
+            offtTotal     : lakhT(offtTotalRow?.offt_total ?? null),
+            offtTotalDate : offtTotalRow?.year || "—",
+            stckTotal     : lakhT(stckTotalRow?.stck_total ?? null),
+            stckTotalDate : stckTotalRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, data ]);
 
     return (
         <Article id="pds-page" className="page-grid">
@@ -77,7 +86,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total procurement</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.procTotalDate})`}
                     value={stats.procTotal}
                     size="large"
                     align="right"
@@ -88,7 +97,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total off-take</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.offtTotalDate})`}
                     value={stats.offtTotal}
                     size="large"
                     align="right"
@@ -99,7 +108,7 @@ const PublicDistributionSystemPage : React.FC<PublicDistributionSystemPageProps>
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total stocks</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.stckTotalDate})`}
                     value={stats.stckTotal}
                     size="large"
                     align="right"

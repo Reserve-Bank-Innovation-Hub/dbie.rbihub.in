@@ -12,6 +12,7 @@ import FinancialMarketsTurnoverChart from "@/components/charts/FinancialMarketsT
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { FinancialMarketsTurnover } from "@/lib/api/tables/financial-markets-turnover";
 
 // STYLES ==============================================================================================================
@@ -25,15 +26,21 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
     const latest = turnoverData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestCallMoneyRow = newestWith(turnoverData.data, (r) => r.values["call_money"]);
+        const latestTripartyRow = newestWith(turnoverData.data, (r) => r.values["triparty_repo"]);
         const cr = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Cr`;
 
         return {
-            latestPeriod     : latest?.period ?? "—",
-            latestCallMoney  : cr(latest?.values["call_money"] ?? null),
-            latestTriparty   : cr(latest?.values["triparty_repo"] ?? null),
+            latestPeriod        : latest?.period ?? "—",
+            latestCallMoney     : cr(latestCallMoneyRow?.values["call_money"] ?? null),
+            latestCallMoneyDate : latestCallMoneyRow?.period || "—",
+            latestTriparty      : cr(latestTripartyRow?.values["triparty_repo"] ?? null),
+            latestTripartyDate  : latestTripartyRow?.period || "—",
         };
-    }, [ latest ]);
+    }, [ latest, turnoverData ]);
 
     return (
         <Article id="financial-markets-turnover-page" className="page-grid">
@@ -82,7 +89,7 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Call money</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestPeriod})`}
+                    label={`Latest (${stats.latestCallMoneyDate})`}
                     value={stats.latestCallMoney}
                     size="large"
                     align="right"
@@ -93,7 +100,7 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Triparty repo</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestPeriod})`}
+                    label={`Latest (${stats.latestTripartyDate})`}
                     value={stats.latestTriparty}
                     size="large"
                     align="right"

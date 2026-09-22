@@ -12,6 +12,7 @@ import ConsumerPriceIndexAnnualAverageGrid from "@/components/tables/ConsumerPri
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ConsumerPriceIndexAnnualAverage } from "@/lib/api/tables/consumer-price-index-annual-average";
 
 // CHART CONFIG ========================================================================================================
@@ -40,16 +41,23 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
     const latestNewCpi = series.new_cpi.data[0];
     const latestAl     = series.cpi_al.data[0];
 
-    const stats = useMemo(() => ({
-        latestYear    : latestNewCpi?.year || "—",
-        latestCombined: latestNewCpi?.combined != null
-            ? latestNewCpi.combined.toLocaleString("en-IN", { minimumFractionDigits: 1, maximumFractionDigits: 2 })
-            : "—",
-        latestAl      : latestAl?.index != null
-            ? latestAl.index.toLocaleString("en-IN")
-            : "—",
-        latestAlYear  : latestAl?.year || "—",
-    }), [ latestNewCpi, latestAl ]);
+    const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const combinedRow = newestWith(series.new_cpi.data, (r) => r.combined);
+        const alRow       = newestWith(series.cpi_al.data, (r) => r.index);
+        return {
+            latestYear         : latestNewCpi?.year || "—",
+            latestCombined     : combinedRow?.combined != null
+                ? combinedRow.combined.toLocaleString("en-IN", { minimumFractionDigits: 1, maximumFractionDigits: 2 })
+                : "—",
+            latestCombinedYear : combinedRow?.year || "—",
+            latestAl           : alRow?.index != null
+                ? alRow.index.toLocaleString("en-IN")
+                : "—",
+            latestAlYear       : alRow?.year || "—",
+        };
+    }, [ latestNewCpi, latestAl, series ]);
 
     // Plotly traces — three lines on a single y-axis.
     const traces = useMemo<Partial<Plotly.PlotData>[]>(() => [
@@ -149,7 +157,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">New CPI — combined</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestCombinedYear})`}
                     value={stats.latestCombined}
                     size="large"
                     align="right"

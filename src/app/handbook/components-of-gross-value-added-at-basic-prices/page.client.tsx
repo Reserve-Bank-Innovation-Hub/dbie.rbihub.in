@@ -12,6 +12,7 @@ import ComponentsOfGrossValueAddedAtBasicPricesChart from "@/components/charts/C
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ComponentsOfGrossValueAddedAtBasicPrices } from "@/lib/api/tables/components-of-gross-value-added-at-basic-prices";
 
 
@@ -24,13 +25,19 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
     const latest = gvaData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestGvaRow = newestWith(gvaData.data, (r) => r.gva_const);
+        const latestGdpRow = newestWith(gvaData.data, (r) => r.gdp_const);
         const crore = (v : number | null) => (v == null ? "—" : `₹${v.toLocaleString("en-IN")} cr`);
         return {
-            latestYear   : latest?.year || "—",
-            latestGva    : crore(latest?.gva_const ?? null),
-            latestGdp    : crore(latest?.gdp_const ?? null),
+            latestYear    : latest?.year || "—",
+            latestGva     : crore(latestGvaRow?.gva_const ?? null),
+            latestGvaDate : latestGvaRow?.year || "—",
+            latestGdp     : crore(latestGdpRow?.gdp_const ?? null),
+            latestGdpDate : latestGdpRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, gvaData ]);
 
     return (
         <Article id="components-of-gross-value-added-at-basic-prices-page" className="page-grid">
@@ -74,7 +81,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Latest GVA (constant prices)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestGvaDate})`}
                     value={stats.latestGva}
                     size="large"
                     align="right"
@@ -85,7 +92,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesPage : React.FC<ComponentsOfGrossV
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Latest GDP (constant prices)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestGdpDate})`}
                     value={stats.latestGdp}
                     size="large"
                     align="right"

@@ -12,6 +12,7 @@ import AreaUnderCultivationFoodgrainsChart from "@/components/charts/AreaUnderCu
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { AreaUnderCultivationFoodgrains } from "@/lib/api/tables/area-under-cultivation-foodgrains";
 
 
@@ -23,13 +24,19 @@ const AreaUnderCultivationFoodgrainsPage : React.FC<AreaUnderCultivationFoodgrai
     const latest = tableData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestTotalRow = newestWith(tableData.data, (r) => r.total_cereals);
+        const latestPulsesRow = newestWith(tableData.data, (r) => r.pulses);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear     : latest?.year || "—",
-            latestTotal    : fmt(latest?.total_cereals ?? null),
-            latestPulses   : fmt(latest?.pulses ?? null),
+            latestYear       : latest?.year || "—",
+            latestTotal      : fmt(latestTotalRow?.total_cereals ?? null),
+            latestTotalDate  : latestTotalRow?.year || "—",
+            latestPulses     : fmt(latestPulsesRow?.pulses ?? null),
+            latestPulsesDate : latestPulsesRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, tableData ]);
 
     return (
         <Article id="area-under-cultivation-foodgrains-page" className="page-grid">

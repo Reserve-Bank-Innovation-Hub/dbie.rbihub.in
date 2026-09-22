@@ -164,13 +164,19 @@ function selfCheck(out) {
     errors.push('monthly: duplicate (fiscal_year, month) pairs detected');
   }
 
-  // Monthly: anchor check — newest row should be August 2025-26
-  const newest = (monthly.data || [])[0];
-  if (!newest) {
+  // Monthly: the anchor is the August 2025-26 row wherever it now sits — pinning it to the newest row would trip
+  // on every refresh — plus the list still being newest-first.
+  const rows = monthly.data || [];
+  const newest = rows.find((r) => r.fiscal_year === '2025-26' && r.month === 'August');
+  if (rows.length === 0) {
     errors.push('monthly: no data rows');
+  } else if (!newest) {
+    errors.push('monthly: the 2025-26 August row is missing');
   } else {
-    if (newest.fiscal_year !== '2025-26' || newest.month !== 'August') {
-      errors.push(`monthly: expected newest row 2025-26/August, got ${newest.fiscal_year}/${newest.month}`);
+    const months = [ 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March' ];
+    const key = (r) => `${r.fiscal_year}/${String(months.indexOf(r.month)).padStart(2, '0')}`;
+    if (rows.length > 1 && key(rows[0]) <= key(rows[rows.length - 1])) {
+      errors.push(`monthly: expected newest-first order; first row is ${key(rows[0])}, last is ${key(rows[rows.length - 1])}`);
     }
     // values[0] = 8699, values[1] = 2129278, values[2] = 8336, values[3] = 1516403
     const anchors = [

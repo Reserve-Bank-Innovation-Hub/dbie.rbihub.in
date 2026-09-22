@@ -12,6 +12,7 @@ import SectorWiseDomesticSavingsGrid from "@/components/tables/SectorWiseDomesti
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { SectorWiseDomesticSavings } from "@/lib/api/tables/sector-wise-domestic-savings-at-current-prices";
 
 // CHART CONFIG ========================================================================================================
@@ -35,10 +36,13 @@ const SectorWiseDomesticSavingsPage : React.FC<SectorWiseDomesticSavingsPageProp
 
     const latest = data.data[0];
 
+    // The card takes the newest year that carries the field, not simply the newest row: DBIE can publish one
+    // column a year behind the rest (src/lib/tables/latest.ts).
+    const latestSavingsRow = newestWith(data.data, (r) => r.gross_savings);
     const latestSavings = useMemo(() => {
-        if (latest?.gross_savings == null) return "—";
-        return `₹${Math.round(latest.gross_savings).toLocaleString("en-IN")} cr`;
-    }, [ latest ]);
+        if (latestSavingsRow?.gross_savings == null) return "—";
+        return `₹${Math.round(latestSavingsRow.gross_savings).toLocaleString("en-IN")} cr`;
+    }, [ latestSavingsRow ]);
 
     const xValues = useMemo(() => chartData.map(d => d.year), [ chartData ]);
 
@@ -136,7 +140,7 @@ const SectorWiseDomesticSavingsPage : React.FC<SectorWiseDomesticSavingsPageProp
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross domestic savings</Text>
                 <DataUnit
-                    label={`Latest (${latest?.year ?? "—"})`}
+                    label={`Latest (${latestSavingsRow?.year ?? "—"})`}
                     value={latestSavings}
                     size="large"
                     align="right"

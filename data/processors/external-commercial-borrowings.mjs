@@ -110,7 +110,11 @@ function parse(buf) {
   if (wb.SheetNames.length === 0) throw new Error('no sheets found in Excel file');
 
   // Use the "Monthly (New Format)" sheet.
-  const sheetName = wb.SheetNames.find((s) => /monthly/i.test(s)) || wb.SheetNames[0];
+  // The report export carries "Monthly", "Monthly (New Format)" and "Monthly (Revised Format)"; the payload has
+  // always been the new-format sheet, so it is named rather than matched loosely.
+  const sheetName = wb.SheetNames.find((s) => s.trim() === 'Monthly (New Format)')
+    || wb.SheetNames.find((s) => /monthly/i.test(s))
+    || wb.SheetNames[0];
   const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {
     header: 1,
     raw: false,

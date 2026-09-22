@@ -2,26 +2,45 @@
 import React from "react";
 import { Metadata } from "next";
 
-// OTHER ===============================================================================================================
-import PublicationsPage from "./page.client";
+// LOCAL COMPONENTS ====================================================================================================
+import { SectorListPage } from "@components/SectorPage/SectorListPage";
+
+// LIB =================================================================================================================
+import { menuHint } from "@/lib/api/catalogue";
+import { publicationsMenu } from "@/lib/dbie-menu";
+
+const TITLE       = "Publications — Database on Indian Economy";
+const DESCRIPTION = "DBIE's time-series publications, table by table: the Monthly RBI Bulletin, the Handbook of Statistics on the Indian Economy, the Basic Statistical Returns, the Weekly Statistical Supplement and the rest.";
 
 export const metadata : Metadata = {
-    title       : "Publications — Database on Indian Economy",
-    description : "RBI's regular reports and statistical releases and various sector-specific reports with context and commentary.",
-    keywords    : [ "publications", "RBI reports", "statistical releases", "sector reports", "economic reports", "India economy", "RBI" ],
+    title       : TITLE,
+    description : DESCRIPTION,
+    keywords    : [ "publications", "RBI reports", "statistical releases", "Monthly RBI Bulletin", "Handbook of Statistics on the Indian Economy", "Basic Statistical Returns", "India economy", "RBI" ],
     openGraph   : {
-        title       : "Publications — Database on Indian Economy",
-        description : "RBI's regular reports and statistical releases and various sector-specific reports with context and commentary.",
+        title       : TITLE,
+        description : DESCRIPTION,
         type        : "website",
         siteName    : "Database on Indian Economy",
     },
     twitter     : {
         card        : "summary_large_image",
-        title       : "Publications — Database on Indian Economy",
-        description : "RBI's regular reports and statistical releases and various sector-specific reports with context and commentary.",
+        title       : TITLE,
+        description : DESCRIPTION,
     },
 };
 
 export default function Page() {
-    return <PublicationsPage />;
+    const { category, publications } = publicationsMenu();
+
+    return (
+        <SectorListPage
+            id="publications-page"
+            menuKey="publication"
+            base="/publications"
+            title="Publications"
+            subtitle={menuHint("publication")}
+            groupTitle={category}
+            items={publications}
+        />
+    );
 }

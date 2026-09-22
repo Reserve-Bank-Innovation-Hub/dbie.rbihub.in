@@ -129,8 +129,8 @@ function selfCheck(out) {
 
   // Known cells verified against source sheet.
   const known = [
-    { year: '2025-26', field: 'rice',          value: 441.7   },
-    { year: '2025-26', field: 'coarse_cereals',value: 191.1   },
+    { year: '2025-26', field: 'rice',          value: 528.32   },
+    { year: '2025-26', field: 'coarse_cereals',value: 272.47   },
     { year: '2024-25', field: 'wheat',         value: 328.04  },
     { year: '2024-25', field: 'total_cereals', value: 1098.26 },
     { year: '1950-51', field: 'rice',          value: 308.1   },

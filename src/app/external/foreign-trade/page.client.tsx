@@ -12,6 +12,7 @@ import ForeignTradeChart from "@/components/charts/ForeignTradeChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ForeignTrade } from "@/lib/api/tables/foreign-trade";
 
 
@@ -33,14 +34,22 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
     const latest = tradeData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const exportsRow = newestWith(tradeData.data, (r) => r.exports_usd);
+        const importsRow = newestWith(tradeData.data, (r) => r.imports_usd);
+        const balanceRow = newestWith(tradeData.data, (r) => r.trade_balance_usd);
         const usd = (v : number | null) => v == null ? "—" : `US$ ${v.toLocaleString("en-IN", { maximumFractionDigits: 0 })} mn`;
         return {
-            latestMonth  : formatMonth(latest?.month ?? ""),
-            exports      : usd(latest?.exports_usd ?? null),
-            imports      : usd(latest?.imports_usd ?? null),
-            balance      : usd(latest?.trade_balance_usd ?? null),
+            latestMonth : formatMonth(latest?.month ?? ""),
+            exports     : usd(exportsRow?.exports_usd ?? null),
+            exportsDate : formatMonth(exportsRow?.month ?? ""),
+            imports     : usd(importsRow?.imports_usd ?? null),
+            importsDate : formatMonth(importsRow?.month ?? ""),
+            balance     : usd(balanceRow?.trade_balance_usd ?? null),
+            balanceDate : formatMonth(balanceRow?.month ?? ""),
         };
-    }, [latest]);
+    }, [ latest, tradeData ]);
 
     return (
         <Article id="foreign-trade-page" className="page-grid">
@@ -85,7 +94,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Exports</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.exportsDate})`}
                     value={stats.exports}
                     size="large"
                     align="right"
@@ -95,7 +104,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Imports</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.importsDate})`}
                     value={stats.imports}
                     size="large"
                     align="right"
@@ -105,7 +114,7 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Trade balance</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.balanceDate})`}
                     value={stats.balance}
                     size="large"
                     align="right"

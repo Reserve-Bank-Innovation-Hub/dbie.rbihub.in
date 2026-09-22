@@ -36,7 +36,41 @@ const IDENTITY_KEY = {
   'foreign-investment-inflows-recent': 'month',
   'exchange-rates': 'dateString',
   'exchange-rates-recent': 'dateString',
+  // The Bulletin and Handbook tables refreshed from the report export in data/reports. A list of fields is one
+  // composite key, for a table whose rows need more than a period to tell them apart.
+  'commercial-paper': 'fortnightEnded',
+  'combined-receipts-disbursements': 'item',
+  'components-of-gross-value-added-at-basic-prices': 'year',
+  'employment-in-public-and-organised-private-sectors': 'year',
+  'forex-reserves-weekly': 'weekEnded',
+  'institutional-sector-wise-gross-capital-formation-at-current-prices': 'year',
+  'money-stock-measures': 'date',
+  'payment-system-indicators': 'month',
+  'rbi-liabilities-and-assets': 'week',
+  'sector-wise-domestic-savings-at-current-prices': 'year',
+  'select-economic-indicators': 'month',
+  'sources-of-money-stock': 'date',
+  'agricultural-production-foodgrains': 'year',
+  'agricultural-production-major-commercial-crops': 'year',
+  'area-under-cultivation-foodgrains': 'year',
+  'area-under-cultivation-major-commercial-crops': 'year',
+  'average-price-of-gold-and-silver-in-domestic-and-foreign-markets': 'year',
+  'changes-in-financial-assets-liabilities-of-the-household-sector': 'year',
+  'commercial-bank-survey': 'fortnight',
+  'minimum-support-price-for-foodgrains-according-to-crop-year-fair-average': 'year',
+  'minimum-support-price-for-non-foodgrains-according-to-crop-year-fair': 'year',
+  'pattern-of-land-use-and-select-inputs-for-agricultural-production': 'year',
+  'reer-and-neer': 'month',
+  'union-government-accounts': 'month',
+  'yield-per-hectare-foodgrains': 'year',
+  'yield-per-hectare-major-commercial-crops': 'year',
+  'treasury-bill-auctions': [ 'auction_date', 'tenor' ],
+  'treasury-bills-ownership': 'week',
 };
+
+// A row's identity under its key, for matching oracle rows to output rows.
+const identityOf = (row, key) =>
+  Array.isArray(key) ? key.map((k) => JSON.stringify(row[k])).join(' | ') : row[key];
 // Columns allowed to relax number -> (number | null) between base and appended rows.
 const NULLABLE_FIELDS = new Set(['goldVolumeMetricTonnes']);
 // full dataset name + row count for each -recent variant.
@@ -138,10 +172,18 @@ function verifyFresh() {
     push(`row count ${gData.length} < oracle ${wData.length} (history shrank)`);
   }
 
-  // (2) per-row key-set + value types match oracle rows.
+  // (2) per-row key-set + value types match the oracle. A row the oracle also has is checked against that very
+  // row, found by identity — a period's fields must keep the types they had. A row the oracle does not have is
+  // new, so it is checked against the oracle's first row, where a field may also be null: a series often starts
+  // reporting a column later than it starts, and the newest period can be published before every column is in.
+  const idKey = IDENTITY_KEY[name];
+  const idName = Array.isArray(idKey) ? idKey.join('+') : idKey;
+  const oracleById = new Map();
+  if (idKey) for (const row of wData) oracleById.set(identityOf(row, idKey), row);
+
   const oracleFields = wData.length ? Object.keys(wData[0]).sort() : [];
-  const oracleType = {};
-  if (wData.length) for (const f of oracleFields) oracleType[f] = typeOf(wData[0][f]);
+  const typesOf = (row) => Object.fromEntries(oracleFields.map((f) => [ f, typeOf(row[f]) ]));
+  const firstTypes = wData.length ? typesOf(wData[0]) : {};
 
   for (let i = 0; i < gData.length; i++) {
     const row = gData[i];
@@ -151,32 +193,37 @@ function verifyFresh() {
       if (diffs.length > 40) break;
       continue;
     }
+    const twin = idKey ? oracleById.get(identityOf(row, idKey)) : null;
+    const want = twin ? typesOf(twin) : firstTypes;
+    const where = twin ? `row ${idName}=${JSON.stringify(identityOf(row, idKey))}` : `data[${i}]`;
     for (const f of oracleFields) {
       const t = typeOf(row[f]);
-      if (t === oracleType[f]) continue;
-      // allow number <-> null only for whitelisted fields.
-      const numNull = (t === 'null' && oracleType[f] === 'number') || (t === 'number' && oracleType[f] === 'null');
-      if (numNull && NULLABLE_FIELDS.has(f)) continue;
-      push(`data[${i}].${f}: type ${t} != oracle ${oracleType[f]}`);
+      if (t === want[f]) continue;
+      const numNull = (t === 'null' && want[f] === 'number') || (t === 'number' && want[f] === 'null');
+      // A row the oracle has must keep its types, unless the field is whitelisted; a new row may also be null.
+      if (numNull && (NULLABLE_FIELDS.has(f) || !twin)) continue;
+      push(`${where}.${f}: type ${t} != oracle ${want[f]}`);
     }
     if (diffs.length > 40) break;
   }
 
   // (4) every oracle row still present with equal values, matched by identity key
   //     (full datasets only — see the -recent note above).
-  const idKey = IDENTITY_KEY[name];
-  if (!idKey) {
+  // A payload that carries no `data` array — its series sit under `series`, `sections`, `rows` or a period per
+  // column — has no rows to match by key, and checks (1) and (2) above have already compared all of it against
+  // the oracle exactly. Only a payload with rows needs a key.
+  if (!idKey && wData.length > 0) {
     push(`no identity key configured for '${name}'`);
-  } else if (!isRecent) {
+  } else if (idKey && !isRecent) {
     const byId = new Map();
-    for (const row of gData) byId.set(row[idKey], row);
+    for (const row of gData) byId.set(identityOf(row, idKey), row);
     for (const wrow of wData) {
-      const id = wrow[idKey];
+      const id = identityOf(wrow, idKey);
       const grow = byId.get(id);
-      if (!grow) { push(`oracle row ${idKey}=${JSON.stringify(id)} missing from output`); continue; }
+      if (!grow) { push(`oracle row ${idName}=${JSON.stringify(id)} missing from output`); continue; }
       for (const f of Object.keys(wrow)) {
-        if (!valEq(grow[f], wrow[f])) {
-          push(`row ${idKey}=${JSON.stringify(id)} .${f}: ${JSON.stringify(grow[f])} != oracle ${JSON.stringify(wrow[f])}`);
+        if (!deepEq(grow[f], wrow[f])) {
+          push(`row ${idName}=${JSON.stringify(id)} .${f}: ${JSON.stringify(grow[f])} != oracle ${JSON.stringify(wrow[f])}`);
         }
       }
     }
@@ -195,8 +242,8 @@ function verifyFresh() {
       } else {
         for (let i = 0; i < expected.length; i++) {
           const idKey2 = IDENTITY_KEY[name];
-          if (idKey2 && gData[i][idKey2] !== expected[i][idKey2]) {
-            push(`-recent[${i}] ${idKey2}=${JSON.stringify(gData[i][idKey2])} != full[${i}]=${JSON.stringify(expected[i][idKey2])}`);
+          if (idKey2 && identityOf(gData[i], idKey2) !== identityOf(expected[i], idKey2)) {
+            push(`-recent[${i}] ${Array.isArray(idKey2) ? idKey2.join('+') : idKey2}=${JSON.stringify(identityOf(gData[i], idKey2))} != full[${i}]=${JSON.stringify(identityOf(expected[i], idKey2))}`);
           }
         }
       }

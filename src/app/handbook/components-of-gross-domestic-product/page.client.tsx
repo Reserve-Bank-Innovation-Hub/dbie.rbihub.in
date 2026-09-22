@@ -12,6 +12,7 @@ import ComponentsOfGrossDomesticProductChart from "@/components/charts/Component
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ComponentsOfGrossDomesticProduct } from "@/lib/api/tables/components-of-gross-domestic-product";
 
 
@@ -22,8 +23,11 @@ interface ComponentsOfGrossDomesticProductPageProps {
 const ComponentsOfGrossDomesticProductPage : React.FC<ComponentsOfGrossDomesticProductPageProps> = ({ gdpData }) => {
     const latest = gdpData.data[0];
 
-    const latestGdp = latest?.gdp_const != null
-        ? `₹${latest.gdp_const.toLocaleString("en-IN")}`
+    // The card takes the newest year that carries the field, not simply the newest row: DBIE can publish one
+    // column a year behind the rest (src/lib/tables/latest.ts).
+    const latestGdpRow = newestWith(gdpData.data, (r) => r.gdp_const);
+    const latestGdp = latestGdpRow?.gdp_const != null
+        ? `₹${latestGdpRow.gdp_const.toLocaleString("en-IN")}`
         : "–";
 
     return (
@@ -69,7 +73,7 @@ const ComponentsOfGrossDomesticProductPage : React.FC<ComponentsOfGrossDomesticP
             <Div id="stat-card" className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">GDP — constant prices</Text>
                 <DataUnit
-                    label={`Latest (${latest?.year || "–"})`}
+                    label={`Latest (${latestGdpRow?.year || "–"})`}
                     value={latestGdp}
                     size="large"
                     align="right"

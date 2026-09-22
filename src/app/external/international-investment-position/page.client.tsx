@@ -36,9 +36,18 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
         const bVals   = values["B"]   ?? [];
         const netVals = values["NET"] ?? [];
 
-        const totalAssets      = aVals[0]   ?? null;
-        const totalLiabilities = bVals[0]   ?? null;
-        const netIip           = netVals[0] ?? null;
+        // Each card takes the newest quarter that carries its own series: DBIE can publish one line a quarter
+        // behind the rest, and a card off quarter 0 alone would read "—".
+        const newestOf = (series : (number | null)[]) => {
+            const i = series.findIndex((v) => v != null);
+            return { value : i < 0 ? null : series[i], quarter : i < 0 ? "—" : (quarters[i] ?? "—") };
+        };
+        const assets           = newestOf(aVals);
+        const liabilities      = newestOf(bVals);
+        const net              = newestOf(netVals);
+        const totalAssets      = assets.value;
+        const totalLiabilities = liabilities.value;
+        const netIip           = net.value;
 
         const assetsFmt = fmtUsd(totalAssets);
         const liabFmt   = fmtUsd(totalLiabilities);
@@ -51,8 +60,16 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             netFmt = `${sign}US$${abs.toLocaleString("en-IN", { maximumFractionDigits: 0 })} mn`;
         }
 
-        return { totalAssets: assetsFmt, totalLiabilities: liabFmt, netIip: netFmt, netIsNegative: (netIip ?? 0) < 0 };
-    }, [ values ]);
+        return {
+            totalAssets              : assetsFmt,
+            totalAssetsQuarter       : assets.quarter,
+            totalLiabilities         : liabFmt,
+            totalLiabilitiesQuarter  : liabilities.quarter,
+            netIip                   : netFmt,
+            netIipQuarter            : net.quarter,
+            netIsNegative            : (netIip ?? 0) < 0,
+        };
+    }, [ values, quarters ]);
 
     return (
         <Article id="international-investment-position-page" className="page-grid">
@@ -99,7 +116,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             <Div id="statAssets" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total assets</Text>
                 <DataUnit
-                    label={`Latest (${latestQuarter})`}
+                    label={`Latest (${stats.totalAssetsQuarter})`}
                     value={stats.totalAssets}
                     size="large"
                     align="right"
@@ -110,7 +127,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             <Div id="statLiab" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total liabilities</Text>
                 <DataUnit
-                    label={`Latest (${latestQuarter})`}
+                    label={`Latest (${stats.totalLiabilitiesQuarter})`}
                     value={stats.totalLiabilities}
                     size="large"
                     align="right"
@@ -121,7 +138,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
             <Div id="statNet" className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net IIP</Text>
                 <DataUnit
-                    label={`Latest (${latestQuarter})`}
+                    label={`Latest (${stats.netIipQuarter})`}
                     value={
                         <span style={{ color: stats.netIsNegative ? "#d12d1b" : "inherit" }}>
                             {stats.netIip}

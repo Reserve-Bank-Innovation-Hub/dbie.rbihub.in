@@ -12,6 +12,7 @@ import YieldPerHectareFoodgrainsChart from "@/components/charts/YieldPerHectareF
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { YieldPerHectareFoodgrains } from "@/lib/api/tables/yield-per-hectare-foodgrains";
 
 // STYLES ==============================================================================================================
@@ -24,13 +25,19 @@ const YieldPerHectareFoodgrainsPage : React.FC<YieldPerHectareFoodgrainsPageProp
     const latest = tableData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestRiceRow = newestWith(tableData.data, (r) => r.rice);
+        const latestWheatRow = newestWith(tableData.data, (r) => r.wheat);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear  : latest?.year || "—",
-            latestRice  : fmt(latest?.rice ?? null),
-            latestWheat : fmt(latest?.wheat ?? null),
+            latestYear      : latest?.year || "—",
+            latestRice      : fmt(latestRiceRow?.rice ?? null),
+            latestRiceDate  : latestRiceRow?.year || "—",
+            latestWheat     : fmt(latestWheatRow?.wheat ?? null),
+            latestWheatDate : latestWheatRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, tableData ]);
 
     return (
         <Article id="yield-per-hectare-foodgrains-page" className="page-grid">

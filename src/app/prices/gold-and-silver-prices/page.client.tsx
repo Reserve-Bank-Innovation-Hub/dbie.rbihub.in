@@ -12,6 +12,7 @@ import GoldAndSilverPricesChart from "@/components/charts/GoldAndSilverPricesCha
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { GoldAndSilverPrices } from "@/lib/api/tables/gold-and-silver-prices";
 
 // STYLES ==============================================================================================================
@@ -25,13 +26,19 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
     const latest = pricesData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestGoldRow = newestWith(pricesData.data, (r) => r.gold);
+        const latestSilverRow = newestWith(pricesData.data, (r) => r.silver);
         const rupees = (v : number | null) => (v == null ? "—" : `₹${v.toLocaleString("en-IN")}`);
         return {
-            latestMonth : latest?.month || "—",
-            latestGold  : rupees(latest?.gold ?? null),
-            latestSilver : rupees(latest?.silver ?? null),
+            latestMonth      : latest?.month || "—",
+            latestGold       : rupees(latestGoldRow?.gold ?? null),
+            latestGoldDate   : latestGoldRow?.month || "—",
+            latestSilver     : rupees(latestSilverRow?.silver ?? null),
+            latestSilverDate : latestSilverRow?.month || "—",
         };
-    }, [ latest ]);
+    }, [ latest, pricesData ]);
 
     return (
         <Article id="gold-and-silver-prices-page" className="page-grid">
@@ -74,7 +81,7 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Standard gold</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.latestGoldDate})`}
                     value={stats.latestGold}
                     size="large"
                     align="right"
@@ -85,7 +92,7 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Silver</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.latestSilverDate})`}
                     value={stats.latestSilver}
                     size="large"
                     align="right"

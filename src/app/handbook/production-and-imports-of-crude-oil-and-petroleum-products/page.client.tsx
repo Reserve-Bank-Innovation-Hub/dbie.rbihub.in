@@ -12,6 +12,7 @@ import ProductionAndImportsOfCrudeOilChart from "@/components/charts/ProductionA
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ProductionAndImportsOfCrudeOilAndPetroleumProducts } from "@/lib/api/tables/production-and-imports-of-crude-oil-and-petroleum-products";
 
 // STYLES ==============================================================================================================
@@ -25,16 +26,26 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
     const latest = data.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestCrudeProdRow = newestWith(data.data, (r) => r.crude_prod);
+        const latestPolProdRow = newestWith(data.data, (r) => r.pol_prod);
+        const latestCrudeImpRow = newestWith(data.data, (r) => r.crude_imp);
+        const latestPolImpRow = newestWith(data.data, (r) => r.pol_imp);
         const mmt = (v : number | null) =>
             v == null ? "—" : `${v.toLocaleString("en-IN", { maximumFractionDigits: 2 })} MMT`;
         return {
-            latestYear     : latest?.year ?? "—",
-            latestCrudeProd: mmt(latest?.crude_prod ?? null),
-            latestPolProd  : mmt(latest?.pol_prod   ?? null),
-            latestCrudeImp : mmt(latest?.crude_imp  ?? null),
-            latestPolImp   : mmt(latest?.pol_imp    ?? null),
+            latestYear          : latest?.year ?? "—",
+            latestCrudeProd     : mmt(latestCrudeProdRow?.crude_prod ?? null),
+            latestCrudeProdDate : latestCrudeProdRow?.year || "—",
+            latestPolProd       : mmt(latestPolProdRow?.pol_prod ?? null),
+            latestPolProdDate   : latestPolProdRow?.year || "—",
+            latestCrudeImp      : mmt(latestCrudeImpRow?.crude_imp ?? null),
+            latestCrudeImpDate  : latestCrudeImpRow?.year || "—",
+            latestPolImp        : mmt(latestPolImpRow?.pol_imp ?? null),
+            latestPolImpDate    : latestPolImpRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, data ]);
 
     return (
         <Article id="crude-oil-petroleum-page" className="page-grid">
@@ -77,7 +88,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Crude oil production</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestCrudeProdDate})`}
                     value={stats.latestCrudeProd}
                     size="large"
                     align="right"
@@ -88,7 +99,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">POL products production</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestPolProdDate})`}
                     value={stats.latestPolProd}
                     size="large"
                     align="right"
@@ -99,7 +110,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Crude oil imports</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestCrudeImpDate})`}
                     value={stats.latestCrudeImp}
                     size="large"
                     align="right"
@@ -110,7 +121,7 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">POL products imports</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestPolImpDate})`}
                     value={stats.latestPolImp}
                     size="large"
                     align="right"

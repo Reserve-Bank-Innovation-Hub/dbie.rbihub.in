@@ -1,6 +1,7 @@
 // Processor: payment-system-indicators — RBI Bulletin Table 45.
 //
-// Source xlsx has one sheet ("New Format"), 86 rows, 141 columns. Layout:
+// Source xlsx has a "New Format" sheet (the report export puts an "Old Format" sheet before it), 86 rows,
+// 141 columns. Layout:
 //   row 0  blank
 //   row 1  "Payment System Indicators" in col 1
 //   rows 2-3  section-level header labels (Month/Year, A. Settlement Systems, etc.)
@@ -65,7 +66,10 @@ function parse(buf) {
     const wb = XLSX.read(buf, { type: 'buffer' });
     if (wb.SheetNames.length === 0) throw new Error('no sheets found');
 
-    const ws   = wb.Sheets[wb.SheetNames[0]];
+    // The report export carries an "Old Format" sheet before the current one, so the sheet is taken by name.
+    const sheetName = wb.SheetNames.find((n) => n.trim() === 'New Format');
+    if (!sheetName) throw new Error(`no "New Format" sheet; found ${JSON.stringify(wb.SheetNames)}`);
+    const ws   = wb.Sheets[sheetName];
     const rows = XLSX.utils.sheet_to_json(ws, {
         header    : 1,
         raw       : false,
@@ -194,8 +198,14 @@ function selfCheck(out) {
     }
 
     // Newest row should be the first row.
-    if (data.length > 0 && data[0].month !== 'Jan-2026') {
-        errors.push(`expected newest-first order; first row is ${data[0].month}, not Jan-2026`);
+    // Newest-first is checked as an order, not against a fixed month, so a refreshed source does not trip it; the
+    // Jan-2026 value anchors above are the tripwire for the history changing under us.
+    const monthNo = (m) => {
+        const [ mon, year ] = m.split('-');
+        return Number(year) * 12 + [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ].indexOf(mon);
+    };
+    if (data.length > 1 && monthNo(data[0].month) <= monthNo(data[data.length - 1].month)) {
+        errors.push(`expected newest-first order; first row is ${data[0].month}, last is ${data[data.length - 1].month}`);
     }
 
     return errors;

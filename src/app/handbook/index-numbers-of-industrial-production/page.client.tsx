@@ -12,6 +12,7 @@ import IndexNumbersOfIndustrialProductionGrid from "@/components/tables/IndexNum
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { IndexNumbersOfIndustrialProduction } from "@/lib/api/tables/index-numbers-of-industrial-production";
 
 // OTHER ===============================================================================================================
@@ -33,13 +34,21 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
 
     const stats = useMemo(() => {
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestMiningRow = newestWith(currentSeries?.data, (r) => r.values[0]);
+        const latestMfgRow = newestWith(currentSeries?.data, (r) => r.values[1]);
+        const latestElecRow = newestWith(currentSeries?.data, (r) => r.values[2]);
         return {
-            latestYear   : latestRow?.year    ?? "—",
-            latestMining : fmt(latestRow?.values[0] ?? null),
-            latestMfg    : fmt(latestRow?.values[1] ?? null),
-            latestElec   : fmt(latestRow?.values[2] ?? null),
+            latestYear       : latestRow?.year    ?? "—",
+            latestMining     : fmt(latestMiningRow?.values[0] ?? null),
+            latestMiningYear : latestMiningRow?.year ?? "—",
+            latestMfg        : fmt(latestMfgRow?.values[1] ?? null),
+            latestMfgYear    : latestMfgRow?.year ?? "—",
+            latestElec       : fmt(latestElecRow?.values[2] ?? null),
+            latestElecYear   : latestElecRow?.year ?? "—",
         };
-    }, [latestRow]);
+    }, [ latestRow, currentSeries ]);
 
     // Line chart — series[0], oldest-first (reverse of data array).
     const chart = useMemo(() => {
@@ -118,7 +127,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Mining &amp; quarrying</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestMiningYear})`}
                     value={stats.latestMining}
                     size="large"
                     align="right"
@@ -129,7 +138,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Manufacturing</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestMfgYear})`}
                     value={stats.latestMfg}
                     size="large"
                     align="right"
@@ -140,7 +149,7 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Electricity</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestElecYear})`}
                     value={stats.latestElec}
                     size="large"
                     align="right"

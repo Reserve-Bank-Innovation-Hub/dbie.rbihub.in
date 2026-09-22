@@ -23,10 +23,31 @@
         width          : 100%;
 
         p { font-size: 14px; }
+
+        /* A group's name, styled as the page sidebar styles its own (page-sidebar.css). The rail is 48px wide
+           until it is hovered, too narrow for a word, so the title is only faded in with the labels; its space is
+           held in both states so nothing moves as the rail widens. */
+        .group-title {
+            margin         : 8px 8px 2px;
+            font-weight    : 600;
+            font-size      : 72%;
+            color          : var(--paragraph-subtext-colour);
+            text-transform : uppercase;
+            white-space    : nowrap;
+            opacity        : 0;
+            transform      : translateX(-8px);
+            transition     : all 0.2s ease-in-out;
+        }
+    }
+
+    &:hover .links-group .group-title {
+        opacity   : 1;
+        transform : translateX(0);
     }
 
     hr {
         background-color: var(--primary-nav-border);
+        margin          : 8px 0;
     }
 
     /* NAV ITEMS ============================================================ */

@@ -238,9 +238,10 @@ function selfCheck(out) {
     }
   }
 
-  // First row must be "Jan 2026".
-  if (months[0] !== 'Jan 2026') {
-    errors.push(`expected first row = "Jan 2026", got "${months[0]}"`);
+  // Newest-first is checked as an order, not against a fixed month, so a refreshed source does not trip it; the
+  // Jan 2026 value anchors below are the tripwire for the history changing.
+  if (months.length > 1 && monthToNum(months[0]) <= monthToNum(months[months.length - 1])) {
+    errors.push(`expected newest-first order; first row is "${months[0]}", last is "${months[months.length - 1]}"`);
   }
 
   // Known anchor values (tolerates rounding in source; exact match on integer values).

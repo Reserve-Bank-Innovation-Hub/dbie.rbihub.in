@@ -12,6 +12,7 @@ import ForeignInvestmentInflowsBulletinGrid from "@/components/tables/ForeignInv
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ForeignInvestmentInflowsBulletin } from "@/lib/api/tables/foreign-investment-inflows-bulletin";
 
 // DATA VIZ ============================================================================================================
@@ -36,11 +37,19 @@ function fmtUSD(v : number | null) : string {
 const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBulletinPageProps> = ({ investmentData }) => {
     const latest = investmentData.data[0];
 
-    const stats = useMemo(() => ({
-        latestMonth            : latest?.month || "—",
-        netFDI                 : fmtUSD(latest?.netFDI ?? null),
-        netPortfolioInvestment : fmtUSD(latest?.netPortfolioInvestment ?? null),
-    }), [ latest ]);
+    const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const fdiRow = newestWith(investmentData.data, (r) => r.netFDI);
+        const fpiRow = newestWith(investmentData.data, (r) => r.netPortfolioInvestment);
+        return {
+            latestMonth                : latest?.month || "—",
+            netFDI                     : fmtUSD(fdiRow?.netFDI ?? null),
+            netFDIMonth                : fdiRow?.month || "—",
+            netPortfolioInvestment     : fmtUSD(fpiRow?.netPortfolioInvestment ?? null),
+            netPortfolioInvestmentMonth : fpiRow?.month || "—",
+        };
+    }, [ latest, investmentData ]);
 
     // Chart: last 24 months reversed to chronological order.
     const chartData = useMemo(() => [ ...investmentData.data.slice(0, 24) ].reverse(), [ investmentData.data ]);
@@ -124,7 +133,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net FDI</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.netFDIMonth})`}
                     value={stats.netFDI}
                     size="large"
                     align="right"
@@ -135,7 +144,7 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Net portfolio investment</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.netPortfolioInvestmentMonth})`}
                     value={stats.netPortfolioInvestment}
                     size="large"
                     align="right"

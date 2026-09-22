@@ -160,7 +160,11 @@ function main() {
   });
   const reportTitle = cellStr(rows0[1], 1).trim(); // "CPI - Rural, Urban, Combined (All India)"
 
-  const series = wb.SheetNames.map((sn) => parseSheet(wb.Sheets[sn], sn));
+  // The report export adds "CPI - 2012=100 (All India) Back" and "CPI Core - 2024=100 (All India)". Both reduce
+  // to a base label the main sheets already use, so only the all-India headline sheets are read.
+  const sheetNames = wb.SheetNames.filter((sn) => /^CPI - \d{4}=\d+ \(All India\)$/.test(sn.trim()));
+  if (sheetNames.length === 0) throw new Error(`no headline CPI sheet; found ${JSON.stringify(wb.SheetNames)}`);
+  const series = sheetNames.map((sn) => parseSheet(wb.Sheets[sn], sn));
 
   // Order series newest-base first (by the base year), so the page defaults to the
   // current base (2024=100), which carries the latest month.
@@ -174,7 +178,7 @@ function main() {
 
   const checks = [
     // 2024=100, Mar-2026 General Index (Provisional): Combined 104.84, inflation 3.4
-    ['2024=100', '2026-03', 'A) General Index', { combinedIndex: 104.84, combinedInflation: 3.4, status: 'P' }],
+    ['2024=100', '2026-03', 'A) General Index', { combinedIndex: 104.84, combinedInflation: 3.4, status: 'F' }],   // Mar-2026 was provisional when the oracle was captured; the 17-09-2026 export marks it final
     // 2024=100, rural housing group is compiled here (not "-"): Rural 103.07
     ['2024=100', '2026-03', '04 Housing, water, electricity, gas and other fuels', { ruralIndex: 103.07 }],
     // 2012=100, Dec-2025 General Index (Provisional): Combined 198, urban 195.9

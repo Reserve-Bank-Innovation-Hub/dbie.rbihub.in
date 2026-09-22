@@ -15,6 +15,7 @@ import CommercialPaperGrid from "@/components/tables/CommercialPaperGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { CommercialPaper } from "@/lib/api/tables/commercial-paper";
 
 // CHART CONFIG ========================================================================================================
@@ -50,14 +51,18 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
     const latest = paperData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestOutstandingRow = newestWith(paperData.data, (r) => r.amountOutstanding);
         const crores = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN")} Cr`;
         return {
-            latestFortnight   : latest?.fortnightEnded || "—",
-            latestOutstanding : crores(latest?.amountOutstanding ?? null),
-            latestMinRate     : latest?.minRate == null ? "—" : `${latest.minRate.toFixed(2)}%`,
+            latestFortnight       : latest?.fortnightEnded || "—",
+            latestOutstanding     : crores(latestOutstandingRow?.amountOutstanding ?? null),
+            latestOutstandingDate : latestOutstandingRow?.fortnightEnded || "—",
+            latestMinRate         : latest?.minRate == null ? "—" : `${latest.minRate.toFixed(2)}%`,
         };
-    }, [ latest ]);
+    }, [ latest, paperData ]);
 
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...paperData.data ].reverse(), [ paperData.data ]);
@@ -167,7 +172,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Amount outstanding</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestFortnight})`}
+                    label={`Latest (${stats.latestOutstandingDate})`}
                     value={stats.latestOutstanding}
                     size="large"
                     align="right"

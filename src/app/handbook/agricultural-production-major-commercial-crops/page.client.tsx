@@ -12,6 +12,7 @@ import AgriculturalProductionMajorCommercialCropsChart from "@/components/charts
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { AgriculturalProductionMajorCommercialCrops } from "@/lib/api/tables/agricultural-production-major-commercial-crops";
 
 
@@ -23,13 +24,19 @@ const AgriculturalProductionMajorCommercialCropsPage : React.FC<AgriculturalProd
     const latest = tableData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestSugarcaneRow = newestWith(tableData.data, (r) => r.sugarcane);
+        const latestTotalOilsRow = newestWith(tableData.data, (r) => r.total_oilseeds);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear        : latest?.year || "—",
-            latestSugarcane   : fmt(latest?.sugarcane ?? null),
-            latestTotalOils   : fmt(latest?.total_oilseeds ?? null),
+            latestYear          : latest?.year || "—",
+            latestSugarcane     : fmt(latestSugarcaneRow?.sugarcane ?? null),
+            latestSugarcaneDate : latestSugarcaneRow?.year || "—",
+            latestTotalOils     : fmt(latestTotalOilsRow?.total_oilseeds ?? null),
+            latestTotalOilsDate : latestTotalOilsRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, tableData ]);
 
     return (
         <Article id="agricultural-production-major-commercial-crops-page" className="page-grid">
