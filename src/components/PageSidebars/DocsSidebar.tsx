@@ -1,7 +1,7 @@
 "use client";
 
 // UI ==================================================================================================================
-import { BookMarked, Bot, Compass, LayoutDashboard, Pickaxe } from "lucide-react";
+import { BookMarked, Bot, Compass, LayoutDashboard } from "lucide-react";
 import { Divider } from "fictoan-react";
 
 // OTHER ===============================================================================================================
@@ -35,12 +35,6 @@ export const DocsSidebar = () => {
                     icon={<Bot />}
                     linkTo="/docs/mcp"
                     label="AI access via MCP"
-                />
-
-                <LinkItem
-                    icon={<Pickaxe />}
-                    linkTo="/docs/how-to-scrape"
-                    label="How to scrape"
                 />
             </LinkGroup>
         </PageSidebar>

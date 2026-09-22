@@ -11,17 +11,17 @@ const DOC_PAGES = [
     {
         linkTo      : "/docs/using-the-site",
         label       : "Using the site",
-        description : "Finding tables, reading the charts and grids, and searching from anywhere.",
+        description : "Finding tables in DBIE's menus and the themes, reading the charts and grids, searching, downloading.",
     },
     {
         linkTo      : "/docs/mcp",
         label       : "AI access via MCP",
-        description : "Let Claude or any MCP client search and fetch every table on this site.",
+        description : "Let Claude or any MCP client search and fetch the tables and series on this site's pages.",
     },
     {
         linkTo      : "/docs/how-to-scrape",
         label       : "How to scrape",
-        description : "Running the DBIE scraper, and how processors and oracles keep the data honest.",
+        description : "Running the scrapers, loading the database, publishing a data release, and the data API.",
     },
 ];
 
@@ -35,8 +35,8 @@ const DocsOverviewPage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        How this site works, and how to use it — in a browser, from an AI assistant, or by
-                        running the pipeline yourself.
+                        How this site works, and how to use it — in a browser, from an AI assistant, through the
+                        data API, or by running the pipeline yourself.
                     </Heading6>
                 </Div>
             </Header>
@@ -48,20 +48,34 @@ const DocsOverviewPage = () => {
                     </Heading5>
 
                     <Text marginBottom="nano">
-                        This site is a fast, fully static mirror of the Reserve Bank of India&rsquo;s{" "}
+                        This site is a mirror of the Reserve Bank of India&rsquo;s{" "}
                         <a href="https://data.rbi.org.in" target="_blank" rel="noopener noreferrer">
                             Database on Indian Economy
                         </a>{" "}
-                        (DBIE) — 335 tables and series across prices, growth, financial markets, banking,
-                        the external sector, government finance and payments. Every dataset gets its own
-                        page with a sortable, filterable grid, and a chart wherever the data suits one.
+                        (DBIE). Everything DBIE publishes is scraped into one Postgres database — 1,033 tables as
+                        of 18-09-2026: the 252 SDMX Data Query datasets and 781 report tables from the Statistics
+                        and Publications menus, with DBIE&rsquo;s own catalogue and code lists — and served two
+                        ways.
                     </Text>
 
+                    <ul>
+                        <li>
+                            <strong>Curated pages</strong> — the themes, the Handbook, the Indicators and the
+                            Stories carry charts and grids pre-rendered from a verified data release: JSON the
+                            processors produce from DBIE&rsquo;s exports and check byte-for-byte against committed
+                            oracles before it is published.
+                        </li>
+                        <li>
+                            <strong>The database, live</strong> — <Link href="/statistics">Statistics</Link>,{" "}
+                            <Link href="/publications">Publications</Link> and <Link href="/tables">Tables</Link>{" "}
+                            open any loaded table straight from a read-only data API at{" "}
+                            <code>data-api.dbie.rbihub.in</code>, which anyone can call.
+                        </li>
+                    </ul>
+
                     <Text marginBottom="micro">
-                        There is no server and no database behind these pages: everything is pre-rendered
-                        from JSON that a verified processing pipeline produces from scraped DBIE data. That
-                        is what makes the site quick — and what makes its data trustworthy enough to check
-                        byte-for-byte on every deploy.
+                        The scrapers, the loaders, the processors and the API are all in the open-source
+                        repository, and the pages below say how to run them.
                     </Text>
 
                     <Callout kind="info" marginBottom="micro">

@@ -2,42 +2,56 @@
 
 // REACT CORE ==========================================================================================================
 import React from "react";
+import Link from "next/link";
 
 // UI ==================================================================================================================
 import {
-    Article, Callout, CodeBlock, Div, Divider, Header, Heading4, Heading5, Heading6, Text,
+    Article, Callout, CodeBlock, Div, Divider, Header, Heading4, Heading5, Heading6, Table, Text,
 } from "fictoan-react";
 
 const SCRAPE_SNIPPET = `git clone https://github.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in.git
 cd dbie.rbihub.in
-pnpm install     # includes Playwright
+pnpm install
 
-pnpm scrape:tree # (re)build sdmx-tree.json — the master list of elements
-pnpm scrape      # scrape everything (~2 hours; resumable)`;
+pnpm data:fetch        # restore the latest archived scrape into data/ (public bucket, no credentials)
+pnpm scrape            # all 252 SDMX datasets over plain HTTP (about ten minutes; resumable)
+pnpm data:ingest       # file the CSVs into data/sdmx/ under readable names
+pnpm scrape:reports    # export the Statistics and Publications report tables (resumable)
+pnpm scrape:codelists  # dimension code → label lists, one file per dataset
+pnpm scrape:report     # review what changed against the previous scrape`;
 
-const FILTER_SNIPPET = `node scripts/scrape-sdmx.mjs --sector "External Sector"
-node scripts/scrape-sdmx.mjs --sub "External Debt"
-node scripts/scrape-sdmx.mjs --dsd EXT_DBT_RT_RN
-node scripts/scrape-sdmx.mjs --limit 10
-node scripts/scrape-sdmx.mjs --headful   # watch the browser while debugging`;
+const FILTER_SNIPPET = `pnpm scrape -- --dsd EXT_DBT_RT_RN,FR_EXG_RESV_RN --from 2020-01-01
+pnpm scrape -- --sector "External Sector" --sub "External Debt" --limit 5
+pnpm scrape -- --retry-failures            # only the elements whose last status is not ok
+pnpm scrape -- --dry-run                   # print the plan and the date windows only
 
-const PIPELINE_SNIPPET = `data/sdmx/, data/publications/       committed source files
-        │
-        ▼   pnpm data:build
-data/processors/*.mjs                one self-checking script per dataset
-        │
-        ▼   pnpm data:verify
-data/processors/oracles/*.json       byte-exact comparison — must ALL PASS
-        │
-        ▼   pnpm data:sync
-public/data/*.json                   what the pages render`;
+node scripts/export-reports.mjs --ids 1200,1302
+node scripts/export-reports.mjs --section Publication --subsection "Monthly RBI Bulletin" --select all-tables`;
 
-const REFRESH_SNIPPET = `pnpm scrape          # refresh the raw CSVs (staged outside git)
-pnpm data:ingest     # file them into the committed data/sdmx/
-pnpm data:build      # regenerate the site's JSON
-pnpm data:verify     # every processor and oracle check must pass
-pnpm data:sync       # copy into public/data/ for a local look
-pnpm dev             # eyeball the affected pages, then commit`;
+const LOAD_SNIPPET = `pnpm db:load       # schema, then the SDMX datasets, report tables, code lists and catalogue
+pnpm db:check      # read random rows back from Postgres and compare them with the files
+pnpm data:archive  # archive the scrape's raw files to S3 under their date`;
+
+const PIPELINE_SNIPPET = `DBIE
+  │  pnpm scrape · pnpm scrape:reports · pnpm scrape:codelists
+  ▼
+data/                      raw files: SDMX CSVs, report exports, code lists (not in git)
+  ├─ pnpm db:load       ▶  Postgres, the system of record
+  │                           └─ data API  ▶  the Statistics, Publications and Tables pages
+  ├─ pnpm data:archive  ▶  s3://dbie-common-scrapes/scrapes/<date>/
+  └─ pnpm data:release  ▶  processors → oracles → s3://dbie-common-site-data/releases/<version>/
+                                └─ pnpm data:pull at build time  ▶  the curated pages, pre-rendered`;
+
+const REFRESH_SNIPPET = `pnpm scrape && pnpm data:ingest   # the SDMX datasets
+pnpm scrape:reports               # the report tables
+pnpm scrape:codelists             # the code lists
+pnpm scrape:report                # review what changed
+pnpm db:load                      # load into Postgres, every table verified against its file
+pnpm data:archive                 # archive the raw files under the scrape date
+pnpm data:release                 # build, verify and publish the site's data release; rebuild the site
+git commit                        # catalogues, code lists and oracles — the raw files stay out of git`;
+
+const API_EXAMPLE = `https://data-api.dbie.rbihub.in/api/tables/financial_sector/bmc_m_rn/rows?comp_rn=CMS1101&from=2024-04-01&labels=1`;
 
 const HowToScrapePage = () => {
     return (
@@ -49,7 +63,8 @@ const HowToScrapePage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        Running the DBIE scraper, and how processors and oracles keep the data honest.
+                        Running the scrapers, loading the database, publishing a data release, and reading it
+                        all back through the data API.
                     </Heading6>
                 </Div>
             </Header>
@@ -61,18 +76,24 @@ const HowToScrapePage = () => {
                     </Heading5>
 
                     <Text marginBottom="nano">
-                        The DBIE portal exposes two data surfaces. Its <strong>Reports</strong> section is
-                        auth-walled — guests are redirected to a login page. Its <strong>SDMX Data
-                        Query wizard</strong> is guest-accessible and can export any series as SDMX CSV.
-                        That wizard is what we scrape.
+                        The DBIE portal has two data surfaces, and both are scraped. The <strong>SDMX Data Query
+                        wizard</strong> is an Angular front end over a JSON gateway that encrypts most request
+                        fields with constants baked into its bundle; that cipher is reimplemented in{" "}
+                        <code>scripts/lib/dbie-gateway.mjs</code>, so the scraper speaks to the gateway directly,
+                        with no browser, and downloads each of the 252 datasets as SDMX CSV in a few seconds.
+                    </Text>
+
+                    <Text marginBottom="nano">
+                        The <strong>Statistics and Publications menus</strong> are SAP BusinessObjects Web
+                        Intelligence documents with no SDMX equivalent. <code>scripts/export-reports.mjs</code>{" "}
+                        drives the portal&rsquo;s own REST layer the way its viewer does: a guest SAP session, the
+                        document, its periods, and an export of every tab as a CSV and xlsx grid. Guest sessions
+                        are rationed, so the exporter paces itself and never runs twice at once.
                     </Text>
 
                     <Text marginBottom="micro">
-                        The scraper drives the wizard with Playwright — a real browser, not raw HTTP —
-                        because the portal encrypts its query payloads in the browser and only offers the
-                        CSV download from the rendered output view. For each of the ~250 elements it selects
-                        the element in the sector tree, fills the date range, selects all dimensions, runs
-                        the query and downloads the CSV. About 30 seconds per element.
+                        A third, smaller fetch takes each dataset&rsquo;s <strong>code lists</strong> — dimension
+                        code to label, with hierarchy — so that the codes in the data can be explained.
                     </Text>
 
                     <Heading5 weight="700" marginBottom="nano">
@@ -88,10 +109,11 @@ const HowToScrapePage = () => {
                     />
 
                     <Text marginBottom="nano">
-                        Progress lands in <code>data/scrape-manifest.json</code> — one entry per element,
-                        marked <code>ok</code>, <code>no-record</code> or <code>error</code>. Re-running
-                        skips what already succeeded, so an interrupted scrape just resumes; delete an
-                        element&rsquo;s entry to force a re-scrape. To scrape selectively:
+                        Progress lands in <code>data/scrape-manifest.json</code> — one entry per dataset, marked{" "}
+                        <code>ok</code>, <code>export-error</code>, <code>no-details</code> or <code>error</code> —
+                        and in <code>data/reports-manifest.json</code> for the report exports. Re-running skips
+                        what already succeeded, so an interrupted scrape just resumes; delete an entry, or pass{" "}
+                        <code>--retry-failures</code>, to redo it. To scrape selectively:
                     </Text>
 
                     <CodeBlock
@@ -103,22 +125,56 @@ const HowToScrapePage = () => {
                     />
 
                     <Text marginBottom="micro">
-                        Scraped CSVs land outside git. <code>pnpm data:ingest</code> then files them into
-                        the committed <code>data/sdmx/</code> tree under human-readable names — that
-                        commit is what the rest of the pipeline builds from.
+                        The raw files stay out of git. Every scrape is archived to a public bucket under its date,
+                        with a manifest of every file&rsquo;s size and hash, and <code>pnpm data:fetch</code>{" "}
+                        restores the latest one into a fresh clone.
                     </Text>
 
                     <Divider kind="secondary" marginBottom="micro" />
 
                     <Heading5 weight="700" marginBottom="nano">
-                        Processors — source files to page JSON
+                        The database — the system of record
+                    </Heading5>
+
+                    <CodeBlock
+                        source={LOAD_SNIPPET}
+                        language="bash"
+                        withSyntaxHighlighting
+                        showCopyButton
+                        marginBottom="micro"
+                    />
+
+                    <Text marginBottom="nano">
+                        Everything scraped is loaded into one Postgres database, in eight schemas named for
+                        DBIE&rsquo;s sectors plus <code>meta</code>. Each SDMX dataset becomes a typed table named
+                        by its DBIE code (<code>financial_sector.bmc_m_rn</code>); each report becomes the faithful
+                        grid of its export, one row per spreadsheet row, title and header rows included
+                        (<code>financial_sector.r100_commercial_bank_survey</code>). <code>meta.catalogue</code>{" "}
+                        has one row per DBIE menu entry with its load status, and <code>meta.sdmx_codelist</code>{" "}
+                        the labels behind every dimension code.
+                    </Text>
+
+                    <Text marginBottom="micro">
+                        Every loader verifies a table against its file — row count, the exact sum of the values,
+                        the date range, a fingerprint of the text — before it records it, and a mismatch stops the
+                        run. Loading needs the loader role&rsquo;s secret and the project&rsquo;s private network,
+                        so it is for the project&rsquo;s own runs; everyone else reads the database through the
+                        data API below.
+                    </Text>
+
+                    <Divider kind="secondary" marginBottom="micro" />
+
+                    <Heading5 weight="700" marginBottom="nano">
+                        Processors and oracles — the curated pages
                     </Heading5>
 
                     <Text marginBottom="nano">
                         A <strong>processor</strong> is a small, dependency-light Node script in{" "}
-                        <code>data/processors/</code> — one per dataset — that turns committed source files
-                        (SDMX CSVs, publication spreadsheets) into exactly the JSON its page renders. There
-                        are ~96 of them, producing all 345 JSON payloads the site serves.
+                        <code>data/processors/</code> — one per curated page — that turns source files into exactly
+                        the JSON its page renders. The sources are DBIE&rsquo;s own report exports: the spreadsheets
+                        kept under <code>data/publications/</code> and <code>data/sources/</code>, refreshed by
+                        copying the scrape&rsquo;s export over the committed file, and the SDMX CSVs{" "}
+                        <code>pnpm data:fetch</code> restores. There are about a hundred of them.
                     </Text>
 
                     <Text marginBottom="micro">
@@ -127,10 +183,6 @@ const HowToScrapePage = () => {
                         and exits non-zero if the source&rsquo;s shape has drifted. A silent format change
                         upstream becomes a loud build failure here, not a wrong number on a page.
                     </Text>
-
-                    <Heading5 weight="700" marginBottom="nano">
-                        Oracles — verified outputs
-                    </Heading5>
 
                     <Text marginBottom="nano">
                         An <strong>oracle</strong> is a committed, known-good copy of a processor&rsquo;s
@@ -152,9 +204,13 @@ const HowToScrapePage = () => {
                     </ul>
 
                     <Text marginBottom="micro">
-                        Together they make a data refresh reviewable: sources, processors and verified
-                        outputs travel through the same commit, and nothing ships that the checks
-                        haven&rsquo;t passed.
+                        <code>pnpm data:release</code> runs the processors, verifies them, and uploads the JSON to
+                        a versioned folder in a public bucket with a manifest of every file&rsquo;s size and hash;
+                        it refuses to publish unless both checks pass. A site build downloads the current release
+                        with <code>pnpm data:pull</code>, checks every file against the manifest, pre-renders the
+                        pages from it and drops the folder again: the browser fetches <code>/data/*.json</code>{" "}
+                        from the same release. Every site branch&rsquo;s next build picks up the newest release
+                        without a code change.
                     </Text>
 
                     <Divider kind="secondary" marginBottom="micro" />
@@ -168,13 +224,6 @@ const HowToScrapePage = () => {
                         marginBottom="micro"
                     />
 
-                    <Text marginBottom="micro">
-                        Deployments run exactly this: the CI build executes <code>data:build</code>,{" "}
-                        <code>data:verify</code> and <code>data:sync</code> before <code>next build</code>,
-                        so an environment serves precisely what its branch&rsquo;s processors produce from
-                        its branch&rsquo;s committed sources — and a failed oracle check fails the deploy.
-                    </Text>
-
                     <Heading5 weight="700" marginBottom="nano">
                         Refreshing the data, start to finish
                     </Heading5>
@@ -187,12 +236,83 @@ const HowToScrapePage = () => {
                         marginBottom="micro"
                     />
 
+                    <Divider kind="secondary" marginBottom="micro" />
+
+                    <Heading5 weight="700" marginBottom="nano">
+                        Reading the database — the data API
+                    </Heading5>
+
+                    <Text marginBottom="nano">
+                        <code>https://data-api.dbie.rbihub.in</code> is a read-only API over the database. Every
+                        endpoint is a <code>GET</code>, answers JSON, allows any origin and needs no key; the
+                        answers are cached for five minutes, since the data changes only when a load runs.
+                    </Text>
+
+                    <Table bordersFor="rows" isFullWidth marginBottom="micro">
+                        <thead>
+                            <tr>
+                                <th>Endpoint</th>
+                                <th>What it returns</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/api/tables</code></td>
+                                <td>The loaded tables; filter by <code>schema</code>, <code>source</code> or a word in the title with <code>q</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/api/tables/&#123;schema&#125;/&#123;table&#125;</code></td>
+                                <td>One table: its columns and types, DBIE title and path, dimensions, and provenance</td>
+                            </tr>
+                            <tr>
+                                <td><code>…/rows</code></td>
+                                <td>A page of rows; equality filters on any column, <code>from</code> and <code>to</code> on the period, <code>order</code>, <code>limit</code>, <code>offset</code>, and <code>labels=1</code> for the code lists&rsquo; labels</td>
+                            </tr>
+                            <tr>
+                                <td><code>…/csv</code></td>
+                                <td>The table, or the filtered slice of it, as a CSV download; no row limit</td>
+                            </tr>
+                            <tr>
+                                <td><code>/api/codelists/&#123;dsd&#125;</code></td>
+                                <td>A dataset&rsquo;s code lists: each dimension&rsquo;s codes with label, level and parent</td>
+                            </tr>
+                            <tr>
+                                <td><code>/api/catalogue</code></td>
+                                <td>DBIE&rsquo;s menu entries and datasets with their load status</td>
+                            </tr>
+                            <tr>
+                                <td><code>/api/search</code></td>
+                                <td><code>q</code> against titles, menu paths and code-list labels</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+
+                    <Text marginBottom="nano">
+                        The money-stock components since April 2024, with their labels:
+                    </Text>
+
+                    <CodeBlock
+                        source={API_EXAMPLE}
+                        showCopyButton
+                        marginBottom="micro"
+                    />
+
+                    <Text marginBottom="micro">
+                        The parameters, table shapes and more examples are in <code>docs/data-api.md</code> in{" "}
+                        <a href="https://github.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in" target="_blank" rel="noopener noreferrer">
+                            the repository
+                        </a>. The <Link href="/tables">Tables</Link> page is a browser over the same API.
+                    </Text>
+
                     <Callout kind="warning">
                         <Text>
-                            <strong>Known limitations</strong> — a few elements only capture part of their
-                            dimension space; the wizard&rsquo;s date-input formats are inferred per frequency
-                            and would break if DBIE changes its widgets; and guest sessions expire quickly,
-                            so long pauses mid-wizard abort that element (the next run retries it).
+                            <strong>Known limitations</strong> — daily datasets carry no start date on the portal,
+                            so their window starts at <code>--daily-from</code>; alphanumeric series such as call
+                            money rates fail DBIE&rsquo;s CSV export and are kept from the portal&rsquo;s JSON
+                            route instead; prompted report documents hold at most 50 choices, because the
+                            BusinessObjects layer returns at most 50 values for a prompt; and if DBIE rotates the
+                            cipher constants in its bundle, the scraper&rsquo;s self-check fails at start-up and{" "}
+                            <code>docs/scraper.md</code> says how to refresh them.
                         </Text>
                     </Callout>
                 </Div>

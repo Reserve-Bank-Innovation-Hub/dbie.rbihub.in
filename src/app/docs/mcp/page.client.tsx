@@ -2,6 +2,7 @@
 
 // REACT CORE ==========================================================================================================
 import React from "react";
+import Link from "next/link";
 
 // UI ==================================================================================================================
 import {
@@ -35,7 +36,7 @@ const McpDocsPage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        Connect Claude — or any MCP client — to every table and series on this site.
+                        Connect Claude — or any MCP client — to the tables and series on this site&rsquo;s pages.
                     </Heading6>
                 </Div>
             </Header>
@@ -51,6 +52,15 @@ const McpDocsPage = () => {
                         site. It is a thin, read-only layer over the same static JSON the pages render — no
                         credentials, no writes, nothing to host.
                     </Text>
+
+                    <Callout kind="info" marginBottom="micro">
+                        <Text>
+                            <strong>Scope</strong> — the server reads the site&rsquo;s published JSON, so it covers
+                            the tables and series the curated pages carry (340 catalogue entries), not the 1,033
+                            tables in the database. For any table in the database, call the{" "}
+                            <Link href="/docs/how-to-scrape">data API</Link> directly.
+                        </Text>
+                    </Callout>
 
                     <Heading5 weight="700" marginBottom="nano">
                         Set it up

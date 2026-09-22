@@ -7,11 +7,13 @@ import HowToScrapePage from "./page.client";
 
 export const metadata: Metadata = {
     title       : "How to scrape | Docs — Database on Indian Economy",
-    description : "Running the DBIE scraper, and how the data pipeline works — processors turn scraped files into page JSON, and oracles verify every output before deploy",
+    description : "Running the DBIE scrapers over plain HTTP, loading Postgres as the system of record, publishing a verified data release, and reading the database through the data API",
     keywords    : [
         "scraper",
-        "Playwright",
         "SDMX",
+        "BusinessObjects",
+        "Postgres",
+        "data API",
         "data pipeline",
         "processors",
         "oracles",
@@ -19,14 +21,14 @@ export const metadata: Metadata = {
     ],
     openGraph   : {
         title       : "How to scrape | Docs — Database on Indian Economy",
-        description : "Running the DBIE scraper, and how processors and oracles keep the data honest",
+        description : "Running the DBIE scrapers, loading the database, publishing a data release, and the data API",
         type        : "website",
         siteName    : "Database on Indian Economy",
     },
     twitter     : {
         card        : "summary_large_image",
         title       : "How to scrape | Docs — Database on Indian Economy",
-        description : "Running the DBIE scraper, and how processors and oracles keep the data honest",
+        description : "Running the DBIE scrapers, loading the database, publishing a data release, and the data API",
     },
 };
 

@@ -17,7 +17,8 @@ const UsingTheSitePage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        Finding tables, reading the charts and grids, and searching from anywhere.
+                        Finding tables, reading the charts and grids, searching from anywhere, and taking the
+                        data with you.
                     </Heading6>
                 </Div>
             </Header>
@@ -29,29 +30,36 @@ const UsingTheSitePage = () => {
                     </Heading5>
 
                     <Text marginBottom="nano">
-                        There are three ways in:
+                        There are four ways in:
                     </Text>
 
                     <ul>
                         <li>
-                            <strong>Browse by theme</strong> — the left nav groups datasets into Prices,
-                            Growth, Markets, Banking, External, Government and Payments, alongside the
-                            Handbook of Statistics, key Indicators and Publications. Each theme opens on a
-                            dashboard listing its tables with a one-line description.
+                            <strong>DBIE&rsquo;s own menus</strong> — <Link href="/statistics">Statistics</Link>{" "}
+                            and <Link href="/publications">Publications</Link> in the nav are DBIE&rsquo;s two
+                            menus. Each opens on an index of its sectors or publications; an item&rsquo;s page lays
+                            out its parts as DBIE files them, down to its tables, each with DBIE&rsquo;s frequency
+                            and period. A table opens in place, straight from the database.
                         </li>
                         <li>
-                            <strong><Link href="/tables">Tables</Link></strong> — every table in DBIE&apos;s
-                            Statistics and Publication menus, with the Data Query datasets in their sectors, opened
-                            one at a time straight from the database. The sidebar lists every table, Publications then Statistics, in
-                            DBIE&apos;s own order; a report is
-                            shown as DBIE lays it out, one tab at a time, an SDMX dataset as a time series that its
-                            dimensions narrow. The grid is the same as on every other page: sort by clicking a header, filter
-                            from its menu, page through it, and download the view as CSV.
+                            <strong>Themes</strong> — Prices, Growth, Markets, Banking, External, Government and
+                            Payments gather the site&rsquo;s curated pages, each a chart, a grid and notes for one
+                            table, listed under the DBIE sections the tables come from. The Handbook and Indicators
+                            pages are reached from those tables&rsquo; views.
+                        </li>
+                        <li>
+                            <strong><Link href="/tables">Tables</Link></strong> — every table in the database in one
+                            sidebar, Publications then Statistics, in DBIE&rsquo;s own order, with the Data Query
+                            datasets in their sectors. A report is shown as DBIE lays it out, one tab at a time; an
+                            SDMX dataset as a time series that its dimensions narrow. The grid is the same as on
+                            every other page: sort by clicking a header, filter from its menu, page through it.
                         </li>
                         <li>
                             <strong>Search</strong> — press <kbd>⌘</kbd> <kbd>/</kbd> (or <kbd>Ctrl</kbd>{" "}
                             <kbd>/</kbd>) anywhere, or use Search in the nav. It matches titles, descriptions
-                            and keywords across all pages, tolerating small typos.
+                            and keywords across the curated pages and these docs, tolerating small typos. The
+                            database&rsquo;s 1,033 tables are listed in the Tables sidebar and searched by the data
+                            API&rsquo;s own search endpoint.
                         </li>
                     </ul>
 
@@ -107,10 +115,29 @@ const UsingTheSitePage = () => {
                             adjustable.
                         </li>
                         <li>
-                            Pages that open with a recent slice of a long series carry a{" "}
+                            <strong>Download</strong> — a table opened from the database carries a Download CSV
+                            link: the whole table, or the slice the selects have narrowed it to, straight from the
+                            data API.
+                        </li>
+                        <li>
+                            Curated pages that open with a recent slice of a long series carry a{" "}
                             <strong>FULL DATA</strong> link to the complete history.
                         </li>
                     </ul>
+
+                    <Divider kind="secondary" marginTop="nano" marginBottom="micro" />
+
+                    <Heading5 weight="700" marginBottom="nano">
+                        Getting the data out
+                    </Heading5>
+
+                    <Text marginBottom="micro">
+                        Every table in the database is also served by a public, read-only data API at{" "}
+                        <code>https://data-api.dbie.rbihub.in</code>: rows as JSON with filters and paging, the
+                        whole table as CSV, DBIE&rsquo;s catalogue and code lists, and search. No key is needed.
+                        The endpoints are listed on the <Link href="/docs/how-to-scrape">pipeline page</Link>, and
+                        AI assistants can use the <Link href="/docs/mcp">MCP server</Link>.
+                    </Text>
 
                     <Divider kind="secondary" marginTop="nano" marginBottom="micro" />
 
