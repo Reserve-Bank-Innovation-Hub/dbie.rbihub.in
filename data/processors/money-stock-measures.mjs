@@ -51,6 +51,17 @@ function parseDateCell(raw) {
 }
 
 // "3,906,775" -> 3906775. null/"-" -> null.
+// The Yearly sheet labels a row by financial year, "2024-25"; the observation is the 31 March that closes it,
+// which is how the fortnightly sheet used to carry these rows before the export split them out.
+function parseYearCell(raw) {
+    if (raw == null) return null;
+    const m = String(raw).trim().match(/^(\d{4})-(\d{2})$/);
+    if (!m) return null;
+    const start = parseInt(m[1], 10);
+    const end = Math.floor(start / 100) * 100 + parseInt(m[2], 10);
+    return `${end < start ? end + 100 : end}-03-31`;
+}
+
 function parseNum(raw) {
     if (raw == null) return null;
     const s = String(raw).trim().replace(/,/g, '');
@@ -78,22 +89,24 @@ function deriveKey(label, excludingMerger) {
     return s;
 }
 
-function parse(buf) {
-    const wb = XLSX.read(buf, { type: 'buffer' });
-    const sheetName = wb.SheetNames[0];
-    const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {
+// One sheet of the workbook: its columns (from the header row whose col 1 is `headerLabel`) and its rows, each
+// date parsed by `dateOf`.
+function parseSheet(wb, sheetName, headerLabel, dateOf) {
+    const ws = wb.Sheets[sheetName];
+    if (!ws) return null;
+    const rows = XLSX.utils.sheet_to_json(ws, {
         header: 1,
         raw: false,
         defval: null,
         blankrows: true,
     });
 
-    // Locate the header row (col 1 === "Date").
+    // Locate the header row (col 1 === the sheet's label for its period column).
     let hdrIdx = -1;
     for (let i = 0; i < Math.min(rows.length, 10); i++) {
-        if (String((rows[i] || [])[1] || '').trim() === 'Date') { hdrIdx = i; break; }
+        if (String((rows[i] || [])[1] || '').trim() === headerLabel) { hdrIdx = i; break; }
     }
-    if (hdrIdx < 0) throw new Error('could not find header row (Date) in sheet');
+    if (hdrIdx < 0) throw new Error(`could not find header row (${headerLabel}) in sheet ${sheetName}`);
 
     const hdrRow = rows[hdrIdx] || [];
 
@@ -121,8 +134,8 @@ function parse(buf) {
         const dateStr = String(dateRaw).trim();
         // Skip footer lines
         if (/^see\s+notes/i.test(dateStr) || /^source/i.test(dateStr) || /^note/i.test(dateStr)) continue;
-        const date = parseDateCell(dateStr);
-        if (!date) continue; // skip anything that isn't a date
+        const date = dateOf(dateStr);
+        if (!date) continue; // skip anything that isn't a period
 
         const values = {};
         for (const col of columns) {
@@ -131,12 +144,34 @@ function parse(buf) {
         data.push({ date, values });
     }
 
+    return { columns, data };
+}
+
+// The workbook's fortnightly observations, and the financial-year ones the export files on its own "Yearly"
+// sheet — the old single-sheet download carried both in one list, so both are kept, newest first. A date on both
+// sheets is taken from the fortnightly one.
+function parse(buf) {
+    const wb = XLSX.read(buf, { type: 'buffer' });
+
+    const fortnightly = parseSheet(wb, 'Fortnightly', 'Date', parseDateCell);
+    if (!fortnightly) throw new Error(`no "Fortnightly" sheet; found ${JSON.stringify(wb.SheetNames)}`);
+
+    const yearly = parseSheet(wb, 'Yearly', 'Year', parseYearCell);
+    if (yearly) {
+        const sameColumns = JSON.stringify(yearly.columns.map((c) => c.key)) === JSON.stringify(fortnightly.columns.map((c) => c.key));
+        if (!sameColumns) throw new Error('the Yearly sheet does not carry the same columns as the Fortnightly one');
+    }
+
+    const seen = new Set(fortnightly.data.map((r) => r.date));
+    const data = [ ...fortnightly.data, ...(yearly ? yearly.data.filter((r) => !seen.has(r.date)) : []) ]
+        .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+
     if (data.length === 0) throw new Error('no valid data rows found');
 
     return {
         reportTitle: 'Money stock measures (Table 6)',
         units: 'Rupees crores',
-        columns: columns.map(({ col, ...rest }) => rest),
+        columns: fortnightly.columns.map(({ col, ...rest }) => rest),
         data,
     };
 }

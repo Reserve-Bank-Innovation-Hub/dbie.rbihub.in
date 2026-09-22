@@ -57,8 +57,12 @@ function parse(buf) {
   const wb = XLSX.read(buf, { type: 'buffer' });
   if (wb.SheetNames.length === 0) throw new Error('no sheets found in Excel file');
 
-  // The data lives on a single sheet; scan all sheets defensively.
-  for (const sn of wb.SheetNames) {
+  // The report export carries a sheet per basket (6-, 36- and 40-currency); the payload is the 40-currency one
+  // the manual download held on its own, so the others are skipped.
+  const sheets = wb.SheetNames.filter((s) => /^40-Currency/i.test(s.trim()));
+  if (sheets.length === 0) throw new Error(`no 40-currency sheet; found ${JSON.stringify(wb.SheetNames)}`);
+
+  for (const sn of sheets) {
     const rows = XLSX.utils.sheet_to_json(wb.Sheets[sn], {
       header    : 1,
       raw       : false,
@@ -124,8 +128,11 @@ function selfCheck(out) {
 
   // Known cells (verified against the source sheet).
   const known = [
-    { month: 'Jan 2026', trade_neer: 82.14, trade_reer: 94.82, export_neer: 84.59, export_reer: 92.71 },
-    { month: 'Dec 2025', trade_neer: 82.69, trade_reer: 95.17, export_neer: 84.66, export_reer: 92.50 },
+    // RBI revised the 40-currency indices for these two months in the 17-09-2026 export: Jan 2026 trade_reer
+    // 94.82 → 94.78 and export_reer 92.71 → 92.70; Dec 2025 82.69 → 82.64, 95.17 → 95.11, 84.66 → 84.60,
+    // 92.50 → 92.44. Apr 2004 is unchanged.
+    { month: 'Jan 2026', trade_neer: 82.14, trade_reer: 94.78, export_neer: 84.59, export_reer: 92.70 },
+    { month: 'Dec 2025', trade_neer: 82.64, trade_reer: 95.11, export_neer: 84.60, export_reer: 92.44 },
     { month: 'Apr 2004', trade_neer: 138.50, trade_reer: 90.87, export_neer: 134.91, export_reer: 88.82 },
   ];
   for (const exp of known) {

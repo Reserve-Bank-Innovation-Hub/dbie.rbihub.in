@@ -77,8 +77,9 @@ function selfCheck(out) {
   const { data } = out;
   const errors = [];
 
-  if (!Array.isArray(data) || data.length !== 51) {
-    errors.push(`expected 51 data rows, got ${data ? data.length : 'n/a'}`);
+  // The 17-09-2026 export adds the 2026-27 crop year, taking the table to 52 rows.
+  if (!Array.isArray(data) || data.length !== 52) {
+    errors.push(`expected 52 data rows, got ${data ? data.length : 'n/a'}`);
   }
 
   const row202526 = data.find((r) => r.year === '2025-26');
@@ -89,8 +90,9 @@ function selfCheck(out) {
       errors.push(`2025-26 paddy_common: expected 2369, got ${row202526.paddy_common}`);
     if (row202526.maize !== 2400)
       errors.push(`2025-26 maize: expected 2400, got ${row202526.maize}`);
-    if (row202526.wheat !== null)
-      errors.push(`2025-26 wheat: expected null, got ${row202526.wheat}`);
+    // Wheat was still "-" in the old download; the 17-09-2026 export carries the announced 2025-26 price.
+    if (row202526.wheat !== 2585)
+      errors.push(`2025-26 wheat: expected 2585, got ${row202526.wheat}`);
   }
 
   const row202425 = data.find((r) => r.year === '2024-25');

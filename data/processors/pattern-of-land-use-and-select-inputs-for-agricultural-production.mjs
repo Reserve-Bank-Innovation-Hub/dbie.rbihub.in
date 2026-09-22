@@ -124,13 +124,13 @@ function selfCheck(out) {
 
   // Known cells verified against the source sheet.
   const known = [
-    { year: '2023-24', field: 'net_sown_area',          value: 1389.9  },
-    { year: '2023-24', field: 'gross_sown_area',        value: 2178.8  },
+    { year: '2023-24', field: 'net_sown_area',          value: 1391.6  },
+    { year: '2023-24', field: 'gross_sown_area',        value: 2179.2  },
     { year: '2023-24', field: 'net_irrigated_area',     value: 824.2   },
     { year: '2023-24', field: 'gross_irrigated_area',   value: 1305.5  },
     { year: '2023-24', field: 'fertiliser_consumption', value: 306.42  },
     { year: '2022-23', field: 'fertiliser_consumption', value: 298.44  },
-    { year: '2022-23', field: 'pesticide_consumption',  value: 53.63   },
+    { year: '2022-23', field: 'pesticide_consumption',  value: 64.51   },
     { year: '1950-51', field: 'net_sown_area',          value: 1187.5  },
     { year: '1950-51', field: 'gross_sown_area',        value: 1318.9  },
     { year: '1950-51', field: 'fertiliser_consumption', value: 0.69    },

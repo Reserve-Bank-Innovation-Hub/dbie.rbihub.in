@@ -171,7 +171,7 @@ function selfCheck(out) {
       silver_mumbai : 89130.53,
       silver_ny   : 3039.22,
       silver_ny_rupees : 82685.10,
-      silver_spread : 11700.17,
+      silver_spread : 6445.43,
     },
     {
       year        : '1970-71',

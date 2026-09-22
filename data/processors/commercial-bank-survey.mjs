@@ -132,8 +132,8 @@ function selfCheck(out) {
 
   // Known cells (verified against the source sheet).
   const known = [
-    { fortnight: '2026-01-31', ci: 24566192.63, ci1: 3141414.87, si: 28550801.07 },
-    { fortnight: '2026-01-15', ci: 24179731.55 },
+    { fortnight: '2026-01-31', ci: 24566192.63, ci1: 3141414.87, si: 28550801.42 },
+    { fortnight: '2026-01-15', ci: 24180478.32 },
     { fortnight: '1999-03-26', ci: 662859 },
   ];
   for (const exp of known) {

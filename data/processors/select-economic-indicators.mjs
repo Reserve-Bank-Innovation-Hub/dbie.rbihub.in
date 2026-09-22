@@ -164,7 +164,10 @@ function parse(buf) {
   const wb = XLSX.read(buf, { type: 'buffer' });
   if (wb.SheetNames.length === 0) throw new Error('no sheets found in Excel file');
 
-  const sheetName = wb.SheetNames[0]; // "Monthly"
+  // The Bulletin's report export carries a "Quarterly" sheet before the monthly one, so the sheet is taken by
+  // name, not by position.
+  const sheetName = wb.SheetNames.find((n) => n.trim() === 'Monthly');
+  if (!sheetName) throw new Error(`no "Monthly" sheet; found ${JSON.stringify(wb.SheetNames)}`);
   const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {
     header    : 1,
     raw       : false,

@@ -44,11 +44,27 @@ function cellStr(row, i) {
 
 // "1,442,142" -> 1442142. "269667.3507" -> 269667.3507.
 // Returns null for blank/dash so gaps stay distinct from real zeros.
+// The decimals a cell's number format declares, from its positive section: "##,##,###" -> 0, "#,##0.00" -> 2.
+function formatDecimals(ws, r, c) {
+  const z = (ws[XLSX.utils.encode_cell({ r, c })] || {}).z;
+  if (typeof z !== 'string') return null;
+  const positive = z.split(';')[0];
+  const dot = positive.indexOf('.');
+  if (dot < 0) return 0;
+  return (positive.slice(dot + 1).match(/^[0#?]+/) || [ '' ])[0].length;
+}
+
+// excelize returned each cell's displayed value; SheetJS cannot render DBIE's Indian-lakh formats and falls back
+// to the raw number, so the format's decimals are applied here (data/processors/README.md, gotcha 3). The report
+// export carries the unrounded figures where the old download carried them already rounded.
+let sheetDecimals = null;
+
 function parseNum(s) {
   s = String(s == null ? '' : s).trim().replace(/,/g, '');
   if (s === '' || s === '-' || s === 'N/A') return null;
   const val = Number(s);
-  return Number.isFinite(val) ? val : null;
+  if (!Number.isFinite(val)) return null;
+  return sheetDecimals == null ? val : Number(val.toFixed(sheetDecimals));
 }
 
 // "2023-24" -> 2023 (sort key, first 4 digits). Returns null if not a fiscal-year label.
@@ -58,7 +74,7 @@ function yearSortKey(label) {
 }
 
 function parse(buf) {
-  const wb = XLSX.read(buf, { type: 'buffer' });
+  const wb = XLSX.read(buf, { type: 'buffer', cellNF: true });
   if (wb.SheetNames.length === 0) throw new Error('no sheets found in Excel file');
 
   // Scan all sheets looking for the one with the expected header.
@@ -69,6 +85,14 @@ function parse(buf) {
       defval   : null,
       blankrows: true,
     });
+
+    // The whole table shares one number format; its decimals are read off the first numeric data cell.
+    sheetDecimals = null;
+    for (let r = 0; r < Math.min(rows.length, 20) && sheetDecimals == null; r++) {
+      for (let c = 2; c < 6 && sheetDecimals == null; c++) {
+        if (typeof (wb.Sheets[sn][XLSX.utils.encode_cell({ r, c })] || {}).v === 'number') sheetDecimals = formatDecimals(wb.Sheets[sn], r, c);
+      }
+    }
 
     let reportTitle  = '';
     let unit         = 'Rupees Crores';
@@ -162,9 +186,9 @@ function selfCheck(out) {
   const known = [
     {
       year                       : '2023-24',
-      currency                   : 118026,
-      bank_deposits              : 1442142,
-      changes_in_financial_assets: 3430640,
+      currency                   : 118248,
+      bank_deposits              : 1409652,
+      changes_in_financial_assets: 3602199,
     },
     {
       year         : '1970-71',

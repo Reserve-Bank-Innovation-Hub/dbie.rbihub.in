@@ -11,14 +11,20 @@ docs page for the full pipeline story.
 ## Usage
 
 ```bash
-pnpm install         # at repo root
-pnpm data:build      # runs all processors -> out/*.json (345 files)
-pnpm data:verify     # checks out/*.json against oracles/ (must print ALL PASS)
-pnpm data:sync       # copies out/*.json -> public/data/ for the frontend
+pnpm install                 # at repo root
+pnpm data:fetch              # restores the scrape (data/sdmx, data/reports) from the public archive
+pnpm data:build              # runs all processors -> out/*.json (348 files)
+pnpm data:verify             # checks out/*.json against oracles/ (must print ALL PASS)
+pnpm data:release            # build + verify, then upload out/ as releases/<date>-<commit>/ (--dry-run to stop short)
 ```
 
-`out/` and `public/data/` are gitignored — deployments regenerate them: `amplify.yml` runs
-`data:build`, `data:verify` and `data:sync` in `preBuild`, so a failed oracle check fails the deploy.
+`out/` is what a release publishes. The site does not read it directly: an Amplify build runs `pnpm data:pull`,
+which downloads the current release into `public/data/`, pre-renders the pages from it, and then deletes
+`public/data` again (see `amplify.yml`) — the browser fetches `/data/*.json` from the release in the bucket. To
+look at fresh payloads on a local dev server, copy `data/processors/out/*.json` over `public/data/` yourself.
+
+`out/` and `public/data/` are gitignored. A release is what ships: `pnpm data:release` refuses to upload unless
+`data:build` and `data:verify` both pass, so a failed oracle check stops the release.
 
 ## Verification oracles
 

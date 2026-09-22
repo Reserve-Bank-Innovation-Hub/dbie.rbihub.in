@@ -48,10 +48,40 @@ The two paths cover different slices of DBIE:
 | Surface | SDMX Data Query wizard (guest-accessible) | Monthly RBI Bulletin (behind SAP auth — fetched manually) |
 | Coverage | Macro time-series across 6 sectors, 24 sub-sectors | The 43-45 tables RBI publishes as the monthly snapshot |
 | Shape | Long, normalised — one observation per row (`DATAFLOW, FREQ, TIME_PERIOD, OBS_VALUE, …dimensions`) | Wide, pivoted — dates across columns, nested row headers |
-| Update path | Re-run `npm run scrape` + `npm run data:ingest` | Manual download each month |
+| Update path | Re-run `pnpm scrape` + `pnpm data:ingest` | Copy the table's xlsx out of the report export (below) |
 | Use | Feed charts, compute deltas, power the narrative | Read-ready tables for direct reproduction |
 
 Some tables exist in both forms (e.g. RBIB Table 33 "Foreign Exchange Reserves Weekly" ↔ `FR_EXG_RESV_RN`). `catalogue.json` records these links under `sdmxDuplicates`.
+
+## Refreshing the committed spreadsheets
+
+The xlsx under `data/publications/` are DBIE's own report exports, the same documents `pnpm scrape:reports`
+writes to `data/reports/publication/time-series-publications/<publication>/<reportId>--<title>.xlsx` (restore them
+with `pnpm data:fetch`). To refresh one, copy the export's xlsx over the committed file, keeping the committed
+path: match them by DBIE's report name, which each export carries in `<reportId>.meta.json` as `reportName`,
+against the file's kebab label — `table-06-money-stock-measures.xlsx` is report 22, "Money Stock Measures". Never
+edit an exported file by hand. Run `pnpm data:build` afterwards: every processor checks hard-coded anchors and
+will say which values moved.
+
+Four things the export does differently from the older manual downloads, all of which the processors now handle:
+
+- **Extra sheets.** A workbook can carry sheets the old download did not — "Quarterly" before "Monthly" in
+  Table 1, "Old Format" before "New Format" in Table 45, a basket per sheet in Table 37, a "Yearly" sheet in
+  Table 6. Processors name the sheet they want rather than taking the first one, and `money-stock-measures`
+  reads both "Fortnightly" and "Yearly" so the 31 March observations are not lost.
+- **Unrounded figures.** Where the old download held figures already rounded, the export holds them in full
+  precision; SheetJS cannot render DBIE's Indian-lakh number formats, so the processor applies the decimals the
+  cell's format declares (see `processors/README.md`, gotcha 3).
+- **Rebased series.** Five tables are published on a new base year and are *not* drop-ins — the export's series
+  is a different one from the site's. These keep their older committed file: `Index Numbers of Industrial
+  Production` and its `Use-Based Classification` (2011-12 = 100 → 2022-23 = 100), `Wholesale Price Index -
+  Annual Average` (same rebase), `Components of Gross Domestic Product` (same rebase), and
+  `Outward Remittances under the LRS`, whose export drops the total column and adds sub-items.
+- **Renamed or retired tables.** `Consumer Price Index - Annual Average` has no counterpart in the export: the
+  Handbook now publishes "Consumer Price Index (Average of Months) - Annual Variation" (report 837), which is the
+  percentage change, not the index level. `Sources of Money Stock (M3)` is held back too: the export restates
+  `bankingSectorsNetNonMonetaryLiabilities` for the 31 March rows of 2012 through 2021, which is a change to
+  history rather than a refresh, and needs a decision before it is taken.
 
 ## Categorisation — eight themes
 

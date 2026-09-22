@@ -202,8 +202,8 @@ function selfCheck(out) {
 
   // Known cells verified against the source sheet.
   const known = [
-    { base: '2007-08=100', year: '2024-25', field: 'allCrops',    expect: 167.5 },
-    { base: '2007-08=100', year: '2024-25', field: 'sugarcane',   expect: 137.1 },
+    { base: '2007-08=100', year: '2024-25', field: 'allCrops',    expect: 170.6 },
+    { base: '2007-08=100', year: '2024-25', field: 'sugarcane',   expect: 138.5 },
     { base: '2007-08=100', year: '2007-08', field: 'allCrops',    expect: 107.0 },
     { base: '1993-94=100', year: '2007-08', field: 'allCrops',    expect: 172.9 },
     { base: '1993-94=100', year: '1993-94', field: 'allCrops',    expect: 123.0 },

@@ -140,8 +140,8 @@ function selfCheck(out) {
 
   // Known cells verified against source sheet.
   const known = [
-    { year: '2025-26', field: 'groundnut',     value: 47  },
-    { year: '2025-26', field: 'sugarcane',     value: 57  },
+    { year: '2025-26', field: 'groundnut',     value: 59  },
+    { year: '2025-26', field: 'sugarcane',     value: 59  },
     { year: '2024-25', field: 'total_oilseeds',value: 304 },
     { year: '2024-25', field: 'cotton_lint',   value: 115 },
     { year: '1950-51', field: 'groundnut',     value: 45  },
