@@ -12,6 +12,7 @@ import MoneyStockMeasuresChart from "@/components/charts/MoneyStockMeasuresChart
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { MoneyStockMeasures } from "@/lib/api/tables/money-stock-measures";
 
 
@@ -25,14 +26,20 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
     const latest = moneyStockData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestM3Row = newestWith(moneyStockData.data, (r) => r.values["m3"]);
+        const latestM1Row = newestWith(moneyStockData.data, (r) => r.values["m1"]);
         const crores = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN")} cr`;
         return {
-            latestDate : latest?.date || "—",
-            latestM3   : crores(latest?.values["m3"] ?? null),
-            latestM1   : crores(latest?.values["m1"] ?? null),
+            latestDate   : latest?.date || "—",
+            latestM3     : crores(latestM3Row?.values["m3"] ?? null),
+            latestM3Date : latestM3Row?.date || "—",
+            latestM1     : crores(latestM1Row?.values["m1"] ?? null),
+            latestM1Date : latestM1Row?.date || "—",
         };
-    }, [ latest ]);
+    }, [ latest, moneyStockData ]);
 
     return (
         <Article id="money-stock-measures-page" className="page-grid">
@@ -76,7 +83,7 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M3 (broad money)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestM3Date})`}
                     value={stats.latestM3}
                     size="large"
                     align="right"
@@ -87,7 +94,7 @@ const MoneyStockMeasuresPage : React.FC<MoneyStockMeasuresPageProps> = ({ moneyS
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">M1 (narrow money)</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestM1Date})`}
                     value={stats.latestM1}
                     size="large"
                     align="right"

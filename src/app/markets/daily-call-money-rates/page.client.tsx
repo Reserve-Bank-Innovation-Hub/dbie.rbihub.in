@@ -12,6 +12,7 @@ import TimeSeriesChart         from "@/components/charts/TimeSeriesChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { DailyCallMoneyRates } from "@/lib/api/tables/daily-call-money-rates";
 
 // STYLES ==============================================================================================================
@@ -25,14 +26,20 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
     const latest = ratesData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestMinRateRow = newestWith(ratesData.data, (r) => r.minRate);
+        const latestMaxRateRow = newestWith(ratesData.data, (r) => r.maxRate);
         const rate = (v : number | null) => (v == null ? "—" : `${Number(v).toFixed(2)}%`);
         return {
-            latestDate   : latest?.date    || "—",
-            latestFY     : latest?.fy      || "—",
-            latestMinRate : rate(latest?.minRate ?? null),
-            latestMaxRate : rate(latest?.maxRate ?? null),
+            latestDate        : latest?.date    || "—",
+            latestFY          : latest?.fy      || "—",
+            latestMinRate     : rate(latestMinRateRow?.minRate ?? null),
+            latestMinRateDate : latestMinRateRow?.date || "—",
+            latestMaxRate     : rate(latestMaxRateRow?.maxRate ?? null),
+            latestMaxRateDate : latestMaxRateRow?.date || "—",
         };
-    }, [ latest ]);
+    }, [ latest, ratesData ]);
 
     return (
         <Article id="daily-call-money-rates-page" className="page-grid">
@@ -75,7 +82,7 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Minimum rate</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestMinRateDate})`}
                     value={stats.latestMinRate}
                     size="large"
                     align="right"
@@ -86,7 +93,7 @@ const DailyCallMoneyRatesPage : React.FC<DailyCallMoneyRatesPageProps> = ({ rate
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Maximum rate</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestDate})`}
+                    label={`Latest (${stats.latestMaxRateDate})`}
                     value={stats.latestMaxRate}
                     size="large"
                     align="right"

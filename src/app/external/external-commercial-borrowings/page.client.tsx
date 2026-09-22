@@ -12,6 +12,7 @@ import ExternalCommercialBorrowingsChart from "@/components/charts/ExternalComme
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ExternalCommercialBorrowings } from "@/lib/api/tables/external-commercial-borrowings";
 
 
@@ -29,16 +30,26 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
     const stats = useMemo(() => {
         if (!latest) return { period : "—", totalAmount : "—", totalNo : "—", maturity : "—" };
         // values: [4]=total no., [5]=total amount, [6]=weighted avg maturity
-        const totalNo  = latest.values[4];
-        const totalAmt = latest.values[5];
-        const maturity = latest.values[6];
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off the newest row alone would read "—" (src/lib/tables/latest.ts).
+        const newest  = [ ...ecbData.rows ].reverse();
+        const noRow   = newestWith(newest, (r) => r.values[4]);
+        const amtRow  = newestWith(newest, (r) => r.values[5]);
+        const matRow  = newestWith(newest, (r) => r.values[6]);
+        const when    = (r : typeof latest | null) => (r ? `${r.fy}  ${r.month}` : "—");
+        const totalNo  = noRow?.values[4];
+        const totalAmt = amtRow?.values[5];
+        const maturity = matRow?.values[6];
         return {
-            period      : `${latest.fy}  ${latest.month}`,
-            totalAmount : totalAmt == null ? "—" : `US$ ${totalAmt.toLocaleString("en-IN")}M`,
-            totalNo     : totalNo  == null ? "—" : totalNo.toLocaleString("en-IN"),
-            maturity    : maturity == null ? "—" : `${maturity} years`,
+            period            : `${latest.fy}  ${latest.month}`,
+            totalAmount       : totalAmt == null ? "—" : `US$ ${totalAmt.toLocaleString("en-IN")}M`,
+            totalAmountPeriod : when(amtRow),
+            totalNo           : totalNo  == null ? "—" : totalNo.toLocaleString("en-IN"),
+            totalNoPeriod     : when(noRow),
+            maturity          : maturity == null ? "—" : `${maturity} years`,
+            maturityPeriod    : when(matRow),
         };
-    }, [ latest ]);
+    }, [ latest, ecbData ]);
 
     return (
         <Article id="external-commercial-borrowings-page" className="page-grid">
@@ -83,7 +94,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total registrations</Text>
                 <DataUnit
-                    label={`Latest (${stats.period})`}
+                    label={`Latest (${stats.totalNoPeriod})`}
                     value={stats.totalNo}
                     size="large"
                     align="right"
@@ -94,7 +105,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total amount registered</Text>
                 <DataUnit
-                    label={`Latest (${stats.period})`}
+                    label={`Latest (${stats.totalAmountPeriod})`}
                     value={stats.totalAmount}
                     size="large"
                     align="right"
@@ -105,7 +116,7 @@ const ExternalCommercialBorrowingsPage : React.FC<ExternalCommercialBorrowingsPa
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Weighted average maturity</Text>
                 <DataUnit
-                    label={`Latest (${stats.period})`}
+                    label={`Latest (${stats.maturityPeriod})`}
                     value={stats.maturity}
                     size="large"
                     align="right"

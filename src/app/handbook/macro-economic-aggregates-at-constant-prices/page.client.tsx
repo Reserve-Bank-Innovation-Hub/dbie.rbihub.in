@@ -12,6 +12,7 @@ import MacroEconomicAggregatesConstantPricesGrid from "@/components/tables/Macro
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { MacroEconomicAggregatesConstantPrices } from "@/lib/api/tables/macro-economic-aggregates-at-constant-prices";
 
 // CHART CONFIG ========================================================================================================
@@ -35,10 +36,13 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
 
     const latest = data.data[0];
 
+    // The card takes the newest year that carries the field, not simply the newest row: DBIE can publish one
+    // column a year behind the rest (src/lib/tables/latest.ts).
+    const latestGdpRow = newestWith(data.data, (r) => r.gross_domestic_product);
     const latestGdp = useMemo(() => {
-        if (latest?.gross_domestic_product == null) return "—";
-        return `₹${latest.gross_domestic_product.toLocaleString("en-IN")} cr`;
-    }, [ latest ]);
+        if (latestGdpRow?.gross_domestic_product == null) return "—";
+        return `₹${latestGdpRow.gross_domestic_product.toLocaleString("en-IN")} cr`;
+    }, [ latestGdpRow ]);
 
     const traces = useMemo<Partial<Plotly.PlotData>[]>(() => [
         {
@@ -103,7 +107,7 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross domestic product</Text>
                 <DataUnit
-                    label={`Latest (${latest?.year ?? "—"})`}
+                    label={`Latest (${latestGdpRow?.year ?? "—"})`}
                     value={latestGdp}
                     size="large"
                     align="right"

@@ -12,6 +12,7 @@ import IndexNumbersOfInfrastructureIndustriesGrid from "@/components/tables/Inde
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { IndexNumbersOfInfrastructureIndustries } from "@/lib/api/tables/index-numbers-of-infrastructure-industries";
 
 // OTHER ===============================================================================================================
@@ -30,7 +31,11 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
     const primarySeries = infraData.series[0];
     const latestRow     = primarySeries?.data[0];
 
-    const latestOverallIndex = latestRow?.values[0];
+    // The card takes the newest year that carries the overall index, not simply the newest row: DBIE can publish
+    // one column a year behind the rest (src/lib/tables/latest.ts).
+    const overallRow         = newestWith(primarySeries?.data, (r) => r.values[0]);
+    const latestOverallIndex = overallRow?.values[0];
+    const latestOverallYear  = overallRow?.year ?? "—";
     const latestYear         = latestRow?.year ?? "—";
 
     // Line chart — Overall Index (values[0]) for series[0], chronological order.
@@ -100,7 +105,7 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
             <Div id="stat-card" className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Overall index</Text>
                 <DataUnit
-                    label={`Latest (${latestYear})`}
+                    label={`Latest (${latestOverallYear})`}
                     value={latestOverallIndex != null
                         ? latestOverallIndex.toLocaleString("en-IN", { maximumFractionDigits: 2 })
                         : "—"

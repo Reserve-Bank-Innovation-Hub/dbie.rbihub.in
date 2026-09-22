@@ -12,6 +12,7 @@ import InstitutionalSectorGrossCapitalFormationGrid from "@/components/tables/In
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { InstitutionalSectorGrossCapitalFormation } from "@/lib/api/tables/institutional-sector-wise-gross-capital-formation-at-current-prices";
 
 // CHART CONFIG ========================================================================================================
@@ -35,10 +36,13 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
 
     const latest = data.data[0];
 
+    // The card takes the newest year that carries the field, not simply the newest row: DBIE can publish one
+    // column a year behind the rest (src/lib/tables/latest.ts).
+    const latestGcfRow = newestWith(data.data, (r) => r.gross_capital_formation);
     const latestGcf = useMemo(() => {
-        if (latest?.gross_capital_formation == null) return "—";
-        return `₹${Math.round(latest.gross_capital_formation).toLocaleString("en-IN")} cr`;
-    }, [ latest ]);
+        if (latestGcfRow?.gross_capital_formation == null) return "—";
+        return `₹${Math.round(latestGcfRow.gross_capital_formation).toLocaleString("en-IN")} cr`;
+    }, [ latestGcfRow ]);
 
     const xValues = useMemo(() => chartData.map(d => d.year), [ chartData ]);
 
@@ -152,7 +156,7 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Gross capital formation</Text>
                 <DataUnit
-                    label={`Latest (${latest?.year ?? "—"})`}
+                    label={`Latest (${latestGcfRow?.year ?? "—"})`}
                     value={latestGcf}
                     size="large"
                     align="right"

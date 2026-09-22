@@ -12,6 +12,7 @@ import AreaProductionYieldFoodgrainsChart from "@/components/charts/AreaProducti
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { AreaProductionYieldFoodgrainsNonFoodgrains } from "@/lib/api/tables/index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains";
 
 
@@ -27,13 +28,19 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
     const latest = activeSeries?.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestAllProdnRow = newestWith(activeSeries?.data, (r) => r.allCropsProduction);
+        const latestFoodGrainsRow = newestWith(activeSeries?.data, (r) => r.foodGrainsProduction);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear        : latest?.year || "—",
-            latestAllProdn    : fmt(latest?.allCropsProduction ?? null),
-            latestFoodGrains  : fmt(latest?.foodGrainsProduction ?? null),
+            latestYear           : latest?.year || "—",
+            latestAllProdn       : fmt(latestAllProdnRow?.allCropsProduction ?? null),
+            latestAllProdnDate   : latestAllProdnRow?.year || "—",
+            latestFoodGrains     : fmt(latestFoodGrainsRow?.foodGrainsProduction ?? null),
+            latestFoodGrainsDate : latestFoodGrainsRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, activeSeries ]);
 
     return (
         <Article id="area-production-yield-foodgrains-page" className="page-grid">
@@ -77,7 +84,7 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">All crops — production</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestAllProdnDate})`}
                     value={stats.latestAllProdn}
                     size="large"
                     align="right"
@@ -87,7 +94,7 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
             <Div className="stat-cell grid-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Foodgrains — production</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestYear})`}
+                    label={`Latest (${stats.latestFoodGrainsDate})`}
                     value={stats.latestFoodGrains}
                     size="large"
                     align="right"

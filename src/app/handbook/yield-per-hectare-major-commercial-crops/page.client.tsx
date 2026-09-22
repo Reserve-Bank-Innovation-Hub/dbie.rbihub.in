@@ -12,6 +12,7 @@ import YieldPerHectareMajorCommercialCropsChart from "@/components/charts/YieldP
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { YieldPerHectareMajorCommercialCrops } from "@/lib/api/tables/yield-per-hectare-major-commercial-crops";
 
 // STYLES ==============================================================================================================
@@ -24,13 +25,19 @@ const YieldPerHectareMajorCommercialCropsPage : React.FC<YieldPerHectareMajorCom
     const latest = tableData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestOilseedsRow = newestWith(tableData.data, (r) => r.totalOilseeds);
+        const latestSugarcaneRow = newestWith(tableData.data, (r) => r.sugarcane);
         const fmt = (v : number | null) => (v == null ? "—" : v.toLocaleString("en-IN"));
         return {
-            latestYear       : latest?.year || "—",
-            latestOilseeds   : fmt(latest?.totalOilseeds ?? null),
-            latestSugarcane  : fmt(latest?.sugarcane ?? null),
+            latestYear          : latest?.year || "—",
+            latestOilseeds      : fmt(latestOilseedsRow?.totalOilseeds ?? null),
+            latestOilseedsDate  : latestOilseedsRow?.year || "—",
+            latestSugarcane     : fmt(latestSugarcaneRow?.sugarcane ?? null),
+            latestSugarcaneDate : latestSugarcaneRow?.year || "—",
         };
-    }, [ latest ]);
+    }, [ latest, tableData ]);
 
     return (
         <Article id="yield-per-hectare-major-commercial-crops-page" className="page-grid">

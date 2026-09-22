@@ -12,6 +12,7 @@ import ScbInvestmentsChart from "@/components/charts/ScbInvestmentsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { ScbInvestments } from "@/lib/api/tables/scb-investments";
 
 
@@ -24,6 +25,9 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
     const latest = data.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const latestSlrRow = newestWith(data.data, (r) => r.slr);
         const fmt = (v : number | null) =>
             v == null ? "—" : `₹${v.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Cr`;
 
@@ -38,11 +42,12 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
 
         return {
             latestFortnight : latest?.fortnight ?? "—",
-            latestSlr       : fmt(latest?.slr ?? null),
+            latestSlr       : fmt(latestSlrRow?.slr ?? null),
+            latestSlrDate   : latestSlrRow?.fortnight || "—",
             latestTotal     : latestTotal != null ? fmt(latestTotal) : "—",
             totalRecords    : data.data.length,
         };
-    }, [ latest, data.columns ]);
+    }, [ latest, data.columns, data ]);
 
     return (
         <Article id="scb-investments-page" className="page-grid">
@@ -80,7 +85,7 @@ const ScbInvestmentsPageClient : React.FC<ScbInvestmentsPageClientProps> = ({ da
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">SLR securities</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestFortnight})`}
+                    label={`Latest (${stats.latestSlrDate})`}
                     value={stats.latestSlr}
                     size="large"
                     align="right"

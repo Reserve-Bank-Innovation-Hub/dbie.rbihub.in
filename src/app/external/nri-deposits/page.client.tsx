@@ -12,6 +12,7 @@ import NriDepositsChart from "@/components/charts/NriDepositsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
 // LIB =================================================================================================================
+import { newestWith } from "@/lib/tables/latest";
 import { NriDeposits } from "@/lib/api/tables/nri-deposits";
 
 
@@ -33,15 +34,23 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
     const latest = depositsData.data[0];
 
     const stats = useMemo(() => {
+        // Each card takes the newest row that carries its own field: DBIE can publish one column a period
+        // behind the rest, and a card off row 0 would read "—" (src/lib/tables/latest.ts).
+        const outstandingTotalRow = newestWith(depositsData.data, (r) => r.outstanding_total);
+        const fcnrbRow = newestWith(depositsData.data, (r) => r.outstanding_fcnrb);
+        const nreraRow = newestWith(depositsData.data, (r) => r.outstanding_nrera);
         const usd = (v : number | null) =>
             v == null ? "—" : `US$ ${v.toLocaleString("en-IN", { maximumFractionDigits: 0 })} mn`;
         return {
-            latestMonth      : formatMonth(latest?.month ?? ""),
-            outstandingTotal : usd(latest?.outstanding_total ?? null),
-            fcnrb            : usd(latest?.outstanding_fcnrb ?? null),
-            nrera            : usd(latest?.outstanding_nrera ?? null),
+            latestMonth          : formatMonth(latest?.month ?? ""),
+            outstandingTotal     : usd(outstandingTotalRow?.outstanding_total ?? null),
+            outstandingTotalDate : formatMonth(outstandingTotalRow?.month ?? ""),
+            fcnrb                : usd(fcnrbRow?.outstanding_fcnrb ?? null),
+            fcnrbDate            : formatMonth(fcnrbRow?.month ?? ""),
+            nrera                : usd(nreraRow?.outstanding_nrera ?? null),
+            nreraDate            : formatMonth(nreraRow?.month ?? ""),
         };
-    }, [latest]);
+    }, [ latest, depositsData ]);
 
     return (
         <Article id="nri-deposits-page" className="page-grid">
@@ -86,7 +95,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">Total NRI outstanding</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.outstandingTotalDate})`}
                     value={stats.outstandingTotal}
                     size="large"
                     align="right"
@@ -96,7 +105,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">FCNR(B) outstanding</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.fcnrbDate})`}
                     value={stats.fcnrb}
                     size="large"
                     align="right"
@@ -106,7 +115,7 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             <Div className="grid-cell stat-cell" padding="micro">
                 <Text weight="600" marginBottom="nano">NR(E)RA outstanding</Text>
                 <DataUnit
-                    label={`Latest (${stats.latestMonth})`}
+                    label={`Latest (${stats.nreraDate})`}
                     value={stats.nrera}
                     size="large"
                     align="right"
