@@ -1,0 +1,91 @@
+/* The sparkline is the card's background: it spans the cell edge to edge, under the card's own
+   padding, and the text sits on top of it. It is positioned against the grid cell, which is the
+   nearest positioned ancestor, so the card's padding does not inset it. */
+.stat-tile-spark {
+    position       : absolute;
+    left           : 0;
+    right          : 0;
+    bottom         : 0;
+    height         : 56%;
+    z-index        : 0;
+    pointer-events : none;
+}
+
+.stat-tile-spark svg {
+    display : block;
+    width   : 100%;
+    height  : 100%;
+}
+
+.stat-tile-spark-dot {
+    position      : absolute;
+    right         : 0;
+    width         : 6px;
+    height        : 6px;
+    margin-bottom : -3px;
+    border-radius : 50%;
+    box-shadow    : 0 0 0 2px #ffffff;
+}
+
+/* The text layer fills its cell and sits above the sparkline. */
+.stat-tile {
+    position        : relative;
+    z-index         : 1;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    gap             : 8px;
+    height          : 100%;
+    min-width       : 0;
+}
+
+.stat-tile-label {
+    display     : flex;
+    flex-wrap   : wrap;
+    align-items : baseline;
+    gap         : 0 8px;
+    margin      : 0;
+    font-size   : 12px;
+    line-height : 1.3;
+    color       : #5c5b57;
+}
+
+.stat-tile-period {
+    font-size            : 11px;
+    color                : #6f6e69;
+    font-variant-numeric : tabular-nums;
+}
+
+/* Proportional figures on purpose: tabular digits make a large number look loose. */
+.stat-tile-value {
+    display     : flex;
+    align-items : baseline;
+    gap         : 6px;
+    margin      : 4px 0 0;
+    font-size   : 32px;
+    font-weight : 600;
+    line-height : 1.1;
+    color       : #2e2e2e;
+}
+
+.stat-tile-unit {
+    font-size   : 12px;
+    font-weight : 400;
+    color       : #5c5b57;
+}
+
+/* Dark enough to clear 4.5:1 over the strongest part of the sparkline fill behind it. */
+.stat-tile-change {
+    display     : inline-flex;
+    align-items : center;
+    gap         : 4px;
+    margin      : 0;
+    font-size   : 11px;
+    line-height : 1.2;
+    color       : #5c5b57;
+}
+
+.stat-tile-change svg {
+    flex-shrink : 0;
+    stroke      : #5c5b57;
+}
