@@ -4,7 +4,7 @@
 import { ReactNode } from "react";
 
 // UI ==================================================================================================================
-import { Main, ThemeProvider } from "fictoan-react";
+import { Div, Main, ThemeProvider } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { Analytics } from "@components/Analytics/Analytics";
@@ -24,9 +24,13 @@ export const RootLayoutClient = ({children} : { children : ReactNode }) => {
             currentTheme="theme-light"
             storageKey="dbie-theme"
         >
-            <PrimaryNav />
+            {/* The frame: the primary nav's column, then the page. A page that renders more than one root element
+                still lands in one grid cell, since the Main is that cell. */}
+            <Div id="dbie-layout">
+                <PrimaryNav />
 
-            <Main id="component-main">{children}</Main>
+                <Main id="dbie-content">{children}</Main>
+            </Div>
 
             <Analytics />
         </ThemeProvider>

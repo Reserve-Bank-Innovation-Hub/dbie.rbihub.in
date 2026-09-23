@@ -1,20 +1,41 @@
 #primary-nav {
-    position         : fixed;
-    width            : var(--primary-nav-width);
-    height           : 100vh;
-    top              : 0;
-    z-index          : 4900;
-    overflow         : hidden;
-    background-color : var(--primary-nav-bg);
-    border-right     : 1px solid var(--primary-nav-border);
-    transition       : width 0.2s ease-in-out;
-    display          : flex;
-    flex-direction   : column;
-    justify-content  : space-between;
-    padding          : 8px 0 24px 0;
+    /* The column of the frame's grid (layout.css): as wide as the rail, sticky for the viewport's height, so it holds
+       still while the page scrolls. align-self keeps the grid from stretching it to the row's full height, which would
+       leave a sticky element nowhere to stick. */
+    position   : sticky;
+    top        : 0;
+    height     : 100vh;
+    align-self : start;
+    width      : var(--primary-nav-width);
+    z-index    : 4900;
 
-    &:hover {
+    /* The rail itself, drawn inside the column: absolutely positioned, so widening it on hover lays it over the page
+       instead of widening the column and moving the page. It is its own stacking context so that an item's active
+       and hover tint, a pseudo-element at z-index -1, paints above the rail's background rather than under it. */
+    #primary-nav-wrapper {
+        position         : absolute;
+        top              : 0;
+        left             : 0;
+        bottom           : 0;
+        width            : var(--primary-nav-width);
+        overflow         : hidden;
+        isolation        : isolate;
+        background-color : var(--primary-nav-bg);
+        transition       : width 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        display          : flex;
+        flex-direction   : column;
+        justify-content  : space-between;
+        padding          : 8px 0 24px 0;
+    }
+
+    &:hover #primary-nav-wrapper {
         width : 200px;
+    }
+
+    /* The rail carries fictoan's shadow-soft class, so the shadow's values stay fictoan's; it shows only while the
+       widened rail lays over the page. */
+    &:not(:hover) #primary-nav-wrapper.shadow-soft {
+        box-shadow : none;
     }
 
     .links-group {

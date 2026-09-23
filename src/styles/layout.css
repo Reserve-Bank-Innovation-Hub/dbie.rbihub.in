@@ -5,13 +5,24 @@
     position   : relative;
 }
 
-/* POST LOGIN MAIN CONTENT PAGES ============================================ */
-#component-main {
-    margin-left : var(--primary-nav-width);
+/* THE FRAME: THE PRIMARY NAV'S COLUMN, THEN THE PAGE =================================================================
+   The nav is a grid item, not a fixed element the page has to leave a margin for; primary-nav.css makes it sticky
+   for the viewport's height. The 1px gap is the seam between the nav and the page, as between any two cells. */
+#dbie-layout {
+    display               : grid;
+    grid-template-columns : var(--primary-nav-width) 1fr;
+    gap                   : 1px;
+    min-height            : 100vh;
 
+    /* The nav hides at this width (primary-nav.css), so its column goes too */
     @media (max-width : 1024px) {
-        margin-left : 0;
+        grid-template-columns : 1fr;
     }
+}
+
+/* A grid item's min-width is auto, so a wide page grid inside would push the column out past the viewport */
+#dbie-content {
+    min-width : 0;
 }
 
 /* CONTENT AREA THAT MIGHT HAVE ITS OWN SIDEBAR ============================= */
