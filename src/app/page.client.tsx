@@ -4,7 +4,7 @@
 import React from "react";
 
 // UI ==================================================================================================================
-import { Article, Heading6, Heading4, Div, Text } from "fictoan-react";
+import { Article, Heading6, Heading4, Div, Text, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
@@ -17,7 +17,8 @@ import { StatTile } from "@/components/StatTile/StatTile";
 import { FieldLines } from "@components/FieldLines/FieldLines";
 
 // CHART CONFIG ========================================================================================================
-import { CHART_COLORS, CHART_INK } from "@/components/charts/chartConfig";
+import { CHART_COLORS, chartInk } from "@/components/charts/chartConfig";
+import { SCHEMES } from "@/components/charts/schemes";
 
 // LIB =================================================================================================================
 import { HomePayload } from "@/lib/api/home";
@@ -35,6 +36,10 @@ const MCLR_WASH = "rgba(151, 98, 253, 0.14)";
 const DEPOSIT_WASH = "rgba(3, 158, 147, 0.14)";
 
 const HomePage : React.FC<HomePageProps> = ({home}) => {
+    // The page's theme, for the few series drawn in the ink rather than a hue.
+    const [ theme ] = useTheme();
+    const ink = chartInk(theme);
+
     const series = (chart : { series : { key : string; label : string; values : (number | null)[] }[] }, key : string) =>
         chart.series.find(s => s.key === key)!;
 
@@ -101,7 +106,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                         dates={home.charts.gdp.dates}
                         series={[
                             {...series(home.charts.gdp, "real"), type : "bar", colourBySign : true},
-                            {...series(home.charts.gdp, "nominal"), color : CHART_INK.deemphasis, width : 1.5},
+                            {...series(home.charts.gdp, "nominal"), width : 1.5},
                         ]}
                         title="Real GDP growth, quarterly"
                         yAxisTitle="% year-on-year"
@@ -111,6 +116,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                         exportName="gdp"
                         rangeButtons={[ "1Y", "5Y", "10Y", "All" ]}
                         showRangeSlider={false}
+                        scheme={SCHEMES.gdp}
                         height="fill"
                     />
                 </Div>
@@ -128,7 +134,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                             {...series(home.charts.contributions, "gfcf"),  type : "bar", stack : "gdp"},
                             {...series(home.charts.contributions, "netex"), type : "bar", stack : "gdp"},
                             {...series(home.charts.contributions, "other"), type : "bar", stack : "gdp"},
-                            {...series(home.charts.contributions, "total"), color : CHART_INK.primary, markers : true, width : 2},
+                            {...series(home.charts.contributions, "total"), color : ink.primary, markers : true, width : 2},
                         ]}
                         title="Contributions to GDP growth, quarterly"
                         yAxisTitle="Percentage points of year-on-year growth"
@@ -302,7 +308,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                                 type         : "bar",
                                 colourBySign : true,
                             },
-                            {...series(home.charts.liquidity, "net"), color : CHART_INK.deemphasis, width : 1},
+                            {...series(home.charts.liquidity, "net"), color : ink.deemphasis, width : 1},
                         ]}
                         title="Liquidity operations"
                         yAxisTitle="₹ lakh crore"
@@ -476,7 +482,7 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                         series={[
                             {...series(home.charts.flows, "fdi"), type : "bar", stack : "flows"},
                             {...series(home.charts.flows, "portfolio"), type : "bar", stack : "flows"},
-                            {...series(home.charts.flows, "rolling12"), color : CHART_INK.secondary, width : 2},
+                            {...series(home.charts.flows, "rolling12"), color : ink.secondary, width : 2},
                         ]}
                         title="Foreign investment flows, monthly"
                         yAxisTitle="US$ billion"

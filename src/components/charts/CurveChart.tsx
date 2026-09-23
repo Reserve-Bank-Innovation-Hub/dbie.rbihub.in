@@ -4,9 +4,12 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // CHART CONFIG ========================================================================================================
 import {
-    CHART_FONTS, CHART_INK, PALETTE,
+    CHART_FONTS, ChartSchemeLayer, resolveScheme,
     bottomLegend, legendBandHeight, legendRowCount,
     getBaseLayout, getBaseConfig, createTitle, createAxis,
 } from "./chartConfig";
@@ -39,6 +42,7 @@ interface CurveChartProps {
     valueDecimals ? : number;
     valueSuffix   ? : string;
     exportName    ? : string;
+    scheme        ? : ChartSchemeLayer;   // this chart's own colours, over its kind's and the base
 }
 
 const CurveChart : React.FC<CurveChartProps> = ({
@@ -51,9 +55,14 @@ const CurveChart : React.FC<CurveChartProps> = ({
     valueDecimals = 2,
     valueSuffix = "",
     exportName,
+    scheme,
 }) => {
+    const [ theme ] = useTheme();
+
     const [ frame, frameWidth ] = useChartWidth();
     const legendRows = legendRowCount(curves.map(c => c.label), frameWidth);
+    const palette = useMemo(() => resolveScheme("curve", scheme, theme), [ scheme, theme ]);
+    const colourOf = (c : CurveChartCurve, idx : number) : string => c.color ?? palette.seriesByKey[c.key] ?? palette.series[idx % palette.series.length];
 
     const traces = useMemo<Partial<Plotly.PlotData>[]>(() => curves.map((c, idx) => ({
         x             : categories,
@@ -62,14 +71,14 @@ const CurveChart : React.FC<CurveChartProps> = ({
         type          : "scatter",
         mode          : "lines+markers",
         connectgaps   : false,
-        line          : {color : c.color ?? PALETTE[idx % PALETTE.length], width : 2},
+        line          : {color : colourOf(c, idx), width : 2},
         marker        : {
-            color : c.color ?? PALETTE[idx % PALETTE.length],
+            color : colourOf(c, idx),
             size  : 8,
-            line  : {color : CHART_INK.paper, width : 2},
+            line  : {color : palette.ink.paper, width : 2},
         },
         hovertemplate : `<b>${c.label}</b><br>%{x}<br>%{y:.${valueDecimals}f}${valueSuffix}<extra></extra>`,
-    })), [ categories, curves, valueDecimals, valueSuffix ]);
+    })), [ categories, curves, valueDecimals, valueSuffix, palette ]);
 
     // Each curve labelled where it ends, in the text colour beside its own coloured marker.
     const annotations = useMemo<Partial<Plotly.Annotations>[]>(() => {
@@ -89,22 +98,22 @@ const CurveChart : React.FC<CurveChartProps> = ({
                 yanchor   : "middle",
                 xshift    : 10,
                 showarrow : false,
-                font      : {...CHART_FONTS.axis, color : CHART_INK.secondary},
+                font      : {...CHART_FONTS.axis, color : palette.ink.secondary},
             });
         }
         return notes;
-    }, [ categories, curves, valueDecimals, valueSuffix ]);
+    }, [ categories, curves, valueDecimals, valueSuffix, palette ]);
 
     const layout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        ...(title ? {title : createTitle(title, titleFontSize(frameWidth))} : {}),
-        xaxis      : createAxis(xAxisTitle, {type : "category"}),
-        yaxis      : createAxis(yAxisTitle),
+        ...(title ? {title : createTitle(title, titleFontSize(frameWidth), theme)} : {}),
+        xaxis      : createAxis(xAxisTitle, {type : "category"}, theme),
+        yaxis      : createAxis(yAxisTitle, undefined, theme),
         showlegend : curves.length > 1,
         // Pinned to the card's own bottom edge, so it lands in the same place at any card height.
-        legend    : bottomLegend(frameWidth),
+        legend    : bottomLegend(frameWidth, theme),
         annotations,
         margin     : {t : 60, b : 44 + legendBandHeight(legendRows, frameWidth), l : 72, r : 72},
-    }), [ title, xAxisTitle, yAxisTitle, curves.length, annotations, frameWidth ]);
+    }, theme), [ title, xAxisTitle, yAxisTitle, curves.length, annotations, frameWidth, theme ]);
 
     const config = useMemo(
         () => getBaseConfig(exportName ?? (title ?? "curve").toLowerCase().replace(/\s+/g, "-")),

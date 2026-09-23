@@ -4,15 +4,17 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // CHART CONFIG ========================================================================================================
 import {
-    CHART_FONTS, CHART_INK, DIVERGING, PALETTE,
+    CHART_FONTS, ChartSchemeLayer, resolveScheme,
     bottomLegend, legendBandHeight, legendRowCount,
     getBaseLayout, getBaseConfig, createTitle, createAxis,
 } from "./chartConfig";
 import { titleFontSize, useChartWidth } from "./useChartWidth";
 
-// OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
 
 // Dynamic import to avoid SSR issues with Plotly
@@ -22,69 +24,69 @@ const Plot = dynamic(() => import("react-plotly.js"), {ssr : false});
 // y-axis — never two. Pages adapt their payloads to this shape; series toggling uses
 // Plotly's legend (click to hide/show, double-click to isolate) — series beyond
 // `defaultVisible` start as legend-only entries.
-//
 // Everything past a plain line chart is opt-in through props, so existing callers keep the
 // behaviour they had: columns and stacks, a shaded y-range, a reference line, a fill between
 // two series, an area split by sign, and one series held in the accent with the rest greyed.
 
 export interface TimeSeriesChartSeries {
-    key             : string;
-    label           : string;
-    values          : (number | null)[];
-    color         ? : string;
-    dash          ? : "solid" | "dot" | "dash" | "longdash" | "dashdot" | "longdashdot";
-    dates         ? : string[];          // this series' own x positions, when they differ from the chart's
-    type          ? : "line" | "bar";    // default line
-    colourBySign  ? : boolean;           // bars/area split into the diverging pair by sign
-    stack         ? : string;            // bar stack group; negatives stack below zero
-    areaStack     ? : string;            // stacked-area group (scatter traces)
-    fillToZero    ? : boolean;           // fill between the series and the zero line, split by sign
-    width         ? : number;            // line width, px
-    markers       ? : boolean;           // draw a dot at every point as well as the line
+    key : string;
+    label : string;
+    values : (number | null)[];
+    color? : string;
+    dash? : "solid" | "dot" | "dash" | "longdash" | "dashdot" | "longdashdot";
+    dates? : string[];          // this series' own x positions, when they differ from the chart's
+    type? : "line" | "bar";    // default line
+    colourBySign? : boolean;           // bars/area split into the diverging pair by sign
+    stack? : string;            // bar stack group; negatives stack below zero
+    areaStack? : string;            // stacked-area group (scatter traces)
+    fillToZero? : boolean;           // fill between the series and the zero line, split by sign
+    width? : number;            // line width, px
+    markers? : boolean;           // draw a dot at every point as well as the line
     hideFromLegend? : boolean;           // plotted, but not its own legend entry
     endLabelPrefix? : string;            // prefix for this series' direct label, e.g. "Total "
-    noEndLabel    ? : boolean;           // never direct-label this series
+    noEndLabel? : boolean;           // never direct-label this series
 }
 
 export interface TimeSeriesBand {
-    from     : number;
-    to       : number;
-    label  ? : string;
-    colour ? : string;
+    from : number;
+    to : number;
+    label? : string;
+    colour? : string;
 }
 
 export interface TimeSeriesReferenceLine {
-    value    : number;
-    label  ? : string;
-    colour ? : string;
+    value : number;
+    label? : string;
+    colour? : string;
 }
 
 export interface TimeSeriesAreaBetween {
-    lower    : string;    // series key
-    upper    : string;    // series key
-    colour ? : string;
+    lower : string;    // series key
+    upper : string;    // series key
+    colour? : string;
 }
 
 interface TimeSeriesChartProps {
-    dates              : string[];                  // ISO YYYY-MM-DD, aligned with every series' values
-    series             : TimeSeriesChartSeries[];
-    title            ? : string;
-    yAxisTitle       ? : string;
-    height           ? : number | "fill";           // px, or "fill" to track the parent's height
-    valueDecimals    ? : number;                    // hover precision
-    valueSuffix      ? : string;                    // e.g. "%" appended in hover
-    defaultVisible   ? : string[];                  // series keys plotted initially; others start legend-only
-    exportName       ? : string;                    // download-as-image filename
+    dates : string[];                  // ISO YYYY-MM-DD, aligned with every series' values
+    series : TimeSeriesChartSeries[];
+    title? : string;
+    yAxisTitle? : string;
+    height? : number | "fill";           // px, or "fill" to track the parent's height
+    valueDecimals? : number;                    // hover precision
+    valueSuffix? : string;                    // e.g. "%" appended in hover
+    defaultVisible? : string[];                  // series keys plotted initially; others start legend-only
+    exportName? : string;                    // download-as-image filename
     defaultRangeYears? : number | null;             // opening x window, in years back from the newest date
-    endLabels        ? : boolean;                   // direct-label each visible series' last value
-    maxEndLabels     ? : number;                    // above this many visible series the labels would collide
-    bands            ? : TimeSeriesBand[];          // shaded y ranges
-    referenceLines   ? : TimeSeriesReferenceLine[]; // horizontal lines with a label
-    areaBetween      ? : TimeSeriesAreaBetween[];   // fill between two of the series
-    emphasis         ? : string[];                  // these keys in the accent, the rest in the de-emphasis grey
-    showZeroLine     ? : boolean;                   // default: on as soon as any value is negative
-    showRangeSlider  ? : boolean;                   // the strip under the plot; the buttons stay either way
-    rangeButtons     ? : string[];                  // which range presets to offer, by label
+    endLabels? : boolean;                   // direct-label each visible series' last value
+    maxEndLabels? : number;                    // above this many visible series the labels would collide
+    bands? : TimeSeriesBand[];          // shaded y ranges
+    referenceLines? : TimeSeriesReferenceLine[]; // horizontal lines with a label
+    areaBetween? : TimeSeriesAreaBetween[];   // fill between two of the series
+    emphasis? : string[];                  // these keys in the accent, the rest in the de-emphasis grey
+    showZeroLine? : boolean;                   // default: on as soon as any value is negative
+    showRangeSlider? : boolean;                   // the strip under the plot; the buttons stay either way
+    rangeButtons? : string[];                  // which range presets to offer, by label
+    scheme? : ChartSchemeLayer;      // this chart's own colours, over its kind's and the base (chartConfig.ts)
 }
 
 // Series beyond this many start legend-only unless defaultVisible says otherwise.
@@ -96,10 +98,10 @@ const DEFAULT_RANGE_YEARS = 10;
 // The range presets, longest window last. A caller can take a subset: "3M" means nothing on a
 // series that reports once a quarter.
 const RANGE_BUTTONS : Partial<Plotly.RangeSelectorButton>[] = [
-    {count : 3,  label : "3M",  step : "month", stepmode : "backward"},
-    {count : 1,  label : "1Y",  step : "year",  stepmode : "backward"},
-    {count : 5,  label : "5Y",  step : "year",  stepmode : "backward"},
-    {count : 10, label : "10Y", step : "year",  stepmode : "backward"},
+    {count : 3, label : "3M", step : "month", stepmode : "backward"},
+    {count : 1, label : "1Y", step : "year", stepmode : "backward"},
+    {count : 5, label : "5Y", step : "year", stepmode : "backward"},
+    {count : 10, label : "10Y", step : "year", stepmode : "backward"},
     {step : "all", label : "All"},
 ];
 
@@ -139,7 +141,17 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
     showZeroLine,
     showRangeSlider = true,
     rangeButtons,
+    scheme,
 }) => {
+    const [ theme ] = useTheme();
+
+    // The colours this chart draws with: the base, its kind's (columns when any series is drawn as bars, lines
+    // otherwise), and its own.
+    const palette = useMemo(
+        () => resolveScheme(series.some(s => s.type === "bar") ? "column" : "line", scheme, theme),
+        [ series, scheme, theme ],
+    );
+
     // The legend wraps against the plot's real width and the title has to fit inside it, so the
     // card is measured: a full-width card holds a legend a half-width card would wrap onto three
     // rows, and a title it would clip.
@@ -155,21 +167,29 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         return new Set(series.slice(0, MAX_DEFAULT_VISIBLE).map(s => s.key));
     }, [ defaultVisible, series ]);
 
-    // Colour by slot, in order — except where the caller names an accent set, where the named
-    // series take the first slot and everything else recedes into grey.
+    // Colour by identity where the scheme names the series, else by slot, in order — except where the caller names
+    // an accent set, where the first named series takes the emphasis hue, the next ones the slots after it, and
+    // everything else recedes into the de-emphasis grey. A colour set on the series itself wins over all of it.
     const colourOf = useMemo(() => {
         const map = new Map<string, string>();
         series.forEach((s, idx) => {
-            if (s.color) { map.set(s.key, s.color); return; }
-            if (emphasis && emphasis.length > 0) {
-                const rank = emphasis.indexOf(s.key);
-                map.set(s.key, rank >= 0 ? PALETTE[rank % PALETTE.length] : CHART_INK.deemphasis);
+            if (s.color) {
+                map.set(s.key, s.color);
                 return;
             }
-            map.set(s.key, PALETTE[idx % PALETTE.length]);
+            if (palette.seriesByKey[s.key]) {
+                map.set(s.key, palette.seriesByKey[s.key]);
+                return;
+            }
+            if (emphasis && emphasis.length > 0) {
+                const rank = emphasis.indexOf(s.key);
+                map.set(s.key, rank < 0 ? palette.deemphasis : rank === 0 ? palette.emphasis : palette.series[rank % palette.series.length]);
+                return;
+            }
+            map.set(s.key, palette.series[idx % palette.series.length]);
         });
         return map;
-    }, [ series, emphasis ]);
+    }, [ series, emphasis, palette ]);
 
     const hasNegative = useMemo(
         () => series.some(s => s.values.some(v => isNumber(v) && v < 0)),
@@ -222,7 +242,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                 mode        : "lines",
                 line        : {width : 0},
                 fill        : "tonexty",
-                fillcolor   : pair.colour ?? CHART_INK.areaBetween,
+                fillcolor   : pair.colour ?? palette.ink.areaBetween,
                 hoverinfo   : "skip",
                 showlegend  : false,
                 connectgaps : false,
@@ -240,8 +260,8 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                 const side = (keep : (v : number) => boolean) =>
                     p.y.map(v => (isNumber(v) && keep(v) ? v : null));
                 for (const [ values, fill ] of [
-                    [ side(v => v >= 0), DIVERGING.coolFill ],
-                    [ side(v => v <= 0), DIVERGING.warmFill ],
+                    [ side(v => v >= 0), palette.positiveSteps[0] ],
+                    [ side(v => v <= 0), palette.negativeSteps[0] ],
                 ] as [ (number | null)[], string ][]) {
                     out.push({
                         x           : p.x,
@@ -267,7 +287,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                     legendgroup   : s.key,
                     visible,
                     connectgaps   : false,
-                    line          : {color : s.color ?? CHART_INK.secondary, width : s.width ?? 2},
+                    line          : {color : s.color ?? palette.ink.secondary, width : s.width ?? 2},
                     hovertemplate : hover(s.label),
                 });
                 continue;
@@ -278,19 +298,19 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                 const marker = (fill : string | string[]) => ({
                     color        : fill,
                     cornerradius : 4,
-                    ...(s.stack ? {line : {color : CHART_INK.surface, width : 1}} : {}),
+                    ...(s.stack ? {line : {color : palette.ink.surface, width : 1}} : {}),
                 } as unknown as Partial<Plotly.PlotMarker>);
                 out.push({
-                    x             : p.x,
-                    y             : p.y,
-                    name          : s.label,
-                    type          : "bar",
-                    legendgroup   : s.key,
+                    x           : p.x,
+                    y           : p.y,
+                    name        : s.label,
+                    type        : "bar",
+                    legendgroup : s.key,
                     ...(s.hideFromLegend ? {showlegend : false} : {}),
                     visible,
                     ...(s.stack ? {offsetgroup : s.stack} : {}),
                     marker        : marker(s.colourBySign
-                        ? p.y.map(v => (isNumber(v) && v < 0 ? DIVERGING.warm : DIVERGING.cool))
+                        ? p.y.map(v => (isNumber(v) && v < 0 ? palette.negative : palette.positive))
                         : colour),
                     hovertemplate : hover(s.label),
                 });
@@ -299,16 +319,20 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
 
             // Plain line, or one layer of a stacked area.
             out.push({
-                x             : p.x,
-                y             : p.y,
-                name          : s.label,
-                type          : "scatter",
-                mode          : s.markers ? "lines+markers" : "lines",
-                ...(s.markers ? {marker : {color : colour, size : 6, line : {color : CHART_INK.paper, width : 1.5}}} : {}),
-                legendgroup   : s.key,
+                x    : p.x,
+                y    : p.y,
+                name : s.label,
+                type : "scatter",
+                mode : s.markers ? "lines+markers" : "lines",
+                ...(s.markers ? {
+                    marker : {
+                        color : colour, size : 6, line : {color : palette.ink.paper, width : 1.5},
+                    },
+                } : {}),
+                legendgroup : s.key,
                 ...(s.hideFromLegend ? {showlegend : false} : {}),
                 visible,
-                connectgaps   : false,
+                connectgaps : false,
                 ...(s.areaStack
                     ? {stackgroup : s.areaStack, fillcolor : colour + "33", line : {color : colour, width : 1.5}}
                     : {line : {color : colour, width : s.width ?? 2, ...(s.dash ? {dash : s.dash} : {})}}),
@@ -317,10 +341,10 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         }
 
         return out;
-    }, [ series, points, colourOf, visibleKeys, valueDecimals, valueSuffix, areaBetween ]);
+    }, [ series, points, colourOf, visibleKeys, valueDecimals, valueSuffix, areaBetween, palette ]);
 
     // The x extent across every series, and the opening window inside it.
-    const { fullRange, openingRange } = useMemo(() => {
+    const {fullRange, openingRange} = useMemo(() => {
         let min : string | null = null, max : string | null = null;
         for (const p of points.values()) {
             if (p.x.length === 0) continue;
@@ -336,11 +360,13 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
 
     // Direct labels: the last value of each visible series, in the text colour with a dot in the
     // series colour at the line end. Dropped once too many series would stack their labels.
-    const { endDots, endAnnotations } = useMemo(() => {
+    const {endDots, endAnnotations} = useMemo(() => {
         const dots : Partial<Plotly.PlotData>[] = [];
         const notes : Partial<Plotly.Annotations>[] = [];
         const eligible = series.filter(s => visibleKeys.has(s.key) && !s.noEndLabel && s.type !== "bar");
-        if (!endLabels || eligible.length === 0 || eligible.length > maxEndLabels) return {endDots : dots, endAnnotations : notes};
+        if (!endLabels || eligible.length === 0 || eligible.length > maxEndLabels) return {
+            endDots : dots, endAnnotations : notes,
+        };
 
         // A stacked area is read at its top edge, so only the last layer is labelled — with the
         // running total, which is what the top edge actually is.
@@ -362,12 +388,22 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         }
         const minGap = Number.isFinite(lo) && Number.isFinite(hi) ? (hi - lo) * 0.07 : 0;
 
-        interface Candidate { key : string; x : string; y : number; rank : number; series : TimeSeriesChartSeries }
+        interface Candidate {
+            key : string;
+            x : string;
+            y : number;
+            rank : number;
+            series : TimeSeriesChartSeries;
+        }
+
         const candidates : Candidate[] = [];
         for (const s of labelled) {
             const p = points.get(s.key)!;
             let at = -1;
-            for (let i = p.y.length - 1; i >= 0; i--) if (isNumber(p.y[i])) { at = i; break; }
+            for (let i = p.y.length - 1; i >= 0; i--) if (isNumber(p.y[i])) {
+                at = i;
+                break;
+            }
             if (at < 0) continue;
             const y = s.areaStack
                 ? stacked.reduce((total, layer) => {
@@ -378,7 +414,9 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                 : (p.y[at] as number);
             // An emphasised series keeps its label first; otherwise the series order decides.
             const accent = emphasis ? emphasis.indexOf(s.key) : -1;
-            candidates.push({key : s.key, x : p.x[at], y, rank : accent >= 0 ? accent : 100 + series.indexOf(s), series : s});
+            candidates.push({
+                key : s.key, x : p.x[at], y, rank : accent >= 0 ? accent : 100 + series.indexOf(s), series : s,
+            });
         }
 
         const kept : Candidate[] = [];
@@ -390,15 +428,15 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
         for (const c of kept) {
             const colour = colourOf.get(c.key)!;
             dots.push({
-                x          : [ c.x ],
-                y          : [ c.y ],
-                type       : "scatter",
-                mode       : "markers",
-                marker     : {color : colour, size : 8, line : {color : CHART_INK.paper, width : 2}},
-                hoverinfo  : "skip",
-                showlegend : false,
-                legendgroup: c.key,
-                visible    : true,
+                x           : [ c.x ],
+                y           : [ c.y ],
+                type        : "scatter",
+                mode        : "markers",
+                marker      : {color : colour, size : 8, line : {color : palette.ink.paper, width : 2}},
+                hoverinfo   : "skip",
+                showlegend  : false,
+                legendgroup : c.key,
+                visible     : true,
             });
             notes.push({
                 x         : c.x,
@@ -408,11 +446,11 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
                 yanchor   : "middle",
                 xshift    : 8,
                 showarrow : false,
-                font      : {...CHART_FONTS.axis, color : CHART_INK.secondary},
+                font      : {...CHART_FONTS.axis, color : palette.ink.secondary},
             });
         }
         return {endDots : dots, endAnnotations : notes};
-    }, [ series, points, colourOf, visibleKeys, endLabels, maxEndLabels, valueDecimals, valueSuffix, emphasis ]);
+    }, [ series, points, colourOf, visibleKeys, endLabels, maxEndLabels, valueDecimals, valueSuffix, emphasis, palette ]);
 
     const shapes = useMemo<Partial<Plotly.Shape>[]>(() => [
         ...(bands ?? []).map(b => ({
@@ -423,7 +461,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             x1        : 1,
             y0        : b.from,
             y1        : b.to,
-            fillcolor : b.colour ?? CHART_INK.band,
+            fillcolor : b.colour ?? palette.ink.band,
             line      : {width : 0},
             layer     : "below" as const,
         })),
@@ -435,10 +473,10 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             x1    : 1,
             y0    : r.value,
             y1    : r.value,
-            line  : {color : r.colour ?? CHART_INK.muted, width : 1},
+            line  : {color : r.colour ?? palette.ink.muted, width : 1},
             layer : "below" as const,
         })),
-    ], [ bands, referenceLines ]);
+    ], [ bands, referenceLines, palette ]);
 
     const annotations = useMemo<Partial<Plotly.Annotations>[]>(() => [
         ...(bands ?? []).filter(b => b.label).map(b => ({
@@ -450,7 +488,7 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             xanchor   : "left" as const,
             yanchor   : "bottom" as const,
             showarrow : false,
-            font      : {...CHART_FONTS.axis, size : 11, color : CHART_INK.muted},
+            font      : {...CHART_FONTS.axis, size : 11, color : palette.ink.muted},
         })),
         ...(referenceLines ?? []).filter(r => r.label).map(r => ({
             xref      : "paper" as const,
@@ -461,49 +499,51 @@ const TimeSeriesChart : React.FC<TimeSeriesChartProps> = ({
             xanchor   : "left" as const,
             yanchor   : "bottom" as const,
             showarrow : false,
-            font      : {...CHART_FONTS.axis, size : 11, color : CHART_INK.muted},
+            font      : {...CHART_FONTS.axis, size : 11, color : palette.ink.muted},
         })),
         ...endAnnotations,
-    ], [ bands, referenceLines, endAnnotations ]);
+    ], [ bands, referenceLines, endAnnotations, palette ]);
 
     const layout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        ...(title ? {title : createTitle(title, titleFontSize(frameWidth))} : {}),
-        xaxis  : createAxis("", {
-            type          : "date",
-            rangeslider   : {visible : showRangeSlider && !compact, ...(fullRange ? {range : fullRange} : {})},
+        ...(title ? {title : createTitle(title, titleFontSize(frameWidth), theme)} : {}),
+        xaxis : createAxis("", {
+            type        : "date",
+            rangeslider : {visible : showRangeSlider && !compact, bgcolor : palette.ink.paper, ...(fullRange ? {range : fullRange} : {})},
             ...(openingRange ? {range : openingRange} : {}),
             // Under the title and clear of the legend below the chart.
-            ...({rangeselector : {
-                x       : 1,
-                xanchor : "right",
-                y       : 1.02,
-                yanchor : "bottom",
-                font    : {...CHART_FONTS.axis, color : CHART_INK.secondary},
-                buttons : RANGE_BUTTONS.filter(b => !rangeButtons || rangeButtons.includes(b.label as string)),
-            }}),
-        }),
+            ...({
+                rangeselector : {
+                    x       : 1,
+                    xanchor : "right",
+                    y       : 1.02,
+                    yanchor : "bottom",
+                    // The buttons in the grid and axis greys: a step off the paper, the active one a step further.
+                    bgcolor     : palette.ink.grid,
+                    activecolor : palette.ink.axis,
+                    bordercolor : palette.ink.grid,
+                    font        : {...CHART_FONTS.axis, color : palette.ink.secondary},
+                    buttons     : RANGE_BUTTONS.filter(b => !rangeButtons || rangeButtons.includes(b.label as string)),
+                },
+            }),
+        }, theme),
         // A long axis title is taller than a narrow card's plot, so it stands down there; short
         // units ("%", "US$ billion") still fit and still carry the scale.
-        yaxis  : createAxis(compact && yAxisTitle.length > 20 ? "" : yAxisTitle, {
+        yaxis : createAxis(compact && yAxisTitle.length > 20 ? "" : yAxisTitle, {
             zeroline      : showZeroLine ?? hasNegative,
-            zerolinecolor : CHART_INK.axis,
+            zerolinecolor : palette.ink.axis,
             zerolinewidth : 1,
-        }),
+        }, theme),
         // One series identifies itself through the title; a legend box with a single swatch
         // would only repeat it.
         showlegend : series.filter(s => !s.hideFromLegend).length > 1,
-        legend : bottomLegend(frameWidth),
+        legend     : bottomLegend(frameWidth, theme),
         shapes,
         annotations,
         ...(hasBars ? {barmode : barMode, bargap : 0.3, bargroupgap : 0.1} : {}),
         // The base layout's bottom margin is sized for below-chart legends; ours sits on top,
         // so reclaim the space for the plot. The right margin holds the direct labels.
         margin : {t : topMargin, b : bottomMargin, l : 80, r : endAnnotations.length > 0 ? 96 : 40},
-    }), [
-        title, yAxisTitle, fullRange, openingRange, shapes, annotations, series,
-        hasBars, barMode, hasNegative, showZeroLine, endAnnotations.length,
-        topMargin, bottomMargin, frameWidth, compact, showRangeSlider, rangeButtons,
-    ]);
+    }, theme), [ title, yAxisTitle, fullRange, openingRange, shapes, annotations, series, hasBars, barMode, hasNegative, showZeroLine, endAnnotations.length, topMargin, bottomMargin, frameWidth, compact, showRangeSlider, rangeButtons,, palette, theme ]);
 
     const config = useMemo(
         () => getBaseConfig(exportName ?? (title ?? "chart").toLowerCase().replace(/\s+/g, "-")),

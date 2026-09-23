@@ -6,8 +6,9 @@ HEADER_CHAR = =
 # Use quotes to match the exact package name
 // REACT CORE = "react", "react-router-dom", "next/", next, tanstack/, tauri, "react-use", dnd-kit, react-dom, three, three/
 // UI = "fictoan-react", "framer-motion", "lucide-react"
-// DATA VIZ = "@nivo/", "ag-grid-community", "ag-grid-react"
+// DATA VIZ = "@nivo/", "react-plotly.js", "ag-grid-react", "ag-grid-community"
 // LOCAL COMPONENTS = components/, Page, Element, $element, Element/, $tags, "@shared-components"
+// PERMISSIONS = "@shared-types/permissions", "@shared-stores/permissionStore"
 // CONFIGS = configs/,
 // STATE MANAGEMENT = zustand, store/, "@shared-stores"
 // LIB = lib/

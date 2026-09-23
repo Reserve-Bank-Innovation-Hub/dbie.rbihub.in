@@ -4,9 +4,12 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // CHART CONFIG ========================================================================================================
 import {
-    CHART_COLORS, CHART_FONTS, CHART_INK,
+    CHART_FONTS, ChartSchemeLayer, resolveScheme,
     bottomLegend, legendBandHeight, legendRowCount,
     getBaseLayout, getBaseConfig, createTitle, createAxis,
 } from "./chartConfig";
@@ -39,10 +42,8 @@ interface DumbbellChartProps {
     valueSuffix   ? : string;
     height        ? : number | "fill";
     exportName    ? : string;
+    scheme        ? : ChartSchemeLayer;   // this chart's own colours, over its kind's and the base
 }
-
-const CURRENT_COLOUR = CHART_COLORS.blueDark;
-const PREVIOUS_COLOUR = CHART_COLORS.blueLight;
 
 const DumbbellChart : React.FC<DumbbellChartProps> = ({
     rows,
@@ -54,10 +55,14 @@ const DumbbellChart : React.FC<DumbbellChartProps> = ({
     valueSuffix = "",
     height = 600,
     exportName,
+    scheme,
 }) => {
+    const [ theme ] = useTheme();
+
     const [ frame, frameWidth ] = useChartWidth();
     const legendRows = legendRowCount([ previousLabel, currentLabel ], frameWidth);
     const compact = frameWidth < 520;
+    const palette = useMemo(() => resolveScheme("dumbbell", scheme, theme), [ scheme, theme ]);
 
     const traces = useMemo<Partial<Plotly.PlotData>[]>(() => {
         const labels = rows.map(r => (compact ? wrapLabel(r.label, 20) : r.label));
@@ -75,7 +80,7 @@ const DumbbellChart : React.FC<DumbbellChartProps> = ({
                 y          : connectorY,
                 type       : "scatter",
                 mode       : "lines",
-                line       : {color : CHART_INK.axis, width : 2},
+                line       : {color : palette.ink.axis, width : 2},
                 hoverinfo  : "skip",
                 showlegend : false,
                 connectgaps: false,
@@ -86,7 +91,7 @@ const DumbbellChart : React.FC<DumbbellChartProps> = ({
                 name          : previousLabel,
                 type          : "scatter",
                 mode          : "markers",
-                marker        : {color : PREVIOUS_COLOUR, size : 11, line : {color : CHART_INK.paper, width : 2}},
+                marker        : {color : palette.previous, size : 11, line : {color : palette.ink.paper, width : 2}},
                 hovertemplate : `<b>%{y}</b><br>${previousLabel}: %{x:.${valueDecimals}f}${valueSuffix}<extra></extra>`,
             },
             {
@@ -95,11 +100,11 @@ const DumbbellChart : React.FC<DumbbellChartProps> = ({
                 name          : currentLabel,
                 type          : "scatter",
                 mode          : "markers",
-                marker        : {color : CURRENT_COLOUR, size : 11, line : {color : CHART_INK.paper, width : 2}},
+                marker        : {color : palette.current, size : 11, line : {color : palette.ink.paper, width : 2}},
                 hovertemplate : `<b>%{y}</b><br>${currentLabel}: %{x:.${valueDecimals}f}${valueSuffix}<extra></extra>`,
             },
         ] as Partial<Plotly.PlotData>[];
-    }, [ rows, currentLabel, previousLabel, valueDecimals, valueSuffix, compact ]);
+    }, [ rows, currentLabel, previousLabel, valueDecimals, valueSuffix, compact, palette ]);
 
     const annotations = useMemo<Partial<Plotly.Annotations>[]>(() => rows
         .filter(r => r.current != null && Number.isFinite(r.current))
@@ -111,20 +116,20 @@ const DumbbellChart : React.FC<DumbbellChartProps> = ({
             yanchor   : "middle",
             xshift    : (r.current as number) >= 0 ? 12 : -12,
             showarrow : false,
-            font      : {...CHART_FONTS.axis, color : CHART_INK.secondary},
-        })), [ rows, valueDecimals, valueSuffix, compact ]);
+            font      : {...CHART_FONTS.axis, color : palette.ink.secondary},
+        })), [ rows, valueDecimals, valueSuffix, compact, palette ]);
 
     const layout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        ...(title ? {title : createTitle(title, titleFontSize(frameWidth))} : {}),
-        xaxis     : createAxis(compact ? "" : xAxisTitle, {zeroline : true, zerolinecolor : CHART_INK.axis, zerolinewidth : 1}),
+        ...(title ? {title : createTitle(title, titleFontSize(frameWidth), theme)} : {}),
+        xaxis     : createAxis(compact ? "" : xAxisTitle, {zeroline : true, zerolinecolor : palette.ink.axis, zerolinewidth : 1}, theme),
         // The rows arrive sorted, largest first; reversing the axis keeps that order top to bottom.
-        yaxis     : createAxis("", {type : "category", autorange : "reversed", showgrid : false, automargin : true}),
+        yaxis     : createAxis("", {type : "category", autorange : "reversed", showgrid : false, automargin : true}, theme),
         hovermode : "closest",
         // Pinned to the card's own bottom edge, so it lands in the same place at any card height.
-        legend    : bottomLegend(frameWidth),
+        legend    : bottomLegend(frameWidth, theme),
         annotations,
         margin    : {t : 60, b : 44 + legendBandHeight(legendRows, frameWidth), l : 8, r : 72},
-    }), [ title, xAxisTitle, annotations, frameWidth, compact, legendRows ]);
+    }, theme), [ title, xAxisTitle, annotations, frameWidth, compact, legendRows, palette, theme ]);
 
     const config = useMemo(
         () => getBaseConfig(exportName ?? (title ?? "dumbbell").toLowerCase().replace(/\s+/g, "-")),

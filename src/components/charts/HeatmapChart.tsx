@@ -4,9 +4,12 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // CHART CONFIG ========================================================================================================
 import {
-    CHART_FONTS, CHART_INK, DIVERGING,
+    CHART_FONTS, ChartSchemeLayer, ResolvedScheme, resolveScheme,
     getBaseLayout, getBaseConfig, createTitle, createAxis,
 } from "./chartConfig";
 import { titleFontSize, useChartWidth, wrapLabel } from "./useChartWidth";
@@ -38,18 +41,19 @@ interface HeatmapChartProps {
     colourBarTitle? : string;
     height        ? : number | "fill";
     exportName    ? : string;
+    scheme        ? : ChartSchemeLayer;   // this chart's own colours, over its kind's and the base
 }
 
-// Blue below the midpoint, neutral at it, red above — warm and cool poles either side of a
-// grey that reads as "nothing to see".
-const DIVERGING_SCALE : [ number, string ][] = [
-    [ 0,     DIVERGING.coolSteps[2] ],
-    [ 0.25,  DIVERGING.coolSteps[1] ],
-    [ 0.42,  DIVERGING.coolSteps[0] ],
-    [ 0.5,   DIVERGING.neutral ],
-    [ 0.58,  DIVERGING.warmSteps[0] ],
-    [ 0.75,  DIVERGING.warmSteps[1] ],
-    [ 1,     DIVERGING.warmSteps[2] ],
+// The cool pole below the midpoint, neutral at it, the warm pole above — either side of a grey
+// that reads as "nothing to see".
+const divergingScale = (palette : ResolvedScheme) : [ number, string ][] => [
+    [ 0,     palette.positiveSteps[2] ],
+    [ 0.25,  palette.positiveSteps[1] ],
+    [ 0.42,  palette.positiveSteps[0] ],
+    [ 0.5,   palette.neutral ],
+    [ 0.58,  palette.negativeSteps[0] ],
+    [ 0.75,  palette.negativeSteps[1] ],
+    [ 1,     palette.negativeSteps[2] ],
 ];
 
 const HeatmapChart : React.FC<HeatmapChartProps> = ({
@@ -63,9 +67,13 @@ const HeatmapChart : React.FC<HeatmapChartProps> = ({
     colourBarTitle = "",
     height = 600,
     exportName,
+    scheme,
 }) => {
+    const [ theme ] = useTheme();
+
     const [ frame, frameWidth ] = useChartWidth();
     const compact = frameWidth < 520;
+    const palette = useMemo(() => resolveScheme("heatmap", scheme, theme), [ scheme, theme ]);
 
     // Plotly draws the first y category at the bottom, so the rows go in reversed to keep the
     // reading order the page asked for.
@@ -76,7 +84,7 @@ const HeatmapChart : React.FC<HeatmapChartProps> = ({
             y             : ordered.map(r => (compact ? wrapLabel(r.label, 18) : r.label)),
             z             : ordered.map(r => r.values),
             type          : "heatmap",
-            colorscale    : DIVERGING_SCALE,
+            colorscale    : divergingScale(palette),
             zmin          : midpoint - span,
             zmax          : midpoint + span,
             zmid          : midpoint,
@@ -86,8 +94,8 @@ const HeatmapChart : React.FC<HeatmapChartProps> = ({
             // On a narrow card the colour bar lies under the grid instead of beside it, where it
             // would take a third of the width away from the cells.
             colorbar      : {
-                title        : {text : colourBarTitle, font : {...CHART_FONTS.axis, color : CHART_INK.secondary}},
-                tickfont     : {...CHART_FONTS.axis, color : CHART_INK.muted},
+                title        : {text : colourBarTitle, font : {...CHART_FONTS.axis, color : palette.ink.secondary}},
+                tickfont     : {...CHART_FONTS.axis, color : palette.ink.muted},
                 thickness    : compact ? 10 : 12,
                 len          : 0.9,
                 outlinewidth : 0,
@@ -97,16 +105,16 @@ const HeatmapChart : React.FC<HeatmapChartProps> = ({
                     : {}),
             },
         } as Partial<Plotly.PlotData>;
-    }, [ columns, rows, midpoint, span, valueDecimals, valueSuffix, colourBarTitle, compact ]);
+    }, [ columns, rows, midpoint, span, valueDecimals, valueSuffix, colourBarTitle, compact, palette ]);
 
     const layout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        ...(title ? {title : createTitle(title, titleFontSize(frameWidth))} : {}),
-        xaxis      : createAxis("", {type : "category", showgrid : false, nticks : compact ? 4 : 12}),
-        yaxis      : createAxis("", {type : "category", showgrid : false, automargin : true}),
+        ...(title ? {title : createTitle(title, titleFontSize(frameWidth), theme)} : {}),
+        xaxis      : createAxis("", {type : "category", showgrid : false, nticks : compact ? 4 : 12}, theme),
+        yaxis      : createAxis("", {type : "category", showgrid : false, automargin : true}, theme),
         showlegend : false,
         hovermode  : "closest",
         margin     : {t : 88, b : compact ? 132 : 56, l : 8, r : 8},
-    }), [ title, frameWidth, compact ]);
+    }, theme), [ title, frameWidth, compact, theme ]);
 
     const config = useMemo(
         () => getBaseConfig(exportName ?? (title ?? "heatmap").toLowerCase().replace(/\s+/g, "-")),

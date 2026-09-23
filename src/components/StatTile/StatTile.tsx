@@ -1,14 +1,14 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import React from "react";
+import React, { useMemo } from "react";
 
 // UI ==================================================================================================================
-import { Div } from "fictoan-react";
+import { Div, useTheme } from "fictoan-react";
 import { ArrowDownRight, ArrowUpRight, Minus } from "lucide-react";
 
 // CHART CONFIG ========================================================================================================
-import { CHART_COLORS } from "@/components/charts/chartConfig";
+import { resolveScheme } from "@/components/charts/chartConfig";
 
 // STYLES ==============================================================================================================
 import "./stat-tile.css";
@@ -46,9 +46,9 @@ const SPARK_H = 40;
 const SPARK_PAD_TOP = 13;
 const SPARK_PAD_BOTTOM = 4;
 
-// The accent from the categorical palette: one hue for every tile, so a row of them reads as
-// one instrument rather than eight.
-const SPARK_COLOUR = CHART_COLORS.purpleDark;
+// The sparkline kind's one hue under the page's theme: every tile draws in it, so a row of them
+// reads as one instrument rather than eight (KIND_SCHEMES.sparkline in chartConfig.ts).
+const sparkColourOf = (theme : string) : string => resolveScheme("sparkline", undefined, theme).series[0];
 // Capped so the label, value and change text all keep their contrast over the fill rather
 // than the text having to darken to compensate.
 const SPARK_FILL_OPACITY = 0.22;
@@ -87,6 +87,8 @@ const decimalsOf = (value : string) => {
 };
 
 export const StatTile : React.FC<StatTileProps> = ({sparkId, label, value, unit, asOf, delta, previous, spark}) => {
+    const [ theme ] = useTheme();
+    const sparkColour = useMemo(() => sparkColourOf(theme), [ theme ]);
     const decimals = decimalsOf(value);
     const moved = Math.abs(delta) >= Number(`5e-${decimals + 1}`);
     const Arrow = !moved ? Minus : delta > 0 ? ArrowUpRight : ArrowDownRight;
@@ -104,8 +106,8 @@ export const StatTile : React.FC<StatTileProps> = ({sparkId, label, value, unit,
                     <svg viewBox={`0 0 ${SPARK_W} ${SPARK_H}`} preserveAspectRatio="none">
                         <defs>
                             <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor={SPARK_COLOUR} stopOpacity={SPARK_FILL_OPACITY} />
-                                <stop offset="100%" stopColor={SPARK_COLOUR} stopOpacity="0" />
+                                <stop offset="0%" stopColor={sparkColour} stopOpacity={SPARK_FILL_OPACITY} />
+                                <stop offset="100%" stopColor={sparkColour} stopOpacity="0" />
                             </linearGradient>
                         </defs>
 
@@ -114,7 +116,7 @@ export const StatTile : React.FC<StatTileProps> = ({sparkId, label, value, unit,
                         <path
                             d={geometry.line}
                             fill="none"
-                            stroke={SPARK_COLOUR}
+                            stroke={sparkColour}
                             strokeWidth="1.5"
                             strokeLinejoin="round"
                             strokeLinecap="round"
@@ -127,7 +129,7 @@ export const StatTile : React.FC<StatTileProps> = ({sparkId, label, value, unit,
                         card's right edge, where the last reading is, rather than half outside it. */}
                     <span
                         className="stat-tile-spark-dot"
-                        style={{bottom : `${geometry.lastY}%`, backgroundColor : SPARK_COLOUR}}
+                        style={{bottom : `${geometry.lastY}%`, backgroundColor : sparkColour}}
                     />
                 </Div>
             ) : null}

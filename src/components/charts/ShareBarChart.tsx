@@ -4,9 +4,12 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // CHART CONFIG ========================================================================================================
 import {
-    CHART_FONTS, CHART_INK, PALETTE,
+    CHART_FONTS, ChartSchemeLayer, resolveScheme,
     bottomLegend, legendBandHeight, legendRowCount,
     getBaseLayout, getBaseConfig, createTitle, createAxis,
 } from "./chartConfig";
@@ -38,6 +41,7 @@ interface ShareBarChartProps {
     minLabelShare  ? : number;    // below this share the label would not fit inside the segment
     height         ? : number | "fill";
     exportName     ? : string;
+    scheme         ? : ChartSchemeLayer;   // this chart's own colours, over its kind's and the base
 }
 
 const ShareBarChart : React.FC<ShareBarChartProps> = ({
@@ -49,15 +53,19 @@ const ShareBarChart : React.FC<ShareBarChartProps> = ({
     minLabelShare = 7,
     height = 400,
     exportName,
+    scheme,
 }) => {
+    const [ theme ] = useTheme();
+
     const [ frame, frameWidth ] = useChartWidth();
     const legendRows = legendRowCount(categories.map(c => c.label), frameWidth);
+    const palette = useMemo(() => resolveScheme("share", scheme, theme), [ scheme, theme ]);
     // A narrow card holds fewer inline labels: below this share the text would not fit the segment.
     const compact = frameWidth < 520;
     const labelFloor = Math.max(minLabelShare, compact ? 14 : 0);
 
     const traces = useMemo<Partial<Plotly.PlotData>[]>(() => categories.map((c, idx) => {
-        const colour = c.color ?? PALETTE[idx % PALETTE.length];
+        const colour = c.color ?? palette.seriesByKey[c.key] ?? palette.series[idx % palette.series.length];
         return {
             x            : c.shares,
             y            : groups,
@@ -66,32 +74,32 @@ const ShareBarChart : React.FC<ShareBarChartProps> = ({
             orientation  : "h",
             marker       : {
                 color : colour,
-                line  : {color : CHART_INK.surface, width : 1.5},
+                line  : {color : palette.ink.surface, width : 1.5},
             },
             // Printed inside the segment, and only where there is room for it.
             text         : c.shares.map(v => (v >= labelFloor ? `${v.toFixed(valueDecimals)}%` : "")),
             textposition : "inside",
             textangle    : 0,
             insidetextanchor : "middle",
-            textfont     : {...CHART_FONTS.axis, color : CHART_INK.paper},
+            textfont     : {...CHART_FONTS.axis, color : palette.ink.paper},
             cliponaxis   : false,
             constraintext: "inside",
             hovertemplate: `<b>${c.label}</b><br>%{y}<br>%{x:.${valueDecimals}f}%<extra></extra>`,
         } as Partial<Plotly.PlotData>;
-    }), [ groups, categories, labelFloor, valueDecimals ]);
+    }), [ groups, categories, labelFloor, valueDecimals, palette ]);
 
     const layout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        ...(title ? {title : createTitle(title, titleFontSize(frameWidth))} : {}),
+        ...(title ? {title : createTitle(title, titleFontSize(frameWidth), theme)} : {}),
         barmode   : "stack",
         bargap    : 0.45,
-        xaxis     : createAxis(compact ? "" : xAxisTitle, {range : [ 0, 100 ], ticksuffix : "%"}),
-        yaxis     : createAxis("", {type : "category", autorange : "reversed", showgrid : false, automargin : true}),
+        xaxis     : createAxis(compact ? "" : xAxisTitle, {range : [ 0, 100 ], ticksuffix : "%"}, theme),
+        yaxis     : createAxis("", {type : "category", autorange : "reversed", showgrid : false, automargin : true}, theme),
         hovermode : "closest",
         // Stacks read left to right, so the legend has to as well — Plotly reverses it by default.
         // It is pinned to the card's own bottom edge, clear of the bars at any card height.
-        legend    : bottomLegend(frameWidth),
+        legend    : bottomLegend(frameWidth, theme),
         margin    : {t : 60, b : 48 + legendBandHeight(legendRows, frameWidth), l : 24, r : 24},
-    }), [ title, xAxisTitle, frameWidth, compact, legendRows ]);
+    }, theme), [ title, xAxisTitle, frameWidth, compact, legendRows, theme ]);
 
     const config = useMemo(
         () => getBaseConfig(exportName ?? (title ?? "shares").toLowerCase().replace(/\s+/g, "-")),
