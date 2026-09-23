@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // DATA VIZ ============================================================================================================
 import type * as Plotly from "plotly.js";
@@ -48,6 +48,8 @@ function fortnightToISO(label : string) : string {
 }
 
 const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first, so the first row is the latest fortnight.
     const latest = paperData.data[0];
 
@@ -95,7 +97,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle("Commercial paper — amount outstanding over time", 20),
+        title  : createTitle("Commercial paper — amount outstanding over time", 20, theme),
         xaxis  : createAxis("Fortnight ended", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -107,10 +109,10 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
                     { step  : "all", label : "All" },
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("Amount outstanding (₹ crores)", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height : 600,
         margin : { t : 80, b : 150, l : 80, r : 40 },
         legend : {
@@ -120,7 +122,7 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             xanchor     : "center",
             x           : 0.5,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("commercial_paper_chart", {
         toImageButtonOptions : {
@@ -137,10 +139,10 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Commercial paper
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Commercial paper
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

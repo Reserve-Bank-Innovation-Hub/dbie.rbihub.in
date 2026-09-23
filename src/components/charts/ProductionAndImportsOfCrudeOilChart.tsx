@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { CrudeOilPetroleumRow } from "@/lib/api/tables/production-and-imports-of-crude-oil-and-petroleum-products";
 
@@ -27,6 +30,8 @@ const ProductionAndImportsOfCrudeOilChart : React.FC<ProductionAndImportsOfCrude
     title  = "Production and imports of crude oil and petroleum products",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data arrives newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -88,9 +93,9 @@ const ProductionAndImportsOfCrudeOilChart : React.FC<ProductionAndImportsOfCrude
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
-        xaxis  : createAxis("Year", { type: "category" }),
-        yaxis  : createAxis("MMT", { rangemode: "tozero" }),
+        title  : createTitle(title, 18, theme),
+        xaxis  : createAxis("Year", { type: "category" }, theme),
+        yaxis  : createAxis("MMT", { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -100,7 +105,7 @@ const ProductionAndImportsOfCrudeOilChart : React.FC<ProductionAndImportsOfCrude
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig(
         "production_and_imports_of_crude_oil_and_petroleum_products_chart",

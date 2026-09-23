@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { SourcesOfMoneyStockDataRow } from "@/lib/api/tables/sources-of-money-stock";
 
@@ -27,6 +30,8 @@ const SourcesOfMoneyStockChart : React.FC<SourcesOfMoneyStockChartProps> = ({
     title = "Sources of money stock (M3) — major components",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -72,7 +77,7 @@ const SourcesOfMoneyStockChart : React.FC<SourcesOfMoneyStockChartProps> = ({
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Date", {
             type          : "date",
             rangeslider   : { visible: true },
@@ -88,11 +93,11 @@ const SourcesOfMoneyStockChart : React.FC<SourcesOfMoneyStockChartProps> = ({
                     { step: "all", label: "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("₹ crores", { rangemode: "tozero" }),
+        }, theme),
+        yaxis  : createAxis("₹ crores", { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 90, r: 40 },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("sources_of_money_stock_chart", {
         toImageButtonOptions : {

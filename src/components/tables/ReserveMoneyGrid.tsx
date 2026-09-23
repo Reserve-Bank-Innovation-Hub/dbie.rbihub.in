@@ -74,7 +74,7 @@ const ReserveMoneyGrid : React.FC<ReserveMoneyGridProps> = ({ data, columns }) =
             type           : "numericColumn",
             valueFormatter : numberFormatter,
             cellStyle      : col.group === "total"
-                ? { fontWeight : "600", textAlign : "right", backgroundColor : "#f0f9ff" }
+                ? { fontWeight : "600", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" }
                 : { textAlign : "right" },
         });
 

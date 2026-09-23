@@ -76,7 +76,7 @@ const HouseholdFinancialStocksGrid : React.FC<HouseholdFinancialStocksGridProps>
                         textAlign   : "left",
                         paddingLeft : `${8 + depth * 16}px`,
                         fontWeight  : isTop ? "700" : depth === 1 ? "600" : "normal",
-                        ...(isTop && { background : "#f0f9ff" }),
+                        ...(isTop && { background : "var(--data-grid-total-bg)" }),
                     };
                 },
             },
@@ -92,7 +92,7 @@ const HouseholdFinancialStocksGrid : React.FC<HouseholdFinancialStocksGridProps>
                     return {
                         textAlign  : "right",
                         fontWeight : isTop ? "600" : "normal",
-                        ...(isTop && { background : "#f0f9ff" }),
+                        ...(isTop && { background : "var(--data-grid-total-bg)" }),
                     };
                 },
             } as ColDef)),

@@ -117,7 +117,7 @@ const InternationalInvestmentPositionGrid : React.FC<InternationalInvestmentPosi
                 cellStyle     : (params) : CellStyle => {
                     const style : CellStyle = { textAlign: "right" };
                     if (typeof params.value === "number" && params.value < 0) {
-                        style["color"] = "#d12d1b";
+                        style["color"] = "var(--data-grid-negative)";
                     }
                     return style;
                 },

@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -32,6 +32,8 @@ interface MacroEconomicAggregatesConstantPricesPageProps {
 }
 
 const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregatesConstantPricesPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     // Newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data.data ].reverse(), [ data.data ]);
 
@@ -58,12 +60,12 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
     ], [ chartData ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle("Gross domestic product (constant prices, base year 2011-12)", 18),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis("₹ Crores", { rangemode: "tozero" }),
+        title  : createTitle("Gross domestic product (constant prices, base year 2011-12)", 18, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis("₹ Crores", { rangemode: "tozero" }, theme),
         height : 500,
         margin : { t: 80, b: 100, l: 80, r: 40 },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("macro_economic_aggregates_constant_prices_chart");
 
@@ -72,10 +74,10 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Macro-economic aggregates at constant prices (base year 2011-12)
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Macro-economic aggregates at constant prices (base year 2011-12)
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

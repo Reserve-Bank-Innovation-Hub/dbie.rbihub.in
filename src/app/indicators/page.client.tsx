@@ -17,7 +17,7 @@ import { INDICATOR_SECTIONS as SECTIONS } from "./sections";
 const IndicatorsPage = () => {
     return (
         <Article id="indicators-page" className="data-list-page">
-            <Header id="title-card" bgColour="white" padding="micro">
+            <Header id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Indicators

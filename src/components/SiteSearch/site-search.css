@@ -28,7 +28,7 @@
         max-height       : 480px;
         overflow-y       : auto;
         backdrop-filter  : blur(24px) saturate(180%);
-        background-color : var(--slate-light80);
+        background-color : var(--search-dropdown-bg);
         padding          : var(--nano);
         display          : flex;
         flex-direction   : column;
@@ -43,7 +43,7 @@
         color            : inherit;
         transition       : background-color 0.1s ease;
         padding          : 16px;
-        background-color : var(--white);
+        background-color : var(--grid-cell-bg);
 
         &.is-active {
             background-color: color-mix(in oklch, var(--blue-light60), transparent 80%);

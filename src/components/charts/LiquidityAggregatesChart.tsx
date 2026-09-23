@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { LiquidityAggregateRow } from "@/lib/api/tables/liquidity-aggregates";
 
@@ -34,6 +37,8 @@ const LiquidityAggregatesChart : React.FC<LiquidityAggregatesChartProps> = ({
     title = "Liquidity aggregates over time",
     height = 480,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data arrives newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -90,7 +95,7 @@ const LiquidityAggregatesChart : React.FC<LiquidityAggregatesChartProps> = ({
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Period", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -106,8 +111,8 @@ const LiquidityAggregatesChart : React.FC<LiquidityAggregatesChartProps> = ({
                     { step : "all", label : "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("Rupees crores", { rangemode : "tozero" }),
+        }, theme),
+        yaxis  : createAxis("Rupees crores", { rangemode : "tozero" }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 40 },
         legend : {
@@ -117,7 +122,7 @@ const LiquidityAggregatesChart : React.FC<LiquidityAggregatesChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("liquidity_aggregates_chart", {
         toImageButtonOptions : {

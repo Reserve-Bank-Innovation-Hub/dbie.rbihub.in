@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { LRSDataRow } from "@/lib/api/tables/outward-remittances-lrs";
 
@@ -40,6 +43,8 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
     title  = "Outward remittances under the LRS",
     height = 500,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -84,7 +89,7 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -100,13 +105,13 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
                     { step : "all", label : "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis(`${unit} (smaller series)`, { rangemode : "tozero" }),
+        }, theme),
+        yaxis  : createAxis(`${unit} (smaller series)`, { rangemode : "tozero" }, theme),
         yaxis2 : createAxis(`${unit} (studies & others)`, {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 80 },
         legend : {
@@ -116,7 +121,7 @@ const OutwardRemittancesLRSChart : React.FC<OutwardRemittancesLRSChartProps> = (
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("outward_remittances_lrs_chart");
 

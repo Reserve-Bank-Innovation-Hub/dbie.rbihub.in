@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { EmploymentRow } from "@/lib/api/tables/employment-in-public-and-organised-private-sectors";
 
@@ -27,6 +30,8 @@ const EmploymentInPublicAndOrganisedPrivateSectorsChart : React.FC<EmploymentInP
     title = "Employment in public and organised private sectors",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for left-to-right x-axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -72,7 +77,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsChart : React.FC<EmploymentInP
     const totalYears = chartData.length;
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
@@ -97,10 +102,10 @@ const EmploymentInPublicAndOrganisedPrivateSectorsChart : React.FC<EmploymentInP
                     { step: "all", label: "All" },
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("Employment (lakhs)", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -110,7 +115,7 @@ const EmploymentInPublicAndOrganisedPrivateSectorsChart : React.FC<EmploymentInP
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("employment_public_private_chart", {
         toImageButtonOptions : {

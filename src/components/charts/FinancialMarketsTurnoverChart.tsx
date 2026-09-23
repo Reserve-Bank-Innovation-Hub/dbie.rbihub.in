@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { FinancialMarket, FinancialMarketsTurnoverRow } from "@/lib/api/tables/financial-markets-turnover";
 
@@ -52,6 +55,8 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
     title  = "Average daily turnover in select financial markets",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -81,7 +86,7 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
     }, [ chartData, x, markets ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Week ended", {
             type          : "date",
             rangeslider   : { visible: true },
@@ -97,8 +102,8 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
                     { step: "all", label: "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("Rupees Crores", { rangemode: "tozero" }),
+        }, theme),
+        yaxis  : createAxis("Rupees Crores", { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 90, r: 40 },
         legend : {
@@ -108,7 +113,7 @@ const FinancialMarketsTurnoverChart : React.FC<FinancialMarketsTurnoverChartProp
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("financial_markets_turnover_chart", {
         toImageButtonOptions : {

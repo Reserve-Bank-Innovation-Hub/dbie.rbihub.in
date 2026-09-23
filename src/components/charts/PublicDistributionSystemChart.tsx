@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { PDSRow } from "@/lib/api/tables/public-distribution-system-procurement-off-take-and-stocks";
 
@@ -27,6 +30,8 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
     title = "Public distribution system — procurement, off-take and stocks",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right x-axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -87,7 +92,7 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
@@ -111,10 +116,10 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
                     { step: "all", label: "All" },
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("Lakhs tonnes", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -124,7 +129,7 @@ const PublicDistributionSystemChart : React.FC<PublicDistributionSystemChartProp
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("public_distribution_system_chart", {
         toImageButtonOptions : {

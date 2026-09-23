@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { OtherCPIRow } from "@/lib/api/tables/other-consumer-price-indices";
 
@@ -32,6 +35,8 @@ const OtherConsumerPriceIndicesChart : React.FC<OtherConsumerPriceIndicesChartPr
     title = "Consumer Price Index for Industrial Workers (2016 = 100)",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Oldest -> newest, keeping only months where the headline series is published.
     const points = useMemo(() => {
         return [ ...data ]
@@ -59,7 +64,7 @@ const OtherConsumerPriceIndicesChart : React.FC<OtherConsumerPriceIndicesChartPr
     ], [ points ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -71,11 +76,11 @@ const OtherConsumerPriceIndicesChart : React.FC<OtherConsumerPriceIndicesChartPr
                     { step : "all", label : "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("Index value"),
+        }, theme),
+        yaxis  : createAxis("Index value", undefined, theme),
         height,
         margin : { t : 80, b : 150, l : 60, r : 40 },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("other_consumer_price_indices_chart");
 

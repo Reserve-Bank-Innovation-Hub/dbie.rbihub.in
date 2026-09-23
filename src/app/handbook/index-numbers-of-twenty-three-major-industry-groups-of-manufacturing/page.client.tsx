@@ -37,7 +37,7 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsPage : React.FC<IndexNumbersTwen
     return (
         <Article id="index-numbers-twenty-three-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+            <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <PageCrumbs />
 

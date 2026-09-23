@@ -141,44 +141,52 @@ Different, with the reason:
   filtering are the grid's own. Entries DBIE has but the database does not are not listed. Curated pages and the
   SDMX series pages with charts are linked from it.
 - Two sections of the site are built on DBIE's own menus and run on one implementation: Publications
-  (`/publications`, the fourteen time-series publications DBIE's report listing gives tables for) and Statistics
-  (`/statistics`, the eight sectors of DBIE's Statistics menu — Corporate Sector, External Sector, Financial Market,
-  Financial Sector, Public Finance, Real Sector, Socio-Economic Indicators, Surveys – Aggregated Data). Both are the
-  site's list page (the banking page's layout) over a menu: a sidebar of DBIE's items in DBIE's order, an index page
-  listing them with what each holds, and one page per item at `/publications/<slug>` or `/statistics/<slug>` laying
-  its parts out as DBIE files them, each level of the hierarchy a column from left to right, down to its tables.
-  Only loaded tables are listed, each with DBIE's frequency and period. A table opens in place at
+  (`/publications`, the time-series publications DBIE gives tables for) and Statistics (`/statistics`, the eight
+  sectors of DBIE's Statistics menu — Corporate Sector, External Sector, Financial Market, Financial Sector, Public
+  Finance, Real Sector, Socio-Economic Indicators, Surveys – Aggregated Data). Each is one page,
+  `src/components/SectorPage/MenuPage.tsx`, with no page sidebar: the title card, then every sector of the menu in
+  DBIE's order as a section with its name and count on the left and its tables on the right, laid out as DBIE
+  files them, a sector's parts as the next column and a part's groups as heading rows above their tables. Only
+  loaded tables are listed, each with DBIE's frequency and period; an SDMX dataset sits among the report tables of
+  its section, after them, with a "Data Query" badge rather than a group of its own. A table opens in place at
   `?table=<schema>.<table>`, the same key the tables page takes: the listing gives way to the tables page's view of
-  the table (`src/components/tables/TableView.tsx`, shared by both pages) on the page grid, the sidebar staying as
-  it is. The view's breadcrumb leads back the way it came: the item's own page, and by anchor the section
-  (`#<section-slug>`) and the group (`#<section-slug>--<group-slug>`) the table sits under. The site's own page for
-  the table, where it has one — a curated page from `src/app/tables/curated-pages.json`, else an SDMX dataset's
-  series page with its chart — is linked from the view. The primary nav's middle is two titled groups: Database
+  the table (`src/components/tables/TableView.tsx`) on the page grid. The view's breadcrumb leads back the way it
+  came: the menu's page, and by anchor the sector (`#<sector-slug>`), the part (`#<sector-slug>--<section-slug>`)
+  and the group (`#<sector-slug>--<section-slug>--<group-slug>`) the table sits under. The site's own page for the
+  table, where it has one — a curated page from `src/app/tables/curated-pages.json`, else an SDMX dataset's series
+  page with its chart — is linked from the view. The primary nav's middle is two titled groups: Database
   (Statistics, Publications), DBIE's own two menus, and Themes (Prices, Growth, Markets, Banking, External,
   Government, Payments), the site's curated sections. The Handbook and Indicators routes are not in the nav; they
-  are reached from the curated-page links the table view offers.
-- What the two sections share: `src/lib/dbie-menu.ts` reads DBIE's menus out of `data/` at build time
-  (`publicationsMenu()` from `data/dbie-menu.json` menu 5 kept to what `data/reports-sections.json` lists,
-  `statisticsMenu()` from menu 4, `menuOrder()` for DBIE's own order of sectors and sections, `seriesSlugs()` from
-  `data/catalogue.json`); `src/lib/api/use-menu.ts` rebuilds one menu from the data API's catalogue in the browser
-  (`menuSectors`, `useMenu`, `describe`) keeping only loaded tables; `src/components/SectorPage/SectorListPage.tsx`
-  is the index list and `src/components/SectorPage/SectorPage.tsx` the hierarchy with the in-place view;
-  `src/components/PageSidebars/MenuSidebar.tsx` is the sidebar; `src/lib/tables/page-for.ts` says which page the
-  site already has for an entry, for the view's link, and the tables page uses it too. The route files
-  (`src/app/publications/{layout,page}.tsx`, `[publication]/page.tsx`, and the same three under
-  `src/app/statistics/`) only read their menu, generate the static params, set the metadata and render the shared
-  components inside a `<Suspense>` boundary, which `useSearchParams` needs on a statically generated route.
+  are reached from the curated-page links the table view offers, and the Docs and Tables routes are not linked from
+  it for now either. The nav's foot is the theme toggle: fictoan's `ThemeProvider` (`src/app/layout.client.tsx`)
+  keeps `theme-light` or `theme-dark` as the class on `<html>` and in localStorage under `dbie-theme`, with an
+  inline script that sets the class before the first paint; the tokens of each theme are `src/styles/theme-light.css`
+  and `theme-dark.css`, after Pratirupa's, and the charts take the theme's ink from `THEME_SCHEMES` in
+  `src/components/charts/chartConfig.ts`, each chart reading `useTheme()` so it redraws when the theme changes.
+  There are no per-sector routes: the static
+  publication pages `/publications/credit-classification` and `/publications/external-debt` are curated pages of
+  their own.
+- What the two sections share: `src/lib/dbie-menu.ts` reads `data/dbie-menu.json` at build time for DBIE's own
+  order of sectors and sections (`menuOrder()`) and `data/catalogue.json` for the SDMX series page slugs
+  (`seriesSlugs()`); `src/lib/api/use-menu.ts` rebuilds a menu from the data API's catalogue in the browser
+  (`menuSectors`, `describe`) keeping only loaded tables; `src/lib/tables/page-for.ts` says which page the site
+  already has for an entry, for the view's link, and the tables page uses it too. The two route files
+  (`src/app/statistics/page.tsx`, `src/app/publications/page.tsx`) only set the metadata and render `MenuPage`
+  inside a `<Suspense>` boundary, which `useSearchParams` needs on a statically generated route.
 - The seven themes — `/prices`, `/growth`, `/markets`, `/banking`, `/external`, `/government`, `/payments` — are the
   same page over a different set of tables. A theme is what its curated pages cover: every entry of
   `src/app/tables/curated-pages.json` whose route starts with the theme's path belongs to it (Banking 20 tables,
   External 12, Government 8, Markets 5, Prices 4, Growth and Payments one each; all of them Monthly RBI Bulletin
   reports today). `themeKeys` and `themeSector` in `src/lib/api/use-menu.ts` gather them into one synthetic sector
   whose sections are DBIE's own, so `/banking` lists its tables under Reserve Bank of India, Money and banking and
-  Occasional series, and `?table=<schema>.<table>` opens one in place with the same breadcrumb and anchors. The
-  sidebar, `src/components/PageSidebars/ThemeSidebar.tsx`, lists the theme's tables under those DBIE sections and
-  highlights the one on show, on the theme's page and on the table's curated page alike. The curated chart pages
-  under each theme (`/banking/money-stock-measures` and the rest) are unchanged and are what the view's "Curated
-  page" link opens. Each theme's `layout.tsx` and `page.tsx` only name its route, icon, title and description.
+  Occasional series (`src/components/SectorPage/SectorPage.tsx`), and `?table=<schema>.<table>` opens one in place
+  with the same breadcrumb and anchors. The themes have no page sidebar. The curated chart pages under each theme
+  (`/banking/money-stock-measures` and the rest) are what the view's "Curated page" link opens; each carries a
+  breadcrumb above its heading (`src/components/Crumbs/PageCrumbs.tsx`) back to its theme's page and, by anchor,
+  the DBIE section and group it is listed under there, as do the Handbook and Indicators pages to their sections,
+  the two static publication pages to the Publications page and the SDMX series pages to the Statistics page.
+  Which levels a list page draws, and their anchors, are the shared rules in `src/lib/tables/placement.ts`, so a
+  crumb always lands on something. Each theme's `page.tsx` only names its route, title and description.
 - The catalogue is fetched once per page: `fetchCatalogue` in `src/lib/api/catalogue.ts` shares one in-flight read,
-  so a page and its sidebar asking for it together make one request to `/api/catalogue`.
+  so several components of a page asking for it together make one request to `/api/catalogue`.
 - The organisation's GitHub Actions billing lock blocks both workflows (and Pratirupa's).

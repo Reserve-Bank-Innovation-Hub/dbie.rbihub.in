@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -37,6 +37,8 @@ const monthToDate = (label : string) : Date => {
 };
 
 const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiData }) => {
+    const [ theme ] = useTheme();
+
     const currentBase = wpiData.bases[0];
 
     const stats = useMemo(() => {
@@ -73,10 +75,10 @@ const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiD
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle(`All commodities — base year ${currentBase.base}`),
-            xaxis : createAxis("Month", { type : "date" }),
-            yaxis : createAxis(`Index (base ${currentBase.base} = 100)`),
-        });
+            title : createTitle(`All commodities — base year ${currentBase.base}`, undefined, theme),
+            xaxis : createAxis("Month", { type : "date" }, theme),
+            yaxis : createAxis(`Index (base ${currentBase.base} = 100)`, undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("wholesale_price_index_all_commodities");
 
@@ -87,10 +89,10 @@ const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiD
         <Article id="wholesale-price-index-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
-                <Heading4 weight="700" marginBottom="nano">
-                    Wholesale price index — monthly
                 <PageCrumbs />
 
+                <Heading4 weight="700" marginBottom="nano">
+                    Wholesale price index — monthly
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     Monthly wholesale price index across the full commodity taxonomy (Table 22), with historical base

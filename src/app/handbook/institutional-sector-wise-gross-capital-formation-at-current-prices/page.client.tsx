@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -32,6 +32,8 @@ interface InstitutionalSectorGrossCapitalFormationPageProps {
 }
 
 const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSectorGrossCapitalFormationPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     // Newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data.data ].reverse(), [ data.data ]);
 
@@ -99,9 +101,9 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
     ], [ chartData, xValues ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title   : createTitle("Gross capital formation by institutional sector (current prices)", 18),
-        xaxis   : createAxis("Year"),
-        yaxis   : createAxis("₹ Crores", { rangemode: "tozero" }),
+        title   : createTitle("Gross capital formation by institutional sector (current prices)", 18, theme),
+        xaxis   : createAxis("Year", undefined, theme),
+        yaxis   : createAxis("₹ Crores", { rangemode: "tozero" }, theme),
         barmode : "stack",
         height  : 500,
         margin  : { t: 80, b: 140, l: 80, r: 40 },
@@ -112,7 +114,7 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             xanchor     : "center",
             x           : 0.5,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("institutional_sector_gcf_chart");
 
@@ -121,10 +123,10 @@ const InstitutionalSectorGrossCapitalFormationPage : React.FC<InstitutionalSecto
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Institutional sector-wise gross capital formation at current prices (base year 2011-12)
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Institutional sector-wise gross capital formation at current prices (base year 2011-12)
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

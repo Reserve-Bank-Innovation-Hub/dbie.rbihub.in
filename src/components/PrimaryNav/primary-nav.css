@@ -85,6 +85,12 @@
     }
 }
 
+/* THE THEME TOGGLE: of its two icons and two labels, the theme class on <html> shows one of each */
+.theme-dark .in-light-theme,
+:root:not(.theme-dark) .in-dark-theme {
+    display : none;
+}
+
 /* NAV ITEM /////////////////////////////////////////////////////////////////// */
 .nav-item {
     display     : flex;
@@ -127,6 +133,11 @@
     .nav-icon img {
         width : var(--nav-icon-size);
         fill  : none;
+    }
+
+    /* The seal is black-only artwork in an img, which CSS cannot fill; inverting it paints it white on the dark theme */
+    .theme-dark & .nav-icon.is-logo img {
+        filter : invert(1);
     }
 
     /* Forced over-ride of crucible-icons stroke */

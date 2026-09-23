@@ -32,7 +32,7 @@
         flex-direction  : column;
         justify-content : space-between;
         position        : relative;
-        background      : linear-gradient(345deg, hsla(var(--indivara), 0.8) 0%, #ffffff 100%);
+        background      : linear-gradient(345deg, hsla(var(--indivara), 0.8) 0%, var(--grid-cell-bg) 100%);
 
         #field-lines {
             position : absolute;
@@ -56,7 +56,7 @@
 
     .marker-card { min-height : 132px; }
 
-    /* Section headings sit on the page background, a band between two groups of white cells */
+    /* Section headings sit on the page background, a band between two groups of cells */
     .section-heading {
         display     : flex;
         align-items : flex-end;
@@ -108,6 +108,11 @@
         opacity        : 1;
         pointer-events : auto;
     }
+}
+
+/* The seal is black-only artwork in an img, which CSS cannot fill; inverting it paints it white on the dark theme. */
+.theme-dark #home-page #rbi-seal {
+    filter : invert(1);
 }
 
 /* Below a laptop the four-column grid stops helping: the page becomes one column in DOM order,

@@ -83,7 +83,7 @@ const NsvaAtCurrentPricesGrid : React.FC<NsvaAtCurrentPricesGridProps> = ({ data
             cellStyle      : (params) => ({
                 textAlign       : "right",
                 fontWeight      : (params.data as GridRow)?._isTotal ? "700" : "400",
-                backgroundColor : (params.data as GridRow)?._isTotal ? "#f0f9ff" : "#ffffff",
+                backgroundColor : (params.data as GridRow)?._isTotal ? "var(--data-grid-total-bg)" : "var(--data-grid-bg)",
             }),
         }));
 

@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ReerAndNeerRow } from "@/lib/api/tables/reer-and-neer";
 
@@ -38,6 +41,8 @@ const ReerAndNeerChart : React.FC<ReerAndNeerChartProps> = ({
     title = "NEER and REER of the Indian rupee",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -123,7 +128,7 @@ const ReerAndNeerChart : React.FC<ReerAndNeerChartProps> = ({
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : {visible : true},
@@ -139,10 +144,10 @@ const ReerAndNeerChart : React.FC<ReerAndNeerChartProps> = ({
                     {step : "all", label : "All"},
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("Index (2015-16 = 100)", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : {t : 80, b : 40, l : 80, r : 40},
         legend : {
@@ -152,7 +157,7 @@ const ReerAndNeerChart : React.FC<ReerAndNeerChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("reer_and_neer_chart", {
         toImageButtonOptions : {

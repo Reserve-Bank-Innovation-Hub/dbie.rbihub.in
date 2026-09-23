@@ -90,7 +90,7 @@ const RbiSurveyGrid : React.FC<RbiSurveyGridProps> = ({ data }) => {
                 type           : "numericColumn",
                 valueFormatter : numFormatter,
                 cellStyle      : isAggregate
-                    ? { fontWeight : "700", textAlign : "right", backgroundColor : "#f0f9ff" }
+                    ? { fontWeight : "700", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" }
                     : { textAlign : "right" },
             };
         };

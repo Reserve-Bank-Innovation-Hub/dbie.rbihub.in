@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -37,6 +37,8 @@ const periodToDate = (label : string) : Date => {
 };
 
 const BankCreditByIndustryPage : React.FC<BankCreditByIndustryPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     const industriesTotalItem = useMemo(
         () => data.items.find(it => it.code === "2"),
         [ data ],
@@ -80,10 +82,10 @@ const BankCreditByIndustryPage : React.FC<BankCreditByIndustryPageProps> = ({ da
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle("Total industry credit outstanding"),
-            xaxis : createAxis("Period", { type : "date" }),
-            yaxis : createAxis("Outstanding (₹ crores)"),
-        });
+            title : createTitle("Total industry credit outstanding", undefined, theme),
+            xaxis : createAxis("Period", { type : "date" }, theme),
+            yaxis : createAxis("Outstanding (₹ crores)", undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("bank_credit_by_industry_total");
 
@@ -94,10 +96,10 @@ const BankCreditByIndustryPage : React.FC<BankCreditByIndustryPageProps> = ({ da
         <Article id="bank-credit-by-industry-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
-                <Heading4 weight="700" marginBottom="nano">
-                    Industry-wise deployment of bank credit
                 <PageCrumbs />
 
+                <Heading4 weight="700" marginBottom="nano">
+                    Industry-wise deployment of bank credit
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     Outstanding credit across 42 industry sub-sectors; amounts in{" "}

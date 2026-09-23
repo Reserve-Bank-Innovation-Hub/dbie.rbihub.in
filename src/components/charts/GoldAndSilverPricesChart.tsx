@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { GoldAndSilverPriceRow, GoldAndSilverPricesUnits } from "@/lib/api/tables/gold-and-silver-prices";
 
@@ -40,6 +43,8 @@ const GoldAndSilverPricesChart : React.FC<GoldAndSilverPricesChartProps> = ({
     title = "Monthly average price of gold and silver in Mumbai",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -91,7 +96,7 @@ const GoldAndSilverPricesChart : React.FC<GoldAndSilverPricesChartProps> = ({
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : {visible : true},
@@ -107,15 +112,15 @@ const GoldAndSilverPricesChart : React.FC<GoldAndSilverPricesChartProps> = ({
                     {step : "all", label : "All"},
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis(`Gold (${units.gold})`, {
             rangemode : "tozero",
-        }),
+        }, theme),
         yaxis2 : createAxis(`Silver (${units.silver})`, {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height,
         margin : {t : 80, b : 40, l : 80, r : 80},
         legend : {
@@ -125,7 +130,7 @@ const GoldAndSilverPricesChart : React.FC<GoldAndSilverPricesChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("gold_and_silver_prices_chart", {
         toImageButtonOptions : {

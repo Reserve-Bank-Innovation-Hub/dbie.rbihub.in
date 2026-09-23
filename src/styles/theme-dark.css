@@ -1,17 +1,184 @@
+/* The dark theme: the same tokens theme-light.css sets, restated for a dark surface. The structure follows
+   Pratirupa's theme-dark.css; the accent stays the site's indivara. The page is slate-dark90 and everything drawn on
+   it — the cells, the nav, the cards, the data grids, the charts' paper — is grey-dark80, so the 1px seams between
+   cells stay visible as they are in the light theme. The charts take their dark ink from the same steps
+   (THEME_SCHEMES in src/components/charts/chartConfig.ts), so a chart's paper is the colour of its cell. */
 .theme-dark {
     /* FICTOAN VARIABLES //////////////////////////////////////////////////// */
-    --body-bg               : hsl(var(--charcoal));
+    --global-focus-colour                : color-mix(in oklch, hsl(var(--indivara)), var(--white) 30%);
+
+    --body-bg                            : var(--slate-dark90);
+
+    /* BADGE ================================================================ */
+    --badge-bg                           : var(--blue-dark80);
+    --badge-text                         : var(--blue-light40);
+    --badge-border                       : transparent;
+
+    /* BUTTON =============================================================== */
+    /* Primary button ------------------------------------------------------- */
+    --button-primary-bg-default          : hsl(var(--indivara));
+    --button-primary-border-default      : hsl(var(--indivara));
+    --button-primary-text-default        : var(--white);
+
+    --button-primary-bg-hover            : hsla(var(--indivara), 0.88);
+    --button-primary-border-hover        : hsl(var(--indivara));
+
+    --button-primary-bg-active           : var(--violet);
+    --button-primary-border-active       : var(--violet);
+
+    /* Secondary button ----------------------------------------------------- */
+    --button-secondary-bg-default        : var(--violet-dark70);
+    --button-secondary-text-default      : var(--violet-light40);
+    --button-secondary-border-default    : var(--violet-light20);
+
+    --button-secondary-bg-hover          : var(--violet-dark60);
+    --button-secondary-text-hover        : var(--violet-light50);
+    --button-secondary-border-hover      : var(--violet-light30);
+
+    --button-secondary-bg-active         : var(--violet-dark50);
+    --button-secondary-text-active       : var(--violet-light60);
+    --button-secondary-border-active     : var(--violet-light30);
+
+    /* CARD ================================================================= */
+    --card-bg                            : var(--grey-dark80);
+    --card-border                        : color-mix(in oklch, hsl(var(--sand)) 16%, transparent);
+    --card-border-radius                 : 20px;
+
+    /* DRAWER =============================================================== */
+    --drawer-bg                          : var(--grey-dark80);
+    --drawer-border                      : color-mix(in oklch, hsl(var(--sand)) 20%, transparent);
+    --drawer-border-radius               : 20px;
+
+    /* DIVIDER ============================================================== */
+    --divider-primary-bg                 : var(--grey-dark40);
+    --divider-secondary-bg               : var(--grey-dark50);
+    --divider-tertiary-bg                : var(--grey-dark60);
+
+    /* FILE UPLOAD AREA ===================================================== */
+    --file-upload-area-main-text-default : color-mix(in oklch, var(--amber-light40) 60%, transparent);
+
+    /* INPUT ================================================================ */
+    --input-bg-default                   : var(--grey-dark60);
+    --input-border-default               : var(--grey-dark10);
+    --input-text-default                 : var(--grey-light60);
+    --input-label-default                : var(--grey-light40);
+    --input-placeholder-default          : var(--grey-dark10);
+
+    --input-bg-focus                     : var(--grey-dark20);
+    --input-text-focus                   : var(--white);
+
+    --input-bg-disabled                  : var(--grey-dark80);
+    --input-text-disabled                : var(--grey-dark20);
+    --input-border-disabled              : var(--grey-dark60);
+
+    --input-bg-read-only                 : var(--grey-dark80);
+    --input-text-read-only               : var(--grey-dark20);
+
+    --input-bg-invalid                   : hsla(var(--vermilion), 0.24);
+    --input-error-text-invalid           : hsl(var(--vermilion));
+
+    --input-helptext                     : var(--paragraph-subtext-colour);
+
+    --list-box-badge-bg                  : var(--blue-dark40);
+    --list-box-badge-text                : var(--blue-light60);
+
+    --kbd-bg                             : var(--grey-dark40);
+    --kbd-text                           : var(--grey-light60);
+
+    /* OPTION CARD ========================================================== */
+    --option-card-bg-hover               : color-mix(in oklch, var(--green-dark20) 30%, transparent);
+    --option-card-bg-selected            : color-mix(in oklch, var(--green-dark20) 40%, transparent);
+
+    /* TABLE ================================================================ */
+    --table-bg                           : var(--grey-dark80);
+    --table-striped-header-bg            : var(--grey-dark60);
+    --table-striped-cell-bg              : var(--grey-dark70);
+    --table-border                       : var(--grey-dark40);
+    --table-highlight-bg                 : color-mix(in oklch, var(--teal-dark20) 40%, transparent);
+
+    /* RADIO TABS =========================================================== */
+    --radio-tabs-bg                      : var(--grey-dark60);
+    --radio-tabs-border                  : var(--grey-dark60);
+    --radio-tabs-label-focus-border      : var(--global-focus-colour);
+
+    /* TABS ================================================================= */
+    --tab-label-active                   : var(--blue-light20);
+    --tab-label-hover                    : var(--teal-light20);
+    --tab-border-active                  : hsl(var(--indivara));
 
     /* TEXT ================================================================= */
-    --font-sans-serif       : "Geist", sans-serif;
-    --font-serif            : "Sentient", serif;
-    --font-mono             : "Geist Mono", monospace;
+    --font-sans-serif                    : "Geist", sans-serif;
+    --font-serif                         : "Sentient", serif;
+    --font-mono                          : "Geist Mono", monospace;
 
-    --font-size-max         : 16;
+    --heading-line-height                : 1;
 
-    --paragraph-text-colour : var(--grey-dark40);
+    --font-size-min                      : 14;
+    --font-size-max                      : 18;
+    --scale-ratio-min                    : 1.2;
+    --scale-ratio-max                    : 1.2;
 
+    --heading-text-colour                : var(--grey-light90);
+
+    --paragraph-text-colour              : var(--grey-light60);
+    --paragraph-subtext-colour           : var(--grey-light20);
+    --paragraph-subtext-size             : 88%;
+
+    --link-text-default                  : var(--blue-light30);
+    --link-text-hover                    : var(--blue-light50);
+
+    --code-font                          : "Geist Mono", monospace;
+    --code-inline-bg                     : var(--grey-dark40);
+    --code-inline-text                   : var(--red-light40);
+    --code-block-bg                      : var(--grey-dark90);
+    --code-block-text                    : var(--grey-light60);
+
+    /* BREADCRUMBS ========================================================== */
+    --breadcrumb-item-separator-colour   : var(--grey-dark10);
+
+    /* SKELETON ============================================================= */
+    --skeleton-bg                        : var(--grey-dark90);
+    --skeleton-highlight                 : var(--grey-dark70);
 
     /* CUSTOM COMPONENTS //////////////////////////////////////////////////// */
-    --site-header-border    : var(--slate-dark30);
+    /* HEADER =============================================================== */
+    --site-header-bg                     : var(--grey-dark80);
+    --site-header-border                 : var(--grey-dark60);
+
+    /* PRIMARY NAV ========================================================== */
+    --primary-nav-bg                     : var(--grey-dark80);
+    --primary-nav-border                 : var(--grey-dark60);
+
+    --nav-item-bg-hover                  : hsla(var(--indivara), 0.24);
+    --nav-item-bg-active                 : hsla(var(--indivara), 0.4);
+
+    --nav-icon-stroke-default            : var(--grey-light20);
+    --nav-icon-stroke-hover              : color-mix(in oklch, hsl(var(--indivara)), var(--white) 30%);
+    --nav-icon-stroke-active             : color-mix(in oklch, hsl(var(--indivara)), var(--white) 30%);
+
+    /* PAGE SIDEBAR ========================================================= */
+    --page-sidebar-bg                    : var(--grey-dark80);
+    --page-sidebar-border                : var(--grey-dark60);
+
+    --page-sidebar-divider               : var(--grey-dark60);
+
+    /* GRID CELLS =========================================================== */
+    --grid-cell-bg                       : var(--grey-dark80);
+
+    /* SITE SEARCH ========================================================== */
+    --search-dropdown-bg                 : var(--grey-dark70);
+
+    /* DATA GRID ============================================================ */
+    --data-grid-bg                       : var(--grey-dark80);
+    --data-grid-text                     : var(--grey-light60);
+    --data-grid-border                   : var(--grey-dark60);
+    --data-grid-header-bg                : var(--grey-dark70);
+    --data-grid-odd-row-bg               : color-mix(in oklch, var(--grey-dark70) 50%, transparent);
+    --data-grid-row-hover-bg             : hsla(var(--indivara), 0.24);
+    --data-grid-row-selected-bg          : hsla(var(--indivara), 0.32);
+    --data-grid-total-bg                 : color-mix(in oklch, var(--blue-dark20) 30%, transparent);
+    --data-grid-negative                 : var(--red-light30);
+    --data-grid-positive                 : var(--green-light30);
+
+    --ag-borders                         : none;
 }

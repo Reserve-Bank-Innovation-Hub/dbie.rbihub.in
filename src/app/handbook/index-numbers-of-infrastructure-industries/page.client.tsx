@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -29,6 +29,8 @@ interface IndexNumbersOfInfrastructureIndustriesPageProps {
 }
 
 const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfrastructureIndustriesPageProps> = ({ infraData }) => {
+    const [ theme ] = useTheme();
+
     const primarySeries = infraData.series[0];
     const latestRow     = primarySeries?.data[0];
 
@@ -60,10 +62,10 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle(`Overall index of infrastructure industries (base ${primarySeries.baseYear} = 100)`),
-            xaxis : createAxis("Year"),
-            yaxis : createAxis(`Index (base ${primarySeries.baseYear} = 100)`),
-        });
+            title : createTitle(`Overall index of infrastructure industries (base ${primarySeries.baseYear} = 100)`, undefined, theme),
+            xaxis : createAxis("Year", undefined, theme),
+            yaxis : createAxis(`Index (base ${primarySeries.baseYear} = 100)`, undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("infrastructure_industries_overall_index");
 
@@ -75,10 +77,10 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Index numbers of infrastructure industries
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Index numbers of infrastructure industries
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">

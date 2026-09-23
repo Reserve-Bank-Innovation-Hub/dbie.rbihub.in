@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -29,6 +29,8 @@ interface IndexNumbersOfIndustrialProductionPageProps {
 }
 
 const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrialProductionPageProps> = ({ iipData }) => {
+    const [ theme ] = useTheme();
+
     // The most recent series is series[0] (base 2011-12). Data is newest-first.
     const currentSeries = iipData.series[0];
     const latestRow     = currentSeries?.data[0];
@@ -76,10 +78,10 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
         }));
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle(`Index numbers of industrial production — base ${currentSeries.baseYear} = 100`),
-            xaxis : createAxis("Year"),
-            yaxis : createAxis(`Index (base ${currentSeries.baseYear} = 100)`),
-        });
+            title : createTitle(`Index numbers of industrial production — base ${currentSeries.baseYear} = 100`, undefined, theme),
+            xaxis : createAxis("Year", undefined, theme),
+            yaxis : createAxis(`Index (base ${currentSeries.baseYear} = 100)`, undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("index_numbers_of_industrial_production");
 
@@ -91,10 +93,10 @@ const IndexNumbersOfIndustrialProductionPage : React.FC<IndexNumbersOfIndustrial
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Index numbers of industrial production
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Index numbers of industrial production
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

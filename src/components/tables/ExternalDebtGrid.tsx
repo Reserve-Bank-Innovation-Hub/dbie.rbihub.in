@@ -116,7 +116,7 @@ const ExternalDebtGrid : React.FC<ExternalDebtGridProps> = ({data}) => {
                     headerName     : "Gross external debt",
                     valueFormatter : formatNumber,
                     width          : 180,
-                    cellStyle      : {fontWeight : "bold", backgroundColor : "#f0f9ff"},
+                    cellStyle      : {fontWeight : "bold", backgroundColor : "var(--data-grid-total-bg)"},
                 },
             ],
         },

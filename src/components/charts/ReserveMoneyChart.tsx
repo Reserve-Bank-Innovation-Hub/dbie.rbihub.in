@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ReserveMoneyRow } from "@/lib/api/tables/reserve-money";
 
@@ -39,6 +42,8 @@ const ReserveMoneyChart : React.FC<ReserveMoneyChartProps> = ({
     title = "Reserve money and currency in circulation over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -77,7 +82,7 @@ const ReserveMoneyChart : React.FC<ReserveMoneyChartProps> = ({
     ], [ chartData, x, dateLabels ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Date", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -93,8 +98,8 @@ const ReserveMoneyChart : React.FC<ReserveMoneyChartProps> = ({
                     { step : "all", label : "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("Rupees millions", { rangemode : "tozero" }),
+        }, theme),
+        yaxis  : createAxis("Rupees millions", { rangemode : "tozero" }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 40 },
         legend : {
@@ -104,7 +109,7 @@ const ReserveMoneyChart : React.FC<ReserveMoneyChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("reserve_money_chart", {
         toImageButtonOptions : {

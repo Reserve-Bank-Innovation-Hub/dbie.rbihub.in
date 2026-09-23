@@ -143,7 +143,7 @@ const InternationalInvestmentPositionPage : React.FC<InternationalInvestmentPosi
                 <DataUnit
                     label={`Latest (${stats.netIipQuarter})`}
                     value={
-                        <span style={{ color: stats.netIsNegative ? "#d12d1b" : "inherit" }}>
+                        <span style={{ color: stats.netIsNegative ? "var(--data-grid-negative)" : "inherit" }}>
                             {stats.netIip}
                         </span>
                     }

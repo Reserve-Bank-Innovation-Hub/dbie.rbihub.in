@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { IndustryGroupRow, IndustryGroupIndustry } from "@/lib/api/tables/index-numbers-of-twenty-three-major-industry-groups-of-manufacturing";
 
@@ -40,6 +43,8 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsChart : React.FC<IndexNumbersTwe
     title  = "Index numbers of major industry groups of manufacturing",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -72,9 +77,9 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsChart : React.FC<IndexNumbersTwe
     }, [ topIndustries, chartData, xLabels ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
-        xaxis  : createAxis("Year", { type: "category" }),
-        yaxis  : createAxis("Index value"),
+        title  : createTitle(title, 18, theme),
+        xaxis  : createAxis("Year", { type: "category" }, theme),
+        yaxis  : createAxis("Index value", undefined, theme),
         height,
         margin : { t: 80, b: 40, l: 70, r: 40 },
         legend : {
@@ -84,7 +89,7 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsChart : React.FC<IndexNumbersTwe
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig(
         "index_numbers_twenty_three_major_industry_groups",

@@ -72,7 +72,7 @@ const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div
                 id="title-card"
-                bgColour="white"
+                className="grid-cell"
                 padding="micro"
             >
                 <Div>

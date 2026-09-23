@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -36,6 +36,8 @@ const periodToDate = (label : string) : Date => {
 };
 
 const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     const grossCreditItem = useMemo(
         () => data.items.find(it => it.code === "I"),
         [ data ],
@@ -78,10 +80,10 @@ const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle("Gross bank credit outstanding"),
-            xaxis : createAxis("Period", { type : "date" }),
-            yaxis : createAxis("Outstanding (₹ crores)"),
-        });
+            title : createTitle("Gross bank credit outstanding", undefined, theme),
+            xaxis : createAxis("Period", { type : "date" }, theme),
+            yaxis : createAxis("Outstanding (₹ crores)", undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("gross_bank_credit_by_sector");
 
@@ -92,10 +94,10 @@ const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }
         <Article id="bank-credit-by-sector-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
-                <Heading4 weight="700" marginBottom="nano">
-                    Deployment of gross bank credit by major sectors
                 <PageCrumbs />
 
+                <Heading4 weight="700" marginBottom="nano">
+                    Deployment of gross bank credit by major sectors
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     Outstanding credit across agriculture, industry, services, and personal loans; amounts in{" "}

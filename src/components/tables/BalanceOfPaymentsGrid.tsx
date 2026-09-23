@@ -106,7 +106,7 @@ const BalanceOfPaymentsGrid : React.FC<BalanceOfPaymentsGridProps> = ({ items, d
                 valueFormatter : numFormatter,
                 pinned         : "left",
                 width          : 130,
-                cellStyle      : { fontWeight : "700", textAlign : "right", backgroundColor : "#f0f9ff" },
+                cellStyle      : { fontWeight : "700", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" },
             }
             : null;
 
@@ -138,7 +138,7 @@ const BalanceOfPaymentsGrid : React.FC<BalanceOfPaymentsGridProps> = ({ items, d
                 valueFormatter : numFormatter,
                 width          : isTop ? 170 : 160,
                 cellStyle      : isTop
-                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "#f0f9ff" }
+                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" }
                     : { textAlign : "right" },
             };
 
@@ -173,9 +173,9 @@ const BalanceOfPaymentsGrid : React.FC<BalanceOfPaymentsGridProps> = ({ items, d
                                 fontSize        : 13,
                                 cursor          : "pointer",
                                 borderRadius    : 4,
-                                border          : "1px solid #ccc",
-                                background      : selectedType === t ? "#1e3a5f" : "#fff",
-                                color           : selectedType === t ? "#fff" : "inherit",
+                                border          : "1px solid var(--input-border-default)",
+                                background      : selectedType === t ? "var(--button-primary-bg-default)" : "var(--input-bg-default)",
+                                color           : selectedType === t ? "var(--white)" : "var(--input-text-default)",
                                 fontWeight      : selectedType === t ? 600 : 400,
                             }}
                         >

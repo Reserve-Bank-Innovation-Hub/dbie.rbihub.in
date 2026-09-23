@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -41,6 +41,8 @@ const CATEGORY_COLOURS = [
 ];
 
 const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
+    const [ theme ] = useTheme();
+
     const { series } = iipData;
 
     // Primary display series is base 2011-12 (series[0]).
@@ -81,13 +83,13 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
     }, [ latestRow, primarySeries ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(`IIP use-based classification — ${latestYear} (base 2011-12 = 100)`, 18),
-        xaxis  : createAxis("Category", { type: "category" }),
-        yaxis  : createAxis("Index (base 2011-12 = 100)", { rangemode: "tozero" }),
+        title  : createTitle(`IIP use-based classification — ${latestYear} (base 2011-12 = 100)`, 18, theme),
+        xaxis  : createAxis("Category", { type: "category" }, theme),
+        yaxis  : createAxis("Index (base 2011-12 = 100)", { rangemode: "tozero" }, theme),
         height : 480,
         margin : { t: 80, b: 120, l: 80, r: 40 },
         showlegend : false,
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("iip_use_based_chart", {
         toImageButtonOptions : {
@@ -104,10 +106,10 @@ const IIPUseBasedPage : React.FC<IIPUseBasedPageProps> = ({ iipData }) => {
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Index numbers of industrial production: use-based classification
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Index numbers of industrial production: use-based classification
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

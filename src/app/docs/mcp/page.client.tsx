@@ -35,7 +35,7 @@ const BASE_URL_SNIPPET = `{
 const McpDocsPage = () => {
     return (
         <Article id="docs-mcp-page" className="docs-page">
-            <Header id="title-card" bgColour="white" padding="micro">
+            <Header id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <PageCrumbs />
 

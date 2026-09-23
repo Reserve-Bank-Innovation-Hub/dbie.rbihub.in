@@ -70,7 +70,7 @@ const IndexOfIndustrialProductionGrid : React.FC<IndexOfIndustrialProductionGrid
                             valueFormatter : growthFormatter,
                             cellStyle      : (p : any) : CellStyle => {
                                 const style : CellStyle = { textAlign: "right" };
-                                if (p.value != null) style.color = p.value < 0 ? "#d12d1b" : "#0d5c52";
+                                if (p.value != null) style.color = p.value < 0 ? "var(--data-grid-negative)" : "var(--data-grid-positive)";
                                 return style;
                             },
                         },

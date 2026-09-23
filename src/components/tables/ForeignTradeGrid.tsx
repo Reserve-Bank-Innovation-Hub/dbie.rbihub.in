@@ -204,7 +204,7 @@ const ForeignTradeGrid : React.FC<ForeignTradeGridProps> = ({ data }) => {
                     valueFormatter : inrFormatter,
                     cellStyle      : (params : any) => ({
                         textAlign : "right",
-                        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+                        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
                     }),
                 },
                 {
@@ -215,7 +215,7 @@ const ForeignTradeGrid : React.FC<ForeignTradeGridProps> = ({ data }) => {
                     valueFormatter : usdFormatter,
                     cellStyle      : (params : any) => ({
                         textAlign : "right",
-                        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+                        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
                     }),
                 },
             ],
@@ -233,7 +233,7 @@ const ForeignTradeGrid : React.FC<ForeignTradeGridProps> = ({ data }) => {
                     valueFormatter : inrFormatter,
                     cellStyle      : (params : any) => ({
                         textAlign : "right",
-                        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+                        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
                     }),
                 },
                 {
@@ -244,7 +244,7 @@ const ForeignTradeGrid : React.FC<ForeignTradeGridProps> = ({ data }) => {
                     valueFormatter : usdFormatter,
                     cellStyle      : (params : any) => ({
                         textAlign : "right",
-                        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+                        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
                     }),
                 },
             ],
@@ -262,7 +262,7 @@ const ForeignTradeGrid : React.FC<ForeignTradeGridProps> = ({ data }) => {
                     valueFormatter : inrFormatter,
                     cellStyle      : (params : any) => ({
                         textAlign : "right",
-                        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+                        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
                     }),
                 },
             ],

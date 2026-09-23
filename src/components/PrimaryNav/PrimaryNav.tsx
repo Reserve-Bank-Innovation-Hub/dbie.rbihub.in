@@ -6,9 +6,8 @@ import React, { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // UI ==================================================================================================================
-import { Aside, Div, Divider, Main, Text } from "fictoan-react";
+import { Aside, Div, Divider, Main, Text, useTheme } from "fictoan-react";
 import {
-    BookMarked,
     Building2,
     ChartColumn,
     CreditCard,
@@ -16,9 +15,10 @@ import {
     Globe,
     Landmark,
     LineChart,
+    Moon,
     Newspaper,
     Search,
-    Table2,
+    Sun,
     Tags,
     TrendingUp,
 } from "lucide-react";
@@ -32,7 +32,7 @@ import "./primary-nav.css";
 // NAV ITEM ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 interface NavItemProps {
     icon : ReactNode;
-    label : string;
+    label : ReactNode;
     linkTo? : string;
     isLogo? : boolean;
     onClick? : () => void;
@@ -62,8 +62,14 @@ export const NavItem = ({icon, label, linkTo, isLogo, onClick} : NavItemProps) =
 
     // Action items (no route) render as a button-like div instead of a Link
     if (!linkTo && onClick) {
+        const onKeyDown = (e : React.KeyboardEvent) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onClick();
+            }
+        };
         return (
-            <Div className="link" onClick={onClick} role="button" tabIndex={0}>
+            <Div className="link" onClick={onClick} onKeyDown={onKeyDown} role="button" tabIndex={0}>
                 {content}
             </Div>
         );
@@ -96,6 +102,7 @@ export const NavGroup = ({title, children} : NavGroupProps) => {
 // PRIMARY NAV /////////////////////////////////////////////////////////////////////////////////////////////////////////
 export const PrimaryNav = () => {
     const [ isSearchOpen, setIsSearchOpen ] = useState(false);
+    const [ , setTheme ] = useTheme();
 
     // Cmd+/ (or Ctrl+/) opens search from anywhere
     useEffect(() => {
@@ -111,112 +118,113 @@ export const PrimaryNav = () => {
 
     return (
         <Aside id="primary-nav">
-            <NavGroup>
-                <NavItem
-                    icon={<img src="/images/rbi-seal.svg" alt="" />}
-                    linkTo="/"
-                    label="RBI DBIE"
-                />
-            </NavGroup>
-
-            <Main>
+            <Div id="primary-nav-wrapper" className="shadow-soft">
                 <NavGroup>
                     <NavItem
-                        icon={<Search />}
-                        label="Search"
-                        onClick={() => setIsSearchOpen(true)}
+                        icon={<img src="/images/rbi-seal.svg" alt="" />}
+                        linkTo="/"
+                        label="RBI DBIE"
+                        isLogo
                     />
                 </NavGroup>
 
-                <Divider />
+                <Main>
+                    <NavGroup>
+                        <NavItem
+                            icon={<Search />}
+                            label="Search"
+                            onClick={() => setIsSearchOpen(true)}
+                        />
+                    </NavGroup>
 
-                <NavGroup title="Database">
-                    <NavItem
-                        icon={<ChartColumn />}
-                        linkTo="/statistics"
-                        label="Statistics"
-                    />
+                    <Divider />
 
-                    <NavItem
-                        icon={<Newspaper />}
-                        linkTo="/publications"
-                        label="Publications"
-                    />
-                </NavGroup>
+                    <NavGroup title="Database">
+                        <NavItem
+                            icon={<ChartColumn />}
+                            linkTo="/statistics"
+                            label="Statistics"
+                        />
 
-                <Divider />
+                        <NavItem
+                            icon={<Newspaper />}
+                            linkTo="/publications"
+                            label="Publications"
+                        />
+                    </NavGroup>
 
-                <NavGroup title="Themes">
-                    <NavItem
-                        icon={<Tags />}
-                        linkTo="/prices"
-                        label="Prices"
-                    />
+                    <Divider />
 
-                    <NavItem
-                        icon={<TrendingUp />}
-                        linkTo="/growth"
-                        label="Growth"
-                    />
+                    <NavGroup title="Themes">
+                        <NavItem
+                            icon={<Tags />}
+                            linkTo="/prices"
+                            label="Prices"
+                        />
 
-                    <NavItem
-                        icon={<LineChart />}
-                        linkTo="/markets"
-                        label="Markets"
-                    />
+                        <NavItem
+                            icon={<TrendingUp />}
+                            linkTo="/growth"
+                            label="Growth"
+                        />
 
-                    <NavItem
-                        icon={<Landmark />}
-                        linkTo="/banking"
-                        label="Banking"
-                    />
+                        <NavItem
+                            icon={<LineChart />}
+                            linkTo="/markets"
+                            label="Markets"
+                        />
 
-                    <NavItem
-                        icon={<Globe />}
-                        linkTo="/external"
-                        label="External"
-                    />
+                        <NavItem
+                            icon={<Landmark />}
+                            linkTo="/banking"
+                            label="Banking"
+                        />
 
-                    <NavItem
-                        icon={<Building2 />}
-                        linkTo="/government"
-                        label="Government"
-                    />
+                        <NavItem
+                            icon={<Globe />}
+                            linkTo="/external"
+                            label="External"
+                        />
 
-                    <NavItem
-                        icon={<CreditCard />}
-                        linkTo="/payments"
-                        label="Payments"
-                    />
-                </NavGroup>
+                        <NavItem
+                            icon={<Building2 />}
+                            linkTo="/government"
+                            label="Government"
+                        />
 
-                <Divider />
+                        <NavItem
+                            icon={<CreditCard />}
+                            linkTo="/payments"
+                            label="Payments"
+                        />
+                    </NavGroup>
 
+                    <Divider />
+
+                    <NavGroup>
+                        <NavItem
+                            icon={<Feather />}
+                            linkTo="/stories"
+                            label="Stories"
+                        />
+                    </NavGroup>
+                </Main>
+
+                {/* The theme toggle, where the Docs and Tables links were. fictoan's ThemeProvider keeps the theme as
+                    a class on <html> and in localStorage; the toggle flips between the two the provider lists
+                    (layout.client.tsx). Both icons and both labels are in the DOM and the theme class shows one of
+                    each (primary-nav.css), so the server, which knows no stored theme, and the browser, which does,
+                    render the same markup and nothing is patched at hydration. */}
                 <NavGroup>
                     <NavItem
-                        icon={<Feather />}
-                        linkTo="/stories"
-                        label="Stories"
+                        icon={<><Moon className="in-light-theme" /><Sun className="in-dark-theme" /></>}
+                        label={<><span className="in-light-theme">Dark theme</span><span className="in-dark-theme">Light theme</span></>}
+                        onClick={() => setTheme(current => (current === "theme-dark" ? "theme-light" : "theme-dark"))}
                     />
                 </NavGroup>
-            </Main>
 
-            <NavGroup>
-                <NavItem
-                    icon={<BookMarked />}
-                    linkTo="/docs"
-                    label="Docs"
-                />
-
-
-                <NavItem
-                    icon={<Table2 />}
-                    linkTo="/tables"
-                    label="Tables"
-                />
-            </NavGroup>
-
-            <SiteSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+                <SiteSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+            </Div>
         </Aside>
     );
 };

@@ -97,7 +97,7 @@ const BankCreditBySectorGrid : React.FC<BankCreditBySectorGridProps> = ({ data }
                 return {
                     textAlign       : "right",
                     fontWeight      : top ? "600" : "400",
-                    backgroundColor : top ? "#f0f9ff" : "#ffffff",
+                    backgroundColor : top ? "var(--data-grid-total-bg)" : "var(--data-grid-bg)",
                 };
             },
         }));

@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { AreaProductionYieldRow } from "@/lib/api/tables/index-numbers-of-area-production-and-yield-of-foodgrains-non-foodgrains";
 
@@ -29,6 +32,8 @@ const AreaProductionYieldFoodgrainsChart : React.FC<AreaProductionYieldFoodgrain
     title   = "Index numbers of area, production and yield — foodgrains and all crops",
     height  = 500,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
     const x = chartData.map(d => d.year);
@@ -75,9 +80,9 @@ const AreaProductionYieldFoodgrainsChart : React.FC<AreaProductionYieldFoodgrain
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis(`Index${baseLabel}`, { rangemode : "tozero" }),
+        title  : createTitle(title, 18, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis(`Index${baseLabel}`, { rangemode : "tozero" }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 40 },
         legend : {
@@ -87,7 +92,7 @@ const AreaProductionYieldFoodgrainsChart : React.FC<AreaProductionYieldFoodgrain
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("area_production_yield_foodgrains_chart", {
         toImageButtonOptions : {

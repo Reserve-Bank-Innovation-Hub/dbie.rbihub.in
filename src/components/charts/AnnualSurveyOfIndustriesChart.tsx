@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ASICharacteristic, ASIDataRow } from "@/lib/api/tables/annual-survey-of-industries-principal-characteristics";
 
@@ -37,6 +40,8 @@ const AnnualSurveyOfIndustriesChart : React.FC<AnnualSurveyOfIndustriesChartProp
     title  = "Annual survey of industries — key metrics",
     height = 560,
 }) => {
+    const [ theme ] = useTheme();
+
     // Build a lookup from code to label.
     const labelByCode = useMemo<Record<string, string>>(() => {
         const map : Record<string, string> = {};
@@ -66,9 +71,9 @@ const AnnualSurveyOfIndustriesChart : React.FC<AnnualSurveyOfIndustriesChartProp
     }, [ chartData, x, labelByCode ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
-        xaxis  : createAxis("Year", { type: "category", autorange: "reversed" }),
-        yaxis  : createAxis("₹ crores", { rangemode: "tozero" }),
+        title  : createTitle(title, 18, theme),
+        xaxis  : createAxis("Year", { type: "category", autorange: "reversed" }, theme),
+        yaxis  : createAxis("₹ crores", { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 90, r: 40 },
         legend : {
@@ -78,7 +83,7 @@ const AnnualSurveyOfIndustriesChart : React.FC<AnnualSurveyOfIndustriesChartProp
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig(
         "annual_survey_of_industries_chart",

@@ -10,7 +10,7 @@
 }
 
 .docs-page .docs-content {
-    background-color : var(--white);
+    background-color : var(--grid-cell-bg);
 }
 
 .docs-page .docs-prose {

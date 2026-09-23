@@ -39,7 +39,7 @@ const IndexOfIndustrialProductionPage : React.FC<IndexOfIndustrialProductionPage
     return (
         <Article id="index-of-industrial-production-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+            <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <PageCrumbs />
 

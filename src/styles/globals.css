@@ -11,15 +11,30 @@
 @import "./theme-dark.css";
 
 /* AG Grid CSS variable overrides =========================================== */
-.ag-root-wrapper {
+/* The colours are the theme's --data-grid-* tokens (theme-light.css, theme-dark.css), set here rather than on the
+   theme class because AG Grid's own theme declares these variables on this very wrapper, where a value inherited from
+   <html> would lose to it. The theme also resolves the derived colours — the rows' data background, the chrome's,
+   the text's — to literals rather than to the background and foreground, so each is set. A popup (a column menu,
+   a filter) is drawn outside the wrapper, so the rule names it too. */
+.ag-root-wrapper,
+.ag-popup {
     --ag-borders                       : none !important;
     --ag-font-family                   : "Geist", sans-serif;
     --ag-header-font-family            : "Geist", sans-serif;
     --ag-cell-font-family              : "Geist Mono", sans-serif;
-    --ag-border-color                  : #e0e0e0;
-    --ag-odd-row-background-color      : color-mix(in oklch, var(--grey-light90) 50%, transparent);
-    --ag-row-hover-color               : hsla(var(--indivara), 0.12);
-    --ag-selected-row-background-color : hsla(var(--indivara), 0.24);
+    --ag-background-color              : var(--data-grid-bg);
+    --ag-data-background-color         : var(--data-grid-bg);
+    --ag-chrome-background-color       : var(--data-grid-header-bg);
+    --ag-menu-background-color         : var(--data-grid-bg);
+    --ag-foreground-color              : var(--data-grid-text);
+    --ag-text-color                    : var(--data-grid-text);
+    --ag-cell-text-color               : var(--data-grid-text);
+    --ag-header-text-color             : var(--data-grid-text);
+    --ag-header-background-color       : var(--data-grid-header-bg);
+    --ag-border-color                  : var(--data-grid-border);
+    --ag-odd-row-background-color      : var(--data-grid-odd-row-bg);
+    --ag-row-hover-color               : var(--data-grid-row-hover-bg);
+    --ag-selected-row-background-color : var(--data-grid-row-selected-bg);
     --ag-border-radius                 : 0;
 
     span {

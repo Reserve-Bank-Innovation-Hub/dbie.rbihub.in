@@ -82,7 +82,7 @@ const BankCreditByIndustryGrid : React.FC<BankCreditByIndustryGridProps> = ({ da
                 return {
                     paddingLeft  : `${8 + depth * 16}px`,
                     fontWeight   : isTotal ? "700" : depth === 1 ? "600" : "normal",
-                    ...(isTotal && { background : "#f0f9ff" }),
+                    ...(isTotal && { background : "var(--data-grid-total-bg)" }),
                 };
             },
         };
@@ -98,7 +98,7 @@ const BankCreditByIndustryGrid : React.FC<BankCreditByIndustryGridProps> = ({ da
                 const isTotal = row.code === "2";
                 return {
                     textAlign : "right",
-                    ...(isTotal && { background : "#f0f9ff", fontWeight : "700" }),
+                    ...(isTotal && { background : "var(--data-grid-total-bg)", fontWeight : "700" }),
                 };
             },
         }));

@@ -5,7 +5,7 @@ import React, { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -32,6 +32,8 @@ interface NsvaAtCurrentPricesPageProps {
 const TOTAL_IDX = 11;
 
 const NsvaAtCurrentPricesPage : React.FC<NsvaAtCurrentPricesPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     const { activities, states } = data;
 
     // Default to the first state (Andhra Pradesh).
@@ -85,10 +87,10 @@ const NsvaAtCurrentPricesPage : React.FC<NsvaAtCurrentPricesPageProps> = ({ data
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title : createTitle(`Total NSVA at basic prices — ${selectedState.name}`),
-            xaxis : createAxis("Financial year"),
-            yaxis : createAxis("₹ crores (current prices)"),
-        });
+            title : createTitle(`Total NSVA at basic prices — ${selectedState.name}`, undefined, theme),
+            xaxis : createAxis("Financial year", undefined, theme),
+            yaxis : createAxis("₹ crores (current prices)", undefined, theme),
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig(
             `nsva_current_${selectedState.name.toLowerCase().replace(/\s+/g, "_")}`,
@@ -102,10 +104,10 @@ const NsvaAtCurrentPricesPage : React.FC<NsvaAtCurrentPricesPageProps> = ({ data
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Net State Value Added by economic activity at current prices
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Net State Value Added by economic activity at current prices
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">
@@ -121,7 +123,7 @@ const NsvaAtCurrentPricesPage : React.FC<NsvaAtCurrentPricesPageProps> = ({ data
                         id="state-select"
                         value={selectedStateName}
                         onChange={(e) => setSelectedStateName(e.target.value)}
-                        style={{ padding : "6px 10px", border : "1px solid #d1d5db", borderRadius : 4, fontFamily : "inherit", fontSize : 14, background : "#ffffff", cursor : "pointer" }}
+                        style={{ padding : "6px 10px", border : "1px solid var(--input-border-default)", borderRadius : 4, fontFamily : "inherit", fontSize : 14, background : "var(--input-bg-default)", color : "var(--input-text-default)", cursor : "pointer" }}
                     >
                         {states.map((s) => (
                             <option key={s.name} value={s.name}>

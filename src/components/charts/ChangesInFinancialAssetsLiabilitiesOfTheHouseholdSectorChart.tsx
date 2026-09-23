@@ -4,11 +4,14 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorRow } from "@/lib/api/tables/changes-in-financial-assets-liabilities-of-the-household-sector";
 
 // CHART CONFIG ========================================================================================================
-import { CHART_COLORS, getBaseLayout, getBaseConfig, createTitle, createAxis } from "./chartConfig";
+import { CHART_COLORS, chartInk, getBaseLayout, getBaseConfig, createTitle, createAxis } from "./chartConfig";
 
 // OTHER ===============================================================================================================
 import type * as Plotly from "plotly.js";
@@ -27,6 +30,8 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
     title  = "Changes in financial assets/liabilities of the household sector",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -83,7 +88,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
@@ -101,8 +106,8 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
                     { step: "all", label: "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("Rupees crores", { rangemode: "normal" }),
+        }, theme),
+        yaxis  : createAxis("Rupees crores", { rangemode: "normal" }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -112,7 +117,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     // Override xaxis with proper range buttons using category indices
     const totalPoints = x.length;
@@ -139,7 +144,7 @@ const ChangesInFinancialAssetsLiabilitiesOfTheHouseholdSectorChart : React.FC<Ch
                     { step: "all", label: "All" },
                 ],
                 // Use category range directly
-                activecolor : "#f0f0f0",
+                activecolor : chartInk(theme).grid,
             },
             // Default to showing all — user can click buttons to narrow
         },

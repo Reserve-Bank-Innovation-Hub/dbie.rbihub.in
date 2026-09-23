@@ -69,7 +69,9 @@ const ConsumerPriceIndexPage : React.FC<ConsumerPriceIndexPageProps> = ({ cpiDat
     return (
         <Article id="consumer-price-index-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+            <Div id="title-card" className="grid-cell" padding="micro">
+                <PageCrumbs />
+
                 <Heading4 weight="700" marginBottom="nano">
                     Consumer price index
                 </Heading4>

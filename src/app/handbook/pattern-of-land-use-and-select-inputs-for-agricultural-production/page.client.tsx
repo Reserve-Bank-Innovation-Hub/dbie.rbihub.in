@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -31,6 +31,8 @@ interface PatternOfLandUsePageProps {
 }
 
 const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseData }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; the first row is the latest year.
     const latest = landUseData.data[0];
 
@@ -94,14 +96,14 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle("Net sown area, gross sown area and fertiliser consumption over time", 18),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis("Area (lakh hectares)", { rangemode: "tozero" }),
+        title  : createTitle("Net sown area, gross sown area and fertiliser consumption over time", 18, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis("Area (lakh hectares)", { rangemode: "tozero" }, theme),
         yaxis2 : createAxis("Fertiliser (lakh tonnes)", {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height : 520,
         margin : { t: 80, b: 160, l: 80, r: 80 },
         legend : {
@@ -111,7 +113,7 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
             xanchor     : "center",
             x           : 0.5,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("pattern_of_land_use_chart", {
         toImageButtonOptions : {
@@ -128,10 +130,10 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Pattern of land use and select inputs for agricultural production
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Pattern of land use and select inputs for agricultural production
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

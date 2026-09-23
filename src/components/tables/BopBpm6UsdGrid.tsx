@@ -107,7 +107,7 @@ const BopBpm6UsdGrid : React.FC<BopBpm6UsdGridProps> = ({ items, quarters, value
                     valueFormatter : (p : any) => fmtValue(p.value),
                     cellStyle      : (p : any) => ({
                         textAlign  : "right",
-                        color      : p.value == null ? undefined : p.value < 0 ? "#c0392b" : "#155724",
+                        color      : p.value == null ? undefined : p.value < 0 ? "var(--data-grid-negative)" : "var(--data-grid-positive)",
                         fontWeight : "500",
                     }),
                 } as ColDef,

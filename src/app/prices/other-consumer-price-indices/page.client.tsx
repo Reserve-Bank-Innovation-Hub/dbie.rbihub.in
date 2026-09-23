@@ -36,7 +36,9 @@ const OtherConsumerPriceIndicesPage : React.FC<OtherConsumerPriceIndicesPageProp
     return (
         <Article id="other-consumer-price-indices-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Div id="title-card" bgColour="white" padding="micro">
+            <Div id="title-card" className="grid-cell" padding="micro">
+                <PageCrumbs />
+
                 <Heading4 weight="700" marginBottom="nano">
                     Other consumer price indices
                 </Heading4>

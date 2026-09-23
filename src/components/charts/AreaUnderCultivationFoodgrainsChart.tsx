@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { AreaUnderCultivationFoodgrainsRow } from "@/lib/api/tables/area-under-cultivation-foodgrains";
 
@@ -29,6 +32,8 @@ const AreaUnderCultivationFoodgrainsChart : React.FC<AreaUnderCultivationFoodgra
     title  = "Area under cultivation of foodgrains over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -74,9 +79,9 @@ const AreaUnderCultivationFoodgrainsChart : React.FC<AreaUnderCultivationFoodgra
     ], [ chartData, years ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis(`Area (${units})`, { rangemode: "tozero" }),
+        title  : createTitle(title, 20, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis(`Area (${units})`, { rangemode: "tozero" }, theme),
         height,
         margin : {t : 80, b : 40, l : 90, r : 40},
         legend : {
@@ -86,7 +91,7 @@ const AreaUnderCultivationFoodgrainsChart : React.FC<AreaUnderCultivationFoodgra
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("area_under_cultivation_foodgrains_chart", {
         toImageButtonOptions : {

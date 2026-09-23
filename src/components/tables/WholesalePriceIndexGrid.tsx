@@ -92,7 +92,7 @@ const WholesalePriceIndexGrid : React.FC<WholesalePriceIndexGridProps> = ({ base
                 valueFormatter : formatIndex,
                 width          : 150,
                 cellStyle      : isTop
-                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "#f0f9ff" }
+                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" }
                     : { textAlign : "right" },
             };
         };

@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ComponentsOfGrossValueAddedAtBasicPricesRow } from "@/lib/api/tables/components-of-gross-value-added-at-basic-prices";
 
@@ -27,6 +30,8 @@ const ComponentsOfGrossValueAddedAtBasicPricesChart : React.FC<ComponentsOfGross
     title  = "Components of gross value added at basic prices (constant prices)",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for left-to-right axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -102,7 +107,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesChart : React.FC<ComponentsOfGross
     };
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Year", {
             type          : "category",
             rangeselector : {
@@ -119,8 +124,8 @@ const ComponentsOfGrossValueAddedAtBasicPricesChart : React.FC<ComponentsOfGross
             },
             tickangle     : -45,
             nticks        : 20,
-        }),
-        yaxis  : createAxis("Rupees crore", { rangemode: "tozero" }),
+        }, theme),
+        yaxis  : createAxis("Rupees crore", { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 100, r: 40 },
         legend : {
@@ -130,7 +135,7 @@ const ComponentsOfGrossValueAddedAtBasicPricesChart : React.FC<ComponentsOfGross
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("gva_components_chart", {
         toImageButtonOptions : {

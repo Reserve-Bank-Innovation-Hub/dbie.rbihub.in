@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -29,6 +29,8 @@ interface WholesalePriceIndexAnnualAveragePageProps {
 }
 
 const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualAveragePageProps> = ({ wpiData }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; the first row is the latest available year.
     const latest = wpiData.data[0];
 
@@ -72,9 +74,9 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title  : createTitle("Wholesale price index — annual average (2011-12 = 100)"),
-            xaxis  : createAxis("Year", { showgrid: false }),
-            yaxis  : createAxis("Index", { showgrid: true, gridcolor: "#e5e7eb" }),
+            title  : createTitle("Wholesale price index — annual average (2011-12 = 100)", undefined, theme),
+            xaxis  : createAxis("Year", { showgrid: false }, theme),
+            yaxis  : createAxis("Index", { showgrid: true }, theme),
             margin : { t: 60, b: 100, l: 80, r: 40 },
             legend : {
                 orientation : "h",
@@ -82,7 +84,7 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
                 xanchor     : "center",
                 y           : -0.25,
             },
-        });
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig(
             "wholesale_price_index_annual_average",
@@ -96,10 +98,10 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Wholesale price index — annual average
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Wholesale price index — annual average
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

@@ -99,10 +99,10 @@
     --primary-nav-border                 : var(--grey-light80);
 
     --nav-item-bg-hover                  : var(--blue-light80);
-    --nav-item-bg-active                 : hsla(var(--indivara), 0.12);
+    --nav-item-bg-active                 : hsla(var(--indivara), 0.32);
 
     --nav-icon-stroke-default            : var(--grey);
-    --nav-icon-stroke-hover              : var(--blue-light20);
+    --nav-icon-stroke-hover              : hsl(var(--indivara));
     --nav-icon-stroke-active             : hsl(var(--indivara));
 
     /* PAGE SIDEBAR ========================================================= */
@@ -110,6 +110,26 @@
     --page-sidebar-border                : var(--grey-light80);
 
     --page-sidebar-divider               : var(--grey-light80);
+
+    /* GRID CELLS =========================================================== */
+    /* The cells of every page grid; the body shows through the 1px gaps as the seams between them */
+    --grid-cell-bg                       : var(--white);
+
+    /* SITE SEARCH ========================================================== */
+    --search-dropdown-bg                 : var(--slate-light80);
+
+    /* DATA GRID ============================================================ */
+    /* What globals.css hands AG Grid, and what the bespoke grids' cell styles name */
+    --data-grid-bg                       : var(--white);
+    --data-grid-text                     : var(--heading-text-colour);
+    --data-grid-border                   : var(--grey-light80);
+    --data-grid-header-bg                : var(--grey-light90);
+    --data-grid-odd-row-bg               : color-mix(in oklch, var(--grey-light90) 50%, transparent);
+    --data-grid-row-hover-bg             : hsla(var(--indivara), 0.12);
+    --data-grid-row-selected-bg          : hsla(var(--indivara), 0.24);
+    --data-grid-total-bg                 : var(--blue-light90);
+    --data-grid-negative                 : var(--red-dark10);
+    --data-grid-positive                 : var(--green-dark30);
 
     --ag-borders                         : none;
 }

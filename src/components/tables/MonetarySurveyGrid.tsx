@@ -85,7 +85,7 @@ const MonetarySurveyGrid : React.FC<MonetarySurveyGridProps> = ({ data }) => {
                 type           : "numericColumn",
                 valueFormatter : numFormatter,
                 cellStyle      : isAggregate
-                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "#f0f9ff" }
+                    ? { fontWeight : "600", textAlign : "right", backgroundColor : "var(--data-grid-total-bg)" }
                     : isExclMerger
                         ? { textAlign : "right", opacity : "0.7" }
                         : { textAlign : "right" },

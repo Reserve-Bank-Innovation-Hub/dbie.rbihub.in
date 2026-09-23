@@ -78,7 +78,9 @@ const ForexReservesPage : React.FC<ForexReservesPageProps> = ({forexData}) => {
     return (
         <Article id="forex-reserves-page" className="page-grid">
             {/* HEADER */}
-            <Div id="title-card" bgColour="white" padding="micro">
+            <Div id="title-card" className="grid-cell" padding="micro">
+                <PageCrumbs />
+
                 <Heading4 weight="700" marginBottom="nano">
                     Foreign exchange reserves — Weekly
                 </Heading4>

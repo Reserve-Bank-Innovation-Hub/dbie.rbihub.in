@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -30,6 +30,8 @@ interface AnnualProductionIndicesClientPageProps {
 }
 
 const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClientPageProps> = ({ indicesData }) => {
+    const [ theme ] = useTheme();
+
     // Newest-first; first entry is the most recent year.
     const latest = indicesData.data[0];
 
@@ -60,12 +62,12 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
         ];
 
         const layout : Partial<Plotly.Layout> = getBaseLayout({
-            title  : createTitle("Electricity production index (base 2011-12 = 100)"),
-            xaxis  : createAxis("Year"),
-            yaxis  : createAxis("Index (2011-12 = 100)", { rangemode: "tozero" }),
+            title  : createTitle("Electricity production index (base 2011-12 = 100)", undefined, theme),
+            xaxis  : createAxis("Year", undefined, theme),
+            yaxis  : createAxis("Index (2011-12 = 100)", { rangemode: "tozero" }, theme),
             height : 400,
             margin : { t: 70, b: 120, l: 80, r: 40 },
-        });
+        }, theme);
 
         const config : Partial<Plotly.Config> = getBaseConfig("electricity_production_index");
 
@@ -76,10 +78,10 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
         <Article id="annual-production-indices-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
-                <Heading4 weight="700" marginBottom="nano">
-                    Annual production indices of select items (base 2011-12 = 100)
                 <PageCrumbs />
 
+                <Heading4 weight="700" marginBottom="nano">
+                    Annual production indices of select items (base 2011-12 = 100)
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     {indicesData.baseYear}

@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ScbInvestmentsRow } from "@/lib/api/tables/scb-investments";
 
@@ -27,6 +30,8 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
     title  = "SLR securities holdings over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -53,7 +58,7 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
     ]), [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Fortnight ended", {
             type          : "date",
             rangeslider   : { visible: true },
@@ -69,10 +74,10 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
                     { step: "all", label: "All" },
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("₹ Crores", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -82,7 +87,7 @@ const ScbInvestmentsChart : React.FC<ScbInvestmentsChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("scb_investments_chart", {
         toImageButtonOptions : {

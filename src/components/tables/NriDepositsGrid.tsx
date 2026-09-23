@@ -46,7 +46,7 @@ const NriDepositsGrid : React.FC<NriDepositsGridProps> = ({ data, unit }) => {
 
     const flowCellStyle = (params : any) => ({
         textAlign : "right" as const,
-        color     : params.value != null && params.value < 0 ? "#d12d1b" : undefined,
+        color     : params.value != null && params.value < 0 ? "var(--data-grid-negative)" : undefined,
     });
 
     const rowData = useMemo(() => data.map(r => ({ ...r, month_label: formatMonth(r.month) })), [data]);

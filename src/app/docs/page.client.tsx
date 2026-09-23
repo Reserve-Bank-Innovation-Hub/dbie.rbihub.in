@@ -26,7 +26,7 @@ const DOC_PAGES = [
 const DocsOverviewPage = () => {
     return (
         <Article id="docs-overview-page" className="docs-page">
-            <Header id="title-card" bgColour="white" padding="micro">
+            <Header id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Docs

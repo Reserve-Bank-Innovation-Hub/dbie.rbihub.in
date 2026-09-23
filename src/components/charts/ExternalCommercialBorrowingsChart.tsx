@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ECBRow } from "@/lib/api/tables/external-commercial-borrowings";
 
@@ -35,6 +38,8 @@ const ExternalCommercialBorrowingsChart : React.FC<ExternalCommercialBorrowingsC
     title  = "ECB registrations — automatic vs. approval route",
     height = 500,
 }) => {
+    const [ theme ] = useTheme();
+
     // Sort oldest-first (rows come oldest-first from the processor, but confirm).
     const sorted = useMemo(() => {
         return [ ...rows ].sort((a, b) => {
@@ -100,18 +105,18 @@ const ExternalCommercialBorrowingsChart : React.FC<ExternalCommercialBorrowingsC
     }, [ sorted, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Period", {
             tickangle : -45,
             tickmode  : "auto",
             nticks    : 24,
-        }),
-        yaxis  : createAxis(unit, { rangemode : "tozero" }),
+        }, theme),
+        yaxis  : createAxis(unit, { rangemode : "tozero" }, theme),
         yaxis2 : createAxis("Number of registrations", {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 80 },
         legend : {
@@ -121,7 +126,7 @@ const ExternalCommercialBorrowingsChart : React.FC<ExternalCommercialBorrowingsC
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("external_commercial_borrowings_chart");
 

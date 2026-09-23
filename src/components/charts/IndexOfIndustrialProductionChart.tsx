@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { IIPDataRow } from "@/lib/api/tables/index-of-industrial-production";
 
@@ -27,6 +30,8 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
     title = "General index over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The dataset is newest-first; a time series reads oldest -> newest.
     const chronological = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -45,7 +50,7 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
     }), [ chronological ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title   : createTitle(title, 20),
+        title   : createTitle(title, 20, theme),
         xaxis   : createAxis("Month", {
             type          : "date",
             rangeslider   : { visible : true },
@@ -61,8 +66,8 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
                     { step : "all", label : "All" },
                 ],
             },
-        }),
-        yaxis   : createAxis("Index (base 2011-12 = 100)"),
+        }, theme),
+        yaxis   : createAxis("Index (base 2011-12 = 100)", undefined, theme),
         height,
         margin  : { t : 80, b : 40, l : 70, r : 40 },
         legend  : {
@@ -72,7 +77,7 @@ const IndexOfIndustrialProductionChart : React.FC<IndexOfIndustrialProductionCha
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("index_of_industrial_production_chart");
 

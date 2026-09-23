@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { NriDepositsRow } from "@/lib/api/tables/nri-deposits";
 
@@ -34,6 +37,8 @@ const NriDepositsChart : React.FC<NriDepositsChartProps> = ({
     title  = "NRI deposits — outstanding balances",
     height = 500,
 }) => {
+    const [ theme ] = useTheme();
+
     // File is newest-first; reverse for left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [data]);
 
@@ -80,7 +85,7 @@ const NriDepositsChart : React.FC<NriDepositsChartProps> = ({
     }, [chartData, x]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : { visible: true },
@@ -96,8 +101,8 @@ const NriDepositsChart : React.FC<NriDepositsChartProps> = ({
                     { step: "all", label: "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis(`${unit}`, { rangemode: "tozero" }),
+        }, theme),
+        yaxis  : createAxis(`${unit}`, { rangemode: "tozero" }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 40 },
         legend : {
@@ -107,7 +112,7 @@ const NriDepositsChart : React.FC<NriDepositsChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("nri_deposits_chart", {
         toImageButtonOptions : {

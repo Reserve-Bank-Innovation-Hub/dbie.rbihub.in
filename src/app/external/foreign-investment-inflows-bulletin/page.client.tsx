@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -36,6 +36,8 @@ function fmtUSD(v : number | null) : string {
 }
 
 const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBulletinPageProps> = ({ investmentData }) => {
+    const [ theme ] = useTheme();
+
     const latest = investmentData.data[0];
 
     const stats = useMemo(() => {
@@ -85,10 +87,10 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
     }, [ chartData ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title : createTitle("Foreign investment inflows — last 24 months"),
-        xaxis : createAxis("Months ago", { type : "category" }),
-        yaxis : createAxis("US $Millions"),
-    });
+        title : createTitle("Foreign investment inflows — last 24 months", undefined, theme),
+        xaxis : createAxis("Months ago", { type : "category" }, theme),
+        yaxis : createAxis("US $Millions", undefined, theme),
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("foreign_investment_inflows_bulletin_chart");
 
@@ -97,10 +99,10 @@ const ForeignInvestmentInflowsBulletinPage : React.FC<ForeignInvestmentInflowsBu
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Foreign investment inflows — monthly
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Foreign investment inflows — monthly
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

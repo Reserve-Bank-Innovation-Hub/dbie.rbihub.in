@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -31,6 +31,8 @@ interface ConsumerPriceIndexAnnualAveragePageProps {
 }
 
 const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAveragePageProps> = ({ cpiData }) => {
+    const [ theme ] = useTheme();
+
     const { series } = cpiData;
 
     // The data is newest-first; reverse to oldest-first for a left-to-right time axis.
@@ -92,9 +94,9 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle("New CPI — rural, urban and combined (base 2012=100)", 18),
-        xaxis  : createAxis("Year", { type: "category" }),
-        yaxis  : createAxis("Index (base 2012=100)", { rangemode: "tozero" }),
+        title  : createTitle("New CPI — rural, urban and combined (base 2012=100)", 18, theme),
+        xaxis  : createAxis("Year", { type: "category" }, theme),
+        yaxis  : createAxis("Index (base 2012=100)", { rangemode: "tozero" }, theme),
         height : 480,
         margin : { t: 80, b: 80, l: 80, r: 40 },
         legend : {
@@ -104,7 +106,7 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             xanchor     : "center",
             x           : 0.5,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("consumer_price_index_annual_average_chart", {
         toImageButtonOptions : {
@@ -121,10 +123,10 @@ const ConsumerPriceIndexAnnualAveragePage : React.FC<ConsumerPriceIndexAnnualAve
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Consumer price index — annual average
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Consumer price index — annual average
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

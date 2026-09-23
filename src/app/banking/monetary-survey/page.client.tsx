@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -28,6 +28,8 @@ interface MonetarySurveyPageProps {
 }
 
 const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
+    const [ theme ] = useTheme();
+
     // Latest period (index 0 — newest-first).
     const latestPeriod = data.periods[0] ?? "—";
 
@@ -72,10 +74,10 @@ const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
     }, [ data, nm3Idx, nm1Idx ]);
 
     const chartLayout : Partial<Plotly.Layout> = useMemo(() => getBaseLayout({
-        title  : createTitle("Money stock — NM1 and NM3"),
-        xaxis  : createAxis("Period", { type : "date" }),
-        yaxis  : createAxis("Rupees Crores"),
-    }), []);
+        title  : createTitle("Money stock — NM1 and NM3", undefined, theme),
+        xaxis  : createAxis("Period", { type : "date" }, theme),
+        yaxis  : createAxis("Rupees Crores", undefined, theme),
+    }, theme), [ theme ]);
 
     const chartConfig : Partial<Plotly.Config> = useMemo(
         () => getBaseConfig("monetary_survey_chart"),
@@ -87,10 +89,10 @@ const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
             {/* HEADER ////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Monetary survey
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Monetary survey
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

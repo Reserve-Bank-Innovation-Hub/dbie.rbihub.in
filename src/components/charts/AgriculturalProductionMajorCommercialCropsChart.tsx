@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { AgriculturalProductionMajorCommercialCropsRow } from "@/lib/api/tables/agricultural-production-major-commercial-crops";
 
@@ -29,6 +32,8 @@ const AgriculturalProductionMajorCommercialCropsChart : React.FC<AgriculturalPro
     title  = "Agricultural production of major commercial crops over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -77,14 +82,14 @@ const AgriculturalProductionMajorCommercialCropsChart : React.FC<AgriculturalPro
     ], [ chartData, years ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis(`Production (${units})`, { rangemode: "tozero" }),
+        title  : createTitle(title, 20, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis(`Production (${units})`, { rangemode: "tozero" }, theme),
         yaxis2 : createAxis(`Sugarcane (${units})`, {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height,
         margin : {t : 80, b : 40, l : 90, r : 90},
         legend : {
@@ -94,7 +99,7 @@ const AgriculturalProductionMajorCommercialCropsChart : React.FC<AgriculturalPro
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("agricultural_production_major_commercial_crops_chart", {
         toImageButtonOptions : {

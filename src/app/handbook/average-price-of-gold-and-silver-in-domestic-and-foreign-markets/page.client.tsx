@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -31,6 +31,8 @@ interface AveragePriceOfGoldAndSilverPageProps {
 }
 
 const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPageProps> = ({ pricesData }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first, so the first row is the latest year.
     const latest = pricesData.data[0];
 
@@ -94,16 +96,16 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
     ], [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle("Average price of gold and silver in Mumbai", 20),
-        xaxis  : createAxis("Year"),
+        title  : createTitle("Average price of gold and silver in Mumbai", 20, theme),
+        xaxis  : createAxis("Year", undefined, theme),
         yaxis  : createAxis(`Gold Mumbai (${pricesData.units.goldMumbai})`, {
             rangemode : "tozero",
-        }),
+        }, theme),
         yaxis2 : createAxis(`Silver Mumbai (${pricesData.units.silverMumbai})`, {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height : 600,
         margin : { t: 80, b: 150, l: 80, r: 80 },
         legend : {
@@ -113,7 +115,7 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             xanchor     : "center",
             x           : 0.5,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig(
         "average_price_of_gold_and_silver_chart",
@@ -133,10 +135,10 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Average price of gold and silver in domestic and foreign markets
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Average price of gold and silver in domestic and foreign markets
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

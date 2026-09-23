@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ForeignTradeRow } from "@/lib/api/tables/foreign-trade";
 
@@ -32,6 +35,8 @@ const ForeignTradeChart : React.FC<ForeignTradeChartProps> = ({
     title  = "India foreign trade — exports, imports and trade balance",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // File is newest-first; reverse for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [data]);
 
@@ -76,7 +81,7 @@ const ForeignTradeChart : React.FC<ForeignTradeChartProps> = ({
     }, [chartData, x]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
+        title  : createTitle(title, 18, theme),
         xaxis  : createAxis("Month", {
             type          : "date",
             rangeslider   : { visible: true },
@@ -92,12 +97,12 @@ const ForeignTradeChart : React.FC<ForeignTradeChartProps> = ({
                     { step: "all", label: "All" },
                 ],
             },
-        }),
-        yaxis  : createAxis("US$ millions", { rangemode: "tozero" }),
+        }, theme),
+        yaxis  : createAxis("US$ millions", { rangemode: "tozero" }, theme),
         yaxis2 : createAxis("Trade balance (US$ mn)", {
             overlaying : "y",
             side       : "right",
-        }),
+        }, theme),
         height,
         margin : { t: 80, b: 40, l: 80, r: 80 },
         legend : {
@@ -107,7 +112,7 @@ const ForeignTradeChart : React.FC<ForeignTradeChartProps> = ({
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("foreign_trade_chart", {
         toImageButtonOptions : {

@@ -18,7 +18,7 @@ const API_EXAMPLE = `https://data-api.dbie.rbihub.in/api/tables/financial_sector
 const UsingTheSitePage = () => {
     return (
         <Article id="docs-using-the-site-page" className="docs-page">
-            <Header id="title-card" bgColour="white" padding="micro">
+            <Header id="title-card" className="grid-cell" padding="micro">
                 <Div>
                     <PageCrumbs />
 

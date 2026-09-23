@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { CPISeries } from "@/lib/api/tables/consumer-price-index";
 
@@ -21,6 +24,8 @@ interface ConsumerPriceIndexChartProps {
 const GENERAL_INDEX = "A) General Index";
 
 const ConsumerPriceIndexChart : React.FC<ConsumerPriceIndexChartProps> = ({ series }) => {
+    const [ theme ] = useTheme();
+
     const chartData = useMemo(() => {
         // Oldest-first for a left-to-right time axis.
         const months = [ ...series.months ].reverse();
@@ -65,9 +70,9 @@ const ConsumerPriceIndexChart : React.FC<ConsumerPriceIndexChartProps> = ({ seri
     }, [ series ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(`General Index over time (base ${series.base})`),
-        xaxis  : createAxis("Month", { showgrid: false, type: "date" }),
-        yaxis  : createAxis("Index", { showgrid: true, gridcolor: "#e5e7eb" }),
+        title  : createTitle(`General Index over time (base ${series.base})`, undefined, theme),
+        xaxis  : createAxis("Month", { showgrid: false, type: "date" }, theme),
+        yaxis  : createAxis("Index", { showgrid: true }, theme),
         margin : { t: 60, b: 40, l: 80, r: 40 },
         legend : {
             orientation : "h",
@@ -76,7 +81,7 @@ const ConsumerPriceIndexChart : React.FC<ConsumerPriceIndexChartProps> = ({ seri
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("consumer_price_index_chart", {
         displayModeBar : false,

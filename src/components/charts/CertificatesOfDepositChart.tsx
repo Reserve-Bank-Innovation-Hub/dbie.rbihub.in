@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { CertificatesOfDepositRow } from "@/lib/api/tables/certificates-of-deposit";
 
@@ -41,6 +44,8 @@ const CertificatesOfDepositChart : React.FC<CertificatesOfDepositChartProps> = (
     title = "Amount outstanding over time",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // The file is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -71,7 +76,7 @@ const CertificatesOfDepositChart : React.FC<CertificatesOfDepositChartProps> = (
     }, [ chartData, x ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Fortnight ended", {
             type          : "date",
             rangeslider   : {visible : true},
@@ -87,10 +92,10 @@ const CertificatesOfDepositChart : React.FC<CertificatesOfDepositChartProps> = (
                     {step : "all", label : "All"},
                 ],
             },
-        }),
+        }, theme),
         yaxis  : createAxis("Amount outstanding (₹ Crores)", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : {t : 80, b : 40, l : 80, r : 40},
         legend : {
@@ -100,7 +105,7 @@ const CertificatesOfDepositChart : React.FC<CertificatesOfDepositChartProps> = (
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("certificates_of_deposit_chart", {
         toImageButtonOptions : {

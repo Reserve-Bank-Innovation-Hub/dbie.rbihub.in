@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { ComponentsOfGrossDomesticProductRow } from "@/lib/api/tables/components-of-gross-domestic-product";
 
@@ -27,6 +30,8 @@ const ComponentsOfGrossDomesticProductChart : React.FC<ComponentsOfGrossDomestic
     title = "GDP at constant prices (base year 2011-12)",
     height = 600,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
 
@@ -56,16 +61,16 @@ const ComponentsOfGrossDomesticProductChart : React.FC<ComponentsOfGrossDomestic
     const totalYears = chartData.length;
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 20),
+        title  : createTitle(title, 20, theme),
         xaxis  : createAxis("Year", {
             type        : "category",
             rangeslider : { visible: true },
             tickangle   : -45,
             nticks      : 15,
-        }),
+        }, theme),
         yaxis  : createAxis("Rupees crores", {
             rangemode : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t: 80, b: 40, l: 100, r: 40 },
         legend : {
@@ -75,7 +80,7 @@ const ComponentsOfGrossDomesticProductChart : React.FC<ComponentsOfGrossDomestic
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("components_of_gdp_chart", {
         toImageButtonOptions : {

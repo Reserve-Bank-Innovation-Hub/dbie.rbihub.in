@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // UI ==================================================================================================================
-import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
+import { Article, Heading4, Heading6, Text, Div, useTheme } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
@@ -29,6 +29,8 @@ interface ForexReservesWeeklyPageProps {
 }
 
 const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ reservesData }) => {
+    const [ theme ] = useTheme();
+
     // Newest-first — first row is the latest week.
     const latest = reservesData.data[0];
 
@@ -89,11 +91,11 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
     }, [ chartData ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title   : createTitle("Foreign exchange reserves — last 52 weeks"),
+        title   : createTitle("Foreign exchange reserves — last 52 weeks", undefined, theme),
         barmode : "overlay",
-        xaxis   : createAxis("Weeks ago", { type : "category" }),
-        yaxis   : createAxis("US $Millions"),
-    });
+        xaxis   : createAxis("Weeks ago", { type : "category" }, theme),
+        yaxis   : createAxis("US $Millions", undefined, theme),
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("forex_reserves_weekly_chart");
 
@@ -102,10 +104,10 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
-                    <Heading4 weight="700" marginBottom="nano">
-                        Foreign exchange reserves — weekly
                     <PageCrumbs />
 
+                    <Heading4 weight="700" marginBottom="nano">
+                        Foreign exchange reserves — weekly
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

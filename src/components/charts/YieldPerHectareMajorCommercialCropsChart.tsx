@@ -4,6 +4,9 @@
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 
+// UI ==================================================================================================================
+import { useTheme } from "fictoan-react";
+
 // LIB =================================================================================================================
 import { YieldPerHectareMajorCommercialCropsRow } from "@/lib/api/tables/yield-per-hectare-major-commercial-crops";
 
@@ -29,6 +32,8 @@ const YieldPerHectareMajorCommercialCropsChart : React.FC<YieldPerHectareMajorCo
     title   = "Yield per hectare — major commercial crops",
     height  = 500,
 }) => {
+    const [ theme ] = useTheme();
+
     // Data is newest-first; reverse to oldest-first for a left-to-right time axis.
     const chartData = useMemo(() => [ ...data ].reverse(), [ data ]);
     const x = chartData.map(d => d.year);
@@ -79,14 +84,14 @@ const YieldPerHectareMajorCommercialCropsChart : React.FC<YieldPerHectareMajorCo
     ], [ chartData, x, unit ]);
 
     const layout : Partial<Plotly.Layout> = getBaseLayout({
-        title  : createTitle(title, 18),
-        xaxis  : createAxis("Year"),
-        yaxis  : createAxis(`Yield (${unit})`, { rangemode : "tozero" }),
+        title  : createTitle(title, 18, theme),
+        xaxis  : createAxis("Year", undefined, theme),
+        yaxis  : createAxis(`Yield (${unit})`, { rangemode : "tozero" }, theme),
         yaxis2 : createAxis(`Sugarcane yield (${unit})`, {
             overlaying : "y",
             side       : "right",
             rangemode  : "tozero",
-        }),
+        }, theme),
         height,
         margin : { t : 80, b : 40, l : 80, r : 80 },
         legend : {
@@ -96,7 +101,7 @@ const YieldPerHectareMajorCommercialCropsChart : React.FC<YieldPerHectareMajorCo
             xanchor     : "left",
             x           : 0,
         },
-    });
+    }, theme);
 
     const config : Partial<Plotly.Config> = getBaseConfig("yield_per_hectare_major_commercial_crops_chart", {
         toImageButtonOptions : {
