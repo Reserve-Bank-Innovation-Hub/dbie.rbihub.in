@@ -1,7 +1,8 @@
 #home-page {
-    /* Rows: the title, two rows of stat tiles, then four sections, each a heading row sized to its text followed by
-       its chart rows at 480px minimum. The retail payments mix is two bars tall, so it gets a shorter row. */
-    grid-template-rows  : 240px auto auto
+    /* Rows: the title, as tall as its painting; two rows of stat tiles; then four sections, each a heading row sized
+       to its text followed by its chart rows at 480px minimum. The retail payments mix is two bars tall, so it gets
+       a shorter row. */
+    grid-template-rows  : auto auto auto
                           auto repeat(4, minmax(480px, auto))
                           auto repeat(3, minmax(480px, auto))
                           auto minmax(480px, auto) minmax(320px, auto)
@@ -26,24 +27,45 @@
             "usdInr       usdInr       trade        trade"
             "flows        flows        reserves     reserves";
 
+    /* The title card is the painting at its own proportions, so the whole image is on the page; --hero-peek is the
+       strip of it, from the bottom, that the page opens on (page.client.tsx scrolls there), which is the height the
+       card had before. A scrim over the foot of the image keeps the title legible, in white in both themes. */
     #title-card {
-        grid-area       : title;
-        display         : flex;
-        flex-direction  : column;
-        justify-content : space-between;
-        position        : relative;
-        background      : linear-gradient(345deg, hsla(var(--indivara), 0.8) 0%, var(--grid-cell-bg) 100%);
+        --hero-peek           : 480px;
+        --heading-text-colour : var(--white);
 
-        #field-lines {
-            position : absolute;
-            right    : 0;
-            top      : 0;
-            width    : 50%;
-            height   : 100%;
-        }
+        grid-area             : title;
+        display               : flex;
+        flex-direction        : column;
+        justify-content       : space-between;
+        position              : relative;
+        aspect-ratio          : 1882 / 1254;
+        background            : linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 40%),
+        url("/images/dbie-hero-bg.jpg") center / cover no-repeat var(--grid-cell-bg);
     }
 
-    #rbi-seal { width : 80px; }
+    /* The seal rides at the top of the hero's visible part and the title at its bottom while the painting scrolls
+       by, each sticky within the card. The seal's track is the card less the title, so the seal is pushed up before
+       it can reach the text as the card leaves the page. The offsets are the card's own padding, so a stuck element
+       sits where its resting one does. The seal is black artwork in an img; over the painting it is white in both
+       themes. */
+    #hero-seal-track {
+        flex       : 1 1 auto;
+        min-height : 0;
+    }
+
+    #rbi-seal {
+        display  : block;
+        position : sticky;
+        top      : var(--micro);
+        width    : 80px;
+        filter   : invert(1);
+    }
+
+    #hero-title {
+        position : sticky;
+        bottom   : var(--micro);
+    }
 
     /* minmax(0, 1fr), not 1fr: a stat tile's own minimum width must not set the column's. */
     #markers {
@@ -63,28 +85,28 @@
     }
 
     #economic-indicators { grid-area : indicators; }
-    #money-and-banking   { grid-area : money; }
-    #payment-systems     { grid-area : payments; }
-    #external-sector     { grid-area : external; }
+    #money-and-banking { grid-area : money; }
+    #payment-systems { grid-area : payments; }
+    #external-sector { grid-area : external; }
 
-    #gdp-card              { grid-area : gdp; }
-    #contributions-card    { grid-area : contributions; }
-    #inflation-card        { grid-area : inflation; }
-    #corridor-card         { grid-area : corridor; }
-    #cpi-heatmap-card      { grid-area : cpiHeatmap; }
-    #yields-card           { grid-area : yields; }
-    #yield-curve-card      { grid-area : yieldCurve; }
-    #transmission-card     { grid-area : transmission; }
-    #liquidity-card        { grid-area : liquidity; }
-    #credit-card           { grid-area : credit; }
+    #gdp-card { grid-area : gdp; }
+    #contributions-card { grid-area : contributions; }
+    #inflation-card { grid-area : inflation; }
+    #corridor-card { grid-area : corridor; }
+    #cpi-heatmap-card { grid-area : cpiHeatmap; }
+    #yields-card { grid-area : yields; }
+    #yield-curve-card { grid-area : yieldCurve; }
+    #transmission-card { grid-area : transmission; }
+    #liquidity-card { grid-area : liquidity; }
+    #credit-card { grid-area : credit; }
     #credit-by-sector-card { grid-area : creditSector; }
-    #upi-value-card        { grid-area : upiValue; }
-    #upi-volume-card       { grid-area : upiVolume; }
-    #payments-mix-card     { grid-area : paymentsMix; }
-    #usd-inr-card          { grid-area : usdInr; }
-    #trade-card            { grid-area : trade; }
-    #flows-card            { grid-area : flows; }
-    #reserves-card         { grid-area : reserves; }
+    #upi-value-card { grid-area : upiValue; }
+    #upi-volume-card { grid-area : upiVolume; }
+    #payments-mix-card { grid-area : paymentsMix; }
+    #usd-inr-card { grid-area : usdInr; }
+    #trade-card { grid-area : trade; }
+    #flows-card { grid-area : flows; }
+    #reserves-card { grid-area : reserves; }
 
     .home-chart-card {
         display        : flex;
@@ -93,26 +115,21 @@
 
     .home-chart-wrapper {
         flex       : 1;
-        min-height : 0;   /* let the chart track the flex cell, not overflow it */
+        min-height : 0; /* let the chart track the flex cell, not overflow it */
     }
 
     /* A line under a chart for what the chart itself cannot say — a series that stops early,
        a colour scale that saturates at its ends. */
     .home-chart-note {
-        margin     : 0 8px 4px;
-        max-width  : 72ch;
-        line-height: 1.4;
+        margin      : 0 8px 4px;
+        max-width   : 72ch;
+        line-height : 1.4;
     }
 
     .grid-cell.has-full-view:hover .full-view-link {
         opacity        : 1;
         pointer-events : auto;
     }
-}
-
-/* The seal is black-only artwork in an img, which CSS cannot fill; inverting it paints it white on the dark theme. */
-.theme-dark #home-page #rbi-seal {
-    filter : invert(1);
 }
 
 /* Below a laptop the four-column grid stops helping: the page becomes one column in DOM order,
@@ -152,7 +169,7 @@
             grid-column : 1 / -1;
         }
 
-        #title-card { min-height : 200px; }
+        #title-card { --hero-peek : 200px; }
 
         #markers {
             grid-template-columns : repeat(2, minmax(0, 1fr));
@@ -162,8 +179,8 @@
         .home-chart-card { min-height : 440px; }
 
         /* The charts that carry a row per category need a row's worth of height each. */
-        #payments-mix-card     { min-height : 420px; }
+        #payments-mix-card { min-height : 420px; }
         #credit-by-sector-card { min-height : 500px; }
-        #cpi-heatmap-card      { min-height : 620px; }
+        #cpi-heatmap-card { min-height : 620px; }
     }
 }

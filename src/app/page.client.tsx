@@ -1,7 +1,7 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import React from "react";
+import React, { useLayoutEffect } from "react";
 
 // UI ==================================================================================================================
 import { Article, Heading6, Heading4, Div, Text, useTheme } from "fictoan-react";
@@ -14,7 +14,6 @@ import DumbbellChart from "@/components/charts/DumbbellChart";
 import ShareBarChart from "@/components/charts/ShareBarChart";
 import FullDataLink from "@components/FullDataLink/FullDataLink";
 import { StatTile } from "@/components/StatTile/StatTile";
-import { FieldLines } from "@components/FieldLines/FieldLines";
 
 // CHART CONFIG ========================================================================================================
 import { CHART_COLORS, chartInk } from "@/components/charts/chartConfig";
@@ -40,6 +39,22 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
     const [ theme ] = useTheme();
     const ink = chartInk(theme);
 
+    // The title card is the whole painting, but the page opens on its bottom strip, the height the card has always
+    // had, with the rest of the image above the top of the page, where scrolling up reveals it. Only a fresh arrival
+    // at the top is moved: a reload keeps the position the browser restores. The router scrolls a client-side
+    // navigation to the top after this effect, so the move is made again a frame later if it was undone.
+    useLayoutEffect(() => {
+        const openOnTheStrip = () => {
+            const card = document.getElementById("title-card");
+            if (!card || window.scrollY !== 0) return;
+            const peek = parseFloat(getComputedStyle(card).getPropertyValue("--hero-peek")) || 0;
+            window.scrollTo({ top : Math.max(0, card.offsetHeight - peek), behavior : "instant" });
+        };
+        openOnTheStrip();
+        const frame = requestAnimationFrame(openOnTheStrip);
+        return () => cancelAnimationFrame(frame);
+    }, []);
+
     const series = (chart : { series : { key : string; label : string; values : (number | null)[] }[] }, key : string) =>
         chart.series.find(s => s.key === key)!;
 
@@ -51,9 +66,14 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                 className="grid-cell"
                 padding="micro"
             >
-                <img id="rbi-seal" src="/images/rbi-seal.svg" alt="RBI seal" width="96" />
+                {/* While the painting scrolls by, the seal rides at the top of the hero's visible part and the title
+                    at its bottom, each sticky within the card. The seal's track is the card less the title, so the
+                    card's bottom edge pushes the seal up before it can reach the text. */}
+                <Div id="hero-seal-track">
+                    <img id="rbi-seal" src="/images/rbi-seal.svg" alt="RBI seal" width="96" />
+                </Div>
 
-                <Div>
+                <Div id="hero-title">
                     <Heading4 weight="700">
                         RBI DBIE
                     </Heading4>
@@ -62,8 +82,6 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
                         A database of Indian economic and financial data
                     </Heading6>
                 </Div>
-
-                <FieldLines />
             </Div>
 
             {/* MARKER DATA POINTS ///////////////////////////////////////////////////////////////////////////////// */}
