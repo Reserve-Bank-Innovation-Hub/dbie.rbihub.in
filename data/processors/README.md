@@ -5,8 +5,8 @@ source files (`data/sdmx/` CSVs, `data/publications/` and `data/sources/` spread
 frontend-consumable JSON the site pre-renders (SSG). ~96 processors produce all 345 payloads.
 
 Every processor is self-checking (hard-coded anchor values fail loudly on source drift), and every
-output is verified against a committed oracle — see the [how to scrape](../../src/app/docs/how-to-scrape)
-docs page for the full pipeline story.
+output is verified against a committed oracle — see [docs/architecture.md](../../docs/architecture.md) for
+how the release fits the rest of the pipeline.
 
 ## Usage
 

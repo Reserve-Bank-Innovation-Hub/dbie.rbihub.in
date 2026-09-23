@@ -7,6 +7,9 @@ import Link from "next/link";
 // UI ==================================================================================================================
 import { Article, Callout, Div, Header, Heading4, Heading5, Heading6, Text } from "fictoan-react";
 
+// STYLES ==============================================================================================================
+import "./docs.css";
+
 const DOC_PAGES = [
     {
         linkTo      : "/docs/using-the-site",
@@ -17,11 +20,6 @@ const DOC_PAGES = [
         linkTo      : "/docs/mcp",
         label       : "AI access via MCP",
         description : "Let Claude or any MCP client search and fetch the tables and series on this site's pages.",
-    },
-    {
-        linkTo      : "/docs/how-to-scrape",
-        label       : "How to scrape",
-        description : "Running the scrapers, loading the database, publishing a data release, and the data API.",
     },
 ];
 
@@ -35,8 +33,8 @@ const DocsOverviewPage = () => {
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">
-                        How this site works, and how to use it — in a browser, from an AI assistant, through the
-                        data API, or by running the pipeline yourself.
+                        How this site works, and how to use it — in a browser, from an AI assistant, or through
+                        the data API.
                     </Heading6>
                 </Div>
             </Header>
@@ -60,27 +58,29 @@ const DocsOverviewPage = () => {
 
                     <ul>
                         <li>
-                            <strong>Curated pages</strong> — the themes, the Handbook, the Indicators and the
+                            <strong>Curated pages</strong>{" "}— the themes, the Handbook, the Indicators and the
                             Stories carry charts and grids pre-rendered from a verified data release: JSON the
                             processors produce from DBIE&rsquo;s exports and check byte-for-byte against committed
                             oracles before it is published.
                         </li>
                         <li>
-                            <strong>The database, live</strong> — <Link href="/statistics">Statistics</Link>,{" "}
-                            <Link href="/publications">Publications</Link> and <Link href="/tables">Tables</Link>{" "}
+                            <strong>The database, live</strong>{" "}— <Link href="/statistics">Statistics</Link>,{" "}
+                            <Link href="/publications">Publications</Link>{" "}and <Link href="/tables">Tables</Link>{" "}
                             open any loaded table straight from a read-only data API at{" "}
                             <code>data-api.dbie.rbihub.in</code>, which anyone can call.
                         </li>
                     </ul>
 
                     <Text marginBottom="micro">
-                        The scrapers, the loaders, the processors and the API are all in the open-source
-                        repository, and the pages below say how to run them.
+                        The scrapers, the loaders, the processors and the API are all in the{" "}
+                        <a href="https://github.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in" target="_blank" rel="noopener noreferrer">
+                            open-source repository
+                        </a>, whose docs folder says how to run them.
                     </Text>
 
                     <Callout kind="info" marginBottom="micro">
                         <Text>
-                            <strong>Data vintage</strong> — pages reflect the last scrape of the DBIE portal,
+                            <strong>Data vintage</strong>{" "}— pages reflect the last scrape of the DBIE portal,
                             not a live feed. Every table page shows the latest observation period of its data,
                             so check the dates rather than assuming &ldquo;today&rdquo;.
                         </Text>

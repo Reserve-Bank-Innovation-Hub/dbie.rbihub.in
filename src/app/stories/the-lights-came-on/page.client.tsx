@@ -22,6 +22,7 @@ import {
 import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { CreditCanvas, type CanvasScene } from "./CreditCanvas";
 import { StackedShare } from "./StackedShare";
 import { WomenIsotype } from "./WomenIsotype";
@@ -178,6 +179,8 @@ export const TheLightsCameOnPage = () => {
                     {/* ACT I — in the dark ------------------------------------------------------- */}
                     <Div className="step centered" data-stage="hero" ref={stepRef(0)}>
                         <Div className="title-card">
+                            <PageCrumbs />
+
                             <Text className="kicker" weight="600" marginBottom="nano">A SO WHAT? DATA STORY</Text>
                             <Heading1 className="tloc-title" marginBottom="nano">
                                 The lights <span className="lit">came on</span>

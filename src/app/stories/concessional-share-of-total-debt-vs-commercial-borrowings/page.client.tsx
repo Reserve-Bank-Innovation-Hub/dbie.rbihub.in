@@ -9,6 +9,7 @@ import { Article, Card, Div, Divider, Heading1, Heading6, Portion, Row, Section,
 import { Download, Table2 } from "lucide-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { DebtMixChart } from "./DebtMixChart";
 
 // DATA ================================================================================================================
@@ -81,6 +82,8 @@ export const ConcessionalVsCommercialPage = () => {
             <Section>
                 <Row horizontalPadding="small" marginTop="medium" allowUltraWide marginBottom="medium">
                     <Portion desktopSpan="half">
+                        <PageCrumbs />
+
                         <Text textColour="indivara" weight="600" marginBottom="nano">
                             CONCESSIONAL VS COMMERCIAL
                         </Text>

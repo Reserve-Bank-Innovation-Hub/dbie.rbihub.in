@@ -7,7 +7,7 @@ import UsingTheSitePage from "./page.client";
 
 export const metadata: Metadata = {
     title       : "Using the site | Docs — Database on Indian Economy",
-    description : "Finding tables in DBIE's menus and the themes, reading the charts and grids, searching from anywhere, downloading, and interpreting units and observation dates",
+    description : "Finding tables in DBIE's menus and the themes, reading the charts and grids, searching from anywhere, downloading and the data API, and interpreting units and observation dates",
     keywords    : [
         "documentation",
         "help",

@@ -337,3 +337,9 @@
 #the-lights-came-on-page .download-link svg {
     stroke : hsl(var(--indivara));
 }
+
+/* The crumbs at the top of the dark opening act, in a light ink the stage can carry */
+#the-lights-came-on-page .act-dark .table-crumbs a,
+#the-lights-came-on-page .act-dark .table-crumbs li[data-breadcrumb-item]::before {
+    color : rgba(255, 255, 255, 0.72);
+}

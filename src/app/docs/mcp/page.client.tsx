@@ -4,6 +4,12 @@
 import React from "react";
 import Link from "next/link";
 
+// LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
+
+// STYLES ==============================================================================================================
+import "../docs.css";
+
 // UI ==================================================================================================================
 import {
     Article, Callout, CodeBlock, Div, Divider, Header, Heading4, Heading5, Heading6, Table, Text,
@@ -31,6 +37,8 @@ const McpDocsPage = () => {
         <Article id="docs-mcp-page" className="docs-page">
             <Header id="title-card" bgColour="white" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         AI access via MCP
                     </Heading4>
@@ -44,7 +52,7 @@ const McpDocsPage = () => {
             <Div className="docs-content grid-cell" padding="micro">
                 <Div className="docs-prose">
                     <Text marginBottom="micro">
-                        <code>@reserve-bank-innovation-hub/dbie-mcp</code> is an{" "}
+                        <code>@reserve-bank-innovation-hub/dbie-mcp</code>{" "}is an{" "}
                         <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">
                             MCP
                         </a>{" "}
@@ -55,10 +63,10 @@ const McpDocsPage = () => {
 
                     <Callout kind="info" marginBottom="micro">
                         <Text>
-                            <strong>Scope</strong> — the server reads the site&rsquo;s published JSON, so it covers
+                            <strong>Scope</strong>{" "}— the server reads the site&rsquo;s published JSON, so it covers
                             the tables and series the curated pages carry (340 catalogue entries), not the 1,033
                             tables in the database. For any table in the database, call the{" "}
-                            <Link href="/docs/how-to-scrape">data API</Link> directly.
+                            <Link href="/docs/using-the-site#getting-the-data-out">data API</Link>{" "}directly.
                         </Text>
                     </Callout>
 
@@ -92,7 +100,7 @@ const McpDocsPage = () => {
                     />
 
                     <Text marginBottom="micro">
-                        Node 20 or newer is the only requirement — <code>npx</code> fetches and runs the
+                        Node 20 or newer is the only requirement — <code>npx</code>{" "}fetches and runs the
                         package on demand.
                     </Text>
 
@@ -156,9 +164,9 @@ const McpDocsPage = () => {
 
                     <Callout kind="info">
                         <Text>
-                            <strong>Data vintage</strong> — responses reflect the deployment&rsquo;s last
+                            <strong>Data vintage</strong>{" "}— responses reflect the deployment&rsquo;s last
                             scrape of the DBIE portal, not live data. Every response carries its source URL,
-                            and series responses carry <code>as_of</code> — the latest observation period — so
+                            and series responses carry <code>as_of</code>{" "}— the latest observation period — so
                             assistants can (and should) disclose how current the numbers are.
                         </Text>
                     </Callout>

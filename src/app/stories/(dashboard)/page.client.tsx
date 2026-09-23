@@ -7,33 +7,12 @@ import Link from "next/link";
 // UI ==================================================================================================================
 import { Article, Div, Header, Heading4, Heading6, Section, Text } from "fictoan-react";
 
-const SECTIONS = [
-    {
-        title : "Bank credit",
-        items : [
-            {
-                linkTo      : "/stories/the-lights-came-on",
-                label       : "The lights came on",
-                description : "Individuals overtook companies as banks' biggest borrowers — and a third of the borrowers added since 2015 are women.",
-            },
-        ],
-    },
-    {
-        title : "External debt",
-        items : [
-            {
-                linkTo      : "/stories/debt-to-service-ratio",
-                label       : "The long walk back from 1991",
-                description : "India went from spending a third of its export earnings on debt service in 1991 to just 6% today.",
-            },
-            {
-                linkTo      : "/stories/concessional-share-of-total-debt-vs-commercial-borrowings",
-                label       : "From aid recipient to market borrower",
-                description : "India's external debt shifted from aid-style concessional loans to market-rate commercial borrowing.",
-            },
-        ],
-    },
-];
+// LIB =================================================================================================================
+import { slugify } from "@/lib/api/catalogue";
+
+// OTHER ===============================================================================================================
+import { STORY_SECTIONS as SECTIONS } from "./sections";
+
 
 const StoriesPage = () => {
     return (
@@ -53,7 +32,7 @@ const StoriesPage = () => {
 
             <Div id="sections-wrapper">
                 {SECTIONS.map((section, idx) => (
-                    <Section key={section.title || idx} marginBottom="nano">
+                    <Section key={section.title || idx} id={slugify(section.title)} marginBottom="nano">
                         {section.title && (
                             <Div className="grid-cell section-header" padding="micro">
                                 <Heading6 weight="700" className="section-title">
