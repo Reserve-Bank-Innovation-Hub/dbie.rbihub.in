@@ -39,7 +39,7 @@
         flex-direction        : column;
         justify-content       : space-between;
         position              : relative;
-        aspect-ratio          : 1882 / 1254;
+        aspect-ratio          : 1882 / 1055;
         background            : linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 40%),
         url("/images/dbie-hero-bg.jpg") center / cover no-repeat var(--grid-cell-bg);
     }
