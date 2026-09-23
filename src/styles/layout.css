@@ -36,41 +36,97 @@
 }
 
 .data-list-page {
-    display               : grid;
-    grid-template-rows    : 240px auto;
-    grid-template-columns : 1fr;
-    gap                   : 1px;
-    min-height            : 100vh;
+    display            : grid;
+    grid-template-rows : 240px auto;
+    gap                : 1px;
+    min-height         : 100vh;
 
-    /* A section is its title on the left and its items on the right. A section inside a section is the next level
-       of a hierarchy, its own title column then its items, so the levels run left to right. */
-    section {
+    /* One grid for the whole listing, in quarters. A section's title takes one quarter and its content the rest, and
+       a section nested in a section takes one more, so the items sit in what is left: three quarters under one level
+       of titles, two under two. Every section and content block is a subgrid of this one, so the columns line up down
+       the page and the sizing lives here alone. */
+    #sections-wrapper {
         display               : grid;
-        grid-template-columns : 24vw auto;
+        grid-template-columns : repeat(4, 1fr);
         gap                   : 1px;
-        /* An anchored section lands below the sticky section header, not under it */
-        scroll-margin-top     : 64px;
-
-        section {
-            grid-template-columns : 16vw auto;
-        }
-
-        /* A section with no title of its own: its items take the whole row */
-        &.untitled {
-            grid-template-columns : 1fr;
-        }
     }
 
-    .section-title {
-        position : sticky;
-        top      : 64px;
-    }
-
+    section,
     .section-content {
         display               : grid;
-        grid-template-columns : 1fr;
+        grid-template-columns : subgrid;
+        grid-column           : 1 / -1;
+        /* A subgrid inherits the column gap it shares; the row gap, the seam between one item and the next, is its own */
         gap                   : 1px;
     }
+
+    section {
+        /* An anchored section lands below the sticky section header, not under it */
+        scroll-margin-top : 64px;
+
+        > .section-header { grid-column : 1; }
+        > .section-content { grid-column : 2 / -1; }
+
+        /* A section with no title of its own: its items take the whole row */
+        &.untitled > .section-content { grid-column : 1 / -1; }
+    }
+
+    /* An item spans whatever columns are left */
+    .section-content > .grid-cell { grid-column : 1 / -1; }
+
+    /* A heading with its icon beside it, the icon in the muted ink so the name carries the weight */
+    .section-title {
+        position       : sticky;
+        top            : 64px;
+        display        : flex;
+        flex-direction : column;
+        align-items    : flex-start;
+        gap            : 8px;
+
+        .heading-icon {
+            flex-shrink : 0;
+            stroke      : var(--paragraph-subtext-colour);
+        }
+    }
+
+    /* A table's cell lights up under the pointer: a slight wash of the accent fading from the top left to the bottom
+       right, drawn by a pseudo-element between the cell's background and its text so it can fade in. A cell that is
+       a link, or holds one; the heading cells, which hold none, do not. */
+    .section-content > a.grid-cell,
+    .section-content > .grid-cell:has(> a) {
+        isolation : isolate;
+
+        &::after {
+            content        : "";
+            position       : absolute;
+            inset          : 0;
+            z-index        : -1;
+            background     : linear-gradient(135deg, hsla(var(--indivara), 0.24) 0%, hsla(var(--indivara), 0) 100%);
+            opacity        : 0;
+            transition     : opacity 0.2s ease-in-out;
+            pointer-events : none;
+        }
+
+        &:hover::after {
+            opacity : 1;
+        }
+    }
+
+    /* A table's name, with a badge beside it where the table is a Data Query dataset */
+    .table-name {
+        display     : flex;
+        align-items : center;
+        flex-wrap   : wrap;
+        gap         : 4px 8px;
+
+        .source-badge {
+            background-color : hsla(var(--indivara), 0.12);
+            color            : hsl(var(--indivara));
+            font-weight      : 600;
+            letter-spacing   : 0.02em;
+        }
+    }
+
 }
 
 /* PAGE GRID STYLES ///////////////////////////////////////////////////////// */

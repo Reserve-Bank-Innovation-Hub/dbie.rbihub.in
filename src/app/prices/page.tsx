@@ -35,9 +35,7 @@ export default function Page() {
                 id="prices-page"
                 path={PATH}
                 label="Prices"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

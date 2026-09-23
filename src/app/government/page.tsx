@@ -35,9 +35,7 @@ export default function Page() {
                 id="government-page"
                 path={PATH}
                 label="Government"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

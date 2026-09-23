@@ -35,9 +35,7 @@ export default function Page() {
                 id="payments-page"
                 path={PATH}
                 label="Payments"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

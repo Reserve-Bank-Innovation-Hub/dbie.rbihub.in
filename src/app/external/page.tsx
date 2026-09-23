@@ -29,9 +29,7 @@ export default function Page() {
                 id="external-page"
                 path={PATH}
                 label="External"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

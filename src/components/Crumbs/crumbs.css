@@ -1,0 +1,31 @@
+/* The trail above a table's heading: one line, the site's link colour at the body weight, fictoan's separator swapped
+   for a thin chevron drawn by the item so the list stays inline. */
+.table-crumbs {
+    font-size : 0.92rem;
+
+    [data-breadcrumbs-wrapper] {
+        display : block;
+    }
+
+    li[data-breadcrumb-item] {
+        display : inline;
+    }
+
+    li[role="presentation"] {
+        display : none;
+    }
+
+    li[data-breadcrumb-item]:not(:first-of-type)::before {
+        content : " \203a\00a0";
+        color   : var(--breadcrumb-item-separator-colour);
+    }
+
+    a {
+        color       : var(--breadcrumb-item-text);
+        font-weight : 400;
+    }
+
+    .breadcrumb-content > span {
+        color : var(--breadcrumb-item-text-active);
+    }
+}

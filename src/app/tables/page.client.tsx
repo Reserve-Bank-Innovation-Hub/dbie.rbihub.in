@@ -41,16 +41,16 @@ interface TablesPageProps {
 }
 
 // The trail above the view's heading: the menus the table sits in, the table itself being the heading. Each menu
-// has a section of the site of its own, the sector a page in it and the section an anchor in that page, so every
-// crumb is a link. The group below the section is not a level this page shows.
+// has a page of its own, on which the sector and the section are anchors, so every crumb is a link. The group
+// below the section is not a level this page shows.
 const MENU_BASE : Record<string, string> = { publication : "/publications", statistics : "/statistics" };
 
 function crumbsFor({ menu, sector, section } : EntryRef) : Crumb[] {
     const base = MENU_BASE[menu.key];
     return [
         { label : sentenceCase(menu.label), href : base },
-        { label : shortTitle(sector.label), title : sentenceCase(sector.label), href : `${base}/${sector.slug}` },
-        ...(section.implicit ? [] : [ { label : sentenceCase(section.label), href : `${base}/${sector.slug}#${section.slug}` } ]),
+        { label : shortTitle(sector.label), title : sentenceCase(sector.label), href : `${base}#${sector.slug}` },
+        ...(section.implicit ? [] : [ { label : sentenceCase(section.label), href : `${base}#${sector.slug}--${section.slug}` } ]),
     ];
 }
 

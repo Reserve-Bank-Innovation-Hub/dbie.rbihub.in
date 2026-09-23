@@ -29,9 +29,7 @@ export default function Page() {
                 id="banking-page"
                 path={PATH}
                 label="Banking"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

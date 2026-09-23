@@ -10,7 +10,7 @@
 // is gathered into one synthetic sector, its sections being DBIE's own sections restricted to those tables.
 
 // REACT CORE ==========================================================================================================
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 // LIB =================================================================================================================
 import {
@@ -96,11 +96,14 @@ export interface Catalogue {
     error   : string | null;
 }
 
-export function useCatalogue() : Catalogue {
+// The catalogue, fetched once the component is in the page; with enabled false nothing is fetched and entries stay
+// null, for a component that only sometimes needs it.
+export function useCatalogue(enabled : boolean = true) : Catalogue {
     const [ entries, setEntries ] = useState<CatalogueEntry[] | null>(null);
     const [ error,   setError ]   = useState<string | null>(null);
 
     useEffect(() => {
+        if (!enabled) return;
         const controller = new AbortController();
         fetchCatalogue(controller.signal)
             .then(fetched => {
@@ -110,35 +113,9 @@ export function useCatalogue() : Catalogue {
                 if (!controller.signal.aborted) setError(err instanceof Error ? err.message : String(err));
             });
         return () => controller.abort();
-    }, []);
+    }, [ enabled ]);
 
     return { entries, error };
-}
-
-export interface MenuSectors {
-    sectors : Sector[] | null;   // null until the catalogue is in
-    error   : string | null;
-}
-
-export function useMenu(key : string, order : MenuOrder = {}) : MenuSectors {
-    const { entries, error } = useCatalogue();
-    const sectors = useMemo(() => (entries ? menuSectors(entries, key, order) : null), [ entries, key, order ]);
-    return { sectors, error };
-}
-
-export interface ThemeSector {
-    sector : Sector | null;   // null until the catalogue is in, or when the theme covers no loaded table
-    error  : string | null;
-}
-
-export function useTheme(keys : string[], label : string, slug : string, order : MenuOrder = {}) : ThemeSector {
-    const { entries, error } = useCatalogue();
-    const sector = useMemo(() => {
-        if (!entries) return null;
-        const built = themeSector(entries, keys, label, slug, order);
-        return built.count > 0 ? built : null;
-    }, [ entries, keys, label, slug, order ]);
-    return { sector, error };
 }
 
 // What a sector holds, for its title card and the list of sectors: "56 tables in 9 sections", "15 tables".

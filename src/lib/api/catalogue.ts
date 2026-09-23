@@ -118,14 +118,13 @@ export interface SectionRef {
 }
 
 // DBIE's Publication and Statistics menus, publications first. DBIE's third menu, SDMX Data Query, is folded into
-// Statistics: each dataset sits in the sector and sub-section of the same name, in a "Data Query" group after the
-// section's report tables. DATA_QUERY_HOME holds the few names that differ.
+// Statistics: each dataset sits in the sector and sub-section of the same name, listed after the section's report
+// tables (its entry_id follows theirs); a page tells the two apart by the entry's source. DATA_QUERY_HOME holds the
+// few names that differ.
 const MENUS : { key : string; label : string; sources : CatalogueSource[]; hint : string }[] = [
     { key : "publication", label : "Publications", sources : [ "publications" ],      hint : "DBIE's time-series publications, table by table" },
     { key : "statistics",  label : "Statistics",   sources : [ "statistics", "sdmx" ], hint : "Report tables and Data Query datasets by sector, as DBIE's Statistics menu lists them" },
 ];
-
-export const DATA_QUERY_GROUP = "Data Query";
 
 // Data Query sub-sectors whose names differ from the Statistics subsection they belong to (DBIE's spelling on both
 // sides), and the one dataset DBIE files under a sector with no sub-sector.
@@ -156,7 +155,7 @@ function place(entry : CatalogueEntry) : { sector : string; section : string; gr
             // Data Query > <sector> > <sub-sector>, folded into the Statistics section of the same name.
             const [, sector = "", sub = ""] = parts;
             const [ home, section ] = DATA_QUERY_HOME[`${sector} > ${sub}`] ?? [ sector, sub || sector ];
-            return { sector : home, section, group : DATA_QUERY_GROUP };
+            return { sector : home, section, group : "" };
         }
         case "publications": {
             // Publication > Time-Series Publications > <publication> > <publication again> > <part> > <group…>
@@ -272,10 +271,9 @@ export function buildMenus(entries : CatalogueEntry[], order : MenuOrder = {}) :
             const builtSections : Section[] = [...sections.entries()].map(([sectionLabel, groups]) => {
                 const label   = sectionLabel || sectorLabel;
                 const slug    = uniqueSlug(label, sectionSlugs);
-                // Groups in DBIE's order, the Data Query datasets after the section's report tables.
-                const built   = [...groups.entries()]
-                    .sort((a, b) => Number(a[0] === DATA_QUERY_GROUP) - Number(b[0] === DATA_QUERY_GROUP))
-                    .map(([groupLabel, list]) => ({ label : groupLabel, entries : list }));
+                // Groups in DBIE's order; within a group the entries keep the catalogue's, which puts a section's
+                // Data Query datasets after its report tables.
+                const built   = [...groups.entries()].map(([groupLabel, list]) => ({ label : groupLabel, entries : list }));
                 const flat    = built.flatMap(g => g.entries);
                 return {
                     key      : implicit ? `${def.key}/${sectorSlug}` : `${def.key}/${sectorSlug}/${slug}`,

@@ -35,9 +35,7 @@ export default function Page() {
                 id="growth-page"
                 path={PATH}
                 label="Growth"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />

@@ -35,9 +35,7 @@ export default function Page() {
                 id="markets-page"
                 path={PATH}
                 label="Markets"
-                theme
                 subtitle={SUBTITLE}
-                noun="theme"
                 curated={curatedPages}
                 order={menuOrder()}
             />
