@@ -27,11 +27,14 @@
             "usdInr       usdInr       trade        trade"
             "flows        flows        reserves     reserves";
 
-    /* The title card is the painting at its own proportions, so the whole image is on the page; --hero-peek is the
-       strip of it, from the bottom, that the page opens on (page.client.tsx scrolls there), which is the height the
-       card had before. A scrim over the foot of the image keeps the title legible, in white in both themes. */
+    /* The title card is the painting at its own proportions, so the whole image is on the page. The page opens on a
+       strip of it from the bottom (page.client.tsx scrolls there) framed on the woman at the desk: --hero-focus is her
+       head, measured as a share of the image's height from the top, and the strip is twice her distance from the
+       bottom, so she sits at its centre at any width. --hero-peek is the least the strip may be, room for the title.
+       A scrim over the foot of the image keeps the title legible, in white in both themes. */
     #title-card {
-        --hero-peek           : 480px;
+        --hero-focus          : 0.725;
+        --hero-peek           : 240px;
         --heading-text-colour : var(--white);
 
         grid-area             : title;

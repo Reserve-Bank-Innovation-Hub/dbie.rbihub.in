@@ -39,15 +39,22 @@ const HomePage : React.FC<HomePageProps> = ({home}) => {
     const [ theme ] = useTheme();
     const ink = chartInk(theme);
 
-    // The title card is the whole painting, but the page opens on its bottom strip, the height the card has always
-    // had, with the rest of the image above the top of the page, where scrolling up reveals it. Only a fresh arrival
-    // at the top is moved: a reload keeps the position the browser restores. The router scrolls a client-side
-    // navigation to the top after this effect, so the move is made again a frame later if it was undone.
+    // The title card is the whole painting, but the page opens on a strip of it from the bottom, with the rest of the
+    // image above the top of the page, where scrolling up reveals it. The strip is framed on the woman at the desk:
+    // home.css names her head as a share of the image's height, and since the strip ends at the image's bottom, she
+    // is at its centre when the strip is twice her distance from there. The strip is never taller than the viewport,
+    // so the title stays on screen, nor shorter than the card's least (--hero-peek). Only a fresh arrival at the top
+    // is moved: a reload keeps the position the browser restores. The router scrolls a client-side navigation to the
+    // top after this effect, so the move is made again a frame later if it was undone.
     useLayoutEffect(() => {
         const openOnTheStrip = () => {
             const card = document.getElementById("title-card");
             if (!card || window.scrollY !== 0) return;
-            const peek = parseFloat(getComputedStyle(card).getPropertyValue("--hero-peek")) || 0;
+            const style = getComputedStyle(card);
+            const focus = parseFloat(style.getPropertyValue("--hero-focus")) || 1;
+            const least = parseFloat(style.getPropertyValue("--hero-peek")) || 0;
+            const below = card.offsetHeight * (1 - focus);
+            const peek  = Math.min(card.offsetHeight, Math.max(least, Math.min(2 * below, window.innerHeight)));
             window.scrollTo({ top : Math.max(0, card.offsetHeight - peek), behavior : "instant" });
         };
         openOnTheStrip();
