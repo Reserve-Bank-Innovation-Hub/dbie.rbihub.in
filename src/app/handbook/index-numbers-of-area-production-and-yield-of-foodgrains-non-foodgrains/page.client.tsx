@@ -7,6 +7,7 @@ import React, { useMemo, useState } from "react";
 import { Article, Heading4, Heading6, Text, Div, Button } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AreaProductionYieldFoodgrainsGrid from "@/components/tables/AreaProductionYieldFoodgrainsGrid";
 import AreaProductionYieldFoodgrainsChart from "@/components/charts/AreaProductionYieldFoodgrainsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -47,6 +48,8 @@ const AreaProductionYieldFoodgrainsPage : React.FC<AreaProductionYieldFoodgrains
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Index numbers of area, production and yield — foodgrains &amp; non-foodgrains
                     </Heading4>

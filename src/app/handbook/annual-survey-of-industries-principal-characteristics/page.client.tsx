@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AnnualSurveyOfIndustriesPrincipalCharacteristicsGrid from "@/components/tables/AnnualSurveyOfIndustriesPrincipalCharacteristicsGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -44,6 +45,8 @@ const AnnualSurveyOfIndustriesPrincipalCharacteristicsPage : React.FC<
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Annual survey of industries — principal characteristics
                     </Heading4>

@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import BalanceOfPaymentsGrid from "@/components/tables/BalanceOfPaymentsGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -40,6 +41,8 @@ const BalanceOfPaymentsInrPage : React.FC<BalanceOfPaymentsInrPageProps> = ({ da
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Balance of payments — overall presentation (₹ crore)
                     </Heading4>

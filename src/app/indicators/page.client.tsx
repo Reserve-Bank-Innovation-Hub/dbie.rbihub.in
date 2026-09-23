@@ -7,23 +7,12 @@ import Link from "next/link";
 // UI ==================================================================================================================
 import { Article, Div, Header, Heading4, Heading6, Section, Text } from "fictoan-react";
 
-const SECTIONS = [
-    {
-        title : "External sector",
-        items : [
-            {
-                linkTo      : "/indicators/exchange-rates",
-                label       : "Exchange rates",
-                description : "Daily exchange rates of the Indian Rupee against major foreign currencies including US Dollar, Pound Sterling, Euro, and Japanese Yen.",
-            },
-            {
-                linkTo      : "/indicators/forex-reserves",
-                label       : "Forex reserves",
-                description : "Weekly foreign exchange reserves data including total reserves, foreign currency assets, gold holdings, and SDRs",
-            },
-        ],
-    },
-];
+// LIB =================================================================================================================
+import { slugify } from "@/lib/api/catalogue";
+
+// OTHER ===============================================================================================================
+import { INDICATOR_SECTIONS as SECTIONS } from "./sections";
+
 
 const IndicatorsPage = () => {
     return (
@@ -42,7 +31,7 @@ const IndicatorsPage = () => {
 
             <Div id="sections-wrapper">
                 {SECTIONS.map((section, idx) => (
-                    <Section key={section.title || idx} marginBottom="nano">
+                    <Section key={section.title || idx} id={slugify(section.title)} marginBottom="nano">
                         {section.title && (
                             <Div className="grid-cell section-header" padding="micro">
                                 <Heading6 weight="700" className="section-title">

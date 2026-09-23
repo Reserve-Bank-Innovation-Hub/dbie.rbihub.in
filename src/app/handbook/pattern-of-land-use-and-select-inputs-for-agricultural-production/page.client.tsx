@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import PatternOfLandUseGrid from "@/components/tables/PatternOfLandUseGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -129,6 +130,8 @@ const PatternOfLandUsePage : React.FC<PatternOfLandUsePageProps> = ({ landUseDat
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Pattern of land use and select inputs for agricultural production
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import NsvaAtConstantPricesGrid from "@/components/tables/NsvaAtConstantPricesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -103,6 +104,8 @@ const NsvaAtConstantPricesPage : React.FC<NsvaAtConstantPricesPageProps> = ({ da
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Net State Value Added by economic activity at constant prices
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

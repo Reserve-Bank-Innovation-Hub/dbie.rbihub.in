@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AveragePriceOfGoldAndSilverGrid from "@/components/tables/AveragePriceOfGoldAndSilverGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -134,6 +135,8 @@ const AveragePriceOfGoldAndSilverPage : React.FC<AveragePriceOfGoldAndSilverPage
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Average price of gold and silver in domestic and foreign markets
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

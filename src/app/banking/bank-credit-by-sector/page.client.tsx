@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import BankCreditBySectorGrid from "@/components/tables/BankCreditBySectorGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -93,6 +94,8 @@ const BankCreditBySectorPage : React.FC<BankCreditBySectorPageProps> = ({ data }
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Heading4 weight="700" marginBottom="nano">
                     Deployment of gross bank credit by major sectors
+                <PageCrumbs />
+
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     Outstanding credit across agriculture, industry, services, and personal loans; amounts in{" "}

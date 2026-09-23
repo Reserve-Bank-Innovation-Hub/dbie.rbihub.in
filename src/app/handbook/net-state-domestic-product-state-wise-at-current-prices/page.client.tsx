@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import NsdpCurrentPricesGrid from "@/components/tables/NsdpCurrentPricesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -28,6 +29,8 @@ const NsdpCurrentPricesPage : React.FC<NsdpCurrentPricesPageProps> = ({ nsdpData
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Net State Domestic Product — state-wise (at current prices)
                     </Heading4>

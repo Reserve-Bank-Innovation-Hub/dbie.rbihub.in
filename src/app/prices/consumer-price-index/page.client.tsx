@@ -7,6 +7,7 @@ import React, { useMemo, useState } from "react";
 import { Article, Heading4, Heading6, Div, Select } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import ConsumerPriceIndexGrid from "@/components/tables/ConsumerPriceIndexGrid";
 import ConsumerPriceIndexChart from "@/components/charts/ConsumerPriceIndexChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";

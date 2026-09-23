@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import ForexReservesWeeklyGrid from "@/components/tables/ForexReservesWeeklyGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -103,6 +104,8 @@ const ForexReservesWeeklyPage : React.FC<ForexReservesWeeklyPageProps> = ({ rese
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Foreign exchange reserves — weekly
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

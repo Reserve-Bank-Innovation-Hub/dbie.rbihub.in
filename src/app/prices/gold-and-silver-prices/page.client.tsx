@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import GoldAndSilverPricesGrid from "@/components/tables/GoldAndSilverPricesGrid";
 import GoldAndSilverPricesChart from "@/components/charts/GoldAndSilverPricesChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -45,6 +46,8 @@ const GoldAndSilverPricesPage : React.FC<GoldAndSilverPricesPageProps> = ({ pric
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Monthly average price of gold and silver in Mumbai
                     </Heading4>

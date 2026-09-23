@@ -7,6 +7,7 @@ import React, { useState, useMemo } from "react";
 import { Article, Heading4, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import CreditClassificationGrid from "@/components/tables/CreditClassificationGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -33,6 +34,8 @@ const CreditClassificationPage : React.FC<CreditClassificationPageProps> = ({cre
         <Article id="credit-classification-page" className="page-grid">
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
+                <PageCrumbs />
+
                 <Heading4 weight="700" marginBottom="nano">
                     Organisation-wise classification of outstanding credit of scheduled commercial banks according to
                     occupation

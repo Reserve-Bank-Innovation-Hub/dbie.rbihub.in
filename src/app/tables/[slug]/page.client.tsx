@@ -7,6 +7,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Article, Div, Heading4, Heading6, Text } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import SdmxSeriesGrid, { SdmxLongGrid } from "@/components/tables/SdmxSeriesGrid";
 import TimeSeriesChart                  from "@/components/charts/TimeSeriesChart";
 import { DataUnit }                     from "@components/DataUnit/DataUnit";
@@ -27,6 +28,7 @@ import "./sdmx-series-page.css";
 // =====================================================================================================================
 interface SdmxSeriesPageClientProps {
     slug      : string;
+    dsd     ? : string;   // the dataset's DBIE code, for the crumbs that lead back to its place in the Statistics menu
     label     : string;
     sector    : string;
     subSector : string;
@@ -78,6 +80,7 @@ function normalisePayload(raw : unknown) : SdmxSeriesPayload {
 // =====================================================================================================================
 const SdmxSeriesPageClient : React.FC<SdmxSeriesPageClientProps> = ({
     slug,
+    dsd,
     label,
     sector,
     subSector,
@@ -171,6 +174,8 @@ const SdmxSeriesPageClient : React.FC<SdmxSeriesPageClientProps> = ({
             {/* HEADER — always visible from props, no fetch needed //////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs dsd={dsd} />
+
                     <Heading4 weight="700" marginBottom="nano">
                         {label}
                     </Heading4>

@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Header, Heading4, Heading6, Section, Card, Row, Portion, Text, Divider, Div, Footer } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import { DataUnit } from "@/components/DataUnit/DataUnit";
 
@@ -75,6 +76,8 @@ const ExchangeRatesPage = ({exchangeRateData} : ExchangeRatesPageProps) => {
                 padding="micro"
             >
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Daily exchange rate of the Indian rupee
                     </Heading4>

@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import MonetarySurveyGrid from "@/components/tables/MonetarySurveyGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -88,6 +89,8 @@ const MonetarySurveyPage : React.FC<MonetarySurveyPageProps> = ({ data }) => {
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Monetary survey
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

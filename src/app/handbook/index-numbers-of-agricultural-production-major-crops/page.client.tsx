@@ -7,6 +7,7 @@ import React, { useMemo, useState } from "react";
 import { Article, Heading4, Heading6, Text, Div, Button } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AgriProductionMajorCropsGrid from "@/components/tables/AgriProductionMajorCropsGrid";
 import AgriProductionMajorCropsChart from "@/components/charts/AgriProductionMajorCropsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -47,6 +48,8 @@ const AgriProductionMajorCropsPage : React.FC<AgriProductionMajorCropsPageProps>
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Index numbers of agricultural production — major crops
                     </Heading4>

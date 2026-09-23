@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AreaUnderCultivationMajorCommercialCropsGrid from "@/components/tables/AreaUnderCultivationMajorCommercialCropsGrid";
 import AreaUnderCultivationMajorCommercialCropsChart from "@/components/charts/AreaUnderCultivationMajorCommercialCropsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -43,6 +44,8 @@ const AreaUnderCultivationMajorCommercialCropsPage : React.FC<AreaUnderCultivati
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Area under cultivation of major commercial crops
                     </Heading4>

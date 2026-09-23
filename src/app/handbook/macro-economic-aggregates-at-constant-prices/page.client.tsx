@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import MacroEconomicAggregatesConstantPricesGrid from "@/components/tables/MacroEconomicAggregatesConstantPricesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -73,6 +74,8 @@ const MacroEconomicAggregatesConstantPricesPage : React.FC<MacroEconomicAggregat
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Macro-economic aggregates at constant prices (base year 2011-12)
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

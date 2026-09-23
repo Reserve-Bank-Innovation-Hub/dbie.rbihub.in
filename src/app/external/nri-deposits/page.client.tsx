@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import NriDepositsGrid from "@/components/tables/NriDepositsGrid";
 import NriDepositsChart from "@/components/charts/NriDepositsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -57,6 +58,8 @@ const NriDepositsPage : React.FC<NriDepositsPageProps> = ({ depositsData }) => {
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         NRI deposits — outstandings and inflows/outflows
                     </Heading4>

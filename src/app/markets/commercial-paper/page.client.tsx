@@ -11,6 +11,7 @@ import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 import type * as Plotly from "plotly.js";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import CommercialPaperGrid from "@/components/tables/CommercialPaperGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -138,6 +139,8 @@ const CommercialPaperPage : React.FC<CommercialPaperPageProps> = ({ paperData })
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Commercial paper
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

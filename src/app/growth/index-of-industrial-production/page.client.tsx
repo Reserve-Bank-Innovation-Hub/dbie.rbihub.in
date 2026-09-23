@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import IndexOfIndustrialProductionGrid from "@/components/tables/IndexOfIndustrialProductionGrid";
 import IndexOfIndustrialProductionChart from "@/components/charts/IndexOfIndustrialProductionChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -40,6 +41,8 @@ const IndexOfIndustrialProductionPage : React.FC<IndexOfIndustrialProductionPage
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" bgColour="white" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Index of industrial production
                     </Heading4>

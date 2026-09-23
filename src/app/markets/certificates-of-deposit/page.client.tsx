@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import CertificatesOfDepositGrid from "@/components/tables/CertificatesOfDepositGrid";
 import CertificatesOfDepositChart from "@/components/charts/CertificatesOfDepositChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -46,6 +47,8 @@ const CertificatesOfDepositPage : React.FC<CertificatesOfDepositPageProps> = ({ 
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Certificates of deposit
                     </Heading4>

@@ -89,6 +89,7 @@ export default async function Page(
     return (
         <SdmxSeriesPageClient
             slug       = {slug}
+            dsd        = {entry?.id.replace(/^sdmx:/, "")}
             label      = {entry?.label     ?? slug}
             sector     = {entry?.sector    ?? ""}
             subSector  = {entry?.subSector ?? ""}

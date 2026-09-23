@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import WholesalePriceIndexAnnualAverageGrid from "@/components/tables/WholesalePriceIndexAnnualAverageGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -97,6 +98,8 @@ const WholesalePriceIndexAnnualAveragePage : React.FC<WholesalePriceIndexAnnualA
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Wholesale price index — annual average
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60" marginBottom="micro">

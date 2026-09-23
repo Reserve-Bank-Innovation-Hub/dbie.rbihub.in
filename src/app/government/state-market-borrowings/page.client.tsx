@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading5, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { AnnualGrid, MonthlyGrid } from "@/components/tables/StateMarketBorrowingsGrids";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -35,6 +36,8 @@ const StateMarketBorrowingsPage : React.FC<StateMarketBorrowingsPageProps> = ({ 
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Market borrowings of state governments
                     </Heading4>

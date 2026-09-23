@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AgriculturalProductionFoodgrainsGrid from "@/components/tables/AgriculturalProductionFoodgrainsGrid";
 import AgriculturalProductionFoodgrainsChart from "@/components/charts/AgriculturalProductionFoodgrainsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -44,6 +45,8 @@ const AgriculturalProductionFoodgrainsPage : React.FC<AgriculturalProductionFood
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Agricultural production of foodgrains
                     </Heading4>

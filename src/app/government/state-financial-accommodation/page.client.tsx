@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import StateFinancialAccommodationGrid from "@/components/tables/StateFinancialAccommodationGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -46,6 +47,8 @@ const StateFinancialAccommodationPage : React.FC<StateFinancialAccommodationPage
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Financial accommodation availed by state governments
                     </Heading4>

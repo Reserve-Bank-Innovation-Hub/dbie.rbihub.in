@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import LiquidityOperationsGrid from "@/components/tables/LiquidityOperationsGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -28,6 +29,8 @@ const LiquidityOperationsPage : React.FC<LiquidityOperationsPageProps> = ({ data
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Liquidity operations by RBI
                     </Heading4>

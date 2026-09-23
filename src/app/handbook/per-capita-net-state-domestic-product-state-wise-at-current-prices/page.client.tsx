@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import PerCapitaNsdpCurrentPricesGrid from "@/components/tables/PerCapitaNsdpCurrentPricesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -28,6 +29,8 @@ const PerCapitaNsdpCurrentPricesPage : React.FC<PerCapitaNsdpCurrentPricesPagePr
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Per capita Net State Domestic Product — state-wise (at current prices)
                     </Heading4>

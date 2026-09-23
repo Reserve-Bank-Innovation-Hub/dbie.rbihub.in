@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import ForeignTradeGrid from "@/components/tables/ForeignTradeGrid";
 import ForeignTradeChart from "@/components/charts/ForeignTradeChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -56,6 +57,8 @@ const ForeignTradePage : React.FC<ForeignTradePageProps> = ({ tradeData }) => {
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Foreign trade
                     </Heading4>

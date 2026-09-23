@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import WholesalePriceIndexGrid from "@/components/tables/WholesalePriceIndexGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -88,6 +89,8 @@ const WholesalePriceIndexPage : React.FC<WholesalePriceIndexPageProps> = ({ wpiD
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Heading4 weight="700" marginBottom="nano">
                     Wholesale price index — monthly
+                <PageCrumbs />
+
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     Monthly wholesale price index across the full commodity taxonomy (Table 22), with historical base

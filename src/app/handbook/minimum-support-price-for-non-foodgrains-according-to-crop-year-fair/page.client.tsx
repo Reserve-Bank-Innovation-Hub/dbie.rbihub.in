@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import MspNonFoodgrainsGrid from "@/components/tables/MspNonFoodgrainsGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -25,6 +26,8 @@ const MspNonFoodgrainsPage : React.FC<MspNonFoodgrainsPageProps> = ({ tableData 
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Minimum support price for non-foodgrains (crop year, fair average quality)
                     </Heading4>

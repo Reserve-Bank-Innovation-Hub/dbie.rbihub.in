@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import AnnualProductionIndicesGrid from "@/components/tables/AnnualProductionIndicesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -77,6 +78,8 @@ const AnnualProductionIndicesClientPage : React.FC<AnnualProductionIndicesClient
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Heading4 weight="700" marginBottom="nano">
                     Annual production indices of select items (base 2011-12 = 100)
+                <PageCrumbs />
+
                 </Heading4>
                 <Heading6 weight="400" opacity="60">
                     {indicesData.baseYear}

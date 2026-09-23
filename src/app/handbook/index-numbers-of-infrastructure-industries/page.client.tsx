@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import IndexNumbersOfInfrastructureIndustriesGrid from "@/components/tables/IndexNumbersOfInfrastructureIndustriesGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -76,6 +77,8 @@ const IndexNumbersOfInfrastructureIndustriesPage : React.FC<IndexNumbersOfInfras
                 <Div>
                     <Heading4 weight="700" marginBottom="nano">
                         Index numbers of infrastructure industries
+                    <PageCrumbs />
+
                     </Heading4>
 
                     <Heading6 weight="400" opacity="60">

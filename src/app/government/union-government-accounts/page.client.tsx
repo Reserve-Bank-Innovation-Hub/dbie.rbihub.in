@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import UnionGovernmentAccountsGrid from "@/components/tables/UnionGovernmentAccountsGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -30,6 +31,8 @@ const UnionGovernmentAccountsPage : React.FC<UnionGovernmentAccountsPageProps> =
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Union Government accounts at a glance
                     </Heading4>

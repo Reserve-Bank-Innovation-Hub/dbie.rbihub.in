@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import SectorWiseCostOverrunGrid from "@/components/tables/SectorWiseCostOverrunGrid";
 import { DataUnit } from "@components/DataUnit/DataUnit";
 
@@ -25,6 +26,8 @@ const SectorWiseCostOverrunPage : React.FC<SectorWiseCostOverrunPageProps> = ({ 
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Sector-wise cost overrun of delayed central sector projects (end-March)
                     </Heading4>

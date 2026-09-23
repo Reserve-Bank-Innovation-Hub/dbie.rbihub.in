@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import ProductionAndImportsOfCrudeOilGrid from "@/components/tables/ProductionAndImportsOfCrudeOilGrid";
 import ProductionAndImportsOfCrudeOilChart from "@/components/charts/ProductionAndImportsOfCrudeOilChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -52,6 +53,8 @@ const ProductionAndImportsOfCrudeOilPage : React.FC<ProductionAndImportsOfCrudeO
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Production and imports of crude oil and petroleum products
                     </Heading4>

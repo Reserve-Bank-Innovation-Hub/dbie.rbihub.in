@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import FinancialMarketsTurnoverGrid from "@/components/tables/FinancialMarketsTurnoverGrid";
 import FinancialMarketsTurnoverChart from "@/components/charts/FinancialMarketsTurnoverChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -47,6 +48,8 @@ const FinancialMarketsTurnoverPage : React.FC<FinancialMarketsTurnoverPageProps>
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" className="grid-cell" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Average daily turnover in select financial markets
                     </Heading4>

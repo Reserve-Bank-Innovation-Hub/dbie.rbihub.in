@@ -7,6 +7,7 @@ import React from "react";
 import { Article, Div, Heading4 } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import ExternalDebtGrid from "@/components/tables/ExternalDebtGrid";
 
 // LIB =================================================================================================================
@@ -21,6 +22,8 @@ const ExternalDebtPage: React.FC<ExternalDebtPageProps> = ({ data }) => {
     return (
         <Article id="external-debt-page" className="page-grid">
             <Div id="title-card" className="grid-cell" padding="micro">
+                <PageCrumbs />
+
                 <Heading4>{data.reportTitle}</Heading4>
             </Div>
 

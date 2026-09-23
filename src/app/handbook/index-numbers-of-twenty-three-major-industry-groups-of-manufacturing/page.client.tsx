@@ -7,6 +7,7 @@ import React, { useMemo, useState } from "react";
 import { Article, Heading4, Heading6, Text, Div } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import IndexNumbersTwentyThreeMajorIndustryGroupsGrid from "@/components/tables/IndexNumbersTwentyThreeMajorIndustryGroupsGrid";
 import IndexNumbersTwentyThreeMajorIndustryGroupsChart from "@/components/charts/IndexNumbersTwentyThreeMajorIndustryGroupsChart";
 import { DataUnit } from "@components/DataUnit/DataUnit";
@@ -38,6 +39,8 @@ const IndexNumbersTwentyThreeMajorIndustryGroupsPage : React.FC<IndexNumbersTwen
             {/* HEADER ///////////////////////////////////////////////////////////////////////////////////////////// */}
             <Div id="title-card" bgColour="white" padding="micro">
                 <Div>
+                    <PageCrumbs />
+
                     <Heading4 weight="700" marginBottom="nano">
                         Index numbers of twenty-three major industry groups of manufacturing sector
                     </Heading4>
