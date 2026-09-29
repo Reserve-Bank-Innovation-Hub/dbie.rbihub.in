@@ -170,11 +170,11 @@ function selfCheck(out) {
   }
 
   // Hard-coded cell assertions (read directly from source sheet):
-  //   Jan 2025-26: outstanding_total = 165776.287224921, flows_fcnrb = -1097.517303435
+  //   Jan 2025-26: outstanding_total = 165875.764351919, flows_fcnrb = -1097.517303435
   //   Mar 2024-25: outstanding_total = 164677.084051489, flows_total = 1604.889502576
   //   Apr 2024-25: outstanding_total = 153009.257014981
   const assertions = [
-    { month: '2026-01', field: 'outstanding_total', expected: 165776.287224921 },
+    { month: '2026-01', field: 'outstanding_total', expected: 165875.764351919 },
     { month: '2026-01', field: 'flows_fcnrb',       expected: -1097.517303435  },
     { month: '2025-03', field: 'outstanding_total', expected: 164677.084051489 },
     { month: '2025-03', field: 'flows_total',       expected: 1604.889502576   },

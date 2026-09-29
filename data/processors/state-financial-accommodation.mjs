@@ -162,11 +162,13 @@ function selfCheck(out) {
     if (!ap) {
         errors.push('anchor state "Andhra Pradesh" not found');
     } else {
+        // The month is found by its label: every refresh adds months at the front, so position 0 moves.
+        const jan = columns.findIndex(c => /January 2026/.test(c.month));
         const checks = [
-            { idx: 0, expected: 5341,  desc: 'Jan 2026 SDF avg amount' },
-            { idx: 1, expected: 25,    desc: 'Jan 2026 SDF days' },
-            { idx: 2, expected: 2875,  desc: 'Jan 2026 WMA avg amount' },
-            { idx: 3, expected: 6,     desc: 'Jan 2026 WMA days' },
+            { idx: jan,     expected: 5341,  desc: 'Jan 2026 SDF avg amount' },
+            { idx: jan + 1, expected: 25,    desc: 'Jan 2026 SDF days' },
+            { idx: jan + 2, expected: 2875,  desc: 'Jan 2026 WMA avg amount' },
+            { idx: jan + 3, expected: 6,     desc: 'Jan 2026 WMA days' },
         ];
         for (const { idx, expected, desc } of checks) {
             const got = ap.values[idx];

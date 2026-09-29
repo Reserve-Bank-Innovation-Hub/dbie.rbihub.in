@@ -159,3 +159,9 @@ scripts/
   keep such files out of the repository (object storage) and re-export the district documents yearly, not monthly.
 - The Reports and Publications menus (SAP BusinessObjects documents) are handled by `scripts/export-reports.mjs`
   (see its header for the flow and the pacing rules); guest SAP sessions are rationed, so it polls for one.
+- DBIE's report database sometimes fails a document's refresh ("A database error has occured", HTTP 400), and the
+  export then comes back empty or nearly so; on 28-09-2026, after an outage, about a third of the documents did.
+  The exporter writes each export as `<file>.part` and moves it into place only when the report was not ok before,
+  or the new export is ok with at least half the earlier data rows. Otherwise the earlier files and manifest entry
+  stand, with the failed attempt under `lastAttempt`; a failed or throttled report keeps its earlier entry the same
+  way. Re-run the reports that carry a `lastAttempt` later.

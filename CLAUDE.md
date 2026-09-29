@@ -55,8 +55,8 @@ latest archived scrape from the public bucket; `pnpm data:pull` fetches the site
 ## Things that look wrong but are right
 
 - The API deploys from `main` only, although one service serves dev, staging and main: one dataset, one API.
-- Staging and production sites still build from data files committed in their own branches (July 2026) until the
-  data-serving code is promoted to them; nothing done on `dev` changes them.
+- A data release reaches a site only when that branch next builds: publish the release first, then push or
+  rebuild the branch.
 - `public/data` is deleted after the site build on purpose; the browser fetches `/data/*.json` from the release.
 - The Express gateway only answers requests addressed to its own `*.on.aws` name and swaps target groups on every
   deployment, so the public hostname is CloudFront in front of it, with a cache policy that must not key on Host.

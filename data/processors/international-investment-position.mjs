@@ -26,7 +26,7 @@ const XLSX_SRC = path.join(
 );
 const OUT_DIR = path.join(__dirname, 'out');
 
-// "1,198,020.002" -> 1198020.002. Returns null for blank/dash so gaps stay distinct from real zeros.
+// "1,198,020.002" -> 1198146.137. Returns null for blank/dash so gaps stay distinct from real zeros.
 function parseNum(s) {
   s = String(s == null ? '' : s).trim().replace(/,/g, '');
   if (s === '' || s === '-' || s === 'N/A' || s === 'NA') return null;
@@ -217,9 +217,9 @@ function selfCheck(out) {
     errors.push(`expected quarter "${q0}" not found in quarters array`);
   } else {
     const known = [
-      { code: 'A',   expected: 1198020.002 },
-      { code: 'B',   expected: 1458505.97  },
-      { code: 'NET', expected: -260485.9688 },
+      { code: 'A',   expected: 1198146.137 },
+      { code: 'B',   expected: 1460400.984  },
+      { code: 'NET', expected: -262254.8471 },
     ];
     for (const { code, expected } of known) {
       const vals = data[code];

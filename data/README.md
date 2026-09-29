@@ -79,9 +79,18 @@ Four things the export does differently from the older manual downloads, all of 
   `Outward Remittances under the LRS`, whose export drops the total column and adds sub-items.
 - **Renamed or retired tables.** `Consumer Price Index - Annual Average` has no counterpart in the export: the
   Handbook now publishes "Consumer Price Index (Average of Months) - Annual Variation" (report 837), which is the
-  percentage change, not the index level. `Sources of Money Stock (M3)` is held back too: the export restates
-  `bankingSectorsNetNonMonetaryLiabilities` for the 31 March rows of 2012 through 2021, which is a change to
-  history rather than a refresh, and needs a decision before it is taken.
+  percentage change, not the index level.
+- **New base sheets beside the old.** The Bulletin's WPI (Table 22) and IIP (Table 23) workbooks now carry a
+  2022-23 sheet next to the 2011-12 one. The processors read the 2011-12 sheets by name and leave the new base
+  out, so these two stay drop-ins; Table 23's sheets were renamed and its columns are found by header.
+- **Faulty exports, held back (28-09-2026).** `Monetary Survey` (Table 8): DBIE's export doubles every figure
+  from January to December 2023 (M3 at 31-12-2023 reads ₹498 lakh crore against ₹249 lakh crore), in the
+  17-09-2026 export as well. `Standard Presentation of BoP as per BPM6 (US$ million)` (Table 42): the export has
+  lost the Apr-Jun 2025 column but for one row. Both keep their committed file until DBIE corrects the export.
+- **Restatements taken.** `Scheduled Commercial Banks' Investments` (Table 13): the older file held every
+  fortnight from June 2012 to December 2025 doubled, and the export halves them (SLR securities at 31-12-2025,
+  ₹68.8 lakh crore). The overall BoP tables (40, 41) and BPM6 in rupees (43) take DBIE's correction to loans
+  by India from 2024-25:Q2.
 
 ## Categorisation — eight themes
 

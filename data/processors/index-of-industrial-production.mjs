@@ -9,12 +9,19 @@
 //     2.3 Intermediate Goods, 2.4 Infrastructure/Construction Goods,
 //     2.5 Consumer Durables
 //
-//   Sheet 1 ("Index of Industrial Production ")  -> the index values (base
-//     2011-12=100). A "Weight" row sits just under the sub-labels, then ~169
-//     month rows newest-first (e.g. "2026:02 (FEB)").
-//   Sheet 2 ("Index of Industrial Produ")        -> the year-on-year growth
-//     rate for the same nine series and periods (period label has no space:
-//     "2026:02(FEB)").
+//   "IIP-2011-12=100"                 -> the index values (base 2011-12=100). A
+//     "Weight" row sits just under the sub-labels, then month rows newest-first
+//     (e.g. "Mar - 2026"). A block of notes with its own title, header and empty
+//     Weight row comes first, and the index sheet carries an empty column after
+//     1.1 Mining, so columns are found by their header labels.
+//   "(Growth Rate (IIP-2011-12=100))" -> the year-on-year growth rate for the same
+//     nine series and periods.
+//
+// DBIE's export (report 654) also carries the series rebased to 2022-23=100, with
+// a tenth category (1.4 Water Supply); that is a different series and is not read.
+// The 2011-12 series ends in March 2026. Older manual downloads named the sheets
+// "Index of Industrial Production " and "Index of Industrial Produ" and labelled
+// periods "2026:02 (FEB)"; both label forms are accepted.
 //
 // The filename mentions base 2004-05 AND 2011-12, but both sheets are the single
 // 2011-12=100 base (one carries levels, the other growth) — so the model has one
@@ -44,8 +51,8 @@ const SRC = path.join(
 const OUT_DIR = path.join(__dirname, 'out');
 const OUT = path.join(OUT_DIR, 'index-of-industrial-production.json');
 
-const INDEX_SHEET = 'Index of Industrial Production ';
-const GROWTH_SHEET = 'Index of Industrial Produ';
+const INDEX_SHEET = 'IIP-2011-12=100';
+const GROWTH_SHEET = '(Growth Rate (IIP-2011-12=100))';
 
 const BASE = '2011-12=100';
 
@@ -68,8 +75,6 @@ const categories = [
   { code: 'consumerDurables', group: 'Use-based classification', rawLabel: '2.5 Consumer Durables',             label: '2.5 Consumer durables' },
 ];
 
-// Column index in the sheet for each series (0 = pad, 1 = Month/Year, 2.. = data).
-const SERIES_START_COL = 2;
 
 // parseFloat: strip commas, treat "", "-", "N/A" as missing (null); anything
 // non-numeric also -> null so we never invent a 0.
@@ -80,16 +85,21 @@ function parseNum(s) {
   return Number.isFinite(val) ? val : null;
 }
 
-// "2026:02 (FEB)" / "2026:02(FEB)" -> { period: "2026-02", label: "Feb 2026" }.
+// "Mar - 2026", "2026:02 (FEB)" or "2026:02(FEB)" -> { period: "2026-02", label: "Feb 2026" }.
 // Returns null for non-period rows (Weight, Notes, Source, blanks).
 function parsePeriod(raw) {
   const s = String(raw == null ? '' : raw).trim();
+  let year, mm, monKey;
   const m = s.match(/^(\d{4}):(\d{2})\s*\(([A-Za-z]{3})\)$/);
-  if (!m) return null;
-  const [, year, mm, mon] = m;
-  const monKey = mon.toUpperCase();
-  if (MONTHS[monKey] !== mm) {
+  const n = s.match(/^([A-Za-z]{3})\s*-\s*(\d{4})$/);
+  if (m) {
+    [, year, mm] = m; monKey = m[3].toUpperCase();
     // Numeric month and abbreviation disagree — treat as unusable rather than guess.
+    if (MONTHS[monKey] !== mm) return null;
+  } else if (n) {
+    monKey = n[1].toUpperCase(); year = n[2]; mm = MONTHS[monKey];
+    if (!mm) return null;
+  } else {
     return null;
   }
   const monTitle = monKey.charAt(0) + monKey.slice(1).toLowerCase();
@@ -118,15 +128,29 @@ function readSheet(wb, sheetName) {
 
   const weights = {};
   const byPeriod = {};
+  // Column of each series, from the sub-label row (the one holding "General Index").
+  let cols = null;
 
   for (const row of rows) {
-    const firstCol = cellStr(row, 1).trim();
-    if (firstCol === '') continue;
+    const labels = row.map((c) => (c == null ? '' : String(c).trim()));
+    if (labels.includes('General Index')) {
+      cols = categories.map((cat) => {
+        const i = labels.indexOf(cat.rawLabel);
+        if (i < 0) throw new Error(`${sheetName}: column "${cat.rawLabel}" not found`);
+        return i;
+      });
+      continue;
+    }
 
-    // Weight row: label starts with "Weight" (may be indented).
+    const firstCol = cellStr(row, 1).trim();
+    if (firstCol === '' || !cols) continue;
+
+    // Weight row: label starts with "Weight" (may be indented). The empty notes
+    // blocks carry a Weight row without figures, which is skipped.
     if (/^weight/i.test(firstCol)) {
+      if (cols.every((c) => parseNum(row[c]) == null)) continue;
       categories.forEach((cat, k) => {
-        weights[cat.code] = parseNum(row[SERIES_START_COL + k]);
+        weights[cat.code] = parseNum(row[cols[k]]);
       });
       continue;
     }
@@ -136,7 +160,7 @@ function readSheet(wb, sheetName) {
 
     const values = {};
     categories.forEach((cat, k) => {
-      values[cat.code] = parseNum(row[SERIES_START_COL + k]);
+      values[cat.code] = parseNum(row[cols[k]]);
     });
     byPeriod[p.period] = { label: p.label, values };
   }
@@ -212,7 +236,8 @@ function selfCheck(r) {
   // 3) Known cells (from the source sheets) — index values and one growth value.
   const byP = Object.fromEntries(r.data.map((d) => [d.period, d]));
   const expectIndex = [
-    ['2026-02', 'generalIndex', 159.0],
+    // Feb 2026 was restated from 159.0 in the 28-09-2026 export (provisional month).
+    ['2026-02', 'generalIndex', 158.8],
     ['2026-02', 'electricity', 198.4],
     ['2026-01', 'generalIndex', 169.9],
     ['2025-12', 'consumerDurables', 139.2],
@@ -223,10 +248,10 @@ function selfCheck(r) {
       fail(`index[${period}][${code}] expected ${want}, got ${got}`);
     }
   }
-  // Growth-rate cross-check (sheet 2): 2026-02 General Index ≈ 5.2283.
-  const grGI = byP['2026-02'] && byP['2026-02'].growth.generalIndex;
-  if (grGI == null || Math.abs(grGI - 5.228325612) > 0.001) {
-    fail(`growth[2026-02][generalIndex] expected ~5.2283, got ${grGI}`);
+  // Growth-rate cross-check (growth sheet): 2026-01 General Index ≈ 5.1361.
+  const grGI = byP['2026-01'] && byP['2026-01'].growth.generalIndex;
+  if (grGI == null || Math.abs(grGI - 5.136138614) > 0.001) {
+    fail(`growth[2026-01][generalIndex] expected ~5.1361, got ${grGI}`);
   }
 
   console.log('self-check passed: 9 series, weights, ordering, and 5 known cells OK');

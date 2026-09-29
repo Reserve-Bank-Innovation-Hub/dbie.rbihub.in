@@ -125,9 +125,14 @@ function parseSheet(ws, sheetName) {
     };
 }
 
+const EXCLUDED_SHEETS = ['Base Year 2022-23'];
+
 function main() {
     const wb = XLSX.read(fs.readFileSync(SRC), { type: 'buffer' });
-    const bases = wb.SheetNames.map((name) => parseSheet(wb.Sheets[name], name));
+    // DBIE's export (report 47) also carries "Base Year 2022-23", a rebased series with its own taxonomy
+    // (roman-numeral groups, no numeric codes). It is a different series from the site's, so it is not read.
+    const sheets = wb.SheetNames.filter((name) => !EXCLUDED_SHEETS.includes(name));
+    const bases = sheets.map((name) => parseSheet(wb.Sheets[name], name));
 
     // Order bases newest-first so the current base (2011-12) leads.
     bases.sort((a, b) => b.base.localeCompare(a.base));
@@ -156,9 +161,9 @@ function main() {
 //   [ monthLabel, commodityCode, expectedValue ]
 const KNOWN_CELLS = {
     '2011-12': [
-        ['Mar-2026', '1', 160.8],       // ALL COMMODITIES, latest month
+        ['Mar-2026', '1', 160.8],       // ALL COMMODITIES
         ['Mar-2026', '1.1', 197.3],     // PRIMARY ARTICLES
-        ['Feb-2026', '1.1.1', 200.2],   // FOOD ARTICLES
+        ['Feb-2026', '1.1.1', 200.0],   // FOOD ARTICLES (final; 200.2 provisional before 28-09-2026)
     ],
     '2004-05': [
         ['Mar 2017', '1', 185.8],

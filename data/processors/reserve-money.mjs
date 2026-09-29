@@ -125,8 +125,8 @@ function selfCheck(out) {
 
     // Known cells — verified against the source sheet.
     const known = [
-        { date : '31 Mar 2026', colIdx : 0, expected : 51200349.91,  desc : 'reserve_money'      },
-        { date : '31 Mar 2026', colIdx : 7, expected : 63436721.49,  desc : 'net_forex'          },
+        { date : '31 Mar 2026', colIdx : 0, expected : 51078311.03,  desc : 'reserve_money'      },
+        { date : '31 Mar 2026', colIdx : 7, expected : 63602293.49,  desc : 'net_forex'          },
         { date : '31 Dec 2025', colIdx : 0, expected : 47991354.76,  desc : 'reserve_money'      },
     ];
     for (const { date, colIdx, expected, desc } of known) {

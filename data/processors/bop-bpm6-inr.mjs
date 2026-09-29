@@ -85,36 +85,53 @@ function main() {
 
     // Row 5: quarter header labels at cols 2, 5, 8, … (stride 3).
     const hdrRow = rows[5] || [];
-    const quarters = [];
+    const columns = [];
     for (let c = 2; c < hdrRow.length; c += 3) {
         if (!hdrRow[c]) break;
-        quarters.push(parseQuarterHeader(hdrRow[c]));
+        columns.push({ ...parseQuarterHeader(hdrRow[c]), col: c });
     }
 
     // Rows 7-87: BPM6 item rows.
-    const items = [];
-    const values = []; // outer index = item, inner = [quarters × 3 (credit/debit/net)]
-
+    const itemRows = [];
     for (let r = 7; r < rows.length; r++) {
-        const row = rows[r] || [];
-        const rawLabel = row[1];
-        if (!rawLabel || String(rawLabel).trim() === '') continue;
-
-        const { code, label } = extractCode(rawLabel);
-        const indent = indentLevel(rawLabel);
-        items.push({ code, label, indent });
-
-        const itemVals = [];
-        for (let q = 0; q < quarters.length; q++) {
-            const base = 2 + q * 3;
-            itemVals.push([
-                parseValue(row[base]),     // Credit
-                parseValue(row[base + 1]), // Debit
-                parseValue(row[base + 2]), // Net
-            ]);
-        }
-        values.push(itemVals);
+        const rawLabel = (rows[r] || [])[1];
+        if (rawLabel && String(rawLabel).trim() !== '') itemRows.push(rows[r]);
     }
+    const items = itemRows.map((row) => ({ ...extractCode(row[1]), indent: indentLevel(row[1]) }));
+
+    // Since the export of 28-09-2026 a quarter can span two columns, one per status ("Jan-Mar 2026 (P)" holding
+    // every row but one, "Jan-Mar 2026 (PR)" holding row 38 alone). The columns of one quarter are merged cell by
+    // cell; the quarter takes the status of the column holding most of its values.
+    const quarters = [];
+    const values = itemRows.map(() => []); // outer index = item, inner = [quarters × 3 (credit/debit/net)]
+    for (const label of [...new Set(columns.map((c) => c.label))]) {
+        const cols = columns.filter((c) => c.label === label);
+        let best = null;
+        const merged = itemRows.map((row) => [0, 1, 2].map((k) => {
+            let v = null;
+            for (const c of cols) {
+                const x = parseValue(row[c.col + k]);
+                if (x == null) continue;
+                if (v != null && v !== x) throw new Error(`${label}: ${row[1].trim()} has two values, ${v} and ${x}`);
+                v = x;
+                c.filled = (c.filled || 0) + 1;
+            }
+            return v;
+        }));
+        for (const c of cols) if (!best || (c.filled || 0) > (best.filled || 0)) best = c;
+        quarters.push({ label, status: best.status, filled: merged.flat().filter((v) => v != null).length });
+        merged.forEach((v, i) => values[i].push(v));
+    }
+
+    // A newest quarter with next to nothing in it is not yet published: Jan-Mar 2026 in the rupee table of
+    // 28-09-2026 carries row 38 alone. It is left out; a sparse quarter anywhere else fails the self-check.
+    const full = Math.max(...quarters.map((q) => q.filled));
+    while (quarters.length && quarters[0].filled < full / 2) {
+        quarters.shift();
+        values.forEach((v) => v.shift());
+    }
+    const sparse = quarters.filter((q) => q.filled < full / 2).map((q) => `${q.label} (${q.filled} of ${full})`);
+    quarters.forEach((q) => delete q.filled);
 
     const result = { reportTitle: REPORT_TITLE, unit, quarters, items, values };
     fs.writeFileSync(OUT, JSON.stringify(result));
@@ -125,6 +142,7 @@ function main() {
         ` → ${OUT} (${sizeMB} MB)`,
     );
 
+    if (sparse.length) fail(`quarters with under half the values of a full quarter: ${sparse.join(', ')}`);
     selfCheck(result);
     console.log('self-check passed');
 }
@@ -137,17 +155,22 @@ function main() {
 // Sampled from the workbook at inspection time (values in ₹ crore, comma-stripped):
 //   [ itemCode, quarterLabel, measure ("credit"|"debit"|"net"), expectedValue ]
 const KNOWN_CELLS = [
-    // Row 7 = "1  Current Account", Q1 = Oct-Dec 2025 (P)
-    ['1', 'Oct-Dec2025', 'credit',  2449283],
-    ['1', 'Oct-Dec2025', 'net',     -117378],
+    // Row 7 = "1  Current Account", Q1 = Oct-Dec 2025 (PR). The export of 28-09-2026 revised the two newest
+    // quarters (before: 2449283 / -117378, 2325744 / -123115, 200114 / -32607, -10749) and spells the newest
+    // label "Oct-Dec 2025", where it had been "Oct-Dec2025".
+    ['1', 'Oct-Dec 2025', 'credit',  2446112],
+    ['1', 'Oct-Dec 2025', 'net',     -143084],
     // Row 7, Q2 = Jul-Sep 2025
-    ['1', 'Jul-Sep 2025', 'credit', 2325744],
-    ['1', 'Jul-Sep 2025', 'net',    -123115],
+    ['1', 'Jul-Sep 2025', 'credit', 2325920],
+    ['1', 'Jul-Sep 2025', 'net',    -126308],
     // Row 45 = "3.1 Direct Investment", Q1
-    ['3.1', 'Oct-Dec2025', 'credit', 200114],
-    ['3.1', 'Oct-Dec2025', 'net',    -32607],
+    ['3.1', 'Oct-Dec 2025', 'credit', 207052],
+    ['3.1', 'Oct-Dec 2025', 'net',    -45726],
     // Row 87 = "5 Net errors and omissions", Q1 net
-    ['5', 'Oct-Dec2025', 'net',      -10749],
+    ['5', 'Oct-Dec 2025', 'net',      -20562],
+    // Settled history: unchanged by that revision.
+    ['1', 'Jan-Mar 2024', 'credit', 2104999],
+    ['3.1', 'Jan-Mar 2024', 'net',  19086],
 ];
 
 const MEASURE_IDX = { credit: 0, debit: 1, net: 2 };

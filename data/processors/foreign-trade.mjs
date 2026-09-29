@@ -160,14 +160,14 @@ function selfCheck(out) {
   }
 
   // Hard-coded cell assertions (read directly from source sheet):
-  //   Jan 2026: exports_inr = 331262.6074313, exports_usd = 36483.027708, trade_balance_usd = -34741.79066
-  //   Dec 2025: exports_usd = 38277.423736
+  //   Jan 2026: exports_inr = 331177.7627, exports_usd = 36473.68348, trade_balance_usd = -35235.28797
+  //   Dec 2025: exports_usd = 38205.17479
   //   Apr 1990: exports_usd = 1435 (oldest row)
   const assertions = [
-    { month: '2026-01', field: 'exports_inr',     expected: 331262.6074313 },
-    { month: '2026-01', field: 'exports_usd',     expected: 36483.027708   },
-    { month: '2026-01', field: 'trade_balance_usd', expected: -34741.79066 },
-    { month: '2025-12', field: 'exports_usd',     expected: 38277.423736   },
+    { month: '2026-01', field: 'exports_inr',     expected: 331177.7627 },
+    { month: '2026-01', field: 'exports_usd',     expected: 36473.68348   },
+    { month: '2026-01', field: 'trade_balance_usd', expected: -35235.28797 },
+    { month: '2025-12', field: 'exports_usd',     expected: 38205.17479   },
     { month: '1990-04', field: 'exports_usd',     expected: 1435           },
   ];
 

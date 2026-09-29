@@ -713,14 +713,19 @@ check(cpi_heatmap.months[cpi_heatmap.months.length - 1] === '2025-12', 'anchor: 
 check(cpiRowAt('general', '2025-12') === 1.33, 'anchor: general CPI inflation was 1.33% in December 2025');
 check(cpiRowAt('vegetables', '2025-12') === -18.47, 'anchor: vegetable prices fell 18.47% in the year to December 2025');
 check(cpiRowAt('food', '2023-01') === 6.19, 'anchor: food and beverages inflation was 6.19% in January 2023');
-check(credit_by_sector.as_of === '31-12-2025', `anchor: credit by sector should report 31-12-2025, not ${credit_by_sector.as_of}`);
-check(credit_by_sector.previous_as_of === '27-12-2024', `anchor: the comparison fortnight should be 27-12-2024, the nearest reporting date to the anniversary, not ${credit_by_sector.previous_as_of}`);
+// The newest fortnight moves with every refresh, so these check the structure: the table's newest date, compared
+// with the reporting date nearest its anniversary (31-12-2025 against 27-12-2024 on 22-09-2026).
+const dmyDays = (d) => Date.parse(d.split('-').reverse().join('-')) / 86_400_000;
+const bcsNewest = [ ...bcsDates ].sort().at(-1).split('-').reverse().join('-');
+check(credit_by_sector.as_of === bcsNewest, `anchor: credit by sector should report the table's newest date, ${bcsNewest}, not ${credit_by_sector.as_of}`);
+const bcsGap = dmyDays(credit_by_sector.as_of) - dmyDays(credit_by_sector.previous_as_of);
+check(bcsGap >= 351 && bcsGap <= 379, `anchor: the comparison fortnight ${credit_by_sector.previous_as_of} should be within a fortnight of a year before ${credit_by_sector.as_of}`);
 check(credit_by_sector.rows.some((r) => r.key === 'nbfc'), 'credit by sector: the NBFC row is missing');
-check(payments_mix.months[0] === 'Nov-2019' && payments_mix.months[1] === 'Jun-2026',
-  `anchor: the payments mix should compare Nov-2019 with Jun-2026, not ${payments_mix.months.join(' and ')}`);
+check(payments_mix.months[0] === 'Nov-2019' && payments_mix.months[1] === psi.data[0].month,
+  `anchor: the payments mix should compare Nov-2019 with the newest month, ${psi.data[0].month}, not ${payments_mix.months.join(' and ')}`);
 const shareOf = (key, i) => { const p = payments_mix.instruments.find((x) => x.key === key); return p ? p.shares[i] : null; };
 check(shareOf('upi', 0) === 39.69, 'anchor: UPI was 39.69% of retail payment volume in Nov-2019');
-check(shareOf('upi', 1) === 86.76, 'anchor: UPI was 86.76% of retail payment volume in Jun-2026');
+check(shareOf('upi', 1) > 80 && shareOf('upi', 1) < 95, `anchor: UPI's share of retail payment volume in ${payments_mix.months[1]} should be 80-95%, not ${shareOf('upi', 1)}`);
 check(shareOf('debit_card', 0) === 13.61, 'anchor: debit cards were 13.61% of retail payment volume in Nov-2019');
 
 if (errors.length > 0) {
