@@ -1,5 +1,341 @@
 [
   {
+    "section": "Indicators",
+    "category": "External Sector Indicators",
+    "subsection": "Foreign Exchange Reserves",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Foreign Exchange Reserves",
+        "reports": [
+          {
+            "reportName": "Foreign Exchange Reserves",
+            "reportId": 574,
+            "frequency": "Weekly",
+            "from": "06-APR-2001",
+            "to": "18-SEP-2026",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "External Sector Indicators",
+    "subsection": "Exchange Rate",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Exchange Rate",
+        "reports": [
+          {
+            "reportName": "Exchange Rate",
+            "reportId": 575,
+            "frequency": "Daily",
+            "from": "25-Aug-1998",
+            "to": "28-SEP-2026",
+            "period": "",
+            "tableNo": "1",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Key Rates",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Key Rates",
+        "reports": [
+          {
+            "reportName": "Key Rates",
+            "reportId": 531,
+            "frequency": "As and When",
+            "from": "06-JUL-1935",
+            "to": "05-DEC-2025",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Daily LAF Operation",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Daily LAF Operation",
+        "reports": [
+          {
+            "reportName": "Daily LAF Operation",
+            "reportId": 1217,
+            "frequency": "Daily",
+            "from": "03-APR-2001",
+            "to": "23-JUN-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Business of Scheduled Banks",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Business of Scheduled Banks",
+        "reports": [
+          {
+            "reportName": "Business of Scheduled Banks",
+            "reportId": 689,
+            "frequency": "Fortnightly",
+            "from": "06-JUN-1997",
+            "to": "15-SEP-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Central Govt Market Borrowings",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Central Govt Market Borrowings",
+        "reports": [
+          {
+            "reportName": "Central Govt Market Borrowings",
+            "reportId": 576,
+            "frequency": "Weekly",
+            "from": "25-Apr-1995",
+            "to": "18-SEP-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Reserve Money",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Reserve Money",
+        "reports": [
+          {
+            "reportName": "Reserve Money",
+            "reportId": 614,
+            "frequency": "Weekly",
+            "from": "06-JUL-2001",
+            "to": "31-JUL-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "RBI Balance Sheet",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "RBI Balance Sheet",
+        "reports": [
+          {
+            "reportName": "RBI Balance Sheet",
+            "reportId": 613,
+            "frequency": "Weekly",
+            "from": "02-JUL-2004",
+            "to": "18-SEP-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Financial Sector Indicators",
+    "subsection": "Payment System Indicators",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Payment System Indicators",
+        "reports": [
+          {
+            "reportName": "Payment System Indicators",
+            "reportId": 612,
+            "frequency": "Monthly",
+            "from": "30-APR-2004",
+            "to": "31-JUL-2026",
+            "period": "",
+            "tableNo": "2",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "G-Sec Market Indicators",
+    "subsection": "G-Sec Turnover",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "G-Sec Turnover",
+        "reports": [
+          {
+            "reportName": "G-Sec Turnover",
+            "reportId": 530,
+            "frequency": "Weekly",
+            "from": "03-Apr-1998",
+            "to": "04-SEP-2026",
+            "period": "",
+            "tableNo": "3",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Money Market Indicators",
+    "subsection": "Money Market",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "Money Market",
+        "reports": [
+          {
+            "reportName": "Money Market",
+            "reportId": 611,
+            "frequency": "Daily",
+            "from": "03-APR-2001",
+            "to": "17-SEP-2026",
+            "period": "",
+            "tableNo": "4",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Real Sector Indicators",
+    "subsection": "GDP",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "GDP",
+        "reports": [
+          {
+            "reportName": "Gross Value Added (GVA) at Basic Prices",
+            "reportId": 529,
+            "frequency": "Quarterly",
+            "from": "30-JUN-1996",
+            "to": "30-JUN-2026",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Real Sector Indicators",
+    "subsection": "CPI - Rural, Urban, Combined",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "CPI - Rural, Urban, Combined",
+        "reports": [
+          {
+            "reportName": "Consumer Price Index (CPI) – Rural, Urban, Combined",
+            "reportId": 610,
+            "frequency": "Monthly",
+            "from": "31-JAN-2011",
+            "to": "31-AUG-2026",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Indicators",
+    "category": "Real Sector Indicators",
+    "subsection": "IIP - Monthly",
+    "reportPath": "/dbie/indicators",
+    "groups": [
+      {
+        "title": "IIP - Monthly",
+        "reports": [
+          {
+            "reportName": "Index of Industrial Production (IIP)",
+            "reportId": 638,
+            "frequency": "Monthly",
+            "from": "30-APR-1981",
+            "to": "31-AUG-2026",
+            "period": "",
+            "tableNo": "5",
+            "section": "",
+            "subSection": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
     "section": "Statistics",
     "category": "Corporate Sector",
     "subsection": "Listed Non-Government Non-Financial Companies",

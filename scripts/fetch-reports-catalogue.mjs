@@ -1,4 +1,4 @@
-// Enumerates every table in DBIE's Statistics and Publications menus over plain
+// Enumerates every table in DBIE's Indicators, Statistics and Publications menus over plain
 // HTTP (dbie_getReportsDbie, encrypted request fields) and writes
 // data/reports-catalogue.json. No browser needed.
 //
@@ -75,7 +75,18 @@ async function main() {
             log(`${sec.section.padEnd(12)} ${cat.category.padEnd(28)} ${sub.subsection.slice(0, 60).padEnd(62)} ${String(n).padStart(4)}`);
         }
     }
-    fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
-    log(`Wrote ${path.relative(process.cwd(), OUT)}: ${out.length} sub-sections, ${total} reports.`);
+    // A run narrowed by --section or --sub replaces only the sub-sections it fetched and keeps the rest of the file,
+    // in the order of reports-sections.json.
+    let all = out;
+    if ((filterSection || filterSub) && fs.existsSync(OUT)) {
+        const key = e => `${e.section}\u0000${e.category}\u0000${e.subsection}`;
+        const fresh = new Map(out.map(e => [key(e), e]));
+        const kept = JSON.parse(fs.readFileSync(OUT, 'utf8')).filter(e => !fresh.has(key(e)));
+        const order = sections.flatMap(s => s.categories.flatMap(c => c.subsections.map(u => key({ section: s.section, category: c.category, subsection: u.subsection }))));
+        const rank = e => { const i = order.indexOf(key(e)); return i < 0 ? order.length : i; };
+        all = [...kept, ...out].sort((a, b) => rank(a) - rank(b));
+    }
+    fs.writeFileSync(OUT, JSON.stringify(all, null, 2));
+    log(`Wrote ${path.relative(process.cwd(), OUT)}: ${all.length} sub-sections (${out.length} fetched), ${total} reports fetched.`);
 }
 main().catch(e => { console.error(e); process.exit(1); });

@@ -1,4 +1,5 @@
-// Where each DBIE report goes: the schema of its DBIE sector. Statistics items carry the sector as their category.
+// Where each DBIE report goes: the schema of its DBIE sector. Statistics items carry the sector as their category,
+// Indicators items name it in theirs.
 // Publications items take it from the publication (the banking returns, public debt), the Handbook chapter or the
 // Bulletin section. The rest (Handbook parts III and IV and its discontinued tables, the Bulletin's occasional
 // series, the Weekly Statistical Supplement, and the cross-publication "Notes on Tables") are placed one by one
@@ -18,6 +19,12 @@ const BULLETIN_SECTION = {
     'government accounts and treasury bills': 'public_finance', 'money and banking': 'financial_sector',
     'payment and settlement systems': 'financial_sector', 'prices and production': 'real_sector',
     'reserve bank of india': 'financial_sector',
+};
+// The Indicators menu groups its reports by sector: "External Sector Indicators" and so on.
+const INDICATORS_CATEGORY = {
+    'external sector indicators': 'external_sector', 'financial sector indicators': 'financial_sector',
+    'g-sec market indicators': 'financial_markets', 'money market indicators': 'financial_markets',
+    'real sector indicators': 'real_sector',
 };
 const BANKING_PUBLICATION = /basic statistical return|spatial distribution|bank branch statistics|international banking statistics|co-operative banks|statistical tables relating to banks/i;
 
@@ -51,6 +58,9 @@ export function schemaFor(it) {
     if (it.section === 'Statistics') {
         const s = schemaForSector(it.category);
         if (s) return s;
+    } else if (it.section === 'Indicators') {
+        const s = INDICATORS_CATEGORY[(it.category || '').toLowerCase()];
+        if (s) return s;
     } else {
         const sub = it.subsection || '';
         const parts = (it.group || '').split(' > ').map(s => s.trim().toLowerCase());
@@ -79,7 +89,7 @@ function kindsFromCoverage() {
 
 export const menuPath = it => [it.section, it.category, it.subsection, it.group].filter(Boolean).join(' > ');
 
-// Every item of the DBIE Statistics and Publications menus, with its kind and schema.
+// Every item of the DBIE Indicators, Statistics and Publications menus, with its kind and schema.
 export function catalogueItems() {
     const rc = JSON.parse(fs.readFileSync(path.join(DATA, 'reports-catalogue.json'), 'utf8'));
     const kinds = kindsFromCoverage();

@@ -1,5 +1,92 @@
 [
   {
+    "section": "Indicators",
+    "url": "/dbie/indicators",
+    "categories": [
+      {
+        "category": "External Sector Indicators",
+        "subsections": [
+          {
+            "subsection": "Foreign Exchange Reserves",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Exchange Rate",
+            "reportPath": "/dbie/indicators"
+          }
+        ]
+      },
+      {
+        "category": "Financial Sector Indicators",
+        "subsections": [
+          {
+            "subsection": "Key Rates",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Daily LAF Operation",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Business of Scheduled Banks",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Central Govt Market Borrowings",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Reserve Money",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "RBI Balance Sheet",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "Payment System Indicators",
+            "reportPath": "/dbie/indicators"
+          }
+        ]
+      },
+      {
+        "category": "G-Sec Market Indicators",
+        "subsections": [
+          {
+            "subsection": "G-Sec Turnover",
+            "reportPath": "/dbie/indicators"
+          }
+        ]
+      },
+      {
+        "category": "Money Market Indicators",
+        "subsections": [
+          {
+            "subsection": "Money Market",
+            "reportPath": "/dbie/indicators"
+          }
+        ]
+      },
+      {
+        "category": "Real Sector Indicators",
+        "subsections": [
+          {
+            "subsection": "GDP",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "CPI - Rural, Urban, Combined",
+            "reportPath": "/dbie/indicators"
+          },
+          {
+            "subsection": "IIP - Monthly",
+            "reportPath": "/dbie/indicators"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "section": "Statistics",
     "url": "/dbie/statistics",
     "categories": [

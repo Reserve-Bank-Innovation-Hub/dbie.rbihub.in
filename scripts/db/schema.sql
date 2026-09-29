@@ -97,12 +97,12 @@ CREATE TABLE IF NOT EXISTS meta.report (
     notes         text,
     meta          jsonb
 );
-COMMENT ON TABLE meta.report IS 'One row per DBIE Statistics or Publications report exported: identity, files, where its table is';
+COMMENT ON TABLE meta.report IS 'One row per DBIE Indicators, Statistics or Publications report exported: identity, files, where its table is';
 ALTER TABLE meta.report ADD COLUMN IF NOT EXISTS layout text;
 
 CREATE TABLE IF NOT EXISTS meta.catalogue (
     entry_id    serial PRIMARY KEY,
-    source      text NOT NULL CHECK (source IN ('statistics', 'publications', 'sdmx')),
+    source      text NOT NULL CHECK (source IN ('indicators', 'statistics', 'publications', 'sdmx')),
     menu_path   text NOT NULL,
     title       text NOT NULL,
     report_id   integer,
@@ -117,7 +117,10 @@ CREATE TABLE IF NOT EXISTS meta.catalogue (
     row_count   bigint,
     notes       text
 );
-COMMENT ON TABLE meta.catalogue IS 'Every DBIE menu entry (Statistics, Publications) and SDMX dataset, with the table that holds it and its load status';
+-- The Indicators menu joined on 29-09-2026; a database made before then carries the older check.
+ALTER TABLE meta.catalogue DROP CONSTRAINT IF EXISTS catalogue_source_check;
+ALTER TABLE meta.catalogue ADD CONSTRAINT catalogue_source_check CHECK (source IN ('indicators', 'statistics', 'publications', 'sdmx'));
+COMMENT ON TABLE meta.catalogue IS 'Every DBIE menu entry (Indicators, Statistics, Publications) and SDMX dataset, with the table that holds it and its load status';
 CREATE INDEX IF NOT EXISTS catalogue_report_id ON meta.catalogue (report_id);
 CREATE INDEX IF NOT EXISTS catalogue_dsd_code ON meta.catalogue (dsd_code);
 

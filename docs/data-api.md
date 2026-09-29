@@ -10,7 +10,7 @@ are `{"error": "..."}` with 400 for a bad parameter, 404 for an unknown table, 5
 | Endpoint | What it returns |
 |---|---|
 | `GET /health` | service status, number of tables and catalogue entries in the registry |
-| `GET /api/tables` | the loaded tables. Filters: `schema`, `source` (`sdmx`, `statistics`, `publication`), `q` (word in the title, DBIE path or key) |
+| `GET /api/tables` | the loaded tables. Filters: `schema`, `source` (`sdmx`, `indicators`, `statistics`, `publication`), `q` (word in the title, DBIE path or key) |
 | `GET /api/tables/{schema}/{table}` | one table: columns and types, DBIE title and path, SDMX dimensions and which have code lists, layout, and its provenance row from `meta.sdmx_dataset` or `meta.report` |
 | `GET /api/tables/{schema}/{table}/rows` | a page of rows: `columns` in order and `rows` as arrays. See parameters below |
 | `GET /api/tables/{schema}/{table}/csv` | the table, or the filtered slice of it, as a CSV download; no row limit, streamed |
