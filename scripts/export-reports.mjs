@@ -63,6 +63,9 @@ const REPO       = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.
 const CATALOGUE  = path.join(REPO, 'data', 'reports-catalogue.json');
 const COVERAGE   = path.join(REPO, 'data', 'coverage-report.csv');
 const OUT_DIR    = path.join(REPO, 'data', 'reports');
+// Exports are written beside their final names with this suffix and moved into place only when the new result is
+// no worse than the one on disk (see promote()).
+const PART       = '.part';
 const MANIFEST   = path.join(REPO, 'data', 'reports-manifest.json');
 const CUID_CACHE = path.join(REPO, 'data', 'reports-cuid-cache.json');
 
@@ -419,6 +422,15 @@ async function exportReport(ray, task, outRoot) {
         if (!meta.unit) meta.unit = docICs.find(ic => /amount\s*unit/i.test(ic.name))?.selected?.[0] ?? null;
 
         if (!tabs) { tabs = await doc.reports(); meta.tabs = tabs; log(`  tabs: ${tabs.map(t => `${t.id}:${t.name}`).join(', ')}`); }
+        // Tab names can differ only past the 40-character cut or in punctuation ("… GOVERNMENT" and
+        // "… GOVERNMENT (1)" in report 82, "Annual Variation" and "Annual Variation." in 838), and the later tab's
+        // file then overwrote the earlier one. The first tab keeps its plain name; a later clash takes its tab id.
+        const tabSlugs = new Map(), taken = new Set();
+        for (const t of tabs) {
+            let s = kebab(t.name, 40);
+            if (taken.has(s)) s = `${s}-${t.id}`;
+            taken.add(s); tabSlugs.set(t.id, s);
+        }
         meta.reportInputControls ??= {};
 
         for (const tab of tabs) {
@@ -456,11 +468,11 @@ async function exportReport(ray, task, outRoot) {
                     : await doc.exportReport(tab.id, fmt);
 
                 const parts = [task.reportId, kebab(task.reportName || doc.name)];
-                if (tabs.length > 1 && !perDocument) parts.push(kebab(tab.name, 40));
+                if (tabs.length > 1 && !perDocument) parts.push(tabSlugs.get(tab.id));
                 if (periodSeg) parts.push(periodSeg);
                 const file = path.join(outRoot, `${parts.join('--')}.${fmt}`);
                 fs.mkdirSync(path.dirname(file), { recursive: true });
-                fs.writeFileSync(file, buf);
+                fs.writeFileSync(file + PART, buf);
 
                 const entry = { file: path.relative(REPO, file), format: fmt, bytes: buf.length, tab: perDocument && tabs.length > 1 ? 'all' : tab.id, period: periodSeg ?? 'full-history' };
                 if (fmt === 'csv') { const i = inspectCsv(buf); Object.assign(entry, { rows: i.rows, cols: i.cols, dataRows: i.dataRows }); totalRows += i.dataRows; }
@@ -492,7 +504,7 @@ async function exportReport(ray, task, outRoot) {
 
                 const file = path.join(outRoot, `${[task.reportId, kebab(task.reportName || doc.name), `dp-${dp.id}`].join('--')}.${fmt}`);
                 fs.mkdirSync(path.dirname(file), { recursive: true });
-                fs.writeFileSync(file, r.buf);
+                fs.writeFileSync(file + PART, r.buf);
                 const entry = { file: path.relative(REPO, file), format: fmt, bytes: r.buf.length, tab: null, period: 'full-history', source: 'dataprovider', dataprovider: dp.id };
                 if (fmt === 'csv') { const i = inspectCsv(r.buf); Object.assign(entry, { rows: i.rows, cols: i.cols, dataRows: i.dataRows }); totalRows += i.dataRows; }
                 files.push(entry); got.push(fmt);
@@ -506,6 +518,15 @@ async function exportReport(ray, task, outRoot) {
     const csvs = files.filter(f => f.format === 'csv');
     const status = csvs.length && csvs.every(f => !f.dataRows) ? 'empty' : 'ok';
     return { status, meta, files, rows: totalRows };
+}
+
+// Why a new export must not replace a good one on disk, or null when it may: an ok export is replaced only by an ok
+// export with at least half its data rows.
+function regression(prev, r) {
+    if (prev?.status !== 'ok') return null;
+    if (r.status !== 'ok') return `the new export is ${r.status}`;
+    if (r.rows < prev.rows / 2) return `the new export has ${r.rows} data rows against ${prev.rows}`;
+    return null;
 }
 
 // --------- Main
@@ -617,9 +638,22 @@ async function main() {
                 await renewSession(task, 'error');
                 r = await exportReport(ray, task, outRoot);
             }
-            if (r.meta) { fs.mkdirSync(outRoot, { recursive: true }); writeJson(path.join(outRoot, `${task.reportId}.meta.json`), r.meta); }
-            result = { status: r.status, files: r.files.map(f => f.file), rows: r.rows };
-            if (r.status === 'ok') ok++; else if (r.status === 'empty') empty++; else skipped++;
+            const prev = manifest.results[task.reportId];
+            const kept = regression(prev, r);
+            if (kept) {
+                // DBIE's report database sometimes fails the refresh and the export comes back empty or all but
+                // empty (28-09-2026, after an outage: reports 1, 7, 9 and 10 empty, report 2 one row of 1,059).
+                // Keep the previous export and its manifest entry; note the attempt.
+                for (const f of r.files) fs.rmSync(path.join(REPO, f.file) + PART, { force: true });
+                log(`  kept the previous export: ${kept}`);
+                result = { ...prev, lastAttempt: { status: r.status, rows: r.rows, reason: kept, at: new Date().toISOString() } };
+                skipped++;
+            } else {
+                for (const f of r.files) fs.renameSync(path.join(REPO, f.file) + PART, path.join(REPO, f.file));
+                if (r.meta) { fs.mkdirSync(outRoot, { recursive: true }); writeJson(path.join(outRoot, `${task.reportId}.meta.json`), r.meta); }
+                result = { status: r.status, files: r.files.map(f => f.file), rows: r.rows };
+                if (r.status === 'ok') ok++; else if (r.status === 'empty') empty++; else skipped++;
+            }
         } catch (e) {
             if (e instanceof ThrottledError) {
                 log(`${label} THROTTLED — ${e.message}; stopping the run cleanly`);
@@ -643,6 +677,11 @@ async function main() {
         if (result.status !== 'error') renewalFailures = 0;
         result.took = Math.round((Date.now() - t0) / 1000);
         result.at = new Date().toISOString();
+        // A throttled or failed attempt wrote nothing, so a good earlier export still stands.
+        const before = manifest.results[task.reportId];
+        if ((result.status === 'error' || result.status === 'throttled') && before?.status === 'ok') {
+            result = { ...before, lastAttempt: { status: result.status, reason: result.error, at: result.at } };
+        }
         manifest.results[task.reportId] = result;
         writeJson(MANIFEST, manifest);
         log(`${label} ${result.status} (${result.took}s)`);
