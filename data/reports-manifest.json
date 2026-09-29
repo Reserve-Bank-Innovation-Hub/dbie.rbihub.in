@@ -1,5 +1,5 @@
 {
-  "started": "2026-09-18T02:23:10.365Z",
+  "started": "2026-09-28T10:09:51.582Z",
   "results": {
     "1": {
       "status": "ok",
@@ -7,9 +7,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/1--foreign-exchange-reserves-weekly.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/1--foreign-exchange-reserves-weekly.xlsx"
       ],
-      "rows": 1327,
-      "took": 11,
-      "at": "2026-09-17T18:35:10.617Z"
+      "rows": 1329,
+      "took": 13,
+      "at": "2026-09-28T06:27:03.245Z"
     },
     "2": {
       "status": "ok",
@@ -17,9 +17,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/2--government-of-india-treasury-bills-outstanding.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/2--government-of-india-treasury-bills-outstanding.xlsx"
       ],
-      "rows": 1059,
-      "took": 12,
-      "at": "2026-09-17T18:37:16.403Z"
+      "rows": 1061,
+      "took": 13,
+      "at": "2026-09-28T09:21:02.678Z"
     },
     "3": {
       "status": "ok",
@@ -27,9 +27,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/3--market-borrowings-by-the-government-of-india-and-state-governments.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/3--market-borrowings-by-the-government-of-india-and-state-governments.xlsx"
       ],
-      "rows": 754,
-      "took": 10,
-      "at": "2026-09-17T18:37:26.237Z"
+      "rows": 756,
+      "took": 11,
+      "at": "2026-09-28T06:27:25.873Z"
     },
     "4": {
       "status": "ok",
@@ -37,9 +37,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/4--certificate-of-deposit.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/4--certificate-of-deposit.xlsx"
       ],
-      "rows": 917,
-      "took": 10,
-      "at": "2026-09-17T18:36:36.459Z"
+      "rows": 918,
+      "took": 12,
+      "at": "2026-09-28T09:21:14.685Z"
     },
     "5": {
       "status": "ok",
@@ -47,9 +47,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/5--commercial-paper.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/5--commercial-paper.xlsx"
       ],
-      "rows": 367,
-      "took": 10,
-      "at": "2026-09-17T18:36:46.834Z"
+      "rows": 368,
+      "took": 11,
+      "at": "2026-09-28T06:27:48.009Z"
     },
     "6": {
       "status": "ok",
@@ -58,9 +58,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/6--cash-balances-of-scheduled-commercial-banks-excluding-regional-rural-banks-with-reserve-bank-of-indi--report-i.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/6--cash-balances-of-scheduled-commercial-banks-excluding-regional-rural-banks-with-reserve-bank-of-indi.xlsx"
       ],
-      "rows": 7350,
-      "took": 16,
-      "at": "2026-09-17T18:35:27.013Z"
+      "rows": 7365,
+      "took": 17,
+      "at": "2026-09-28T06:28:04.627Z"
     },
     "7": {
       "status": "ok",
@@ -70,9 +70,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/7--reserve-money-components-and-sources--report-2.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/7--reserve-money-components-and-sources.xlsx"
       ],
-      "rows": 2633,
-      "took": 15,
-      "at": "2026-09-17T18:36:26.780Z"
+      "rows": 2636,
+      "took": 17,
+      "at": "2026-09-28T06:28:21.188Z"
     },
     "8": {
       "status": "ok",
@@ -80,9 +80,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/8--liquidity-operations-by-rbi.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/8--liquidity-operations-by-rbi.xlsx"
       ],
-      "rows": 4354,
-      "took": 14,
-      "at": "2026-09-17T09:56:36.273Z"
+      "rows": 4368,
+      "took": 15,
+      "at": "2026-09-28T06:28:36.574Z"
     },
     "9": {
       "status": "ok",
@@ -90,9 +90,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/9--scheduled-commercial-banks-business-in-india.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/9--scheduled-commercial-banks-business-in-india.xlsx"
       ],
-      "rows": 762,
-      "took": 17,
-      "at": "2026-09-17T18:37:43.065Z"
+      "rows": 763,
+      "took": 18,
+      "at": "2026-09-28T09:21:32.290Z"
     },
     "10": {
       "status": "ok",
@@ -101,9 +101,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/10--ratios-and-rates--fortnightly.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/10--ratios-and-rates.xlsx"
       ],
-      "rows": 1191,
+      "rows": 1194,
       "took": 24,
-      "at": "2026-09-17T18:35:50.910Z"
+      "at": "2026-09-28T06:29:14.766Z"
     },
     "11": {
       "status": "ok",
@@ -115,8 +115,8 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/11--major-price-indices.xlsx"
       ],
       "rows": 979,
-      "took": 18,
-      "at": "2026-09-17T09:56:53.793Z"
+      "took": 19,
+      "at": "2026-09-28T06:29:33.466Z"
     },
     "12": {
       "status": "ok",
@@ -124,9 +124,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/12--average-daily-turnover-in-select-money-markets.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/12--average-daily-turnover-in-select-money-markets.xlsx"
       ],
-      "rows": 962,
-      "took": 17,
-      "at": "2026-09-17T18:37:04.327Z"
+      "rows": 964,
+      "took": 11,
+      "at": "2026-09-28T06:29:44.831Z"
     },
     "13": {
       "status": "ok",
@@ -134,9 +134,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/13--money-stock-components-and-sources.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/13--money-stock-components-and-sources.xlsx"
       ],
-      "rows": 691,
-      "took": 21,
-      "at": "2026-09-17T18:36:11.487Z"
+      "rows": 692,
+      "took": 23,
+      "at": "2026-09-28T06:30:07.580Z"
     },
     "14": {
       "status": "ok",
@@ -146,9 +146,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/14--sale-purchase-of-u-s-dollar-by-the-rbi--4-a-maturity-breakdown-of-outstanding-fo.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/14--sale-purchase-of-u-s-dollar-by-the-rbi.xlsx"
       ],
-      "rows": 648,
+      "rows": 651,
       "took": 22,
-      "at": "2026-09-17T09:58:08.644Z"
+      "at": "2026-09-28T06:30:29.825Z"
     },
     "15": {
       "status": "ok",
@@ -156,9 +156,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/15--rbi-s-standing-facilities.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/15--rbi-s-standing-facilities.xlsx"
       ],
-      "rows": 184,
-      "took": 11,
-      "at": "2026-09-17T09:58:19.282Z"
+      "rows": 185,
+      "took": 12,
+      "at": "2026-09-28T06:30:41.957Z"
     },
     "16": {
       "status": "ok",
@@ -166,9 +166,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/16--liquidity-aggregates.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/16--liquidity-aggregates.xlsx"
       ],
-      "rows": 399,
-      "took": 10,
-      "at": "2026-09-17T09:59:43.608Z"
+      "rows": 400,
+      "took": 11,
+      "at": "2026-09-28T07:28:45.241Z"
     },
     "17": {
       "status": "ok",
@@ -176,9 +176,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/17--monthly-average-price-of-gold-and-silver-in-mumbai.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/17--monthly-average-price-of-gold-and-silver-in-mumbai.xlsx"
       ],
-      "rows": 435,
+      "rows": 436,
       "took": 13,
-      "at": "2026-09-17T10:03:14.793Z"
+      "at": "2026-09-28T06:31:06.413Z"
     },
     "18": {
       "status": "ok",
@@ -186,9 +186,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/18--foreign-trade.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/18--foreign-trade.xlsx"
       ],
-      "rows": 435,
-      "took": 13,
-      "at": "2026-09-17T14:39:12.566Z"
+      "rows": 436,
+      "took": 14,
+      "at": "2026-09-28T06:31:20.481Z"
     },
     "19": {
       "status": "ok",
@@ -196,9 +196,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/19--outward-remittances-under-the-liberalised-remittance-scheme-for-resident-individuals.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/19--outward-remittances-under-the-liberalised-remittance-scheme-for-resident-individuals.xlsx"
       ],
-      "rows": 220,
-      "took": 12,
-      "at": "2026-09-17T14:40:06.201Z"
+      "rows": 221,
+      "took": 13,
+      "at": "2026-09-28T06:31:33.275Z"
     },
     "20": {
       "status": "ok",
@@ -206,9 +206,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/20--rbi-liabilities-and-assets.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/20--rbi-liabilities-and-assets.xlsx"
       ],
-      "rows": 1156,
-      "took": 21,
-      "at": "2026-09-17T09:57:46.847Z"
+      "rows": 1158,
+      "took": 20,
+      "at": "2026-09-28T09:21:52.523Z"
     },
     "21": {
       "status": "ok",
@@ -216,9 +216,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/21--liquidity-operations-by-rbi.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/21--liquidity-operations-by-rbi.xlsx"
       ],
-      "rows": 4354,
-      "took": 18,
-      "at": "2026-09-17T09:50:43.788Z"
+      "rows": 4368,
+      "took": 16,
+      "at": "2026-09-28T07:29:17.816Z"
     },
     "22": {
       "status": "ok",
@@ -227,9 +227,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/22--money-stock-measures--yearly.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/22--money-stock-measures.xlsx"
       ],
-      "rows": 1434,
-      "took": 20,
-      "at": "2026-09-17T09:51:03.717Z"
+      "rows": 1435,
+      "took": 21,
+      "at": "2026-09-28T06:32:22.583Z"
     },
     "23": {
       "status": "ok",
@@ -237,9 +237,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/23--sources-of-money-stock-m3.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/23--sources-of-money-stock-m3.xlsx"
       ],
-      "rows": 841,
-      "took": 47,
-      "at": "2026-09-17T09:59:06.301Z"
+      "rows": 842,
+      "took": 34,
+      "at": "2026-09-28T07:29:51.477Z"
     },
     "24": {
       "status": "ok",
@@ -247,9 +247,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/24--monetary-survey.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/24--monetary-survey.xlsx"
       ],
-      "rows": 726,
-      "took": 28,
-      "at": "2026-09-17T09:59:33.984Z"
+      "rows": 728,
+      "took": 23,
+      "at": "2026-09-28T06:32:58.452Z"
     },
     "25": {
       "status": "ok",
@@ -257,9 +257,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/25--reserve-bank-of-india-survey.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/25--reserve-bank-of-india-survey.xlsx"
       ],
-      "rows": 885,
-      "took": 21,
-      "at": "2026-09-17T10:00:05.028Z"
+      "rows": 887,
+      "took": 23,
+      "at": "2026-09-28T07:30:14.136Z"
     },
     "26": {
       "status": "ok",
@@ -268,9 +268,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/26--reserve-money-components-and-sources--report-3.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/26--reserve-money-components-and-sources.xlsx"
       ],
-      "rows": 2593,
-      "took": 23,
-      "at": "2026-09-17T10:00:27.772Z"
+      "rows": 2594,
+      "took": 16,
+      "at": "2026-09-28T06:33:25.834Z"
     },
     "27": {
       "status": "ok",
@@ -278,9 +278,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/27--commercial-bank-survey.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/27--commercial-bank-survey.xlsx"
       ],
-      "rows": 710,
-      "took": 13,
-      "at": "2026-09-17T09:51:16.542Z"
+      "rows": 712,
+      "took": 18,
+      "at": "2026-09-28T07:30:31.644Z"
     },
     "28": {
       "status": "ok",
@@ -288,9 +288,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/28--state-co-operative-banks-maintaining-accounts-with-the-reserve-bank-of-india.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/28--state-co-operative-banks-maintaining-accounts-with-the-reserve-bank-of-india.xlsx"
       ],
-      "rows": 610,
-      "took": 13,
-      "at": "2026-09-17T10:02:04.520Z"
+      "rows": 612,
+      "took": 14,
+      "at": "2026-09-28T06:33:51.814Z"
     },
     "29": {
       "status": "ok",
@@ -298,9 +298,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/29--treasury-bills-ownership-pattern.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/29--treasury-bills-ownership-pattern.xlsx"
       ],
-      "rows": 1058,
-      "took": 11,
-      "at": "2026-09-17T09:51:27.958Z"
+      "rows": 1060,
+      "took": 12,
+      "at": "2026-09-28T06:34:03.970Z"
     },
     "30": {
       "status": "ok",
@@ -310,9 +310,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/30--auctions-of-government-of-india-treasury-bills--action-of-government-of-india-364-day-tr.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/30--auctions-of-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 2061,
-      "took": 18,
-      "at": "2026-09-17T10:08:50.674Z"
+      "rows": 2067,
+      "took": 19,
+      "at": "2026-09-28T06:34:23.340Z"
     },
     "31": {
       "status": "ok",
@@ -320,9 +320,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/31--certificates-of-deposit.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/31--certificates-of-deposit.xlsx"
       ],
-      "rows": 917,
+      "rows": 918,
       "took": 10,
-      "at": "2026-09-17T10:09:15.482Z"
+      "at": "2026-09-28T06:34:33.705Z"
     },
     "32": {
       "status": "ok",
@@ -330,9 +330,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/32--commercial-paper.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/32--commercial-paper.xlsx"
       ],
-      "rows": 367,
-      "took": 10,
-      "at": "2026-09-17T10:09:25.305Z"
+      "rows": 368,
+      "took": 11,
+      "at": "2026-09-28T07:30:42.371Z"
     },
     "33": {
       "status": "ok",
@@ -340,9 +340,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/33--nri-deposits.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/33--nri-deposits.xlsx"
       ],
-      "rows": 351,
-      "took": 11,
-      "at": "2026-09-17T14:39:38.059Z"
+      "rows": 352,
+      "took": 13,
+      "at": "2026-09-28T09:22:05.858Z"
     },
     "34": {
       "status": "ok",
@@ -351,9 +351,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/34--foreign-investment-inflows--fii-monthly-new-format.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/34--foreign-investment-inflows.xlsx"
       ],
-      "rows": 375,
-      "took": 16,
-      "at": "2026-09-17T14:39:54.337Z"
+      "rows": 376,
+      "took": 18,
+      "at": "2026-09-28T06:35:14.118Z"
     },
     "35": {
       "status": "ok",
@@ -384,8 +384,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/37--investments-by-state-governments.xlsx"
       ],
       "rows": 31,
-      "took": 11,
-      "at": "2026-09-17T09:52:02.495Z"
+      "took": 12,
+      "at": "2026-09-28T06:35:25.776Z"
     },
     "38": {
       "status": "ok",
@@ -396,7 +396,7 @@
       ],
       "rows": 64,
       "took": 18,
-      "at": "2026-09-17T14:44:28.271Z"
+      "at": "2026-09-28T06:35:43.805Z"
     },
     "39": {
       "status": "ok",
@@ -404,9 +404,9 @@
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/39--reserve-bank-of-india-liabilities-and-assets.csv",
         "data/reports/publication/time-series-publications/weekly-statistical-supplement/39--reserve-bank-of-india-liabilities-and-assets.xlsx"
       ],
-      "rows": 1159,
+      "rows": 1161,
       "took": 15,
-      "at": "2026-09-17T18:34:59.377Z"
+      "at": "2026-09-28T07:31:09.595Z"
     },
     "40": {
       "status": "ok",
@@ -417,7 +417,7 @@
       ],
       "rows": 94,
       "took": 18,
-      "at": "2026-09-17T10:01:34.010Z"
+      "at": "2026-09-28T07:31:27.800Z"
     },
     "41": {
       "status": "ok",
@@ -426,9 +426,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/41--select-economic-indicators--monthly.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/41--select-economic-indicators.xlsx"
       ],
-      "rows": 244,
-      "took": 18,
-      "at": "2026-09-17T09:57:25.517Z"
+      "rows": 245,
+      "took": 19,
+      "at": "2026-09-28T06:36:30.063Z"
     },
     "42": {
       "status": "ok",
@@ -436,9 +436,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/42--scheduled-commercial-bank-s-investments.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/42--scheduled-commercial-bank-s-investments.xlsx"
       ],
-      "rows": 754,
+      "rows": 755,
       "took": 20,
-      "at": "2026-09-17T10:00:47.984Z"
+      "at": "2026-09-28T09:22:26.325Z"
     },
     "43": {
       "status": "ok",
@@ -447,9 +447,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/43--business-in-india-all-scheduled-banks-and-all-scheduled-commercial-banks--all-scheduled-commercial-banks.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/43--business-in-india-all-scheduled-banks-and-all-scheduled-commercial-banks.xlsx"
       ],
-      "rows": 700,
-      "took": 28,
-      "at": "2026-09-17T10:01:16.158Z"
+      "rows": 702,
+      "took": 29,
+      "at": "2026-09-28T07:32:17.337Z"
     },
     "44": {
       "status": "ok",
@@ -460,7 +460,7 @@
       ],
       "rows": 87,
       "took": 18,
-      "at": "2026-09-17T10:01:51.583Z"
+      "at": "2026-09-28T06:37:23.442Z"
     },
     "45": {
       "status": "ok",
@@ -472,9 +472,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/45--consumer-price-index--cpi-core-2024-100-all-india.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/45--consumer-price-index.xlsx"
       ],
-      "rows": 7969,
-      "took": 23,
-      "at": "2026-09-17T10:02:51.557Z"
+      "rows": 8829,
+      "took": 25,
+      "at": "2026-09-28T07:32:42.491Z"
     },
     "46": {
       "status": "ok",
@@ -482,9 +482,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/46--other-consumer-price-indices.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/46--other-consumer-price-indices.xlsx"
       ],
-      "rows": 698,
-      "took": 10,
-      "at": "2026-09-17T10:03:01.948Z"
+      "rows": 699,
+      "took": 11,
+      "at": "2026-09-28T06:37:55.134Z"
     },
     "47": {
       "status": "ok",
@@ -498,8 +498,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/47--wholesale-price-index.xlsx"
       ],
       "rows": 1197,
-      "took": 284,
-      "at": "2026-09-17T10:07:58.452Z"
+      "took": 286,
+      "at": "2026-09-28T07:37:28.502Z"
     },
     "49": {
       "status": "ok",
@@ -508,9 +508,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/49--union-government-accounts-at-a-glance--new-tab.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/49--union-government-accounts-at-a-glance.xlsx"
       ],
-      "rows": 240,
-      "took": 17,
-      "at": "2026-09-17T10:08:32.283Z"
+      "rows": 241,
+      "took": 18,
+      "at": "2026-09-28T06:38:47.930Z"
     },
     "50": {
       "status": "ok",
@@ -518,9 +518,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/50--daily-weighted-average-call-notice-money-rates.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/50--daily-weighted-average-call-notice-money-rates.xlsx"
       ],
-      "rows": 6426,
-      "took": 15,
-      "at": "2026-09-17T10:09:05.241Z"
+      "rows": 6429,
+      "took": 13,
+      "at": "2026-09-28T06:39:01.112Z"
     },
     "51": {
       "status": "ok",
@@ -528,9 +528,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/51--average-daily-turnover-in-select-financial-markets.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/51--average-daily-turnover-in-select-financial-markets.xlsx"
       ],
-      "rows": 953,
-      "took": 11,
-      "at": "2026-09-17T10:09:36.510Z"
+      "rows": 958,
+      "took": 12,
+      "at": "2026-09-28T06:39:12.639Z"
     },
     "52": {
       "status": "ok",
@@ -539,9 +539,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/52--new-capital-issues-by-non-government-public-limited-companies--new-format.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/52--new-capital-issues-by-non-government-public-limited-companies.xlsx"
       ],
-      "rows": 432,
-      "took": 17,
-      "at": "2026-09-17T10:09:53.774Z"
+      "rows": 433,
+      "took": 19,
+      "at": "2026-09-28T06:39:32.117Z"
     },
     "53": {
       "status": "ok",
@@ -549,9 +549,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/53--foreign-exchange-reserves-weekly.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/53--foreign-exchange-reserves-weekly.xlsx"
       ],
-      "rows": 1330,
-      "took": 14,
-      "at": "2026-09-17T14:39:26.594Z"
+      "rows": 1332,
+      "took": 23,
+      "at": "2026-09-28T09:22:49.046Z"
     },
     "54": {
       "status": "ok",
@@ -562,9 +562,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/54--indices-of-real-effective-exchange-rate-reer-and-nominal-effective-exchange-rate-neer-of-the-indian--40-currency-2015-16.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/54--indices-of-real-effective-exchange-rate-reer-and-nominal-effective-exchange-rate-neer-of-the-indian.xlsx"
       ],
-      "rows": 2788,
-      "took": 34,
-      "at": "2026-09-17T14:40:40.566Z"
+      "rows": 2791,
+      "took": 60,
+      "at": "2026-09-28T06:40:44.779Z"
     },
     "55": {
       "status": "ok",
@@ -577,9 +577,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/55--external-commercial-borrowings-ecbs--annual-revised-format.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/55--external-commercial-borrowings-ecbs.xlsx"
       ],
-      "rows": 304,
-      "took": 30,
-      "at": "2026-09-17T14:41:10.820Z"
+      "rows": 305,
+      "took": 31,
+      "at": "2026-09-28T09:23:20.283Z"
     },
     "56": {
       "status": "ok",
@@ -588,9 +588,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/56--india-s-overall-balance-of-payments-us-million--2000-01-q1-onwards.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/56--india-s-overall-balance-of-payments-us-million.xlsx"
       ],
-      "rows": 600,
-      "took": 20,
-      "at": "2026-09-17T14:41:54.943Z"
+      "rows": 603,
+      "took": 21,
+      "at": "2026-09-28T06:41:32.436Z"
     },
     "57": {
       "status": "ok",
@@ -599,9 +599,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/57--india-s-overall-balance-of-payments-rupees-crore--2000-01-q1-onwards.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/57--india-s-overall-balance-of-payments-rupees-crore.xlsx"
       ],
-      "rows": 432,
-      "took": 20,
-      "at": "2026-09-17T14:42:14.894Z"
+      "rows": 435,
+      "took": 21,
+      "at": "2026-09-28T06:41:53.743Z"
     },
     "58": {
       "status": "ok",
@@ -610,8 +610,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/58--standard-presentation-of-bop-in-india-as-per-bpm6-us-million.xlsx"
       ],
       "rows": 77,
-      "took": 17,
-      "at": "2026-09-17T14:42:32.091Z"
+      "took": 18,
+      "at": "2026-09-28T06:42:12.141Z"
     },
     "59": {
       "status": "ok",
@@ -620,8 +620,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/59--standard-presentation-of-bop-in-india-as-per-bpm6-rupees-crore.xlsx"
       ],
       "rows": 77,
-      "took": 16,
-      "at": "2026-09-17T14:42:48.393Z"
+      "took": 18,
+      "at": "2026-09-28T06:42:30.124Z"
     },
     "60": {
       "status": "ok",
@@ -632,7 +632,7 @@
       ],
       "rows": 53,
       "took": 21,
-      "at": "2026-09-17T14:43:09.581Z"
+      "at": "2026-09-28T09:23:41.022Z"
     },
     "61": {
       "status": "ok",
@@ -641,9 +641,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/61--payment-system-indicators--new-format.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/61--payment-system-indicators.xlsx"
       ],
-      "rows": 267,
-      "took": 23,
-      "at": "2026-09-17T09:51:51.184Z"
+      "rows": 268,
+      "took": 26,
+      "at": "2026-09-28T09:24:07.305Z"
     },
     "62": {
       "status": "ok",
@@ -653,8 +653,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/62--small-savings.xlsx"
       ],
       "rows": 463,
-      "took": 18,
-      "at": "2026-09-17T14:43:28.053Z"
+      "took": 20,
+      "at": "2026-09-28T09:24:26.851Z"
     },
     "63": {
       "status": "ok",
@@ -663,8 +663,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/63--financial-accommodation-availed-by-state-governments-under-various-facilities.xlsx"
       ],
       "rows": 30,
-      "took": 12,
-      "at": "2026-09-17T14:44:10.680Z"
+      "took": 13,
+      "at": "2026-09-28T06:43:31.048Z"
     },
     "64": {
       "status": "ok",
@@ -820,24 +820,24 @@
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/81--direct-and-indirect-tax-revenues-of-central-and-state-governments--direct-and-indirect-tax-revenues-of-cent.csv",
-        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/81--direct-and-indirect-tax-revenues-of-central-and-state-governments--direct-and-indirect-tax-revenues-of-cent.csv",
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/81--direct-and-indirect-tax-revenues-of-central-and-state-governments--direct-and-indirect-tax-revenues-of-cent-14209.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/81--direct-and-indirect-tax-revenues-of-central-and-state-governments.xlsx"
       ],
       "rows": 94,
-      "took": 12,
-      "at": "2026-09-17T18:04:52.456Z"
+      "took": 13,
+      "at": "2026-09-28T09:24:39.448Z"
     },
     "82": {
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/82--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover.csv",
-        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/82--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover.csv",
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/82--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover-243.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/82--outstanding-liabilities-of-central-government--report-3.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/82--outstanding-liabilities-of-central-government.xlsx"
       ],
       "rows": 133,
-      "took": 18,
-      "at": "2026-09-17T18:05:44.453Z"
+      "took": 19,
+      "at": "2026-09-28T07:26:31.524Z"
     },
     "83": {
       "status": "ok",
@@ -866,8 +866,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/85--month-wise-gross-fiscal-deficit-of-the-central-government.xlsx"
       ],
       "rows": 34,
-      "took": 10,
-      "at": "2026-09-17T18:22:45.441Z"
+      "took": 11,
+      "at": "2026-09-28T06:43:41.566Z"
     },
     "86": {
       "status": "ok",
@@ -935,9 +935,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/92--sales-and-purchases-of-us-dollar-by-the-reserve-bank-of-india.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/92--sales-and-purchases-of-us-dollar-by-the-reserve-bank-of-india.xlsx"
       ],
-      "rows": 331,
-      "took": 12,
-      "at": "2026-09-17T18:27:08.438Z"
+      "rows": 332,
+      "took": 14,
+      "at": "2026-09-28T09:24:53.583Z"
     },
     "93": {
       "status": "ok",
@@ -945,9 +945,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/93--commercial-paper.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/93--commercial-paper.xlsx"
       ],
-      "rows": 804,
-      "took": 12,
-      "at": "2026-09-17T18:27:36.388Z"
+      "rows": 805,
+      "took": 13,
+      "at": "2026-09-28T06:44:06.870Z"
     },
     "94": {
       "status": "ok",
@@ -955,9 +955,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/94--issue-of-certificates-of-deposit-by-scheduled-commercial-banks.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/94--issue-of-certificates-of-deposit-by-scheduled-commercial-banks.xlsx"
       ],
-      "rows": 915,
-      "took": 10,
-      "at": "2026-09-17T18:27:46.375Z"
+      "rows": 916,
+      "took": 11,
+      "at": "2026-09-28T06:44:17.911Z"
     },
     "95": {
       "status": "ok",
@@ -965,9 +965,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/95--foreign-exchange-reserves-weekly.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/95--foreign-exchange-reserves-weekly.xlsx"
       ],
-      "rows": 1328,
-      "took": 14,
-      "at": "2026-09-17T18:28:00.358Z"
+      "rows": 1330,
+      "took": 15,
+      "at": "2026-09-28T06:44:32.897Z"
     },
     "96": {
       "status": "ok",
@@ -985,9 +985,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/97--components-of-money-stock.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/97--components-of-money-stock.xlsx"
       ],
-      "rows": 431,
-      "took": 16,
-      "at": "2026-09-17T18:17:55.395Z"
+      "rows": 432,
+      "took": 21,
+      "at": "2026-09-28T09:25:14.096Z"
     },
     "98": {
       "status": "ok",
@@ -1005,9 +1005,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/100--commercial-bank-survey.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/100--commercial-bank-survey.xlsx"
       ],
-      "rows": 322,
-      "took": 13,
-      "at": "2026-09-17T09:55:24.737Z"
+      "rows": 323,
+      "took": 15,
+      "at": "2026-09-28T06:44:59.190Z"
     },
     "101": {
       "status": "ok",
@@ -1015,9 +1015,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/101--liquidity-aggregates.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/101--liquidity-aggregates.xlsx"
       ],
-      "rows": 400,
-      "took": 12,
-      "at": "2026-09-17T18:19:45.430Z"
+      "rows": 401,
+      "took": 13,
+      "at": "2026-09-28T06:45:11.721Z"
     },
     "102": {
       "status": "ok",
@@ -1075,9 +1075,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/107--secondary-market-outright-transactions-in-government-securities-face-value.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/107--secondary-market-outright-transactions-in-government-securities-face-value.xlsx"
       ],
-      "rows": 4472,
-      "took": 19,
-      "at": "2026-09-17T18:28:19.651Z"
+      "rows": 4475,
+      "took": 23,
+      "at": "2026-09-28T09:25:36.699Z"
     },
     "108": {
       "status": "ok",
@@ -1095,9 +1095,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/110--auctions-of-182-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/110--auctions-of-182-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 787,
-      "took": 13,
-      "at": "2026-09-17T18:28:57.928Z"
+      "rows": 788,
+      "took": 15,
+      "at": "2026-09-28T06:45:38.346Z"
     },
     "111": {
       "status": "ok",
@@ -1105,9 +1105,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/111--auctions-of-364-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/111--auctions-of-364-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 971,
-      "took": 13,
-      "at": "2026-09-17T18:29:11.123Z"
+      "rows": 972,
+      "took": 14,
+      "at": "2026-09-28T09:25:51.114Z"
     },
     "112": {
       "status": "ok",
@@ -1125,9 +1125,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/113--auctions-of-91-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/113--auctions-of-91-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 1752,
-      "took": 13,
-      "at": "2026-09-17T18:28:44.767Z"
+      "rows": 1753,
+      "took": 14,
+      "at": "2026-09-28T06:46:03.980Z"
     },
     "114": {
       "status": "ok",
@@ -1337,7 +1337,7 @@
       ],
       "rows": 1,
       "took": 10,
-      "at": "2026-09-17T18:21:29.311Z"
+      "at": "2026-09-28T06:46:14.227Z"
     },
     "136": {
       "status": "ok",
@@ -1346,8 +1346,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/136--net-investment-by-fpis-in-the-indian-capital-market.xlsx"
       ],
       "rows": 36,
-      "took": 12,
-      "at": "2026-09-17T18:21:41.282Z"
+      "took": 13,
+      "at": "2026-09-28T06:46:27.246Z"
     },
     "137": {
       "status": "ok",
@@ -1356,8 +1356,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/137--monthly-and-annual-averages-of-nifty-50-base-november-3-1995-1000.xlsx"
       ],
       "rows": 38,
-      "took": 10,
-      "at": "2026-09-17T18:21:51.344Z"
+      "took": 12,
+      "at": "2026-09-28T09:26:02.834Z"
     },
     "138": {
       "status": "ok",
@@ -1366,8 +1366,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/138--monthly-and-annual-averages-of-bse-sensex-base-1978-79-100.xlsx"
       ],
       "rows": 38,
-      "took": 12,
-      "at": "2026-09-17T18:22:03.374Z"
+      "took": 13,
+      "at": "2026-09-28T06:46:51.204Z"
     },
     "139": {
       "status": "ok",
@@ -1377,8 +1377,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/139--market-capitalisation-nse.xlsx"
       ],
       "rows": 416,
-      "took": 14,
-      "at": "2026-09-17T09:55:50.686Z"
+      "took": 16,
+      "at": "2026-09-28T09:26:18.363Z"
     },
     "140": {
       "status": "ok",
@@ -1387,8 +1387,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/140--turnover-in-equity-derivatives-market.xlsx"
       ],
       "rows": 338,
-      "took": 10,
-      "at": "2026-09-17T18:22:35.467Z"
+      "took": 12,
+      "at": "2026-09-28T06:47:17.972Z"
     },
     "141": {
       "status": "ok",
@@ -1449,8 +1449,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/146--exchange-rate-of-the-indian-rupee-vis-a-vis-the-sdr-us-dollar-pound-sterling-euro-and-japanese-yen-m.xlsx"
       ],
       "rows": 414,
-      "took": 10,
-      "at": "2026-09-17T18:26:08.146Z"
+      "took": 11,
+      "at": "2026-09-28T06:47:28.622Z"
     },
     "147": {
       "status": "ok",
@@ -1459,8 +1459,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/147--average-price-earning-ratio-of-bse-sensex.xlsx"
       ],
       "rows": 38,
-      "took": 10,
-      "at": "2026-09-17T18:34:32.262Z"
+      "took": 11,
+      "at": "2026-09-28T06:47:39.439Z"
     },
     "148": {
       "status": "ok",
@@ -1489,8 +1489,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/151--major-monetary-policy-rates-and-reserve-requirements-bank-rate-laf-repo-reverse-repo-sdf-and-msf-rat.xlsx"
       ],
       "rows": 1,
-      "took": 12,
-      "at": "2026-09-17T17:52:23.536Z"
+      "took": 13,
+      "at": "2026-09-28T06:47:52.467Z"
     },
     "152": {
       "status": "ok",
@@ -1500,8 +1500,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/152--deployment-of-bank-credit-by-major-sectors.xlsx"
       ],
       "rows": 94,
-      "took": 17,
-      "at": "2026-09-17T18:18:45.092Z"
+      "took": 19,
+      "at": "2026-09-28T06:48:11.068Z"
     },
     "153": {
       "status": "ok",
@@ -1559,9 +1559,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/158--broad-commodity-composition-of-india-s-merchandise-trade-oil-and-non-oil-exports-and-imports-rupees.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/158--broad-commodity-composition-of-india-s-merchandise-trade-oil-and-non-oil-exports-and-imports-rupees.xlsx"
       ],
-      "rows": 352,
-      "took": 13,
-      "at": "2026-09-17T18:23:22.066Z"
+      "rows": 353,
+      "took": 14,
+      "at": "2026-09-28T06:48:24.866Z"
     },
     "160": {
       "status": "ok",
@@ -1599,8 +1599,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/162--wholesale-price-index-monthly-annual-variation.xlsx"
       ],
       "rows": 336,
-      "took": 15,
-      "at": "2026-09-17T18:34:01.340Z"
+      "took": 16,
+      "at": "2026-09-28T06:48:41.281Z"
     },
     "163": {
       "status": "ok",
@@ -1718,9 +1718,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/184--foreign-exchange-reserves.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/184--foreign-exchange-reserves.xlsx"
       ],
-      "rows": 437,
+      "rows": 439,
       "took": 12,
-      "at": "2026-09-17T18:26:56.539Z"
+      "at": "2026-09-28T06:48:53.699Z"
     },
     "185": {
       "status": "ok",
@@ -1753,8 +1753,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/187--index-numbers-of-twenty-three-major-industry-groups-of-the-manufacturing-sector-base-2022-23-100.xlsx"
       ],
       "rows": 1002,
-      "took": 16,
-      "at": "2026-09-17T18:16:32.110Z"
+      "took": 17,
+      "at": "2026-09-28T06:49:11.139Z"
     },
     "188": {
       "status": "ok",
@@ -1764,8 +1764,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/188--industry-wise-deployment-of-bank-credit.xlsx"
       ],
       "rows": 83,
-      "took": 16,
-      "at": "2026-09-17T18:19:01.479Z"
+      "took": 18,
+      "at": "2026-09-28T06:49:29.491Z"
     },
     "189": {
       "status": "ok",
@@ -1853,9 +1853,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/197--monthly-average-price-of-gold-and-silver-in-domestic-and-foreign-markets.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/197--monthly-average-price-of-gold-and-silver-in-domestic-and-foreign-markets.xlsx"
       ],
-      "rows": 473,
-      "took": 10,
-      "at": "2026-09-17T18:17:39.072Z"
+      "rows": 474,
+      "took": 11,
+      "at": "2026-09-28T06:49:40.104Z"
     },
     "198": {
       "status": "ok",
@@ -1863,9 +1863,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/198--daily-weighted-average-call-notice-money-rates.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/198--daily-weighted-average-call-notice-money-rates.xlsx"
       ],
-      "rows": 6435,
-      "took": 22,
-      "at": "2026-09-17T18:30:27.468Z"
+      "rows": 6438,
+      "took": 27,
+      "at": "2026-09-28T09:26:45.415Z"
     },
     "199": {
       "status": "ok",
@@ -1964,9 +1964,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/208--india-s-foreign-trade-us-dollar.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/208--india-s-foreign-trade-us-dollar.xlsx"
       ],
-      "rows": 436,
-      "took": 10,
-      "at": "2026-09-17T09:56:00.753Z"
+      "rows": 437,
+      "took": 11,
+      "at": "2026-09-28T09:26:56.018Z"
     },
     "209": {
       "status": "ok",
@@ -1974,9 +1974,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/209--india-s-foreign-trade-rupees.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/209--india-s-foreign-trade-rupees.xlsx"
       ],
-      "rows": 436,
-      "took": 11,
-      "at": "2026-09-17T09:56:11.918Z"
+      "rows": 437,
+      "took": 12,
+      "at": "2026-09-28T06:50:29.757Z"
     },
     "210": {
       "status": "ok",
@@ -2020,10 +2020,13 @@
     },
     "214": {
       "status": "ok",
-      "files": [],
-      "rows": 0,
-      "took": 7,
-      "at": "2026-09-17T18:20:04.333Z"
+      "files": [
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/214--monthly-open-market-operations-of-the-reserve-bank-of-india.csv",
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/214--monthly-open-market-operations-of-the-reserve-bank-of-india.xlsx"
+      ],
+      "rows": 1,
+      "took": 12,
+      "at": "2026-09-28T06:50:41.714Z"
     },
     "215": {
       "status": "ok",
@@ -2031,9 +2034,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/215--sources-of-money-stock.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/215--sources-of-money-stock.xlsx"
       ],
-      "rows": 426,
-      "took": 22,
-      "at": "2026-09-17T18:18:17.149Z"
+      "rows": 427,
+      "took": 27,
+      "at": "2026-09-28T06:51:08.453Z"
     },
     "217": {
       "status": "ok",
@@ -2043,8 +2046,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/217--month-end-yield-of-sgl-transactions-in-government-dated-securities-for-various-maturities.xlsx"
       ],
       "rows": 1209,
-      "took": 16,
-      "at": "2026-09-17T18:21:02.506Z"
+      "took": 17,
+      "at": "2026-09-28T06:51:25.619Z"
     },
     "218": {
       "status": "ok",
@@ -2052,9 +2055,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/218--turnover-in-government-securities-market-face-value.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/218--turnover-in-government-securities-market-face-value.xlsx"
       ],
-      "rows": 1483,
-      "took": 12,
-      "at": "2026-09-17T18:28:31.606Z"
+      "rows": 1485,
+      "took": 14,
+      "at": "2026-09-28T06:51:39.832Z"
     },
     "219": {
       "status": "ok",
@@ -2104,7 +2107,7 @@
       ],
       "rows": 38,
       "took": 12,
-      "at": "2026-09-17T18:34:44.233Z"
+      "at": "2026-09-28T06:51:52.264Z"
     },
     "225": {
       "status": "ok",
@@ -2123,9 +2126,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/226--broad-commodity-composition-of-india-s-merchandise-trade-oil-and-non-oil-exports-and-imports-us-doll.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/226--broad-commodity-composition-of-india-s-merchandise-trade-oil-and-non-oil-exports-and-imports-us-doll.xlsx"
       ],
-      "rows": 352,
-      "took": 11,
-      "at": "2026-09-17T18:23:08.718Z"
+      "rows": 353,
+      "took": 12,
+      "at": "2026-09-28T06:52:04.455Z"
     },
     "227": {
       "status": "ok",
@@ -2151,12 +2154,12 @@
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/230--receipts-and-disbursements-of-central-and-state-governments--receipts-and-disbursements-of-central-an.csv",
-        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/230--receipts-and-disbursements-of-central-and-state-governments--receipts-and-disbursements-of-central-an.csv",
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/230--receipts-and-disbursements-of-central-and-state-governments--receipts-and-disbursements-of-central-an-417.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/230--receipts-and-disbursements-of-central-and-state-governments.xlsx"
       ],
       "rows": 91,
-      "took": 12,
-      "at": "2026-09-17T18:04:40.491Z"
+      "took": 13,
+      "at": "2026-09-28T07:26:44.946Z"
     },
     "231": {
       "status": "ok",
@@ -2176,8 +2179,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/234--yield-of-sgl-transactions-in-treasury-bills-for-residual-maturities.xlsx"
       ],
       "rows": 518,
-      "took": 12,
-      "at": "2026-09-17T18:20:46.202Z"
+      "took": 13,
+      "at": "2026-09-28T06:52:17.661Z"
     },
     "237": {
       "status": "ok",
@@ -2187,8 +2190,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/237--market-capitalisation-bse.xlsx"
       ],
       "rows": 443,
-      "took": 12,
-      "at": "2026-09-17T09:55:36.741Z"
+      "took": 14,
+      "at": "2026-09-28T09:27:10.042Z"
     },
     "239": {
       "status": "ok",
@@ -2197,8 +2200,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/239--secondary-market-transactions-in-government-securities.xlsx"
       ],
       "rows": 417,
-      "took": 30,
-      "at": "2026-09-17T18:20:34.329Z"
+      "took": 12,
+      "at": "2026-09-28T06:52:42.456Z"
     },
     "243": {
       "status": "ok",
@@ -2370,8 +2373,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/260--daily-forward-premia-inter-bank.xlsx"
       ],
       "rows": 5473,
-      "took": 12,
-      "at": "2026-09-17T18:30:05.782Z"
+      "took": 18,
+      "at": "2026-09-28T06:53:00.134Z"
     },
     "261": {
       "status": "ok",
@@ -2380,9 +2383,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/261--new-capital-issues-by-non-government-public-limited-companies--new.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/261--new-capital-issues-by-non-government-public-limited-companies.xlsx"
       ],
-      "rows": 485,
-      "took": 17,
-      "at": "2026-09-17T18:21:19.770Z"
+      "rows": 487,
+      "took": 18,
+      "at": "2026-09-28T06:53:18.082Z"
     },
     "262": {
       "status": "ok",
@@ -2394,8 +2397,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/262--sector-wise-index-numbers-of-industrial-production-base-2022-23-100.xlsx"
       ],
       "rows": 201,
-      "took": 18,
-      "at": "2026-09-17T18:16:15.931Z"
+      "took": 19,
+      "at": "2026-09-28T06:53:36.671Z"
     },
     "263": {
       "status": "ok",
@@ -2407,8 +2410,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/263--use-based-classification-of-index-numbers-of-industrial-production-base-2022-23-100.xlsx"
       ],
       "rows": 306,
-      "took": 24,
-      "at": "2026-09-17T18:16:55.864Z"
+      "took": 25,
+      "at": "2026-09-28T06:54:02.081Z"
     },
     "264": {
       "status": "ok",
@@ -2431,8 +2434,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/265--weighted-average-call-money-rates.xlsx"
       ],
       "rows": 109,
-      "took": 12,
-      "at": "2026-09-17T18:19:57.217Z"
+      "took": 13,
+      "at": "2026-09-28T06:54:14.898Z"
     },
     "267": {
       "status": "ok",
@@ -2440,9 +2443,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/267--secondary-market-repo-transactions-in-government-securities-face-value.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/267--secondary-market-repo-transactions-in-government-securities-face-value.xlsx"
       ],
-      "rows": 1489,
-      "took": 14,
-      "at": "2026-09-17T18:29:43.456Z"
+      "rows": 1490,
+      "took": 16,
+      "at": "2026-09-28T06:54:30.681Z"
     },
     "268": {
       "status": "ok",
@@ -2450,9 +2453,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/268--daily-exchange-rate-of-the-indian-rupee.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/268--daily-exchange-rate-of-the-indian-rupee.xlsx"
       ],
-      "rows": 6785,
-      "took": 10,
-      "at": "2026-09-17T18:29:53.892Z"
+      "rows": 6790,
+      "took": 12,
+      "at": "2026-09-28T06:54:42.734Z"
     },
     "269": {
       "status": "ok",
@@ -2776,9 +2779,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/306--indices-of-nominal-effective-exchange-rate-neer-and-real-effective-exchange-rate-reer-of-the-indian--base-2015-16-100.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/306--indices-of-nominal-effective-exchange-rate-neer-and-real-effective-exchange-rate-reer-of-the-indian.xlsx"
       ],
-      "rows": 482,
+      "rows": 483,
       "took": 12,
-      "at": "2026-09-17T18:26:32.093Z"
+      "at": "2026-09-28T06:54:55.212Z"
     },
     "307": {
       "status": "ok",
@@ -2786,9 +2789,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/307--auctions-of-91-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/307--auctions-of-91-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 1752,
-      "took": 14,
-      "at": "2026-09-17T16:41:29.767Z"
+      "rows": 1753,
+      "took": 19,
+      "at": "2026-09-28T09:27:28.845Z"
     },
     "308": {
       "status": "ok",
@@ -2796,9 +2799,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/308--auctions-of-182-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/308--auctions-of-182-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 787,
-      "took": 13,
-      "at": "2026-09-17T16:41:42.953Z"
+      "rows": 788,
+      "took": 15,
+      "at": "2026-09-28T09:27:43.799Z"
     },
     "309": {
       "status": "ok",
@@ -2806,9 +2809,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/309--auctions-of-364-day-government-of-india-treasury-bills.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/309--auctions-of-364-day-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 971,
-      "took": 13,
-      "at": "2026-09-17T16:41:55.770Z"
+      "rows": 972,
+      "took": 17,
+      "at": "2026-09-28T06:55:48.063Z"
     },
     "310": {
       "status": "ok",
@@ -2816,9 +2819,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/310--government-of-india-treasury-bills-outstanding.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/310--government-of-india-treasury-bills-outstanding.xlsx"
       ],
-      "rows": 1059,
-      "took": 13,
-      "at": "2026-09-17T16:42:08.613Z"
+      "rows": 1061,
+      "took": 14,
+      "at": "2026-09-28T06:56:01.599Z"
     },
     "311": {
       "status": "ok",
@@ -2828,9 +2831,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/311--auctions-of-government-of-india-treasury-bills--action-of-government-of-india-364-day-tr.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/311--auctions-of-government-of-india-treasury-bills.xlsx"
       ],
-      "rows": 2064,
+      "rows": 2067,
       "took": 19,
-      "at": "2026-09-17T16:42:43.065Z"
+      "at": "2026-09-28T09:28:03.011Z"
     },
     "312": {
       "status": "ok",
@@ -2858,21 +2861,21 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/314--market-borrowings-by-the-government-of-india-and-state-governments-dated-securities.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/314--market-borrowings-by-the-government-of-india-and-state-governments-dated-securities.xlsx"
       ],
-      "rows": 754,
+      "rows": 756,
       "took": 11,
-      "at": "2026-09-17T16:43:58.364Z"
+      "at": "2026-09-28T09:28:14.242Z"
     },
     "315": {
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/public-debt-statistics/315--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover.csv",
-        "data/reports/publication/time-series-publications/public-debt-statistics/315--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover.csv",
+        "data/reports/publication/time-series-publications/public-debt-statistics/315--outstanding-liabilities-of-central-government--outstanding-liabilities-of-central-gover-243.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/315--outstanding-liabilities-of-central-government--report-3.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/315--outstanding-liabilities-of-central-government.xlsx"
       ],
       "rows": 133,
       "took": 19,
-      "at": "2026-09-17T16:44:17.186Z"
+      "at": "2026-09-28T07:27:03.907Z"
     },
     "316": {
       "status": "ok",
@@ -2890,9 +2893,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/317--market-borrowings-by-the-government-of-india-and-state-governments-dated-securities.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/317--market-borrowings-by-the-government-of-india-and-state-governments-dated-securities.xlsx"
       ],
-      "rows": 754,
-      "took": 11,
-      "at": "2026-09-17T16:45:28.991Z"
+      "rows": 756,
+      "took": 13,
+      "at": "2026-09-28T06:56:41.753Z"
     },
     "318": {
       "status": "ok",
@@ -2913,7 +2916,7 @@
       ],
       "rows": 64,
       "took": 19,
-      "at": "2026-09-17T09:52:31.011Z"
+      "at": "2026-09-28T06:57:00.385Z"
     },
     "320": {
       "status": "ok",
@@ -2923,8 +2926,8 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/320--small-savings.xlsx"
       ],
       "rows": 463,
-      "took": 19,
-      "at": "2026-09-17T16:45:59.759Z"
+      "took": 21,
+      "at": "2026-09-28T09:28:35.376Z"
     },
     "321": {
       "status": "ok",
@@ -2942,9 +2945,9 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/322--state-co-operative-banks-maintaining-accounts-with-the-rbi.csv",
         "data/reports/statistics/financial-sector/banking-assets-liabilities/322--state-co-operative-banks-maintaining-accounts-with-the-rbi.xlsx"
       ],
-      "rows": 610,
-      "took": 13,
-      "at": "2026-09-17T14:26:30.365Z"
+      "rows": 612,
+      "took": 20,
+      "at": "2026-09-28T06:57:35.602Z"
     },
     "323": {
       "status": "ok",
@@ -2983,9 +2986,9 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/326--cash-balances-of-scheduled-commercial-banks-excluding-regional-rural-banks-with-reserve-bank-of-indi--report-i.csv",
         "data/reports/statistics/financial-sector/banking-assets-liabilities/326--cash-balances-of-scheduled-commercial-banks-excluding-regional-rural-banks-with-reserve-bank-of-indi.xlsx"
       ],
-      "rows": 7350,
-      "took": 15,
-      "at": "2026-09-17T14:25:28.573Z"
+      "rows": 7365,
+      "took": 20,
+      "at": "2026-09-28T06:57:55.379Z"
     },
     "329": {
       "status": "ok",
@@ -3223,9 +3226,9 @@
         "data/reports/statistics/external-sector/international-trade/433--india-s-foreign-trade-us-dollars.csv",
         "data/reports/statistics/external-sector/international-trade/433--india-s-foreign-trade-us-dollars.xlsx"
       ],
-      "rows": 436,
-      "took": 12,
-      "at": "2026-09-17T09:46:50.678Z"
+      "rows": 437,
+      "took": 11,
+      "at": "2026-09-28T06:58:05.990Z"
     },
     "440": {
       "status": "ok",
@@ -3243,9 +3246,9 @@
         "data/reports/statistics/financial-sector/monetary-statistics/443--commercial-bank-survey.csv",
         "data/reports/statistics/financial-sector/monetary-statistics/443--commercial-bank-survey.xlsx"
       ],
-      "rows": 710,
-      "took": 13,
-      "at": "2026-09-17T09:49:20.206Z"
+      "rows": 712,
+      "took": 15,
+      "at": "2026-09-28T06:58:21.171Z"
     },
     "446": {
       "status": "ok",
@@ -3263,9 +3266,9 @@
         "data/reports/statistics/financial-sector/monetary-statistics/447--reserve-bank-of-india-liabilities-assets.csv",
         "data/reports/statistics/financial-sector/monetary-statistics/447--reserve-bank-of-india-liabilities-assets.xlsx"
       ],
-      "rows": 1156,
-      "took": 21,
-      "at": "2026-09-17T09:11:27.709Z"
+      "rows": 1158,
+      "took": 26,
+      "at": "2026-09-28T09:29:00.878Z"
     },
     "450": {
       "status": "ok",
@@ -3432,7 +3435,7 @@
       ],
       "rows": 232,
       "took": 19,
-      "at": "2026-09-17T18:17:29.137Z"
+      "at": "2026-09-28T09:29:20.211Z"
     },
     "539": {
       "status": "ok",
@@ -3442,8 +3445,8 @@
         "data/reports/statistics/financial-sector/banking-sectoral-statistics/539--deployment-of-bank-credit-by-major-sectors.xlsx"
       ],
       "rows": 94,
-      "took": 18,
-      "at": "2026-09-17T10:27:12.324Z"
+      "took": 19,
+      "at": "2026-09-28T09:29:39.173Z"
     },
     "540": {
       "status": "ok",
@@ -3453,8 +3456,8 @@
         "data/reports/statistics/financial-sector/banking-sectoral-statistics/540--industry-wise-deployment-of-bank-credit.xlsx"
       ],
       "rows": 87,
-      "took": 17,
-      "at": "2026-09-17T10:27:29.438Z"
+      "took": 18,
+      "at": "2026-09-28T06:59:34.500Z"
     },
     "541": {
       "status": "ok",
@@ -3475,8 +3478,8 @@
         "data/reports/statistics/financial-sector/monetary-statistics/546--reserve-bank-of-india-survey.xlsx"
       ],
       "rows": 484,
-      "took": 13,
-      "at": "2026-09-17T09:11:06.459Z"
+      "took": 14,
+      "at": "2026-09-28T09:29:53.131Z"
     },
     "552": {
       "status": "ok",
@@ -3508,8 +3511,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/554--reserve-bank-of-india-survey.xlsx"
       ],
       "rows": 484,
-      "took": 12,
-      "at": "2026-09-17T18:19:13.705Z"
+      "took": 15,
+      "at": "2026-09-28T09:30:08.384Z"
     },
     "557": {
       "status": "ok",
@@ -3578,8 +3581,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/578--forward-premia-inter-bank-monthly-average.xlsx"
       ],
       "rows": 401,
-      "took": 12,
-      "at": "2026-09-17T18:26:44.057Z"
+      "took": 11,
+      "at": "2026-09-28T09:30:19.853Z"
     },
     "579": {
       "status": "ok",
@@ -3600,9 +3603,9 @@
         "data/reports/statistics/external-sector/external-sector-indices/584--indices-of-real-effective-exchange-rate-reer-and-nominal-effective-exchange-rate-neer-of-the-indian--40-currency-2015-16.csv",
         "data/reports/statistics/external-sector/external-sector-indices/584--indices-of-real-effective-exchange-rate-reer-and-nominal-effective-exchange-rate-neer-of-the-indian.xlsx"
       ],
-      "rows": 2788,
+      "rows": 2791,
       "took": 27,
-      "at": "2026-09-17T08:50:13.191Z"
+      "at": "2026-09-28T09:30:46.510Z"
     },
     "601": {
       "status": "ok",
@@ -3666,8 +3669,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/609--scheduled-commercial-banks-select-aggregates.xlsx"
       ],
       "rows": 127,
-      "took": 11,
-      "at": "2026-09-17T18:18:28.419Z"
+      "took": 12,
+      "at": "2026-09-28T09:30:58.228Z"
     },
     "615": {
       "status": "ok",
@@ -3696,8 +3699,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/617--bank-group-wise-and-population-group-wise-number-of-offices-opened-by-commercial-banks-in-india.xlsx"
       ],
       "rows": 0,
-      "took": 13,
-      "at": "2026-09-17T19:17:43.068Z"
+      "took": 11,
+      "at": "2026-09-28T07:49:06.934Z"
     },
     "618": {
       "status": "ok",
@@ -3832,8 +3835,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/639--business-of-scheduled-banks-in-india.xlsx"
       ],
       "rows": 72,
-      "took": 18,
-      "at": "2026-09-17T16:32:33.404Z"
+      "took": 19,
+      "at": "2026-09-28T07:01:04.996Z"
     },
     "640": {
       "status": "ok",
@@ -3901,9 +3904,9 @@
         "data/reports/statistics/external-sector/international-trade/648--india-s-foreign-trade-rupees.csv",
         "data/reports/statistics/external-sector/international-trade/648--india-s-foreign-trade-rupees.xlsx"
       ],
-      "rows": 436,
-      "took": 11,
-      "at": "2026-09-17T09:46:38.873Z"
+      "rows": 437,
+      "took": 12,
+      "at": "2026-09-28T07:01:16.560Z"
     },
     "649": {
       "status": "ok",
@@ -3965,8 +3968,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/654--index-of-industrial-production.xlsx"
       ],
       "rows": 397,
-      "took": 28,
-      "at": "2026-09-17T14:38:59.622Z"
+      "took": 30,
+      "at": "2026-09-28T07:01:46.518Z"
     },
     "659": {
       "status": "ok",
@@ -3974,9 +3977,9 @@
         "data/reports/statistics/financial-market/money-market/659--daily-money-market-operations.csv",
         "data/reports/statistics/financial-market/money-market/659--daily-money-market-operations.xlsx"
       ],
-      "rows": 2120,
-      "took": 18,
-      "at": "2026-09-17T09:48:41.427Z"
+      "rows": 2123,
+      "took": 20,
+      "at": "2026-09-28T07:02:06.430Z"
     },
     "661": {
       "status": "ok",
@@ -4125,8 +4128,8 @@
         "data/reports/statistics/financial-market/forex-market/691--daily-interbank-forex-rates-usd-vis-a-vis-inr.xlsx"
       ],
       "rows": 6259,
-      "took": 12,
-      "at": "2026-09-17T09:47:50.902Z"
+      "took": 13,
+      "at": "2026-09-28T09:31:10.859Z"
     },
     "694": {
       "status": "ok",
@@ -4135,8 +4138,8 @@
         "data/reports/statistics/financial-market/forex-market/694--turnover-in-foreign-exchange-market-daily.xlsx"
       ],
       "rows": 6916,
-      "took": 22,
-      "at": "2026-09-17T09:48:13.113Z"
+      "took": 23,
+      "at": "2026-09-28T09:31:33.923Z"
     },
     "697": {
       "status": "ok",
@@ -4154,9 +4157,9 @@
         "data/reports/statistics/financial-market/money-market/702--liquidity-operations-by-rbi.csv",
         "data/reports/statistics/financial-market/money-market/702--liquidity-operations-by-rbi.xlsx"
       ],
-      "rows": 4354,
-      "took": 14,
-      "at": "2026-09-17T09:48:55.075Z"
+      "rows": 4368,
+      "took": 15,
+      "at": "2026-09-28T09:31:48.642Z"
     },
     "703": {
       "status": "ok",
@@ -4231,8 +4234,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/718--wholesale-price-index-monthly.xlsx"
       ],
       "rows": 246,
-      "took": 28,
-      "at": "2026-09-17T19:26:44.298Z"
+      "took": 32,
+      "at": "2026-09-28T07:03:16.296Z"
     },
     "722": {
       "status": "ok",
@@ -4273,8 +4276,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/726--foreign-equity-market-indices.xlsx"
       ],
       "rows": 5800,
-      "took": 13,
-      "at": "2026-09-17T09:07:45.495Z"
+      "took": 14,
+      "at": "2026-09-28T07:03:29.859Z"
     },
     "730": {
       "status": "ok",
@@ -4284,9 +4287,9 @@
         "data/reports/statistics/financial-market/forex-market/730--sale-purchase-of-u-s-dollar-by-the-rbi--4-a-maturity-breakdown-of-outstanding-fo.csv",
         "data/reports/statistics/financial-market/forex-market/730--sale-purchase-of-u-s-dollar-by-the-rbi.xlsx"
       ],
-      "rows": 648,
-      "took": 23,
-      "at": "2026-09-17T09:08:08.792Z"
+      "rows": 651,
+      "took": 25,
+      "at": "2026-09-28T07:03:55.131Z"
     },
     "733": {
       "status": "ok",
@@ -4326,8 +4329,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/736--outstanding-advances-of-scheduled-commercial-banks-for-public-food-procurement-operations.xlsx"
       ],
       "rows": 216,
-      "took": 10,
-      "at": "2026-09-17T16:33:54.670Z"
+      "took": 11,
+      "at": "2026-09-28T07:04:06.162Z"
     },
     "737": {
       "status": "ok",
@@ -4347,8 +4350,8 @@
         "data/reports/publication/time-series-publications/bank-branch-statistics/740--directory-of-authorised-dealer-ad-category-branches.xlsx"
       ],
       "rows": 777,
-      "took": 19,
-      "at": "2026-09-17T16:16:59.748Z"
+      "took": 14,
+      "at": "2026-09-28T07:04:19.678Z"
     },
     "741": {
       "status": "ok",
@@ -4356,9 +4359,9 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/741--scheduled-commercial-bank-s-investments.csv",
         "data/reports/statistics/financial-sector/banking-assets-liabilities/741--scheduled-commercial-bank-s-investments.xlsx"
       ],
-      "rows": 754,
-      "took": 20,
-      "at": "2026-09-17T14:22:05.427Z"
+      "rows": 755,
+      "took": 22,
+      "at": "2026-09-28T09:32:10.391Z"
     },
     "743": {
       "status": "ok",
@@ -4438,8 +4441,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/750--monthly-traded-volume-in-corporate-debt-at-nse-discontinued.xlsx"
       ],
       "rows": 8,
-      "took": 10,
-      "at": "2026-09-18T02:23:19.978Z"
+      "took": 12,
+      "at": "2026-09-28T07:04:50.815Z"
     },
     "752": {
       "status": "ok",
@@ -4523,8 +4526,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/765--industry-wise-gross-bank-credit-of-scheduled-commercial-banks.xlsx"
       ],
       "rows": 83,
-      "took": 16,
-      "at": "2026-09-17T16:33:44.662Z"
+      "took": 17,
+      "at": "2026-09-28T09:32:27.769Z"
     },
     "766": {
       "status": "ok",
@@ -4534,8 +4537,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/766--sector-wise-gross-bank-credit-of-scheduled-commercial-banks.xlsx"
       ],
       "rows": 94,
-      "took": 17,
-      "at": "2026-09-17T16:34:11.496Z"
+      "took": 18,
+      "at": "2026-09-28T07:05:25.113Z"
     },
     "771": {
       "status": "ok",
@@ -4648,9 +4651,9 @@
         "data/reports/statistics/financial-sector/payment-systems/778--payment-system-indicators--new-format.csv",
         "data/reports/statistics/financial-sector/payment-systems/778--payment-system-indicators.xlsx"
       ],
-      "rows": 267,
-      "took": 24,
-      "at": "2026-09-17T09:50:15.997Z"
+      "rows": 268,
+      "took": 25,
+      "at": "2026-09-28T09:32:52.828Z"
     },
     "784": {
       "status": "ok",
@@ -5038,7 +5041,7 @@
       ],
       "rows": 127,
       "took": 13,
-      "at": "2026-09-17T14:22:18.416Z"
+      "at": "2026-09-28T09:33:05.528Z"
     },
     "804": {
       "status": "ok",
@@ -5058,7 +5061,7 @@
       ],
       "rows": 201,
       "took": 12,
-      "at": "2026-09-18T01:58:30.343Z"
+      "at": "2026-09-28T09:33:17.452Z"
     },
     "810": {
       "status": "ok",
@@ -5201,8 +5204,8 @@
       "files": [],
       "rows": 0,
       "error": "throttled: HTTP 418 after 3 retries",
-      "took": 552,
-      "at": "2026-09-17T18:49:32.596Z"
+      "took": 553,
+      "at": "2026-09-28T10:19:04.903Z"
     },
     "824": {
       "status": "ok",
@@ -5223,8 +5226,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/826--monetary-survey.xlsx"
       ],
       "rows": 326,
-      "took": 19,
-      "at": "2026-09-17T18:19:33.157Z"
+      "took": 20,
+      "at": "2026-09-28T07:06:23.022Z"
     },
     "827": {
       "status": "ok",
@@ -5233,8 +5236,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/827--monthly-turnover-at-bse.xlsx"
       ],
       "rows": 38,
-      "took": 10,
-      "at": "2026-09-17T18:22:13.334Z"
+      "took": 11,
+      "at": "2026-09-28T09:33:28.424Z"
     },
     "828": {
       "status": "ok",
@@ -5243,8 +5246,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/828--monthly-turnover-at-nse.xlsx"
       ],
       "rows": 34,
-      "took": 12,
-      "at": "2026-09-17T18:22:25.410Z"
+      "took": 13,
+      "at": "2026-09-28T07:06:46.604Z"
     },
     "829": {
       "status": "ok",
@@ -5252,9 +5255,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/829--scheduled-commercial-banks-select-aggregates.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/829--scheduled-commercial-banks-select-aggregates.xlsx"
       ],
-      "rows": 925,
-      "took": 16,
-      "at": "2026-09-17T18:27:24.528Z"
+      "rows": 926,
+      "took": 18,
+      "at": "2026-09-28T09:33:46.224Z"
     },
     "830": {
       "status": "ok",
@@ -5262,9 +5265,9 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/830--details-of-central-government-market-borrowings.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/830--details-of-central-government-market-borrowings.xlsx"
       ],
-      "rows": 3018,
-      "took": 18,
-      "at": "2026-09-17T18:29:29.515Z"
+      "rows": 3020,
+      "took": 19,
+      "at": "2026-09-28T07:07:16.282Z"
     },
     "831": {
       "status": "ok",
@@ -5324,12 +5327,12 @@
       "files": [
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/838--consumer-price-index-annual-variation--cpi-annual-variation.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/838--consumer-price-index-annual-variation--current-cpi-annual-variation.csv",
-        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/838--consumer-price-index-annual-variation--current-cpi-annual-variation.csv",
+        "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/838--consumer-price-index-annual-variation--current-cpi-annual-variation-312774.csv",
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/838--consumer-price-index-annual-variation.xlsx"
       ],
       "rows": 413,
-      "took": 21,
-      "at": "2026-09-17T18:34:22.467Z"
+      "took": 22,
+      "at": "2026-09-28T09:34:07.761Z"
     },
     "839": {
       "status": "ok",
@@ -5350,7 +5353,7 @@
       ],
       "rows": 67,
       "took": 13,
-      "at": "2026-09-18T02:07:01.149Z"
+      "at": "2026-09-28T07:07:48.312Z"
     },
     "847": {
       "status": "ok",
@@ -5653,7 +5656,7 @@
       ],
       "rows": 67,
       "took": 14,
-      "at": "2026-09-17T09:07:32.853Z"
+      "at": "2026-09-28T09:34:22.218Z"
     },
     "900": {
       "status": "ok",
@@ -5672,9 +5675,9 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/901--scheduled-commercial-banks-select-aggregates.csv",
         "data/reports/statistics/financial-sector/banking-assets-liabilities/901--scheduled-commercial-banks-select-aggregates.xlsx"
       ],
-      "rows": 925,
+      "rows": 926,
       "took": 18,
-      "at": "2026-09-17T14:23:44.090Z"
+      "at": "2026-09-28T07:08:18.958Z"
     },
     "903": {
       "status": "ok",
@@ -5682,9 +5685,9 @@
         "data/reports/statistics/financial-sector/monetary-statistics/903--commercial-bank-survey.csv",
         "data/reports/statistics/financial-sector/monetary-statistics/903--commercial-bank-survey.xlsx"
       ],
-      "rows": 322,
-      "took": 12,
-      "at": "2026-09-17T09:49:07.313Z"
+      "rows": 323,
+      "took": 14,
+      "at": "2026-09-28T07:08:32.990Z"
     },
     "904": {
       "status": "ok",
@@ -5703,8 +5706,8 @@
         "data/reports/statistics/financial-sector/banking-sectoral-statistics/905--outstanding-advances-of-scheduled-commercial-banks-for-public-food-procurement-operations.xlsx"
       ],
       "rows": 216,
-      "took": 10,
-      "at": "2026-09-17T10:26:11.363Z"
+      "took": 11,
+      "at": "2026-09-28T07:08:43.753Z"
     },
     "906": {
       "status": "ok",
@@ -5758,7 +5761,7 @@
       ],
       "rows": 72,
       "took": 18,
-      "at": "2026-09-17T14:23:25.896Z"
+      "at": "2026-09-28T07:09:01.498Z"
     },
     "938": {
       "status": "ok",
@@ -6197,8 +6200,8 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/987--bank-group-wise-business-of-scheduled-banks-in-india.xlsx"
       ],
       "rows": 235,
-      "took": 37,
-      "at": "2026-09-17T14:22:55.481Z"
+      "took": 39,
+      "at": "2026-09-28T07:09:40.491Z"
     },
     "988": {
       "status": "ok",
@@ -6227,8 +6230,8 @@
         "data/reports/publication/time-series-publications/statistical-tables-relating-to-banks-in-india/991--bank-group-wise-business-of-scheduled-banks-in-india.xlsx"
       ],
       "rows": 235,
-      "took": 36,
-      "at": "2026-09-17T16:32:15.751Z"
+      "took": 78,
+      "at": "2026-09-28T07:10:58.244Z"
     },
     "998": {
       "status": "ok",
@@ -6237,9 +6240,9 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/998--business-in-india-all-scheduled-banks-and-all-scheduled-commercial-banks--all-scheduled-commercial-banks.csv",
         "data/reports/statistics/financial-sector/banking-assets-liabilities/998--business-in-india-all-scheduled-banks-and-all-scheduled-commercial-banks.xlsx"
       ],
-      "rows": 700,
-      "took": 26,
-      "at": "2026-09-17T14:24:38.618Z"
+      "rows": 702,
+      "took": 28,
+      "at": "2026-09-28T09:34:50.221Z"
     },
     "999": {
       "status": "ok",
@@ -6362,7 +6365,7 @@
       ],
       "rows": 26,
       "took": 15,
-      "at": "2026-09-18T01:57:42.127Z"
+      "at": "2026-09-28T07:11:38.742Z"
     },
     "1077": {
       "status": "ok",
@@ -6703,9 +6706,9 @@
         "data/reports/statistics/financial-sector/banking-sectoral-statistics/1130--food-non-food-credit-of-scheduled-commercial-banks.csv",
         "data/reports/statistics/financial-sector/banking-sectoral-statistics/1130--food-non-food-credit-of-scheduled-commercial-banks.xlsx"
       ],
-      "rows": 762,
-      "took": 20,
-      "at": "2026-09-17T09:15:51.075Z"
+      "rows": 763,
+      "took": 16,
+      "at": "2026-09-28T07:11:55.175Z"
     },
     "1131": {
       "status": "ok",
@@ -6973,9 +6976,9 @@
         "data/reports/statistics/financial-market/government-securities-market/1207--outstanding-list-of-all-slr-eligible-securities--securities-issued-by-state-co-op-agr-and.csv",
         "data/reports/statistics/financial-market/government-securities-market/1207--outstanding-list-of-all-slr-eligible-securities.xlsx"
       ],
-      "rows": 32811,
-      "took": 59,
-      "at": "2026-09-17T09:10:16.752Z"
+      "rows": 32807,
+      "took": 37,
+      "at": "2026-09-28T07:12:31.728Z"
     },
     "1209": {
       "status": "ok",
@@ -6998,8 +7001,8 @@
         "data/reports/statistics/real-sector/prices-wages/1210--wholesale-price-index-data-weekly-discontinued.xlsx"
       ],
       "rows": 439,
-      "took": 32,
-      "at": "2026-09-18T02:02:36.763Z"
+      "took": 31,
+      "at": "2026-09-28T07:13:03.191Z"
     },
     "1211": {
       "status": "ok",
@@ -7008,8 +7011,8 @@
         "data/reports/statistics/financial-market/money-market/1211--repo-reverse-repo-auction-under-liquidity-adjustment-facility.xlsx"
       ],
       "rows": 7873,
-      "took": 26,
-      "at": "2026-09-17T09:10:43.177Z"
+      "took": 54,
+      "at": "2026-09-28T09:35:43.948Z"
     },
     "1215": {
       "status": "ok",
@@ -7037,9 +7040,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/1218--details-of-central-government-market-borrowings.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/1218--details-of-central-government-market-borrowings.xlsx"
       ],
-      "rows": 3018,
-      "took": 18,
-      "at": "2026-09-17T16:43:00.705Z"
+      "rows": 3020,
+      "took": 19,
+      "at": "2026-09-28T09:36:02.563Z"
     },
     "1219": {
       "status": "ok",
@@ -7047,9 +7050,9 @@
         "data/reports/publication/time-series-publications/public-debt-statistics/1219--details-of-state-governments-market-borrowings.csv",
         "data/reports/publication/time-series-publications/public-debt-statistics/1219--details-of-state-governments-market-borrowings.xlsx"
       ],
-      "rows": 8811,
-      "took": 36,
-      "at": "2026-09-17T16:44:53.481Z"
+      "rows": 8824,
+      "took": 35,
+      "at": "2026-09-28T09:36:37.469Z"
     },
     "1220": {
       "status": "ok",
@@ -7635,8 +7638,8 @@
         "data/reports/statistics/financial-sector/banking-assets-liabilities/1248--flow-of-financial-resources-from-scheduled-commercial-banks-to-the-commercial-sector.xlsx"
       ],
       "rows": 207,
-      "took": 27,
-      "at": "2026-09-17T14:26:06.953Z"
+      "took": 26,
+      "at": "2026-09-28T09:37:03.877Z"
     },
     "1260": {
       "status": "ok",
@@ -7919,8 +7922,8 @@
         "data/reports/statistics/financial-market/forex-market/1347--turnover-in-foreign-exchange-market.xlsx"
       ],
       "rows": 721,
-      "took": 10,
-      "at": "2026-09-17T09:48:23.571Z"
+      "took": 18,
+      "at": "2026-09-28T07:14:28.288Z"
     },
     "1350": {
       "status": "ok",
@@ -7930,8 +7933,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/1350--market-capitalisation-bse-and-all-india.xlsx"
       ],
       "rows": 443,
-      "took": 13,
-      "at": "2026-09-17T09:47:39.291Z"
+      "took": 14,
+      "at": "2026-09-28T07:14:42.097Z"
     },
     "1351": {
       "status": "ok",
@@ -7941,8 +7944,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/1351--market-capitalisation-nse.xlsx"
       ],
       "rows": 416,
-      "took": 22,
-      "at": "2026-09-17T09:47:26.770Z"
+      "took": 16,
+      "at": "2026-09-28T07:14:57.724Z"
     },
     "1354": {
       "status": "ok",
@@ -7951,8 +7954,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/1354--net-investments-by-fiis-in-the-indian-capital-market.xlsx"
       ],
       "rows": 36,
-      "took": 11,
-      "at": "2026-09-17T10:24:18.454Z"
+      "took": 13,
+      "at": "2026-09-28T07:15:10.742Z"
     },
     "1356": {
       "status": "ok",
@@ -7961,8 +7964,8 @@
         "data/reports/statistics/financial-market/equity-and-corporate-debt-market/1356--number-and-quantum-of-euro-issues.xlsx"
       ],
       "rows": 1,
-      "took": 10,
-      "at": "2026-09-17T09:06:32.264Z"
+      "took": 11,
+      "at": "2026-09-28T07:15:21.759Z"
     },
     "1357": {
       "status": "ok",
@@ -8517,7 +8520,7 @@
       ],
       "rows": 148,
       "took": 13,
-      "at": "2026-09-17T14:29:10.228Z"
+      "at": "2026-09-28T09:37:16.948Z"
     },
     "1462": {
       "status": "ok",
@@ -8828,9 +8831,9 @@
         "data/reports/statistics/surveys-aggregated-data/survey-of-professional-forecasters/1475--round-wise-aggregate-tables--annex-iii--101.csv",
         "data/reports/statistics/surveys-aggregated-data/survey-of-professional-forecasters/1475--round-wise-aggregate-tables--101.xlsx"
       ],
-      "rows": 6392,
-      "took": 461,
-      "at": "2026-09-17T14:38:11.449Z"
+      "rows": 6372,
+      "took": 484,
+      "at": "2026-09-28T07:23:38.607Z"
     },
     "1476": {
       "status": "empty",
@@ -8839,15 +8842,15 @@
         "data/reports/statistics/surveys-aggregated-data/survey-of-professional-forecasters/1476--survey-of-professional-forecasters-aggregate-level-time-series-data.xlsx"
       ],
       "rows": 0,
-      "took": 22,
-      "at": "2026-09-17T19:17:29.694Z"
+      "took": 21,
+      "at": "2026-09-28T07:49:38.912Z"
     },
     "1477": {
       "status": "not-webi",
       "files": [],
       "rows": 0,
       "took": 1,
-      "at": "2026-09-17T18:49:52.211Z"
+      "at": "2026-09-28T07:24:02.189Z"
     },
     "1481": {
       "status": "ok",
@@ -8886,12 +8889,12 @@
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1484--statement-no-3b-state-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commercia--distribution-of-deposits-as-per-census-2.csv",
-        "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1484--statement-no-3b-state-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commercia--distribution-of-deposits-as-per-census-2.csv",
+        "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1484--statement-no-3b-state-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commercia--distribution-of-deposits-as-per-census-2-1521.csv",
         "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1484--statement-no-3b-state-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commercia.xlsx"
       ],
       "rows": 376,
-      "took": 18,
-      "at": "2026-09-17T15:02:56.246Z"
+      "took": 20,
+      "at": "2026-09-28T07:27:23.416Z"
     },
     "1485": {
       "status": "ok",
@@ -8908,12 +8911,12 @@
       "status": "ok",
       "files": [
         "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1486--statement-no-4b-district-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commer--distribution-of-deposits-as-per-census-2.csv",
-        "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1486--statement-no-4b-district-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commer--distribution-of-deposits-as-per-census-2.csv",
+        "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1486--statement-no-4b-district-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commer--distribution-of-deposits-as-per-census-2-2058.csv",
         "data/reports/publication/time-series-publications/quarterly-spatial-distribution-of-deposits-and-credit/1486--statement-no-4b-district-wise-and-type-wise-distribution-of-aggregate-deposits-with-scheduled-commer.xlsx"
       ],
       "rows": 1420,
-      "took": 29,
-      "at": "2026-09-17T15:03:52.267Z"
+      "took": 25,
+      "at": "2026-09-28T09:37:41.966Z"
     },
     "1487": {
       "status": "ok",
@@ -8955,8 +8958,8 @@
         "data/reports/statistics/financial-sector/key-rates/1491--mpc-voting-pattern-policy-rate.xlsx"
       ],
       "rows": 61,
-      "took": 12,
-      "at": "2026-09-17T14:28:56.793Z"
+      "took": 13,
+      "at": "2026-09-28T09:37:55.213Z"
     },
     "1501": {
       "status": "ok",
@@ -8965,8 +8968,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/1501--india-s-international-trade-in-services.xlsx"
       ],
       "rows": 99,
-      "took": 12,
-      "at": "2026-09-17T18:22:57.565Z"
+      "took": 13,
+      "at": "2026-09-28T09:38:08.686Z"
     },
     "1502": {
       "status": "ok",
@@ -9006,8 +9009,8 @@
         "data/reports/publication/time-series-publications/handbook-of-statistics-on-the-indian-economy/1505--exchange-rate-of-the-indian-rupee-vis-a-vis-the-sdr-us-dollar-pound-sterling-euro-and-japanese-yen-h.xlsx"
       ],
       "rows": 451,
-      "took": 12,
-      "at": "2026-09-17T18:26:20.257Z"
+      "took": 13,
+      "at": "2026-09-28T07:24:41.504Z"
     },
     "1506": {
       "status": "ok",
@@ -9036,8 +9039,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1548--flow-of-financial-resources-to-commercial-sector-in-india.xlsx"
       ],
       "rows": 13,
-      "took": 12,
-      "at": "2026-09-17T10:02:16.053Z"
+      "took": 13,
+      "at": "2026-09-28T09:38:21.738Z"
     },
     "1549": {
       "status": "ok",
@@ -9046,8 +9049,8 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1549--outstanding-credit-to-commercial-sector-in-india.xlsx"
       ],
       "rows": 16,
-      "took": 12,
-      "at": "2026-09-17T10:02:28.073Z"
+      "took": 39,
+      "at": "2026-09-28T07:25:32.089Z"
     },
     "1550": {
       "status": "ok",
@@ -9055,9 +9058,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1550--invoicing-in-inr-of-exports-of-goods-and-software-and-imports-of-goods-from-to-india.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1550--invoicing-in-inr-of-exports-of-goods-and-software-and-imports-of-goods-from-to-india.xlsx"
       ],
-      "rows": 16,
-      "took": 11,
-      "at": "2026-09-17T14:41:22.321Z"
+      "rows": 18,
+      "took": 14,
+      "at": "2026-09-28T07:25:45.730Z"
     },
     "1551": {
       "status": "ok",
@@ -9065,9 +9068,9 @@
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1551--settlement-in-inr-of-exports-of-goods-and-software-and-imports-of-goods-from-to-india.csv",
         "data/reports/publication/time-series-publications/monthly-rbi-bulletin/1551--settlement-in-inr-of-exports-of-goods-and-software-and-imports-of-goods-from-to-india.xlsx"
       ],
-      "rows": 16,
-      "took": 12,
-      "at": "2026-09-17T14:41:34.686Z"
+      "rows": 18,
+      "took": 14,
+      "at": "2026-09-28T07:25:59.380Z"
     },
     "1553": {
       "status": "ok",

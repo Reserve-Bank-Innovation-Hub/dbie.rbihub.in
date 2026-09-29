@@ -46,8 +46,9 @@ account will not do.
 
 There is **one environment**: one database, one API, one set of buckets. The three site branches read the same
 data, so a change to the pipeline or the API goes live when it reaches `main`, the production branch; `dev` and
-`staging` are for the site's own code. Staging and production sites keep serving whatever their branch holds:
-until the data-serving code is promoted to them, that is the July 2026 build with its data embedded in the branch.
+`staging` are for the site's own code. Code is promoted by moving `staging` and then `main` to the commit `dev` has
+reached; all three have run the data-serving code since 23-09-2026, so each site's next build takes the newest
+data release.
 
 If a dev-only API is ever needed (to test an API change end to end from the dev site before `main`), it is a second
 Express service from the same Terraform, about $45 a month.
@@ -107,8 +108,6 @@ Different, with the reason:
 
 ## Known gaps and follow-ups
 
-- Seven reports (81, 82, 230, 315, 838, 1484, 1486) lost a tab at export time to a same-name overwrite; the tab to
-  re-export is named in `meta.report.notes`.
 - Two codes in `real_sector.sec_wis_dom_sav_rn` have no label in DBIE's own code list.
 - `data/catalogue.json` files `exchange-rate-of-indian-rupees-fy.csv` under `FOREX_RATE_A_RN`; the loader trusts
   the file's `DATAFLOW` column instead, so the database is right, the catalogue file is not.
