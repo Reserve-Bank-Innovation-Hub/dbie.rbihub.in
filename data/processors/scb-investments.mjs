@@ -197,16 +197,17 @@ function selfCheck(out) {
     }
   };
 
-  // "15-Mar-26" → slr ≈ 6922802.44, nonSlrGovt === null
+  // "15-Mar-26" → slr ≈ 6922802.44, nonSlrGovt ≈ 224389.45 (null, SLR only, before the 28-09-2026 export)
   check('2026-03-15', 'slr', 6922802.44, false);
-  check('2026-03-15', 'nonSlrGovt', null, true);
+  check('2026-03-15', 'nonSlrGovt', 224389.45, false);
 
   // "15-Dec-25" → slr ≈ 6881357.58, nonSlrGovt ≈ 165975.45
   check('2025-12-15', 'slr', 6881357.58, false);
   check('2025-12-15', 'nonSlrGovt', 165975.45, false);
 
-  // "31-Dec-25" → slr ≈ 13769966.25
-  check('2025-12-31', 'slr', 13769966.25, false);
+  // "31-Dec-25" → slr ≈ 6884983.15. Earlier exports carried every column doubled (13769966.25) for this and
+  // several fortnights from September 2025; DBIE corrected them in the 28-09-2026 export.
+  check('2025-12-31', 'slr', 6884983.15, false);
 
   // "06-Jun-97" → slr ≈ 205148.35
   check('1997-06-06', 'slr', 205148.35, false);

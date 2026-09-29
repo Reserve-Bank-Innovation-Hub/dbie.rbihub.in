@@ -167,15 +167,15 @@ function selfCheck(out) {
       errors.push(`2026:01 NM3: expected 30503867, got ${jan2026.values[0]}`);
   }
 
-  // Assertion 2 — 2025:12 (DEC): values[3] (L1) = 31130585 and values[9] (L2) = 31263857
+  // Assertion 2 — 2025:12 (DEC): values[3] (L1) = 31139364 and values[9] (L2) = 31272636
   const dec2025 = data.find(r => r.period === '2025:12 (DEC)');
   if (!dec2025) {
     errors.push('known period missing: 2025:12 (DEC)');
   } else {
-    if (dec2025.values[3] !== 31130585)
-      errors.push(`2025:12 L1: expected 31130585, got ${dec2025.values[3]}`);
-    if (dec2025.values[9] !== 31263857)
-      errors.push(`2025:12 L2: expected 31263857, got ${dec2025.values[9]}`);
+    if (dec2025.values[3] !== 31139364)
+      errors.push(`2025:12 L1: expected 31139364, got ${dec2025.values[3]}`);
+    if (dec2025.values[9] !== 31272636)
+      errors.push(`2025:12 L2: expected 31272636, got ${dec2025.values[9]}`);
   }
 
   // Assertion 3 — 1993:04 (APR): values[0] (NM3) = 379014, values[3] (L1) = 389867

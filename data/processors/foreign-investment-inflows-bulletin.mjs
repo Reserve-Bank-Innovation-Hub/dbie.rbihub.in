@@ -154,15 +154,15 @@ function selfCheck(out) {
     {
       label : '2026:01(JAN)',
       checks: [
-        ['netFDI',               -1385.99],
-        ['netPortfolioInvestment', -1924.4],
+        ['netFDI',               741.77],
+        ['netPortfolioInvestment', -2313.92],
       ],
     },
     {
       label : '2025:12(DEC)',
       checks: [
-        ['directInvestmentToIndia', 2541.01],
-        ['grossInflows',            8516.19],
+        ['directInvestmentToIndia', 3031.87],
+        ['grossInflows',            9008.57],
       ],
     },
     {

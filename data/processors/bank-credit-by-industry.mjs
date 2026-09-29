@@ -106,12 +106,11 @@ function parseValue(raw) {
 function main() {
     const wb = XLSX.read(fs.readFileSync(SRC), { type : 'buffer' });
 
-    // The workbook has exactly one sheet ("New Format"). Fail loudly if the
-    // layout changes unexpectedly.
-    if (wb.SheetNames.length !== 1) {
-        throw new Error(`Expected 1 sheet, got ${wb.SheetNames.length}: ${wb.SheetNames.join(', ')}`);
-    }
-    const ws = wb.Sheets[wb.SheetNames[0]];
+    // The report export carries an "Old Format" sheet (April 2007 on, a different industry list) before
+    // "New Format" (January 2019 on), the series the site shows, so the sheet is taken by name.
+    const sheetName = wb.SheetNames.find((n) => n.trim() === 'New Format');
+    if (!sheetName) throw new Error(`no "New Format" sheet; found ${JSON.stringify(wb.SheetNames)}`);
+    const ws = wb.Sheets[sheetName];
 
     // raw:false so date-formatted cells come through as their display string
     // rather than an Excel serial number.

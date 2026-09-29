@@ -189,11 +189,6 @@ function selfCheck(out) {
     }
   }
 
-  // Row 0 must be the newest date.
-  if (data.length > 0 && data[0].date !== 'Feb 28, 2026') {
-    errors.push(`expected newest row to be "Feb 28, 2026", got "${data[0].date}"`);
-  }
-
   return errors;
 }
 

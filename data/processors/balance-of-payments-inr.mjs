@@ -6,7 +6,7 @@
 //
 // Workbook layout (two sheets):
 //   Sheet 0 "1990-91 Q1 to 1999-00 Q4"  — 1990-91:Q1 → 1999-00:Q4, 42 item columns
-//   Sheet 1 "2000-01 Q1 Onwards "        — 2025-26:Q3 → 2000-01:Q1 (newest-first),
+//   Sheet 1 "2000-01 Q1 Onwards "        — 2026-27:Q1 → 2000-01:Q1 (newest-first),
 //     60 item columns (extended FDI/portfolio/services sub-breakdown)
 //
 // Row structure: identical to Table 40 — header at row 5, data from row 6;
@@ -55,8 +55,9 @@ function parseItemHeader(raw) {
     if (m) {
         return { code: m[1], label: m[2].trim() };
     }
-    if (/^Overall Balance/.test(text)) {
-        return { code: '0', label: text };
+    // The export of 28-09-2026 shortens it to "Overall balance (1+2+3)"; the site keeps the longer label.
+    if (/^Overall balance/i.test(text)) {
+        return { code: '0', label: 'Overall Balance of Payments (1+2+3)' };
     }
     if (/^B\.1\.b\)/.test(text)) {
         return { code: '2.1.1.2_legacy', label: 'Foreign Investment Abroad' };
@@ -237,8 +238,8 @@ function selfCheck(result) {
         '2000-01:Q1 Credit overall BoP (sheet 1)');
     assertCell('2000-01:Q1', 'Credit', '1.1', 46529,
         '2000-01:Q1 Credit merchandise (sheet 1)');
-    // 2025-26:Q3 Credit: Current Account = 2449348.24549427
-    assertCell('2025-26:Q3', 'Credit', '1', 2449348.24549427,
+    // 2025-26:Q3 Credit: Current Account = 2446176.72775457 (2449348.24549427 before the export of 28-09-2026 revised it)
+    assertCell('2025-26:Q3', 'Credit', '1', 2446176.72775457,
         '2025-26:Q3 Credit current account');
 }
 

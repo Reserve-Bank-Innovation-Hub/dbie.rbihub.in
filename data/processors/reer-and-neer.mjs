@@ -130,9 +130,10 @@ function selfCheck(out) {
   const known = [
     // RBI revised the 40-currency indices for these two months in the 17-09-2026 export: Jan 2026 trade_reer
     // 94.82 → 94.78 and export_reer 92.71 → 92.70; Dec 2025 82.69 → 82.64, 95.17 → 95.11, 84.66 → 84.60,
-    // 92.50 → 92.44. Apr 2004 is unchanged.
-    { month: 'Jan 2026', trade_neer: 82.14, trade_reer: 94.78, export_neer: 84.59, export_reer: 92.70 },
-    { month: 'Dec 2025', trade_neer: 82.64, trade_reer: 95.11, export_neer: 84.60, export_reer: 92.44 },
+    // 92.50 → 92.44. The 28-09-2026 export revised them again: Jan 2026 82.14 → 82.11, 94.78 → 94.73,
+    // 84.59 → 84.54, 92.70 → 92.64; Dec 2025 trade_neer 82.64 → 82.66. Apr 2004 is unchanged.
+    { month: 'Jan 2026', trade_neer: 82.11, trade_reer: 94.73, export_neer: 84.54, export_reer: 92.64 },
+    { month: 'Dec 2025', trade_neer: 82.66, trade_reer: 95.11, export_neer: 84.60, export_reer: 92.44 },
     { month: 'Apr 2004', trade_neer: 138.50, trade_reer: 90.87, export_neer: 134.91, export_reer: 88.82 },
   ];
   for (const exp of known) {
