@@ -11,7 +11,7 @@ export interface ApiColumn {
 
 export interface ApiTable {
     key        : string;
-    source     : string;                          // sdmx, statistics, publication
+    source     : string;                          // sdmx, indicators, statistics, publication
     schema     : string;
     table      : string;
     title      : string;

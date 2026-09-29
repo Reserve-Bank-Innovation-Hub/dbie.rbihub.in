@@ -1,8 +1,9 @@
 # DBIE scraper
 
 Downloads every SDMX time series published by the RBI Database on Indian Economy (DBIE)
-portal as CSV — over plain HTTP, no browser. Also enumerates the Statistics and Publications
-menus into `data/reports-catalogue.json`.
+portal as CSV — over plain HTTP, no browser. Also enumerates the Indicators, Statistics and Publications
+menus into `data/reports-catalogue.json` (the menus and their entries are in `data/reports-sections.json`; DBIE
+serves the tree as `dbie_menuMappingList`). DBIE's fourth menu, Unit Level Data, is not covered.
 
 ## What it gets
 
@@ -86,7 +87,7 @@ pnpm scrape -- --dry-run                      # print the plan and date windows 
 pnpm data:ingest                              # data/sdmx-raw → data/sdmx (idempotent)
 pnpm scrape:report                            # data/scrape-report-<date>.md: added/revised/removed vs git HEAD
 pnpm scrape:tree                              # refresh data/sdmx-tree.json
-pnpm scrape:catalogue                         # refresh data/reports-catalogue.json (Statistics + Publications)
+pnpm scrape:catalogue                         # refresh data/reports-catalogue.json (Indicators, Statistics, Publications; --section narrows)
 pnpm data:coverage                            # data/coverage-report.md: what the Reports menus have that SDMX does not
 ```
 

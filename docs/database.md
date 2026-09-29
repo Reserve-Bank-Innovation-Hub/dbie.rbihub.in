@@ -60,7 +60,8 @@ Eight data schemas mirror DBIE's Statistics headings, plus `meta`:
 | `surveys` | Surveys, aggregated data (Survey of Professional Forecasters) |
 | `meta` | catalogue, code lists, provenance, load history |
 
-DBIE's Statistics and Publications menus are the only menu paths; SDMX is a source. Two kinds of table:
+DBIE's Indicators, Statistics and Publications menus are the only menu paths (Indicators since 29-09-2026; the fourth
+menu, Unit Level Data, is not scraped); SDMX is a source. Two kinds of table:
 
 - **SDMX datasets**, one typed table per dataset named by its DBIE DSD code (`financial_sector.bmc_m_rn`): the
   columns of DBIE's SDMX-CSV export, lower-cased, with `time_period` as `date`, `obs_value` as `numeric`, the

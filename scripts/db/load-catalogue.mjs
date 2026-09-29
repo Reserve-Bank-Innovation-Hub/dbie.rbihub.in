@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Builds meta.catalogue: one row per DBIE menu entry (every Statistics and Publications item in
+// Builds meta.catalogue: one row per DBIE menu entry (every Indicators, Statistics and Publications item in
 // data/reports-catalogue.json) and one per SDMX dataset (data/sdmx-tree.json), each pointing at the table that
 // holds it, with a load status. Items that were not exported carry the coverage verdict from
 // data/coverage-report.csv as a note. Replaces the table's contents; run after load-sdmx.mjs and load-reports.mjs.
@@ -27,7 +27,7 @@ for (const it of catalogueItems()) {
         status = 'not exported';
         if (c?.verdict === 'covered' || c?.verdict === 'possible') notes = `SDMX dataset ${c.dsd} ("${c.sdmxLabel}") is on the same topic by title similarity (${c.verdict}, score ${c.score}); not verified as the same table`;
     }
-    lines.push(copyLine([it.section === 'Statistics' ? 'statistics' : 'publications', menuPath(it), it.reportName, it.reportId, null, it.frequency || null, it.from || null, it.to || null, it.kind, r?.table ? r.schema : null, r?.table || null, status, r?.rows ?? null, notes]));
+    lines.push(copyLine([({ Indicators: 'indicators', Statistics: 'statistics' })[it.section] ?? 'publications', menuPath(it), it.reportName, it.reportId, null, it.frequency || null, it.from || null, it.to || null, it.kind, r?.table ? r.schema : null, r?.table || null, status, r?.rows ?? null, notes]));
 }
 for (const g of tree) for (const e of g.elements) {
     const d = datasets.get(e.dsdCode), m = manifest[e.dsdCode];

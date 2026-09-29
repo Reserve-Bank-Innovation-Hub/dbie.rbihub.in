@@ -10,7 +10,7 @@ import { apiUrl } from "./dataApi";
 // =====================================================================================================================
 // The API's shape
 // =====================================================================================================================
-export type CatalogueSource = "statistics" | "sdmx" | "publications";
+export type CatalogueSource = "indicators" | "statistics" | "sdmx" | "publications";
 
 export interface CatalogueEntry {
     entry_id    : number;
@@ -117,13 +117,14 @@ export interface SectionRef {
     section : Section;
 }
 
-// DBIE's Publication and Statistics menus, publications first. DBIE's third menu, SDMX Data Query, is folded into
-// Statistics: each dataset sits in the sector and sub-section of the same name, listed after the section's report
-// tables (its entry_id follows theirs); a page tells the two apart by the entry's source. DATA_QUERY_HOME holds the
-// few names that differ.
+// DBIE's Publication and Statistics menus, publications first. DBIE's SDMX Data Query is folded into Statistics:
+// each dataset sits in the sector and sub-section of the same name, listed after the section's report tables (its
+// entry_id follows theirs); a page tells the two apart by the entry's source. DATA_QUERY_HOME holds the few names that
+// differ. DBIE's Indicators menu is folded in too, as the first sector, "Indicators", with DBIE's five groups
+// ("External Sector Indicators" and so on) as its sections.
 const MENUS : { key : string; label : string; sources : CatalogueSource[]; hint : string }[] = [
     { key : "publication", label : "Publications", sources : [ "publications" ],      hint : "DBIE's time-series publications, table by table" },
-    { key : "statistics",  label : "Statistics",   sources : [ "statistics", "sdmx" ], hint : "Report tables and Data Query datasets by sector, as DBIE's Statistics menu lists them" },
+    { key : "statistics",  label : "Statistics",   sources : [ "indicators", "statistics", "sdmx" ], hint : "DBIE's Indicators, then report tables and Data Query datasets by sector, as DBIE's Statistics menu lists them" },
 ];
 
 // Data Query sub-sectors whose names differ from the Statistics subsection they belong to (DBIE's spelling on both
@@ -145,6 +146,11 @@ export const menuHint = (key : string) : string => MENUS.find(m => m.key === key
 function place(entry : CatalogueEntry) : { sector : string; section : string; group : string } {
     const parts = entry.menu_path.split(" > ").map(p => p.trim());
     switch (entry.source) {
+        case "indicators": {
+            // Indicators > <group of indicators> > <indicator> > <indicator again>; each indicator is one table.
+            const [, section = ""] = parts;
+            return { sector : "Indicators", section, group : "" };
+        }
         case "statistics": {
             // Statistics > <sector> > <subsection> > <group>; the group repeats the subsection.
             const [, sector = "", section = "", ...rest] = parts;
@@ -224,7 +230,8 @@ export function menuOrderFrom(tree : { menus : DbieMenuNode[] }) : MenuOrder {
     };
     return {
         // Publications sit one level down, under "Time-Series Publications"; their parts come from the catalogue.
-        "statistics"  : fromTree(byId(4)),
+        // DBIE's Indicators menu (3) leads, as it does on DBIE; its sections keep the catalogue's order.
+        "statistics"  : (tree => ({ ...tree, sectors : [ "Indicators", ...tree.sectors ] }))(fromTree(byId(4))),
         "publication" : { sectors : (byId(5)?.items?.[0]?.items ?? []).map(i => i.title), sections : {} },
     };
 }
