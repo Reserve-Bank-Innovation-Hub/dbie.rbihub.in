@@ -64,9 +64,11 @@ for (const [file, picks] of wanted) {
         const expect = rowsWanted.get(rowNo);
         const cols = Array.from({ length: rep.layout === 'array' ? (expect?.length ?? 0) : rep.width }, (_, k) => `c${k + 1}`);
         const where = `FROM ${qi(rep.schema)}.${qi(rep.table)} WHERE src_file = ${ql(path.basename(file))} AND row_no = ${rowNo}`;
+        // Cells are joined by chr(31) in SQL, as a cell can hold a line break that a line-by-line read would cut.
         const got = rep.layout === 'array'
             ? (await psql(`SELECT array_to_string(cells, chr(31)) ${where};`)).replace(/\n$/, '').split('\x1f')
-            : tsvRows(await psql(`SELECT ${cols.map(c => `coalesce(${qi(c)}, E'\\\\N')`).join(', ')} ${where};`))[0]?.map(v => v === '\\N' ? null : v);
+            : (await psql(`SELECT array_to_string(ARRAY[${cols.map(c => `coalesce(${qi(c)}, E'\\\\N')`).join(', ')}], chr(31)) ${where};`))
+                .replace(/\n$/, '').split('\x1f').map(v => v === '\\N' ? null : v);
         if (!got || !expect) { badR.push(`report ${rep.id} ${path.basename(file)} row ${rowNo}: ${got ? 'not in file' : 'row missing in table'}`); continue; }
         const diffs = cols.map((c, k) => { const e = k < expect.length ? expect[k] : null; return e === got[k] ? null : `${c}: file ${JSON.stringify(e)} db ${JSON.stringify(got[k])}`; }).filter(Boolean);
         if (diffs.length) badR.push(`report ${rep.id} ${path.basename(file)} row ${rowNo}: ${diffs.slice(0, 3).join('; ')}`); else okR++;
