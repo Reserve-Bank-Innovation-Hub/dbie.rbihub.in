@@ -13,6 +13,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "The lights came on",
                 description : "Individuals overtook companies as banks' biggest borrowers — and a third of the borrowers added since 2015 are women.",
             },
+            {
+                linkTo      : "/stories/the-two-lakh-line",
+                label       : "The ₹2 lakh line",
+                description : "Nearly two in every three bank loans have a limit of ₹2 lakh or less. They hold ₹6 of every ₹100 banks have lent, carry the highest rates in the banks’ books, and there are about 4 crore fewer of them at banks than at the end of 2024.",
+            },
         ],
     },
     {
