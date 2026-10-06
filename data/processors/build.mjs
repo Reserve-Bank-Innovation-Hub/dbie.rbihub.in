@@ -99,6 +99,7 @@ const processors = [
   'yield-per-hectare-major-commercial-crops',
   'story-external-debt',        // stories: also regenerate the data.gen.ts modules
   'story-the-lights-came-on',
+  'story-the-two-lakh-line',
   'home',   // derives from other processors' outputs — must stay last
 ];
 

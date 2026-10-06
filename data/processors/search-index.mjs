@@ -77,6 +77,7 @@ const STATIC_PAGES = [
     { url : '/stories',                            section : 'Stories',      title : 'Stories — dashboard',        keywords : [ 'stories', 'so what', 'editorial', 'narratives' ],
       description : 'Data-led stories built on the same verified datasets as the tables' },
     { url : '/stories/the-lights-came-on',         section : 'Stories',      title : 'The lights came on',         keywords : [ 'story', 'bank credit', 'individuals', 'women', 'financial inclusion', 'BSR' ] },
+    { url : '/stories/the-two-lakh-line',          section : 'Stories',      title : 'The ₹2 lakh line',           keywords : [ 'story', 'bank credit', 'small borrowal accounts', 'financial inclusion', 'women', 'districts', 'BSR' ] },
     { url : '/stories/debt-to-service-ratio',      section : 'Stories',      title : 'The long walk back from 1991', keywords : [ 'story', 'external debt', 'debt service ratio', '1991', 'crisis', 'liberalisation' ] },
     { url : '/stories/concessional-share-of-total-debt-vs-commercial-borrowings', section : 'Stories', title : 'From aid recipient to market borrower', keywords : [ 'story', 'external debt', 'concessional', 'commercial borrowing', 'aid' ] },
 ];
