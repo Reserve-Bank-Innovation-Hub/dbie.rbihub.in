@@ -1,0 +1,26 @@
+# Labour Bureau, wage rates in rural India (men, all India), as published on DBIE: averages over 2014-15 and 2024-25, rupees a day
+code,occupation,avg_2014-15,avg_2024-25
+WR01,"Animal husbandry workers: including Poultry workers, dairy workers & Herdsman",181.9,324.2
+WR03,"Bamboo, cane basket weavers",216.9,333.7
+WR04,Beedi Makers,165.9,259
+WR05,Blacksmith,280.5,469.2
+WR07,Carpenter,342.5,568.6
+WR09,"Construction Workers (for roads, dams, industrial & project construction work & well diggers)",275,441.1
+WR10,Electrician,368.6,569.1
+WR12,Fishermen Inland,276.8,453.1
+WR13,General Agricultural Labourers including Watering & Irrigation workers etc.,224.6,398
+WR14,Handicraft Workers,313.7,434.6
+WR15,Harvesting/Winnowing/ Threshing workers,234.7,401.3
+WR19,Horticulture Workers ( including Nursery growers),220.4,403.4
+WR20,LMV & Tractors drivers,292.3,497
+WR22,Loggers and Wood Cutters,307.1,491.8
+WR23,Mason,378.4,637.5
+WR24,"Nonagricultural labourers (Including porters, loaders)",237.7,396.3
+WR25,Packaging Labourers,222,370.7
+WR27,"Picking Workers (including Tea, Cotton, Tobacco & other commercial crops)",198.9,368.3
+WR28,"Plant protection workers (applying pesticides, treating seeds, etc.)",286.8,442.3
+WR29,Ploughing/Tilling Workers,267.2,441.1
+WR31,Plumbers,384.7,583.8
+WR33,Sowing (including Planting/Transplanting/Weeding workers),230.4,405.2
+WR36,Sweeping/ Cleaning Workers,190.6,332.2
+WR40,Weavers,240,382.5

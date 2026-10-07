@@ -100,6 +100,7 @@ const processors = [
   'story-external-debt',        // stories: also regenerate the data.gen.ts modules
   'story-the-lights-came-on',
   'story-the-two-lakh-line',
+  'story-what-got-cheaper',
   'home',   // derives from other processors' outputs — must stay last
 ];
 

@@ -21,6 +21,16 @@ export const STORY_SECTIONS : ListSection[] = [
         ],
     },
     {
+        title : "Prices",
+        items : [
+            {
+                linkTo      : "/stories/what-got-cheaper",
+                label       : "What got cheaper",
+                description : "Of the 697 goods in India’s wholesale price index, 33 cost less in 2025-26 than in 2011-12 and 103 cost at least twice as much. Solar power systems fell by more than half, and jasmine costs six times what it did.",
+            },
+        ],
+    },
+    {
         title : "External debt",
         items : [
             {

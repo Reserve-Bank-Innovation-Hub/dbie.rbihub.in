@@ -1,0 +1,699 @@
+# Office of the Economic Adviser, DPIIT, wholesale price index (2011-12 = 100) as published on DBIE; one row per item (a leaf of the commodity tree); weight in rupees of every ₹100 of the basket; averages over the financial years named; in_work_2014-15_to_2024-25 is the item's rise over the wage window divided by the rise in the all-India day wage of a non-agricultural rural labourer
+code,item,major_group,group,sub_group,weight,avg_2025-26,months_priced_2025-26,index_2026-04,avg_2014-15,avg_2024-25,in_work_2014-15_to_2024-25,longest_unchanged_run_months,share_of_months_unchanged,stale_looking
+WPI010101010102,Wheat,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),1.02823,210.6,12,212.4,123.4,208.1,1.011,3,0.024,false
+WPI010101010103,Jowar,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.06764,203,12,223.3,115.8,208.2,1.078,2,0.012,false
+WPI010101010104,Bajra,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.08637,244.5,12,243.4,129.6,248.6,1.151,1,0,false
+WPI010101010105,Maize,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.18927,198.8,12,182.1,118.5,210.9,1.067,2,0.018,false
+WPI010101010106,Barley,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.01437,222.7,12,226,126.8,218,1.031,2,0.012,false
+WPI010101010107,Ragi,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.00738,323.3,12,330.2,161,311.8,1.162,2,0.018,false
+WPI010101010108,Paddy,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),1.43052,202.3,12,202,136.6,202.2,0.888,2,0.03,false
+WPI010101010201,Gram,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.26377,196.4,12,187.9,103,215,1.252,1,0,false
+WPI010101010202,Arhar,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.12914,203.6,12,212,128.1,279.6,1.309,2,0.006,false
+WPI010101010203,Moong,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.07088,187.4,12,188.6,145.7,194.4,0.8,2,0.006,false
+WPI010101010204,Masur,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.05299,193.2,12,194.2,153.9,187.8,0.732,2,0.018,false
+WPI010101010205,Urad,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.09165,196,12,200.5,124.1,219.1,1.059,2,0.006,false
+WPI010101010206,Peas/Chawali,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.02444,195.1,12,183.7,132.7,215.3,0.973,2,0.012,false
+WPI010101010207,Rajma,Primary Articles,Food Articles,Food Grains (Cereals+Pulses),0.00573,235.7,12,232.6,164.7,234.6,0.854,9,0.054,false
+WPI010101020101,Potato,Primary Articles,Food Articles,Fruits & Vegetables,0.27737,208.5,12,143.7,227.3,327.2,0.863,2,0.012,false
+WPI010101020102,Sweet Potato,Primary Articles,Food Articles,Fruits & Vegetables,0.02051,94.3,12,126.7,117.8,95.4,0.486,47,0.518,true
+WPI010101020103,Onion,Primary Articles,Food Articles,Fruits & Vegetables,0.16445,183.8,12,150.4,194,350.2,1.083,1,0,false
+WPI010101020104,Tapioca,Primary Articles,Food Articles,Fruits & Vegetables,0.07213,283.1,12,279.3,136,245.7,1.084,1,0,false
+WPI010101020105,Ginger(Fresh),Primary Articles,Food Articles,Fruits & Vegetables,0.02124,224.1,12,253.6,266.2,351.6,0.792,1,0,false
+WPI010101020106,Peas(Green),Primary Articles,Food Articles,Fruits & Vegetables,0.13654,240.2,6,269.3,170,274.2,0.967,6,0.417,false
+WPI010101020107,Tomato,Primary Articles,Food Articles,Fruits & Vegetables,0.28446,308.8,12,197,160.6,352.7,1.317,1,0,false
+WPI010101020108,Cauliflower,Primary Articles,Food Articles,Fruits & Vegetables,0.16697,214.1,8,212.6,122.6,221.9,1.086,4,0.25,false
+WPI010101020109,Brinjal,Primary Articles,Food Articles,Fruits & Vegetables,0.24125,258.2,12,215,122.4,242.5,1.188,2,0.006,false
+WPI010101020111,Okra (Lady finger),Primary Articles,Food Articles,Fruits & Vegetables,0.14592,189.7,12,191.7,95.8,179.8,1.126,1,0,false
+WPI010101020112,Cabbage,Primary Articles,Food Articles,Fruits & Vegetables,0.12251,144.3,12,122.6,157.4,200.7,0.765,1,0,false
+WPI010101020113,Carrot,Primary Articles,Food Articles,Fruits & Vegetables,0.01874,187.9,12,143.1,155.8,206.4,0.795,9,0.048,false
+WPI010101020114,Radish,Primary Articles,Food Articles,Fruits & Vegetables,0.03942,225.6,12,217.8,117.7,199.7,1.018,9,0.048,false
+WPI010101020115,Cucumber,Primary Articles,Food Articles,Fruits & Vegetables,0.00906,182.4,12,147,113.6,179,0.945,9,0.048,false
+WPI010101020116,Pointed gourd,Primary Articles,Food Articles,Fruits & Vegetables,0.0021,169.1,12,183.6,127.4,172.8,0.814,9,0.048,false
+WPI010101020117,Bitter gourd,Primary Articles,Food Articles,Fruits & Vegetables,0.02261,247.7,12,230.3,159.5,243.9,0.917,9,0.048,false
+WPI010101020118,Bottle gourd,Primary Articles,Food Articles,Fruits & Vegetables,0.02323,182.9,12,180.2,161.6,195,0.724,9,0.048,false
+WPI010101020119,Beans,Primary Articles,Food Articles,Fruits & Vegetables,0.08309,200.6,12,159.5,121.6,206,1.016,9,0.054,false
+WPI010101020120,Pumpkin,Primary Articles,Food Articles,Fruits & Vegetables,0.00465,173.4,12,194.7,149.5,191.8,0.77,9,0.048,false
+WPI010101020121,Drumstick,Primary Articles,Food Articles,Fruits & Vegetables,0.01823,313.5,12,134.9,189.7,283.7,0.897,9,0.048,false
+WPI010101020201,Banana,Primary Articles,Food Articles,Fruits & Vegetables,0.32937,172.1,12,166.1,146.2,181.2,0.743,2,0.006,false
+WPI010101020202,Mango,Primary Articles,Food Articles,Fruits & Vegetables,0.46209,202,5,230.2,107.3,212.3,1.187,7,0.5,true
+WPI010101020203,Apple,Primary Articles,Food Articles,Fruits & Vegetables,0.07505,147.7,12,173.6,110,141.1,0.769,2,0.006,false
+WPI010101020204,Orange,Primary Articles,Food Articles,Fruits & Vegetables,0.12653,280.8,8,363,111.8,239.9,1.287,4,0.25,false
+WPI010101020205,Cashew nut,Primary Articles,Food Articles,Fruits & Vegetables,0.06583,174.9,12,196,119.9,164,0.82,2,0.006,false
+WPI010101020206,Coconut(Fresh),Primary Articles,Food Articles,Fruits & Vegetables,0.07873,389.2,12,362.4,169,281.6,0.999,2,0.006,false
+WPI010101020207,Papaya,Primary Articles,Food Articles,Fruits & Vegetables,0.06368,116.8,12,120.2,70,150.5,1.29,2,0.012,false
+WPI010101020208,Grapes,Primary Articles,Food Articles,Fruits & Vegetables,0.04932,200.9,7,221.5,117.8,194.9,0.992,5,0.333,false
+WPI010101020209,Pineapple,Primary Articles,Food Articles,Fruits & Vegetables,0.03089,205.4,12,202.5,129.6,237.5,1.099,1,0,false
+WPI010101020211,Guava,Primary Articles,Food Articles,Fruits & Vegetables,0.0456,369,12,439.1,215.3,354.9,0.989,4,0.042,false
+WPI010101020212,Litchi,Primary Articles,Food Articles,Fruits & Vegetables,0.02955,184.1,2,0,164.7,185.7,0.676,10,0.756,true
+WPI010101020213,Lemon,Primary Articles,Food Articles,Fruits & Vegetables,0.06575,216.8,12,382.3,141,230.3,0.98,1,0,false
+WPI010101020214,Sapota,Primary Articles,Food Articles,Fruits & Vegetables,0.02814,199.5,12,165.3,115,200.3,1.045,1,0,false
+WPI010101020215,Mosambi (Sweet Orange),Primary Articles,Food Articles,Fruits & Vegetables,0.02521,169.3,12,169.7,115.5,176.3,0.916,9,0.048,false
+WPI010101020216,Pomengranate,Primary Articles,Food Articles,Fruits & Vegetables,0.02122,115.4,12,113.4,93.9,123,0.786,2,0.024,false
+WPI010101020217,Amla,Primary Articles,Food Articles,Fruits & Vegetables,0.01837,268.6,12,314.8,149.8,255.7,1.024,2,0.012,false
+WPI010101020218,Jackfruit,Primary Articles,Food Articles,Fruits & Vegetables,0.02458,118.2,12,133.1,131.2,119.8,0.548,9,0.101,false
+WPI010101020219,Pear,Primary Articles,Food Articles,Fruits & Vegetables,0.01001,152.8,12,173,141.9,132.2,0.559,11,0.28,false
+WPI010101020220,Almonds,Primary Articles,Food Articles,Fruits & Vegetables,0.02469,273.8,12,324,140.2,242.2,1.036,9,0.071,false
+WPI010101020221,Walnut,Primary Articles,Food Articles,Fruits & Vegetables,0.02599,235.3,12,245.5,164.6,233.2,0.85,9,0.065,false
+WPI0101010301,Milk,Primary Articles,Food Articles,Milk,4.43999,190.9,12,192.1,126.6,185.8,0.88,5,0.089,false
+WPI0101010401,Egg,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.23264,183.8,12,175,122.7,176.6,0.863,2,0.006,false
+WPI0101010402,Fish - Inland,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.525,163.9,12,163.8,137.3,167.7,0.733,2,0.03,false
+WPI0101010403,Fish - Marine,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.42182,184.5,12,201.8,125.7,178.1,0.85,2,0.012,false
+WPI0101010404,Mutton,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.44094,183.9,12,197.4,129.1,178.8,0.831,16,0.202,false
+WPI0101010405,Beef & Buffalo Meat,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.16159,180,12,184.5,120.1,171.7,0.857,6,0.113,false
+WPI0101010406,Poultry Chicken,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.55906,164.4,12,172.9,133.7,163.5,0.733,2,0.012,false
+WPI0101010407,Pork,Primary Articles,Food Articles,"Eggs,Meat & Fish",0.06051,238.9,12,259.5,124.6,232.5,1.119,7,0.089,false
+WPI0101010501,Black Pepper,Primary Articles,Food Articles,Condiments & Spices,0.02098,222.3,12,225.7,183.5,210.7,0.689,2,0.012,false
+WPI0101010502,Chillies(Dry),Primary Articles,Food Articles,Condiments & Spices,0.14056,175.6,12,231.1,109,181.9,1.001,1,0,false
+WPI0101010503,Turmeric,Primary Articles,Food Articles,Condiments & Spices,0.10015,195.6,12,197.8,109.3,198.5,1.089,2,0.024,false
+WPI0101010504,Cardamom,Primary Articles,Food Articles,Condiments & Spices,0.01434,293,12,299.1,121.8,290.3,1.43,1,0,false
+WPI0101010505,Ginger(Dry),Primary Articles,Food Articles,Condiments & Spices,0.02098,456.5,12,483.3,167.6,512.2,1.833,2,0.006,false
+WPI0101010506,Betelnut/Arecanut,Primary Articles,Food Articles,Condiments & Spices,0.08487,285.3,12,312.3,149.2,246.9,0.993,2,0.012,false
+WPI0101010507,Cummin,Primary Articles,Food Articles,Condiments & Spices,0.06256,168.7,12,170.6,91.6,210.1,1.376,2,0.006,false
+WPI0101010508,Garlic,Primary Articles,Food Articles,Condiments & Spices,0.05323,137.3,12,151.3,95.8,347.2,2.174,1,0,false
+WPI0101010509,Corriander,Primary Articles,Food Articles,Condiments & Spices,0.02154,218.7,12,278,185.9,206.4,0.666,1,0,false
+WPI0101010510,Tamarind,Primary Articles,Food Articles,Condiments & Spices,0.00964,166,12,158,105.1,132.6,0.757,9,0.065,false
+WPI0101010601,Tea,Primary Articles,Food Articles,Other Food Articles,0.12359,182.9,12,183.4,117.6,194.5,0.992,2,0.018,false
+WPI0101010602,Coffee,Primary Articles,Food Articles,Other Food Articles,0.09879,277.7,12,235.7,112,224.1,1.2,10,0.173,false
+WPI0101010603,Betel Leaves,Primary Articles,Food Articles,Other Food Articles,0.14419,151.4,12,188,113.7,174.2,0.919,9,0.054,false
+WPI0101010604,Sugarcane,Primary Articles,Food Articles,Other Food Articles,0.58142,239.4,12,244.5,124.3,225.6,1.089,32,0.899,true
+WPI0101020101,Raw Cotton,Primary Articles,Non - Food Articles,Fibers,0.66334,148.9,12,154.9,95.8,151,0.945,2,0.006,false
+WPI0101020102,Raw Jute,Primary Articles,Non - Food Articles,Fibers,0.05453,345.7,12,530.6,132.5,247.2,1.119,2,0.006,false
+WPI0101020103,Mesta,Primary Articles,Non - Food Articles,Fibers,0.00225,240,12,372.2,124.8,174,0.836,3,0.06,false
+WPI0101020104,Raw Wool,Primary Articles,Non - Food Articles,Fibers,0.02629,207.3,12,207.3,99.1,207.3,1.255,86,0.72,true
+WPI0101020105,Raw Silk,Primary Articles,Non - Food Articles,Fibers,0.07735,207.6,12,242.7,139.4,181.3,0.78,2,0.006,false
+WPI0101020106,Coir Fibre,Primary Articles,Non - Food Articles,Fibers,0.01555,132.6,12,133.3,129.2,123.7,0.574,3,0.03,false
+WPI0101020201,Groundnut Seed,Primary Articles,Non - Food Articles,Oil Seeds,0.26876,179.9,12,204.8,106.9,179,1.004,2,0.006,false
+WPI0101020202,Rape & Mustard Seed,Primary Articles,Non - Food Articles,Oil Seeds,0.24914,209.6,12,210.5,122.7,181,0.885,2,0.012,false
+WPI0101020203,Cotton Seed,Primary Articles,Non - Food Articles,Oil Seeds,0.01106,190.5,12,199.1,117.4,179,0.915,3,0.03,false
+WPI0101020204,Copra (Coconut),Primary Articles,Non - Food Articles,Oil Seeds,0.0731,367,12,388.9,156.9,194.7,0.744,2,0.012,false
+WPI0101020205,Gingelly Seed (Sesamum),Primary Articles,Non - Food Articles,Oil Seeds,0.01201,205.6,12,218.2,133.7,222.7,0.999,2,0.018,false
+WPI0101020206,Linseed,Primary Articles,Non - Food Articles,Oil Seeds,0.0064,217.6,12,247.1,127.3,193,0.909,2,0.006,false
+WPI0101020207,Castor Seed,Primary Articles,Non - Food Articles,Oil Seeds,0.09763,122.9,12,122.1,93.8,115.8,0.74,2,0.018,false
+WPI0101020208,Niger Seed,Primary Articles,Non - Food Articles,Oil Seeds,0.00234,301.9,12,303.5,127.3,301.2,1.419,6,0.089,false
+WPI0101020209,Safflower (Kardi Seed),Primary Articles,Non - Food Articles,Oil Seeds,0.00221,305.2,12,236.4,99,187.5,1.136,2,0.012,false
+WPI0101020210,Sunflower,Primary Articles,Non - Food Articles,Oil Seeds,0.01659,159.9,12,170.8,108.7,133.3,0.736,2,0.012,false
+WPI0101020211,Soyabean,Primary Articles,Non - Food Articles,Oil Seeds,0.37606,204.9,12,242.4,154.6,197.9,0.768,2,0.012,false
+WPI0101020301,Hides(Raw),Primary Articles,Non - Food Articles,Other Non - Food Articles,0.03062,106,12,109.3,108.5,103.1,0.57,14,0.167,false
+WPI0101020302,Skins(Raw),Primary Articles,Non - Food Articles,Other Non - Food Articles,0.0229,95.2,12,99.5,110.2,93.4,0.508,14,0.286,false
+WPI0101020303,Tanning Materials,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.00418,73.3,12,73.3,100,73.3,0.44,87,0.988,true
+WPI0101020305,Tobacco,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.09374,113.6,12,113.6,113.3,113.6,0.601,91,0.905,true
+WPI0101020306,Gaur Seed,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.10347,117.9,12,126.6,110.6,122.9,0.667,2,0.006,false
+WPI0101020307,Raw Rubber,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.28851,95.2,12,110.6,62.5,96.4,0.925,2,0.006,false
+WPI0101020309,Industrial Wood,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.88561,117.8,12,118.3,99.9,114.4,0.687,36,0.69,true
+WPI0101020310,Fodder,Primary Articles,Non - Food Articles,Other Non - Food Articles,0.5314,214,12,218.1,149,214.1,0.862,2,0.012,false
+WPI0101020401,Rose,Primary Articles,Non - Food Articles,Floriculture,0.14264,225.9,12,233.7,147.5,232.6,0.946,1,0,false
+WPI0101020402,Jasmine,Primary Articles,Non - Food Articles,Floriculture,0.03063,596.2,12,398.4,127.8,619,2.905,2,0.006,false
+WPI0101020403,Marigold,Primary Articles,Non - Food Articles,Floriculture,0.03063,142.5,12,119.3,139.1,144.4,0.623,2,0.012,false
+WPI0101030101,Bauxite,Primary Articles,Minerals,Metallic Minrals,0.00842,236.7,12,242.2,152.9,226.1,0.887,5,0.226,false
+WPI0101030102,Chromite,Primary Articles,Minerals,Metallic Minrals,0.02645,117.8,12,145.5,73,116.8,0.96,2,0.03,false
+WPI0101030104,Zinc Concentrate,Primary Articles,Minerals,Metallic Minrals,0.02752,528.6,12,633.8,164.6,370.4,1.35,3,0.036,false
+WPI0101030105,Manganese Ore,Primary Articles,Minerals,Metallic Minrals,0.03955,166.5,12,174.7,121.5,162.8,0.804,2,0.012,false
+WPI0101030106,Iron Ore,Primary Articles,Minerals,Metallic Minrals,0.20862,133.6,12,132.5,92.7,135.9,0.879,2,0.006,false
+WPI0101030107,Copper Concentrate,Primary Articles,Minerals,Metallic Minrals,0.33393,294.5,12,309.6,120.7,271.9,1.351,4,0.125,false
+WPI0101030108,Lead Concentrate,Primary Articles,Minerals,Metallic Minrals,0.00369,368.3,12,368.7,153.2,356.3,1.395,4,0.06,false
+WPI0101030207,Limestone,Primary Articles,Minerals,Other Minrals,0.06947,284.6,12,288.1,153.6,246.6,0.963,5,0.131,false
+WPI0101030209,Phosphorite,Primary Articles,Minerals,Other Minrals,0.11352,257.4,12,260.9,133.4,273,1.227,14,0.405,false
+WPI0101030210,Sillimanite,Primary Articles,Minerals,Other Minrals,0.00061,169.4,12,189.2,82.1,171.5,1.253,46,0.548,true
+WPI0101030221,Garnet,Primary Articles,Minerals,Other Minrals,0.00139,366.3,12,458.8,123.4,356.8,1.734,28,0.292,true
+WPI01010401,Crude Petroleum,Primary Articles,Crude Petroleum & Natural Gas,,1.94537,119.5,12,214.2,95.1,128.8,0.812,4,0.042,false
+WPI01010402,Natural Gas,Primary Articles,Crude Petroleum & Natural Gas,,0.46423,244,12,294.8,138.5,245.5,1.063,2,0.024,false
+WPI0102010101,Coking Coal,Fuel & Power,Coal,Coking Coal,0.64703,148.1,12,152.6,101.4,143.4,0.848,43,0.857,true
+WPI0102010201,Non - Coking Coal G1 to G6 [GCV exceeding 5500 Kcal/kg.],Fuel & Power,Coal,Non - Coking Coal,0.4999,95.1,12,95.1,103,94.8,0.552,35,0.929,true
+WPI0102010202,Non -Coking Coal G7 to G14 [GCV 3100 Kcal/kg. to 5500 Kcal/kg.],Fuel & Power,Coal,Non - Coking Coal,0.88904,144.4,12,144.4,113.3,143.3,0.759,34,0.929,true
+WPI0102010203,Non - Coking Coal G15 to G17 [GCV < 3100 Kcal/kg.],Fuel & Power,Coal,Non - Coking Coal,0.01203,127.1,12,127.2,115.4,125.2,0.651,52,0.935,true
+WPI0102010401,Lignite,Fuel & Power,Coal,Lignite,0.09013,213.1,12,209.4,99.2,232.4,1.405,28,0.744,true
+WPI01020201,LPG,Fuel & Power,Minral Oils,,0.64481,114.4,12,134.1,103.5,120,0.695,2,0.006,false
+WPI01020202,Petrol,Fuel & Power,Minral Oils,,1.6047,146,12,193.7,108.6,152.8,0.844,1,0,false
+WPI01020203,Kerosene,Fuel & Power,Minral Oils,,0.18685,287.3,12,343.7,103.5,301.6,1.748,2,0.006,false
+WPI01020204,Aviation Turbine Fuel,Fuel & Power,Minral Oils,,0.31991,139.5,12,329.7,105.1,145.6,0.831,2,0.006,false
+WPI01020205,High Speed Diesel,Fuel & Power,Minral Oils,,3.09548,160.8,12,200.3,114.8,166,0.867,1,0,false
+WPI01020206,Naphtha,Fuel & Power,Minral Oils,,0.86678,124.9,12,247.6,103,135.3,0.788,1,0,false
+WPI01020208,Bitumen,Fuel & Power,Minral Oils,,0.22677,131.5,12,191,106.1,125,0.707,3,0.03,false
+WPI01020209,Furnace Oil,Fuel & Power,Minral Oils,,0.66576,125.2,12,227.2,93.6,139,0.891,2,0.012,false
+WPI01020210,Petroleum Coke,Fuel & Power,Minral Oils,,0.04663,203.1,12,276,94.3,180.5,1.148,7,0.06,false
+WPI01020211,Lube Oils,Fuel & Power,Minral Oils,,0.29199,190.2,12,208.8,118.8,190.2,0.96,35,0.81,true
+WPI01020301,Electricity,Fuel & Power,Electricity,,3.06409,141.5,12,138.6,105.7,144.1,0.818,3,0.119,false
+WPI0103010101,"Buffalo meat, fresh/frozen",Manufactured Products,Food Products,Processing and preserving of meat,0.07438,159.5,12,168,129.8,154.5,0.714,2,0.006,false
+WPI0103010102,"Meat of goat, fresh or chilled",Manufactured Products,Food Products,Processing and preserving of meat,0.02943,131.2,12,131.2,134.5,131.2,0.585,67,0.708,true
+WPI0103010103,"Other meats, preserved/processed",Manufactured Products,Food Products,Processing and preserving of meat,0.01934,203.8,12,209.8,126.6,193.5,0.917,2,0.018,false
+WPI0103010104,"Chicken/duck, dressed - fresh/frozen",Manufactured Products,Food Products,Processing and preserving of meat,0.0109,155.6,12,162.2,126.2,162.8,0.774,3,0.042,false
+WPI0103010201,Shrimps/Prawns - Processed/Frozen,Manufactured Products,Food Products,"Processing and preserving of fish, crustaceans and molluscs and Products ther",0.06329,136,12,139,134.9,130.4,0.58,4,0.065,false
+WPI0103010202,Fish frozen/canned/processed,Manufactured Products,Food Products,"Processing and preserving of fish, crustaceans and molluscs and Products ther",0.14067,157.8,12,156.1,119.3,151.4,0.761,2,0.03,false
+WPI0103010301,Fruit Juice including concentrates,Manufactured Products,Food Products,Processing and preserving of fruit and vegetables,0.04695,119.5,12,119.1,106.2,116,0.655,2,0.018,false
+WPI0103010302,Fruit pulp,Manufactured Products,Food Products,Processing and preserving of fruit and vegetables,0.03326,132.4,12,131.4,115.2,131.1,0.683,10,0.524,true
+WPI0103010303,"Jams, jellies, marmalades and puree",Manufactured Products,Food Products,Processing and preserving of fruit and vegetables,0.02391,176.8,12,174.5,118.8,172.7,0.872,2,0.006,false
+WPI0103010304,"Sauces of Vegetables (Tomato, Chilli, Soya & others)",Manufactured Products,Food Products,Processing and preserving of fruit and vegetables,0.03397,129.4,12,129.5,112,128.8,0.69,2,0.054,false
+WPI0103010401,Vanaspati,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.37937,173.7,12,177.2,103.3,165.5,0.961,2,0.018,false
+WPI0103010402,Mustard Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.18053,213.5,12,216.2,109.4,181.9,0.997,3,0.03,false
+WPI0103010403,Soyabean Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.34251,174,12,194.8,102.7,152,0.888,2,0.006,false
+WPI0103010404,Sunflower Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.23133,165.4,12,178.1,95.4,143.3,0.901,3,0.03,false
+WPI0103010405,Groundnut Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.05834,165.7,12,184,94.5,166.4,1.056,2,0.012,false
+WPI0103010406,Castor Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.02955,157.3,12,157.9,103.4,152.7,0.886,2,0.036,false
+WPI0103010407,Rice Bran Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.29613,179.3,12,188.6,101.6,164.4,0.971,2,0.012,false
+WPI0103010408,Palm Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,1.01507,200.1,12,212.6,100.8,182.1,1.084,2,0.012,false
+WPI0103010409,Rapeseed Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.0116,172,12,175.9,107.2,151.3,0.847,2,0.036,false
+WPI0103010410,Copra oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.02769,279.7,12,263.8,155.2,180.6,0.698,2,0.018,false
+WPI0103010411,Cotton seed Oil,Manufactured Products,Food Products,Manufacture of vegetable and animal oils and fats,0.07081,164.1,12,177.1,99.3,141.5,0.855,2,0.012,false
+WPI0103010501,Powder Milk,Manufactured Products,Food Products,Dairy Products/ Manufacture of dairy Products,0.16715,167.2,12,168.3,131.4,168.7,0.77,2,0.036,false
+WPI0103010502,Ghee,Manufactured Products,Food Products,Dairy Products/ Manufacture of dairy Products,0.39349,194.4,12,202.6,122.5,187.3,0.917,2,0.018,false
+WPI0103010503,Butter,Manufactured Products,Food Products,Dairy Products/ Manufacture of dairy Products,0.52138,191.7,12,200.8,122.1,182.8,0.898,2,0.036,false
+WPI0103010504,Ice Cream,Manufactured Products,Food Products,Dairy Products/ Manufacture of dairy Products,0.06189,163.4,12,168.8,120.2,160.4,0.8,2,0.036,false
+WPI0103010505,Condensed Milk,Manufactured Products,Food Products,Dairy Products/ Manufacture of dairy Products,0.02154,168.5,12,170.3,135.1,163.8,0.727,4,0.06,false
+WPI0103010901,Maida,Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.19044,204.6,12,193.6,131.4,207.5,0.947,2,0.012,false
+WPI0103010902,Wheat Flour ( Atta),Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.21121,201.8,12,193.6,128.8,201.7,0.939,2,0.024,false
+WPI0103010903,Gram Powder (Besan),Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.0959,186.3,12,179.1,100.4,202,1.207,1,0,false
+WPI0103010904,Sooji ( Rawa ),Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.02473,193.8,12,185.4,131.3,195.1,0.891,2,0.006,false
+WPI0103010906,Wheat Bran,Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.0397,225.2,12,235.5,137,223.4,0.978,2,0.006,false
+WPI0103010910,"Flour of cereals other than rice, wheat etc.",Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.00742,256.7,12,261,146.3,266.6,1.093,3,0.018,false
+WPI0103010911,Basmati rice,Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.4264,150.7,12,157.4,120.9,145.7,0.723,6,0.202,false
+WPI0103010912,Rice Products,Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.07025,204.6,12,207.2,122.1,202,0.992,2,0.012,false
+WPI0103010913,"Rice, Non - basmati",Manufactured Products,Food Products,Grain Mill Products/Manufacture of grain mill Products,0.94347,190.1,12,191.3,131.2,193,0.882,3,0.054,false
+WPI0103011001,Vegetable starch,Manufactured Products,Food Products,Manufacture of starches and starch Products,0.10955,149.9,12,146,108.9,167,0.92,2,0.012,false
+WPI0103011101,Biscuit / Cookies,Manufactured Products,Food Products,Bakery Products/Manufacture of bakery Products,0.15875,166.2,12,171,118,158.4,0.805,2,0.048,false
+WPI0103011104,"Bread, buns & croissant",Manufactured Products,Food Products,Bakery Products/Manufacture of bakery Products,0.035,220.7,12,223.6,129.2,215.7,1.001,2,0.06,false
+WPI0103011105,"Cakes, pastries & muffins",Manufactured Products,Food Products,Bakery Products/Manufacture of bakery Products,0.02084,196.5,12,203.6,123.4,187,0.909,3,0.065,false
+WPI0103011201,Sugar,Manufactured Products,Food Products,"Manufacture of sugar, molasses & honey",1.05553,142.6,12,143,105.6,137.2,0.779,2,0.018,false
+WPI0103011202,Molasses,Manufactured Products,Food Products,"Manufacture of sugar, molasses & honey",0.04486,162.3,12,166.5,145,157.6,0.652,2,0.036,false
+WPI0103011203,Bagasse,Manufactured Products,Food Products,"Manufacture of sugar, molasses & honey",0.0276,151.8,12,162.1,132.9,147.9,0.667,3,0.036,false
+WPI0103011204,Gur,Manufactured Products,Food Products,"Manufacture of sugar, molasses & honey",0.02354,161.9,12,170.4,116.7,158.9,0.817,2,0.012,false
+WPI0103011205,Honey,Manufactured Products,Food Products,"Manufacture of sugar, molasses & honey",0.01122,168.4,12,164.2,137.3,176.9,0.773,2,0.054,false
+WPI0103011301,Noodles & similar extruded Products,Manufactured Products,Food Products,"Manufacture of macaroni, noodles, couscous and similar farinaceous Products",0.0264,160,12,155.4,117.2,156.7,0.802,4,0.036,false
+WPI0103011601,Spices (including mixed spices),Manufactured Products,Food Products,Manufacture of Processed condiments & salt,0.1361,197,12,207.1,114.3,197.7,1.037,2,0.024,false
+WPI0103011602,Salt,Manufactured Products,Food Products,Manufacture of Processed condiments & salt,0.02692,165.1,12,164.8,116.1,167,0.863,2,0.03,false
+WPI0103011701,Chocolate & cocoa powder,Manufactured Products,Food Products,"Cocoa Choclate Sugar & Confectionery/ Manufacture of cocoa, chocolate and sugar confectionery",0.09685,208.2,12,207.9,120.2,182.2,0.909,2,0.03,false
+WPI0103011702,Sugar confectionary,Manufactured Products,Food Products,"Cocoa Choclate Sugar & Confectionery/ Manufacture of cocoa, chocolate and sugar confectionery",0.07816,136.4,12,137.9,111.6,133.8,0.719,2,0.03,false
+WPI0103011801,Processed Tea,Manufactured Products,Food Products,Manufacture of Tea & Coffee Products,0.33175,185.1,12,201.5,121.9,190.3,0.936,2,0.006,false
+WPI0103011802,Instant Coffee,Manufactured Products,Food Products,Manufacture of Tea & Coffee Products,0.03292,240.3,12,234,118.2,187,0.949,2,0.024,false
+WPI0103011803,Coffee powder with chicory,Manufactured Products,Food Products,Manufacture of Tea & Coffee Products,0.00616,233.5,12,238.4,123.1,228.7,1.114,6,0.179,false
+WPI0103011901,Instant Food/Prepared meals based on vegetables,Manufactured Products,Food Products,Manufacture of processed ready to eat food,0.02428,156,12,156.1,116.7,152.7,0.785,2,0.036,false
+WPI0103012001,Corn Flake,Manufactured Products,Food Products,Manufacture of Health supplements,0.18477,197.5,12,202.1,124.7,194.7,0.936,2,0.03,false
+WPI0103012002,Whey powder,Manufactured Products,Food Products,Manufacture of Health supplements,0.04023,154.5,12,158.7,138.9,140.9,0.608,19,0.351,false
+WPI0103012101,Gola & similar Cattle Feed,Manufactured Products,Food Products,Manufacture of prepared animal feeds,0.21073,208,12,213.2,141.6,212.3,0.899,2,0.018,false
+WPI0103012102,Rice Bran Extract,Manufactured Products,Food Products,Manufacture of prepared animal feeds,0.03918,196,12,210,120.9,188.2,0.934,1,0,false
+WPI0103012103,Soya preparations excluding oil,Manufactured Products,Food Products,Manufacture of prepared animal feeds,0.01012,161,12,176.4,159.3,163.1,0.614,2,0.024,false
+WPI0103012104,Cotton seed oil cake,Manufactured Products,Food Products,Manufacture of prepared animal feeds,0.06115,205,12,214.4,129,193.9,0.902,2,0.018,false
+WPI0103012105,Mustard oil cake,Manufactured Products,Food Products,Manufacture of prepared animal feeds,0.03512,198.9,12,218.3,156,202.2,0.777,2,0.012,false
+WPI0103030101,Spirits,Manufactured Products,Manufacture of Beverages,Manufacture of wines & spirits,0.23997,127.2,12,126.7,111.5,125.4,0.675,3,0.065,false
+WPI0103030102,Wine,Manufactured Products,Manufacture of Beverages,Manufacture of wines & spirits,0.09479,129.3,12,130.4,105.6,126.2,0.717,6,0.119,false
+WPI0103030103,Rectified spirit,Manufactured Products,Manufacture of Beverages,Manufacture of wines & spirits,0.07357,188.3,12,184.4,126.1,183,0.87,2,0.024,false
+WPI0103030201,Beer,Manufactured Products,Manufacture of Beverages,Manufacture of malt liquors and malt,0.16276,138.7,12,139.9,110.3,137.3,0.747,2,0.083,false
+WPI0103030202,Country liquor,Manufactured Products,Manufacture of Beverages,Manufacture of malt liquors and malt,0.0625,144.5,12,145.1,114.1,142.3,0.748,2,0.03,false
+WPI0103030301,Aerated drinks/soft drinks (incl. soft drink concentrates),Manufactured Products,Manufacture of Beverages,Manufacture of soft drinks; production of mineral waters and other bottled wa,0.25793,126.8,12,128.7,115.5,127.5,0.662,2,0.042,false
+WPI0103030302,Bottled Mineral water,Manufactured Products,Manufacture of Beverages,Manufacture of soft drinks; production of mineral waters and other bottled wa,0.01755,127.7,12,129.2,117.9,127.5,0.649,2,0.03,false
+WPI0103040101,Cigarette,Manufactured Products,Manufacture of Tobacco Products,Manufacture of Tobacco Products,0.16619,190.6,12,221.9,133.3,186.3,0.838,2,0.018,false
+WPI0103040102,Biri,Manufactured Products,Manufacture of Tobacco Products,Manufacture of Tobacco Products,0.11183,228.3,12,231.8,126.6,222.4,1.054,2,0.03,false
+WPI0103040103,Other tobacco Products,Manufactured Products,Manufacture of Tobacco Products,Manufacture of Tobacco Products,0.23555,156.3,12,151.5,114.6,150.5,0.788,2,0.006,false
+WPI0103060101,Newspaper,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.03031,166,12,169.2,132.3,161.3,0.731,3,0.071,false
+WPI0103060102,Journal/periodical,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.21333,220,12,220,132.6,217,0.982,15,0.167,false
+WPI0103060103,Printed labels/posters/calendars,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.09471,118.4,12,118,108.5,116.5,0.644,3,0.071,false
+WPI0103060104,Printed form & schedule,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.01659,149.4,12,149.3,120.1,150.1,0.75,3,0.048,false
+WPI0103060105,Printed Books,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.29985,202.7,12,207.4,129.1,198.9,0.924,3,0.042,false
+WPI0103060106,Hologram (3D),Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.00297,120.8,12,122.3,93.2,124.6,0.802,6,0.054,false
+WPI0103060107,Sticker plastic,Manufactured Products,Printing and Reproduction of Recorded Media,Printing,0.01846,107.5,12,109.6,96.7,105.5,0.654,3,0.042,false
+WPI0103070101,Cotton Yarn,Manufactured Products,Manufacture of Textiles,Preparation and Spinning of Textile Fibres,1.34192,131.2,12,135.1,114.8,132.2,0.691,2,0.018,false
+WPI0103070102,Synthetic Yarn,Manufactured Products,Manufacture of Textiles,Preparation and Spinning of Textile Fibres,0.53794,104.4,12,112.2,105.1,105.5,0.602,2,0.03,false
+WPI0103070103,Viscose Yarn,Manufactured Products,Manufacture of Textiles,Preparation and Spinning of Textile Fibres,0.09019,120.4,12,125.8,106.6,118.4,0.666,3,0.024,false
+WPI0103070104,Woollen Yarn,Manufactured Products,Manufacture of Textiles,Preparation and Spinning of Textile Fibres,0.10192,124.5,12,132.4,111.4,120.8,0.65,2,0.006,false
+WPI0103070105,Texturised and Twisted Yarn,Manufactured Products,Manufacture of Textiles,Preparation and Spinning of Textile Fibres,0.50957,108.9,12,116.6,107.3,110.6,0.618,2,0.012,false
+WPI0103070201,Cotton Woven Cloth,Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.00942,129.2,12,129.5,114.1,130.8,0.688,1,0,false
+WPI0103070202,Woollen Woven Cloth,Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.04506,140.5,12,143.9,116.7,141,0.725,3,0.048,false
+WPI0103070203,Synthetic Fabric A Others,Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.05493,123,12,128.4,108.1,122.8,0.681,2,0.048,false
+WPI0103070204,"Cotton Cloth (Dyed, Printed, Or Otherwise Finished/Processed)",Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.94619,154,12,156.2,114.8,156.5,0.818,2,0.03,false
+WPI0103070205,"Fabric, Polyethylene",Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.05304,122.3,12,133.1,121.7,122.8,0.605,2,0.024,false
+WPI0103070206,"Fabrics/Cloth, Rayon",Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.08362,150.6,12,152.6,113.5,145.6,0.769,3,0.048,false
+WPI0103070207,Jute Sacking Cloth/Gunny and Hessian Cloth,Manufactured Products,Manufacture of Textiles,Weaving & Finishing of Textiles,0.31677,224.9,12,289.7,112.7,182.5,0.971,2,0.006,false
+WPI0103070301,Knitted Fabrics of Cotton,Manufactured Products,Manufacture of Textiles,Manufacture of Knitted and Crocheted Fabrics,0.17714,125.8,12,124.5,111.8,124.1,0.666,2,0.012,false
+WPI0103070302,Cotton Hosiery Cloth,Manufactured Products,Manufacture of Textiles,Manufacture of Knitted and Crocheted Fabrics,0.01582,122.7,12,126.7,118.3,123,0.624,2,0.03,false
+WPI0103070401,Bed Linen/Bed Spread,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.05655,159.9,12,159,109.5,161.8,0.886,3,0.065,false
+WPI0103070402,Blankets,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.00895,86.2,12,87.2,99.4,88.3,0.533,2,0.06,false
+WPI0103070403,Quilts,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.009,145.4,12,146.9,94.6,141,0.894,12,0.524,true
+WPI0103070404,Cotton Dyed/Printed Textile,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.049,146.5,12,149.8,113.5,146.4,0.774,2,0.036,false
+WPI0103070405,Cotton Towel,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.09734,181.2,12,181.4,117.6,173.8,0.886,11,0.315,false
+WPI0103070406,Terry Towel,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.05824,152.9,12,150.8,122.1,160.4,0.788,2,0.03,false
+WPI0103070407,Curtains,Manufactured Products,Manufacture of Textiles,"Manufacture of Made -Up Textile Articles, Except Apparel",0.01942,167.2,12,166.9,119,166.3,0.838,11,0.143,false
+WPI0103070501,Nylon Rope,Manufactured Products,Manufacture of Textiles,"Manufacture of Cordage, Rope, Twine and Netting",0.00911,107.3,12,107.2,114.5,111.9,0.586,2,0.06,false
+WPI0103070502,Cordage/Ropes/Twines of Jute and Coir,Manufactured Products,Manufacture of Textiles,"Manufacture of Cordage, Rope, Twine and Netting",0.08865,167.9,12,184.3,131,145.9,0.668,2,0.012,false
+WPI0103070601,Tyre Cord Fabric,Manufactured Products,Manufacture of Textiles,Manufacture of Other Textiles,0.07297,82.6,12,84.3,101.2,88.5,0.525,3,0.03,false
+WPI0103070602,Carpets and Other Floor Coverings of Textiles,Manufactured Products,Manufacture of Textiles,Manufacture of Other Textiles,0.12792,163.3,12,166.5,118.6,161.4,0.816,2,0.018,false
+WPI0103080101,Shirts/Half Shirts of Cotton and/Or Man-Made Fibre,Manufactured Products,Manufacture of Wearing Apparel,"Manufacture of Wearing Apparel (Woven), Except Fur Apparel",0.35583,167.8,12,170.3,129.7,164.8,0.762,3,0.071,false
+WPI0103080102,Trouser/Pants Made of Cotton and/Or Man- Made Fibre,Manufactured Products,Manufacture of Wearing Apparel,"Manufacture of Wearing Apparel (Woven), Except Fur Apparel",0.01377,158.6,12,161.5,115.9,149.8,0.775,2,0.042,false
+WPI0103080103,"Men/Boys Suits, Coats and Jackets",Manufactured Products,Manufacture of Wearing Apparel,"Manufacture of Wearing Apparel (Woven), Except Fur Apparel",0.12904,148.1,12,146.5,118.9,142.5,0.719,3,0.089,false
+WPI0103080104,Leather Garments Incl. Jackets,Manufactured Products,Manufacture of Wearing Apparel,"Manufacture of Wearing Apparel (Woven), Except Fur Apparel",0.0946,112.1,12,114.1,119.5,110.3,0.554,3,0.071,false
+WPI0103080201,"Cardigans and Pullovers, Knitted",Manufactured Products,Manufacture of Wearing Apparel,Manufacture of Knitted and Crocheted Apparel,0.03253,114.7,12,113.1,113.5,119.1,0.629,2,0.03,false
+WPI0103080202,"Shawls and Scarves, Knitted",Manufactured Products,Manufacture of Wearing Apparel,Manufacture of Knitted and Crocheted Apparel,0.06085,202.4,12,205.6,124.8,196.4,0.944,2,0.024,false
+WPI0103080203,"Babies Garments, Knitted",Manufactured Products,Manufacture of Wearing Apparel,Manufacture of Knitted and Crocheted Apparel,0.08874,168.1,12,168.8,109.6,166.8,0.913,2,0.018,false
+WPI0103080204,"Hosiery Goods, Othersa Cotton",Manufactured Products,Manufacture of Wearing Apparel,Manufacture of Knitted and Crocheted Apparel,0.03878,119.7,12,120,113,122.3,0.649,2,0.048,false
+WPI0103100101,"Timber/Wooden Plank, Sawn/Resawn",Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Saw Milling and Planing of Wood,0.05444,139.3,12,142.6,120,140.3,0.701,2,0.03,false
+WPI0103100102,"Wood Cutting, Processed/Sized",Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Saw Milling and Planing of Wood,0.05037,147.6,12,150,121.5,143.6,0.709,2,0.042,false
+WPI0103100103,Wooden Splint,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Saw Milling and Planing of Wood,0.01936,143,12,149.5,112.9,136.9,0.727,3,0.071,false
+WPI0103100201,Plywood Block Boards,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,"Manufacture of Veneer Sheets; Manufacture of Plywood, Laminboard, Particle Bo",0.19458,147.7,12,150.2,118,145.9,0.742,2,0.018,false
+WPI0103100202,Particle Boards,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,"Manufacture of Veneer Sheets; Manufacture of Plywood, Laminboard, Particle Bo",0.11558,129.4,12,137.6,113.5,125.8,0.665,3,0.036,false
+WPI0103100203,Lamination Wooden Sheets/Veneer Sheets,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,"Manufacture of Veneer Sheets; Manufacture of Plywood, Laminboard, Particle Bo",0.18314,164.3,12,163.1,132.5,165.8,0.751,2,0.006,false
+WPI0103100301,Wooden Panel,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Manufacture of Buildersa Carpentry and Joinery,0.02696,252.4,12,251,128.9,253.1,1.178,6,0.262,false
+WPI0103100302,Wooden Board (Non- Electrical),Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Manufacture of Buildersa Carpentry and Joinery,0.00862,97.8,12,98.2,112.7,97,0.516,12,0.583,true
+WPI0103100401,Wooden Block - Compressed Or Not,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Manufacture of Wooden Containers,0.00965,148.9,12,149.7,112.7,150.1,0.799,5,0.089,false
+WPI0103100402,Wooden Box/Crate,Manufactured Products,Manufacture of Wood and of Products of Wood and Cork,Manufacture of Wooden Containers,0.10911,142.9,12,143.8,141.6,139.8,0.592,2,0.03,false
+WPI0103130101,Newsprint,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.07923,130.3,12,134.4,115.2,130.6,0.68,3,0.065,false
+WPI0103130102,Paper For Printing & Writing,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.19261,146.7,12,151.1,117.3,148.1,0.757,2,0.054,false
+WPI0103130103,Paper Bag Including Craft Paper Bag,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.00123,172,12,172.7,100,161.3,0.967,40,0.518,true
+WPI0103130104,Base Paper,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.01093,148.5,12,155.3,119.5,145.3,0.729,2,0.024,false
+WPI0103130105,Kraft Paper,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.0822,144.4,12,146.8,112.8,142.5,0.758,2,0.024,false
+WPI0103130106,Laminated Paper,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.0282,144.2,12,145.8,122.4,142.7,0.699,3,0.036,false
+WPI0103130107,Card Board,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.031,132.4,12,134,111.9,127.1,0.681,1,0,false
+WPI0103130108,Tissue Paper,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.02255,204.8,12,205.8,121,206.1,1.022,3,0.06,false
+WPI0103130109,Press Board,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.003,131.4,12,131.4,108.7,130.7,0.721,12,0.435,false
+WPI0103130110,Hard Board,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.00062,147.8,12,150.8,110.3,147.3,0.801,6,0.244,false
+WPI0103130111,Bristle Paper Board,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.03288,145.9,12,146.8,114.9,142,0.741,2,0.036,false
+WPI0103130112,Poster Paper,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.00604,129.1,12,129.9,119.9,134,0.67,3,0.065,false
+WPI0103130113,Pulp Board,Manufactured Products,Manufacture of Paper and Paper Products,"Manufacture of Pulp, Paper and Paperboard",0.00247,128.2,12,137.5,104.3,121.8,0.7,2,0.071,false
+WPI0103130201,Corrugated Sheet Box,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Corrugated Paper and Paperboard and Containers of Paper and Pa,0.19469,145.4,12,146.1,114.2,142,0.746,2,0.018,false
+WPI0103130202,Corrugated Paper Board,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Corrugated Paper and Paperboard and Containers of Paper and Pa,0.01591,158.9,12,148.6,111,163.6,0.884,2,0.03,false
+WPI0103130203,Card Board Box,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Corrugated Paper and Paperboard and Containers of Paper and Pa,0.02722,138.1,12,139.7,114.9,135.9,0.709,8,0.351,false
+WPI0103130204,Paper Carton/Box,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Corrugated Paper and Paperboard and Containers of Paper and Pa,0.0764,167.1,12,171.9,114.8,161.5,0.844,2,0.006,false
+WPI0103130301,Duplex Paper,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Other Articles of Paper and Paperboard,0.18002,112.4,12,114.1,105.8,108.8,0.617,2,0.107,false
+WPI0103130302,Map Litho Paper,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Other Articles of Paper and Paperboard,0.09799,137.1,12,141.5,117.1,143.2,0.733,2,0.054,false
+WPI0103130303,Laminated Plastic Sheet,Manufactured Products,Manufacture of Paper and Paper Products,Manufacture of Other Articles of Paper and Paperboard,0.02803,138,12,143.8,115.9,136.8,0.708,2,0.048,false
+WPI0103140101,Vegetable Tanned Leather,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Tanning and Dressing of Leather; Dressing and Dyeing of Fur,0.00002,103.3,12,104.3,124,101.6,0.491,3,0.042,false
+WPI0103140102,Chrome Tanned Leather,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Tanning and Dressing of Leather; Dressing and Dyeing of Fur,0.14213,110.8,12,111,130.6,106.1,0.487,2,0.012,false
+WPI0103140201,"Travel Goods, Handbags, office Bags, Etc.",Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,"Manufacture of Luggage, Handbags, Saddlery and Harness",0.03798,146.9,12,150.4,127.1,147.7,0.697,2,0.03,false
+WPI0103140202,Belt & Other Articles of Leather,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,"Manufacture of Luggage, Handbags, Saddlery and Harness",0.01909,139.7,12,142.6,108,139.6,0.775,3,0.077,false
+WPI0103140203,"Harness, Saddles & Other Related Items",Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,"Manufacture of Luggage, Handbags, Saddlery and Harness",0.00831,136.5,12,137.2,136.6,137.4,0.603,6,0.095,false
+WPI0103140204,Gloves of Leather,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,"Manufacture of Luggage, Handbags, Saddlery and Harness",0.01002,139.9,12,143.6,131.6,132.6,0.604,5,0.089,false
+WPI0103140301,Leather Shoe,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Manufacture of Footwear,0.20737,129.7,12,131.7,115.2,127,0.661,2,0.054,false
+WPI0103140302,Athletic/Sport Shoes,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Manufacture of Footwear,0.01651,108.7,12,110.2,114.2,108.8,0.571,9,0.292,false
+WPI0103140303,Canvas Shoes,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Manufacture of Footwear,0.01281,153.5,12,152.4,116.1,149.7,0.773,3,0.095,false
+WPI0103140304,Plastic/PVC Chappals,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Manufacture of Footwear,0.06382,140.7,12,145.1,112.3,139.7,0.746,3,0.077,false
+WPI0103140305,Waterproof Footwear,Manufactured Products,Manufacture of Leather and Related Products/Leather & Leather Products,Manufacture of Footwear,0.01734,135.4,12,138.1,129.9,130.9,0.604,2,0.03,false
+WPI0103170101,Fatty Acid,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.02257,152.3,12,159,102.7,145,0.847,2,0.018,false
+WPI0103170102,Organic Solvent,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.00015,121.3,12,136.5,113,126.7,0.673,2,0.018,false
+WPI0103170103,Dye Stuff/Dyes Incl. Dye Intermediates and Pigments/Colours,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.22821,139,12,143.9,132.9,138.7,0.626,2,0.048,false
+WPI0103170104,Acetic Acid and Its Derivatives,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.02452,109.6,12,118.4,118.8,113.8,0.575,2,0.006,false
+WPI0103170105,Aromatic Chemicals,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.03278,131.2,12,134.4,112.4,128.8,0.687,2,0.024,false
+WPI0103170106,Caustic Soda (Sodium Hydroxide),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.08237,166.1,12,170.3,114.9,162.8,0.85,2,0.012,false
+WPI0103170107,Soda Ash/Washing Soda,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.06255,151.7,12,151.1,128.3,155.4,0.726,2,0.012,false
+WPI0103170108,Carbon Black,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.10555,145.1,12,155.3,103,147.7,0.86,2,0.036,false
+WPI0103170109,Ethyl Acetate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.03246,117.8,12,125.2,112.6,119.3,0.635,1,0,false
+WPI0103170110,Mono Ethyl Glycol,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.04397,86.6,12,101.3,106.8,88.4,0.496,2,0.012,false
+WPI0103170111,Alkyl Benzene,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.07318,128.1,12,139.8,105.7,116.9,0.663,2,0.012,false
+WPI0103170112,Ethylene Oxide,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.01294,129.1,12,133.4,115.5,130.7,0.679,4,0.238,false
+WPI0103170113,Other Petrochemical Intermediates,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.00684,112.9,12,151.4,106.4,118,0.665,10,0.155,false
+WPI0103170114,Menthol,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.02162,83.9,12,83.4,80.5,78.5,0.585,2,0.018,false
+WPI0103170115,Camphor,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.00751,152.6,12,172,105.9,135.5,0.767,1,0,false
+WPI0103170116,Amine,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.05566,133.8,12,151.9,127,136.6,0.645,2,0.012,false
+WPI0103170117,"Aniline (Including Pna, Ona, Ocpna)",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.03068,180.6,12,207,129.4,192.9,0.894,2,0.036,false
+WPI0103170118,Nitric Acid,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.02048,175.3,12,200.4,126.5,177.6,0.842,2,0.018,false
+WPI0103170119,Sulphuric Acid,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.03029,231,12,318.2,99.7,120.8,0.727,2,0.018,false
+WPI0103170120,Phosphoric Acid,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.02073,98.2,12,107.7,105,97.8,0.559,2,0.036,false
+WPI0103170121,Liquid Air & Other Gaseous Products,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.0445,138.3,12,140.8,106.5,141.2,0.795,2,0.024,false
+WPI0103170122,Alcohols,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.12767,156.1,12,171.7,119,158,0.796,2,0.03,false
+WPI0103170123,Other Inorganic Chemicals,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.28422,141.5,12,151.9,102.7,133.8,0.781,2,0.042,false
+WPI0103170124,Phthalic Anhydride,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.0191,128.2,12,155,99.6,134.7,0.811,2,0.018,false
+WPI0103170125,Ammonium Nitrate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.01281,153,12,175.6,115.2,156,0.812,2,0.018,false
+WPI0103170126,Catalysts,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.01697,178.8,12,197.5,130.4,151.1,0.695,2,0.006,false
+WPI0103170127,Sodium Silicate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Basic Chemicals,0.01297,155.4,12,158.2,117.9,156.5,0.796,2,0.006,false
+WPI0103170201,Urea,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.72685,115.6,12,115.4,106.4,116.4,0.656,10,0.446,false
+WPI0103170202,Di Ammonium Phosphate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.07425,155.4,12,159.8,135.1,152.5,0.677,2,0.024,false
+WPI0103170203,Ammonium Sulphate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.0342,117.6,12,119.1,123.6,123.4,0.599,2,0.012,false
+WPI0103170204,"Nitrogenous Fertilizer, Others",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.00427,158.5,12,162.9,129.7,156,0.721,10,0.25,false
+WPI0103170205,Mixed Fertilizer,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.45476,172,12,177.2,130,170.1,0.785,2,0.024,false
+WPI0103170206,Ammonium Phosphate,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.04093,175.9,12,180.2,133.7,165.5,0.742,2,0.054,false
+WPI0103170207,Ammonia Gas,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.04383,169.4,12,190.6,113.4,172.1,0.91,8,0.149,false
+WPI0103170208,Ammonia Liquid,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.02116,193.4,12,263.6,126.7,191.9,0.908,2,0.018,false
+WPI0103170209,"Superphospate/Phosphatic Fertilizer, Others",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Fertilizers and Nitrogen Compounds,0.08472,189.8,12,203.8,143,188.1,0.789,2,0.03,false
+WPI0103170301,Poly Propylene (PP),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.19433,131.1,12,138.7,128,129.2,0.605,3,0.036,false
+WPI0103170302,Poly Vinyl Chloride (PVC),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.08347,117.8,12,131.6,113.2,121.6,0.644,2,0.024,false
+WPI0103170303,Polyethylene,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.51618,134.9,12,149.5,130.1,134.9,0.622,3,0.042,false
+WPI0103170304,"Polystyrene, Expandable",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.02619,137.8,12,166.1,132.7,143.7,0.65,2,0.006,false
+WPI0103170305,Oleoresin,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.07154,155.4,12,165,93,150,0.967,3,0.036,false
+WPI0103170306,XLPE Compound,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Plastic and Synthetic Rubber In Primary Form,0.10911,130.5,12,140.7,118.5,131.6,0.666,3,0.071,false
+WPI0103170401,Insecticide and Pesticide,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Pesticides and Other Agrochemical Products,0.38578,121.1,12,124.6,119.1,119,0.599,2,0.018,false
+WPI0103170402,Agro Chemical Formulation,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Pesticides and Other Agrochemical Products,0.06434,180.7,12,184.1,129.6,176.5,0.817,2,0.018,false
+WPI0103170403,"Fungicide, Liquid",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Pesticides and Other Agrochemical Products,0.00357,333.7,12,333.7,126.6,338.2,1.602,13,0.381,false
+WPI0103170501,Paint,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Paints, Varnishes and Similar Coatings, Printing Ink and Masti",0.38664,138.3,12,140.2,112.3,140.7,0.751,3,0.036,false
+WPI0103170502,Varnish (All Types),Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Paints, Varnishes and Similar Coatings, Printing Ink and Masti",0.01733,149.4,12,153.2,115.6,145.8,0.756,2,0.012,false
+WPI0103170503,Powder Coating Material,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Paints, Varnishes and Similar Coatings, Printing Ink and Masti",0.01208,140,12,146.8,106.1,138.1,0.781,2,0.024,false
+WPI0103170504,Printing Ink,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Paints, Varnishes and Similar Coatings, Printing Ink and Masti",0.0754,133.3,12,145.4,110,131.9,0.719,3,0.071,false
+WPI0103170601,Toilet Soap,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.07605,138.6,12,139.6,110.1,133.1,0.725,2,0.03,false
+WPI0103170602,"Detergent Cake, Washing Soap Cake/Bar/Powder",Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.30512,150.4,12,153.2,114.7,150.5,0.787,2,0.06,false
+WPI0103170603,Organic Surface Active Agent,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.01834,129.5,12,129.4,113,118.5,0.629,2,0.024,false
+WPI0103170604,Tooth Paste/Tooth Powder,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.02704,148.9,12,153.9,118.3,145.4,0.737,3,0.065,false
+WPI0103170605,Agarbatti,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.02364,125.8,12,126.4,109.5,123.6,0.677,4,0.179,false
+WPI0103170606,Perfume/Scent,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.10008,133.7,12,134.4,108.5,126.1,0.697,3,0.131,false
+WPI0103170607,Creams & Lotions For External Application,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.02734,114.3,12,113.7,100.7,115,0.685,11,0.381,false
+WPI0103170608,Face/Body Powder,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.00413,192.7,12,193.3,141.2,190.1,0.808,14,0.506,true
+WPI0103170609,Hair Oil/Body Oil,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.0089,141.5,12,145,113.2,132.8,0.704,3,0.054,false
+WPI0103170610,Shampoo,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.01534,104.9,12,106.6,99.5,103.1,0.621,2,0.012,false
+WPI0103170611,Mosquito Coil,Manufactured Products,Manufacture of Chemicals and Chemical Products,"Manufacture of Soap and Detergents, Cleaning and Polishing Preparations, Perf Ink",0.00621,186.5,12,189.6,137.5,177.8,0.776,12,0.44,false
+WPI0103170701,Safety Matches (Match Box),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.06202,121,12,122.7,102.8,120.2,0.701,4,0.125,false
+WPI0103170702,Plasticizer,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.00818,131.4,12,134.3,107.8,137,0.762,3,0.06,false
+WPI0103170703,Polyester Film(Metalized),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.08695,123.6,12,126,114,129,0.679,2,0.018,false
+WPI0103170704,Adhesive Excluding Gum,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.12705,121,12,125.2,110.6,120.1,0.651,2,0.018,false
+WPI0103170705,Adhesive Tape (Non-Medicinal),Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.02592,137.3,12,144.5,111.1,138.5,0.748,2,0.018,false
+WPI0103170706,Gelatine,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.02008,157.9,12,149.7,144.2,162,0.674,3,0.03,false
+WPI0103170707,Hydrogen Peroxide,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.03517,99.2,12,101,104.7,100.6,0.576,2,0.018,false
+WPI0103170708,"Epoxy, Liquid",Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.09037,114.9,12,118.3,105.8,114.2,0.647,3,0.077,false
+WPI0103170709,Additive,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.08986,159.2,12,163.9,116.4,174.3,0.898,2,0.024,false
+WPI0103170710,Foundry Chemical,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.00808,123.8,12,125.4,89.3,119.5,0.803,4,0.089,false
+WPI0103170711,Explosive,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.08728,177.9,12,190.9,118.4,176.3,0.893,2,0.024,false
+WPI0103170712,Rubber Chemicals,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.00748,139,12,153.8,101.3,118.4,0.701,4,0.083,false
+WPI0103170713,Organic Chemicals,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Other Chemical Products,0.04383,113.9,12,118.7,110.6,115.9,0.629,2,0.03,false
+WPI0103170801,Polyester Chips Or Polyethylene Terepthalate (Pet) Chips,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Man-Made Fibres,0.14608,87.9,12,102.2,94.1,93.9,0.599,2,0.024,false
+WPI0103170802,Acrylic Fibre,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Man-Made Fibres,0.04353,122.5,12,120.2,105.9,119.2,0.675,2,0.018,false
+WPI0103170803,Viscose Staple Fibre,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Man-Made Fibres,0.01984,99.1,12,102.3,99,95.3,0.577,3,0.036,false
+WPI0103170804,Polyester Fibre Fabric,Manufactured Products,Manufacture of Chemicals and Chemical Products,Manufacture of Man-Made Fibres,0.08691,118.2,12,125.9,110.5,118.6,0.644,2,0.036,false
+WPI0103180101,Anti inflammatory preparation,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.00306,201.4,12,217,121,162.8,0.807,12,0.47,false
+WPI0103180102,Anti cancer drugs,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.08012,56.2,12,56.9,98.9,58.3,0.354,8,0.202,false
+WPI0103180103,"Antipyretic, analgesic, anti-inflammatory formulations",Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.00358,161.7,12,159.9,117.1,167.9,0.86,2,0.006,false
+WPI0103180104,"Vials/ampoule, glass, empty or filled",Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.0263,118.5,12,118.8,104,119.1,0.687,2,0.018,false
+WPI0103180105,Anti-retroviral drugs for HIV treatment,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.01316,108.2,12,109.5,95.3,111.2,0.7,2,0.024,false
+WPI0103180106,Antidiabetic drug excluding insulin (i.e. tolbutam),Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.11682,139.3,12,135.2,104.9,141.3,0.808,14,0.387,false
+WPI0103180107,API & formulations of vitamins,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.70266,154.4,12,156.8,113,151.6,0.805,2,0.042,false
+WPI0103180108,Vaccine for hepatitis B,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.00037,231.2,12,233.8,124.9,231.6,1.112,12,0.565,true
+WPI0103180109,Ayurvedic medicaments,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.06506,179.6,12,184.1,124.4,174.1,0.839,3,0.077,false
+WPI0103180110,Simvastatin,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.0523,132.9,12,137,101.3,128.3,0.76,16,0.321,false
+WPI0103180111,Digestive enzymes and antacids,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.03613,148.6,12,149.6,108.2,144.8,0.803,12,0.429,false
+WPI0103180112,Vaccine for polio,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.01289,179.9,12,179.9,121.3,184.2,0.911,15,0.369,false
+WPI0103180113,Antibiotics & preparations thereof,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.23061,145.7,12,148.9,114,145.1,0.763,2,0.03,false
+WPI0103180114,Sulpha drugs,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.03627,221.2,12,223.1,131.8,225.8,1.028,13,0.44,false
+WPI0103180115,Anti allergic drugs,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.00959,123.3,12,124.1,116.1,119.4,0.617,7,0.274,false
+WPI0103180116,Antioxidants,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.02243,170.3,12,171.2,109.3,166.4,0.913,3,0.036,false
+WPI0103180117,Antiseptics and disinfectants,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.0146,136.6,12,134.4,113.4,134.7,0.712,13,0.488,false
+WPI0103180118,Cotton wool (medicinal),Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.00652,151.9,12,150.1,110.7,150.5,0.815,6,0.19,false
+WPI0103180119,Plastic capsules,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.07553,156.6,12,156.9,120.6,158.7,0.789,2,0.012,false
+WPI0103180120,Steroids and hormonal preparations (including anti-fungal preparations),Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.01615,113.2,12,112.5,108.8,114.9,0.633,16,0.768,true
+WPI0103180121,Anti-malarial drugs,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.06041,107.9,12,108.5,118.5,106.9,0.541,7,0.345,false
+WPI0103180122,IV fluids,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.01785,126.5,12,126.5,112.8,126.8,0.674,3,0.065,false
+WPI0103180123,Medical accessories,Manufactured Products,"Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products","Manufacture of Pharmaceuticals, Medicinal Chemical and Botanical Products",0.39104,146.9,12,150.9,122.6,144.4,0.706,5,0.149,false
+WPI0103190101,Ordinary Sheet Glass,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Glass and Glass Products,0.00555,158.7,12,165.5,122.2,161.4,0.792,2,0.024,false
+WPI0103190102,Toughened Glass,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Glass and Glass Products,0.02939,136.4,12,140.6,107,137,0.768,5,0.101,false
+WPI0103190103,Fibre Glass Incl. Sheet,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Glass and Glass Products,0.03063,142.7,12,146,113.9,138.9,0.731,2,0.006,false
+WPI0103190104,Glass Bottle,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Glass and Glass Products,0.1985,173.1,12,177.6,112.8,174.1,0.926,2,0.024,false
+WPI0103190105,Opthalmic Lens,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Glass and Glass Products,0.03097,145.5,12,146.1,116.9,142.9,0.733,4,0.113,false
+WPI0103190201,Non Ceramic Tiles,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Refractory Products,0.0076,165.3,12,164.7,120.2,172.3,0.86,2,0.024,false
+WPI0103190202,Ceramic Tiles (Vitrified Tiles),Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Refractory Products,0.17903,127.1,12,131.8,118.7,124.5,0.629,2,0.03,false
+WPI0103190203,Plain Bricks,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Refractory Products,0.03659,100.7,12,104.5,97.1,97,0.599,5,0.065,false
+WPI0103190301,Porcelain Sanitary Ware,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Clay Building Materials,0.12113,136.7,12,139.9,120.4,124.4,0.62,2,0.03,false
+WPI0103190401,Porcelain Crockery,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Other Porcelain and Ceramic Products,0.02145,228.8,12,233.7,125.9,224,1.067,4,0.131,false
+WPI0103190402,Electric Insulating Material,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Other Porcelain and Ceramic Products,0.20102,114.9,12,115,106.2,114.1,0.644,15,0.47,false
+WPI0103190501,Lime and Calcium Carbonate,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.02789,143.6,12,148.2,106.5,144.1,0.812,3,0.018,false
+WPI0103190502,Clinker,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.31582,128.7,12,126.9,109.8,132.3,0.723,2,0.006,false
+WPI0103190503,Ordinary Portland Cement,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.85277,129.5,12,133,110.1,126.9,0.691,2,0.024,false
+WPI0103190504,Slag Cement,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.0983,146.7,12,147.5,112.6,144.1,0.768,2,0.024,false
+WPI0103190505,Pozzolana Cement,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.09194,120.6,12,121.6,110.2,118.6,0.646,2,0.036,false
+WPI0103190506,White Cement,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.18047,142.8,12,142.1,115.8,139.3,0.722,2,0.077,false
+WPI0103190507,Cement Superfine,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Cement, Lime and Plaster",0.07761,138.3,12,139.7,113.7,132.5,0.699,2,0.03,false
+WPI0103190601,Asbestos Corrugated Sheet,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Articles of Concrete, Cement and Plaster",0.12181,133.7,12,135.8,117.9,134.4,0.684,2,0.06,false
+WPI0103190602,Marble Slab,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Articles of Concrete, Cement and Plaster",0.09603,130.8,12,131.3,117.5,131.4,0.671,2,0.018,false
+WPI0103190603,Railway Sleeper,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Articles of Concrete, Cement and Plaster",0.0049,192.2,12,192.6,117.1,188.2,0.964,3,0.119,false
+WPI0103190604,Cement Blocks (Concrete),Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Articles of Concrete, Cement and Plaster",0.04345,158,12,155.9,109.8,153.7,0.84,2,0.042,false
+WPI0103190605,Poles & Posts of Concrete,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Manufacture of Articles of Concrete, Cement and Plaster",0.02629,157.4,12,161.1,117.5,157.7,0.805,2,0.03,false
+WPI0103190701,Granite,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Cutting, Shaping and Finishing of Stone",0.15735,144.9,12,145,111.4,140.3,0.755,2,0.036,false
+WPI0103190702,"Stone, Chip",Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,"Cutting, Shaping and Finishing of Stone",0.07616,128.7,12,134.5,113.8,122.2,0.644,2,0.018,false
+WPI0103190801,Graphite Rod,Manufactured Products,Manufacture of Other Non-Metallic Mineral Products,Manufacture of Other Non-Metallic Mineral Products,0.16911,92.5,12,91.3,94.5,95.2,0.604,7,0.113,false
+WPI0103210101,Sponge Iron/Direct Reduced Iron (Dri),Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,1.00352,130,12,136.2,102.8,133,0.776,2,0.006,false
+WPI0103210102,Ferrochrome,Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,0.11195,177.5,12,185.8,110.4,174.1,0.946,2,0.018,false
+WPI0103210103,Ferromanganese,Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,0.02589,128.4,12,129.3,114.3,132.6,0.696,2,0.012,false
+WPI0103210104,Ferrosilicon,Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,0.02314,122.3,12,127.3,115.2,120,0.625,2,0.012,false
+WPI0103210105,Silicomanganese,Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,0.21885,120.8,12,128.2,106.4,119,0.671,2,0.006,false
+WPI0103210106,Other Ferro Alloys,Manufactured Products,Manufacture of Basic Metals,Inputs Into Steel Making,0.02768,124.1,12,127.8,111.8,122.5,0.657,2,0.03,false
+WPI0103210201,Pig Iron,Manufactured Products,Manufacture of Basic Metals,Metallic Iron,0.65301,131.3,12,142.8,96.5,141.8,0.881,2,0.006,false
+WPI0103210301,Mild Steel (MS) Blooms,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Semi Finished Steel,0.64842,117.2,12,124.5,98.7,119.8,0.728,2,0.024,false
+WPI0103210302,MS Slabs,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Semi Finished Steel,0.58341,114.4,12,114.4,108.8,114,0.628,37,0.536,true
+WPI0103210303,MS Pencil Ingots,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Semi Finished Steel,0.04173,136.7,12,141.1,103.3,142.1,0.825,2,0.03,false
+WPI0103210401,MS Wire Rods,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Long Products,0.37842,138.7,12,149.7,103.7,141.8,0.82,2,0.012,false
+WPI0103210402,MS Bright Bars,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Long Products,0.55727,132.2,12,139.1,100.1,136.7,0.819,2,0.012,false
+WPI0103210403,Rails,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Long Products,0.13227,152.2,12,150.9,95.1,151.8,0.957,22,0.667,true
+WPI0103210404,"Angles, Channels, Sections, Steel (Coated/Not)",Manufactured Products,Manufacture of Basic Metals,Mild Steel - Long Products,0.01267,133.8,12,147.2,102.3,140.1,0.821,2,0.012,false
+WPI0103210501,"Hot Rolled (HR) Coils & Sheets, Including Narrow Strip",Manufactured Products,Manufacture of Basic Metals,Mild Steel - Flat Products,0.88361,129.9,12,143.8,102.1,132.1,0.776,2,0.006,false
+WPI0103210502,"Cold Rolled (CR) Coils & Sheets, Including Narrow Strip",Manufactured Products,Manufacture of Basic Metals,Mild Steel - Flat Products,0.09307,127.9,12,139.1,101.2,130.8,0.775,1,0,false
+WPI0103210503,GP/GC Sheet,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Flat Products,0.1126,139.9,12,162.8,102.2,138.7,0.814,2,0.018,false
+WPI0103210504,Steel Cables,Manufactured Products,Manufacture of Basic Metals,Mild Steel - Flat Products,0.05514,166.1,12,174.4,111,164.4,0.888,3,0.095,false
+WPI0103210601,Alloy Steel Wire Rods,Manufactured Products,Manufacture of Basic Metals,Alloy Steel Other Than Stainless Steel - Shapes,0.06671,131.3,12,141.5,102.1,135.4,0.795,2,0.036,false
+WPI0103210701,"Stainless Steel Bars & Rods, Including Flats",Manufactured Products,Manufacture of Basic Metals,Stainless Steel Semi Finished,0.48307,103.8,12,109,93.5,106.9,0.686,2,0.012,false
+WPI0103210702,Stainless Steel Pencil Ingots/Billets/Slabs,Manufactured Products,Manufacture of Basic Metals,Stainless Steel Semi Finished,0.41164,152.9,12,182.7,114,158.4,0.833,9,0.321,false
+WPI0103210703,"Stainless Steel Coils, Strips & Sheets",Manufactured Products,Manufacture of Basic Metals,Stainless Steel Semi Finished,0.02925,143.9,12,153.1,117.1,146.8,0.752,2,0.024,false
+WPI0103210801,Galvanized Iron Pipes,Manufactured Products,Manufacture of Basic Metals,Pipes & Tubes,0.00075,119,12,124.9,110.6,119.7,0.649,2,0.03,false
+WPI0103210802,Stainless Steel Tubes,Manufactured Products,Manufacture of Basic Metals,Pipes & Tubes,0.20459,162.9,12,166.5,108.8,164.9,0.909,2,0.006,false
+WPI0103210901,Copper Metal/Copper Rings,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.11676,166.1,12,182.2,101.7,146.6,0.865,2,0.006,false
+WPI0103210902,Zinc Metal/Zinc Blocks,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.02265,155.6,12,164.8,119.7,152.9,0.766,2,0.042,false
+WPI0103210903,Aluminium Metal,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.00188,160.9,12,179.7,117.7,149,0.759,1,0,false
+WPI0103210904,Aluminium Powder,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.09148,198,12,236.1,114.7,183.1,0.957,2,0.012,false
+WPI0103210905,"Lead Ingots, Bars, Blocks, Plates",Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.01906,139,12,141.7,106,138.5,0.784,2,0.024,false
+WPI0103210906,Copper Shapes- Bars/Rods/Plates/Strips,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.62858,155.7,12,172.8,103.1,144.2,0.839,2,0.03,false
+WPI0103210907,Aluminium Alloys,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.06796,177.8,12,196,115.5,166.5,0.865,1,0,false
+WPI0103210908,Aluminium Disk and Circles,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.03952,142.5,12,156.4,103.9,135,0.779,2,0.042,false
+WPI0103210909,Alumnium Foil,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.07863,158.8,12,175.9,112.6,152.6,0.813,2,0.018,false
+WPI0103210910,Aluminium Shapes - Bars/Rods/Flats,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.21326,180.4,12,200.3,114,166.1,0.874,2,0.018,false
+WPI0103210911,Brass Metal/Sheet/Coils,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.01026,188.7,12,214.1,108.7,172.7,0.953,2,0.024,false
+WPI0103210912,Aluminium Ingot,Manufactured Products,Manufacture of Basic Metals,Manufacture of Non-Ferrous Metals Incl. Precious Metals,0.4026,183.4,12,217,113.5,172.9,0.914,2,0.018,false
+WPI0103211001,"Cast Iron, Castings",Manufactured Products,Manufacture of Basic Metals,Castings,0.0555,139.3,12,141.2,109.2,139.1,0.764,2,0.036,false
+WPI0103211002,Ms Castings,Manufactured Products,Manufacture of Basic Metals,Castings,0.78655,144.1,12,144.7,95.4,145.9,0.917,3,0.024,false
+WPI0103211003,Alloy Steel Castings,Manufactured Products,Manufacture of Basic Metals,Castings,0.02077,151.4,12,150.8,116.4,151.4,0.78,2,0.018,false
+WPI0103211004,Aluminium Castings,Manufactured Products,Manufacture of Basic Metals,Castings,0.06169,142.6,12,156,115.9,135.2,0.7,8,0.185,false
+WPI0103211101,Steel Forgings - Rough,Manufactured Products,Manufacture of Basic Metals,Forgings of Steel,0.27051,174,12,171.1,110.6,172.2,0.934,3,0.036,false
+WPI0103260101,Motor Car Tyre,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.20706,111.4,12,111.1,105.7,111.9,0.635,3,0.089,false
+WPI0103260102,Tractor Tyre,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.03327,106.4,12,107,98.5,104.7,0.638,2,0.054,false
+WPI0103260103,2/3 Wheeler Tyre,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.0403,118.1,12,117.6,100.8,118.2,0.703,2,0.065,false
+WPI0103260104,Medium & Heavy Commercial Vehicle Tyre,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.12918,116.5,12,118.1,106.2,114.5,0.647,2,0.03,false
+WPI0103260105,Solid Rubber Tyres/Wheels,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.00473,107.6,12,108.7,102.8,106.9,0.624,2,0.06,false
+WPI0103260106,Rubberized Dipped Fabric,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.00203,121.3,12,129.1,104.8,130.3,0.746,2,0.012,false
+WPI0103260107,Motor Car Tube,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.01126,103.8,12,104.9,101.5,100.7,0.595,8,0.208,false
+WPI0103260108,Rubber Cloth/Sheet,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.01224,179.8,12,179.3,133.7,176.8,0.793,2,0.042,false
+WPI0103260109,2/3 Wheeler Rubber Tube,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.01601,142.9,12,144.1,111.6,141.3,0.759,2,0.048,false
+WPI0103260110,Medium & Heavy Commercial Vehicle Tube,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.12918,110.1,12,114.7,106.4,116.1,0.654,17,0.857,true
+WPI0103260111,Cycle/Cycle Rickshaw Tyre,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Rubber Tyres and Tubes; Retreading and Rebuilding of Rubber ty,0.02371,122.3,12,124.3,109,120.4,0.663,2,0.024,false
+WPI0103260201,V Belt,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.01101,165.7,12,166.9,111.2,159.2,0.859,6,0.298,false
+WPI0103260202,Rubber Moulded Goods,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.03434,127.6,12,127,103.9,127,0.733,3,0.036,false
+WPI0103260203,Processed Rubber,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.01724,126.6,12,133.1,92,124.9,0.814,2,0.018,false
+WPI0103260204,Rubber Components & Parts,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.01732,126.2,12,119.9,107.7,128.6,0.716,3,0.012,false
+WPI0103260205,Conveyer Belt (Fibre Based),Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.04791,121.3,12,123.2,101.1,118.1,0.701,1,0,false
+WPI0103260206,Elastic Webbing,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.00914,113.1,12,113.5,107.5,113.3,0.632,3,0.042,false
+WPI0103260207,Condoms,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.0131,120,12,114.8,105.1,120.3,0.687,4,0.071,false
+WPI0103260208,Rubber Crumb,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.05232,94.5,12,101.9,73,94.9,0.78,3,0.036,false
+WPI0103260209,Rubber Tread,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.01864,105.2,12,107.8,105.2,104.7,0.597,3,0.036,false
+WPI0103260210,Rubber Tubes- Not For Tyres,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Other Rubber Products,0.05076,95.9,12,95.9,93.7,94.5,0.605,15,0.708,true
+WPI0103260301,PVC Fittings & Other Accessories,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.1621,127.2,12,130.8,117.8,133.5,0.68,2,0.042,false
+WPI0103260302,Polyester Film (Non-Metalized),Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.01969,107.5,12,115.9,114.6,109.6,0.574,2,0.012,false
+WPI0103260303,Polypropylene Film,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.05098,120.9,12,135.8,112.7,121.3,0.646,2,0.024,false
+WPI0103260304,Plastic Film,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.24113,129.5,12,135.7,116.2,124.8,0.644,2,0.024,false
+WPI0103260305,Polythene Film,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.04306,148,12,161.5,123.8,145.5,0.705,2,0.024,false
+WPI0103260306,Plastic Furniture,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.0468,176.5,12,186.1,127.5,171.8,0.808,2,0.006,false
+WPI0103260307,Plastic Bag,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.01975,138,12,150.8,126,136.5,0.65,3,0.03,false
+WPI0103260308,Plastic Bottle,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.06262,108.5,12,111.9,106.1,110.6,0.625,2,0.06,false
+WPI0103260309,thermocol,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.06841,158.1,12,159.2,124.6,159.6,0.768,2,0.024,false
+WPI0103260310,Plastic Box/Container,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.31065,154.4,12,155.9,117.5,153.7,0.785,2,0.03,false
+WPI0103260311,Plastic Tube (Flexible/Non-Flexible),Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.07563,144,12,151.7,116.1,144.8,0.748,2,0.048,false
+WPI0103260312,Plastic Tape,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.01448,134.9,12,154.6,111.6,133,0.715,3,0.06,false
+WPI0103260313,Plastic Components,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.20335,130.6,12,136,116.1,129.3,0.668,2,0.006,false
+WPI0103260314,Plastic Tank,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.03701,133.7,12,145.4,120.8,132.5,0.658,2,0.06,false
+WPI0103260315,Acrylic/Plastic Sheet,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.01563,126.8,12,134.4,113.7,127,0.67,2,0.024,false
+WPI0103260316,Tooth Brush,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.03926,147.4,12,146.4,114.8,146.8,0.767,6,0.155,false
+WPI0103260317,Plastic Button,Manufactured Products,Manufacture of Rubber and Plastics Products,Manufacture of Plastics Products,0.00721,168.6,12,172.2,142.9,170.7,0.716,7,0.119,false
+WPI0103270101,"Steel Pipes, Tubes & Poles",Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.28647,130.9,12,133.8,101.5,133.9,0.791,2,0.012,false
+WPI0103270102,Mild Steel (MS) Flats & Sheets,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.14193,102.8,12,107.8,107.5,101.6,0.567,61,0.613,true
+WPI0103270103,Metal Cutting Tools & Accessories,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.00124,135.6,12,140.5,104.2,131.7,0.758,3,0.083,false
+WPI0103270104,Jigs & Fixture,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.00541,136.8,12,139.6,109.1,137.9,0.758,2,0.024,false
+WPI0103270105,Steel Structures,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.59281,138.5,12,136.5,109.6,136.4,0.746,2,0.024,false
+WPI0103270106,Bracket,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Structural Metal Products,0.00358,101.8,12,107.8,106.3,103,0.581,13,0.31,false
+WPI0103270201,Cylinders,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Tanks, Reservoirs and Containers of Metal",0.56456,150.8,12,155.2,102.5,149.4,0.874,2,0.024,false
+WPI0103270202,Steel Container,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Tanks, Reservoirs and Containers of Metal",0.07075,156.1,12,163.2,114.8,152.6,0.797,2,0.036,false
+WPI0103270203,Stainless Steel Tank,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Tanks, Reservoirs and Containers of Metal",0.0242,143.2,12,145.8,111.4,142.8,0.769,5,0.345,false
+WPI0103270301,Boilers,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Steam Generators, Except Central Heating Hot Water Boilers",0.1225,112.5,12,112.1,104.2,111.6,0.642,7,0.315,false
+WPI0103270302,Auxiliary Plant For Use With Boilers,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Steam Generators, Except Central Heating Hot Water Boilers",0.02212,115,12,123.8,100,100.3,0.602,17,0.601,true
+WPI0103270401,Electrical Stamping- Laminated Or Otherwise,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Forging, Pressing, Stamping and Roll-Forming of Metal; Powder Metallurgy",0.17896,144.3,12,129.6,95.4,154.6,0.972,2,0.024,false
+WPI0103270402,Forged Steel Rings,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Forging, Pressing, Stamping and Roll-Forming of Metal; Powder Metallurgy",0.20446,120.6,12,122.1,100,123.4,0.74,1,0,false
+WPI0103270501,Stainless Steel Utensils,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Cutlery, Hand Tools and General Hardware",0.08546,127.5,12,128.9,109.8,124.4,0.68,2,0.06,false
+WPI0103270502,Stainless Steel Razor,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Cutlery, Hand Tools and General Hardware",0.11854,83.8,12,86.7,96.7,81.2,0.504,34,0.649,true
+WPI0103270503,Iron/Steel Hinges,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Cutlery, Hand Tools and General Hardware",0.003,249.9,12,228,111.2,284.1,1.532,20,0.667,true
+WPI0103270504,"Copper Bolts, Screws, Nuts",Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Cutlery, Hand Tools and General Hardware",0.00012,128.7,12,129.7,108.4,128.1,0.709,3,0.107,false
+WPI0103270505,Lock/Padlock,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment","Manufacture of Cutlery, Hand Tools and General Hardware",0.00046,121.8,12,123.1,115.4,119.3,0.62,9,0.274,false
+WPI0103270601,"Bolts, Screws, Nuts & Nails of Iron & Steel",Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.18662,145.9,12,146.3,105.6,146.7,0.833,2,0.03,false
+WPI0103270602,Hand Tools,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.27659,162.3,12,166.4,105.8,154.4,0.875,2,0.012,false
+WPI0103270603,Iron/Steel Cap,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.01294,144.2,12,152.8,113.4,146.2,0.773,8,0.446,false
+WPI0103270604,Aluminium Utensils,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.02264,141.4,12,151.8,119.6,138.7,0.696,4,0.042,false
+WPI0103270605,Sanitary Fittings of Iron & Steel,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.06251,112.5,12,105.2,125.5,110.8,0.53,5,0.101,false
+WPI0103270606,Steel Door,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.0085,172,12,173.6,125.7,172.7,0.824,2,0.012,false
+WPI0103270607,Hose Pipes In Set Or Otherwise,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.09066,128.8,12,130.2,123,131.6,0.642,2,0.03,false
+WPI0103270608,Pressure Cooker,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.04521,147.6,12,150.3,115.6,147.7,0.766,2,0.048,false
+WPI0103270609,Steel Drums and Barrels,Manufactured Products,"Manufacture of Fabricated Metal Products, Except Machinery and Equipment",Manufacture of Other Fabricated Metal Products,0.02274,149.2,12,158.1,105.3,151,0.86,2,0.048,false
+WPI0103280101,Capacitors,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Electronic Components,0.20041,133,12,136,109.5,127.5,0.698,2,0.054,false
+WPI0103280102,UPS In Solid State Drives,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Electronic Components,0.12825,88.8,12,90.2,93.9,90.4,0.577,7,0.286,false
+WPI0103280103,Electronic Printed Circuit Board (PCB)/Micro Circuit,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Electronic Components,0.07375,142.5,12,145,116.9,139.5,0.716,3,0.024,false
+WPI0103280201,Personal Computer (P.C.),Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Computers and Peripheral Equipment,0.10995,100.7,12,99.7,114.4,111.2,0.583,101,0.899,true
+WPI0103280202,Laptops,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Computers and Peripheral Equipment,0.19068,154.6,12,154.1,130.5,154.8,0.711,71,0.935,true
+WPI0103280203,Computer Peripherals,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Computers and Peripheral Equipment,0.03574,91.9,12,91.7,93.7,95.4,0.611,11,0.565,true
+WPI0103280301,Telephone Sets Including Mobile Hand Sets,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Communication Equipment,0.30578,147.6,12,147.2,107.3,146.7,0.82,15,0.256,false
+WPI0103280302,Modems,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Communication Equipment,0.0042,95.6,12,95.8,95.7,94.8,0.594,64,0.911,true
+WPI0103280401,Colour Tv,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Consumer Electronics,0.43702,88.8,12,85.1,97.3,91.1,0.562,2,0.054,false
+WPI0103280402,Air Conditioner,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Consumer Electronics,0.20393,121.2,12,121.1,107.8,122.6,0.682,3,0.054,false
+WPI0103280501,Meter (Non-Electrical),Manufactured Products,"Manufacture of Computer, Electronic and Optical Products","Manufacture of Measuring, Testing, Navigating and Control Equipment",0.18056,126.3,12,127.8,102.2,119.9,0.704,14,0.298,false
+WPI0103280601,Watch,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Watches and Clocks,0.06734,166.7,12,167.8,121.1,154.4,0.765,12,0.381,false
+WPI0103280602,Scientific Time Keeping Device,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Watches and Clocks,0.00304,265.7,12,268.6,158.7,299.9,1.133,7,0.44,false
+WPI0103280603,Clock,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Watches and Clocks,0.00513,252.5,12,252.4,122.7,266.7,1.304,39,0.911,true
+WPI0103280701,"Electro-Diagnostic Apparatus, Used In Medical, Surgical, Dental Or Veterinary Sc",Manufactured Products,"Manufacture of Computer, Electronic and Optical Products","Manufacture of Irradiation, Electromedical and Electrotherapeutic Equipment",0.04848,109.4,12,110.7,107.9,110.4,0.614,2,0.018,false
+WPI0103280702,X-Ray Equipment,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products","Manufacture of Irradiation, Electromedical and Electrotherapeutic Equipment",0.00698,148.5,12,153,119.8,142,0.711,16,0.28,false
+WPI0103280801,Microscope,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Optical Instruments and Photographic Equipment,0.0045,153.3,12,157.9,104.7,132.4,0.758,17,0.81,true
+WPI0103280802,Sunglasses,Manufactured Products,"Manufacture of Computer, Electronic and Optical Products",Manufacture of Optical Instruments and Photographic Equipment,0.00301,63.5,12,64.5,106.8,70,0.393,3,0.083,false
+WPI0103290101,Generators & Alternators,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.3902,139.9,12,141.3,100.6,139.8,0.834,3,0.065,false
+WPI0103290102,Cooling Tower,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.00949,179.3,12,179.6,113.7,178.4,0.941,18,0.69,true
+WPI0103290103,Rotor/Magneto Rotor Assembly,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.0068,129.3,12,131.9,94.6,127.7,0.81,3,0.065,false
+WPI0103290104,Transformer,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.55072,126.2,12,125.2,110.6,125.2,0.679,3,0.054,false
+WPI0103290105,A C Motor,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.02218,139.3,12,142.3,109.7,139.7,0.764,2,0.077,false
+WPI0103290106,Electric & Other Meters,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.04345,119.3,12,123.1,102.1,117.9,0.693,5,0.137,false
+WPI0103290107,Electric Switch Gear Control/Starter,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.02069,135.6,12,142.6,109.7,131.6,0.72,3,0.077,false
+WPI0103290108,Meter Panel,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.05246,111.7,12,111,103.8,115.3,0.666,14,0.411,false
+WPI0103290109,Amplifier,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.0011,160.1,12,161.1,109.1,147.9,0.813,11,0.315,false
+WPI0103290110,Electrical Relay/Conductor,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.1027,155,12,164.8,110.9,148.6,0.804,2,0.018,false
+WPI0103290111,Safety Fuse,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.00525,139.2,12,148.1,120.9,131.5,0.652,8,0.244,false
+WPI0103290112,Multimeter,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.00014,136.3,12,136.8,112.7,135.9,0.723,52,0.905,true
+WPI0103290113,Generator Parts,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.08079,128.1,12,129.5,104.1,124.4,0.717,3,0.071,false
+WPI0103290114,Electrical Resistors (Except Heating Resistors),Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.00732,191.4,12,195.4,109.8,188.8,1.031,4,0.107,false
+WPI0103290115,Solenoid Valve,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Electric Motors, Generators, Transformers and Electricity Dist",0.0046,236,12,233.5,129.4,230.5,1.068,4,0.089,false
+WPI0103290201,Dry Cells Such As Torch Light Batteries,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Batteries and Accumulators,0.04299,149.6,12,153.3,121.1,147.4,0.73,15,0.5,true
+WPI0103290202,Lead Acid Batteries For Vehicles & Other Uses,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Batteries and Accumulators,0.00039,122.3,12,123,122.7,120.8,0.591,6,0.149,false
+WPI0103290203,Electric Accumulators,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Batteries and Accumulators,0.00207,140.7,12,142.5,111.8,138.6,0.744,8,0.423,false
+WPI0103290204,Batteries,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Batteries and Accumulators,0.19028,143.5,12,141.4,116.1,140,0.723,2,0.024,false
+WPI0103290301,Fibre Optic Cables,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Fibre Optic Cables For Data Transmission Or Live Transmission,0.13327,117.5,12,127.1,126,118.6,0.565,2,0.012,false
+WPI0103290401,PVC Insulated Cable,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.08292,177.4,12,191.2,107.3,165.3,0.924,2,0.012,false
+WPI0103290402,Jelly Filled Cables,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.00366,162.5,12,175.8,116.5,156.8,0.807,5,0.048,false
+WPI0103290403,Electric Wires & Cables,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.02157,161.7,12,160.7,112.8,152.2,0.809,7,0.31,false
+WPI0103290404,ACSR Conductors,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.04741,146,12,149,111.6,136.8,0.735,2,0.024,false
+WPI0103290405,Aluminium/Alloy Conductor,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.02667,182.6,12,199,114.5,171,0.896,2,0.006,false
+WPI0103290406,Aluminium Wire,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.01353,181.7,12,210.2,116,171.1,0.885,2,0.018,false
+WPI0103290407,Copper Wire,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.07782,190.7,12,217.1,106.1,176.2,0.996,2,0.024,false
+WPI0103290408,Rubber Insulated Cables,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.01964,78.8,12,87.9,99.7,77.3,0.465,3,0.048,false
+WPI0103290409,Insulating & Flexible Wire,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.08644,165.5,12,179.5,97.9,154,0.944,2,0.012,false
+WPI0103290410,Connector/Plug/Socket/Holder-Electric,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electronic and Electric Wires and Cables,0.04832,138.2,12,140.5,112,136.9,0.733,2,0.048,false
+WPI0103290501,Electric Switch,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.17381,120.5,12,129.5,101.1,117,0.694,3,0.077,false
+WPI0103290502,Light Fitting Accessories,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.03113,125.7,12,127.3,117.9,131.8,0.671,4,0.101,false
+WPI0103290503,Flourescent Tube,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.03823,119.5,12,120.6,104.1,117.2,0.675,4,0.083,false
+WPI0103290504,Incandescent Lamps,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.0016,108,12,106.9,106.1,113.7,0.643,3,0.06,false
+WPI0103290505,Electric Filament Type Lamps,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.01471,117.5,12,117.3,113,117,0.621,3,0.143,false
+WPI0103290506,Electrical Ballast & Chokes,Manufactured Products,Manufacture of Electrical Equipment,"Manufacture of Wiring Devices, Electric Lighting & Display Equipment",0.00346,85.4,12,85.4,98.8,87.6,0.532,99,0.935,true
+WPI0103290601,Refrigerators,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.13502,127.7,12,129.1,119.5,128.8,0.646,6,0.161,false
+WPI0103290602,Electric Mixers/Grinders/Food Processors,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.04313,113.7,12,115.1,94.9,112.2,0.709,2,0.024,false
+WPI0103290603,Air Coolers,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.00697,131,12,136.3,114.9,131.6,0.687,5,0.274,false
+WPI0103290604,Geyser,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.00269,108.5,12,107.9,109.6,111.9,0.612,31,0.631,true
+WPI0103290605,Fan,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.0508,149.4,12,152.2,106.6,149.9,0.843,2,0.048,false
+WPI0103290606,Domestic Gas Stove,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.00949,132.1,12,126.3,122.8,131.2,0.641,7,0.167,false
+WPI0103290607,Washing Machines/Laundry Machines,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.0737,131.9,12,132.4,116,130.3,0.674,2,0.06,false
+WPI0103290608,Microwave Oven,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.00206,123.8,12,123.8,115.7,123.8,0.642,26,0.798,true
+WPI0103290609,Electric Heaters,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Domestic Appliances,0.04214,136.5,12,136.5,140.7,144.3,0.615,29,0.768,true
+WPI0103290701,Electric Welding Machine,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electrical Equipment,0.06077,109.4,12,110.4,101.7,109.2,0.644,3,0.071,false
+WPI0103290702,Motors & Other Dc Equipment,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electrical Equipment,0.03353,130.4,12,133.8,100.3,130.9,0.783,19,0.482,false
+WPI0103290703,Insulator,Manufactured Products,Manufacture of Electrical Equipment,Manufacture of Other Electrical Equipment,0.11159,135.5,12,138.7,113.1,128.9,0.684,3,0.03,false
+WPI0103300101,Steam Turbines,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Engines and Turbines, Except Aircraft, Vehicle and Two Wheeler",0.02536,83,12,83,88.5,82.1,0.556,25,0.851,true
+WPI0103300102,Industrial Valve,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Engines and Turbines, Except Aircraft, Vehicle and Two Wheeler",0.61304,138.9,12,141.4,104.8,134.9,0.772,2,0.036,false
+WPI0103300201,Injection Pump,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Fluid Power Equipment,0.04418,137.3,12,137.7,115.2,137,0.713,2,0.065,false
+WPI0103300202,Hydraulic Pump,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Fluid Power Equipment,0.00026,132.9,12,133.4,114,133.9,0.704,2,0.042,false
+WPI0103300203,Pneumatic Tools,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Fluid Power Equipment,0.04017,118.8,12,122.6,100.2,118.8,0.711,40,0.905,true
+WPI0103300204,Water Pump,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Fluid Power Equipment,0.0769,142.3,12,143.6,116.2,141.2,0.729,6,0.244,false
+WPI0103300301,Centrifugal Pumps,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Other Pumps, Compressors, Taps and Valves",0.02796,144.8,12,147.3,105.8,141.7,0.803,5,0.113,false
+WPI0103300302,Pump Sets Without Motor,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Other Pumps, Compressors, Taps and Valves",0.25362,110.8,12,112.9,112.9,108.2,0.575,5,0.315,false
+WPI0103300303,Air Or Vacuum Pump,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Other Pumps, Compressors, Taps and Valves",0.17456,125.9,12,128.1,103.9,124.8,0.72,7,0.357,false
+WPI0103300304,Air Gas Compressor Including Compressor For Refrigerator,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Other Pumps, Compressors, Taps and Valves",0.05445,144.7,12,149,107.9,138.4,0.769,2,0.03,false
+WPI0103300305,Gasket Kit,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Other Pumps, Compressors, Taps and Valves",0.04124,116.7,12,119.2,107,113,0.633,4,0.042,false
+WPI0103300401,Roller and Ball Bearings,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Bearings, Gears, Gearing and Driving Elements",0.28071,130.4,12,132.7,105.9,127.8,0.724,2,0.018,false
+WPI0103300402,Motor Starter,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Bearings, Gears, Gearing and Driving Elements",0.04757,138,12,140.4,106.9,132.3,0.742,6,0.244,false
+WPI0103300403,Clutches and Shaft Couplings,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Bearings, Gears, Gearing and Driving Elements",0.01187,129.4,12,130.1,112.5,129.5,0.69,3,0.167,false
+WPI0103300501,Furnaces & Ovens,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Ovens, Furnaces and Furnace Burners",0.00837,89.4,12,93.5,98.8,86.6,0.526,5,0.125,false
+WPI0103300601,Cranes,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Lifting and Handling Equipment,0.0762,141.5,12,142.5,105.2,141.6,0.807,7,0.185,false
+WPI0103300602,"Material Handling, Lifting and Hoisting Equipment",Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Lifting and Handling Equipment,0.04086,121.2,12,121.7,101.6,120.1,0.709,6,0.179,false
+WPI0103300603,Hydraulic Equipment,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Lifting and Handling Equipment,0.16803,129.3,12,131.2,107.3,127.2,0.711,2,0.036,false
+WPI0103300701,Reprographic Machine and Scanners,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of office Machinery and Equipment,0.00582,130.2,12,130.2,140.6,130.2,0.555,123,0.982,true
+WPI0103300801,Chillers,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.00436,117.7,12,117.5,108.5,118.4,0.655,8,0.31,false
+WPI0103300802,Air Filters,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.25613,146.9,12,149.2,142.2,151,0.637,15,0.232,false
+WPI0103300803,Air Conditioning Plant,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.00015,117.7,12,118.9,100.3,117.2,0.701,36,0.72,true
+WPI0103300804,Filtration Equipment,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.13412,139.4,12,140.8,111.2,140.9,0.76,2,0.06,false
+WPI0103300805,Conveyors - Non-Roller Type,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.00093,92.2,12,90.8,89.6,94.1,0.63,3,0.107,false
+WPI0103300806,Oil Pump,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.002,143.5,12,145.1,114.6,144.9,0.758,5,0.244,false
+WPI0103300807,Deep Freezers,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.01599,110.3,12,111.7,97.9,108.8,0.667,25,0.381,true
+WPI0103300808,Water Purifier,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other General-Purpose Machinery,0.02307,141.3,12,141.3,114.9,141.8,0.74,9,0.125,false
+WPI0103300901,Agricultural Tractors,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Agricultural and Forestry Machinery,0.52772,140.9,12,140,107.2,140.1,0.784,4,0.131,false
+WPI0103300902,Harvesters,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Agricultural and Forestry Machinery,0.00364,156.7,12,158,108.9,151.2,0.833,2,0.042,false
+WPI0103300903,Agriculture Implements,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Agricultural and Forestry Machinery,0.26218,158.5,12,159.4,110.7,158.3,0.858,3,0.107,false
+WPI0103300904,Threshers,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Agricultural and Forestry Machinery,0.00071,148.9,12,148.5,113.8,148.6,0.783,7,0.423,false
+WPI0103300905,Soil Preparation & Cultivation Machinery (Other Than Tractors),Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Agricultural and Forestry Machinery,0.0384,132.2,12,132.9,108,131,0.728,11,0.571,true
+WPI0103301001,Drilling Machine,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Metal-Forming Machinery and Machine Tools,0.06894,137.4,12,139.4,109.3,142.8,0.784,7,0.339,false
+WPI0103301002,Grinding Or Polishing Machine,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Metal-Forming Machinery and Machine Tools,0.02477,132.4,12,134.7,117.9,134.5,0.684,7,0.244,false
+WPI0103301003,Lathes,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Metal-Forming Machinery and Machine Tools,0.01044,126.8,12,126.9,117.4,126.2,0.645,8,0.298,false
+WPI0103301004,Precision Machinery Equipment/Form Tools,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Metal-Forming Machinery and Machine Tools,0.11948,120.5,12,121.2,105.7,109.3,0.62,12,0.595,true
+WPI0103301101,Excavator,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.06463,131.3,12,131.4,116.7,127.8,0.657,2,0.054,false
+WPI0103301102,Dumper,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.06785,105,12,104.8,107.3,101.4,0.567,14,0.345,false
+WPI0103301103,Road Roller,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.00995,146,12,146.9,104.8,125,0.715,15,0.601,true
+WPI0103301104,Loader,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.00379,141.7,12,141.7,123.9,140.8,0.682,14,0.732,true
+WPI0103301105,"Mining, Quarrying & Metallurgical Machinery/Parts",Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.02454,127.7,12,130.5,98.9,122.3,0.742,2,0.048,false
+WPI0103301106,Mixing Machine,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.00216,117.9,12,117.4,106.1,117.7,0.665,13,0.619,true
+WPI0103301107,Concrete Vibrator & Mixture,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.01692,122.5,12,121.1,102.7,121.6,0.71,6,0.232,false
+WPI0103301108,Earth Moving Machinery,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Mining, Quarrying and Construction",0.18095,63.2,12,63.6,68.9,61.1,0.532,28,0.345,true
+WPI0103301201,Rice Mill Machinery,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Food, Beverage and Tobacco Processing",0.03071,128.1,12,129.4,104.9,128,0.732,3,0.083,false
+WPI0103301202,Pressure Vessel and Tank For Fermentation & Other Food Processing,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Food, Beverage and Tobacco Processing",0.05469,106.7,12,106.5,91.8,107.1,0.7,6,0.06,false
+WPI0103301203,Machinery Used In the Milling Industry,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Food, Beverage and Tobacco Processing",0.02217,110.6,12,114.6,100.9,103.9,0.618,16,0.756,true
+WPI0103301204,Separator,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Food, Beverage and Tobacco Processing",0.00246,121.3,12,120.9,125.1,121.2,0.581,11,0.256,false
+WPI0103301205,Sugar Machinery,Manufactured Products,Manufacture of Machinery and Equipment,"Manufacture of Machinery For Food, Beverage and Tobacco Processing",0.1179,138.7,12,138.8,130.4,138.6,0.638,11,0.292,false
+WPI01033013,Open End Spinning Machinery,Manufactured Products,Manufacture of Machinery and Equipment,,0.13728,146.7,12,157.1,113.3,144,0.762,5,0.065,false
+WPI0103301301,Sewing Machines,Manufactured Products,Manufacture of Machinery and Equipment,Open End Spinning Machinery,0.01112,168.2,12,174,109.5,163,0.893,3,0.077,false
+WPI0103301302,Roller Mill (Raymond),Manufactured Products,Manufacture of Machinery and Equipment,Open End Spinning Machinery,0.0019,163.8,12,169.8,101.7,167.7,0.989,8,0.161,false
+WPI0103301303,Printing Machinery,Manufactured Products,Manufacture of Machinery and Equipment,Open End Spinning Machinery,0.04184,130.5,12,130.9,109.1,126.1,0.693,3,0.125,false
+WPI0103301401,Machinery For Plastic Products - Extruded,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.08373,117.6,12,117.9,98.7,117,0.711,13,0.244,false
+WPI0103301402,Moulding Machine,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.09108,172.1,12,172.5,117.9,169.9,0.864,9,0.333,false
+WPI0103301403,Chemical Equipment & System,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.00731,144.7,12,145.5,115.1,128.7,0.671,6,0.202,false
+WPI0103301404,Pharmaceutical Machinery,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.19273,149.8,12,147.5,106.5,150.7,0.849,2,0.042,false
+WPI0103301405,Packing Machine,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.01276,113.3,12,113.2,104.4,113.5,0.652,16,0.53,true
+WPI0103301406,Evaporator,Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Other Special-Purpose Machinery,0.08073,149,12,152,111,138.1,0.746,14,0.417,false
+WPI0103301501,Solar Power System (Solar Panel & Attachable Equipment),Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Renewable Electricity Generating Equipment,0.02582,46.2,12,45.4,59.7,46.4,0.466,15,0.173,false
+WPI0103301502,Windmill Turbines (2500Kw),Manufactured Products,Manufacture of Machinery and Equipment,Manufacture of Renewable Electricity Generating Equipment,0.01977,99,12,99,102.1,99,0.582,31,0.857,true
+WPI0103310101,"Light, Medium & Heavy Commercial Vehicles",Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Motor Vehicles,0.69584,114.1,12,112.3,114.1,116.1,0.61,13,0.488,false
+WPI0103310102,Minibus/Bus,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Motor Vehicles,0.79295,145.5,12,146.9,109.7,144.3,0.789,3,0.089,false
+WPI0103310103,Passenger Vehicles,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Motor Vehicles,0.86336,129.3,12,129.7,119.8,128.4,0.643,4,0.167,false
+WPI0103310104,Chassis of Different Vehicle Types,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Motor Vehicles,0.15893,139.6,12,140.3,102.6,138.8,0.811,5,0.185,false
+WPI0103310105,Body (For Commercial Motor Vehicles),Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Motor Vehicles,0.08918,127.8,12,128.2,107.4,126.8,0.708,5,0.155,false
+WPI0103310201,Engine,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.83798,124.6,12,126.2,106.7,123.3,0.693,5,0.149,false
+WPI0103310202,Wheels/Wheels & Parts,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.14275,129.1,12,129.1,99.8,130.2,0.783,3,0.042,false
+WPI0103310203,Shock Absorbers,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.10028,112.4,12,114.4,102.5,106.1,0.621,8,0.536,true
+WPI0103310204,Shafts of All Kinds,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.07112,136.3,12,136.8,108.7,133.9,0.739,4,0.125,false
+WPI0103310205,Axles of Motor Vehicles,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.12553,141.1,12,141.7,107,144,0.807,3,0.054,false
+WPI0103310206,Radiators & Coolers,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.06161,150.7,12,152.3,115,147.8,0.771,4,0.042,false
+WPI0103310207,Piston Ring/Piston and Compressor,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.05103,152.7,12,154.4,116.3,149.8,0.773,2,0.024,false
+WPI0103310208,Crankshaft,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.02807,108.9,12,109.1,98.8,109,0.662,4,0.083,false
+WPI0103310209,Silencer and Damper,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.07898,128.1,12,128.3,90.4,121.8,0.808,8,0.226,false
+WPI0103310210,"Brake Pad/Brake Liner/Brake Block/Brake Rubber, Others",Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.10145,131.7,12,130.7,99.5,132.8,0.801,3,0.018,false
+WPI0103310211,Head Lamp,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.03681,155.8,12,156.3,105.6,155,0.88,3,0.054,false
+WPI0103310212,Gear Box and Parts,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.31546,127.4,12,128.5,96.3,125.3,0.78,2,0.03,false
+WPI0103310213,Steering Gear Control System,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.08627,131.2,12,130.9,97.1,131.6,0.813,12,0.369,false
+WPI0103310214,Cylinder Liners,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.08823,111.9,12,112.1,109.5,112.3,0.615,2,0.036,false
+WPI0103310215,Chain,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.0219,148.5,12,150,107.4,146.5,0.818,3,0.089,false
+WPI0103310216,Release Valve,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.00101,152.6,12,163.3,124.2,138.7,0.67,4,0.155,false
+WPI0103310217,Filter Element,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.0503,112,12,112.4,99.9,106.9,0.642,7,0.107,false
+WPI0103310218,Seat For Motor Vehicles,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.15245,159.8,12,160.1,130.1,160.1,0.738,8,0.304,false
+WPI0103310219,Ignition Device,Manufactured Products,"Manufacture of Motor Vehicles, Trailers and Semi -Trailers",Manufacture of Parts and Accessories For Motor Vehicles,0.01704,185.9,12,186.2,127.2,180.6,0.852,7,0.488,false
+WPI0103320101,"Fishing Vessels, Trawlers",Manufactured Products,Manufacture of Other Transport Equipment,Building of Ships and Floating Structures,0.1134,195.8,12,208.6,160.7,182.7,0.682,103,0.952,true
+WPI0103320102,Propellers & Blades of Boats/Ships,Manufactured Products,Manufacture of Other Transport Equipment,Building of Ships and Floating Structures,0.00394,121.6,12,124.6,100.3,116.9,0.699,4,0.179,false
+WPI0103320201,Wagons,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Railway Locomotives and Rolling Stock,0.06331,102.7,12,104,89.9,100.8,0.673,10,0.298,false
+WPI0103320202,EMU Coaches,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Railway Locomotives and Rolling Stock,0.02715,116.1,12,116.2,109.4,114.6,0.628,55,0.827,true
+WPI0103320203,Diesel/Electric Locomotive,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Railway Locomotives and Rolling Stock,0.01891,128.6,12,128.6,118,128.6,0.654,39,0.833,true
+WPI0103320204,Railway Brake Gear,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Railway Locomotives and Rolling Stock,0.00042,89.3,12,91.7,104.7,88.6,0.508,19,0.315,false
+WPI0103320301,Motor Cycles,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Motor Cycles,1.1661,155.3,12,159.5,101.6,148.2,0.875,3,0.06,false
+WPI0103320302,Scooters,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Motor Cycles,0.12322,128,12,128.6,98,123.4,0.755,4,0.095,false
+WPI0103320303,Auto Rickshaw/Tempo/Matador/Three Wheelers,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Motor Cycles,0.01273,167.4,12,169.5,115.8,163.8,0.848,6,0.423,false
+WPI0103320401,Bicycles of All Types,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Bicycles and Invalid Carriages,0.117,137.7,12,141.9,114.1,134.9,0.709,4,0.119,false
+WPI0103320501,Tanker,Manufactured Products,Manufacture of Other Transport Equipment,Manufacture of Other Transport Equipment,0.00159,167,12,171.8,113.5,163.2,0.862,4,0.113,false
+WPI0103330101,Wooden Furniture,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.18979,141.9,12,143.2,110.1,139.3,0.759,2,0.06,false
+WPI0103330102,Plastic Fixtures,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.09781,126,12,129.6,120.6,123.6,0.615,3,0.089,false
+WPI0103330103,Steel Shutter Gate,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.0684,241.6,12,247.3,122,236.7,1.164,3,0.089,false
+WPI0103330104,Iron/Steel Furniture,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.26311,135.2,12,137.1,112.1,135.5,0.725,3,0.071,false
+WPI0103330105,Hospital Furniture,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.00087,139.4,12,144.4,115.9,137.7,0.713,4,0.054,false
+WPI0103330106,Foam and Rubber Mattress,Manufactured Products,Manufacture of Furniture,Manufacture of Furniture,0.10674,261,12,267.9,131.7,243.7,1.11,3,0.06,false
+WPI0103340101,Gold & Gold Ornaments,Manufactured Products,Other Manufacturing,Manufacture of Jewellery and Related Articles,0.96561,257.3,12,316,105.2,186.1,1.061,2,0.012,false
+WPI0103340102,Silver,Manufactured Products,Other Manufacturing,Manufacture of Jewellery and Related Articles,0.03077,298,12,440.5,71.9,162.6,1.356,2,0.018,false
+WPI0103340201,"Stringed Musical Instruments (Incl. Santoor, Guitars, Etc.)",Manufactured Products,Other Manufacturing,Manufacture of Musical Instruments,0.00124,204.2,12,209.6,133.8,201.9,0.905,2,0.036,false
+WPI0103340301,Sports Goods of Rubber (Incl. Balls),Manufactured Products,Other Manufacturing,Manufacture of Sports Goods,0.00367,155,12,160.7,112.8,149.4,0.794,4,0.149,false
+WPI0103340302,Cricket Ball,Manufactured Products,Other Manufacturing,Manufacture of Sports Goods,0.00023,219.1,12,227.1,133.5,219.1,0.984,3,0.095,false
+WPI0103340303,Cricket Bat,Manufactured Products,Other Manufacturing,Manufacture of Sports Goods,0.00206,217.8,12,222.1,113.7,209,1.103,4,0.268,false
+WPI0103340304,Football,Manufactured Products,Other Manufacturing,Manufacture of Sports Goods,0.00562,171.5,12,172.7,113.7,161.7,0.853,5,0.137,false
+WPI0103340305,Table Tennis Table,Manufactured Products,Other Manufacturing,Manufacture of Sports Goods,0.0008,130,12,132,115,129.3,0.674,12,0.768,true
+WPI0103340401,Playing Cards,Manufactured Products,Other Manufacturing,Manufacture of Games and Toys,0.00207,169.1,12,176.7,117.8,164.8,0.839,2,0.012,false
+WPI0103340402,Carrom Board,Manufactured Products,Other Manufacturing,Manufacture of Games and Toys,0.00045,208.9,12,211.6,121.7,201.5,0.993,9,0.577,true
+WPI0103340403,Plastic Moulded-Others Toys,Manufactured Products,Other Manufacturing,Manufacture of Games and Toys,0.0021,150.5,12,152,117.6,148.8,0.759,3,0.071,false
+WPI0103340404,Non Mechanical Toys,Manufactured Products,Other Manufacturing,Manufacture of Games and Toys,0.00014,229.9,12,229.9,121.6,228.9,1.129,14,0.589,true
+WPI0103340501,Intraocular Lens,Manufactured Products,Other Manufacturing,Manufacture of Medical and Dental Instruments and Supplies,0.04941,162,12,165.8,125.1,158.6,0.76,9,0.464,false
