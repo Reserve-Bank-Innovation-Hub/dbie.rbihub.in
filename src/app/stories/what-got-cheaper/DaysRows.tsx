@@ -100,7 +100,7 @@ export const DaysRows = ({ names } : { names : string[] }) => {
     return (
         <Figure
             className="dy-figure"
-            title={`If a good took ten days of a labourer’s pay in ${FROM}, this is what it took in ${TO}`}
+            title={`If a labourer had to work 10 days to afford a particular good in ${FROM}, this is what it took in ${TO}`}
             table={{
                 head    : [ "Good", "Price rise", "Wage rise", "Days" ],
                 numeric : [ false, true, true, true ],
