@@ -133,3 +133,33 @@ export const EMOJI_OF : Record<string, string> = {
     "Silver" : "🥈", "Coconuts" : "🥥", "Tomatoes" : "🍅", "Jasmine" : "🌼", "Milk" : "🥛", "Eggs" : "🥚", "Petrol" : "⛽",
     "Kerosene" : "🪔", "Cement" : "🧱", "basket" : "🧺",
 };
+
+// THE GROUPS' SHORT NAMES =============================================================================================
+// A group as the figures name it: DBIE's label without "Manufacture of", its alternative after a slash, its "except"
+// clause and its longest tails; the table views carry the label in full.
+const GROUP_SHORT : Record<string, string> = {
+    "Printing and reproduction of recorded media" : "Printing and recorded media",
+    "Wood and of products of wood and cork"       : "Wood and cork products",
+    "Computer, electronic and optical products"   : "Computers, electronics and optics",
+    "Motor vehicles, trailers and semi-trailers"  : "Motor vehicles and trailers",
+    "Other non-metallic mineral products"         : "Non-metallic mineral products",
+    "Chemicals and chemical products"             : "Chemicals",
+    "Rubber and plastics products"                : "Rubber and plastics",
+    "Paper and paper products"                    : "Paper",
+    "Leather and related products"                : "Leather",
+    "Crude petroleum & natural gas"               : "Crude petroleum and gas",
+    "Fabricated metal products"                   : "Fabricated metal products",
+};
+export const groupShortName = (label : string) => {
+    const s = label
+        .replace(/^Manufacture of /i, "")
+        .replace(/Manufacture of /gi, "")
+        .replace(/\/.*$/, "")
+        .replace(/, Except .*$/i, "")
+        .replace(/^(Pharmaceuticals), .*$/i, "$1")
+        .replace(/Minral/g, "Mineral")
+        .replace(/\s*-\s*/g, "-")
+        .trim();
+    const sentence = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+    return GROUP_SHORT[sentence] ?? sentence;
+};

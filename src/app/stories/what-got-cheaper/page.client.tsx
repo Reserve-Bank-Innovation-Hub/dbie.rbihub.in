@@ -25,7 +25,7 @@ import {
     AGRI_CPI, BULLION, CHEAPER, CHEAPER_IN_WORK, COUNTS, CPI_FY_WINDOW, CPI_GENERAL, CPI_SHOWN, DOUBLED, FLAT, FOLLOWED, GAP_SHARES, GROUPS, HEADLINE,
     HEAVIEST, IN_WORK, ITEMS, KEPT_PACE_UNTIL, LINKS, LONG, LONG_RANGE, LONG_TIMES, MAJORS, MAJOR_PLAIN, MISFILED, MONTHS, RISE, RISERS, RURAL_CPI,
     STALE_CHEAPER, TRIPLED, WAGES_BY_RISE, WAGE_RISE, WPI_CALENDAR, WPI_RISE_CAL, WPI_RISE_WAGE_WINDOW, YARD, YARDSTICK, YEARLY, YEARS, cpiNamed,
-    cpiRise, cpiRiseFy, inr, itemOfFollowed, list, monthName, numberWord, pct, rs, shareOf, signed, timesWords, wageNamed, weightOf,
+    cpiRise, cpiRiseFy, groupShortName, inr, itemOfFollowed, list, monthName, numberWord, pct, rs, shareOf, signed, timesWords, wageNamed, weightOf,
 } from "./data";
 
 // STYLES ==============================================================================================================
@@ -508,7 +508,7 @@ export const WhatGotCheaperPage = () => (
                                 note={prose(`From the wholesale price index on DBIE. The weights add to ₹100, and at those weights the groups’ indices
                                     reproduce the whole basket within ${HEADLINE.rebuildTolerance} of an index point in every month.`)}
                             >
-                                <HBars rows={[ ...GROUPS ].sort((a, b) => b.now - a.now).map(g => ({ key : g.code, label : g.label.replace(/^Manufacture of /, "").replace(/\/.*$/, ""), value : g.now - 100, kind : groupKind(g.major), note : `₹${g.weight.toFixed(1)} of 100`, tip : [ MAJOR_PLAIN[g.major], `weight ₹${g.weight.toFixed(2)} of every ₹100` ] }))} format={v => signed(v + 100)} labelWidth={210} noteWidth={80} rowHeight={22} ariaLabel={`Change in each group of the wholesale price index between ${BASE} and ${NOW}`} />
+                                <HBars rows={[ ...GROUPS ].sort((a, b) => b.now - a.now).map(g => ({ key : g.code, label : groupShortName(g.label), value : g.now - 100, kind : groupKind(g.major), note : `₹${g.weight.toFixed(1)} of 100`, tip : [ MAJOR_PLAIN[g.major], `weight ₹${g.weight.toFixed(2)} of every ₹100` ] }))} format={v => signed(v + 100)} labelWidth={236} noteWidth={80} rowHeight={22} ariaLabel={`Change in each group of the wholesale price index between ${BASE} and ${NOW}`} />
                             </Figure>
                         </Reveal>
                     </Portion>
@@ -521,7 +521,7 @@ export const WhatGotCheaperPage = () => (
                                     is the non-agricultural labourer’s day: ₹${Math.round(YARD.from)} in ${HEADLINE.wageWindow.from} and
                                     ₹${Math.round(YARD.to)} in ${HEADLINE.wageWindow.to}.`)}
                             >
-                                <HBars rows={WAGES_BY_RISE.map(w => ({ key : w.code, label : w.label.replace(/\s*\(.*$/, "").replace(/ including.*$/i, "").replace(/\s*[-:].*$/, ""), value : 100 * (w.to / w.from - 1), kind : "money" as const, note : `₹${Math.round(w.from)} to ₹${Math.round(w.to)}`, tip : [ `₹${Math.round(w.from)} a day in ${HEADLINE.wageWindow.from}, ₹${Math.round(w.to)} in ${HEADLINE.wageWindow.to}` ] }))} format={v => pct(v, 0)} labelWidth={210} noteWidth={92} rowHeight={22} ariaLabel={`Rise in rural daily wages by occupation between ${HEADLINE.wageWindow.from} and ${HEADLINE.wageWindow.to}`} />
+                                <HBars rows={WAGES_BY_RISE.map(w => ({ key : w.code, label : w.label.replace(/\s*\(.*$/, "").replace(/ including.*$/i, "").replace(/\s*[-:].*$/, "").replace(/^Harvesting\/Winnowing\/ ?Threshing workers$/i, "Harvest and threshing workers"), value : 100 * (w.to / w.from - 1), kind : "money" as const, note : `₹${Math.round(w.from)} to ₹${Math.round(w.to)}`, tip : [ `₹${Math.round(w.from)} a day in ${HEADLINE.wageWindow.from}, ₹${Math.round(w.to)} in ${HEADLINE.wageWindow.to}` ] }))} format={v => pct(v, 0)} labelWidth={210} noteWidth={92} rowHeight={22} ariaLabel={`Rise in rural daily wages by occupation between ${HEADLINE.wageWindow.from} and ${HEADLINE.wageWindow.to}`} />
                             </Figure>
                         </Reveal>
                     </Portion>

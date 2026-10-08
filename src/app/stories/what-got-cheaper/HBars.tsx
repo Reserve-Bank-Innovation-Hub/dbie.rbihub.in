@@ -12,7 +12,7 @@ import { useSize } from "./useSize";
 
 // A row of horizontal bars, one a label, grown from the baseline when the chart scrolls into view. `diverging` puts
 // zero down the middle so falls run left and rises run right. The value sits at each bar's tip; hovering a row lifts
-// it and shows its tip lines.
+// it and shows its tip lines. In a narrow wrapper the label takes its own line above the bar, so no label is ever cut.
 export interface HBarRow {
     key    : string;
     label  : string;
@@ -37,15 +37,16 @@ export const HBars = ({ rows, format, max, diverging = false, rowHeight = 28, la
     const { ref, width } = useSize<HTMLDivElement>();
     const [ hover, setHover ] = useState<number | null>(null);
     const narrow = width < 520;
-    const lw = narrow ? Math.min(labelWidth, 116) : labelWidth;
+    const lw = narrow ? 0 : labelWidth;
     const nw = narrow ? 0 : noteWidth;
+    const rowH = narrow ? rowHeight + 16 : rowHeight;             // room for the label's own line
     const top = max ?? Math.max(...rows.map(r => Math.abs(r.value)), 1e-9);
     const valueRoom = Math.max(...rows.map(r => format(r.value).length)) * 7.4 + 14;
     const plot = Math.max(0, width - lw - nw - valueRoom - (diverging ? valueRoom : 0));
     const zero = lw + (diverging ? valueRoom + plot / 2 : 0);
     const scale = (diverging ? plot / 2 : plot) / top;
     const barH = Math.min(18, rowHeight - 8);
-    const height = rowHeight * rows.length + 6;
+    const height = rowH * rows.length + 6;
 
     return (
         <div className="hbars-wrap" ref={ref} onPointerLeave={() => setHover(null)}>
@@ -56,27 +57,31 @@ export const HBars = ({ rows, format, max, diverging = false, rowHeight = 28, la
                 >
                     {diverging && <line className="zero-line" x1={zero} x2={zero} y1={0} y2={height} />}
                     {rows.map((r, i) => {
-                        const y = 3 + i * rowHeight;
+                        const y = 3 + i * rowH;
+                        const barY = y + (narrow ? 16 : 0) + (rowHeight - barH) / 2;
+                        const textY = barY + barH / 2 + 4;
                         const len = Math.abs(r.value) * scale;
                         const dir = r.value < 0 ? -1 : 1;
                         const kind = r.kind ?? (r.value < 0 ? "fall" : "accent");
                         const dim = hover !== null && hover !== i;
                         return (
                             <g key={r.key} className={`hbar-row kind-${kind} ${dim ? "is-dim" : ""}`} onPointerEnter={() => setHover(i)}>
-                                <rect className="row-hit" x={0} y={y} width={width} height={rowHeight} />
-                                <text className="row-label" x={lw - 10} y={y + rowHeight / 2 + 4} textAnchor="end">{r.label}</text>
+                                <rect className="row-hit" x={0} y={y} width={width} height={rowH} />
+                                {narrow
+                                    ? <text className="row-label" x={zero} y={y + 11} textAnchor={diverging ? "middle" : "start"}>{r.label}</text>
+                                    : <text className="row-label" x={lw - 10} y={textY} textAnchor="end">{r.label}</text>}
                                 <motion.path
-                                    className="bar" d={hBarPath(zero, y + (rowHeight - barH) / 2, len, barH, dir as 1 | -1)}
+                                    className="bar" d={hBarPath(zero, barY, len, barH, dir as 1 | -1)}
                                     style={{ transformBox : "fill-box", transformOrigin : dir === 1 ? "0% 50%" : "100% 50%" }}
                                     variants={{ hidden : { scaleX : 0 }, shown : { scaleX : 1, transition : { duration : 0.9, ease : EASE, delay : i * 0.045 } } }}
                                 />
                                 <motion.text
-                                    className="bar-value" x={zero + dir * (len + 6)} y={y + rowHeight / 2 + 4} textAnchor={dir === 1 ? "start" : "end"}
+                                    className="bar-value" x={zero + dir * (len + 6)} y={textY} textAnchor={dir === 1 ? "start" : "end"}
                                     variants={{ hidden : { opacity : 0 }, shown : { opacity : 1, transition : { duration : 0.4, delay : 0.5 + i * 0.045 } } }}
                                 >
                                     {format(r.value)}
                                 </motion.text>
-                                {r.note && !narrow && <text className="row-note" x={width} y={y + rowHeight / 2 + 4} textAnchor="end">{r.note}</text>}
+                                {r.note && !narrow && <text className="row-note" x={width} y={textY} textAnchor="end">{r.note}</text>}
                             </g>
                         );
                     })}
@@ -84,7 +89,7 @@ export const HBars = ({ rows, format, max, diverging = false, rowHeight = 28, la
             )}
             {hover !== null && rows[hover] && (
                 <ChartTip
-                    x={zero} y={3 + hover * rowHeight + rowHeight + 4} width={width}
+                    x={zero} y={3 + hover * rowH + rowH + 4} width={width}
                     head={`${rows[hover].label}: ${format(rows[hover].value)}`} lines={rows[hover].tip ?? (rows[hover].note ? [ rows[hover].note! ] : [])}
                 />
             )}
