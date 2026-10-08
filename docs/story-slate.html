@@ -354,10 +354,11 @@ footer b { color: var(--accent); }
       <li><a href="#s8" class="sub">S8 How far apart the states are</a></li>
       <li><a href="#s9" class="sub">S9 The cost of waiting</a></li>
       <li><a href="#s10" class="sub">S10 Does MSP keep up?</a></li>
-      <li><a href="#product"><span>06</span>Beyond stories</a></li>
-      <li><a href="#build"><span>07</span>Build plan</a></li>
-      <li><a href="#questions" class="q"><span>08</span>Open questions</a></li>
-      <li><a href="#method"><span>09</span>Sources and method</a></li>
+      <li><a href="#threed"><span>06</span>The 3D layer</a></li>
+      <li><a href="#product"><span>07</span>Beyond stories</a></li>
+      <li><a href="#build"><span>08</span>Build plan</a></li>
+      <li><a href="#questions" class="q"><span>09</span>Open questions</a></li>
+      <li><a href="#method"><span>10</span>Sources and method</a></li>
     </ol>
   </div>
 </nav>
@@ -371,7 +372,7 @@ footer b { color: var(--accent); }
     <div class="stat" role="listitem"><div class="v">11</div><div class="l">story plans, 4 in the first wave</div></div>
     <div class="stat" role="listitem"><div class="v">4</div><div class="l">fact-check gates before anything is published</div></div>
     <div class="stat" role="listitem"><div class="v">5</div><div class="l">base or definition breaks found in research that our draft numbers had missed</div></div>
-    <div class="stat" role="listitem"><div class="v">22</div><div class="l">open questions for the team, in section 08</div></div>
+    <div class="stat" role="listitem"><div class="v">22</div><div class="l">open questions for the team, in section 09</div></div>
   </div>
 
   <div class="tbl"><table>
@@ -995,8 +996,50 @@ footer b { color: var(--accent); }
 </article>
 </section>
 
+<section id="threed">
+  <div class="sec-head"><span class="sec-num">06</span><h2>The 3D layer</h2></div>
+  <p class="tldr"><b>In short</b><span>Sujan approved three.js for the stories on 08-10-2026. In our stories, 3D sets the scene and moves the reader between ideas; it never carries a number. Whenever a reader is meant to read a value, the camera settles into a flat, front-on view, and the values there match the 2D chart exactly. S1, S2 and S3 are the first three stories to use it.</span></p>
+  <h3 id="threed-rule">The rule: 3D stages, flat reads</h3>
+  <ol class="acts">
+    <li><span><b>No value is carried by depth.</b> There are no 3D bars, no 3D pies and no extruded maps that carry values. Perspective makes near things look bigger, and people will quote our charts.</span></li>
+    <li><span><b>Every reading moment is flat.</b> The camera settles into an orthographic, front-on view, in which heights are linear and exact. Labels are HTML overlays drawn from the claim register, not text baked into the 3D scene.</span></li>
+    <li><span><b>One source of numbers.</b> Scenes read the same frozen data.gen.ts as the 2D charts. There is no separate data path to check.</span></li>
+    <li><span><b>A still fallback for every scene.</b> Readers who have turned on reduced motion, who have no WebGL, who are on a low-end phone, or who print the page all get the flat chart instead. Screen readers get the data table.</span></li>
+    <li><span><b>Motion follows the scroll and runs both ways.</b> Scrolling back reverses each scene. Nothing the reader needs to know sits inside an autoplaying loop.</span></li>
+    <li><span><b>Gate 4 adds one check.</b> Before sign-off, the flat frame of each scene is compared with its 2D chart, value by value.</span></li>
+  </ol>
+  <h3 id="threed-stack">Stack and checks</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Piece</th><th>What</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">three</td><td>The WebGL engine</td><td>Approved by Sujan on 08-10-2026</td></tr>
+      <tr><td class="ent">@react-three/fiber</td><td>three.js as React components, so scenes sit inside the existing story shell</td><td>To confirm that the approval covers it</td></tr>
+      <tr><td class="ent">@react-three/drei</td><td>Ready-made helpers for cameras, HTML labels and lines</td><td>To confirm that the approval covers it</td></tr>
+      <tr><td class="ent">Loading</td><td>Each scene loads only in the browser, through next/dynamic with ssr off, and only on the story that uses it</td><td>The static build and first paint stay light. The estimate is 150–200 KB gzipped, to be measured in the build.</td></tr>
+      <tr><td class="ent">Visual checks</td><td>Headless Playwright screenshots of every scene, including the flat frame and the still fallback, on desktop and phone sizes</td><td>Also used to compare the flat frame with the 2D chart for gate 4</td></tr>
+    </tbody>
+  </table></div>
+  <h3 id="threed-scenes">The first three scenes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Story</th><th>3D moment</th><th>Where it settles for reading</th><th>Data caveat</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">S1 Two numbers, one rupee</td><td>A globe with 40 trading-partner arcs. Then the ₹/$ line lifts off the page and twists as each layer is added: first the other 39 currencies (NEER), then price differences (REER).</td><td>The 2D chart of ₹/$, NEER and REER, Apr 2004 to Jul 2026</td><td>Arc thickness by trade weight needs the basket weights, which are in RBI's REER methodology note, not on DBIE. They go through the gates as an outside source; without them, all arcs are drawn the same width.</td></tr>
+      <tr><td class="ent">S2 Cash didn't die</td><td>Particles stream from ATMs to UPI, with one particle standing for a fixed number of payments, stated in a legend. Behind them a stack of notes, split by denomination, keeps growing.</td><td>Lines for UPI payments, ATM withdrawals and cash to GDP. The denomination stack is read front-on, where heights are exact.</td><td>Cash to GDP stays on the old GDP base until the 2022-23 base decision is taken (open questions, section 09).</td></tr>
+      <tr><td class="ent">S3 Money in, money out</td><td>Arcs on a globe: money sent home coming in, LRS money going out.</td><td>The inflow and outflow chart, 1990-91 to 2024-25</td><td>DBIE has the totals only. Naming source countries needs RBI's remittance survey shares, an outside source. Without them, the arcs show direction only. The LRS file fix is still needed first.</td></tr>
+    </tbody>
+  </table></div>
+  <h3 id="threed-lakh">The ₹1 lakh objects</h3>
+  <p>The necklace, the bangle and the ring from the lens are built in code from simple shapes, so no 3D models need licensing. The object is a picture; the claim is the number of grams beside it. The grams come from the lens table: 224.1 g in 2001, 41.9 g in 2011, 21.1 g in 2021. The object's size is never used to show the amount; the grams are also shown as a bead count in the flat view.</p>
+  <h3 id="threed-decide">To decide</h3>
+  <ul class="plain">
+    <li>Confirm with Sujan that the approval covers @react-three/fiber and @react-three/drei as well as three.</li>
+    <li>Set the slowest phone class that must run the scenes; anything slower gets the still fallback.</li>
+    <li>Decide whether to source the S1 basket weights and the S3 country shares from outside DBIE.</li>
+  </ul>
+</section>
+
 <section id="product">
-  <div class="sec-head"><span class="sec-num">06</span><h2>Beyond stories: a product in itself</h2></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Beyond stories: a product in itself</h2></div>
   <p class="tldr"><b>In short</b><span>The research turned up dozens of plain questions people keep asking, each answerable from DBIE with one chart and one paragraph. Together with the stories, the ₹1 lakh lens and a kit for economists, that is a product: the public's reference for Indian economic data, from the institution that hosts the data.</span></p>
   <div class="cards">
     <li><h4>DBIE Answers</h4><p>Short, frozen, dated answers to the questions in section 03: "Why is there more cash than ever?", "Who owns India's debt?", "Is the rupee undervalued?". Each is one chart, one paragraph, the series code and a link to the full story. In the StatsCAN Plus mould: under three minutes. Checked through the same gates, but faster, because each has one or two claims.</p></li>
@@ -1009,13 +1052,13 @@ footer b { color: var(--accent); }
 </section>
 
 <section id="build">
-  <div class="sec-head"><span class="sec-num">07</span><h2>Build plan</h2></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Build plan</h2></div>
   <p class="tldr"><b>In short</b><span>Build the shared pieces once (story shell, drawer, toggles, lens, claim register), then ship wave 1 one story at a time, each through the four gates. Every story follows the same seven steps.</span></p>
   <h3 id="phases">Phases</h3>
   <div class="tbl"><table>
     <thead><tr><th>Phase</th><th>What</th><th>Done when</th></tr></thead>
     <tbody>
-      <tr><td class="ent">0 · Foundations</td><td>Story shell with vintage stamp and corrections log; "For economists" drawer with chart/table/CSV tabs; measurement toggle; draw-it guess; the ₹1 lakh lens component; claim register and recompute script; edition routing</td><td>One existing story (the ₹2 lakh line) retrofitted to the shell and passing the recompute script</td></tr>
+      <tr><td class="ent">0 · Foundations</td><td>Story shell with vintage stamp and corrections log; "For economists" drawer with chart/table/CSV tabs; measurement toggle; draw-it guess; the ₹1 lakh lens component; claim register and recompute script; edition routing; the 3D scene shell with its flat settle and still fallback (section 06)</td><td>One existing story (the ₹2 lakh line) retrofitted to the shell and passing the recompute script</td></tr>
       <tr><td class="ent">1 · Wave 1</td><td>S0 What ₹1 lakh bought, S1 Rupee, S5 Who lends, S2 Cash (after the GDP-base decision)</td><td>Each published, frozen, with its kit and a named sign-off</td></tr>
       <tr><td class="ent">2 · Wave 2</td><td>S3, S4, S6, S7, S8, plus DBIE Answers for the questions already researched</td><td>Base-year decisions taken; data gaps scraped or sourced</td></tr>
       <tr><td class="ent">3 · Wave 3 and product</td><td>S9, S10, the calculator, embeds, chart of the month</td><td>Review dates set for every published story</td></tr>
@@ -1043,7 +1086,7 @@ footer b { color: var(--accent); }
 </section>
 
 <section id="questions" class="q-sec">
-  <div class="sec-head"><span class="sec-num">08</span><h2>Open questions</h2></div>
+  <div class="sec-head"><span class="sec-num">09</span><h2>Open questions</h2></div>
   <p class="tldr"><b>In short</b><span>Decisions that change what we build. Each has a suggested answer to react to. The ones on governance and sign-off matter most, because they decide how fast anything can ship.</span></p>
   <h3>Governance and accuracy</h3>
   <ol class="qs">
@@ -1082,7 +1125,7 @@ footer b { color: var(--accent); }
 </section>
 
 <section id="method">
-  <div class="sec-head"><span class="sec-num">09</span><h2>Sources and method</h2></div>
+  <div class="sec-head"><span class="sec-num">10</span><h2>Sources and method</h2></div>
   <ul class="plain">
     <li><b>DBIE figures.</b> Computed on 08-10-2026 from data release 2026-10-06-d0f2cac (scrape of 29-09-2026) in the dbie.rbihub.in repository, using the release's JSON files and DBIE's own code lists for labels. The charts on this page are drawn from the same numbers, embedded in the page. None has yet passed gates 2 to 4.</li>
     <li><b>Web research.</b> Five research passes on 08-10-2026 covered storytelling practice, the rupee and gold, cash and payments, household savings and government bonds, and remittances, wages, states, projects and MSP. Where a source is secondary (news or exam-prep summaries of a primary document) the text says so or the claim is marked to verify. Nothing here should be quoted publicly before gate 2.</li>
