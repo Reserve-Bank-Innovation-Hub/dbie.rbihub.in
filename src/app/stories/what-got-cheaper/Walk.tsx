@@ -55,7 +55,7 @@ const K0 = -6.5;                            // the base year's average, at the m
 const CARD_STACKED = 176;                   // the height the caption card keeps when it stacks above the plot
 const CARD_W = 380, CARD_H = 200;           // the card over the plot's top left on a wide screen, at its tallest
 const LABEL_X = 14;                         // the end labels start this far right of the plot, clear of the resting emoji
-const END_EMOJI_W = 21;                     // a 14px emoji in an end label, with the gap before its name or value
+const END_EMOJI_W = 27;                     // an 18px emoji in an end label, with the gap before its name or value
 const BAND = 40;                            // the band between a stacked card and the plot: spike markers, the column head
 
 // HELPERS (local; candidates for data.ts) ==============================================================================
@@ -170,7 +170,7 @@ interface Geo {
 // The lines start half an emoji in from the plot's left edge, so the emoji at the origin clears the 0% label.
 const geoOf = (W : number, H : number, family : string, stack : boolean) : Geo => {
     const narrow = W < 560, stacked = narrow || stack;
-    const emoji = narrow ? 22 : 26, inset = emoji / 2 + 2;
+    const emoji = narrow ? 34 : 44, inset = emoji / 2 + 2;
     const padL = narrow ? 44 : 56, padR = narrow ? 112 : 184, padB = narrow ? 36 : 40;
     const bandTop = stacked ? 12 + CARD_STACKED + 4 : 0;
     const padT = stacked ? 12 + CARD_STACKED + 8 + BAND : 56;
@@ -380,7 +380,7 @@ export const Walk = () => {
             ...tracks.filter((_, i) => completed[i]).map(tr => ({ tr, emoji : emojiOf(tr.key), name : nameOf(tr.key) })),
             ...extraNames.map(n => ({ tr : extras[n], emoji : "", name : n })),
         ];
-        const ys = dodge(items.map(it => it.tr.endY), 16, geo.padT + 8, geo.bottom - 4);
+        const ys = dodge(items.map(it => it.tr.endY), 20, geo.padT + 8, geo.bottom - 4);
         const room = geo.padR - LABEL_X - 4;
         return items.map((it, i) => {
             const value = rs(drawnOf(it.tr.key)[KN]);
