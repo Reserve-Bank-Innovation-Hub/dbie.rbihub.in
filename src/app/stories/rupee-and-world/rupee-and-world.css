@@ -1,0 +1,1198 @@
+#rupee-and-world-page {
+    /* The site's chart scheme by role (src/components/charts/chartConfig.ts), as the other stories use it. */
+    --c-emph    : var(--violet);
+    --c-second  : var(--green);
+    --c-cool    : var(--blue-light10);
+    --c-warm    : var(--salmon);
+    --fig-bg    : var(--grid-cell-bg);
+    --ink       : var(--paragraph-text-colour);
+    --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
+    --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
+    --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+    --paper     : var(--fig-bg);
+    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
+    /* --c-usd, --c-neer, --c-rel and --c-reer are set on the article from the stage's palette (RupeeStage.tsx), so the
+       charts below the opening draw each line in the colour the opening gave it. */
+    --ease      : cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* one background for the whole story, the opening's */
+    background : var(--fig-bg);
+
+    .sr-only { position : absolute; width : 1px; height : 1px; overflow : hidden; clip : rect(0 0 0 0); white-space : nowrap; }
+
+    /* THE OPENING ================================================================================================= */
+    /* One sticky stage behind the steps, as the ₹2 lakh story does it: the title over the rising globe, then cards that
+       claim the stage as they cross the middle of the screen. */
+    .act { position : relative; background : var(--fig-bg); }
+
+    .stage {
+        position : sticky;
+        top      : 0;
+        height   : 100vh;
+        height   : 100svh;
+        overflow : hidden;
+    }
+
+    .rupee-stage {
+        position : absolute;
+        inset    : 0;
+        canvas { display : block; width : 100%; height : 100%; }
+        &.scene-basket { cursor : crosshair; }
+    }
+
+    .steps {
+        position       : relative;
+        z-index        : 3;
+        margin-top     : -100vh;
+        margin-top     : -100svh;
+        pointer-events : none;
+    }
+
+    .step {
+        min-height      : 100vh;
+        display         : flex;
+        align-items     : center;
+        justify-content : flex-end;
+        padding         : 0 var(--small);
+    }
+
+    /* each step is one snap position: the card sits mid-screen and the stage has settled */
+    .step {
+        scroll-snap-align : center;
+        scroll-snap-stop  : always;
+    }
+
+    .after-opening { scroll-snap-align : start; }
+
+    .step.is-hero {
+        justify-content : center;
+        align-items     : flex-start;
+        padding-top     : 18vh;
+        text-align      : center;
+    }
+
+    /* the words sit on a soft pool of the page's own colour, so the planet behind never fights them */
+    .title-card {
+        position       : relative;
+        max-width      : 1000px;
+        pointer-events : auto;
+
+        &::before {
+            content        : "";
+            position       : absolute;
+            inset          : -48px -96px;
+            z-index        : -1;
+            background     : radial-gradient(closest-side, var(--fig-bg) 55%, color-mix(in oklch, var(--fig-bg), transparent 100%));
+            pointer-events : none;
+        }
+
+        .table-crumbs { justify-content : center; margin-bottom : var(--micro); }
+    }
+
+    .hero-kicker {
+        color          : var(--accent);
+        letter-spacing : 0.16em;
+        font-size      : 13px;
+    }
+
+    .hero-title {
+        font-family    : var(--font-serif);
+        font-size      : clamp(48px, 8.5vw, 104px);
+        line-height    : 0.95;
+        letter-spacing : -0.02em;
+
+        .accent { color : var(--accent); }
+
+        /* the rupee sign spins like a tossed coin, rests, and spins again */
+        .coin {
+            display          : inline-block;
+            transform-origin : 50% 50%;
+            animation        : tnor-coin 4.4s linear 0.6s infinite;
+        }
+    }
+
+    .hero-sub {
+        max-width : 54ch;
+        margin    : 0 auto;
+    }
+
+    .hero-cue {
+        display        : inline-block;
+        letter-spacing : 0.2em;
+        text-transform : uppercase;
+        color          : var(--ink-soft);
+        animation      : tnor-bob 1.8s ease-in-out infinite;
+
+        &::after {
+            content    : "";
+            display    : block;
+            width      : 1px;
+            height     : 34px;
+            margin     : 10px auto 0;
+            background : linear-gradient(to bottom, var(--ink-soft), transparent);
+        }
+    }
+
+    .step-card {
+        pointer-events   : auto;
+        width            : min(420px, 34vw);
+        background-color : color-mix(in oklch, var(--fig-bg), transparent 10%);
+        backdrop-filter  : blur(10px) saturate(150%);
+        border           : none;
+        box-shadow       : inset 0 0 0 1px color-mix(in oklch, var(--fig-bg), transparent 30%),
+                           0 0 0 1px var(--ink-faint),
+                           0 2px 4px rgba(0, 0, 0, 0.03),
+                           0 20px 40px rgba(0, 0, 0, 0.09);
+        opacity          : 0.3;
+        transform        : translateY(22px) scale(0.985);
+        transition       : opacity 0.55s ease, transform 0.7s var(--ease);
+
+        &.is-active { opacity : 1; transform : none; }
+        &.is-wide { width : min(500px, 38vw); }
+    }
+
+    .step-kicker {
+        color          : var(--accent);
+        letter-spacing : 0.12em;
+        font-size      : 11.5px;
+    }
+
+    .step-big {
+        font-family    : var(--font-sans-serif);
+        font-weight    : 600;
+        font-size      : clamp(40px, 4.4vw, 56px);
+        line-height    : 1;
+        letter-spacing : -0.025em;
+        color          : var(--heading-text-colour);
+        margin         : 2px 0 6px;
+
+        /* an arrow between two big numbers: most of their height, centred on them, lighter */
+        .big-arrow {
+            display        : inline-block;
+            margin         : 0 0.14em;
+            font-size      : 0.86em;
+            font-weight    : 500;
+            vertical-align : 0.06em;
+            color          : var(--ink-soft);
+        }
+
+        .big-of {
+            font-size      : 0.42em;
+            font-weight    : 500;
+            letter-spacing : 0;
+            color          : var(--ink-soft);
+        }
+    }
+
+    /* the answer's number: rolling figures, then a burst behind them */
+    .tada-number {
+        position       : relative;
+        display        : inline-block;
+        line-height    : 1;
+        isolation      : isolate;
+    }
+    .tada-figures { position : relative; z-index : 2; display : inline-flex; }
+    .roll-digit   { display : inline-block; height : 1em; overflow : hidden; }
+    /* every figure in a column of the same width, centred, so a narrow 1 does not leave a gap beside it */
+    .tada-figures { font-variant-numeric : tabular-nums; }
+    .roll-strip   { display : flex; flex-direction : column; align-items : center; span { height : 1em; line-height : 1; } }
+    .tada-number.is-on .roll-strip   { animation : tnor-roll-figure 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay) both; }
+    .tada-number.is-on .tada-figures { animation : tnor-pop 0.5s cubic-bezier(0.34, 1.6, 0.5, 1) var(--land) both; }
+
+    .tada-burst, .tada-glow, .tada-bit { position : absolute; left : 50%; top : 50%; pointer-events : none; z-index : 1; }
+    .tada-burst {
+        width      : 260px;
+        height     : 260px;
+        margin     : -130px 0 0 -130px;
+        background : repeating-conic-gradient(from 0deg, color-mix(in oklch, var(--accent), transparent 70%) 0deg 8deg, transparent 8deg 22deg);
+        mask-image : radial-gradient(circle, black 18%, transparent 68%);
+        opacity    : 0;
+    }
+    .tada-glow {
+        width         : 150px;
+        height        : 150px;
+        margin        : -75px 0 0 -75px;
+        border-radius : 50%;
+        background    : radial-gradient(circle, color-mix(in oklch, var(--accent), transparent 60%), transparent 70%);
+        opacity       : 0;
+    }
+    .tada-bit {
+        width         : 8px;
+        height        : 12px;
+        margin        : -6px 0 0 -4px;
+        border-radius : 2px;
+        opacity       : 0;
+        &.is-0 { background : var(--accent); }
+        &.is-1 { background : var(--c-neer); }
+        &.is-2 { background : var(--c-rel); }
+        &.is-3 { background : #e6bf55; border-radius : 50%; width : 9px; height : 9px; }
+    }
+    .tada-number.is-on .tada-burst { animation : tnor-burst 2.4s ease-out var(--land) both; }
+    .tada-number.is-on .tada-glow  { animation : tnor-glow 1.6s ease-out var(--land) both; }
+    .tada-number.is-on .tada-bit   { animation : tnor-confetti 1.3s cubic-bezier(0.15, 0.7, 0.35, 1) var(--land) both; }
+
+    .chip-hint { color : var(--ink-soft); }
+    .cite-link { font-family : var(--font-sans-serif); font-size : 0.8em; font-weight : 600; color : var(--accent); white-space : nowrap; }
+
+    /* the basket's share ring beside its number */
+    .share-big { display : flex; align-items : center; gap : 14px; height : 76px; margin-bottom : 14px; }
+    .share-text { display : flex; flex-direction : column; min-width : 0; }
+    .share-value, .share-value span { line-height : 1; }   /* the site gives every span the paragraph line-height */
+    .share-label {
+        overflow       : hidden;
+        margin-top     : 4px;
+        font-size      : 15px;
+        font-weight    : 500;
+        letter-spacing : 0;
+        line-height    : 1.2;
+        white-space    : nowrap;
+        text-overflow  : ellipsis;
+        color          : var(--ink-soft);
+    }
+    .share-ring {
+        flex : none;
+        circle { fill : none; stroke-width : 7; }
+        .ring-track { stroke : var(--rule); }
+        .ring-fill  { stroke : var(--c-reer); stroke-linecap : round; transition : stroke-dasharray 0.7s var(--ease); }
+    }
+
+    /* the basket's filters: a region or a partner, picked out on the globe while pointed at */
+    .chips {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 6px;
+
+        &.is-partners { gap : 5px; margin-top : 10px; padding-top : 10px; border-top : 1px solid var(--rule); }
+    }
+
+    .chip {
+        display       : inline-flex;
+        align-items   : baseline;
+        gap           : 6px;
+        padding       : 5px 11px;
+        border        : 1px solid var(--rule);
+        border-radius : 999px;
+        background    : var(--fig-bg);
+        color         : var(--heading-text-colour);
+        font          : inherit;
+        font-size     : 13px;
+        cursor        : pointer;
+        transition    : background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
+
+        span { font-variant-numeric : tabular-nums; font-size : 12px; color : var(--ink-soft); }
+
+        &:hover, &.is-on {
+            border-color     : var(--c-reer);
+            background-color : color-mix(in oklch, var(--c-reer), transparent 88%);
+            transform        : translateY(-1px);
+        }
+        &.is-on span { color : var(--heading-text-colour); }
+        &.is-small { padding : 3px 9px; font-size : 12px; span { font-size : 11px; } }
+        &.is-member { border-color : color-mix(in oklch, var(--c-reer), transparent 50%); }
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+    }
+
+    /* the guess */
+    .slider-row {
+        display     : flex;
+        align-items : center;
+        gap         : var(--micro);
+
+        input[type="range"] { flex : 1 1 auto; height : 32px; accent-color : var(--accent); }
+    }
+
+    /* where the shop might be: four of the largest partners */
+    .shop-flags {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 6px;
+        margin    : 0 0 var(--nano);
+
+        span {
+            padding       : 3px 10px;
+            border-radius : 999px;
+            background    : color-mix(in oklch, var(--c-reer), transparent 90%);
+            font-size     : 12.5px;
+            color         : var(--heading-text-colour);
+            white-space   : nowrap;
+        }
+    }
+
+    /* the shoe slider: a track, a shoe that rides it, and the real range input over both, invisible */
+    .shoe-slider {
+        position : relative;
+        /* a drag must move the shoe, never select it or the labels as text */
+        user-select         : none;
+        -webkit-user-select : none;
+        -webkit-touch-callout : none;
+        touch-action        : pan-y;
+        flex     : 1 1 auto;
+        height   : 48px;
+
+        input[type="range"] {
+            position : absolute;
+            inset    : 0;
+            width    : 100%;
+            height   : 100%;
+            margin   : 0;
+            opacity  : 0;
+            cursor   : grab;
+            &:active { cursor : grabbing; }
+        }
+        &:focus-within .shoe { filter : drop-shadow(0 0 0 var(--accent)) drop-shadow(0 0 4px color-mix(in oklch, var(--accent), transparent 30%)); }
+    }
+
+    .shoe-track {
+        position      : absolute;
+        left          : 0;
+        right         : 0;
+        top           : 50%;
+        height        : 6px;
+        margin-top    : -3px;
+        border-radius : 3px;
+        background    : var(--rule);
+    }
+    .shoe-fill { position : absolute; left : 0; top : 0; bottom : 0; border-radius : 3px; background : color-mix(in oklch, var(--accent), transparent 55%); }
+    .shoe-mid  { position : absolute; left : 50%; top : -5px; bottom : -5px; border-left : 2px solid var(--ink-soft); }
+
+    .shoe {
+        position       : absolute;
+        top            : 50%;
+        line-height    : 1;
+        transform      : translate(-50%, -54%);
+        pointer-events : none;
+        transition     : font-size 0.15s ease;
+    }
+
+    .slider-ends {
+        user-select     : none;
+        -webkit-user-select : none;
+        display         : flex;
+        justify-content : space-between;
+        /* under the slider only: the number beside it is 3.4ch of 28px type, plus the row's gap */
+        margin          : 0 calc(3.4 * 28px * 0.6 + var(--micro) + 8px) var(--nano) 0;
+        font-size       : 11.5px;
+        line-height     : 1.25;
+        color           : var(--ink-soft);
+
+        /* the two ends may wrap to a second line, so they never run into the middle label */
+        span { display : flex; flex-direction : column; max-width : 30%; }
+        span:first-child { align-items : flex-start; }
+        position        : relative;
+        span:nth-child(2) { position : absolute; left : 50%; transform : translateX(-50%); align-items : center; white-space : nowrap; }   /* under the mark */
+        span:last-child  { align-items : flex-end; text-align : right; }
+        b { font-size : 12.5px; color : var(--heading-text-colour); }
+    }
+
+    .guess-value {
+        min-width  : 3.4ch;                  /* "150" at most, so the slider beside it never changes width */
+        font-variant-numeric : tabular-nums;
+        font-size  : 28px;
+        text-align : right;
+        color      : var(--heading-text-colour);
+    }
+
+    .lock-in {
+        padding       : 9px 18px;
+        border        : 0;
+        border-radius : 999px;
+        background    : var(--accent);
+        color         : white;
+        font          : inherit;
+        font-weight   : 600;
+        font-size     : 14px;
+        cursor        : pointer;
+
+        &:hover { filter : brightness(1.1); }
+    }
+
+    .guess-verdict { color : var(--heading-text-colour); margin-top : var(--nano); }
+
+    /* THE STAGE'S LABELS ========================================================================================= */
+    .stage-layer {
+        position       : absolute;
+        inset          : 0;
+        opacity        : 0;
+        pointer-events : none;
+        transition     : opacity 0.6s ease;
+
+        &.is-on { opacity : 1; }
+    }
+
+    .stage-svg { position : absolute; inset : 0; overflow : visible; }
+
+    .stage-grid {
+        line { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
+        text { font-size : 12px; font-variant-numeric : tabular-nums; fill : var(--ink-soft); }
+        &.is-base line { stroke : var(--ink-soft); stroke-dasharray : 3 4; }
+        &.is-base text { fill : var(--heading-text-colour); font-weight : 600; }
+    }
+
+    .year { font-size : 12px; fill : var(--ink-soft) !important; }
+
+    .band rect { fill : color-mix(in oklch, var(--c-reer), transparent 88%); }
+
+    .guess-level {
+        line { stroke : var(--heading-text-colour); stroke-width : 1.5; stroke-dasharray : 6 5; }
+        text { font-size : 13px; font-weight : 600; fill : var(--heading-text-colour); }
+    }
+
+    /* the dollar against the basket */
+    .gap-areas {
+        path.is-basket { fill : color-mix(in oklch, var(--c-neer), transparent 82%); }
+        path.is-dollar { fill : color-mix(in oklch, var(--c-usd), transparent 84%); }
+        path.is-prices { fill : color-mix(in oklch, var(--c-rel), transparent 84%); }
+        animation : tnor-fade 0.8s ease-out 1.6s both;
+    }
+    /* labels on the chart carry a halo in the page's colour, so they read over dots and shading */
+    .cross-mark, .gap-bracket {
+        text { paint-order : stroke; stroke : var(--fig-bg); stroke-width : 4px; stroke-linejoin : round; }
+    }
+    .cross-mark {
+        circle { fill : var(--fig-bg); stroke : var(--heading-text-colour); stroke-width : 1.5; }
+        line   { stroke : var(--heading-text-colour); stroke-width : 1; stroke-dasharray : 2 3; }
+        text   { font-size : 13px; font-weight : 600; fill : var(--heading-text-colour); }
+    }
+    .gap-bracket {
+        path { fill : none; stroke : var(--heading-text-colour); stroke-width : 1.4; }
+        .gap-dot { fill : var(--fig-bg); stroke : var(--heading-text-colour); stroke-width : 1.4; }
+        .meet-mark line { stroke : var(--heading-text-colour); stroke-width : 1; stroke-dasharray : 2 3; }
+        text { font-size : 13px; font-weight : 700; fill : var(--heading-text-colour); }
+    }
+
+    /* the balance scale: the beam tips and the pans stay level, slowly, like a real scale settling */
+    .scale-scene {
+        .beam, .pan { transition : transform 1.6s cubic-bezier(0.34, 1.3, 0.5, 1); }
+        .chain     { stroke : #9a7120; stroke-width : 1.4; fill : none; }
+        .pan-dish  { fill : url(#ps-dish); stroke : #7a5512; stroke-width : 1; }
+        .pan-rim   { stroke : #f6dc8e; stroke-width : 3; stroke-linecap : round; }
+        .goods     { font-size : 24px; }
+        .pan-label { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); }
+        .scale-plaque {
+            .plaque-body  { fill : url(#ps-brass-v); stroke : #7a5512; stroke-width : 1; }
+            .plaque-inset { fill : #fbf3dc; stroke : #c9a24a; stroke-width : 0.8; }
+            .tag-price    { font : 700 21px var(--font-sans-serif); fill : #3d2c0c; }
+            &.is-india .plaque-inset { fill : #fde4df; stroke : #d06a5c; }
+            &.is-india .tag-price    { fill : #a3261a; }
+        }
+        .scale-month   { font : 700 15px var(--font-sans-serif); fill : var(--heading-text-colour); }
+        .scale-caption { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); }
+        .roll[data-on="true"] { animation : tnor-roll 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both; }
+    }
+
+    /* the $ coin that leaves the basket for the dollar line's label, and the badges on the two labels */
+    .dollar-fly {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        z-index        : 5;
+        display        : grid;
+        place-items    : center;
+        width          : var(--size);
+        height         : var(--size);
+        margin         : calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+        border-radius  : 50%;
+        background     : radial-gradient(circle at 35% 30%, #fff6d6, #e6bf55 50%, #b98a2a 85%, #8a6418);
+        box-shadow     : 0 6px 14px rgba(0, 0, 0, 0.25);
+        color          : #7a5512;
+        font           : 700 calc(var(--size) * 0.55) / 1 var(--font-sans-serif);
+        pointer-events : none;
+        animation      : tnor-dollar-fly 1.2s cubic-bezier(0.5, 0, 0.25, 1) 0.1s both;
+    }
+    .coin-badge, .basket-badge {
+        display        : inline-grid;
+        place-items    : center;
+        margin-right   : 5px;
+        vertical-align : 2px;
+        animation      : tnor-fade 0.4s ease-out 1.25s both;
+    }
+    .coin-badge {
+        width       : 18px;
+        height      : 18px;
+        border-radius : 50%;
+        background  : radial-gradient(circle at 35% 30%, #fff6d6, #e6bf55 50%, #b98a2a 90%);
+        color       : #7a5512;
+        font-size   : 11px;
+        font-weight : 800;
+    }
+    .basket-badge { font-size : 15px; }
+
+    .swing-marks {
+        circle { fill : none; stroke : var(--heading-text-colour); stroke-width : 1.5; }
+        text { font-size : 13px; font-weight : 600; fill : var(--heading-text-colour); }
+    }
+
+    .axis-title {
+        position  : absolute;
+        font-size : 12.5px;
+        color     : var(--ink-soft);
+        strong { color : var(--heading-text-colour); font-weight : 600; }
+        .axis-key { display : block; margin-top : 3px; font-weight : 600; color : var(--heading-text-colour); }
+    }
+
+    .end-label {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        display        : flex;
+        flex-direction : column;
+        line-height    : 1.1;
+        transition     : transform 0.8s var(--ease);
+
+        .end-value { font-weight : 700; font-size : 20px; font-variant-numeric : tabular-nums; }
+        .end-name  { font-size : 12px; font-weight : 600; max-width : 140px; white-space : normal; }
+    }
+
+    .start-label {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        display        : flex;
+        flex-direction : column;
+        font-weight    : 700;
+        font-size      : 14px;
+        line-height    : 1.1;
+        transition     : transform 0.8s var(--ease);
+        /* a halo in the page's colour, so the label reads over the first dots */
+        text-shadow    : 0 0 3px var(--fig-bg), 0 0 3px var(--fig-bg), 0 0 6px var(--fig-bg);
+        span { font-size : 11px; font-weight : 500; color : var(--ink-soft); }
+    }
+
+    /* the events on the dollar chart; the layer passes the pointer through, the marks and notes take it */
+    .event {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        width          : 0;
+        height         : 0;
+        pointer-events : auto;
+        z-index        : 4;
+        &.is-open { z-index : 7; }
+    }
+
+    /* each event drops onto the line in turn (--d, set per event), then its stem rises and its name appears */
+    .event-mark  { animation : tnor-drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0s) both; }
+    .event-stem  { animation : tnor-rise 0.4s ease-out calc(var(--d, 0s) + 0.35s) both; transform-origin : bottom; }
+    .event-label { animation : tnor-fade 0.4s ease-out calc(var(--d, 0s) + 0.55s) both; }
+
+    .event-stem {
+        position     : absolute;
+        left         : 0;
+        bottom       : 0;
+        border-left  : 1px dashed color-mix(in oklch, var(--heading-text-colour), transparent 55%);
+    }
+
+    .event-mark {
+        position        : absolute;
+        left            : -10px;
+        top             : -10px;
+        display         : grid;
+        place-items     : center;
+        width           : 20px;
+        height          : 20px;
+        padding         : 0;
+        border          : 2px solid var(--fig-bg);
+        border-radius   : 50%;
+        background      : var(--heading-text-colour);
+        color           : var(--fig-bg);
+        font            : 700 11px/1 var(--font-sans-serif);
+        cursor          : pointer;
+        transition      : transform 0.2s var(--ease), background-color 0.2s ease;
+        &:hover, &:focus-visible { transform : scale(1.2); background : var(--accent); outline : none; }
+    }
+    .event.is-open .event-mark { background : var(--accent); transform : scale(1.2); }
+    /* the same mark, inline in a card's text */
+    .event-mark.is-inline {
+        position       : relative;
+        left           : auto;
+        top            : -2px;
+        display        : inline-grid;
+        vertical-align : middle;
+        border-color   : transparent;
+        cursor         : default;
+        animation      : none;
+        &:hover { transform : none; background : var(--heading-text-colour); }
+    }
+
+    .event-label {
+        position    : absolute;
+        right       : 6px;
+        white-space : nowrap;
+        font-size   : 12px;
+        font-weight : 600;
+        color       : var(--heading-text-colour);
+        text-shadow : 0 0 3px var(--fig-bg), 0 0 3px var(--fig-bg), 0 0 6px var(--fig-bg);
+        cursor      : default;
+    }
+
+    .event-note {
+        position       : absolute;
+        left           : -16px;
+        width          : 280px;
+        display        : flex;
+        flex-direction : column;
+        gap            : 6px;
+        padding        : 12px 14px;
+        border-radius  : 8px;
+        background     : var(--fig-bg);
+        box-shadow     : 0 0 0 1px var(--ink-faint), 0 12px 32px rgba(0, 0, 0, 0.14);
+        font-size      : 13px;
+        line-height    : 1.45;
+        color          : var(--ink);
+
+        strong { font-size : 13.5px; color : var(--heading-text-colour); }
+        a { font-size : 12px; font-weight : 600; color : var(--accent); }
+    }
+    .event.is-right .event-note { left : auto; right : -16px; }
+
+    /* THE BASKET OF CURRENCIES ================================================================================= */
+    .coin-scene {
+        position       : absolute;
+        z-index        : 2;
+        opacity        : 0;
+        pointer-events : none;
+        transition     : opacity 0.6s ease;
+
+        svg { width : 100%; height : 100%; overflow : visible; }
+        &.is-on { opacity : 1; .coin { pointer-events : auto; } }
+    }
+
+    .counter        { stroke : var(--rule); stroke-width : 2; }
+    .basket-caption { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); }
+    .basket-handle  { fill : none; stroke : #a87f42; stroke-width : 9; stroke-linecap : round; }
+    .tag-string     { stroke : #8a6a3a; stroke-width : 1.4; }
+
+    /* each coin drops into the basket in turn (--d), bounces and settles */
+    .coin { cursor : default; }
+    .coin-scene.is-on .coin > * { animation : tnor-coin-drop 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) var(--d, 0s) both; }
+    .coin-face.is-gold   { stroke : #94691b; } .coin-face.is-silver { stroke : #7d8690; } .coin-face.is-bronze { stroke : #85502c; }
+    .coin-face { stroke-width : 1; }
+    .coin-ring { stroke-width : 0.8; stroke-opacity : 0.55; }
+    .coin-ring.is-gold { stroke : #94691b; } .coin-ring.is-silver { stroke : #6d7680; } .coin-ring.is-bronze { stroke : #85502c; }
+    .coin-sign { font-family : var(--font-sans-serif); font-weight : 700; }
+    .coin-sign.is-gold { fill : #7a5512; } .coin-sign.is-silver { fill : #4b535c; } .coin-sign.is-bronze { fill : #6e3f20; }
+    .coin:hover .coin-face { stroke : var(--accent); stroke-width : 2.5; }
+
+    .price-tag {
+        .tag-price { font : 700 25px var(--font-sans-serif); fill : #fff; }
+        .tag-month { font : 600 11px var(--font-sans-serif); fill : #fde7e3 !important; }
+        /* it hangs from its hole: swing about there */
+        transform-box    : fill-box;
+        transform-origin : 92% 52%;
+        &.is-swinging { animation : tnor-tag-swing 1.6s cubic-bezier(0.3, 0, 0.3, 1) 0.3s both; }
+        .roll[data-on="true"] { animation : tnor-roll 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s both; }
+    }
+
+    .wallet-back   { fill : #5a3b26; }
+    .wallet-front  { fill : #6f4a30; }
+    .wallet-stitch { stroke : #c9a27d; stroke-width : 1.2; stroke-dasharray : 5 4; fill : none; }
+    .wallet-clasp  { fill : #c9a27d; }
+
+    /* a note leaves the wallet for the basket's tag (its start and end set per note: --wx, --wy, --px, --py, --pr) */
+    .note.is-paying { animation : tnor-note-pay 0.9s cubic-bezier(0.5, 0, 0.2, 1) var(--d, 0s) both; }
+    .change-coin  { animation : tnor-change 0.9s cubic-bezier(0.5, 0, 0.2, 1) 3.6s both; }
+    .paid-note    { font : 600 15px var(--font-sans-serif); fill : var(--heading-text-colour); opacity : 0; }
+    .coin-scene.is-on .paid-note { animation : tnor-fade 0.5s ease-out 2.9s both; }
+    .coin-scene.is-later .paid-note { animation-delay : 3.4s; }
+    .time-jump { font : 700 18px var(--font-sans-serif); fill : var(--accent); animation : tnor-jump 1.6s ease-out both; }
+
+    .coin-tip {
+        position       : absolute;
+        transform      : translate(-50%, calc(-100% - 18px));
+        display        : flex;
+        flex-direction : column;
+        padding        : 6px 10px;
+        border-radius  : 6px;
+        background     : var(--fig-bg);
+        box-shadow     : 0 0 0 1px var(--ink-faint), 0 8px 20px rgba(0, 0, 0, 0.12);
+        font-size      : 12.5px;
+        white-space    : nowrap;
+        pointer-events : none;
+        strong { font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    .globe-key {
+        width     : 250px;
+        font-size : 12.5px;
+        color     : var(--ink-soft);
+
+        p { margin : 0 0 6px; }
+        .key-ramp { display : block; height : 8px; border-radius : 4px; }
+        .key-ends { display : flex; justify-content : space-between; margin-top : 3px; font-variant-numeric : tabular-nums; }
+        .key-arcs-title { margin : 14px 0 4px; }
+        .key-arcs { display : block; overflow : visible; text { font-size : 12px; fill : var(--ink-soft); } }
+    }
+
+    .stage-tip {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 260px;
+        padding        : 8px 12px;
+        border-radius  : 6px;
+        background     : var(--fig-bg);
+        box-shadow     : 0 0 0 1px var(--ink-faint), 0 8px 24px rgba(0, 0, 0, 0.12);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* THE CHAPTERS =============================================================================================== */
+    .chapter { padding-top : var(--large); }
+    /* the chapters after the opening speak in the opening's type: its kicker, a serif heading, serif text */
+    .kicker { color : var(--accent); letter-spacing : 0.12em; font-size : 11.5px; }
+    .chapter-title {
+        max-width      : 30ch;
+        font-family    : var(--font-serif);
+        font-weight    : 600 !important;
+        font-size      : clamp(26px, 3vw, 36px);
+        line-height    : 1.15;
+        letter-spacing : -0.01em;
+    }
+
+    .story-figure {
+        margin     : 0;
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
+        figcaption { display : flex; flex-direction : column; gap : 4px; margin-bottom : 16px; }
+    }
+    .figure-title { font-weight : 600; font-size : 15px; color : var(--heading-text-colour); }
+    .figure-units, .figure-note { font-size : 13px; color : var(--ink-soft); }
+    .figure-note { margin : 12px 0 0; }
+    .table-view {
+        margin-top : 12px;
+        summary { cursor : pointer; font-size : 12px; font-weight : 600; color : var(--accent); }
+    }
+    .table-scroll { max-height : 320px; overflow : auto; margin-top : 8px; }
+    .table-view table, table.decomp { width : 100%; border-collapse : collapse; font-size : 12px; }
+    .table-view th, .table-view td, .decomp th, .decomp td { padding : 4px 8px; border-bottom : 1px solid var(--rule); text-align : left; }
+    .num { text-align : right !important; font-variant-numeric : tabular-nums; }
+
+    svg text { font-family : var(--font-sans-serif); fill : var(--ink); }
+    .tick { font-size : 12px; font-variant-numeric : tabular-nums; fill : var(--ink-soft) !important; }
+    .grid { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
+    .grid.is-base { stroke : var(--ink-soft); }
+    .crosshair { stroke : var(--ink-soft); stroke-width : 1; }
+
+    .chart-tip {
+        position       : absolute;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 300px;
+        padding        : 8px 12px;
+        border         : 1px solid var(--rule);
+        background     : var(--paper);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+        transform      : translate(-50%, 18px);
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* THE CLOSE ================================================================================================= */
+    /* six rows shared by the three cards (subgrid), so each card's question, figures and chart sit level with the
+       others' whatever the length of its words */
+    .recap {
+        display               : grid;
+        grid-template-columns : repeat(3, minmax(0, 1fr));
+        grid-template-rows    : repeat(6, auto);
+        column-gap            : var(--small);
+        margin-top            : var(--micro);
+        perspective           : 1600px;
+    }
+
+    .recap-card {
+        grid-row              : span 6;
+        display               : grid;
+        grid-template-rows    : subgrid;
+        transition            : transform 0.35s var(--ease);
+        &:hover:not(.is-flipped) { transform : translateY(-4px); }
+    }
+    .recap-inner {
+        position              : relative;
+        grid-row              : 1 / -1;
+        display               : grid;
+        grid-template-rows    : subgrid;
+        transform-style       : preserve-3d;
+        transition            : transform 0.8s cubic-bezier(0.3, 1.25, 0.4, 1);
+    }
+    .recap-card.is-flipped .recap-inner { transform : rotateY(180deg); }
+
+    .recap-face {
+        padding             : 22px 22px 16px;
+        border-radius       : 14px;
+        background          : var(--fig-bg);
+        box-shadow          : inset 0 3px 0 var(--c), 0 0 0 1px var(--ink-faint), 0 2px 4px rgba(0, 0, 0, 0.03), 0 18px 40px rgba(0, 0, 0, 0.08);
+        backface-visibility : hidden;
+        -webkit-backface-visibility : hidden;
+        overflow            : hidden;
+        &::before {
+            content        : "";
+            position       : absolute;
+            inset          : 0;
+            background     : radial-gradient(120% 70% at 100% 0%, color-mix(in oklch, var(--c), transparent 88%), transparent 60%);
+            pointer-events : none;
+        }
+        > * { position : relative; }
+    }
+    .recap-front {
+        grid-row           : 1 / -1;
+        display            : grid;
+        grid-template-rows : subgrid;
+        row-gap            : 10px;
+    }
+    .recap-back {
+        position       : absolute;
+        inset          : 0;
+        display        : flex;
+        flex-direction : column;
+        gap            : 10px;
+        transform      : rotateY(180deg);
+    }
+    .recap-back-title { margin : 0; font-family : var(--font-serif); font-weight : 600; font-size : 18px; color : var(--heading-text-colour); }
+    .recap-back-text  { margin : 0; font-family : var(--font-serif); font-size : 15.5px; line-height : 1.5; color : var(--ink); }
+    .recap-source     { font-size : 12.5px; font-weight : 600; color : var(--c); }
+
+    .recap-flip {
+        justify-self  : start;
+        align-self    : end;
+        margin-top    : auto;
+        padding       : 5px 12px;
+        border        : 1px solid color-mix(in oklch, var(--c), transparent 55%);
+        border-radius : 999px;
+        background    : color-mix(in oklch, var(--c), transparent 92%);
+        color         : var(--heading-text-colour);
+        font          : 600 12px var(--font-sans-serif);
+        cursor        : pointer;
+        &:hover { background : color-mix(in oklch, var(--c), transparent 82%); }
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+    }
+    .recap-back .recap-flip { align-self : flex-start; }
+
+    .recap-top      { display : flex; align-items : center; gap : 12px; }
+    .recap-art      { width : 64px; height : 64px; flex : none; filter : drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)); }
+    .recap-kicker   { font-size : 11.5px; font-weight : 700; letter-spacing : 0.1em; text-transform : uppercase; color : var(--c); }
+    .recap-question { margin : 0; font-family : var(--font-serif); font-weight : 600; font-size : 18px; line-height : 1.3; color : var(--heading-text-colour); }
+    .recap-figures  {
+        position    : relative;
+        display     : flex;
+        align-items : baseline;
+        gap         : 10px;
+        margin      : 0;
+        font-family : var(--font-sans-serif);
+        font-variant-numeric : tabular-nums;
+        .recap-from  { font-size : 22px; font-weight : 600; color : var(--ink-soft); }
+        .recap-arrow { font-size : 22px; color : var(--ink-soft); }
+        .recap-to    { font-size : 40px; font-weight : 700; letter-spacing : -0.02em; color : var(--c); }
+    }
+    .recap-when  { margin : 2px 0 0; font-size : 12px; color : var(--ink-soft); }
+    .recap-spark {
+        width    : 100%;
+        height   : 64px;
+        align-self : end;
+        .spark-fill { fill : color-mix(in oklch, var(--c), transparent 86%); }
+        .spark-line { fill : none; stroke : var(--c); stroke-width : 2.2; stroke-linejoin : round; vector-effect : non-scaling-stroke; }
+        .spark-dot  { fill : var(--c); stroke : var(--fig-bg); stroke-width : 2; }
+    }
+    .recap-note  { margin : 0; font-size : 13.5px; line-height : 1.45; color : var(--ink); }
+
+    .takeaway {
+        display         : flex;
+        justify-content : center;
+        margin-top      : var(--medium);
+        .step-card      { width : min(680px, 100%); }
+    }
+
+    /* EXPLORE: THE CURRENCY CONSTELLATION ======================================================================= */
+    /* one screen: the words, controls and reading on the left, the constellation as large as the screen allows */
+    .constellation {
+        position      : relative;
+        display       : grid;
+        grid-template-columns : minmax(280px, 340px) minmax(0, 1fr);
+        gap           : 12px 28px;
+        align-items   : center;
+        padding       : 26px 28px;
+        border-radius : 18px;
+        background    : var(--fig-bg);
+        box-shadow    : 0 0 0 1px var(--ink-faint), 0 2px 4px rgba(0, 0, 0, 0.03), 0 24px 60px rgba(0, 0, 0, 0.09);
+    }
+    .cn-side     { display : flex; flex-direction : column; gap : 16px; .chapter-title { font-size : clamp(26px, 2.6vw, 34px); } }
+    .cn-controls { display : flex; flex-direction : column; align-items : flex-start; gap : 8px; }
+    .seg {
+        display       : inline-flex;
+        padding       : 3px;
+        border-radius : 999px;
+        background    : color-mix(in oklch, var(--ink), transparent 93%);
+        button {
+            padding       : 6px 14px;
+            border        : 0;
+            border-radius : 999px;
+            background    : transparent;
+            color         : var(--ink);
+            font          : 600 12.5px var(--font-sans-serif);
+            cursor        : pointer;
+            transition    : background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            &.is-on { background : var(--fig-bg); color : var(--heading-text-colour); box-shadow : 0 1px 3px rgba(0, 0, 0, 0.14); }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 1px; }
+        }
+    }
+
+    /* the constellation fills the panel; the month's reading sits over its top-left corner */
+    .cn-stage { position : relative; }
+    .cn-svg   { display : block; width : 100%; height : min(calc(100svh - 110px), 900px); overflow : visible; }
+
+    .cn-ring-guide { circle { fill : none; stroke : var(--rule); } text { font-size : 11px; fill : var(--ink-soft); } }
+    .cn-ring-100   { fill : none; stroke : var(--ink-soft); stroke-width : 1.2; stroke-dasharray : 4 5; }
+    .cn-ring-100-label { font-size : 11px; font-weight : 600; fill : var(--heading-text-colour); }
+    .cn-basket-ring {
+        fill       : color-mix(in oklch, var(--c-neer), transparent 94%);
+        stroke     : var(--c-neer);
+        stroke-width : 1.6;
+        transition : r 0.2s linear;
+        &.is-real { stroke : var(--c-reer); fill : color-mix(in oklch, var(--c-reer), transparent 94%); }
+    }
+    .cn-coin {
+        cursor : default;
+        circle { stroke-width : 1; }
+        .is-gold   { fill : #e8c25e; stroke : #b58d2c; }
+        .is-silver { fill : #d4d9df; stroke : #9aa3ad; }
+        text   { font-weight : 800; fill : rgba(60, 40, 10, 0.75); font-family : var(--font-sans-serif); }
+        &:hover circle { stroke : var(--accent); stroke-width : 2; }
+    }
+    .cn-planet {
+        transition : opacity 0.6s ease;
+        &.is-faded { opacity : 0.18; }
+        .cn-trail       { fill : none; stroke : var(--ink-soft); stroke-width : 1.4; stroke-dasharray : 3 4; stroke-linecap : round; }
+        .cn-planet-body { stroke-width : 1.5; &.is-gold { fill : #e8c25e; stroke : #b58d2c; } &.is-silver { fill : #d4d9df; stroke : #8b949e; } }
+        .cn-planet-sign { font : 800 18px var(--font-sans-serif); fill : rgba(60, 40, 10, 0.8); }
+        .cn-planet-name { font : 600 12.5px var(--font-sans-serif); fill : var(--heading-text-colour); paint-order : stroke; stroke : var(--fig-bg); stroke-width : 4px; }
+        .cn-planet-value { font : 700 15px var(--font-sans-serif); fill : var(--heading-text-colour); paint-order : stroke; stroke : var(--fig-bg); stroke-width : 4px; font-variant-numeric : tabular-nums; }
+    }
+    .cn-rupee      { fill : var(--accent); }
+    .cn-rupee-sign { font : 800 26px var(--font-sans-serif); fill : #fff; }
+
+    .cn-tip {
+        position       : absolute;
+        transform      : translate(-50%, calc(-100% - 14px));
+        display        : flex;
+        flex-direction : column;
+        padding        : 6px 10px;
+        border-radius  : 6px;
+        background     : var(--fig-bg);
+        box-shadow     : 0 0 0 1px var(--ink-faint), 0 8px 20px rgba(0, 0, 0, 0.12);
+        font-size      : 12.5px;
+        white-space    : nowrap;
+        pointer-events : none;
+        strong { color : var(--heading-text-colour); }
+    }
+
+    .cn-readout {
+        display        : flex;
+        flex-direction : column;
+        gap            : 4px;
+        .cn-month        { font-size : 13px; font-weight : 700; letter-spacing : 0.1em; text-transform : uppercase; color : var(--accent); }
+        .cn-basket-value { font : 700 52px/1 var(--font-sans-serif); letter-spacing : -0.02em; color : var(--c); font-variant-numeric : tabular-nums; }
+        .cn-basket-label { font-family : var(--font-serif); font-size : 15px; color : var(--ink); }
+        .cn-faded-note   { margin-top : 8px; font-size : 12px; color : var(--ink-soft); }
+    }
+
+    .cn-time {
+        display               : grid;
+        grid-template-columns : auto 1fr;
+        align-items           : center;
+        gap                   : 4px 14px;
+        input[type="range"] { width : 100%; accent-color : var(--accent); }
+        .cn-years { grid-column : 2; display : flex; justify-content : space-between; font-size : 12px; color : var(--ink-soft); }
+    }
+    .cn-play {
+        display       : grid;
+        place-items   : center;
+        width         : 44px;
+        height        : 44px;
+        border        : 0;
+        border-radius : 50%;
+        background    : var(--accent);
+        color         : #fff;
+        font-size     : 14px;
+        cursor        : pointer;
+        box-shadow    : 0 6px 16px color-mix(in oklch, var(--accent), transparent 60%);
+        &:hover { filter : brightness(1.1); }
+    }
+
+    /* FOR ECONOMISTS ============================================================================================= */
+    .drawer {
+        padding : 16px 24px; border : 1px solid var(--rule); background : var(--paper);
+        summary { cursor : pointer; font-weight : 600; color : var(--accent); }
+        &[open] summary { margin-bottom : 12px; }
+    }
+
+    /* SOURCES ==================================================================================================== */
+    .download-link {
+        display : block; width : fit-content; color : var(--accent); transition : opacity 0.2s ease;
+        &:hover { opacity : 0.7; }
+        p { color : var(--accent); }
+        svg { stroke : var(--accent); }
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .hero-cue, .hero-title .coin, .tada-burst, .tada-glow, .tada-bit { animation : none !important; }
+        /* these end where the animation would: run them at once */
+        .event-mark, .event-stem, .event-label, .coin-scene *, .roll-strip, .tada-figures { animation-duration : 0.01s !important; animation-delay : 0s !important; }
+        .step-card { transition : none; }
+    }
+
+    /* A PHONE ==================================================================================================== */
+    @media (max-width : 900px) {
+        .step { align-items : flex-end; justify-content : center; padding-bottom : 6vh; }
+        .step.is-hero { align-items : flex-start; padding-top : 12vh; padding-bottom : 0; }
+        .step-card, .step-card.is-wide { width : 100%; }
+        .title-card::before { inset : -24px -16px; }
+        .end-label .end-name { display : none; }
+        .globe-key { display : none; }
+        .chips.is-partners { display : none; }
+        .step-card .chip-hint { display : none; }
+        .story-figure { padding : 16px; }
+        .recap { grid-template-columns : 1fr; grid-template-rows : none; row-gap : var(--small); }
+        .constellation { grid-template-columns : 1fr; padding : 18px; }
+        .cn-svg { height : auto; }
+        .recap-card, .recap-inner, .recap-front { grid-row : auto; grid-template-rows : none; display : block; }
+        .recap-front > * + * { margin-top : 10px; }
+        .chapter [data-portion] + [data-portion] { margin-top : 32px; }
+    }
+
+    @media print {
+        .stage { display : none; }
+        .steps { margin-top : 0; }
+    }
+}
+
+/* The dark theme restates what its scheme changes: the accent lifted towards white, the warm pole lighter. */
+.theme-dark #rupee-and-world-page {
+    --accent : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
+    --c-warm : var(--salmon-light20);
+}
+
+@keyframes tnor-bob {
+    0%, 100% { transform : translateY(0); }
+    50%      { transform : translateY(6px); }
+}
+
+/* On a touch screen the opening snaps step by step (page.client.tsx sets the attribute while the story is open). A
+   mouse, a trackpad and the keys are moved a step at a time by script instead, which the snap would fight. */
+@media (pointer : coarse) {
+    html[data-story-snap] { scroll-snap-type : y mandatory; }
+}
+
+/* A coin toss in 4.4 s: two quick turns about the upright axis (0.8 s), a slow swivel left and right that dies away
+   as the coin settles (about 1.6 s), then a rest of about two seconds. The perspective makes the sign narrow and widen
+   as a coin's face does. */
+@keyframes tnor-coin {
+    0%        { transform : perspective(600px) rotateY(0deg);   animation-timing-function : cubic-bezier(0.3, 0.6, 0.4, 1); }
+    18%       { transform : perspective(600px) rotateY(720deg); animation-timing-function : ease-out; }
+    26%       { transform : perspective(600px) rotateY(765deg); animation-timing-function : ease-in-out; }
+    35%       { transform : perspective(600px) rotateY(685deg); animation-timing-function : ease-in-out; }
+    43%       { transform : perspective(600px) rotateY(742deg); animation-timing-function : ease-in-out; }
+    50%       { transform : perspective(600px) rotateY(708deg); animation-timing-function : ease-in-out; }
+    56%       { transform : perspective(600px) rotateY(725deg); animation-timing-function : ease-in-out; }
+    60%, 100% { transform : perspective(600px) rotateY(720deg); }
+}
+
+/* An event's mark falls onto the line and settles; its stem grows up from the mark; its name fades in. */
+@keyframes tnor-drop {
+    0%   { opacity : 0; translate : 0 -46px; }
+    60%  { opacity : 1; }
+    100% { opacity : 1; translate : 0 0; }
+}
+@keyframes tnor-rise {
+    from { transform : scaleY(0); }
+    to   { transform : scaleY(1); }
+}
+@keyframes tnor-fade {
+    from { opacity : 0; translate : 0 4px; }
+    to   { opacity : 1; translate : 0 0; }
+}
+
+/* The basket of currencies: a coin falls in and bounces; a note flies from the wallet to the tag; the ₹2 change flies
+   back; the tag flips over to the later price; "22 years later" sweeps in and fades. */
+@keyframes tnor-coin-drop {
+    0%   { opacity : 0; translate : 0 -360px; }
+    40%  { opacity : 1; }
+    100% { opacity : 1; translate : 0 0; }
+}
+@keyframes tnor-note-pay {
+    from { transform : translate(var(--wx), var(--wy)); }
+    50%  { transform : translate(calc((var(--wx) + var(--px)) / 2), calc(var(--py) - 60px)) rotate(calc(var(--pr) * -2)); }
+    to   { transform : translate(var(--px), var(--py)) rotate(var(--pr)) scale(0.85); }
+}
+@keyframes tnor-change {
+    from { transform : translate(520px, 205px); opacity : 0; }
+    20%  { opacity : 1; }
+    to   { transform : translate(660px, 350px); opacity : 1; }
+}
+@keyframes tnor-tag-swing {
+    0%   { transform : rotate(0deg); }
+    20%  { transform : rotate(16deg); }
+    45%  { transform : rotate(-10deg); }
+    65%  { transform : rotate(6deg); }
+    82%  { transform : rotate(-3deg); }
+    100% { transform : rotate(0deg); }
+}
+@keyframes tnor-jump {
+    0%   { opacity : 0; translate : -40px 0; }
+    25%  { opacity : 1; translate : 0 0; }
+    80%  { opacity : 1; }
+    100% { opacity : 0.35; }
+}
+
+/* The tag's figures roll up to their new value. */
+@keyframes tnor-roll {
+    from { transform : translateY(0); }
+    to   { transform : translateY(var(--to)); }
+}
+
+/* The $ coin flies from its place in the basket to the dollar line's label, shrinking to the badge's size. */
+@keyframes tnor-dollar-fly {
+    0%   { transform : translate(var(--sx), var(--sy)) scale(1); opacity : 1; }
+    45%  { transform : translate(calc((var(--sx) + var(--ex)) / 2), calc(min(var(--sy), var(--ey)) - 80px)) scale(1.25); opacity : 1; }
+    92%  { opacity : 1; }
+    100% { transform : translate(var(--ex), var(--ey)) scale(calc(18 / 40)); opacity : 0; }
+}
+
+/* The answer's ta-da: each figure rolls up its strip; the number pops; rays turn out and fade; a glow pulses;
+   confetti flies out along its angle (--a) to its distance (--r), turning as it goes. */
+@keyframes tnor-roll-figure {
+    from { transform : translateY(0); }
+    to   { transform : translateY(var(--to)); }
+}
+@keyframes tnor-pop {
+    0%   { transform : scale(1); }
+    40%  { transform : scale(1.18); }
+    100% { transform : scale(1); }
+}
+@keyframes tnor-burst {
+    0%   { opacity : 0; transform : rotate(0deg) scale(0.4); }
+    20%  { opacity : 1; }
+    100% { opacity : 0; transform : rotate(70deg) scale(1.15); }
+}
+@keyframes tnor-glow {
+    0%   { opacity : 0; transform : scale(0.5); }
+    30%  { opacity : 1; transform : scale(1.1); }
+    100% { opacity : 0; transform : scale(1.4); }
+}
+@keyframes tnor-confetti {
+    0%   { opacity : 0; transform : rotate(var(--a)) translateY(0) rotate(0deg); }
+    15%  { opacity : 1; }
+    80%  { opacity : 1; }
+    100% { opacity : 0; transform : rotate(var(--a)) translateY(calc(-1 * var(--r))) rotate(300deg); }
+}

@@ -29,32 +29,59 @@ import { resolveScheme } from "@/components/charts/chartConfig";
 import { fictoanColour } from "@/lib/fictoan-colours";
 
 // DATA ================================================================================================================
-import { BAND, HEADLINE, MONTHS, N, PARTNERS, REBASED, SERIES, type Line, iOf, monthName, monthShort } from "./data";
+import { BAND, COST, CROSS, DOLLAR_GAP, EVENTS, HALVES_MEET, HALVES_PEAK, HEADLINE, LINES, MONTHS, N, PARTNERS, type Line, iOf, monthName, monthShort } from "./data";
+import { COINS, CoinBasket, VIEW_H, VIEW_TOP } from "./CoinBasket";
+import { PriceScale } from "./PriceScale";
 
 // THE SCENES ==========================================================================================================
-export type SceneId = "hero" | "basket" | "dollar" | "guess" | "neer" | "prices" | "reer" | "swing";
+// After the dollar chart, two scenes with no chart: a basket of the 40 currencies bought in 2004 ("coins") and again
+// in 2026 ("coins26"), drawn by CoinBasket.tsx over an empty stage.
+export type SceneId = "hero" | "basket" | "dollar" | "coins" | "coins26" | "neer" | "scale" | "prices" | "guess" | "halves" | "reer" | "swing";
 const isGlobe = (s : SceneId) => s === "hero" || s === "basket";
+export const isCoins = (s : SceneId) => s === "coins" || s === "coins26";
+// the scenes drawn as illustrations over an empty stage (the basket of coins, the balance scale)
+const isIllus = (s : SceneId) => isCoins(s) || s === "scale";
 
 const LINE_KEYS : Line[] = [ "usd", "neer", "rel", "reer" ];
-export const LINE_LABEL : Record<Line, string> = {
-    usd  : "In US dollars",
-    neer : "Against 40 currencies",
+// What each line is called: on the dollar chart in rupees for a dollar, on the others as prices from April 2004 = 100.
+const LINE_LABEL : Record<Line, string> = {
+    usd  : "Rupees for one US dollar",
+    neer : "The basket of 40 currencies (NEER)",
     rel  : "India’s prices against partners’",
-    reer : "Real rate",
+    reer : "Indian goods, priced abroad (REER)",
 };
+const COST_LABEL : Record<Line, string> = { ...LINE_LABEL, usd : `Dollars that were worth ₹100 in ${monthShort(MONTHS[0])}`, neer : "The basket (NEER)" };
 
 // What each chart scene shows: the lines at full strength, those left faint, the first month framed and the scale.
-interface ChartCfg { on : Line[]; faint : Line[]; from : number; lo : number; hi : number; ticks : number[]; band : boolean; swing : boolean; guess : boolean }
-const WIDE = { from : 0, lo : 35, hi : 190, ticks : [ 50, 100, 150 ] };
+// `unit` is rupees for one dollar, or a price where April 2004 = 100 (COST in data.ts, its 100 drawn dashed), so every
+// line after the first rises the same way as the first: up is more rupees, or a higher price. `key` says so.
+interface ChartCfg { on : Line[]; faint : Line[]; unit : "inr" | "cost"; from : number; lo : number; hi : number; ticks : number[]; band : boolean; swing : boolean; guess : boolean; key : string }
+const valueOf = (cfg : ChartCfg, l : Line) => (cfg.unit === "cost" ? COST[l] : LINES[l]);
+const labelOf = (cfg : ChartCfg, l : Line) => (cfg.unit === "cost" ? COST_LABEL[l] : LINE_LABEL[l]);
+const MORE_RUPEES = "↑ more rupees spent to buy the same basket of currencies.";
+const PRICES = "↑ India’s prices rising faster than its partners’.";
+const GOODS = "↑ Indian goods cost more abroad · ↓ they cost less.";
+const HALVES = "Orange above blue: Indian prices rose faster than the rupee cost of partners’ currencies.";
+const RUPEES = { unit : "inr" as const, from : 0, lo : 35, hi : 105, ticks : [ 40, 60, 80, 100 ] };
+// one scale for all the price charts, from the lowest guess (50) to dollars that were worth ₹100 in 2004, at their highest (218)
+const PRICE  = { unit : "cost" as const, from : 0, lo : 40, hi : 232, ticks : [ 50, 100, 150, 200 ] };
 const SWING_FROM = Math.max(0, iOf("2022-04"));
 const CHART : Partial<Record<SceneId, ChartCfg>> = {
-    dollar : { on : [ "usd" ],         faint : [],                ...WIDE, band : false, swing : false, guess : false },
-    guess  : { on : [ "usd" ],         faint : [],                ...WIDE, band : false, swing : false, guess : true },
-    neer   : { on : [ "usd", "neer" ], faint : [],                ...WIDE, band : false, swing : false, guess : true },
-    prices : { on : [ "neer", "rel" ], faint : [ "usd" ],         ...WIDE, band : false, swing : false, guess : true },
-    reer   : { on : [ "reer" ],        faint : [ "neer", "rel" ], ...WIDE, band : true,  swing : false, guess : true },
-    swing  : { on : [ "reer" ],        faint : [],                from : SWING_FROM, lo : 90, hi : 124, ticks : [ 100, 110, 120 ], band : true, swing : true, guess : false },
+    dollar : { on : [ "usd" ],         faint : [],                ...RUPEES, band : false, swing : false, guess : false, key : "" },
+    neer   : { on : [ "neer", "usd" ], faint : [],                ...PRICE,  band : false, swing : false, guess : false, key : MORE_RUPEES },
+    // the prices line alone until the answer: the basket beside it would give the answer away
+    prices : { on : [ "rel" ],         faint : [],                ...PRICE,  band : false, swing : false, guess : false, key : PRICES },
+    guess  : { on : [ "rel" ],         faint : [],                ...PRICE,  band : false, swing : false, guess : false, key : PRICES },
+    // the two halves together, after the guess: the answer shows here first, as two lines meeting
+    halves : { on : [ "rel", "neer" ], faint : [],                ...PRICE,  band : false, swing : false, guess : false, key : HALVES },
+    reer   : { on : [ "reer" ],        faint : [ "neer", "rel" ], ...PRICE,  band : true,  swing : false, guess : true,  key : GOODS },
+    swing  : { on : [ "reer" ],        faint : [],                ...PRICE, from : SWING_FROM, lo : 92, hi : 124, ticks : [ 100, 110, 120 ], band : true, swing : true, guess : false, key : GOODS },
 };
+// Which events each chart scene shows: those on its line (EVENTS' chart field). The guess shares the prices chart.
+const EVENT_LINE : Partial<Record<SceneId, "usd" | "neer" | "rel">> = { dollar : "usd", neer : "neer", prices : "rel", guess : "rel" };
+
+// The Reserve Bank's own index for a line in a month, where it has one: shown in the tooltip beside the price.
+const RBI_INDEX : Partial<Record<Line, number[]>> = { neer : LINES.neer, reer : LINES.reer };
 
 // THE BASKET ON THE MAP ===============================================================================================
 // Each partner's countries, by RBI's currency code: the euro area as its 19 members of 2015-16.
@@ -111,7 +138,7 @@ const countryAt = (cs : Country[], lon : number, lat : number) => {
 const STEP = 1.8;
 let landPromise : Promise<Land> | null = null;
 const loadLand = () => landPromise ??= (async () => {
-    const get = (f : string) => fetch(`/stories/two-numbers-one-rupee/${f}`).then(r => r.json() as Promise<FeatureCollection<Geometry, Props>>);
+    const get = (f : string) => fetch(`/stories/rupee-and-world/${f}`).then(r => r.json() as Promise<FeatureCollection<Geometry, Props>>);
     const [ world, india ] = await Promise.all([ get("world-countries.geojson"), get("india-soi.geojson") ]);
     const countries : Country[] = [ ...world.features.filter(f => f.properties.iso !== "IND"), ...india.features ].map(f => {
         // Natural Earth files France without an ISO code
@@ -142,7 +169,7 @@ const rgbOf = (hex : string) : RGB => [ parseInt(hex.slice(1, 3), 16), parseInt(
 // The fallbacks are the light theme's (the accent is the site's indivara, hsl(262, 82%, 52%), deepened by 12%).
 const ACCENT_LIGHT : RGB = [ 93, 29, 205 ];
 const pageRGB = (cssVar : string, fallback : RGB) : RGB => {
-    const host = typeof document !== "undefined" ? document.getElementById("two-numbers-page") : null;
+    const host = typeof document !== "undefined" ? document.getElementById("rupee-and-world-page") : null;
     if (!host) return fallback;
     const probe = document.createElement("span");
     probe.style.color = `var(${cssVar})`;
@@ -194,7 +221,8 @@ interface Frame {
 }
 const frameOf = (scene : SceneId, w : number, h : number) : Frame => {
     const mobile = w < 900;
-    const card = mobile ? 0 : Math.min(420, 0.34 * w) + 56;
+    // the basket's card is wider, to hold all 40 partners (.step-card.is-wide in the stylesheet)
+    const card = mobile ? 0 : (scene === "basket" ? Math.min(500, 0.38 * w) : Math.min(420, 0.34 * w)) + 56;
     const chart = mobile
         ? { x0 : 40, x1 : w - 100, y0 : h * 0.1, y1 : h * 0.46 }
         : { x0 : Math.max(64, w * 0.05), x1 : w - card - 150, y0 : h * 0.17, y1 : h * 0.83 };
@@ -212,20 +240,34 @@ const frameOf = (scene : SceneId, w : number, h : number) : Frame => {
     }
     return { mobile, globe, chart };
 };
+// a value as the chart shows it: rupees to the paisa on the dollar chart; on the price charts the two currency lines
+// as rupees, the price lines as plain numbers
+const fmt = (cfg : ChartCfg, v : number, l ? : Line) => (cfg.unit === "inr" ? `₹${v.toFixed(2)}` : `${l === "usd" || l === "neer" ? "₹" : ""}${Math.round(v)}`);
 const xAt = (cfg : ChartCfg, f : Frame, m : number) => f.chart.x0 + (f.chart.x1 - f.chart.x0) * (m - cfg.from) / (N - 1 - cfg.from);
 const yAt = (cfg : ChartCfg, f : Frame, v : number) => f.chart.y1 - (f.chart.y1 - f.chart.y0) * (v - cfg.lo) / (cfg.hi - cfg.lo);
 
-// Where to turn the globe for a set of partners: halfway between India and the weighted mean of their capitals, so
-// both ends of their arcs face the reader (the Americas lie almost opposite India).
+// Where to turn the globe for a set of partners: towards the weighted mean of their capitals, but drawn back towards
+// India far enough that India stays on the near side, about 70° from the centre, so the arcs' source is in view at the
+// rim while the partners fill the globe. For partners close to India it turns a quarter of the way back, which keeps
+// both well inside.
+const vecOf = (lon : number, lat : number) => {
+    const lo = lon * Math.PI / 180, la = lat * Math.PI / 180;
+    return [ Math.cos(la) * Math.cos(lo), Math.cos(la) * Math.sin(lo), Math.sin(la) ];
+};
 const facing = (codes : string[]) : [ number, number ] => {
-    const ilo = DELHI[0] * Math.PI / 180, ila = DELHI[1] * Math.PI / 180, wsum = codes.reduce((t, c) => t + (WEIGHT[c] ?? 1), 0);
-    let x = wsum * Math.cos(ila) * Math.cos(ilo), y = wsum * Math.cos(ila) * Math.sin(ilo), z = wsum * Math.sin(ila);
+    let x = 0, y = 0, z = 0;
     for (const c of codes) {
         const p = PLACE[c]; if (!p) continue;
-        const w = WEIGHT[c] ?? 1, lo = p[0] * Math.PI / 180, la = p[1] * Math.PI / 180;
-        x += w * Math.cos(la) * Math.cos(lo); y += w * Math.cos(la) * Math.sin(lo); z += w * Math.sin(la);
+        const w = WEIGHT[c] ?? 1, v = vecOf(p[0], p[1]);
+        x += w * v[0]; y += w * v[1]; z += w * v[2];
     }
-    return [ Math.atan2(y, x) * 180 / Math.PI, Math.atan2(z, Math.hypot(x, y)) * 180 / Math.PI ];
+    const n = Math.hypot(x, y, z) || 1, f = [ x / n, y / n, z / n ], india = vecOf(DELHI[0], DELHI[1]);
+    const d = Math.acos(Math.max(-1, Math.min(1, f[0] * india[0] + f[1] * india[1] + f[2] * india[2])));
+    const back = Math.max(d * 0.25, d - 70 * Math.PI / 180);      // how far to turn back towards India
+    // the point `back` radians from the partners along the great circle towards India
+    const t = d > 1e-6 ? back / d : 0, s0 = Math.sin((1 - t) * d), s1 = Math.sin(t * d), sd = Math.sin(d) || 1;
+    const c = d > 1e-6 ? [ 0, 1, 2 ].map(k => (s0 * f[k] + s1 * india[k]) / sd) : f;
+    return [ Math.atan2(c[1], c[0]) * 180 / Math.PI, Math.atan2(c[2], Math.hypot(c[0], c[1])) * 180 / Math.PI ];
 };
 
 const ease = (t : number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -236,7 +278,7 @@ interface Tip { x : number; y : number; head : string; lines : string[] }
 interface StageProps {
     scene : SceneId;
     focus : string[] | null;        // partners picked out from the text: a region's or one country's codes
-    guess : number | null;          // the reader's guess, per cent cheaper, drawn as a level on the chart
+    guess : number | null;          // the reader's guess, the shoes' price today where 2004 is 100, drawn on the real rate
 }
 
 export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
@@ -247,13 +289,35 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
     const [ tip, setTip ] = useState<Tip | null>(null);
     const [ hoverCode, setHoverCode ] = useState<string | null>(null);
     const [ hoverMonth, setHoverMonth ] = useState<number | null>(null);
+    // the event whose note is open on the dollar chart; leaving waits a moment so the pointer can reach the note's link
+    const [ openEvent, setOpenEvent ] = useState<number | null>(null);
+    const sceneEvents = useMemo(() => EVENTS.filter(e => e.chart === EVENT_LINE[scene]), [ scene ]);
+    const eventLetGo = useRef(0);
+    const showEvent = (k : number | null) => {
+        clearTimeout(eventLetGo.current);
+        if (k !== null) setOpenEvent(k); else eventLetGo.current = window.setTimeout(() => setOpenEvent(null), 300);
+    };
+    useEffect(() => { setOpenEvent(null); return () => clearTimeout(eventLetGo.current); }, [ scene ]);
+    // The events arrive one by one, in order, once the dollar line has drawn itself: after about 2.3 s when the line
+    // comes from the globe, at once when the chart is already up. `intro.run` restarts their animation on each arrival.
+    const [ intro, setIntro ] = useState({ run : 0, wait : 0 });
+    const prevScene = useRef<SceneId>(scene);
+    useEffect(() => {
+        const was = prevScene.current, chart = EVENT_LINE[scene];
+        if (chart && chart !== EVENT_LINE[was]) setIntro(i => ({ run : i.run + 1, wait : isGlobe(was) || isIllus(was) ? 2.3 : 0.4 }));
+        prevScene.current = scene;
+    }, [ scene ]);
     const pal = usePalette();
+    const letGo = useRef(0);
+    useEffect(() => () => clearTimeout(letGo.current), []);
     const hitRef = useRef<((x : number, y : number) => { code : string | null; iso : string | null; name : string } | null) | null>(null);
 
     // What the frame loop reads; React writes it, the loop never re-renders.
-    const live = useRef({ scene, focus : null as string[] | null, pal, w : 0, h : 0 });
+    // `focus` (lit) picks partners out whether it comes from a chip or the pointer on the globe; `turn` is only the
+    // chips', since turning the globe to a country under the pointer would move it away and flicker.
+    const live = useRef({ scene, focus : null as string[] | null, turn : null as string[] | null, pal, w : 0, h : 0 });
     const lit = focus ?? (hoverCode ? [ hoverCode ] : null);
-    live.current.scene = scene; live.current.focus = lit; live.current.pal = pal;
+    live.current.scene = scene; live.current.focus = lit; live.current.turn = focus; live.current.pal = pal;
 
     useEffect(() => { let on = true; loadLand().then(l => on && setLand(l)).catch(() => {}); return () => { on = false; }; }, []);
     useEffect(() => { setTip(null); setHoverCode(null); setHoverMonth(null); }, [ scene ]);
@@ -292,12 +356,13 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
         let swingPhase = -0.4;
         let shown : SceneId | null = null, shownW = 0, shownH = 0, last = performance.now(), first = true;
         let lineFrom = 0;                                  // when the hairlines may start to show
+        const arcAlpha = new Float32Array(ARCS.length).fill(0.55);   // each arc's strength, eased, so a hover fades
 
         const loop = (now : number) => {
             raf = 0;
             if (!visible) return;
             const dt = Math.min(0.1, (now - last) / 1000); last = now;
-            const { scene : sc, focus : fo, pal : P, w, h } = live.current;
+            const { scene : sc, focus : fo, turn, pal : P, w, h } = live.current;
             if (!w) { raf = requestAnimationFrame(loop); return; }
             const F = frameOf(sc, w, h), cfg = CHART[sc];
 
@@ -312,7 +377,13 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 const reach = Math.min(0.95, 0.4 * w / (F.globe.R * Math.cos(DELHI[1] * RAD)));
                 lamT = DELHI[0] + Math.asin(reach) / RAD * Math.sin(swingPhase);
             }
-            else if (sc === "basket") { if (fo?.length) [ lamT, phiT ] = facing(fo); else lamT = 62; phiT = Math.max(-25, Math.min(40, phiT)); }
+            else if (sc === "basket") {
+                // the chips turn the globe; the pointer on a country only lights it, and the globe holds still under it
+                if (turn?.length) [ lamT, phiT ] = facing(turn);
+                else if (fo?.length) { lamT = g.lam; phiT = g.phi; }
+                else lamT = 62;
+                phiT = Math.max(-25, Math.min(40, phiT));
+            }
             const dLam = ((lamT - g.lam + 540) % 360) - 180;
             g.lam += dLam * (reduced ? 1 : 1 - Math.exp(-dt / 0.6));
             g.phi += (phiT - g.phi) * (reduced ? 1 : 1 - Math.exp(-dt / 0.6));
@@ -325,14 +396,14 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                     fx[i] = x[i]; fy[i] = y[i];
                     const s = slot[i], toChart = !!cfg && s >= 0;
                     let delay = seed[i] * 0.12, d = 0.7;          // globe to globe: quick, so the basket is in place as the scroll ends
-                    if (toChart && (shown === null || isGlobe(shown))) { delay = 0.05 + 1.1 * (s % N) / N + seed[i] * 0.15; d = 1.0; }
+                    if (toChart && (shown === null || isGlobe(shown) || isIllus(shown))) { delay = 0.05 + 1.1 * (s % N) / N + seed[i] * 0.15; d = 1.0; }
                     else if (cfg && shown && !isGlobe(shown)) { delay = seed[i] * 0.12; d = 0.8; }
                     else if (!cfg && shown && !isGlobe(shown)) { delay = seed[i] * 0.45; d = 1.1; }   // a chart back into the globe
                     dur[i] = reduced || first || resize ? 0 : d;
                     b[i] = reduced || first || resize ? 1 : -delay / d;
                 }
                 // the hairlines wait until the dots have landed when the line is drawn from the globe
-                lineFrom = now + (cfg && (shown === null || isGlobe(shown)) && !reduced && !first && !resize ? 1900 : 0);
+                lineFrom = now + (cfg && (shown === null || isGlobe(shown) || isIllus(shown)) && !reduced && !first && !resize ? 1900 : 0);
                 shown = sc; shownW = w; shownH = h;
             }
 
@@ -350,7 +421,7 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 const s = slot[i];
                 if (cfg && s >= 0 && (cfg.on.includes(LINE_KEYS[(s / N) | 0]) || cfg.faint.includes(LINE_KEYS[(s / N) | 0]))) {
                     const line = LINE_KEYS[(s / N) | 0], m = s % N;
-                    tx[i] = xAt(cfg, F, m); ty[i] = yAt(cfg, F, REBASED[line][m]);
+                    tx[i] = xAt(cfg, F, m); ty[i] = yAt(cfg, F, valueOf(cfg, line)[m]);
                     const inView = m >= cfg.from;
                     ta = inView ? (cfg.on.includes(line) ? 1 : 0.22) : 0; tr = rLine; tc = P.line[line];
                 } else if (cfg) {
@@ -452,7 +523,9 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 for (let k2 = 0; k2 < ARCS.length; k2++) {
                     const arc = ARCS[k2];
                     const on = !focusSet || focusSet.has(arc.code);
-                    const al = g.alpha * (on ? (focusSet ? 0.95 : 0.55) : 0.08);
+                    const want = on ? (focusSet ? 0.95 : 0.55) : 0.08;
+                    arcAlpha[k2] += (want - arcAlpha[k2]) * (reduced ? 1 : 1 - Math.exp(-dt / 0.18));
+                    const al = g.alpha * arcAlpha[k2];
                     // a ribbon as wide as the partner's weight, its colour running from India's to the partners'
                     const width = arcWidth(arc.weight, scale);
                     const from = P.warm, to = focusSet && on ? P.warm : P.emph;
@@ -559,8 +632,12 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
         const px = e.clientX - rect.left, py = e.clientY - rect.top;
         if (scene === "basket") {
             const hit = hitRef.current?.(px, py);
-            if (!hit) { setTip(null); setHoverCode(null); return; }
-            setHoverCode(hit.code);
+            // A partner lights at once; anything else (a border, the sea, a country outside the basket) lets go only
+            // after a moment, so crossing from one partner to the next never flashes the whole globe back.
+            clearTimeout(letGo.current);
+            if (hit?.code) setHoverCode(hit.code);
+            else letGo.current = window.setTimeout(() => setHoverCode(null), 250);
+            if (!hit) { setTip(null); return; }
             const euro = hit.code === "EUR" && hit.iso;
             setTip({
                 x : px, y : py, head : hit.name,
@@ -575,14 +652,13 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             setHoverMonth(m);
             setTip({
                 x : xAt(cfg, F, m), y : py, head : monthName(MONTHS[m]),
-                lines : cfg.on.map(l => `${LINE_LABEL[l]}: ${REBASED[l][m].toFixed(1)}`)
-                    .concat(cfg.on.includes("reer") ? [ `RBI’s own index (2015-16 = 100): ${SERIES.reer40t[m].toFixed(1)}` ] : []),
+                lines : cfg.on.map(l => `${labelOf(cfg, l)}: ${fmt(cfg, valueOf(cfg, l)[m], l)}${cfg.unit === "cost" && RBI_INDEX[l] ? ` (RBI index ${RBI_INDEX[l]![m].toFixed(1)})` : ""}`),
             });
             return;
         }
         setTip(null); setHoverMonth(null);
     };
-    const onLeave = () => { setTip(null); setHoverCode(null); setHoverMonth(null); };
+    const onLeave = () => { clearTimeout(letGo.current); setTip(null); setHoverCode(null); setHoverMonth(null); };
 
     // ---- the overlay -----------------------------------------------------------------------------------------------------
     // The chart's furniture stays drawn for the last chart scene while the stage turns back into the globe, so it can
@@ -595,18 +671,93 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
     // the end labels, nudged apart so they never overlap
     const ends = useMemo(() => {
         if (!C || !CF) return [];
-        const ls = [ ...C.on ].map(l => ({ l, v : REBASED[l][N - 1], y : yAt(C, CF, REBASED[l][N - 1]) })).sort((p, q) => p.y - q.y);
-        for (let i = 1; i < ls.length; i++) if (ls[i].y - ls[i - 1].y < 40) ls[i].y = ls[i - 1].y + 40;
+        const ls = [ ...C.on ].map(l => ({ l, v : valueOf(C, l)[N - 1], y : yAt(C, CF, valueOf(C, l)[N - 1]) })).sort((p, q) => p.y - q.y);
+        // a label is its value and a name of up to two lines: about 52px tall
+        for (let i = 1; i < ls.length; i++) if (ls[i].y - ls[i - 1].y < 52) ls[i].y = ls[i - 1].y + 52;
         return ls;
     }, [ C, CF?.chart.y0, CF?.chart.y1 ]); // eslint-disable-line react-hooks/exhaustive-deps
 
+    // the start labels: above the first dot, or below it when a higher label already sits there
+    const starts = (() => {
+        if (!C || !CF) return [];
+        let ls = C.on.map(l => ({ l, v : valueOf(C, l)[C.from], py : yAt(C, CF, valueOf(C, l)[C.from]), y : 0, shared : false })).sort((p, q) => p.py - q.py);
+        // lines that start at the same value (every price line starts at 100) share one label, in the ink colour
+        if (ls.length > 1 && ls.every(st => Math.abs(st.v - ls[0].v) < 0.5)) ls = [ { ...ls[0], shared : true } ];
+        let last = -Infinity;
+        for (const st of ls) {
+            st.y = C.unit === "inr" ? st.py + 10 : st.py - 30;
+            if (st.y < last + 32) st.y = st.py + 10;
+            last = st.y;
+        }
+        return ls;
+    })();
+    // Between the dollar and the basket, on the basket's chart: one area per run of months in which one cost more than
+    // the other, traced along the upper line and back along the lower.
+    const gapAreas = useMemo(() => {
+        if (!C || !CF || C.unit !== "cost" || !C.on.includes("neer")) return null;
+        // the line compared with the basket: the dollar on the basket's chart, India's prices on the two halves'
+        const other : Line | null = C.on.includes("usd") ? "usd" : C.on.includes("rel") ? "rel" : null;
+        if (!other) return null;
+        const out : { d : string; ahead : boolean; other : Line }[] = [];
+        let k = 0;
+        while (k < N) {
+            const ahead = COST[other][k] >= COST.neer[k];
+            let e = k;
+            while (e + 1 < N && (COST[other][e + 1] >= COST.neer[e + 1]) === ahead) e++;
+            const a = Math.max(0, k - 1), z = Math.min(N - 1, e + 1);     // reach to the neighbouring months, so runs meet
+            const top = [], bottom = [];
+            for (let m = a; m <= z; m++) { top.push(`${xAt(C, CF, m).toFixed(1)} ${yAt(C, CF, COST[other][m]).toFixed(1)}`); bottom.push(`${xAt(C, CF, m).toFixed(1)} ${yAt(C, CF, COST.neer[m]).toFixed(1)}`); }
+            out.push({ d : `M${top.join(" L")} L${bottom.reverse().join(" L")} Z`, ahead, other });
+            k = e + 1;
+        }
+        return out;
+    }, [ C, CF?.chart.x0, CF?.chart.x1, CF?.chart.y0, CF?.chart.y1 ]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // The $ coin leaves the basket for the dollar line's label as the basket turns into its chart.
+    const [ fly, setFly ] = useState(0);
+    const flyFrom = useRef<SceneId>(scene);
+    useEffect(() => {
+        if (scene === "neer" && flyFrom.current === "coins26") setFly(f => f + 1);
+        flyFrom.current = scene;
+    }, [ scene ]);
+    const flight = (() => {
+        if (!fly || scene !== "neer" || !CF || !C || C.unit !== "cost") return null;
+        const coin = COINS.find(c => c.code === "USD"), end = ends.find(e => e.l === "usd");
+        if (!coin || !end) return null;
+        const w = CF.chart.x1 - CF.chart.x0, h = CF.chart.y1 - CF.chart.y0, k = Math.min(w / 800, h / VIEW_H);
+        const sx = CF.chart.x0 + (w - 800 * k) / 2 + coin.x * k, sy = CF.chart.y0 + (h - VIEW_H * k) / 2 + (coin.y - VIEW_TOP) * k;
+        return { sx, sy, ex : CF.chart.x1 + 22, ey : end.y + 2, size : 2 * coin.r * k };
+    })();
+
+    // How high each event's name sits above its mark: 40px, raised in steps until its box (it ends at the mark and runs
+    // left, about 6.6px a character at 12px) clears every name placed before it.
+    const eventLifts = useMemo(() => {
+        if (!cfg || !CF || CF.mobile) return sceneEvents.map(() => 26);
+        const boxes : [ number, number, number, number ][] = [];
+        return sceneEvents.map(ev => {
+            const line : Line = ev.chart === "neer" ? "usd" : ev.chart;
+            const m = iOf(ev.month), x = xAt(cfg, CF, m), y = yAt(cfg, CF, valueOf(cfg, line)[m]), w = ev.label.length * 6.6 + 8;
+            let lift = 40;
+            const box = (l : number) : [ number, number, number, number ] => [ x - w, y - l - 16, x, y - l + 2 ];
+            while (boxes.some(b => { const a = box(lift); return a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1]; }) && lift < 200) lift += 22;
+            boxes.push(box(lift));
+            return lift;
+        });
+    }, [ sceneEvents, cfg, CF?.chart.x0, CF?.chart.x1, CF?.chart.y0, CF?.chart.y1, CF?.mobile ]); // eslint-disable-line react-hooks/exhaustive-deps
+
     const years = C ? Array.from(new Set(MONTHS.slice(C.from).map(m => +m.slice(0, 4)))).filter(yr => C.swing || yr % 5 === 0) : [];
     const peakM = iOf(HEADLINE.swing.peakMonth), troughM = iOf(HEADLINE.swing.troughMonth);
-    const showGuess = !!C && C.guess && guess !== null && (scene === "guess" || (!!cfg && cfg.guess));
+    // the reader's guess, a price where 2004 is 100, on the same scale as the real rate's line
+    const showGuess = !!C && C.guess && guess !== null && !!cfg?.guess;
+    const guessLevel = guess ?? 0;
 
     return (
         <div ref={wrapRef} className={`rupee-stage scene-${scene}`} onPointerMove={onPointer} onPointerLeave={onLeave} role="img" aria-label={DESCRIBE[scene]}>
             <canvas ref={canvasRef} />
+
+            {/* THE BASKET OF CURRENCIES, BOUGHT IN 2004 AND IN 2026 */}
+            {F && <CoinBasket scene={scene} box={F.chart} />}
+            {F && <PriceScale scene={scene} box={F.chart} />}
 
             {/* THE BASKET'S KEY */}
             {F && (
@@ -644,9 +795,9 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                             </g>
                         )}
                         {C.ticks.map(t => (
-                            <g key={t} className={`stage-grid ${t === 100 ? "is-base" : ""}`}>
+                            <g key={t} className={`stage-grid ${t === 100 && C.unit === "cost" ? "is-base" : ""}`}>
                                 <line x1={CF.chart.x0} x2={CF.chart.x1} y1={yAt(C, CF, t)} y2={yAt(C, CF, t)} />
-                                <text x={CF.chart.x0 - 10} y={yAt(C, CF, t) + 4} textAnchor="end">{t}</text>
+                                <text x={CF.chart.x0 - 10} y={yAt(C, CF, t) + 4} textAnchor="end">{C.unit === "inr" ? `₹${t}` : t}</text>
                             </g>
                         ))}
                         {years.map(yr => {
@@ -656,17 +807,54 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                         })}
                         {showGuess && guess !== null && (
                             <g className="guess-level">
-                                <line x1={CF.chart.x0} x2={CF.chart.x1} y1={yAt(C, CF, 100 - guess)} y2={yAt(C, CF, 100 - guess)} />
-                                <text x={CF.chart.x0 + 8} y={yAt(C, CF, 100 - guess) + 16}>{`your guess: ${guess}% cheaper`}</text>
+                                <line x1={CF.chart.x0} x2={CF.chart.x1} y1={yAt(C, CF, guessLevel)} y2={yAt(C, CF, guessLevel)} />
+                                <text x={CF.chart.x0 + 8} y={yAt(C, CF, guessLevel) + 16}>{`your guess: the batch at ${guess} (it was 100 in ${MONTHS[0].slice(0, 4)})`}</text>
                             </g>
                         )}
-                        {hoverMonth !== null && cfg && (
+                        {hoverMonth !== null && cfg && openEvent === null && (
                             <line className="crosshair" x1={xAt(cfg, CF, hoverMonth)} x2={xAt(cfg, CF, hoverMonth)} y1={CF.chart.y0 - 10} y2={CF.chart.y1} />
+                        )}
+                        {/* the dollar against the basket: the space between the two shaded by which cost more, where
+                            they last crossed, and the gap now */}
+                        {gapAreas && (
+                            <g className="gap-areas">
+                                {gapAreas.map((a, k) => <path key={k} d={a.d} className={!a.ahead ? "is-basket" : a.other === "usd" ? "is-dollar" : "is-prices"} />)}
+                                {/* the two halves: the widest gap, and where the basket caught up */}
+                                {gapAreas[0]?.other === "rel" && (
+                                    <g className="gap-bracket">
+                                        <path d={`M${xAt(C, CF, HALVES_PEAK)} ${yAt(C, CF, COST.rel[HALVES_PEAK])} V${yAt(C, CF, COST.neer[HALVES_PEAK])}`} strokeDasharray="3 3" />
+                                        <circle cx={xAt(C, CF, HALVES_PEAK)} cy={yAt(C, CF, COST.rel[HALVES_PEAK])} r={4} className="gap-dot" />
+                                        <circle cx={xAt(C, CF, HALVES_PEAK)} cy={yAt(C, CF, COST.neer[HALVES_PEAK])} r={4} className="gap-dot" />
+                                        <text x={xAt(C, CF, HALVES_PEAK) - 10} y={yAt(C, CF, COST.rel[HALVES_PEAK]) - 14} textAnchor="end">
+                                            {`${monthShort(MONTHS[HALVES_PEAK])}, widest gap: ${Math.round(COST.rel[HALVES_PEAK])} against ${Math.round(COST.neer[HALVES_PEAK])}`}
+                                        </text>
+                                        {/* where they meet: named below the lines, on a leader, clear of the shading */}
+                                        {HALVES_MEET > 0 && (
+                                            <g className="meet-mark">
+                                                <line x1={xAt(C, CF, HALVES_MEET)} x2={xAt(C, CF, HALVES_MEET)} y1={yAt(C, CF, COST.neer[HALVES_MEET]) + 8} y2={yAt(C, CF, COST.neer[HALVES_MEET]) + 140} />
+                                                <text x={xAt(C, CF, HALVES_MEET) + 4} y={yAt(C, CF, COST.neer[HALVES_MEET]) + 156} textAnchor="end">
+                                                    {`${monthShort(MONTHS[HALVES_MEET])}: they meet`}
+                                                </text>
+                                            </g>
+                                        )}
+                                    </g>
+                                )}
+                                {gapAreas[0]?.other === "usd" && <>
+                                {/* the gap: a bracket at the end, and its name inside the grey area about four years back, where it is wide */}
+                                <g className="gap-bracket">
+                                    <path d={`M${CF.chart.x1 + 4} ${yAt(C, CF, COST.usd[N - 1])} h4 V${yAt(C, CF, COST.neer[N - 1])} h-4`} />
+                                    <text x={xAt(C, CF, N - 46)} y={(yAt(C, CF, COST.usd[N - 46]) + yAt(C, CF, COST.neer[N - 46])) / 2 + 4} textAnchor="middle">
+                                        {`the dollar’s own rise: ${Math.round(DOLLAR_GAP)}%`}
+                                    </text>
+                                </g>
+                                </>}
+                            </g>
                         )}
                         {C.swing && (
                             <g className="swing-marks">
-                                {[ { m : peakM, v : REBASED.reer[peakM], label : `${monthShort(HEADLINE.swing.peakMonth)}: the high` },
-                                    { m : troughM, v : REBASED.reer[troughM], label : `${monthShort(HEADLINE.swing.troughMonth)}: ${HEADLINE.swing.fall.toFixed(1)}% lower` } ].map((p, i) => (
+                                {/* the batch of shoes at the swing's two ends, on the same scale as the pop quiz */}
+                                {[ { m : peakM, v : COST.reer[peakM], label : `👞 ${monthShort(HEADLINE.swing.peakMonth)}: the shoes at ${Math.round(COST.reer[peakM])}, the high` },
+                                    { m : troughM, v : COST.reer[troughM], label : `👞 ${monthShort(HEADLINE.swing.troughMonth)}: back to ${Math.round(COST.reer[troughM])}` } ].map((p, i) => (
                                     <g key={p.m}>
                                         <circle cx={xAt(C, CF, p.m)} cy={yAt(C, CF, p.v)} r={7} />
                                         <text x={xAt(C, CF, p.m)} y={yAt(C, CF, p.v) + (i === 0 ? -16 : 26)} textAnchor="middle">{p.label}</text>
@@ -675,19 +863,68 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                             </g>
                         )}
                     </svg>
-                    <div className="axis-title" style={{ left : CF.chart.x0 - 4, top : CF.chart.y0 - 44 }}>
-                        <strong>Each dot is a month.</strong> April 2004 = 100{C.band ? "; the shaded band is the range the real rate stayed in" : ""}
+                    <div className="axis-title" style={{ left : CF.chart.x0 - 4, top : CF.chart.y0 - (C.key ? 64 : 44) }}>
+                        <strong>Each dot is a month.</strong>{" "}
+                        {C.unit === "inr" ? "The average number of rupees paid for one US dollar."
+                            : `Prices in April 2004 = 100 (the dashed line).${C.band ? " The shaded band is the range this price stayed in." : ""}`}
+                        {C.key && <span className="axis-key">{C.key}</span>}
                     </div>
                     {ends.map(e => (
                         <div key={e.l} className="end-label" style={{ transform : `translate(${CF.chart.x1 + 12}px, ${e.y - 10}px)`, color : cssOf(pal.line[e.l]) }}>
-                            <span className="end-value">{e.v.toFixed(0)}</span>
-                            <span className="end-name">{LINE_LABEL[e.l]}</span>
+                            <span className="end-value">
+                                {C.unit === "cost" && e.l === "usd" && cfg?.unit === "cost" && <span className="coin-badge" aria-hidden="true">$</span>}
+                                {C.unit === "cost" && e.l === "neer" && <span className="basket-badge" aria-hidden="true">🧺</span>}
+                                {fmt(C, e.v, e.l)}
+                            </span>
+                            <span className="end-name">{labelOf(C, e.l)}</span>
+                        </div>
+                    ))}
+                    {/* The events behind the sharpest moves, on the dollar chart: a numbered mark on the line, a short name
+                        above it, and on pointing (or a tap) a note with its RBI or Government source. */}
+                    {cfg && sceneEvents.map((ev, k) => {
+                        const lift = eventLifts[k];
+                        // an event sits on its own line; the basket's chart marks where the dollar line crosses it
+                        const line : Line = ev.chart === "neer" ? "usd" : ev.chart;
+                        const m = iOf(ev.month), x = xAt(cfg, CF, m), y = yAt(cfg, CF, valueOf(cfg, line)[m]);
+                        // The line rises from left to right, so the space above and to its left is empty: each name sits
+                        // there, ending at its stem, at one of two heights so neighbours do not touch. A note opens
+                        // downward from a mark in the upper half of the chart, and leftward from one in the right half.
+                        const right = x > (CF.chart.x0 + CF.chart.x1) / 2;
+                        const high = y < (CF.chart.y0 + CF.chart.y1) / 2, isOpen = openEvent === k;
+                        return (
+                            <div key={`${ev.month}-${intro.run}`} className={`event ${isOpen ? "is-open" : ""} ${right ? "is-right" : ""} ${high ? "is-high" : ""}`}
+                                style={{ transform : `translate(${x}px, ${y}px)`, "--d" : `${(intro.wait + k * 0.45).toFixed(2)}s` } as React.CSSProperties}
+                                onPointerEnter={() => showEvent(k)} onPointerLeave={() => showEvent(null)}>
+                                <span className="event-stem" style={{ height : lift }} />
+                                <button type="button" className="event-mark" aria-expanded={isOpen} aria-label={`${ev.label}, ${monthName(ev.month)}`}
+                                    onClick={() => setOpenEvent(o => (o === k ? null : k))} onFocus={() => showEvent(k)} onBlur={() => showEvent(null)}>{sceneEvents.length > 1 ? k + 1 : "i"}</button>
+                                {!CF.mobile && <span className="event-label" style={{ bottom : lift - 2 }}>{ev.label}</span>}
+                                {isOpen && (
+                                    <div className="event-note" role="note" style={high ? { top : 18 } : { bottom : lift + 22 }}>
+                                        <strong>{monthName(ev.month)} · {ev.label}</strong>
+                                        <span>{ev.note}</span>
+                                        <a href={ev.url} target="_blank" rel="noopener">{ev.source} ↗</a>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                    {/* where each line starts, so its change reads without the axis (below the dollar line, whose space
+                        above holds the events' names) */}
+                    {starts.map(st => (
+                        <div key={st.l} className="start-label" style={{ transform : `translate(${xAt(C, CF, C.from) - 4}px, ${st.y}px)`, color : st.shared ? "var(--heading-text-colour)" : cssOf(pal.line[st.l]) }}>
+                            {st.shared ? Math.round(st.v) : fmt(C, st.v, st.l)}<span>{st.shared ? `both, ${monthShort(MONTHS[C.from])}` : monthShort(MONTHS[C.from])}</span>
                         </div>
                     ))}
                 </div>
             )}
 
-            {tip && (
+            {flight && (
+                <div key={fly} className="dollar-fly" aria-hidden="true"
+                    style={{ "--sx" : `${flight.sx}px`, "--sy" : `${flight.sy}px`, "--ex" : `${flight.ex}px`, "--ey" : `${flight.ey}px`, "--size" : `${flight.size}px` } as React.CSSProperties}>$</div>
+            )}
+
+            {tip && openEvent === null && (
                 <div className="stage-tip" style={{ transform : `translate(${Math.min(tip.x + 14, size.w - 250)}px, ${Math.max(8, tip.y - 70)}px)` }}>
                     <strong>{tip.head}</strong>
                     {tip.lines.map(l => <span key={l}>{l}</span>)}
@@ -699,14 +936,18 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
 
 // WHAT EACH SCENE SAYS TO A SCREEN READER =============================================================================
 const DESCRIBE : Record<SceneId, string> = {
-    hero   : "A globe of dots, India and the 40 trading partners in the rupee’s basket joined to it by arcs.",
-    basket : "A globe on which each trading partner is shaded by its weight in the basket.",
-    dollar : "A line of dots, one a month from April 2004, of what a rupee buys in US dollars, falling to less than half.",
-    guess  : "The same line, with the reader’s guess drawn across the chart.",
-    neer   : "A second line, the rupee against 40 currencies, falls less far than the dollar line.",
-    prices : "A third line, India’s prices against its partners’, rises as the nominal line falls.",
-    reer   : "The real rate, the nominal rate and prices together, stays inside a narrow band near where it began.",
-    swing  : "The real rate since 2022: it rose to a high in November 2024 and fell back by May 2026.",
+    hero    : "A globe of dots, India and the 40 trading partners in the rupee’s basket joined to it by arcs.",
+    basket  : "A globe on which each trading partner is shaded by its weight in the basket.",
+    dollar  : "A line of dots, one a month from April 2004, of the rupees paid for one US dollar, rising from ₹43.93 to ₹95.82, with numbered events.",
+    coins   : "A basket of 40 coins, one for each partner’s currency, sized by its weight; a ₹100 note pays for it in April 2004.",
+    coins26 : "The same basket in July 2026: a ₹100 note, a ₹50 note and three ₹10 notes pay for it, with ₹2 back.",
+    halves  : "India’s prices against its partners’ and the basket’s price together: prices ran ahead from 2013, widest in November 2024, and the two meet again in 2026.",
+    neer    : "The basket’s price, month by month, from ₹100 to ₹178, beside dollars that were worth ₹100 in April 2004, now ₹218; the basket cost more until late 2014, the dollars since.",
+    scale   : "A balance scale with the same goods on both pans, India’s prices on one and its partners’ on the other, level at 100 in April 2004; in July 2026 India’s side sinks, its tag at 179.",
+    prices  : "India’s prices against its partners’, month by month, rising from 100 to 179.",
+    guess   : "India’s prices against its partners’, as before.",
+    reer    : "What Indian goods cost abroad, from 100 to 101, inside a narrow band, with the two lines it divides faint behind it.",
+    swing   : "What Indian goods cost abroad since 2022: up to a high in November 2024 and back by May 2026.",
 };
 
 export default RupeeStage;

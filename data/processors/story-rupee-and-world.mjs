@@ -1,4 +1,4 @@
-// Processor: story-two-numbers-one-rupee — derives every series for the story from the scrape's SDMX exports
+// Processor: story-rupee-and-world — derives every series for the story from the scrape's SDMX exports
 // (data/sdmx/**, restored by `pnpm data:fetch`), read with the parser the database loader uses, so each series is the
 // one loaded into Postgres under its DSD code. Nothing is typed by hand, except the basket weights below.
 //
@@ -20,9 +20,9 @@
 // is log NEER and whose depth is log(REER ÷ NEER) reads as log REER when seen from 45°.
 //
 // Emits:
-//   out/story-two-numbers-one-rupee.json                 the oracle (data/processors/oracles/ holds the snapshot)
-//   src/app/stories/two-numbers-one-rupee/data.gen.ts    the module the page imports
-//   public/stories/two-numbers-one-rupee/*.csv           the downloads the page offers
+//   out/story-rupee-and-world.json                 the oracle (data/processors/oracles/ holds the snapshot)
+//   src/app/stories/rupee-and-world/data.gen.ts    the module the page imports
+//   public/stories/rupee-and-world/*.csv           the downloads the page offers
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,12 +32,13 @@ import { readSdmxCsv } from '../../scripts/db/lib.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO      = path.join(__dirname, '../..');
 const OUT_DIR   = path.join(__dirname, 'out');
-const NAME      = 'story-two-numbers-one-rupee';
-const SLUG      = 'two-numbers-one-rupee';
+const NAME      = 'story-rupee-and-world';
+const SLUG      = 'rupee-and-world';
 
 const INDICES = path.join(REPO, 'data/sdmx/external-sector/external-sector-indices/indices-of-reer-neer-monthly.csv');
 const FOREX   = path.join(REPO, 'data/sdmx/financial-markets/forex-market');
 const WEIGHTS = path.join(REPO, 'data/sources/reer-weights-2015-16.json');
+const EVENTS_FILE = path.join(REPO, 'data/sources/rupee-events.json');
 
 const fail = msg => { throw new Error(`${NAME}: ${msg}`); };
 const assert = (cond, msg) => { if (!cond) fail(msg); };
@@ -145,6 +146,33 @@ const USD = MONTHS.map(mo => usdMonthly.has(mo) ? r2(usdMonthly.get(mo)) : null)
 assert(USD.every(v => v !== null), 'the dollar series has a gap the daily table cannot fill');
 const USD_LAST = LAST;
 
+// The other three currencies RBI sets a reference rate for, for the constellation: the euro, the pound and the yen (per
+// 100 yen), monthly averages from the same table, their gaps filled from the daily table exactly as the dollar's, after
+// the same check that the daily average reproduces every month from February 2023.
+const RATES = {};
+for (const cur of [ 'EUR', 'GBP', 'JPY' ]) {
+    const monthly = new Map(), daily = new Map();
+    for (const r of sdmxObjects(path.join(FOREX, 'foreign-exchange-rate-average.csv'))) {
+        if (r.CURRENCY === cur && r.MEASURE_RN === 'AVG') monthly.set(ym(r.TIME_PERIOD), num(r.OBS_VALUE));
+    }
+    for (const r of sdmxObjects(path.join(FOREX, 'exchange-rate-of-the-indian-rupee-daily.csv'))) {
+        if (r.CURRENCY !== cur) continue;
+        const k = ym(r.TIME_PERIOD);
+        if (!daily.has(k)) daily.set(k, []);
+        daily.get(k).push(num(r.OBS_VALUE));
+    }
+    for (const [ k, days ] of daily) {
+        if (k >= '2023-02' && monthly.has(k)) assert(Math.abs(mean(days) - monthly.get(k)) < 0.0005, `${cur} ${k}: the daily rates average ${mean(days).toFixed(4)}, the monthly table says ${monthly.get(k)}`);
+    }
+    for (const mo of MONTHS) {
+        if (monthly.has(mo) || !daily.has(mo)) continue;
+        assert(mo >= '2023-02', `${cur} ${mo}: a gap before the months the daily average is checked against`);
+        monthly.set(mo, mean(daily.get(mo)));
+    }
+    RATES[cur] = MONTHS.map(mo => monthly.has(mo) ? r2(monthly.get(mo)) : null);
+    assert(RATES[cur].every(v => v !== null), `the ${cur} series has a gap the daily table cannot fill`);
+}
+
 const usdFy = new Map();
 for (const r of sdmxObjects(path.join(FOREX, 'exchange-rate-of-indian-rupees-fy.csv'))) {
     if (r.CURRENCY !== 'USD' || r.MEASURE_RN !== 'AVG') continue;
@@ -213,6 +241,22 @@ if (fs.existsSync(WEIGHTS)) {
     BASKET = { source : w.source, partners : w.trade.map(c => ({ country : c.country, iso : c.iso, weight : c.weight })) };
 }
 
+// ── the events on the dollar chart (not on DBIE) ──────────────────────────────────────────────────────────────────
+// Each from an RBI, Government of India or PIB document, with its title, link and a quote (data/sources/rupee-events.json).
+// Checked here: the month is in the series, and every event names its source.
+
+let EVENTS = [];
+if (fs.existsSync(EVENTS_FILE)) {
+    const e = JSON.parse(fs.readFileSync(EVENTS_FILE, 'utf8'));
+    for (const ev of e.events) {
+        assert(MONTHS.includes(ev.month), `${path.basename(EVENTS_FILE)}: ${ev.month} is not a month of the series`);
+        assert([ 'usd', 'neer', 'rel' ].includes(ev.chart ?? 'usd'), `${path.basename(EVENTS_FILE)}: ${ev.month} names an unknown chart`);
+        assert(ev.label && ev.note && ev.source_title && /^https:\/\/([a-z0-9-]+\.)*(rbi\.org\.in|gov\.in|nic\.in)\//.test(ev.url),
+            `${path.basename(EVENTS_FILE)}: ${ev.month} needs a label, a note and an official source`);
+    }
+    EVENTS = e.events.map(ev => ({ chart : ev.chart ?? 'usd', month : ev.month, label : ev.label, note : ev.note, source : ev.source_title, url : ev.url }));
+}
+
 // ── self-check: the identity the stage depends on ─────────────────────────────────────────────────────────────────
 
 for (let i = 0; i < MONTHS.length; i++) {
@@ -223,7 +267,7 @@ for (let i = 0; i < MONTHS.length; i++) {
 // ── the oracle ────────────────────────────────────────────────────────────────────────────────────────────────────
 
 const SERIES_OUT = Object.fromEntries(Object.keys(KEYS).map(k => [ k, arr(k).map(r3) ]));
-const out = { HEADLINE, MONTHS, SERIES : SERIES_OUT, USD, YEARLY, BASKET };
+const out = { HEADLINE, MONTHS, SERIES : SERIES_OUT, USD, RATES, YEARLY, BASKET, EVENTS };
 fs.mkdirSync(OUT_DIR, { recursive : true });
 fs.writeFileSync(path.join(OUT_DIR, `${NAME}.json`), JSON.stringify(out, null, 1));
 
@@ -250,11 +294,17 @@ const GEN = [
     `// Rupees per US dollar, monthly average of RBI's reference rate (HEADLINE.usdFilled: months averaged from the daily table).`,
     `export const USD : (number | null)[] = ${ts(USD)};`,
     '',
+    '// Rupees per euro, per pound and per 100 yen, monthly averages of RBI\'s reference rates (gaps filled as the dollar\'s).',
+    `export const RATES : Record<"EUR" | "GBP" | "JPY", number[]> = ${ts(RATES)};`,
+    '',
     '// Each full financial year: the dollar\'s yearly average and the 40-currency indices\' averages.',
     `export const YEARLY : { fy : string; usd : number; neer : number; reer : number }[] = ${ts(YEARLY)};`,
     '',
     '// The 40 currencies\' trade weights from RBI\'s January 2021 revision (not on DBIE), or null until sourced.',
     `export const BASKET : { source : Record<string, string>; partners : { country : string; iso : string; weight : number }[] } | null = ${ts(BASKET)};`,
+    '',
+    '// Events marked on the charts (chart: the line they sit on), each with its RBI, Government of India or PIB source (not on DBIE).',
+    `export const EVENTS : { chart : "usd" | "neer" | "rel"; month : string; label : string; note : string; source : string; url : string }[] = ${ts(EVENTS)};`,
     '',
 ].join('\n');
 const genPath = path.join(REPO, `src/app/stories/${SLUG}/data.gen.ts`);
