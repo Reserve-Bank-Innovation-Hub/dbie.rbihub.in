@@ -253,6 +253,42 @@ export const WhatGotCheaperPage = () => (
                 </Row>
             </Section>
 
+            {/* THE CONSUMER SIDE ==================================================================================== */}
+            <Section className="chapter">
+                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
+                    <Portion desktopSpan="8">
+                        <Chapter id="the-shop" kicker="WHAT THE SHOP CHARGES" title={`Consumer prices rose ${cpiRisePct}% between ${CPI_GENERAL.fromYear} and ${CPI_GENERAL.toYear}, wholesale prices ${wpiRiseCalPct}%`}>
+                            <Para>{`The wholesale index prices goods and nothing else: no rent, no school fees, no doctor’s bill, no bus
+                                fare. The consumer price index prices those, and the goods again after the shop has added its
+                                margin and the taxes.`}</Para>
+                            <Para>{`Health rose ${health}%, ${healthLeadExact} points more than everything; education rose ${education}%, ${educationLeadExact} points more,
+                                and housing, the one group that is wholly a service, ${housing}%, ${-housingLeadExact} points less. Transport and
+                                communication rose ${transport}%, the least of these groups. Food rose ${foodCpi}% and clothing ${clothingCpi}%, close to the average. Personal
+                                care rose ${personalCare}%, much of it the price of gold, which in Mumbai averaged ${BULLION.gold.calendar.times.toFixed(1)} times as
+                                much in ${BULLION.gold.calendar.toYear} as in ${BULLION.gold.calendar.fromYear}.`}</Para>
+                            <Prose last>
+                                {`In the United States between 2013 and 2025, services rose 50% and goods 20%; between 2000 and 2025 hospital services rose 275% and televisions, priced for a set of given quality, fell 98% (`}
+                                <Cite href="https://www.bls.gov/cpi/">US Bureau of Labor Statistics</Cite>
+                                {`). In India’s consumer index, services and goods rose at about the same pace: housing rose as much as food, and over financial years or from 2012 the goods rose more.`}
+                            </Prose>
+                        </Chapter>
+                    </Portion>
+                    <Portion desktopSpan="16">
+                        <Reveal delay={0.1}>
+                            <Figure
+                                title={`Consumer prices by group, ${CPI_GENERAL.fromYear} to ${CPI_GENERAL.toYear}`} units="rise in the yearly average, per cent; housing, the one group wholly a service, in colour"
+                                table={{ head : [ "Group", `${CPI_GENERAL.fromYear}`, `${CPI_GENERAL.toYear}`, "Rise" ], numeric : [ false, true, true, true ], rows : cpiRows.map(r => [ r.label, r.key === "wpi" ? WPI_CALENDAR.from.toFixed(1) : cpiNamed(r.key === "cpi" ? "C_GIAG" : r.key).from.toFixed(1), r.key === "wpi" ? WPI_CALENDAR.to.toFixed(1) : cpiNamed(r.key === "cpi" ? "C_GIAG" : r.key).to.toFixed(1), pct(r.value, 0) ]) }}
+                                note={prose(`From the consumer price index (rural, urban and combined, 2012 = 100) on DBIE, all-India combined,
+                                    calendar-year averages, and the wholesale price index over the same years. Personal care and effects
+                                    includes gold and silver jewellery; health includes medicines and education books and stationery.`)}
+                            >
+                                <HBars rows={cpiRows} format={v => pct(v, 0)} labelWidth={200} ariaLabel={`Rise in consumer prices by group between ${CPI_GENERAL.fromYear} and ${CPI_GENERAL.toYear}, against wholesale prices`} />
+                            </Figure>
+                        </Reveal>
+                    </Portion>
+                </Row>
+            </Section>
+
             {/* IN DAYS OF WORK ====================================================================================== */}
             <Section className="chapter">
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
@@ -306,42 +342,6 @@ export const WhatGotCheaperPage = () => (
                                     line compares baskets as well as prices.`)}
                             >
                                 <LongChart ariaLabel="The wholesale price index and its three major groups, yearly, 1982-83 to the latest year" />
-                            </Figure>
-                        </Reveal>
-                    </Portion>
-                </Row>
-            </Section>
-
-            {/* THE CONSUMER SIDE ==================================================================================== */}
-            <Section className="chapter">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="the-shop" kicker="WHAT THE SHOP CHARGES" title={`Consumer prices rose ${cpiRisePct}% between ${CPI_GENERAL.fromYear} and ${CPI_GENERAL.toYear}, wholesale prices ${wpiRiseCalPct}%`}>
-                            <Para>{`The wholesale index prices goods and nothing else: no rent, no school fees, no doctor’s bill, no bus
-                                fare. The consumer price index prices those, and the goods again after the shop has added its
-                                margin and the taxes.`}</Para>
-                            <Para>{`Health rose ${health}%, ${healthLeadExact} points more than everything; education rose ${education}%, ${educationLeadExact} points more,
-                                and housing, the one group that is wholly a service, ${housing}%, ${-housingLeadExact} points less. Transport and
-                                communication rose ${transport}%, the least of these groups. Food rose ${foodCpi}% and clothing ${clothingCpi}%, close to the average. Personal
-                                care rose ${personalCare}%, much of it the price of gold, which in Mumbai averaged ${BULLION.gold.calendar.times.toFixed(1)} times as
-                                much in ${BULLION.gold.calendar.toYear} as in ${BULLION.gold.calendar.fromYear}.`}</Para>
-                            <Prose last>
-                                {`In the United States between 2013 and 2025, services rose 50% and goods 20%; between 2000 and 2025 hospital services rose 275% and televisions, priced for a set of given quality, fell 98% (`}
-                                <Cite href="https://www.bls.gov/cpi/">US Bureau of Labor Statistics</Cite>
-                                {`). In India’s consumer index, services and goods rose at about the same pace: housing rose as much as food, and over financial years or from 2012 the goods rose more.`}
-                            </Prose>
-                        </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="16">
-                        <Reveal delay={0.1}>
-                            <Figure
-                                title={`Consumer prices by group, ${CPI_GENERAL.fromYear} to ${CPI_GENERAL.toYear}`} units="rise in the yearly average, per cent; housing, the one group wholly a service, in colour"
-                                table={{ head : [ "Group", `${CPI_GENERAL.fromYear}`, `${CPI_GENERAL.toYear}`, "Rise" ], numeric : [ false, true, true, true ], rows : cpiRows.map(r => [ r.label, r.key === "wpi" ? WPI_CALENDAR.from.toFixed(1) : cpiNamed(r.key === "cpi" ? "C_GIAG" : r.key).from.toFixed(1), r.key === "wpi" ? WPI_CALENDAR.to.toFixed(1) : cpiNamed(r.key === "cpi" ? "C_GIAG" : r.key).to.toFixed(1), pct(r.value, 0) ]) }}
-                                note={prose(`From the consumer price index (rural, urban and combined, 2012 = 100) on DBIE, all-India combined,
-                                    calendar-year averages, and the wholesale price index over the same years. Personal care and effects
-                                    includes gold and silver jewellery; health includes medicines and education books and stationery.`)}
-                            >
-                                <HBars rows={cpiRows} format={v => pct(v, 0)} labelWidth={200} ariaLabel={`Rise in consumer prices by group between ${CPI_GENERAL.fromYear} and ${CPI_GENERAL.toYear}, against wholesale prices`} />
                             </Figure>
                         </Reveal>
                     </Portion>
