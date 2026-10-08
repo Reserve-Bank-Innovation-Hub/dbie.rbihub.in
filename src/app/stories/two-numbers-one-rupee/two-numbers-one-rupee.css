@@ -1,0 +1,466 @@
+#two-numbers-page {
+    /* The site's chart scheme by role (src/components/charts/chartConfig.ts), as the other stories use it. */
+    --c-emph    : var(--violet);
+    --c-second  : var(--green);
+    --c-cool    : var(--blue-light10);
+    --c-warm    : var(--salmon);
+    --fig-bg    : var(--grid-cell-bg);
+    --ink       : var(--paragraph-text-colour);
+    --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
+    --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
+    --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+    --paper     : var(--fig-bg);
+    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
+    /* --c-usd, --c-neer, --c-rel and --c-reer are set on the article from the stage's palette (RupeeStage.tsx), so the
+       charts below the opening draw each line in the colour the opening gave it. */
+    --ease      : cubic-bezier(0.16, 1, 0.3, 1);
+
+    .sr-only { position : absolute; width : 1px; height : 1px; overflow : hidden; clip : rect(0 0 0 0); white-space : nowrap; }
+
+    /* THE OPENING ================================================================================================= */
+    /* One sticky stage behind the steps, as the ₹2 lakh story does it: the title over the rising globe, then cards that
+       claim the stage as they cross the middle of the screen. */
+    .act { position : relative; background : var(--fig-bg); }
+
+    .stage {
+        position : sticky;
+        top      : 0;
+        height   : 100vh;
+        height   : 100svh;
+        overflow : hidden;
+    }
+
+    .rupee-stage {
+        position : absolute;
+        inset    : 0;
+        canvas { display : block; width : 100%; height : 100%; }
+        &.scene-basket { cursor : crosshair; }
+    }
+
+    .steps {
+        position       : relative;
+        z-index        : 3;
+        margin-top     : -100vh;
+        margin-top     : -100svh;
+        pointer-events : none;
+    }
+
+    .step {
+        min-height      : 100vh;
+        display         : flex;
+        align-items     : center;
+        justify-content : flex-end;
+        padding         : 0 var(--small);
+    }
+
+    /* each step is one snap position: the card sits mid-screen and the stage has settled */
+    .step {
+        scroll-snap-align : center;
+        scroll-snap-stop  : always;
+    }
+
+    .after-opening { scroll-snap-align : start; }
+
+    .step.is-hero {
+        justify-content : center;
+        align-items     : flex-start;
+        padding-top     : 18vh;
+        text-align      : center;
+    }
+
+    /* the words sit on a soft pool of the page's own colour, so the planet behind never fights them */
+    .title-card {
+        position       : relative;
+        max-width      : 780px;
+        pointer-events : auto;
+
+        &::before {
+            content        : "";
+            position       : absolute;
+            inset          : -48px -96px;
+            z-index        : -1;
+            background     : radial-gradient(closest-side, var(--fig-bg) 55%, color-mix(in oklch, var(--fig-bg), transparent 100%));
+            pointer-events : none;
+        }
+
+        .table-crumbs { justify-content : center; margin-bottom : var(--micro); }
+    }
+
+    .hero-kicker {
+        color          : var(--accent);
+        letter-spacing : 0.16em;
+        font-size      : 13px;
+    }
+
+    .hero-title {
+        font-family    : var(--font-serif);
+        font-size      : clamp(48px, 8.5vw, 104px);
+        line-height    : 0.95;
+        letter-spacing : -0.02em;
+
+        .accent { color : var(--accent); }
+    }
+
+    .hero-sub {
+        max-width : 54ch;
+        margin    : 0 auto;
+    }
+
+    .hero-cue {
+        display        : inline-block;
+        letter-spacing : 0.2em;
+        text-transform : uppercase;
+        color          : var(--ink-soft);
+        animation      : tnor-bob 1.8s ease-in-out infinite;
+
+        &::after {
+            content    : "";
+            display    : block;
+            width      : 1px;
+            height     : 34px;
+            margin     : 10px auto 0;
+            background : linear-gradient(to bottom, var(--ink-soft), transparent);
+        }
+    }
+
+    .step-card {
+        pointer-events   : auto;
+        width            : min(420px, 34vw);
+        background-color : color-mix(in oklch, var(--fig-bg), transparent 10%);
+        backdrop-filter  : blur(10px) saturate(150%);
+        border           : none;
+        box-shadow       : inset 0 0 0 1px color-mix(in oklch, var(--fig-bg), transparent 30%),
+                           0 0 0 1px var(--ink-faint),
+                           0 2px 4px rgba(0, 0, 0, 0.03),
+                           0 20px 40px rgba(0, 0, 0, 0.09);
+        opacity          : 0.3;
+        transform        : translateY(22px) scale(0.985);
+        transition       : opacity 0.55s ease, transform 0.7s var(--ease);
+
+        &.is-active { opacity : 1; transform : none; }
+    }
+
+    .step-kicker {
+        color          : var(--accent);
+        letter-spacing : 0.12em;
+        font-size      : 11.5px;
+    }
+
+    .step-big {
+        font-family    : var(--font-sans-serif);
+        font-weight    : 600;
+        font-size      : clamp(40px, 4.4vw, 56px);
+        line-height    : 1;
+        letter-spacing : -0.025em;
+        color          : var(--heading-text-colour);
+        margin         : 2px 0 6px;
+
+        .big-of {
+            font-size      : 0.42em;
+            font-weight    : 500;
+            letter-spacing : 0;
+            color          : var(--ink-soft);
+        }
+    }
+
+    .chip-hint { color : var(--ink-soft); }
+
+    /* the basket's share ring beside its number */
+    .share-big { display : flex; align-items : center; gap : 14px; }
+    .share-ring {
+        flex : none;
+        circle { fill : none; stroke-width : 7; }
+        .ring-track { stroke : var(--rule); }
+        .ring-fill  { stroke : var(--c-reer); stroke-linecap : round; transition : stroke-dasharray 0.7s var(--ease); }
+    }
+
+    /* the basket's filters: a region or a partner, picked out on the globe while pointed at */
+    .chips {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 6px;
+
+        &.is-partners { margin-top : 10px; padding-top : 10px; border-top : 1px solid var(--rule); }
+    }
+
+    .chip {
+        display       : inline-flex;
+        align-items   : baseline;
+        gap           : 6px;
+        padding       : 5px 11px;
+        border        : 1px solid var(--rule);
+        border-radius : 999px;
+        background    : var(--fig-bg);
+        color         : var(--heading-text-colour);
+        font          : inherit;
+        font-size     : 13px;
+        cursor        : pointer;
+        transition    : background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
+
+        span { font-variant-numeric : tabular-nums; font-size : 12px; color : var(--ink-soft); }
+
+        &:hover, &.is-on {
+            border-color     : var(--c-reer);
+            background-color : color-mix(in oklch, var(--c-reer), transparent 88%);
+            transform        : translateY(-1px);
+        }
+        &.is-on span { color : var(--heading-text-colour); }
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+    }
+
+    /* the guess */
+    .slider-row {
+        display     : flex;
+        align-items : center;
+        gap         : var(--micro);
+
+        input[type="range"] { flex : 1 1 auto; height : 32px; accent-color : var(--accent); }
+    }
+
+    .guess-value {
+        min-width  : 3.4ch;
+        font-size  : 28px;
+        text-align : right;
+        color      : var(--heading-text-colour);
+    }
+
+    .lock-in {
+        padding       : 9px 18px;
+        border        : 0;
+        border-radius : 999px;
+        background    : var(--accent);
+        color         : white;
+        font          : inherit;
+        font-weight   : 600;
+        font-size     : 14px;
+        cursor        : pointer;
+
+        &:hover { filter : brightness(1.1); }
+    }
+
+    .guess-verdict { color : var(--heading-text-colour); margin-top : var(--nano); }
+
+    /* THE STAGE'S LABELS ========================================================================================= */
+    .stage-layer {
+        position       : absolute;
+        inset          : 0;
+        opacity        : 0;
+        pointer-events : none;
+        transition     : opacity 0.6s ease;
+
+        &.is-on { opacity : 1; }
+    }
+
+    .stage-svg { position : absolute; inset : 0; overflow : visible; }
+
+    .stage-grid {
+        line { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
+        text { font-size : 12px; font-variant-numeric : tabular-nums; fill : var(--ink-soft); }
+        &.is-base line { stroke : var(--ink-soft); stroke-dasharray : 3 4; }
+        &.is-base text { fill : var(--heading-text-colour); font-weight : 600; }
+    }
+
+    .year { font-size : 12px; fill : var(--ink-soft) !important; }
+
+    .band rect { fill : color-mix(in oklch, var(--c-reer), transparent 88%); }
+
+    .guess-level {
+        line { stroke : var(--heading-text-colour); stroke-width : 1.5; stroke-dasharray : 6 5; }
+        text { font-size : 13px; font-weight : 600; fill : var(--heading-text-colour); }
+    }
+
+    .swing-marks {
+        circle { fill : none; stroke : var(--heading-text-colour); stroke-width : 1.5; }
+        text { font-size : 13px; font-weight : 600; fill : var(--heading-text-colour); }
+    }
+
+    .axis-title {
+        position  : absolute;
+        font-size : 12.5px;
+        color     : var(--ink-soft);
+        strong { color : var(--heading-text-colour); font-weight : 600; }
+    }
+
+    .end-label {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        display        : flex;
+        flex-direction : column;
+        line-height    : 1.1;
+        transition     : transform 0.8s var(--ease);
+
+        .end-value { font-weight : 700; font-size : 20px; font-variant-numeric : tabular-nums; }
+        .end-name  { font-size : 12px; font-weight : 600; max-width : 140px; white-space : normal; }
+    }
+
+    .globe-key {
+        width     : 250px;
+        font-size : 12.5px;
+        color     : var(--ink-soft);
+
+        p { margin : 0 0 6px; }
+        .key-ramp { display : block; height : 8px; border-radius : 4px; }
+        .key-ends { display : flex; justify-content : space-between; margin-top : 3px; font-variant-numeric : tabular-nums; }
+        .key-arcs-title { margin : 14px 0 4px; }
+        .key-arcs { display : block; overflow : visible; text { font-size : 12px; fill : var(--ink-soft); } }
+    }
+
+    .stage-tip {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 260px;
+        padding        : 8px 12px;
+        border-radius  : 6px;
+        background     : var(--fig-bg);
+        box-shadow     : 0 0 0 1px var(--ink-faint), 0 8px 24px rgba(0, 0, 0, 0.12);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* THE CHAPTERS =============================================================================================== */
+    .chapter { padding-top : var(--large); }
+    .kicker { color : var(--accent); letter-spacing : 0.1em; font-size : 13px; }
+    .chapter-title { max-width : 28ch; }
+
+    .story-figure {
+        margin     : 0;
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
+        figcaption { display : flex; flex-direction : column; gap : 4px; margin-bottom : 16px; }
+    }
+    .figure-title { font-weight : 600; font-size : 15px; color : var(--heading-text-colour); }
+    .figure-units, .figure-note { font-size : 13px; color : var(--ink-soft); }
+    .figure-note { margin : 12px 0 0; }
+    .table-view {
+        margin-top : 12px;
+        summary { cursor : pointer; font-size : 12px; font-weight : 600; color : var(--accent); }
+    }
+    .table-scroll { max-height : 320px; overflow : auto; margin-top : 8px; }
+    .table-view table, table.decomp { width : 100%; border-collapse : collapse; font-size : 12px; }
+    .table-view th, .table-view td, .decomp th, .decomp td { padding : 4px 8px; border-bottom : 1px solid var(--rule); text-align : left; }
+    .num { text-align : right !important; font-variant-numeric : tabular-nums; }
+
+    svg text { font-family : var(--font-sans-serif); fill : var(--ink); }
+    .tick { font-size : 12px; font-variant-numeric : tabular-nums; fill : var(--ink-soft) !important; }
+    .grid { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
+    .grid.is-base { stroke : var(--ink-soft); }
+    .crosshair { stroke : var(--ink-soft); stroke-width : 1; }
+
+    .chart-tip {
+        position       : absolute;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 300px;
+        padding        : 8px 12px;
+        border         : 1px solid var(--rule);
+        background     : var(--paper);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+        transform      : translate(-50%, 18px);
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* ₹1 LAKH ==================================================================================================== */
+    .lakh { padding : 24px; border : 1px solid var(--rule); background : var(--paper); }
+    .lakh-head { display : flex; flex-wrap : wrap; align-items : baseline; justify-content : space-between; gap : 8px 24px; margin-bottom : 16px; }
+    .lakh-big { margin : 0; font-family : var(--font-serif); font-size : clamp(26px, 3.4vw, 40px); color : var(--heading-text-colour);
+        strong { color : var(--accent); font-variant-numeric : tabular-nums; } span { font-size : 0.5em; color : var(--ink-soft); } }
+    .lakh-side { margin : 0; font-size : 15px; strong { font-variant-numeric : tabular-nums; color : var(--heading-text-colour); } span { color : var(--ink-soft); } }
+    .lakh-notes { display : grid; grid-template-columns : repeat(auto-fill, minmax(64px, 1fr)); gap : 8px; }
+    .lakh-note {
+        position      : relative;
+        height        : 30px;
+        border        : 1px dashed var(--ink-faint);
+        border-radius : 3px;
+        overflow      : hidden;
+        span { position : absolute; inset : 0; display : grid; place-items : center; font-size : 11px; font-weight : 600; color : var(--ink-soft); }
+    }
+    .lakh-note-fill { position : absolute; inset : 0; transform-origin : left; background : color-mix(in oklch, var(--c-reer), transparent 55%); }
+    .lakh-range { width : 100%; margin-top : 18px; accent-color : var(--accent); }
+    .lakh-years { display : flex; justify-content : space-between; font-size : 12px; color : var(--ink-soft); }
+    .lakh-note-text { margin : 12px 0 0; font-size : 13px; color : var(--ink-soft); max-width : 80ch; }
+
+    /* EXPLORE ==================================================================================================== */
+    .explorer-controls { display : flex; flex-wrap : wrap; gap : 12px; margin-bottom : 12px; }
+    .seg {
+        display : inline-flex; border : 1px solid var(--rule); border-radius : 999px; padding : 3px;
+        button { padding : 6px 14px; border : 0; border-radius : 999px; background : transparent; color : var(--ink); font : inherit; font-size : 13px; cursor : pointer;
+            transition : background 0.2s var(--ease), color 0.2s var(--ease);
+            &.is-on { background : var(--accent); color : white; } }
+    }
+    .explorer-wrap { position : relative; width : 100%; }
+    .ex-line { fill : none; stroke-width : 2; stroke-linejoin : round; &.is-neer { stroke : var(--c-neer); } &.is-reer { stroke : var(--c-reer); } }
+    .ex-end { font-size : 12px; font-weight : 600; &.is-neer { fill : var(--c-neer) !important; } &.is-reer { fill : var(--c-reer) !important; } }
+
+    /* FOR ECONOMISTS ============================================================================================= */
+    .drawer {
+        padding : 16px 24px; border : 1px solid var(--rule); background : var(--paper);
+        summary { cursor : pointer; font-weight : 600; color : var(--accent); }
+        &[open] summary { margin-bottom : 12px; }
+    }
+
+    /* SOURCES ==================================================================================================== */
+    .download-link {
+        display : block; width : fit-content; color : var(--accent); transition : opacity 0.2s ease;
+        &:hover { opacity : 0.7; }
+        p { color : var(--accent); }
+        svg { stroke : var(--accent); }
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .hero-cue { animation : none; }
+        .step-card { transition : none; }
+    }
+
+    /* A PHONE ==================================================================================================== */
+    @media (max-width : 900px) {
+        .step { align-items : flex-end; justify-content : center; padding-bottom : 6vh; }
+        .step.is-hero { align-items : flex-start; padding-top : 12vh; padding-bottom : 0; }
+        .step-card { width : 100%; }
+        .title-card::before { inset : -24px -16px; }
+        .end-label .end-name { display : none; }
+        .globe-key { display : none; }
+        .chips.is-partners { display : none; }
+        .step-card .chip-hint { display : none; }
+        .story-figure, .lakh { padding : 16px; }
+        .chapter [data-portion] + [data-portion] { margin-top : 32px; }
+    }
+
+    @media print {
+        .stage { display : none; }
+        .steps { margin-top : 0; }
+    }
+}
+
+/* The dark theme restates what its scheme changes: the accent lifted towards white, the warm pole lighter. */
+.theme-dark #two-numbers-page {
+    --accent : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
+    --c-warm : var(--salmon-light20);
+}
+
+@keyframes tnor-bob {
+    0%, 100% { transform : translateY(0); }
+    50%      { transform : translateY(6px); }
+}
+
+/* The opening snaps step by step (page.client.tsx sets the attribute while the story is open). */
+html[data-story-snap] { scroll-snap-type : y mandatory; }
+
+@media (prefers-reduced-motion : reduce) {
+    html[data-story-snap] { scroll-snap-type : y proximity; }
+}

@@ -6,6 +6,16 @@ import type { ListSection } from "@/app/handbook/sections";
 
 export const STORY_SECTIONS : ListSection[] = [
     {
+        title : "The rupee and the world",
+        items : [
+            {
+                linkTo      : "/stories/two-numbers-one-rupee",
+                label       : "Two numbers, one rupee",
+                description : "The rupee fell from ₹44.93 a dollar in 2004-05 to ₹88.31 in 2025-26. Against the 40 currencies India trades in, adjusted for prices, it stayed between 86.2 and 108.0. One rupee, seen from three sides.",
+            },
+        ],
+    },
+    {
         title : "Bank credit",
         items : [
             {
