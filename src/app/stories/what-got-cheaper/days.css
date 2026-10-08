@@ -43,11 +43,9 @@
         display     : flex;
         align-items : center;
         gap         : 8px;
-
-        svg { flex : none; color : var(--ink-soft); }
     }
 
-    .dy-no-glyph { flex : none; width : 20px; height : 20px; }
+    .dy-emoji { flex : none; width : 24px; font-size : 18px; line-height : 1; text-align : center; }
 
     .dy-strip {
         flex        : none;

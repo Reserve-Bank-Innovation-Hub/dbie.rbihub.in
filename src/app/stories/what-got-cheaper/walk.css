@@ -81,12 +81,7 @@
 
     .walk-end-label { transition : transform 0.3s var(--walk-ease); }
 
-    .walk-end-glyph {
-        fill            : none;
-        stroke          : var(--tone);
-        stroke-linecap  : round;
-        stroke-linejoin : round;
-    }
+    .walk-end text.walk-end-emoji { font-size : 14px; }
 
     .walk-leader { stroke : var(--rule); stroke-width : 1; }
 
@@ -101,15 +96,9 @@
         }
     }
 
-    /* THE PORTER ================================================================================================= */
-    .walk-porter {
-        fill            : none;
-        stroke          : var(--ink);
-        stroke-linecap  : round;
-        stroke-linejoin : round;
-    }
-
-    .walk-head-dot { fill : var(--ink); stroke : none; }
+    /* THE GOOD ON ITS LINE ======================================================================================= */
+    /* The emoji renders in the platform's own emoji font, whatever the fill; its size is set on the element. */
+    .walk-emoji { pointer-events : none; }
 
     .walk-cue {
         position       : absolute;
@@ -144,7 +133,12 @@
         gap         : 8px;
         min-width   : 0;
 
-        svg { flex : none; color : var(--ink); }
+    }
+
+    .walk-caption-emoji {
+        flex        : none;
+        font-size   : 20px;
+        line-height : 24px;
     }
 
     .walk-caption-name {

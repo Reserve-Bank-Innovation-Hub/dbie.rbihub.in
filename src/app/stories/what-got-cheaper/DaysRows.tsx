@@ -13,8 +13,7 @@ import { motion, type Variants } from "framer-motion";
 
 // LOCAL ===============================================================================================================
 import { EASE, Figure } from "./chartKit";
-import { COUNTS, HEADLINE, YARDSTICK, itemOfFollowed } from "./data";
-import { GLYPH_OF, Glyph } from "./glyphs";
+import { COUNTS, EMOJI_OF, HEADLINE, YARDSTICK, itemOfFollowed } from "./data";
 
 // STYLES ==============================================================================================================
 import "./days.css";
@@ -120,7 +119,7 @@ export const DaysRows = ({ names } : { names : string[] }) => {
                     {rows.map((r, i) => (
                         <div key={r.name} className={`dy-row ${r.days > SLOTS ? "is-more" : ""}`}>
                             <span className="dy-label">
-                                {GLYPH_OF[r.name] ? <Glyph name={GLYPH_OF[r.name]} size={20} /> : <span className="dy-no-glyph" />}
+                                <span className="dy-emoji" aria-hidden="true">{EMOJI_OF[r.name] ?? ""}</span>
                                 <span className="dy-name">{r.name}</span>
                             </span>
                             <Strip days={r.days} row={i} />

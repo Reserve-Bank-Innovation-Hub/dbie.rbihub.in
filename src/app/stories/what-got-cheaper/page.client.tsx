@@ -178,7 +178,7 @@ export const WhatGotCheaperPage = () => (
                                 got cheaper, which got dearer, and by how much.`)}
                         </Text>
                         <Text className="hero-sub" fontStyle="serif" size="large">
-                            {prose(`Below, a porter carries nine of the goods, and then the whole basket, along their price lines from
+                            {prose(`Below, nine of the goods, and then the whole basket, travel their price lines from
                                 ${monthName(MONTHS[0])} to ${LAST}.`)}
                         </Text>
                     </Portion>
@@ -258,11 +258,11 @@ export const WhatGotCheaperPage = () => (
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="8">
                         <Chapter id="days-of-work" kicker="IN DAYS OF WORK" title={`${COUNTS.inWork.cheaper} of ${COUNTS.inWork.items} goods cost fewer days’ wages at wholesale than in ${HEADLINE.wageWindow.from}`}>
-                            <Para>{`The porter is the yardstick. A rural labourer’s day off the farm paid ₹${Math.round(YARD.from)} in ${HEADLINE.wageWindow.from} and ₹${Math.round(YARD.to)} in
+                            <Para>{`A rural labourer’s day off the farm paid ₹${Math.round(YARD.from)} in ${HEADLINE.wageWindow.from} and ₹${Math.round(YARD.to)} in
                                 ${HEADLINE.wageWindow.to}, a rise of ${wageRisePct}%. The basket rose ${basketRiseWagePct}% over the same years.
                                 Measured in days of work, ${COUNTS.inWork.cheaper} goods got cheaper and ${COUNTS.inWork.dearer} got dearer${dearerNamed.length ? `, among them ${list(dearerNamed)}` : ""}.`}</Para>
                             <Para last>{`Against the prices rural labourers pay, which rose ${ruralCpiPct}%, the same day buys ${Math.abs(wageAgainstRuralCpi) <= 3 ? "about what it did" : wageAgainstRuralCpi > 0 ? `${wageAgainstRuralCpi}% more` : `${-wageAgainstRuralCpi}% less`}.
-                                The rows below start every good at ten days of his pay in ${HEADLINE.wageWindow.from} and show what it took in ${HEADLINE.wageWindow.to}.`}</Para>
+                                The rows below start every good at ten days of that pay in ${HEADLINE.wageWindow.from} and show what it took in ${HEADLINE.wageWindow.to}.`}</Para>
                         </Chapter>
                     </Portion>
                     <Portion desktopSpan="16">
@@ -620,7 +620,7 @@ export const WhatGotCheaperPage = () => (
                             ends at its average over the twelve months to ${LAST}, close to the ${NOW} average the sentences use, and a
                             month of tomatoes at ten times its base price shows as a rise spread over the year that follows. The
                             captions and the markers on the chart give single months. Every line leaves one origin, the ${BASE} average
-                            of ₹100, drawn at the middle of that year. The porter’s feet stand on the drawn line, and the vertical
+                            of ₹100, drawn at the middle of that year. The good’s emoji rides the drawn line, and the vertical
                             scale is linear: a rise of 50 points takes the same height anywhere on the chart.`}</MethodNote>
                         <MethodNote title="Seasonal goods.">{`When a fruit or vegetable is out of season the Office compiles no index for it and spreads
                             its weight over the rest of its sub-group; DBIE prints a 0 for the month. ${cap(numberWord(ITEMS.filter(i => i.priced < 12).length))}

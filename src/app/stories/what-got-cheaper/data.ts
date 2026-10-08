@@ -123,3 +123,13 @@ export const wageNamed = (code : string) => {
 };
 export const YARD = YARDSTICK.nonFarm;
 export const WAGES_BY_RISE = [ ...WAGES ].sort((a, b) => b.to / b.from - a.to / a.from);
+
+// THE GOODS AS EMOJI ==================================================================================================
+// The emoji that stands for a followed good on the chart, in its caption and at the head of its row of days, by the
+// story's name for it; "basket" is the basket as a whole. Unicode has no blanket, so blankets take the scarf, and no
+// solar panel, so solar power systems take the sun.
+export const EMOJI_OF : Record<string, string> = {
+    "Colour TVs" : "📺", "Anti-cancer drugs" : "💊", "Blankets" : "🧣", "Solar power systems" : "☀️", "Wheat" : "🌾", "Rice" : "🍚",
+    "Silver" : "🥈", "Coconuts" : "🥥", "Tomatoes" : "🍅", "Jasmine" : "🌼", "Milk" : "🥛", "Eggs" : "🥚", "Petrol" : "⛽",
+    "Kerosene" : "🪔", "Cement" : "🧱", "basket" : "🧺",
+};

@@ -1,13 +1,13 @@
 "use client";
 
-// The walk: a porter carries each good in WALKS along its own price line, from the base year to the last month, and
-// the lines he leaves behind become the chart: per cent above or below 2011-12 on a linear axis, a line that ends
-// dearer in the warm pole, one that ends cheaper in the cool pole, the basket in ink, each ending in its glyph, name
-// and figure. Scroll progress through the section is the only clock: every mark is a pure function of it, so a reader
+// The walk: each good in WALKS rides its own price line as its emoji, from the base year to the last month, and the
+// lines it leaves behind become the chart: per cent above or below 2011-12 on a linear axis, a line that ends dearer
+// in the warm pole, one that ends cheaper in the cool pole, the basket in ink, each ending in its emoji, name and
+// figure. Scroll progress through the section is the only clock: every mark is a pure function of it, so a reader
 // who stops sees a still picture and scrolling back rewinds everything. Scroll changes write to refs only; React state
 // holds the discrete stage, the chosen chips and the hovered line.
 //
-// Every drawn line is the index averaged over the twelve months to each month (smooth12), and the porter's feet, the
+// Every drawn line is the index averaged over the twelve months to each month (smooth12), and the emoji's point, the
 // camera, the readout, the end labels and the spike markers all read that average; the captions name single months
 // and read the raw series. Each line starts at the base year's average, ₹100 by construction, plotted at the middle
 // of 2011-12 (six and a half months before April 2012), so every line leaves the same 0% origin.
@@ -19,9 +19,8 @@ import { CSSProperties, useLayoutEffect, useMemo, useRef, useState } from "react
 import { useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
 
 // LOCAL ===============================================================================================================
-import { ALL, COUNTS, HEADLINE, MONTHS, RISERS, followedNamed, inr, itemOfFollowed, list, monthName, numberWord, rs, shortMonth } from "./data";
+import { ALL, COUNTS, EMOJI_OF, HEADLINE, MONTHS, RISERS, followedNamed, inr, itemOfFollowed, list, monthName, numberWord, rs, shortMonth } from "./data";
 import { EASE } from "./chartKit";
-import { GLYPH_OF, Glyph, GlyphPaths, type GlyphName } from "./glyphs";
 import { useSize } from "./useSize";
 
 // WHAT IS WALKED ======================================================================================================
@@ -42,10 +41,10 @@ export const PRESETS : { label : string; names : string[] }[] = [
 // In screens of the section's height: half a screen of poster, 1.25 screens a walk, one screen of the finished chart.
 const POSTER = 0.5, PER = 1.25, HOLD = 1;
 const TOTAL = POSTER + WALKS.length * PER + HOLD;
-const ARRIVE = 0.9;                 // share of a walk spent walking; for the rest he stands at the line's end
-const FADE = 0.04;                  // share of a walk over which he fades in at the origin and out at the end
+const ARRIVE = 0.9;                 // share of a walk spent moving; for the rest the emoji rests at the line's end
+const FADE = 0.04;                  // share of a walk over which the emoji fades in at the origin and out at the end
 const RAMP = 0.1;                   // share of the walking spent starting and stopping
-const CLIMB = 60;                   // points of rise or fall that take as much scroll as one month of level walking
+const CLIMB = 60;                   // points of rise or fall that take as much scroll as one month along the flat
 const CUE_OUT = 0.15;               // the cue fades over this much of the poster
 const FINISHED = 2 * WALKS.length + 1;
 
@@ -53,9 +52,11 @@ const FINISHED = 2 * WALKS.length + 1;
 const Y_MIN = -60, Y_MAX = 350, GRID = 50;  // per cent against the base year
 const KN = MONTHS.length - 1;               // the last month, April 2026
 const K0 = -6.5;                            // the base year's average, at the middle of 2011-12 in months from April 2012
-const FOOT_SNAP = 3;                        // the feet follow the smoothed line to within this many pixels of the drawn one
 const CARD_STACKED = 176;                   // the height the caption card keeps when it stacks above the plot
 const CARD_W = 380, CARD_H = 200;           // the card over the plot's top left on a wide screen, at its tallest
+const LABEL_X = 14;                         // the end labels start this far right of the plot, clear of the resting emoji
+const END_EMOJI_W = 21;                     // a 14px emoji in an end label, with the gap before its name or value
+const BAND = 40;                            // the band between a stacked card and the plot: spike markers, the column head
 
 // HELPERS (local; candidates for data.ts) ==============================================================================
 const rsThousands = (v : number) => `₹${inr(v)}`;
@@ -69,7 +70,6 @@ const argmin = (s : number[]) => s.reduce((b, v, i) => v < s[b] ? i : b, 0);
 // A walk starts and stops: speed rises over the first RAMP of it, holds, and falls over the last RAMP.
 const VMAX = 1 / (1 - RAMP);
 const ease = (x : number) => x < RAMP ? VMAX * x * x / (2 * RAMP) : x > 1 - RAMP ? 1 - VMAX * (1 - x) ** 2 / (2 * RAMP) : VMAX * (x - RAMP / 2);
-const speed = (x : number) => x <= 0 || x >= 1 ? 0 : x < RAMP ? x / RAMP : x > 1 - RAMP ? (1 - x) / RAMP : 1;
 
 // Labels pushed apart to a minimum gap, in value order, and pushed back inside the plot.
 const dodge = (ys : number[], gap : number, top : number, bottom : number) => {
@@ -111,7 +111,7 @@ const drawnOf = (key : string) => {
     if (!d) { d = smooth12(seriesOf(key)); DRAWN.set(key, d); }
     return d;
 };
-const glyphOf = (key : string) : GlyphName => GLYPH_OF[key === "ALL" ? "basket" : key] ?? "basket";
+const emojiOf = (key : string) => EMOJI_OF[key === "ALL" ? "basket" : key] ?? "";
 
 const captionOf = (key : string) : string => {
     if (key === "ALL") {
@@ -162,40 +162,24 @@ const NOTE = "Each line is the index averaged over the twelve months to each mon
 interface Geo {
     W : number; H : number; narrow : boolean; stacked : boolean;
     padL : number; padR : number; padT : number; padB : number; plotW : number; plotH : number; right : number; bottom : number;
-    h : number; feetLimit : number; family : string;
-    xOf : (k : number) => number; yOf : (p : number) => number; kOfX : (x : number) => number;
+    emoji : number; inset : number; camTop : number; bandTop : number; family : string;
+    xOf : (k : number) => number; yOf : (p : number) => number;
 }
 
-// The porter's proportions, from his height h: hip at the origin, y up is negative. His forearms rise beside his head
-// to the lower corners of the load, elbows out at shoulder height.
-const bodyOf = (h : number, narrow : boolean) => {
-    const L = 0.48 * h, torso = 0.3 * h, neck = 0.05 * h, headR = 0.085 * h, G = narrow ? 16 : 18;
-    const headTop = -torso - neck - 2 * headR;
-    const loadY = headTop - G * 0.9;
-    return {
-        L, seg : L / 2, torso, neck, headR, headTop, G, loadY,
-        hand : [ 0.155 * h, headTop - 0.07 * h ] as const, elbow : [ 0.19 * h, -torso - 0.06 * h ] as const,
-        stride : 0.6 * h, lift : 0.08 * h, stand : 0.04 * h, bob : 0.015 * h,
-        top : L - loadY,                                 // feet to the top of the load
-        stroke : narrow ? 1.5 : 1.75,
-    };
-};
-type Body = ReturnType<typeof bodyOf>;
-
 // On a phone, and wherever the card over the plot's top left would cover a walked line, the card stacks above the plot.
+// The lines start half an emoji in from the plot's left edge, so the emoji at the origin clears the 0% label.
 const geoOf = (W : number, H : number, family : string, stack : boolean) : Geo => {
     const narrow = W < 560, stacked = narrow || stack;
-    const h = narrow ? 34 : 40;
-    const top = bodyOf(h, narrow).top;
+    const emoji = narrow ? 22 : 26, inset = emoji / 2 + 2;
     const padL = narrow ? 44 : 56, padR = narrow ? 112 : 184, padB = narrow ? 36 : 40;
-    const padT = stacked ? 12 + CARD_STACKED + 8 + Math.ceil(top) : 56;
+    const bandTop = stacked ? 12 + CARD_STACKED + 4 : 0;
+    const padT = stacked ? 12 + CARD_STACKED + 8 + BAND : 56;
     const plotW = Math.max(1, W - padL - padR), plotH = Math.max(1, H - padT - padB);
-    const xOf = (k : number) => padL + (k - K0) / (KN - K0) * plotW;
+    const xOf = (k : number) => padL + inset + (k - K0) / (KN - K0) * (plotW - inset);
     const yOf = (p : number) => padT + (Y_MAX - p) / (Y_MAX - Y_MIN) * plotH;
-    const kOfX = (x : number) => K0 + (x - padL) / plotW * (KN - K0);
     return {
-        W, H, narrow, stacked, padL, padR, padT, padB, plotW, plotH, right : padL + plotW, bottom : padT + plotH, h,
-        feetLimit : Math.max(padT, Math.ceil(top) + 8) + 4, family, xOf, yOf, kOfX,
+        W, H, narrow, stacked, padL, padR, padT, padB, plotW, plotH, right : padL + plotW, bottom : padT + plotH,
+        emoji, inset, camTop : Math.max(padT, emoji / 2 + 8) + 4, bandTop, family, xOf, yOf,
     };
 };
 
@@ -220,7 +204,7 @@ const hitsBox = (lines : Track[], geo : Geo, b : { x0 : number; x1 : number; y0 
 });
 
 interface Track {
-    key : string; values : number[]; ys : number[]; feet : number[]; effort : number[]; dist : number[]; cam : number[];
+    key : string; values : number[]; ys : number[]; effort : number[]; cam : number[];
     d : string; endY : number; tone : "dearer" | "cheaper" | "basket" | "deemph";
 }
 
@@ -229,26 +213,16 @@ const trackOf = (key : string, geo : Geo, tone : Track["tone"]) : Track => {
     const values = [ 100, ...s ];
     const ys = values.map(v => geo.yOf(v - 100));
     const xs = KS.map(geo.xOf);
-    // The ground under his feet: the line smoothed over a month either side, held within FOOT_SNAP of the drawn line.
-    const feet = ys.map((y, j) => {
-        if (j === 0) return y;
-        const m = j - 1, win = s.slice(Math.max(0, m - 1), Math.min(s.length, m + 2));
-        const sm = geo.yOf(win.reduce((a, b) => a + b, 0) / win.length - 100);
-        return y + clamp(sm - y, -FOOT_SNAP, FOOT_SNAP);
-    });
-    // Scroll is shared by months and by climbing, so a spike takes scroll to climb rather than flashing past.
-    const effort = [ 0 ], dist = [ 0 ];
-    for (let j = 1; j < KS.length; j++) {
-        effort.push(effort[j - 1] + (KS[j] - KS[j - 1]) + Math.abs(values[j] - values[j - 1]) / CLIMB);
-        dist.push(dist[j - 1] + Math.hypot(xs[j] - xs[j - 1], 0.35 * (feet[j] - feet[j - 1])));
-    }
+    // Scroll is shared by months and by climbing, so a steep stretch takes scroll to climb rather than flashing past.
+    const effort = [ 0 ];
+    for (let j = 1; j < KS.length; j++) effort.push(effort[j - 1] + (KS[j] - KS[j - 1]) + Math.abs(values[j] - values[j - 1]) / CLIMB);
     const total = effort[effort.length - 1];
-    // The camera: how far the plot must come down to keep him in frame at each month, averaged over three months
-    // either side; the painter holds it between what keeps him below the top and what keeps him above the foot.
-    const need = ys.map(y => Math.max(0, geo.feetLimit - y));
+    // The camera: how far the plot must come down to keep the emoji in frame at each month, averaged over three months
+    // either side; the painter holds it between what keeps the emoji below the top and what keeps it above the foot.
+    const need = ys.map(y => Math.max(0, geo.camTop - y));
     const cam = need.map((_, j) => { const w = need.slice(Math.max(0, j - 3), j + 4); return w.reduce((a, b) => a + b, 0) / w.length; });
     const d = xs.map((x, j) => `${j ? "L" : "M"}${x.toFixed(1)} ${ys[j].toFixed(1)}`).join("");
-    return { key, values, ys, feet, effort : effort.map(e => e / total), dist, cam, d, endY : ys[ys.length - 1], tone };
+    return { key, values, ys, effort : effort.map(e => e / total), cam, d, endY : ys[ys.length - 1], tone };
 };
 
 // The month at a share of the walk's effort.
@@ -262,39 +236,6 @@ const kAtEffort = (tr : Track, e : number) => {
     return KS[lo] + f * (KS[hi] - KS[lo]);
 };
 
-// A knee between a hip and a foot, bent forward.
-const kneeOf = (hx : number, hy : number, fx : number, fy : number, seg : number) => {
-    const dx = fx - hx, dy = fy - hy, d = Math.hypot(dx, dy), mx = (hx + fx) / 2, my = (hy + fy) / 2;
-    if (d >= 2 * seg || d < 1e-6) return [ mx, my ];
-    const off = Math.sqrt(seg * seg - (d / 2) ** 2);
-    let nx = -dy / d, ny = dx / d;
-    if (nx < 0) { nx = -nx; ny = -ny; }
-    return [ mx + nx * off, my + ny * off ];
-};
-
-// The porter at month k of a track, his gait at amplitude amp (0 standing, 1 walking).
-const poseOf = (tr : Track, k : number, amp : number, geo : Geo, body : Body) => {
-    const x = geo.xOf(k);
-    const ground = (xx : number) => lerpAt(tr.feet, geo.kOfX(xx));
-    const ka = clamp(k - 2, K0, KN), kb = clamp(k + 2, K0, KN);
-    const slope = (lerpAt(tr.feet, kb) - lerpAt(tr.feet, ka)) / Math.max(1e-6, geo.xOf(kb) - geo.xOf(ka));
-    const lean = clamp(-0.25 * Math.atan(slope) * 180 / Math.PI, -12, 12);
-    const phase = 2 * Math.PI * lerpAt(tr.dist, k) / body.stride;
-    const A = body.stride / 4;
-    // Where the line rises or falls steeply within a step, the feet come together, so that both stand on the line
-    // within a leg's reach of the ground under his hips.
-    const g0 = ground(x), dy = Math.max(Math.abs(ground(x + A) - g0), Math.abs(ground(x - A) - g0));
-    const reach = Math.min(1, 0.3 * body.L / Math.max(1e-6, dy));
-    const sw = Math.sin(phase), cw = Math.cos(phase);
-    const offA = amp * A * reach * sw + (1 - amp) * body.stand, offB = -amp * A * reach * sw - (1 - amp) * body.stand;
-    const gA = ground(x + offA), gB = ground(x + offB);
-    const fA = [ x + offA, gA - amp * body.lift * Math.max(0, cw) ], fB = [ x + offB, gB - amp * body.lift * Math.max(0, -cw) ];
-    const hipY = Math.min(Math.max(gA, gB) - body.L * (0.99 - 0.05 * amp), g0 - 0.7 * body.L) + amp * body.bob * Math.cos(2 * phase);
-    const kA = kneeOf(x, hipY, fA[0], fA[1], body.seg), kB = kneeOf(x, hipY, fB[0], fB[1], body.seg);
-    const leg = (kn : number[], f : number[]) => `${x.toFixed(2)},${hipY.toFixed(2)} ${kn[0].toFixed(2)},${kn[1].toFixed(2)} ${f[0].toFixed(2)},${f[1].toFixed(2)}`;
-    return { x, hipY, lean, legA : leg(kA, fA), legB : leg(kB, fB) };
-};
-
 // Where a stage stands: 0 the poster, 1 + 2i walking walk i, 2 + 2i walk i complete, FINISHED the finished chart.
 const momentOf = (p : number, reduced : boolean) => {
     const u = clamp(p) * TOTAL;
@@ -305,7 +246,7 @@ const momentOf = (p : number, reduced : boolean) => {
     return { u, stage : reduced || t >= ARRIVE ? 2 + 2 * i : 1 + 2 * i, walk : i, t };
 };
 
-// The readout under the card's heading: the good's drawn value, the twelve-month average, at the month nearest the porter.
+// The readout under the card's heading: the good's drawn value, the twelve-month average, at the month nearest the emoji.
 const readoutOf = (key : string, k : number) => {
     if (k < K0 / 2) return `${BASE} average · ${HUNDRED}`;
     const m = clamp(Math.round(k), 0, KN);
@@ -322,13 +263,10 @@ export const Walk = () => {
     const [ hover, setHover ] = useState<string | null>(null);
     const stageRef = useRef(0);
 
-    // The camera moves four groups together: the frame, the lines, the end labels and the porter.
+    // The camera moves four groups together: the frame, the lines, the end labels and the emoji.
     const camRefs = [ useRef<SVGGElement>(null), useRef<SVGGElement>(null), useRef<SVGGElement>(null), useRef<SVGGElement>(null) ];
     const revealRef = useRef<SVGRectElement>(null);
-    const porterRef = useRef<SVGGElement>(null);
-    const upperRef = useRef<SVGGElement>(null);
-    const legARef = useRef<SVGPolylineElement>(null);
-    const legBRef = useRef<SVGPolylineElement>(null);
+    const emojiRef = useRef<SVGTextElement>(null);
     const markersRef = useRef<SVGGElement>(null);
     const readoutRef = useRef<HTMLSpanElement>(null);
     const cueRef = useRef<HTMLDivElement>(null);
@@ -345,7 +283,6 @@ export const Walk = () => {
             geo = geoOf(width, height, family, true);
             tracks = walked(geo);
         }
-        const body = bodyOf(geo.h, geo.narrow);
         const extraNames = [ ...new Set(PRESETS.flatMap(p => p.names)) ];
         const extras = Object.fromEntries(extraNames.map(n => [ n, trackOf(n, geo, "deemph") ]));
         // Gridlines every GRID points from the foot of the axis to the highest walked value, for the camera to pass.
@@ -357,7 +294,7 @@ export const Walk = () => {
         const noteW = textWidth(NOTE, 12, family);
         const band = !geo.stacked && geo.padL + 16 + Math.max(chipsW, noteW) <= geo.right - 8
             && !hitsBox([ ...tracks, ...Object.values(extras) ], geo, { x0 : geo.padL + 8, x1 : geo.padL + 24 + noteW, y0 : geo.padT, y1 : 6 + 44 + 10 + 16 + 4 });
-        return { geo, body, tracks, extras, grid, chipsW, band };
+        return { geo, tracks, extras, grid, chipsW, band };
     }, [ width, height, frameRef ]);
 
     // The zone words, placed where no line of the walks or the chips runs, clear of the caption card.
@@ -393,18 +330,16 @@ export const Walk = () => {
         if (m.stage !== stageRef.current) { stageRef.current = m.stage; setStage(m.stage); }
         if (cueRef.current) cueRef.current.style.opacity = `${1 - clamp(m.u / CUE_OUT)}`;
         if (!layout) return;
-        const { geo, body, tracks } = layout;
+        const { geo, tracks } = layout;
         const wi = clamp(m.walk, 0, WALKS.length - 1);
         const tr = tracks[wi];
-        let k = K0, amp = 0, op = 1, cam = 0;
+        let k = K0, op = 1, cam = 0;
         if (m.walk >= WALKS.length) { k = KN; op = 0; }
         else if (m.walk >= 0) {
-            const x = clamp(m.t / ARRIVE);
-            k = reduced ? KN : kAtEffort(tr, ease(x));
-            amp = smoothstep(0.05, 0.5, speed(x));
+            k = reduced ? KN : kAtEffort(tr, ease(clamp(m.t / ARRIVE)));
             const fadeIn = m.walk === 0 ? 1 : clamp(m.t / FADE);
-            op = Math.min(fadeIn, clamp((1 - m.t) / FADE));
-            const y = lerpAt(tr.ys, k), n = Math.max(0, geo.feetLimit - y), allow = Math.max(n, geo.bottom - 16 - y);
+            op = reduced ? 1 : Math.min(fadeIn, clamp((1 - m.t) / FADE));
+            const y = lerpAt(tr.ys, k), n = Math.max(0, geo.camTop - y), allow = Math.max(n, geo.bottom - 16 - y);
             const c = clamp(lerpAt(tr.cam, k), n, allow);
             cam = reduced ? 0 : c + (n - c) * smoothstep(ARRIVE, 1 - FADE, m.t);
         }
@@ -413,12 +348,9 @@ export const Walk = () => {
         if (markersRef.current) markersRef.current.style.opacity = `${1 - clamp(cam / 12)}`;
         if (revealRef.current) revealRef.current.setAttribute("width", `${Math.max(0, geo.xOf(k) - geo.padL + 4).toFixed(2)}`);
         if (readoutRef.current && m.walk >= 0 && m.walk < WALKS.length) readoutRef.current.textContent = readoutOf(WALKS[wi], reduced ? KN : k);
-        if (reduced || !porterRef.current) return;
-        porterRef.current.style.opacity = `${op}`;
-        const pose = poseOf(tr, k, amp, geo, body);
-        upperRef.current?.setAttribute("transform", `translate(${pose.x.toFixed(2)} ${pose.hipY.toFixed(2)}) rotate(${pose.lean.toFixed(2)})`);
-        legARef.current?.setAttribute("points", pose.legA);
-        legBRef.current?.setAttribute("points", pose.legB);
+        if (!emojiRef.current) return;
+        emojiRef.current.style.opacity = `${op}`;
+        emojiRef.current.setAttribute("transform", `translate(${geo.xOf(k).toFixed(2)} ${lerpAt(tr.ys, k).toFixed(2)})`);
     };
     const paintRef = useRef(paint);
     paintRef.current = paint;
@@ -445,16 +377,16 @@ export const Walk = () => {
         if (!layout) return [];
         const { geo, tracks, extras } = layout;
         const items = [
-            ...tracks.filter((_, i) => completed[i]).map(tr => ({ tr, glyph : glyphOf(tr.key) as GlyphName | null, name : nameOf(tr.key) })),
-            ...extraNames.map(n => ({ tr : extras[n], glyph : null, name : n })),
+            ...tracks.filter((_, i) => completed[i]).map(tr => ({ tr, emoji : emojiOf(tr.key), name : nameOf(tr.key) })),
+            ...extraNames.map(n => ({ tr : extras[n], emoji : "", name : n })),
         ];
-        const ys = dodge(items.map(it => it.tr.endY), geo.narrow ? 13 : 14, geo.padT + 8, geo.bottom - 4);
-        const room = geo.padR - 14;
+        const ys = dodge(items.map(it => it.tr.endY), 16, geo.padT + 8, geo.bottom - 4);
+        const room = geo.padR - LABEL_X - 4;
         return items.map((it, i) => {
             const value = rs(drawnOf(it.tr.key)[KN]);
-            const glyphW = it.glyph ? 18 : 0;
-            let name : string | null = geo.narrow && it.glyph ? null : it.name;
-            if (name && glyphW + textWidth(`${name} ${value}`, 12, geo.family, it.tr.tone === "basket" ? 600 : 400) > room) name = SHORT[name] ?? name;
+            const emojiW = it.emoji ? END_EMOJI_W : 0;
+            let name : string | null = geo.narrow && it.emoji ? null : it.name;
+            if (name && emojiW + textWidth(`${name} ${value}`, 12, geo.family, it.tr.tone === "basket" ? 600 : 400) > room) name = SHORT[name] ?? name;
             return { ...it, y : ys[i], value, name };
         });
     })();
@@ -475,7 +407,7 @@ export const Walk = () => {
         const byX = (lines : Track[]) => lines.map(spikeOf).filter(<T,>(v : T | null) : v is T => v !== null).sort((p, q) => p.x - q.x);
         // The walked lines are placed first, then the chips' lines.
         const raw = [ ...byX(tracks.filter((_, i) => completed[i])), ...byX(extraNames.map(n => extras[n])) ];
-        const maxRows = geo.narrow ? 3 : 4;
+        const maxRows = Math.max(1, Math.floor((geo.padT - geo.bandTop - 4) / 14));
         // The caption card or the chips take the left of the band above the plot on a wide screen.
         const cardRight = geo.stacked ? -Infinity : geo.padL + 16 + (finished && layout.band ? layout.chipsW : CARD_W) + 8;
         type Placed = { key : string; x : number; span : [ number, number ]; row : number; lx : number; anchor : "start" | "end"; y : number; text : string };
@@ -505,18 +437,17 @@ export const Walk = () => {
 
     const caption = walk >= 0 && walk < WALKS.length ? WALKS[walk] : null;
     const geo = layout?.geo;
-    const body = layout?.body;
     const cardStyle : CSSProperties | undefined = geo
         ? geo.narrow ? { left : 12, right : 12, top : 12, minHeight : CARD_STACKED }
             : geo.stacked ? { left : geo.padL + 16, top : 12, width : Math.min(560, geo.right - geo.padL - 16), minHeight : CARD_STACKED }
             : finished && layout.band ? { left : geo.padL + 16, top : 6 } : { left : geo.padL + 16, top : 16, maxWidth : CARD_W }
         : undefined;
-    const cueStyle : CSSProperties | undefined = geo && body ? { left : geo.xOf(K0) + 0.3 * geo.h + 16, top : geo.yOf(0) - body.top * 0.75 } : undefined;
+    const cueStyle : CSSProperties | undefined = geo ? { left : geo.xOf(K0) + geo.emoji / 2 + 8, top : geo.yOf(0) - geo.emoji / 2 - 20 } : undefined;
 
     return (
         <section ref={sectionRef} className={`walk ${finished ? "is-finished" : ""}`} style={{ height : `${TOTAL * 100}svh` }}>
             <div ref={frameRef} className="walk-frame" style={frameStyle}>
-                {geo && body && layout && (
+                {geo && layout && (
                     <svg className="walk-svg" width={geo.W} height={geo.H} viewBox={`0 0 ${geo.W} ${geo.H}`} role="img" aria-label={ARIA} onPointerLeave={() => setHover(null)}>
                         <defs>
                             <clipPath id="walk-clip-lines"><rect x={0} y={geo.padT} width={geo.W} height={geo.plotH} /></clipPath>
@@ -576,14 +507,10 @@ export const Walk = () => {
                                         key={e.tr.key} className={`walk-end tone-${e.tr.tone} ${on(e.tr.key) ? "" : "is-dim"} ${hover === e.tr.key ? "is-hot" : ""}`}
                                         onPointerEnter={hoverable ? () => setHover(e.tr.key) : undefined}
                                     >
-                                        {e.tr.endY >= geo.padT && Math.abs(e.y - e.tr.endY) > 6 && <line className="walk-leader" x1={geo.right + 2} x2={geo.right + 8} y1={e.tr.endY} y2={e.y} />}
-                                        <g className="walk-end-label" style={{ transform : `translate(${geo.right + 10}px, ${e.y}px)` }}>
-                                            {e.glyph && (
-                                                <g className="walk-end-glyph" transform={`translate(0 -7) scale(${14 / 24})`} strokeWidth={1.25 * 24 / 14}>
-                                                    <GlyphPaths name={e.glyph} />
-                                                </g>
-                                            )}
-                                            <text x={e.glyph ? 18 : 0} y={4}>
+                                        {e.tr.endY >= geo.padT && Math.abs(e.y - e.tr.endY) > 6 && <line className="walk-leader" x1={geo.right + 2} x2={geo.right + LABEL_X - 2} y1={e.tr.endY} y2={e.y} />}
+                                        <g className="walk-end-label" style={{ transform : `translate(${geo.right + LABEL_X}px, ${e.y}px)` }}>
+                                            {e.emoji && <text className="walk-end-emoji" x={0} y={0} dominantBaseline="central">{e.emoji}</text>}
+                                            <text x={e.emoji ? END_EMOJI_W : 0} y={4}>
                                                 {e.name && <tspan className="walk-end-name">{e.name}{" "}</tspan>}
                                                 <tspan className="walk-end-value">{e.value}</tspan>
                                             </text>
@@ -608,42 +535,35 @@ export const Walk = () => {
                             <text key={mo} className="walk-tick" x={geo.xOf(k)} y={geo.H - geo.padB + (geo.narrow ? 22 : 24)} textAnchor="middle">{mo.slice(0, 4)}</text>
                         ))}
                         {geo.narrow ? (
-                            <text className="walk-head" x={geo.right + 10} y={geo.padT - 24}>
-                                <tspan x={geo.right + 10}>Twelve months</tspan>
-                                <tspan x={geo.right + 10} dy={14}>{`to ${shortMonth(HEADLINE.lastMonth)}`}</tspan>
+                            <text className="walk-head" x={geo.right + LABEL_X} y={geo.padT - 24}>
+                                <tspan x={geo.right + LABEL_X}>Twelve months</tspan>
+                                <tspan x={geo.right + LABEL_X} dy={14}>{`to ${shortMonth(HEADLINE.lastMonth)}`}</tspan>
                             </text>
                         ) : (
-                            <text className="walk-head" x={geo.right + 10} y={geo.padT - 12}>{`Twelve months to ${shortMonth(HEADLINE.lastMonth)}`}</text>
+                            <text className="walk-head" x={geo.right + LABEL_X} y={geo.padT - 12}>{`Twelve months to ${shortMonth(HEADLINE.lastMonth)}`}</text>
                         )}
 
-                        {/* The porter, who moves with the camera and is never clipped. */}
-                        {!reduced && !finished && (
+                        {/* The good's emoji on its line, which moves with the camera and is never clipped. */}
+                        {!finished && (
                             <g ref={camRefs[3]}>
-                                <g ref={porterRef} className="walk-porter" strokeWidth={body.stroke}>
-                                    <polyline ref={legBRef} />
-                                    <polyline ref={legARef} />
-                                    <g ref={upperRef}>
-                                        <polyline points={`0,${-body.torso} ${-body.elbow[0]},${body.elbow[1]} ${-body.hand[0]},${body.hand[1]}`} />
-                                        <line x1={0} y1={0} x2={0} y2={-body.torso - body.neck} />
-                                        <circle className="walk-head-dot" cx={0} cy={-body.torso - body.neck - body.headR} r={body.headR} />
-                                        <g transform={`translate(${-body.G / 2} ${body.loadY}) scale(${body.G / 24})`} strokeWidth={1.5 * 24 / body.G}>
-                                            <GlyphPaths name={glyphOf(WALKS[current])} />
-                                        </g>
-                                        <polyline points={`0,${-body.torso} ${body.elbow[0]},${body.elbow[1]} ${body.hand[0]},${body.hand[1]}`} />
-                                    </g>
-                                </g>
+                                <text
+                                    ref={emojiRef} className="walk-emoji" x={0} y={0} textAnchor="middle" dominantBaseline="central" fontSize={geo.emoji}
+                                    transform={`translate(${geo.xOf(K0)} ${geo.yOf(0)})`}
+                                >
+                                    {emojiOf(WALKS[current])}
+                                </text>
                             </g>
                         )}
                     </svg>
                 )}
 
-                <div className={`walk-cue ${geo ? "" : "is-unplaced"}`} ref={cueRef} style={cueStyle} aria-hidden="true">Scroll to walk</div>
+                <div className={`walk-cue ${geo ? "" : "is-unplaced"}`} ref={cueRef} style={cueStyle} aria-hidden="true">Scroll to start</div>
 
                 <div className={`walk-caption ${stage === 0 ? "is-empty" : ""} ${finished ? "is-chips" : ""} ${finished && layout?.band ? "is-band" : ""} ${geo ? "" : "is-unplaced"}`} style={cardStyle} aria-live="polite">
                     {caption && (
                         <>
                             <div className="walk-caption-head">
-                                <Glyph name={glyphOf(caption)} size={20} />
+                                <span className="walk-caption-emoji" aria-hidden="true">{emojiOf(caption)}</span>
                                 <h3 className="walk-caption-name">{nameOf(caption)}</h3>
                             </div>
                             <span className="walk-caption-readout" ref={readoutRef} aria-hidden="true" />
