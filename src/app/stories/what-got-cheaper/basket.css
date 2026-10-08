@@ -1,0 +1,384 @@
+/* YOUR BASKET ===================================================================================================== */
+/* One card on the paper, after Time Series of India's basket widget: the 29 groups' sliders down the left on one grid,
+   the readout on the right (held in view while the rows pass on a desktop), the note across the foot. On a phone the
+   readout comes first and the rows follow, name above slider. Every colour is a page token; the unspent stretch's
+   hatch is the one gradient. Class names carry the bk- prefix so they never meet the old .basket rules. */
+#what-got-cheaper-page {
+    .bk {
+        --bk-thumb  : 16px;
+        --bk-ease   : cubic-bezier(0.16, 1, 0.3, 1);
+        container   : bk-card / inline-size;
+        padding     : 24px;
+        border      : 1px solid var(--rule);
+        background  : var(--paper);
+        color       : var(--ink);
+        font-family : var(--font-sans-serif);
+    }
+
+    .bk-m0 { --bk-hue : var(--c-major-0); }
+    .bk-m1 { --bk-hue : var(--c-major-1); }
+    .bk-m2 { --bk-hue : var(--c-major-2); }
+
+    .bk-body {
+        display               : grid;
+        grid-template-columns : minmax(0, 7fr) minmax(0, 5fr);
+        grid-template-areas   : "rows out";
+        column-gap            : 48px;
+        align-items           : start;
+    }
+
+    /* THE READOUT ================================================================================================= */
+    .bk-out {
+        grid-area      : out;
+        position       : sticky;
+        top            : 96px;
+        container      : bk-out / inline-size;
+    }
+
+    .bk-read {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 8px 32px;
+    }
+
+    .bk-num {
+        display        : flex;
+        flex-direction : column;
+        gap            : 8px;
+    }
+
+    .bk-kick {
+        font-size      : 12px;
+        line-height    : 16px;
+        letter-spacing : 0.12em;
+        text-transform : uppercase;
+        color          : var(--ink-soft);
+        font-variant-numeric : tabular-nums;
+    }
+
+    .bk-big {
+        font-family          : var(--font-serif);
+        font-weight          : 400;
+        font-size            : 56px;
+        line-height          : 1;
+        letter-spacing       : -0.02em;
+        font-variant-numeric : tabular-nums;
+    }
+
+    .is-you  .bk-big { color : var(--accent); }
+    .is-head .bk-big { color : var(--ink); }
+
+    .bk-for {
+        margin      : 8px 0 0;
+        font-size   : 12px;
+        line-height : 16px;
+        color       : var(--ink-soft);
+    }
+
+    /* the chart's text sits under .bk so it outranks .story-figure svg text if the card is ever set in a figure */
+    .bk {
+        .bk-ts { margin-top : 24px; }
+        .bk-ts-svg { display : block; width : 100%; overflow : visible; }
+        .bk-ts-base { stroke : var(--rule); stroke-width : 1; }
+        .bk-ts-you  { fill : none; stroke : var(--accent); stroke-width : 1.5; stroke-linejoin : round; }
+        .bk-ts-head { fill : none; stroke : var(--ink); stroke-width : 1.5; stroke-linejoin : round; }
+
+        .bk-ts-lab {
+            font-family          : var(--font-sans-serif);
+            font-size            : 12px;
+            font-variant-numeric : tabular-nums;
+            fill                 : var(--ink);
+
+            &.is-you { fill : var(--accent); }
+        }
+
+        .bk-ts-val { font-weight : 600; }
+
+        .bk-ts-tick {
+            font-family          : var(--font-sans-serif);
+            font-size            : 12px;
+            font-variant-numeric : tabular-nums;
+            fill                 : var(--ink-soft);
+        }
+    }
+
+    .bk-phrase {
+        min-height  : 40px;
+        margin      : 16px 0 0;
+        font-family : var(--font-sans-serif);
+        font-size   : 14px;
+        line-height : 20px;
+        color       : var(--ink);
+    }
+
+    .bk-btns {
+        display    : flex;
+        flex-wrap  : wrap;
+        gap        : 8px;
+        margin-top : 16px;
+
+        /* fictoan's secondary button, drawn in the page's tokens: an outline in ink, the one that would do nothing
+           left in its place in the rule colour */
+        [data-button] {
+            min-height       : 40px;
+            border           : 1px solid var(--ink-soft);
+            background-color : transparent;
+            color            : var(--ink);
+            font-family      : var(--font-sans-serif);
+            font-size        : 14px;
+            font-weight      : 500;
+            transition       : background-color 200ms var(--bk-ease), border-color 200ms var(--bk-ease);
+
+            &:hover { border-color : var(--ink); background-color : var(--rule); color : var(--ink); }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+
+        [data-button][disabled] {
+            border-color     : var(--rule);
+            background-color : transparent;
+            color            : var(--ink-soft);
+            opacity          : 1;
+            filter           : none;
+        }
+    }
+
+    .bk-barwrap {
+        position    : relative;
+        margin-top  : 24px;
+        padding-top : 24px;
+    }
+
+    .bk-hotlab {
+        position      : absolute;
+        top           : 0;
+        left          : 0;
+        max-width     : 100%;
+        overflow      : hidden;
+        text-overflow : ellipsis;
+        white-space   : nowrap;
+        font-size     : 12px;
+        line-height   : 16px;
+        font-variant-numeric : tabular-nums;
+        color         : var(--ink);
+        opacity       : 0;
+        transition    : opacity 200ms var(--bk-ease);
+
+        &.is-shown { opacity : 1; }
+    }
+
+    .bk-bar {
+        display  : flex;
+        height   : 16px;
+        overflow : hidden;
+    }
+
+    .bk-seg {
+        display     : block;
+        flex        : 0 0 auto;
+        min-width   : 0;
+        background  : var(--bk-hue);
+        border-left : 1px solid var(--paper);
+        transition  : flex-basis 200ms var(--bk-ease), opacity 200ms var(--bk-ease);
+    }
+
+    .bk-bar.has-hot .bk-seg:not(.is-hot, .bk-unspent) { opacity : 0.4; }
+
+    .bk-unspent {
+        background : repeating-linear-gradient(-45deg, var(--rule) 0 2px, transparent 2px 6px);
+    }
+
+    /* THE ROWS ==================================================================================================== */
+    /* One grid for all 29 rows: name, slider, share. Majors and rows are subgrids of it, so the columns line up. */
+    .bk-rows {
+        grid-area             : rows;
+        display               : grid;
+        grid-template-columns : fit-content(320px) minmax(128px, 1fr) 64px;
+        column-gap            : 24px;
+        row-gap               : 24px;
+    }
+
+    .bk-major {
+        grid-column           : 1 / -1;
+        display               : grid;
+        grid-template-columns : subgrid;
+        row-gap               : 8px;
+    }
+
+    .bk-major-name {
+        grid-column    : 1 / -1;
+        font-size      : 12px;
+        line-height    : 16px;
+        letter-spacing : 0.12em;
+        text-transform : uppercase;
+        color          : var(--bk-hue);
+    }
+
+    .bk-row {
+        grid-column           : 1 / -1;
+        display               : grid;
+        grid-template-columns : subgrid;
+        align-items           : center;
+        min-height            : 44px;
+    }
+
+    .bk-name {
+        display        : flex;
+        flex-direction : column;
+        min-width      : 0;
+    }
+
+    .bk-label {
+        font-size   : 14px;
+        line-height : 20px;
+        color       : var(--ink);
+    }
+
+    .bk-rate {
+        font-size            : 12px;
+        line-height          : 16px;
+        font-variant-numeric : tabular-nums;
+        color                : var(--ink-soft);
+    }
+
+    .bk-val {
+        font-size            : 14px;
+        line-height          : 20px;
+        font-variant-numeric : tabular-nums;
+        text-align           : right;
+        white-space          : nowrap;
+    }
+
+    /* The slider: a track in the rule colour with the filled stretch in the major's hue drawn behind a bare input, so
+       every engine shows the same thing; the fill ends at the thumb's centre. The input is 44px tall to tap. */
+    .bk-slide {
+        position  : relative;
+        display   : block;
+        min-width : 0;
+        height    : 44px;
+    }
+
+    .bk-track {
+        position      : absolute;
+        top           : 20px;
+        left          : 0;
+        right         : 0;
+        height        : 4px;
+        border-radius : 2px;
+        overflow      : hidden;
+        background    : var(--rule);
+    }
+
+    .bk-fill {
+        position      : absolute;
+        top           : 0;
+        bottom        : 0;
+        left          : 0;
+        width         : calc(var(--bk-thumb) / 2 + (100% - var(--bk-thumb)) * var(--f, 0));
+        background    : var(--bk-hue);
+    }
+
+    .bk-input {
+        -webkit-appearance : none;
+        appearance         : none;
+        position           : relative;
+        display            : block;
+        width              : 100%;
+        height             : 44px;
+        margin             : 0;
+        padding            : 0;
+        background         : transparent;
+        cursor             : pointer;
+
+        &:focus { outline : none; }
+
+        &::-webkit-slider-runnable-track { height : 44px; background : transparent; border : 0; }
+        &::-moz-range-track { height : 44px; background : transparent; border : 0; }
+        &::-moz-range-progress { background : transparent; }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance : none;
+            appearance         : none;
+            box-sizing         : border-box;
+            width              : var(--bk-thumb);
+            height             : var(--bk-thumb);
+            margin-top         : calc((44px - var(--bk-thumb)) / 2);
+            border             : 0;
+            border-radius      : 50%;
+            background         : var(--bk-hue);
+        }
+
+        &::-moz-range-thumb {
+            box-sizing    : border-box;
+            width         : var(--bk-thumb);
+            height        : var(--bk-thumb);
+            border        : 0;
+            border-radius : 50%;
+            background    : var(--bk-hue);
+        }
+
+        &:focus-visible::-webkit-slider-thumb { border : 2px solid var(--ink); }
+        &:focus-visible::-moz-range-thumb { border : 2px solid var(--ink); }
+    }
+
+    /* THE NOTE ==================================================================================================== */
+    .bk-note {
+        max-width   : none;
+        margin      : 24px 0 0;
+        font-family : var(--font-sans-serif);
+        font-size   : 13px;
+        line-height : 20px;
+        color       : var(--ink-soft);
+    }
+
+    /* A narrow readout: each kicker on two lines, the numbers a size down (the chart's end labels go to two lines
+       in script). */
+    @container bk-out (max-width : 479px) {
+        .bk-kick-sep   { display : none; }
+        .bk-kick-month { display : block; }
+        .bk-big        { font-size : 40px; }
+    }
+
+    /* A PHONE ===================================================================================================== */
+    @media (max-width : 899px) {
+        .bk { padding : 16px; }
+
+        .bk-body {
+            grid-template-columns : minmax(0, 1fr);
+            grid-template-areas   : "out" "rows";
+            row-gap               : 32px;
+        }
+
+        .bk-out { position : static; }
+
+        .bk-btns [data-button] { min-height : 44px; }
+    }
+
+    /* A card too narrow for name, slider and share side by side (every phone, and a small desktop where the rows'
+       column falls under about 590px): the name above its slider, the share beside it. */
+    @container bk-card (max-width : 1055px) {
+        .bk-rows {
+            grid-template-columns : minmax(0, 1fr) 64px;
+            column-gap            : 16px;
+        }
+
+        .bk-row { align-items : start; min-height : 0; }
+
+        /* the name and its rise run as one line of text, so a long name wraps with its rise after it */
+        .bk-name {
+            display     : block;
+            grid-column : 1 / -1;
+            grid-row    : 1;
+            line-height : 20px;
+        }
+
+        .bk-rate { margin-left : 4px; white-space : nowrap; }
+
+        /* the slider's 44px reaches up under the name, so the track sits close to the name it belongs to */
+        .bk-slide { grid-column : 1; grid-row : 2; margin-top : -8px; }
+        .bk-val   { grid-column : 2; grid-row : 2; margin-top : -8px; line-height : 44px; }
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .bk-hotlab, .bk-seg { transition : none; }
+    }
+}

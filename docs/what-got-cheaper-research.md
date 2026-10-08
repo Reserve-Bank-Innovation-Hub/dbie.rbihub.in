@@ -117,6 +117,19 @@ Required first, then optional. Every figure not already in the story is produced
 | 22 | optional, taken | "Not every good rose with it"; "goods in the basket"; "fell by more than half" as the fan's title; the arrow in the wages note; "the yardstick"; the look-up box for any good | critic optional 1, 2, 7, 18 |
 | 23 | optional, not taken | Moving "Your basket" next to the weighted card (it stays after the consumer chapter, where the reader has met both indices); plainer receipts labels beyond the bracket-stripping; a thali preset | critic, whole; BEST-16 |
 
+## The rebuild of 08-10-2026
+
+The editor rejected the first build's presentation: its stage, a canvas of 697 dots with step cards beside it, was the credit story's stage with different data, and the dots were "overdone and boring". The figures and the sentences above stand; the presentation was rebuilt around one device.
+
+| # | Scope | Change | Why |
+|---|---|---|---|
+| 24 | stage | The dot canvas, its scene layout and the fan chart replaced by a scroll-driven walk: a porter carries each of nine goods (colour TVs, anti-cancer drugs, blankets, solar power systems, wheat, silver, coconuts, tomatoes, jasmine) and then the whole basket along its price line from a 0% origin, on a linear per-cent axis from −60% to +350%, ending as Mark Perry's price-change chart: warm lines above, cool below, the basket in ink, names and figures at the ends, chips adding the other followed goods | editor's brief; the Independence walk on timeseriesofindia.com as the reference for a figure walking a data line as terrain, not copied (no sky, light or hold-to-walk) |
+| 25 | stage | Every drawn line is the trailing twelve-month average of the index; captions and spike markers give single months; the method note says so. Raw monthly tomatoes and jasmine, which touch tenfold in single months, made the finished chart a thicket of spikes | the editor's "legible line" and "chart of the century" requirements; the story's own rule of years against years |
+| 26 | stage | Captions are templates over the data (min, max and their months computed from each series); the porter is the Labour Bureau's non-agricultural labourer, "including porters and loaders", whose day is the days-of-work yardstick | C6; MET-13 |
+| 27 | days of work | The dot scene replaced by two figures: one bar split 623 to 74 with the 74 named, and rows of day-squares, "if a good took ten days of a labourer's pay in 2014-15, this is what it took in 2024-25", the ten-day start stated as an assumption every row shares | C6; the editor's "no dots" |
+| 28 | your basket | The widget rebuilt in the layout of Time Series of India's basket widget (rows of sliders with each group's rise beneath, the two big numbers, the two-line chart, the phrase, the buttons, the segmented bar, the note), mechanics unchanged | editor's brief |
+| 29 | page | The opening's ten step cards folded into two text chapters ("The whole basket", "The two ends") after the walk; the "month by month" chapter dropped, its goods now on the chart's chips; sixteen hand-drawn line glyphs for the goods on the chart and in the rows; the stylesheet rewritten on a clean contract (tokens only, three type styles, an 8px grid, 1px rules, no shadows) | editor's "cleannn" |
+
 ## Further reading
 
 - Office of the Economic Adviser, *Manual on wholesale price index, base 2011-12* (2017) [MET-2]: how the index is made.

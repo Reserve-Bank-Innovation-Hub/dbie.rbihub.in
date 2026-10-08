@@ -1,8 +1,7 @@
 #what-got-cheaper-page {
     /* The site's own chart scheme (src/components/charts/chartConfig.ts), by role, so the story reads like every other
        chart here: the first three categorical slots for the three major groups (grown or mined, fuel and power,
-       factory-made), the emphasis hue, the de-emphasis grey and the cool and warm poles. The canvas takes the same
-       scheme from resolveScheme in script. */
+       factory-made), the emphasis hue, the de-emphasis grey and the cool and warm poles. */
     --c-major-0 : var(--green);
     --c-major-1 : var(--pink);
     --c-major-2 : var(--violet);
@@ -17,6 +16,13 @@
     --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
     --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
     --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+    /* The roles the figures are drawn in: the paper every figure sits on, the hairline rule, and the two directions of
+       a price line (the diverging poles of the site's scheme) with the basket in ink. */
+    --paper     : var(--fig-bg);
+    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
+    --c-dearer  : var(--c-warm);
+    --c-cheaper : var(--c-cool);
+    --c-basket  : var(--ink);
 
     .sr-only {
         position    : absolute;
@@ -31,303 +37,22 @@
     .major-1 { --c-major : var(--c-major-1); }
     .major-2 { --c-major : var(--c-major-2); }
 
-    /* THE OPENING ================================================================================================= */
-    .act {
-        position   : relative;
-        background : var(--fig-bg);
-    }
-
-    .stage {
-        position : sticky;
-        top      : 0;
-        height   : 100vh;
-        height   : 100svh;
-        overflow : hidden;
-    }
-
-    .price-stage {
-        position : absolute;
-        inset    : 0;
-
-        canvas {
-            display : block;
-            width   : 100%;
-            height  : 100%;
-        }
-    }
-
-    .steps {
-        position       : relative;
-        z-index        : 3;
-        margin-top     : -100vh;
-        margin-top     : -100svh;
-        pointer-events : none;
-    }
-
-    .step {
-        min-height      : 100vh;
-        display         : flex;
-        align-items     : center;
-        justify-content : flex-end;
-        padding         : 0 var(--small);
-    }
-
-    .step.is-hero {
-        justify-content : center;
-        text-align      : center;
-    }
-
-    .title-card {
-        max-width      : 760px;
-        pointer-events : auto;
-
-        .table-crumbs { justify-content : center; margin-bottom : var(--micro); }
-    }
-
-    .hero-kicker {
-        color          : var(--accent);
-        letter-spacing : 0.16em;
-        font-size      : 13px;
+    /* THE TITLE ================================================================================================== */
+    .title-block {
+        padding : var(--medium) 0 var(--small);
     }
 
     .hero-title {
         font-family    : var(--font-serif);
-        font-size      : clamp(48px, 8.5vw, 104px);
-        line-height    : 0.95;
+        font-size      : clamp(44px, 7vw, 88px);
+        line-height    : 0.98;
         letter-spacing : -0.02em;
 
         .accent { color : var(--accent); }
     }
 
     .hero-sub {
-        max-width : 56ch;
-        margin    : 0 auto;
-    }
-
-    .hero-cue {
-        display        : inline-block;
-        letter-spacing : 0.2em;
-        text-transform : uppercase;
-        color          : var(--ink-soft);
-        animation      : wgc-bob 1.8s ease-in-out infinite;
-
-        &::after {
-            content    : "";
-            display    : block;
-            width      : 1px;
-            height     : 34px;
-            margin     : 10px auto 0;
-            background : linear-gradient(to bottom, var(--ink-soft), transparent);
-        }
-    }
-
-    .step-card {
-        pointer-events   : auto;
-        width            : min(420px, 34vw);
-        background-color : color-mix(in oklch, var(--fig-bg), transparent 10%);
-        backdrop-filter  : blur(10px) saturate(150%);
-        border           : none;
-        box-shadow       : inset 0 0 0 1px color-mix(in oklch, var(--fig-bg), transparent 30%),
-                           0 0 0 1px var(--ink-faint),
-                           0 2px 4px rgba(0, 0, 0, 0.03),
-                           0 20px 40px rgba(0, 0, 0, 0.09);
-        opacity          : 0.3;
-        transform        : translateY(22px) scale(0.985);
-        transition       : opacity 0.55s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-
-        &.is-active {
-            opacity   : 1;
-            transform : none;
-        }
-    }
-
-    .step-kicker {
-        color          : var(--accent);
-        letter-spacing : 0.12em;
-        font-size      : 11.5px;
-    }
-
-    .step-big {
-        font-family    : var(--font-sans-serif);
-        font-weight    : 600;
-        font-size      : clamp(40px, 4.4vw, 56px);
-        line-height    : 1;
-        letter-spacing : -0.025em;
-        color          : var(--heading-text-colour);
-        margin         : 2px 0 6px;
-
-        .big-of {
-            font-size      : 0.42em;
-            font-weight    : 500;
-            letter-spacing : 0;
-            color          : var(--ink-soft);
-        }
-    }
-
-    /* the guess: a slider over the scale */
-    .guess-row {
-        display     : flex;
-        align-items : center;
-        gap         : var(--micro);
-        margin      : 6px 0 4px;
-
-        input[type="range"] {
-            flex         : 1 1 auto;
-            height       : 32px;
-            accent-color : var(--accent);
-        }
-    }
-
-    .guess-value {
-        min-width  : 4.4ch;
-        font-size  : 28px;
-        text-align : right;
-        color      : var(--heading-text-colour);
-    }
-
-    .guess-verdict { color : var(--heading-text-colour); }
-
-    /* THE STAGE'S LABELS ========================================================================================= */
-    .stage-caption {
-        position       : absolute;
-        z-index        : 2;
-        font-size      : 12px;
-        color          : var(--ink-soft);
-        pointer-events : none;
-
-        .caption-text { margin-bottom : 6px; }
-    }
-
-    .stage-keys {
-        display   : flex;
-        flex-wrap : wrap;
-        gap       : 6px 16px;
-    }
-
-    .stage-key {
-        display     : inline-flex;
-        align-items : center;
-        gap         : 7px;
-        color       : var(--ink);
-    }
-
-    .key-dot {
-        display       : inline-block;
-        width         : 9px;
-        height        : 9px;
-        border-radius : 50%;
-        background    : var(--c-major, var(--c-deemph));
-    }
-
-    .stage-layer {
-        position       : absolute;
-        inset          : 0;
-        opacity        : 0;
-        pointer-events : none;
-        transition     : opacity 0.6s ease;
-
-        &.is-on { opacity : 1; }
-    }
-
-    .stage-svg {
-        position : absolute;
-        inset    : 0;
-    }
-
-    .axis-label, .axis-title, .ref-label, .row-name, .dot-label {
-        position    : absolute;
-        left        : 0;
-        top         : 0;
-        white-space : nowrap;
-        transition  : transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
-    }
-
-    .axis-base  { stroke : var(--ink-soft); stroke-width : 1; }
-    .axis-tick  { stroke : var(--ink-soft); stroke-width : 1; }
-    .ref-line   { stroke : var(--heading-text-colour); stroke-width : 1; stroke-dasharray : 3 3; transition : all 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
-    .ref-line.is-base { stroke-dasharray : none; }
-    .row-rule   { stroke : var(--ink-faint); stroke-width : 1; }
-    .label-leader { stroke : var(--ink-soft); stroke-width : 1; transition : all 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
-
-    .axis-label {
-        font-family          : var(--font-mono);
-        font-size            : 11px;
-        font-variant-numeric : tabular-nums;
-        color                : var(--ink-soft);
-    }
-
-    .axis-title {
-        font-size      : 10.5px;
-        letter-spacing : 0.08em;
-        text-transform : uppercase;
-        color          : var(--ink-soft);
-    }
-
-    .ref-label {
-        padding       : 2px 8px;
-        border-radius : 999px;
-        background    : var(--fig-bg);
-        box-shadow    : 0 0 0 1px var(--heading-text-colour);
-        font-family   : var(--font-serif);
-        font-style    : italic;
-        font-size     : 12.5px;
-        color         : var(--heading-text-colour);
-
-        &.is-base { box-shadow : 0 0 0 1px var(--ink-soft); color : var(--ink-soft); }
-    }
-
-    .row-name {
-        display        : flex;
-        flex-direction : column;
-        gap            : 1px;
-    }
-
-    .row-name-text {
-        font-size      : 11px;
-        letter-spacing : 0.1em;
-        text-transform : uppercase;
-        color          : var(--ink-soft);
-    }
-
-    .row-name-count {
-        font-size : 12px;
-        color     : var(--ink);
-    }
-
-    .dot-label {
-        display        : flex;
-        flex-direction : column;
-        align-items    : center;
-        gap            : 0;
-        padding        : 2px 6px;
-        border-radius  : 6px;
-        background     : color-mix(in oklch, var(--fig-bg), transparent 10%);
-        text-align     : center;
-        line-height    : 1.2;
-    }
-
-    .dot-label-name  { font-size : 12px; font-weight : 600; color : var(--heading-text-colour); }
-    .dot-label-value { font-family : var(--font-mono); font-size : 11px; color : var(--ink-soft); }
-
-    .stage-tip,
-    .chart-tip {
-        position       : absolute;
-        z-index        : 6;
-        display        : flex;
-        flex-direction : column;
-        gap            : 2px;
-        max-width      : 300px;
-        padding        : 10px 12px;
-        border-radius  : 8px;
-        background     : var(--fig-bg);
-        box-shadow     : 0 0 0 1px var(--ink-faint), 0 12px 28px rgba(0, 0, 0, 0.14);
-        color          : var(--ink);
-        font-size      : 12.5px;
-        line-height    : 1.35;
-        pointer-events : none;
-        transform      : translate(-50%, 18px);
-
-        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+        max-width : 60ch;
     }
 
     /* THE CHAPTERS =============================================================================================== */
@@ -342,19 +67,20 @@
     }
 
     .chapter-title {
-        max-width : 24ch;
+        max-width : 26ch;
     }
 
     .story-figure {
         margin     : 0;
-        padding    : 20px 22px 16px;
-        background : var(--fig-bg);
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
 
         figcaption {
             display        : flex;
             flex-direction : column;
-            gap            : 2px;
-            margin-bottom  : 14px;
+            gap            : 4px;
+            margin-bottom  : 16px;
         }
     }
 
@@ -366,11 +92,11 @@
 
     .figure-units,
     .figure-note {
-        font-size : 12.5px;
+        font-size : 13px;
         color     : var(--ink-soft);
     }
 
-    .figure-note { margin : 10px 0 0; }
+    .figure-note { margin : 12px 0 0; }
 
     .table-view {
         margin-top : 12px;
@@ -396,7 +122,7 @@
 
         th, td {
             padding       : 4px 8px;
-            border-bottom : 1px solid var(--ink-faint);
+            border-bottom : 1px solid var(--rule);
             text-align    : left;
         }
 
@@ -404,7 +130,7 @@
     }
 
     /* the figures' marks */
-    .hbars-wrap, .fan-wrap, .long-wrap {
+    .hbars-wrap, .long-wrap {
         position : relative;
         width    : 100%;
     }
@@ -417,8 +143,8 @@
     .row-label, .legend-label { font-size : 12.5px; }
 
     .bar-value, .row-note, .tick {
-        font-family : var(--font-mono) !important;
-        font-size   : 11.5px;
+        font-size            : 12px;
+        font-variant-numeric : tabular-nums;
     }
 
     .row-note, .tick { fill : var(--ink-soft) !important; }
@@ -429,8 +155,8 @@
     .hbars {
         .kind-accent .bar { fill : var(--c-emph); }
         .kind-muted .bar  { fill : var(--c-deemph); }
-        .kind-fall .bar   { fill : var(--c-cool); }
-        .kind-rise .bar   { fill : var(--c-warm); }
+        .kind-fall .bar   { fill : var(--c-cheaper); }
+        .kind-rise .bar   { fill : var(--c-dearer); }
         .kind-money .bar  { fill : var(--c-second); }
         .kind-second .bar { fill : var(--c-major-1); }
         .kind-third .bar  { fill : var(--c-major-0); }
@@ -438,263 +164,75 @@
     }
     .zero-line { stroke : var(--ink-soft); stroke-width : 1; }
 
-    /* the fan */
-    .fan-chart, .long-chart {
-        .grid         { stroke : var(--ink-faint); stroke-width : 1; }
+    .chart-tip {
+        position       : absolute;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 300px;
+        padding        : 8px 12px;
+        border         : 1px solid var(--rule);
+        background     : var(--paper);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+        transform      : translate(-50%, 18px);
+
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* the long chart */
+    .long-chart {
+        .grid         { stroke : var(--rule); stroke-width : 1; }
         .grid.is-base { stroke : var(--ink-soft); stroke-width : 1; }
         .crosshair    { stroke : var(--ink-soft); stroke-width : 1; }
     }
 
-    .fan-line, .long-line {
+    .long-line {
         fill            : none;
         stroke          : var(--c-major);
-        stroke-width    : 1.6;
+        stroke-width    : 1.5;
         stroke-linejoin : round;
         stroke-linecap  : round;
         transition      : opacity 0.25s ease, stroke-width 0.25s ease;
 
-        &.is-hot { stroke-width : 3; }
+        &.is-hot { stroke-width : 2.5; }
     }
 
-    .fan-all, .long-all {
+    .long-all {
         fill            : none;
         stroke          : var(--heading-text-colour);
-        stroke-width    : 2.2;
+        stroke-width    : 2;
         stroke-linejoin : round;
         transition      : opacity 0.25s ease;
     }
 
-    .fan-leader { stroke : var(--ink-faint); stroke-width : 1; transition : opacity 0.25s ease; }
-
-    .fan-label, .long-label {
+    .long-label {
         position    : absolute;
         display     : flex;
         align-items : baseline;
         gap         : 6px;
         transform   : translateY(-50%);
         font-size   : 12px;
+        font-weight : 600;
         line-height : 1.1;
+        white-space : nowrap;
         color       : var(--c-major, var(--heading-text-colour));
         transition  : opacity 0.25s ease;
         cursor      : default;
 
         &.is-all { color : var(--heading-text-colour); }
-        &.is-hot .fan-label-name { font-weight : 700; }
     }
 
-    .fan-label-name  { font-weight : 600; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
-    .fan-label-value { font-family : var(--font-mono); font-size : 11px; color : var(--ink-soft); }
-
-    .fan-note {
-        margin-top : 4px;
-        font-size  : 11.5px;
-        color      : var(--ink-soft);
-    }
-
-    .fan-presets {
-        display   : flex;
-        flex-wrap : wrap;
-        gap       : 6px;
-        margin    : 0 0 12px;
-    }
-
-    .long-dot { fill : var(--c-major); stroke : var(--fig-bg); stroke-width : 2; &.is-all { fill : var(--heading-text-colour); } }
-    .long-label { font-weight : 600; white-space : nowrap; }
-
-    /* YOUR BASKET ================================================================================================ */
-    .basket {
-        display               : grid;
-        grid-template-columns : minmax(0, 1.1fr) minmax(0, 1fr);
-        gap                   : 28px;
-        align-items           : start;
-    }
-
-    .basket-read {
-        display : flex;
-        gap     : 32px;
-        margin  : 0 0 10px;
-    }
-
-    .basket-num {
-        display        : flex;
-        flex-direction : column;
-        gap            : 2px;
-    }
-
-    .basket-lbl {
-        font-size      : 11px;
-        letter-spacing : 0.1em;
-        text-transform : uppercase;
-        color          : var(--ink-soft);
-    }
-
-    .basket-big {
-        font-family    : var(--font-serif);
-        font-size      : clamp(34px, 4vw, 48px);
-        line-height    : 1;
-        letter-spacing : -0.02em;
-    }
-
-    .basket-num.is-you  .basket-big { color : var(--c-second); }
-    .basket-num.is-head .basket-big { color : var(--c-emph); }
-
-    .basket-ts { width : 100%; }
-    .basket-ts-svg { display : block; width : 100%; }
-    .basket-ts-base { stroke : var(--ink-faint); stroke-width : 1; }
-    .basket-ts-you  { fill : none; stroke : var(--c-second); stroke-width : 2; stroke-linejoin : round; }
-    .basket-ts-head { fill : none; stroke : var(--c-emph); stroke-width : 2; stroke-linejoin : round; }
-    .basket-ts-lab  { font-family : var(--font-mono); font-size : 11.5px; fill : var(--ink); &.is-you { fill : var(--c-second); } &.is-head { fill : var(--c-emph); } }
-    .basket-ts-svg.narrow .basket-ts-lab { font-size : 10.5px; }
-    .basket-ts-tick { font-family : var(--font-mono); font-size : 10.5px; fill : var(--ink-soft); }
-
-    .basket-phrase {
-        margin      : 8px 0 10px;
-        font-family : var(--font-serif);
-        font-size   : 15px;
-        color       : var(--heading-text-colour);
-    }
-
-    .basket-btns {
-        display : flex;
-        gap     : 8px;
-        margin  : 0 0 14px;
-    }
-
-    .basket-barwrap { position : relative; padding-top : 22px; }
-
-    .basket-hotlab {
-        position      : absolute;
-        top           : 0;
-        transform     : translateX(-50%);
-        padding       : 1px 8px;
-        border-radius : 999px;
-        background    : var(--heading-text-colour);
-        color         : var(--fig-bg);
-        font-family   : var(--font-mono);
-        font-size     : 10.5px;
-        white-space   : nowrap;
-        opacity       : 0;
-        transition    : opacity 0.2s ease;
-
-        &.show { opacity : 1; }
-    }
-
-    .basket-bar {
-        display       : flex;
-        height        : 14px;
-        border-radius : 4px;
-        overflow      : hidden;
-        box-shadow    : inset 0 0 0 1px var(--ink-faint);
-    }
-
-    .basket-seg {
-        display     : block;
-        flex        : 0 0 auto;
-        background  : var(--c-major, var(--c-deemph));
-        border-left : 1px solid var(--fig-bg);
-        opacity     : 0.75;
-        transition  : flex-basis 0.12s linear, opacity 0.2s ease;
-
-        &.hot { opacity : 1; }
-    }
-
-    .basket-unspent {
-        background : repeating-linear-gradient(45deg, var(--c-faint) 0 4px, var(--fig-bg) 4px 8px);
-        opacity    : 1;
-    }
-
-    .basket-rows {
-        display        : flex;
-        flex-direction : column;
-        gap            : 12px;
-    }
-
-    .basket-major-name {
-        display        : flex;
-        align-items    : center;
-        gap            : 7px;
-        margin-bottom  : 4px;
-        font-size      : 11px;
-        letter-spacing : 0.1em;
-        text-transform : uppercase;
-        color          : var(--ink-soft);
-    }
-
-    .basket-row {
-        display               : grid;
-        grid-template-columns : minmax(0, 1.2fr) minmax(0, 1fr) 62px;
-        align-items           : center;
-        gap                   : 10px;
-        min-height            : 26px;
-    }
-
-    .basket-name {
-        display     : flex;
-        align-items : baseline;
-        gap         : 6px;
-        min-width   : 0;
-        font-size   : 12.5px;
-        white-space : nowrap;
-        overflow    : hidden;
-        text-overflow : ellipsis;
-    }
-
-    .basket-rate {
-        font-family : var(--font-mono);
-        font-size   : 10.5px;
-        color       : var(--ink-soft);
-    }
-
-    .basket-val {
-        font-family          : var(--font-mono);
-        font-size            : 12px;
-        font-variant-numeric : tabular-nums;
-        text-align           : right;
-    }
-
-    /* the slider, drawn the same in every engine */
-    .basket-slider {
-        -webkit-appearance : none;
-        appearance         : none;
-        width              : 100%;
-        height             : 20px;
-        margin             : 0;
-        background         : transparent;
-        cursor             : pointer;
-
-        &::-webkit-slider-runnable-track {
-            height        : 4px;
-            border-radius : 2px;
-            background    : linear-gradient(to right, var(--c-second) 0 var(--p, 0%), var(--c-faint) var(--p, 0%) 100%);
-        }
-        &::-moz-range-track { height : 4px; border-radius : 2px; background : var(--c-faint); }
-        &::-moz-range-progress { height : 4px; border-radius : 2px; background : var(--c-second); }
-        &::-webkit-slider-thumb {
-            -webkit-appearance : none;
-            appearance         : none;
-            width              : 14px;
-            height             : 14px;
-            margin-top         : -5px;
-            border-radius      : 50%;
-            border             : 2px solid var(--fig-bg);
-            background         : var(--c-second);
-            box-shadow         : 0 0 0 1px var(--ink-faint);
-        }
-        &::-moz-range-thumb {
-            width         : 14px;
-            height        : 14px;
-            border-radius : 50%;
-            border        : 2px solid var(--fig-bg);
-            background    : var(--c-second);
-            box-shadow    : 0 0 0 1px var(--ink-faint);
-        }
-        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
-    }
+    .long-dot { fill : var(--c-major); stroke : var(--paper); stroke-width : 2; &.is-all { fill : var(--heading-text-colour); } }
 
     /* LOOK UP A GOOD ============================================================================================= */
     .lookup {
-        padding    : 16px 18px 12px;
-        background : var(--fig-bg);
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
     }
 
     .lookup-label {
@@ -707,10 +245,10 @@
 
     .lookup-input {
         width         : 100%;
-        padding       : 8px 10px;
-        border        : 1px solid var(--ink-faint);
-        border-radius : 6px;
-        background    : var(--fig-bg);
+        padding       : 8px 12px;
+        border        : 1px solid var(--rule);
+        border-radius : 4px;
+        background    : var(--paper);
         color         : var(--ink);
         font          : inherit;
         font-size     : 14px;
@@ -720,13 +258,13 @@
 
     .lookup-result {
         min-height  : 2.6em;
-        margin      : 10px 0 0;
+        margin      : 12px 0 0;
         font-family : var(--font-serif);
         font-size   : 15px;
         color       : var(--heading-text-colour);
     }
 
-    /* SO WHAT ==================================================================================================== */
+    /* IN SHORT =================================================================================================== */
     #so-what {
         padding : var(--large) 0 var(--medium);
     }
@@ -762,37 +300,12 @@
 
     /* A PHONE ==================================================================================================== */
     @media (max-width : 900px) {
-        .step {
-            align-items     : flex-end;
-            justify-content : center;
-            padding         : 0 12px 5vh;
-            min-height      : 100svh;
-        }
-
-        .step.is-hero {
-            align-items    : center;
-            padding-bottom : 0;
-        }
-
-        .step-card { width : 100%; }
-        .step-big  { font-size : 40px; }
-        .dot-label-name { font-size : 11px; }
-        .ref-label { font-size : 11px; padding : 1px 6px; }
-
-        .story-figure { padding : 16px 14px 12px; }
-
-        .basket { grid-template-columns : 1fr; gap : 18px; }
-        .basket-read { gap : 20px; }
-        .basket-row { grid-template-columns : minmax(0, 1fr) minmax(0, 1fr) 56px; gap : 8px; }
+        .title-block { padding-top : var(--small); }
+        .story-figure { padding : 16px; }
+        .lookup { padding : 16px; }
 
         .chapter [data-portion] + [data-portion],
-        #so-what [data-portion] + [data-portion] { margin-top : 28px; }
-    }
-
-    @media (prefers-reduced-motion : reduce) {
-        .hero-cue { animation : none; }
-        .step-card { transition : opacity 0.3s ease; transform : none; }
-        .axis-label, .axis-title, .ref-label, .row-name, .dot-label, .ref-line, .label-leader { transition : opacity 0.3s ease; }
+        #so-what [data-portion] + [data-portion] { margin-top : 32px; }
     }
 }
 
@@ -802,8 +315,4 @@
     --accent  : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
     --c-warm  : var(--salmon-light20);
     --c-faint : var(--grey-dark60);
-}
-
-@keyframes wgc-bob {
-    50% { transform : translateY(6px); }
 }
