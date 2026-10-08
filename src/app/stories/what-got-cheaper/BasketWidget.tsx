@@ -18,7 +18,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { Button } from "fictoan-react";
 
 // LOCAL ===============================================================================================================
-import { ALL, GROUPS, HEADLINE, MAJORS, MAJOR_PLAIN, MONTHS, monthName, rs, shortMonth, signed } from "./data";
+import { groupShortName, ALL, GROUPS, HEADLINE, MAJORS, MAJOR_PLAIN, MONTHS, monthName, rs, shortMonth, signed } from "./data";
 import { useSize } from "./useSize";
 
 // STYLES ==============================================================================================================
@@ -41,19 +41,6 @@ const yoursNow = (vals : number[]) => yoursAt(vals, LAST);
 
 // A short name for a group, from DBIE's label, in sentence case as every label on the page is. The pharmaceuticals
 // group keeps its first word, so every name fits one line beside its slider.
-const shortName = (label : string) => {
-    const s = label
-        .replace(/^Manufacture of /i, "")
-        .replace(/Manufacture of /gi, "")
-        .replace(/\/.*$/, "")
-        .replace(/, Except .*$/i, "")
-        .replace(/^(Pharmaceuticals), .*$/i, "$1")
-        .replace(/^Wood and of Products of Wood and Cork$/i, "Wood and cork products")
-        .replace(/Minral/g, "Mineral")
-        .replace(/\s*-\s*/g, "-")
-        .trim();
-    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
-};
 
 export const BasketWidget = () => {
     const [ vals, setVals ] = useState<number[]>(() => [ ...OFFICIAL ]);
@@ -136,7 +123,7 @@ export const BasketWidget = () => {
 
     let before = 0;
     const segs = vals.map(v => { const s = { left : before, w : v }; before += v; return s; });
-    const hotLabel = lab !== null ? `${shortName(GROUPS[lab].label)} · ₹${vals[lab].toFixed(0)} of 100` : "";
+    const hotLabel = lab !== null ? `${groupShortName(GROUPS[lab].label)} · ₹${vals[lab].toFixed(0)} of 100` : "";
     const hotCentre = lab !== null ? segs[lab].left + segs[lab].w / 2 : 0;
 
     // The label over the bar sits centred on its segment, held inside the bar's ends.
@@ -218,14 +205,14 @@ export const BasketWidget = () => {
                             {GROUPS.map((g, i) => g.major === mi && (
                                 <div key={g.code} className="bk-row">
                                     <span className="bk-name">
-                                        <span className="bk-label">{shortName(g.label)}</span>{" "}
+                                        <span className="bk-label">{groupShortName(g.label)}</span>{" "}
                                         <span className="bk-rate">{signed(g.now)}</span>
                                     </span>
                                     <span className="bk-slide" style={{ "--f" : vals[i] / 100 } as React.CSSProperties}>
                                         <span className="bk-track" aria-hidden="true"><span className="bk-fill" /></span>
                                         <input
                                             type="range" min={0} max={100} step={0.05} value={vals[i]} className="bk-input" style={{ touchAction : "pan-y" }}
-                                            aria-label={`Your share of ₹100 on ${shortName(g.label).toLowerCase()}`}
+                                            aria-label={`Your share of ₹100 on ${groupShortName(g.label).toLowerCase()}`}
                                             onChange={e => { light(i); move(i, +e.target.value); }}
                                             onPointerDown={() => light(i)} onPointerUp={fade} onBlur={fade}
                                         />
