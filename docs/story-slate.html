@@ -262,12 +262,52 @@ footer b { color: var(--accent); }
 .lk svg { display: block; width: 100%; max-width: 180px; height: auto; }
 .lk-s { font-size: 12px; color: var(--ink-2); line-height: 1.35; margin-top: 4px; }
 </style>
+<style>
+/* Paper is always light, everything expanded, nothing sticky or scrolling. */
+@media print {
+  :root, :root[data-theme="dark"], :root[data-theme="light"] {
+    color-scheme: light;
+    --ground: #fff; --surface: #fff; --raised: #fff;
+    --ink: #2f2f2f; --ink-2: #4a4640; --muted: #6d6d6d;
+    --hair: #e1d6c0; --hair-strong: #b8ad95;
+    --accent: #9a3a22; --accent-2: #ba644f; --accent-wash: #fbf1ec; --accent-hair: #ebc3b5;
+    --prx: #6f3bd6; --prx-wash: #f7f3fe; --prx-hair: #d9c8f8;
+    --good: #52711a; --good-wash: #f3f7ea; --serious: #94600c; --serious-wash: #fdf6e7; --neutral-wash: #f6f2ea;
+    --s1: #ba644f; --s2: #eaaa3a; --s3: #1b8fca; --s4: #52711a; --s5: #8a7f6a; --s6: #6e2a17; --s7: #c9bfa8;
+    --grid: #efe8da; --axis: #c9bfa8;
+    --mast-bg: #f2f0e6; --mast-ink: #2f2f2f; --mast-ink-2: #555049; --mast-hi: #9a3a22; --mast-line: #e1d5bc;
+  }
+  @page { size: A4 portrait; margin: 13mm 12mm 15mm; }
+  html, body { background: #fff; font-size: 13.5px; }
+  .topbar, .toc, .tip, .ctrl, .lakh input, .lakh-ends { display: none !important; }
+  .wrap { display: block; max-width: none; padding-inline: 0; padding-block: 0; }
+  .mast { margin-top: 0; border-radius: 12px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  section { padding-top: 22px; }
+  .tbl { overflow: visible !important; }
+  table { font-size: 10.5px; }
+  thead { display: table-header-group; }
+  th, td { padding: 5px 7px; }
+  details.more > summary { cursor: default; }
+  details.more > summary::before { display: none; }
+  .vis { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .shelf { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .two, .lane { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  figure, .chart, .sketch, .cards li, .takeaways li, .panel, .q-note, .tldr, .stat, .lk, ol.qs li, ol.acts li, .lane > div, tr, .mast, footer { break-inside: avoid; }
+  h2, h3, h4, .sec-head, .story-head, details.more > summary { break-after: avoid; }
+  .cards, .takeaways { grid-template-columns: 1fr 1fr; }
+  article.story { margin-top: 26px; }
+  a { color: var(--ink); }
+}
+</style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-in">
   <span class="name"><b>RBIH</b><i>|</i>dbie.rbihub.in<i>|</i>Story slate</span>
   <span class="spacer"></span>
   <button class="btn" id="toc-toggle" type="button" aria-expanded="false" aria-controls="toc">Contents</button>
+  <button class="btn" id="pdf-btn" type="button" aria-label="Download as PDF" title="Download the print-ready PDF of version 1.0, with every collapsed block expanded and all source links live."><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8"/><path d="M4.5 7 8 10.5 11.5 7"/><path d="M2.5 13h11"/></svg><span id="pdf-label">PDF</span></button>
   <button class="btn" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg>Theme</button>
 </div></div>
 
@@ -335,19 +375,19 @@ footer b { color: var(--accent); }
   </div>
 
   <div class="tbl"><table>
-    <thead><tr><th>#</th><th>Story</th><th>Narrative in one line</th><th>Section</th><th>Wave</th><th>Main data risk</th></tr></thead>
+    <thead><tr><th>#</th><th>Story</th><th>Narrative in one line</th><th>Section</th><th>Wave</th><th>Main data risk</th><th>Owner</th></tr></thead>
     <tbody>
-      <tr><td><a href="#s0">S0</a></td><td class="ent">What ₹1 lakh bought</td><td>The same ₹1 lakh bought a necklace in 2001 and a ring in 2026; what it is worth today, and what changed fastest.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Chaining the price index across three bases; object weights need a source</td></tr>
-      <tr><td><a href="#s1">S1</a></td><td class="ent">Two numbers, one rupee</td><td>The rupee per dollar nearly doubled, yet against 40 trading partners after inflation it ended where it started.</td><td>The rupee and the world</td><td><span class="status w1">Wave 1</span></td><td>Base and basket breaks before 2004; provisional recent months</td></tr>
-      <tr><td><a href="#s2">S2</a></td><td class="ent">Cash didn't die</td><td>People pay with UPI and hold more cash anyway: spending moved, saving in notes did not.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Cash-to-GDP depends on the new 2022-23 GDP base</td></tr>
-      <tr><td><a href="#s5">S5</a></td><td class="ent">Who lends to the government</td><td>Banks once held half of the central government's bonds and now hold a third; savings pools and the RBI took up the rest.</td><td>Government and debt</td><td><span class="status w1">Wave 1</span></td><td>Category breaks in Mar 2022 and Sep 2023</td></tr>
-      <tr><td><a href="#s3">S3</a></td><td class="ent">Money in, money out</td><td>India receives more remittances than any other country, and a new middle class now sends about $30 billion out.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>"Private transfers" is not the same as remittances</td></tr>
-      <tr><td><a href="#s4">S4</a></td><td class="ent">What households keep</td><td>Households did not save less; they borrowed more, and the new data shows that easing.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Needs the 2022-23 base, which DBIE does not carry yet</td></tr>
-      <tr><td><a href="#s6">S6</a></td><td class="ent">What a day's wage buys</td><td>A farm labourer's daily wage nearly doubled in eleven years; what it buys rose by about an eighth.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Farm-labourer price index rebased in June 2025</td></tr>
-      <tr><td><a href="#s7">S7</a></td><td class="ent">The 10-gram question</td><td>Gold rose 42 times in rupees since 1990; part of that is the rupee falling, not gold rising.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>Mumbai price is not international price; duty changed twice</td></tr>
-      <tr><td><a href="#s8">S8</a></td><td class="ent">How far apart the states are</td><td>Every large state got richer, and the gap between the richest and poorest widened.</td><td>States</td><td><span class="status w2">Wave 2</span></td><td>State accounts move to the new base during 2026-27</td></tr>
-      <tr><td><a href="#s9">S9</a></td><td class="ent">The cost of waiting</td><td>Delayed central projects cost 60% more than first estimated; railways more than double.</td><td>Government and debt</td><td><span class="status w3">Wave 3</span></td><td>Project list changes every month; reporting system changed Sep 2025</td></tr>
-      <tr><td><a href="#s10">S10</a></td><td class="ent">Does MSP keep up?</td><td>Support prices for paddy and wheat have broadly tracked farm workers' prices, no more.</td><td>States</td><td><span class="status w3">Wave 3</span></td><td>Crop-year labels; contested cost benchmarks</td></tr>
+      <tr><td><a href="#s0">S0</a></td><td class="ent">What ₹1 lakh bought</td><td>The same ₹1 lakh bought a necklace in 2001 and a ring in 2026; what it is worth today, and what changed fastest.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Chaining the price index across three bases; object weights need a source</td><td class="ent">Geetika</td></tr>
+      <tr><td><a href="#s1">S1</a></td><td class="ent">Two numbers, one rupee</td><td>The rupee per dollar nearly doubled, yet against 40 trading partners after inflation it ended where it started.</td><td>The rupee and the world</td><td><span class="status w1">Wave 1</span></td><td>Base and basket breaks before 2004; provisional recent months</td><td class="ent">Vishes</td></tr>
+      <tr><td><a href="#s2">S2</a></td><td class="ent">Cash didn't die</td><td>People pay with UPI and hold more cash anyway: spending moved, saving in notes did not.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Cash-to-GDP depends on the new 2022-23 GDP base</td><td class="ent">Vishes</td></tr>
+      <tr><td><a href="#s5">S5</a></td><td class="ent">Who lends to the government</td><td>Banks once held half of the central government's bonds and now hold a third; savings pools and the RBI took up the rest.</td><td>Government and debt</td><td><span class="status w1">Wave 1</span></td><td>Category breaks in Mar 2022 and Sep 2023</td><td><span class="status w3">Open</span></td></tr>
+      <tr><td><a href="#s3">S3</a></td><td class="ent">Money in, money out</td><td>India receives more remittances than any other country, and a new middle class now sends about $30 billion out.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>"Private transfers" is not the same as remittances</td><td class="ent">Vishes</td></tr>
+      <tr><td><a href="#s4">S4</a></td><td class="ent">What households keep</td><td>Households did not save less; they borrowed more, and the new data shows that easing.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Needs the 2022-23 base, which DBIE does not carry yet</td><td><span class="status w3">Open</span></td></tr>
+      <tr><td><a href="#s6">S6</a></td><td class="ent">What a day's wage buys</td><td>A farm labourer's daily wage nearly doubled in eleven years; what it buys rose by about an eighth.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Farm-labourer price index rebased in June 2025</td><td><span class="status w3">Open</span></td></tr>
+      <tr><td><a href="#s7">S7</a></td><td class="ent">The 10-gram question</td><td>Gold rose 42 times in rupees since 1990; part of that is the rupee falling, not gold rising.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>Mumbai price is not international price; duty changed twice</td><td class="ent">Geetika</td></tr>
+      <tr><td><a href="#s8">S8</a></td><td class="ent">How far apart the states are</td><td>Every large state got richer, and the gap between the richest and poorest widened.</td><td>States</td><td><span class="status w2">Wave 2</span></td><td>State accounts move to the new base during 2026-27</td><td><span class="status w3">Open</span></td></tr>
+      <tr><td><a href="#s9">S9</a></td><td class="ent">The cost of waiting</td><td>Delayed central projects cost 60% more than first estimated; railways more than double.</td><td>Government and debt</td><td><span class="status w3">Wave 3</span></td><td>Project list changes every month; reporting system changed Sep 2025</td><td><span class="status w3">Open</span></td></tr>
+      <tr><td><a href="#s10">S10</a></td><td class="ent">Does MSP keep up?</td><td>Support prices for paddy and wheat have broadly tracked farm workers' prices, no more.</td><td>States</td><td><span class="status w3">Wave 3</span></td><td>Crop-year labels; contested cost benchmarks</td><td class="ent">Swati</td></tr>
     </tbody>
   </table></div>
 
@@ -1070,6 +1110,30 @@ footer b { color: var(--accent); }
     es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); } });
   }, { rootMargin: "-20% 0px -70% 0px" });
   targets.forEach(t => io.observe(t));
+})();
+
+// PDF: inside the claude.ai viewer, window.print() is ignored, so hand over the PDF published beside the page through
+// the downloads capability. Opened as a plain file (the repo copy), print instead, with every block expanded.
+(function () {
+  const FILE = "DBIE-Story-Slate.pdf", SAVE_AS = "DBIE-Story-Slate_v1.0.pdf";
+  const btn = document.getElementById("pdf-btn"), label = document.getElementById("pdf-label");
+  const say = (t) => { label.textContent = t; };
+  const expand = (on) => document.querySelectorAll("details.more").forEach(d => { if (on) { d.dataset.wasOpen = d.open; d.open = true; } else if (d.dataset.wasOpen === "false") d.open = false; });
+  addEventListener("beforeprint", () => expand(true));
+  addEventListener("afterprint", () => expand(false));
+  const printCopy = () => { expand(true); setTimeout(() => { try { window.print(); } catch (e) { expand(false); } }, 80); };
+  async function viaHost() {
+    say("Preparing…"); btn.disabled = true;
+    try {
+      const downloads = await window.claude.use("downloads");
+      if (!downloads) throw { code: "unavailable" };
+      const r = await fetch(FILE); if (!r.ok) throw { code: "unavailable" };
+      await downloads.save({ filename: SAVE_AS, data: await r.blob() });
+    } catch (err) {
+      if (!err || (err.code !== "declined" && err.code !== "rate_limited")) printCopy();
+    } finally { btn.disabled = false; say("PDF"); }
+  }
+  btn.addEventListener("click", () => (window.claude && typeof window.claude.use === "function") ? viaHost() : printCopy());
 })();
 </script>
 <script>// Small real-data charts and concept sketches for the story slate. Every number drawn here comes from the
