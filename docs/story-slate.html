@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DBIE Story Slate</title>
+<meta name="description" content="Planning note for the next data stories on dbie.rbihub.in: principles, fact-check standard, research and ten story plans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&display=swap">
+<style>
+/* Layout: an ivory Kosh masthead over a warm paper planning note, sticky contents on the left;
+   terracotta carries the data and the stories, indivara carries decisions and open questions.
+   Palette from the RBIH Kosh design system (terracotta, indivara, turmeric, neem, sandalwood, ivory, charcoal, azure). */
+:root {
+  color-scheme: light;
+  --ground: #fdfcf9; --surface: #f7f4ee; --raised: #ffffff;
+  --ink: #2f2f2f; --ink-2: #555049; --muted: #6d6d6d;
+  --hair: #e7decb; --hair-strong: #c9bfa8;
+  --accent: #9a3a22; --accent-2: #ba644f; --accent-wash: #f6e4dc; --accent-hair: #ebc3b5;
+  --prx: #6f3bd6; --prx-wash: #f2ecfd; --prx-hair: #d9c8f8;
+  --good: #52711a; --good-wash: #ebf1dd;
+  --serious: #94600c; --serious-wash: #fbefd5;
+  --neutral-wash: #efe8da;
+  --s1: #ba644f; --s2: #eaaa3a; --s3: #1b8fca; --s4: #52711a; --s5: #8a7f6a; --s6: #6e2a17; --s7: #c9bfa8;
+  --grid: #efe8da; --axis: #c9bfa8;
+  --mast-bg: #f2f0e6; --mast-ink: #2f2f2f; --mast-ink-2: #555049; --mast-hi: #9a3a22; --mast-line: #e1d5bc;
+  --sans: "Anek Latin", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #1b1a18; --surface: #232220; --raised: #2a2926;
+    --ink: #f2f0e6; --ink-2: #cfc8b8; --muted: #a39c8c;
+    --hair: #38352f; --hair-strong: #514c43;
+    --accent: #ec9f86; --accent-2: #d7826b; --accent-wash: #3a2620; --accent-hair: #6b3e31;
+    --prx: #b89af6; --prx-wash: #2a2140; --prx-hair: #4a3a70;
+    --good: #a6c95a; --good-wash: #263019;
+    --serious: #f0bc5e; --serious-wash: #382c14;
+    --neutral-wash: #302e29;
+    --s1: #d7826b; --s2: #f0bc5e; --s3: #4cc2f5; --s4: #a6c95a; --s5: #a39c8c; --s6: #f5c9b8; --s7: #5a554b;
+    --grid: #2e2c28; --axis: #4a463e;
+    --mast-bg: #262421; --mast-ink: #f2f0e6; --mast-ink-2: #cfc8b8; --mast-hi: #ec9f86; --mast-line: #3d3a34;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #1b1a18; --surface: #232220; --raised: #2a2926;
+  --ink: #f2f0e6; --ink-2: #cfc8b8; --muted: #a39c8c;
+  --hair: #38352f; --hair-strong: #514c43;
+  --accent: #ec9f86; --accent-2: #d7826b; --accent-wash: #3a2620; --accent-hair: #6b3e31;
+  --prx: #b89af6; --prx-wash: #2a2140; --prx-hair: #4a3a70;
+  --good: #a6c95a; --good-wash: #263019;
+  --serious: #f0bc5e; --serious-wash: #382c14;
+  --neutral-wash: #302e29;
+  --s1: #d7826b; --s2: #f0bc5e; --s3: #4cc2f5; --s4: #a6c95a; --s5: #a39c8c; --s6: #f5c9b8; --s7: #5a554b;
+  --grid: #2e2c28; --axis: #4a463e;
+  --mast-bg: #262421; --mast-ink: #f2f0e6; --mast-ink-2: #cfc8b8; --mast-hi: #ec9f86; --mast-line: #3d3a34;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in oklab, var(--ground) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--hair); }
+.topbar-in { max-width: 1180px; margin: 0 auto; padding-inline: 20px; height: 48px; display: flex; align-items: center; gap: 14px; font-size: 13px; }
+.topbar .name { font-weight: 500; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; letter-spacing: .02em; }
+.topbar .name b { color: var(--accent); font-weight: 700; }
+.topbar .name i { font-style: normal; color: var(--hair-strong); margin: 0 6px; }
+.topbar .spacer { flex: 1; }
+.btn { font: inherit; font-size: 12.5px; color: var(--ink); background: var(--surface); border: 1px solid var(--hair-strong); border-radius: 999px; padding: 5px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.btn:hover { border-color: var(--ink-2); }
+.btn svg { width: 14px; height: 14px; }
+@media (min-width: 1080px) { #toc-toggle { display: none; } }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 0 72px; display: grid; grid-template-columns: 1fr; gap: 0 44px; }
+@media (min-width: 1080px) { .wrap { grid-template-columns: 196px minmax(0, 1fr); } }
+
+.mast { grid-column: 1 / -1; margin-top: 20px; background: var(--mast-bg); color: var(--mast-ink); border: 1px solid var(--mast-line); border-radius: 18px; padding: clamp(28px, 5vw, 56px) clamp(20px, 4.5vw, 56px) clamp(26px, 4vw, 44px); }
+.kicker { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mast-hi); margin: 0 0 18px; }
+.mast h1 { font-weight: 750; font-variation-settings: "wdth" 92; font-size: clamp(36px, 6.2vw, 68px); line-height: 1; letter-spacing: -.025em; margin: 0; text-wrap: balance; max-width: 16ch; }
+.mast h1 .hi { color: var(--mast-hi); }
+.dek { font-size: clamp(17px, 1.9vw, 19.5px); line-height: 1.5; color: var(--mast-ink-2); max-width: 62ch; margin: 18px 0 0; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--mast-line); font-size: 14px; color: var(--mast-ink-2); }
+.meta-row b { font-weight: 700; color: var(--mast-ink); margin-right: 4px; }
+.meta-row a { color: var(--mast-hi); }
+.keyrow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); padding-block: 14px 4px; align-items: center; }
+.key-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); flex-basis: 100%; }
+
+.toc { font-size: 13px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.toc a { display: grid; grid-template-columns: 26px 1fr; padding: 4px 6px; margin-inline: -6px; border-radius: 4px; color: var(--ink-2); text-decoration: none; line-height: 1.3; }
+.toc a span { font-weight: 700; font-size: 11.5px; color: var(--muted); padding-top: 1px; }
+.toc a:hover { color: var(--ink); background: var(--neutral-wash); }
+.toc a.on { color: var(--ink); background: var(--neutral-wash); font-weight: 600; }
+.toc a.sub { font-size: 12.5px; padding-top: 2px; padding-bottom: 2px; padding-left: 32px; display: block; }
+.toc a.q { color: var(--prx); }
+.toc .toc-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+@media (min-width: 1080px) { .toc { padding-top: 26px; } .toc > div { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); max-height: calc(100vh - 80px); overflow: auto; } }
+@media (max-width: 1079.98px) {
+  .toc:not(.open) { display: none; }
+  .toc { position: fixed; z-index: 40; top: calc(env(safe-area-inset-top, 0px) + 54px); right: 12px; width: min(300px, calc(100vw - 24px)); background: var(--raised); border: 1px solid var(--hair-strong); border-radius: 8px; padding: 14px 16px; box-shadow: 0 12px 32px rgba(0,0,0,.18); max-height: calc(100vh - 80px); overflow: auto; }
+}
+
+main { min-width: 0; }
+section { padding-top: 40px; scroll-margin-top: 60px; }
+article.story { scroll-margin-top: 60px; }
+h3[id], h4[id] { scroll-margin-top: 64px; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; border-top: 1px solid var(--hair-strong); padding-top: 14px; margin-bottom: 16px; }
+.sec-num { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--accent); min-width: 22px; }
+section.q-sec .sec-head { border-top: 2px solid var(--prx); }
+section.q-sec .sec-num { color: var(--prx); }
+h2 { font-weight: 750; font-size: clamp(25px, 3.1vw, 32px); line-height: 1.1; letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+h3 { font-weight: 700; font-size: 19px; line-height: 1.25; margin: 30px 0 10px; text-wrap: balance; }
+h4 { font-weight: 700; font-size: 16px; margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+ul.plain, ol.plain { padding-left: 20px; margin: 0 0 12px; }
+ul.plain li, ol.plain li { margin-bottom: 6px; }
+.small { font-size: 14px; color: var(--ink-2); }
+
+.tldr { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: baseline; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 12px 16px; margin: 0 0 20px; font-size: 15.5px; line-height: 1.5; }
+.tldr b { font-size: 11px; letter-spacing: .1em; font-weight: 700; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+@media (max-width: 520px) { .tldr { grid-template-columns: 1fr; } }
+
+a.s { display: inline-block; font-size: 10.5px; font-weight: 600; line-height: 1; padding: 3px 5px 2px; border-radius: 3px; vertical-align: 1.5px; margin-left: 2px; text-decoration: none; white-space: nowrap; letter-spacing: .01em; }
+a.s.rbi { background: var(--accent); color: var(--surface); border: 1px solid var(--accent); }
+a.s.gov { color: var(--accent); border: 1px solid var(--accent); }
+a.s.pub { color: var(--ink-2); border: 1px solid var(--hair-strong); }
+a.s:hover { filter: brightness(1.1); text-decoration: underline; }
+.ds { display: inline-block; font-size: 10.5px; font-weight: 600; line-height: 1; padding: 3px 5px 2px; border-radius: 3px; vertical-align: 1.5px; margin-left: 2px; color: var(--accent); background: var(--accent-wash); border: 1px solid var(--accent-hair); white-space: nowrap; }
+.inf { display: inline-block; font-size: 10.5px; font-weight: 600; line-height: 1; padding: 3px 5px 2px; border-radius: 3px; vertical-align: 1.5px; margin-left: 2px; color: var(--muted); border: 1px dashed var(--hair-strong); white-space: nowrap; }
+.chipkey { display: inline-flex; align-items: center; gap: 5px; }
+.chipkey a.s, .chipkey .inf, .chipkey .ds { margin: 0; pointer-events: none; }
+
+.q-note { background: var(--prx-wash); border: 1px solid var(--prx-hair); border-radius: 10px; padding: 12px 16px; margin: 16px 0; font-size: 15px; line-height: 1.5; }
+.q-note b.lbl { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--prx); margin-right: 6px; }
+.q-note b.lbl::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--prx); transform: rotate(45deg); }
+.status { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 999px; white-space: nowrap; vertical-align: 1px; }
+.status.w1 { color: var(--good); background: var(--good-wash); }
+.status.w2 { color: var(--serious); background: var(--serious-wash); }
+.status.w3 { color: var(--ink-2); background: var(--neutral-wash); }
+.status.dec { color: var(--prx); background: var(--prx-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; margin: 14px 0; }
+@media (min-width: 680px) { .stats { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.stats.three { }
+@media (min-width: 680px) { .stats.three { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.stat { background: var(--surface); padding: 14px 16px; }
+.stat .v { font-size: clamp(26px, 3.2vw, 36px); font-weight: 750; font-variation-settings: "wdth" 92; line-height: 1; letter-spacing: -.02em; color: var(--accent); }
+.stat .v small { font-size: .5em; font-weight: 600; color: var(--ink-2); letter-spacing: 0; margin-left: 2px; }
+.stat .l { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.35; }
+
+.takeaways { list-style: none; padding: 0; margin: 0 0 8px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 760px) { .takeaways { grid-template-columns: 1fr 1fr; } }
+.takeaways li { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 13px 16px; font-size: 15.5px; line-height: 1.5; }
+.takeaways li strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 3px; color: var(--accent); }
+
+.tbl { overflow-x: auto; margin: 12px 0 18px; border: 1px solid var(--hair); border-radius: 10px; background: var(--raised); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.45; }
+th, td { text-align: left; vertical-align: top; padding: 8px 11px; border-bottom: 1px solid var(--hair); }
+thead th { font-weight: 700; font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); background: var(--surface); white-space: nowrap; }
+tbody tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td.ent { font-weight: 600; min-width: 160px; }
+td .sub { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+details.more { border: 1px solid var(--hair); border-radius: 10px; background: var(--surface); margin: 10px 0; }
+details.more > summary { cursor: pointer; list-style: none; padding: 11px 16px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::before { content: ""; width: 7px; height: 7px; border-right: 1.5px solid var(--ink-2); border-bottom: 1.5px solid var(--ink-2); transform: rotate(-45deg); transition: transform .15s; flex: none; }
+details.more[open] > summary::before { transform: rotate(45deg); }
+details.more > summary .meta { font-weight: 400; color: var(--muted); font-size: 12.5px; margin-left: auto; text-align: right; }
+details.more > .body { padding: 0 16px 12px; font-size: 15px; }
+
+.cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 820px) { .cards { grid-template-columns: 1fr 1fr; } }
+.cards li { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 14px 16px; font-size: 15px; line-height: 1.5; min-width: 0; }
+.cards h4 { font-size: 16px; font-weight: 700; margin: 0 0 5px; line-height: 1.25; }
+.cards p { margin: 0 0 6px; }
+.cards p:last-child { margin: 0; }
+
+.two { display: grid; grid-template-columns: 1fr; gap: 12px 20px; }
+@media (min-width: 860px) { .two { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 14px 16px 8px; font-size: 15px; line-height: 1.5; min-width: 0; }
+.panel h4 { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+.panel.q h4 { color: var(--prx); }
+.panel ul.plain { padding-left: 16px; }
+
+/* story blocks */
+article.story { border-top: 2px solid var(--accent); margin-top: 36px; padding-top: 14px; }
+.story-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.story-num { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--accent); }
+.story-head h3 { margin: 0; font-size: clamp(22px, 2.6vw, 27px); font-weight: 750; letter-spacing: -.01em; }
+.story-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+.hook { font-size: clamp(17px, 1.9vw, 19px); line-height: 1.5; color: var(--ink); margin: 0 0 14px; max-width: 68ch; }
+ol.acts { list-style: none; padding: 0; margin: 6px 0 14px; counter-reset: act; display: grid; gap: 8px; }
+ol.acts li { counter-increment: act; display: grid; grid-template-columns: 30px 1fr; gap: 10px; font-size: 15.5px; line-height: 1.5; }
+ol.acts li::before { content: counter(act); font-weight: 700; font-size: 13px; color: var(--accent); border: 1.5px solid var(--accent-hair); border-radius: 50%; width: 26px; height: 26px; display: grid; place-items: center; background: var(--accent-wash); }
+ol.acts li b { font-weight: 700; }
+.vis { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 14px 0; }
+@media (min-width: 860px) { .vis { grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); } }
+.play { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; }
+.play span { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--hair-strong); color: var(--ink-2); background: var(--raised); }
+.play span.on { border-color: var(--accent); color: var(--accent); background: var(--accent-wash); font-weight: 600; }
+
+figure { margin: 0; }
+.chart { background: var(--raised); border: 1px solid var(--hair); border-radius: 12px; padding: 14px 14px 10px; min-width: 0; }
+.chart-title { font-weight: 700; font-size: 15.5px; margin: 0; }
+.chart-sub { font-size: 13px; color: var(--ink-2); margin: 2px 0 8px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 0 0 6px; }
+.chart-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.chart-legend i.line { height: 2.5px; width: 14px; border-radius: 1px; vertical-align: 3px; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart svg text { fill: var(--ink-2); font-size: 11px; font-family: var(--sans); }
+.chart svg .tick { fill: var(--muted); font-size: 10.5px; }
+.chart svg .lab { fill: var(--ink); font-weight: 600; font-size: 11px; }
+.chart svg .lab.acc { fill: var(--accent); }
+figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.sketch { background: var(--surface); border: 1px dashed var(--hair-strong); border-radius: 12px; padding: 14px; min-width: 0; }
+.sketch .chart-title { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.sketch .chart-title em { font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--prx); }
+.sketch svg { display: block; width: 100%; height: auto; }
+.sketch svg text { font-family: var(--sans); font-size: 10.5px; fill: var(--ink-2); }
+.ctrl { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 8px; }
+.ctrl button { font: inherit; font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--hair-strong); background: var(--raised); color: var(--ink-2); cursor: pointer; }
+.ctrl button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-wash); color: var(--accent); font-weight: 600; }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--raised); color: var(--ink); border: 1px solid var(--hair-strong); border-radius: 6px; padding: 6px 9px; font-size: 12.5px; line-height: 1.4; box-shadow: 0 6px 20px rgba(0,0,0,.14); max-width: 260px; }
+.tip b { display: block; font-weight: 600; }
+
+.lane { display: grid; grid-template-columns: 1fr; gap: 8px; counter-reset: lane; margin: 10px 0 14px; }
+@media (min-width: 900px) { .lane { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.lane > div { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 12px 14px; font-size: 14.5px; line-height: 1.45; counter-increment: lane; }
+.lane > div::before { content: "Gate " counter(lane); display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.lane h4 { margin: 0 0 4px; font-size: 15.5px; }
+.lane p { margin: 0; }
+
+ol.qs { padding-left: 0; list-style: none; counter-reset: q; display: grid; gap: 10px; margin: 0; }
+ol.qs li { counter-increment: q; display: grid; grid-template-columns: 34px 1fr; gap: 10px; background: var(--prx-wash); border: 1px solid var(--prx-hair); border-radius: 10px; padding: 11px 14px; font-size: 15px; line-height: 1.5; }
+ol.qs li::before { content: "Q" counter(q); font-weight: 700; font-size: 12.5px; color: var(--prx); padding-top: 2px; }
+ol.qs li b { display: block; font-weight: 700; }
+ol.qs li .why { display: block; color: var(--ink-2); font-size: 13.5px; margin-top: 3px; }
+ol.qs li .rec { display: block; font-size: 13.5px; margin-top: 4px; color: var(--ink); }
+ol.qs li .rec::before { content: "Suggested: "; font-weight: 700; color: var(--prx); }
+
+footer { grid-column: 1 / -1; margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--hair-strong); font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
+footer b { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } details.more > summary::before { transition: none; } }
+</style>
+<style>
+.lakh { background: var(--raised); border: 1px solid var(--hair); border-radius: 14px; padding: 16px; margin: 14px 0; }
+.lakh-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 10px; }
+.lakh-top .big { font-size: clamp(30px, 4vw, 44px); font-weight: 750; font-variation-settings: "wdth" 90; color: var(--accent); line-height: 1; letter-spacing: -.02em; }
+.lakh-top label { font-size: 14px; color: var(--ink-2); }
+.lakh input[type=range] { width: 100%; accent-color: var(--accent); }
+.lakh-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.shelf { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+@media (min-width: 760px) { .shelf { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.lk { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+.lk-t { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.lk-v { font-size: 22px; font-weight: 750; color: var(--ink); line-height: 1.15; margin: 2px 0 4px; }
+.lk svg { display: block; width: 100%; max-width: 180px; height: auto; }
+.lk-s { font-size: 12px; color: var(--ink-2); line-height: 1.35; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <span class="name"><b>RBIH</b><i>|</i>dbie.rbihub.in<i>|</i>Story slate</span>
+  <span class="spacer"></span>
+  <button class="btn" id="toc-toggle" type="button" aria-expanded="false" aria-controls="toc">Contents</button>
+  <button class="btn" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg>Theme</button>
+</div></div>
+
+<div class="wrap">
+<header class="mast">
+  <p class="kicker">RBIH planning note · Version 1.0 · Draft for discussion</p>
+  <h1>The next <span class="hi">DBIE stories</span>, planned before they are built</h1>
+  <p class="dek">How we will choose, research, check, draw and freeze the next data stories on dbie.rbihub.in. It includes eleven story plans built on verified DBIE figures, a shared "what ₹1 lakh buys" lens, what economists and the public are asking about each topic, and the decisions still open.</p>
+  <div class="meta-row">
+    <span><b>Prepared</b> 08-10-2026</span>
+    <span><b>DBIE figures from</b> release 2026-10-06-d0f2cac (scrape of 29-09-2026)</span>
+    <span><b>Web research as of</b> 08-10-2026</span>
+    <span><b>Live stories</b> <a href="https://dbie.rbihub.in/stories">4 on /stories</a></span>
+  </div>
+</header>
+<div class="keyrow" aria-label="Legend">
+  <span class="key-label">Legend</span>
+  <span class="chipkey"><span class="ds">DBIE</span> DBIE dataset in our release</span>
+  <span class="chipkey"><a class="s rbi" href="#">RBI</a> RBI document</span>
+  <span class="chipkey"><a class="s gov" href="#">MoSPI</a> Government, regulator or multilateral</span>
+  <span class="chipkey"><a class="s pub" href="#">BS</a> News, research or commentary</span>
+  <span class="chipkey"><span class="inf">Our reading</span> Our inference, not a sourced fact</span>
+  <span class="chipkey"><span class="status dec">Decision</span> Needs a call from the team</span>
+</div>
+
+<nav class="toc" id="toc" aria-label="Contents">
+  <div>
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#glance"><span>00</span>At a glance</a></li>
+      <li><a href="#principles"><span>01</span>What a story is</a></li>
+      <li><a href="#factcheck"><span>02</span>Getting it right</a></li>
+      <li><a href="#field"><span>03</span>What others do and ask</a></li>
+      <li><a href="#lens"><span>04</span>What ₹1 lakh buys</a></li>
+      <li><a href="#slate"><span>05</span>The stories</a></li>
+      <li><a href="#s0" class="sub">S0 What ₹1 lakh bought</a></li>
+      <li><a href="#s1" class="sub">S1 Two numbers, one rupee</a></li>
+      <li><a href="#s2" class="sub">S2 Cash didn't die</a></li>
+      <li><a href="#s3" class="sub">S3 Money in, money out</a></li>
+      <li><a href="#s4" class="sub">S4 What households keep</a></li>
+      <li><a href="#s5" class="sub">S5 Who lends to the government</a></li>
+      <li><a href="#s6" class="sub">S6 What a day's wage buys</a></li>
+      <li><a href="#s7" class="sub">S7 The 10-gram question</a></li>
+      <li><a href="#s8" class="sub">S8 How far apart the states are</a></li>
+      <li><a href="#s9" class="sub">S9 The cost of waiting</a></li>
+      <li><a href="#s10" class="sub">S10 Does MSP keep up?</a></li>
+      <li><a href="#product"><span>06</span>Beyond stories</a></li>
+      <li><a href="#build"><span>07</span>Build plan</a></li>
+      <li><a href="#questions" class="q"><span>08</span>Open questions</a></li>
+      <li><a href="#method"><span>09</span>Sources and method</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+<section id="glance">
+  <div class="sec-head"><span class="sec-num">00</span><h2>At a glance</h2></div>
+  <p class="tldr"><b>In short</b><span>Eleven candidate stories, tied together by one device: what ₹1 lakh buys, year by year. Each is built around one narrative and was checked against DBIE before being proposed. They are grouped into three waves by how clean the data is. Every story is frozen at a named data release and passes four fact-check gates before it goes live. The web research turned up three base-year changes (GDP, the farm-labourer price index, state incomes) and two definition breaks that would have put wrong numbers in front of readers. That is the case for the gates.</span></p>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><div class="v">11</div><div class="l">story plans, 4 in the first wave</div></div>
+    <div class="stat" role="listitem"><div class="v">4</div><div class="l">fact-check gates before anything is published</div></div>
+    <div class="stat" role="listitem"><div class="v">5</div><div class="l">base or definition breaks found in research that our draft numbers had missed</div></div>
+    <div class="stat" role="listitem"><div class="v">22</div><div class="l">open questions for the team, in section 08</div></div>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Story</th><th>Narrative in one line</th><th>Section</th><th>Wave</th><th>Main data risk</th></tr></thead>
+    <tbody>
+      <tr><td><a href="#s0">S0</a></td><td class="ent">What ₹1 lakh bought</td><td>The same ₹1 lakh bought a necklace in 2001 and a ring in 2026; what it is worth today, and what changed fastest.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Chaining the price index across three bases; object weights need a source</td></tr>
+      <tr><td><a href="#s1">S1</a></td><td class="ent">Two numbers, one rupee</td><td>The rupee per dollar nearly doubled, yet against 40 trading partners after inflation it ended where it started.</td><td>The rupee and the world</td><td><span class="status w1">Wave 1</span></td><td>Base and basket breaks before 2004; provisional recent months</td></tr>
+      <tr><td><a href="#s2">S2</a></td><td class="ent">Cash didn't die</td><td>People pay with UPI and hold more cash anyway: spending moved, saving in notes did not.</td><td>Money and payments</td><td><span class="status w1">Wave 1</span></td><td>Cash-to-GDP depends on the new 2022-23 GDP base</td></tr>
+      <tr><td><a href="#s5">S5</a></td><td class="ent">Who lends to the government</td><td>Banks once held half of the central government's bonds and now hold a third; savings pools and the RBI took up the rest.</td><td>Government and debt</td><td><span class="status w1">Wave 1</span></td><td>Category breaks in Mar 2022 and Sep 2023</td></tr>
+      <tr><td><a href="#s3">S3</a></td><td class="ent">Money in, money out</td><td>India receives more remittances than any other country, and a new middle class now sends about $30 billion out.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>"Private transfers" is not the same as remittances</td></tr>
+      <tr><td><a href="#s4">S4</a></td><td class="ent">What households keep</td><td>Households did not save less; they borrowed more, and the new data shows that easing.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Needs the 2022-23 base, which DBIE does not carry yet</td></tr>
+      <tr><td><a href="#s6">S6</a></td><td class="ent">What a day's wage buys</td><td>A farm labourer's daily wage nearly doubled in eleven years; what it buys rose by about an eighth.</td><td>Households</td><td><span class="status w2">Wave 2</span></td><td>Farm-labourer price index rebased in June 2025</td></tr>
+      <tr><td><a href="#s7">S7</a></td><td class="ent">The 10-gram question</td><td>Gold rose 42 times in rupees since 1990; part of that is the rupee falling, not gold rising.</td><td>The rupee and the world</td><td><span class="status w2">Wave 2</span></td><td>Mumbai price is not international price; duty changed twice</td></tr>
+      <tr><td><a href="#s8">S8</a></td><td class="ent">How far apart the states are</td><td>Every large state got richer, and the gap between the richest and poorest widened.</td><td>States</td><td><span class="status w2">Wave 2</span></td><td>State accounts move to the new base during 2026-27</td></tr>
+      <tr><td><a href="#s9">S9</a></td><td class="ent">The cost of waiting</td><td>Delayed central projects cost 60% more than first estimated; railways more than double.</td><td>Government and debt</td><td><span class="status w3">Wave 3</span></td><td>Project list changes every month; reporting system changed Sep 2025</td></tr>
+      <tr><td><a href="#s10">S10</a></td><td class="ent">Does MSP keep up?</td><td>Support prices for paddy and wheat have broadly tracked farm workers' prices, no more.</td><td>States</td><td><span class="status w3">Wave 3</span></td><td>Crop-year labels; contested cost benchmarks</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="q-note"><b class="lbl">Your Q5, answered</b>The <a href="https://dbie.rbihub.in/stories">Stories page</a> lists stories under headings: today "Bank credit" (two stories) and "External debt" (two). I was asking whether new stories should sit under those two headings or under new ones. The table above proposes five headings: <b>The rupee and the world</b>, <b>Money and payments</b>, <b>Households</b>, <b>Government and debt</b> and <b>States</b>. The two existing external-debt stories would move under "The rupee and the world" or "Government and debt". Headings also decide the crumbs on every story and how readers browse, so it is worth settling once.</div>
+</section>
+
+<section id="principles">
+  <div class="sec-head"><span class="sec-num">01</span><h2>What a story is</h2></div>
+  <p class="tldr"><b>In short</b><span>One narrative per story, readable by anyone and useful to an economist in the same pass. We draw inferences from the data and stop there. Each story is frozen at a data release. Readers get to play with a few charts where it earns its place, not with every chart.</span></p>
+
+  <ul class="takeaways">
+    <li><strong>A narrative, not a dashboard</strong>Each story has one question, a turn and an ending. Charts arrive in the order the argument needs them. A chart that does not move the argument goes to the economists' drawer or is cut.</li>
+    <li><strong>Two readers, one pass</strong>The main text is written so a school teacher follows it and an economist finds nothing loose in it. Every number names its measure in the sentence ("after inflation, against 40 trading partners"). The economist's extras sit beside the text, not in a separate version.</li>
+    <li><strong>Inference, not commentary</strong>We state what the numbers show and what follows arithmetically from them. We attribute other people's views by name and date. We do not grade policy, predict, or use loaded words such as "distress" or "crisis".</li>
+    <li><strong>Frozen at a vintage</strong>A story says what the data said on a named date. It never updates itself. When the numbers move enough to change the story, we publish a new edition and keep the old one, with links both ways.</li>
+    <li><strong>Play where it earns it</strong>Two or three charts per story let readers change the geography, the period or the measure and watch the picture change. The rest are fixed, annotated and readable at a glance.</li>
+    <li><strong>Built from the house vocabulary</strong>The four live stories already share a language: dots re-forming scene by scene, countable units (₹1 of every ₹100), guess-then-reveal, tile maps, pyramids, dumbbells and the export-arc map. New stories reuse it and add one new signature visual each.</li>
+  </ul>
+
+  <h3 id="two-readers">How one story serves both readers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Layer</th><th>General reader</th><th>Economist</th><th>Where it lives</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">The line</td><td>One sentence they could repeat</td><td>The same sentence, with the measure named</td><td>Title card</td></tr>
+      <tr><td class="ent">The scroll</td><td>Guess, reveal, three to six scenes</td><td>Exact units and periods on every scene</td><td>Sticky stage, as in the live stories</td></tr>
+      <tr><td class="ent">The playground</td><td>Pick a state, a year, a measure</td><td>Toggles for the measurement choice: deflator, basket, base year, start date</td><td>Two or three interactive charts</td></tr>
+      <tr><td class="ent">The drawer</td><td>Can ignore it</td><td>Series codes, definitions, breaks, revisions, the decomposition behind the headline, sensitivity checks</td><td>"For economists" panel on each chart, and a methods section</td></tr>
+      <tr><td class="ent">The kit</td><td>A CSV if curious</td><td>CSV of every plotted value, the transformation script, the DBIE series codes, an API query per chart</td><td>Downloads, as the BSR story already does</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="inference">Where inference stops</h3>
+  <div class="two">
+    <div class="panel"><h4>We will say</h4><ul class="plain">
+      <li>Arithmetic consequences: "wages rose 1.9 times and prices 1.7 times, so a day's wage buys about 12% more".</li>
+      <li>Decompositions: "of gold's rise in rupees, X came from the rupee's fall".</li>
+      <li>Comparisons across time, place and group, with the same measure.</li>
+      <li>"Consistent with" or "coincides with", when timing lines up.</li>
+      <li>Other people's views, quoted, named and dated, when they help the reader.</li>
+    </ul></div>
+    <div class="panel"><h4>We will not say</h4><ul class="plain">
+      <li>Causal claims the data cannot identify ("UPI caused cash to…").</li>
+      <li>Judgements on policy, institutions or governments.</li>
+      <li>Forecasts, targets or "fair value" claims.</li>
+      <li>Loaded words: distress, crisis, failure, success, boom.</li>
+      <li>Anything about RBI's intent. What RBI did, dated, is a fact; why is RBI's to say.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="factcheck">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Getting it right</h2></div>
+  <p class="tldr"><b>In short</b><span>We are a public institution and people will quote us. Every number passes four gates: a claim register recomputed by script, an independent recompute from the DBIE portal itself, a subject review of definitions and breaks, and a named editorial sign-off. Stories are frozen at a release and carry a corrections log.</span></p>
+
+  <div class="lane">
+    <div><h4>Claim register</h4><p>Every sentence with a number gets an ID, its DBIE series code, the transformation (deflator, base, ratio) and the release. A script recomputes every claim from the frozen snapshot and fails the build on any mismatch.</p></div>
+    <div><h4>Independent recompute</h4><p>A second person recomputes every claim from the DBIE portal or the RBI publication, not from our mirror. This catches mirror bugs. One is already known: our bulletin LRS file has its columns mislabelled.</p></div>
+    <div><h4>Subject review</h4><p>Definitions, base years, breaks, revisions and the latest official vintage, checked against RBI's Bulletin, Annual Report and Handbook. For contested topics, a referee panel tries to refute each claim, as the ₹2 lakh line review did.</p></div>
+    <div><h4>Editorial sign-off</h4><p>Plain-language edit, the neutrality list above, the chart checklist below, and a named, dated sign-off recorded in the story's own record.</p></div>
+  </div>
+
+  <h3 id="vintage">Freezing and editions</h3>
+  <ul class="plain">
+    <li><b>Vintage stamp.</b> Every story shows "Data as of DBIE release <i>version</i>, retrieved <i>DD-MM-YYYY</i>", and every chart's drawer names its series and release. The numbers are compiled into the story at build time, as the live stories do with <code>data.gen.ts</code>. Nothing is fetched live.</li>
+    <li><b>Editions, not edits.</b> When new data would change a headline, we publish a new edition at its own address (for example <code>/stories/cash-didnt-die/2027</code>) and keep the old one, linked both ways. St Louis Fed's ALFRED keeps every data vintage in the same spirit <a class="s pub" href="https://alfred.stlouisfed.org/">ALFRED</a>, and Our World in Data separates live from archived charts <a class="s pub" href="https://ourworldindata.org/faqs">OWID</a>.</li>
+    <li><b>Corrections, separated from revisions.</b> Following the ONS model, a revision is new data and a correction is our error <a class="s gov" href="https://www.ons.gov.uk/methodology/methodologytopicsandstatisticalconcepts/revisions/guidetostatisticalrevisions">ONS</a>. Corrections are dated and shown at the top of the story; presentation changes go in a footer log.</li>
+    <li><b>Review date.</b> Each story gets a review date (suggested: twelve months). On that date someone checks whether the story still holds and decides between "still holds", "new edition" or "archive note".</li>
+  </ul>
+
+  <h3 id="checklist">Chart checklist for gate 4</h3>
+  <div class="cards">
+    <li><h4>Scales and windows</h4><p>Bars start at zero. Dual axes only with a reason. The claim survives moving the start and end dates; no window begins at a trough or peak, such as the pandemic year.</p></li>
+    <li><h4>Real, nominal and bases</h4><p>Deflator and base year named. No splicing across a base change without an official linking factor. GDP ratios on one GDP base only.</p></li>
+    <li><h4>Breaks and composition</h4><p>Definition changes, category splits and mergers marked on the chart, such as the HDFC merger in July 2023 and the payments redefinition in November 2019.</p></li>
+    <li><h4>Provisional and revised</h4><p>The latest points flagged if provisional. One vintage quoted per number, and named.</p></li>
+    <li><h4>Units and framing</h4><p>Crore and lakh consistent, ₹ and US$ never mixed in one axis, stock never compared with flow, percentage direction stated (a 92% rise in rupees per dollar is a 48% fall in the rupee's dollar value).</p></li>
+    <li><h4>Access and honesty</h4><p>Colour-blind-safe, table fallback, alt text, mobile legibility, no more decimals than the data supports, no causal verbs in captions.</p></li>
+  </div>
+
+  <div class="q-note"><b class="lbl">Why this matters already</b>The first-pass numbers in our chat discussion, all correctly computed from DBIE, would still have misled in five places. The 11.7% cash-to-GDP ratio uses the retired 2011-12 GDP base. The household ratios do too, and on the new base the story's ending changes. The wage comparison runs into the June 2025 rebase of the farm-labourer price index. "Private transfers" includes more than migrants' remittances. The bond-ownership table splits a category in March 2022 and absorbs a merger in September 2023. None of these is a coding error; each is a definition the reader would never see.</div>
+</section>
+
+<section id="field">
+  <div class="sec-head"><span class="sec-num">03</span><h2>What others do and ask</h2></div>
+  <p class="tldr"><b>In short</b><span>The best economic storytelling layers depth, lets readers guess before the reveal, and hands over the measurement choice as a toggle. Nobody in India yet combines DBIE's long series with that craft. For almost every topic below, existing coverage is a single line chart or a table.</span></p>
+
+  <h3 id="benchmarks">Practices worth borrowing</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Who</th><th>What they do well</th><th>What we take</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">NYT Upshot</td><td>"You draw it": readers sketch the line before seeing it <a class="s pub" href="https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html">NYT 2015</a>; animated sampling noise in the jobs report <a class="s pub" href="https://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html">NYT 2014</a></td><td>Draw-it guesses for S1, S6 and S8</td></tr>
+      <tr><td class="ent">The Economist</td><td>Big Mac index toggles raw against GDP-adjusted; data and code on GitHub <a class="s pub" href="https://github.com/TheEconomist/big-mac-data">GitHub</a></td><td>Measurement toggles; a public repo per story</td></tr>
+      <tr><td class="ent">Bank of England</td><td>Layered report since 2017: one line, a visual summary, the full text <a class="s gov" href="https://www.bankofengland.co.uk/inflation-report/2019/august-2019">BoE</a>; Bank Underground carries an authors'-views disclaimer <a class="s gov" href="https://bankunderground.co.uk/about/">BoE</a></td><td>The layer table in section 01; a decided byline policy</td></tr>
+      <tr><td class="ent">ONS</td><td>Shopping prices tool: build your own basket from 450 items, download everything <a class="s gov" href="https://www.ons.gov.uk/economy/inflationandpriceindices/articles/shoppingpricescomparisontool/2023-05-03">ONS 2023</a>; revisions and corrections kept apart</td><td>The basket in S6; the corrections policy</td></tr>
+      <tr><td class="ent">Statistics Canada</td><td>StatsCAN Plus: subject-led stories under three minutes, several sources each <a class="s gov" href="https://www.statcan.gc.ca/o1/en/plus/174-new-way-share-our-data">StatCan</a></td><td>The short "Answers" format in section 05</td></tr>
+      <tr><td class="ent">Our World in Data</td><td>Chart, map, table and sources tabs on every chart; CSV and API; archived embeds that never change <a class="s pub" href="https://ourworldindata.org/faqs">OWID</a></td><td>Chart/table/CSV tabs in the drawer; frozen embeds</td></tr>
+      <tr><td class="ent">FT</td><td>Visual Vocabulary: pick the chart by the relationship shown <a class="s pub" href="https://ft-interactive.github.io/visual-vocabulary/">FT</a></td><td>Gate-4 chart choice</td></tr>
+      <tr><td class="ent">Bret Victor</td><td>Explorables should steer attention first, then hand over controls <a class="s pub" href="https://worrydream.com/ExplorableExplanations/">2011</a></td><td>Guided scroll first; the playground at the end</td></tr>
+      <tr><td class="ent">Data For India</td><td>Chart/table toggle and CSV on every chart, CC-BY, weekly one-chart "Data Bytes" <a class="s pub" href="https://www.dataforindia.com/about/">DFI</a>; articles are living documents, the opposite of our frozen editions</td><td>Licence and download practice</td></tr>
+      <tr><td class="ent">RBI</td><td>Mint Street Memos since 2017, short staff research with an authors'-views disclaimer <a class="s rbi" href="https://rbi.org.in/Scripts/MSM_MintStreetMemos_All.aspx?year=2017">RBI</a></td><td>Tone and disclaimer precedent</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="asks">What the public asks, by story</h3>
+  <p class="small">Gathered from explainers, search suggestions and news Q&amp;As by the research pass. These are recurring questions, not counted ones. Reddit and Quora could not be read directly.</p>
+  <div class="cards">
+    <li><h4>S1 Rupee</h4><p>Why does the rupee keep falling? Will it hit 100? Is a weak rupee bad, and does it help exports? Does RBI defend a level? How can it be "undervalued" at a record low?</p></li>
+    <li><h4>S2 Cash</h4><p>If everyone uses UPI, why is there more cash than ever? Did demonetisation fail? Will UPI start charging fees? What happened to the ₹2,000 notes? Are ATMs disappearing?</p></li>
+    <li><h4>S3 Remittances</h4><p>Why does India get the most remittances? Is it still mostly the Gulf? Did the tax on foreign remittances stop people sending money? Are fewer students going abroad?</p></li>
+    <li><h4>S4 Households</h4><p>Are Indians saving less? Is household debt a problem? Are people borrowing for homes or for spending? Why do some say a 47-year low and others a 50-year low?</p></li>
+    <li><h4>S5 Government bonds</h4><p>Who owns India's debt? Is it mostly foreign? Is RBI printing money? What did index inclusion change? Why do insurers buy 40-year bonds?</p></li>
+    <li><h4>S6 Wages</h4><p>If wages nearly doubled, why do rural households feel poorer? Are women paid less? Does my state pay more?</p></li>
+    <li><h4>S7 Gold</h4><p>Should I buy gold now? Will it fall below ₹1 lakh? Why is Indian gold dearer than Dubai's? How does the rupee affect gold? Is RBI buying or selling?</p></li>
+    <li><h4>S8–S10</h4><p>Is Bihar catching up at all? Where does my state rank? Which ministry's projects are most delayed? Does MSP keep up with prices? Do farmers actually get MSP?</p></li>
+  </div>
+  <p class="small">Several of these, such as "should I buy gold", ask for advice we will not give. The story can still answer the factual half ("what would gold bought in your wedding year be worth, and how much of that is the rupee").</p>
+</section>
+
+<section id="lens">
+  <div class="sec-head"><span class="sec-num">04</span><h2>One lens across every story: what ₹1 lakh buys</h2></div>
+  <p class="tldr"><b>In short</b><span>Money means little until you can hold it. In 2001 ₹1 lakh bought about 224 grams of gold, enough for a heavy necklace set. In 2011 it bought 42 grams, about a pair of bangles; in 2021, 21 grams, about a chain; in 2026, under 7 grams, about a ring. The same ₹1 lakh can be shown as a mason's working days, US dollars, quintals of wheat at the support price, or its worth in today's prices. That translation becomes one shared visual device across all the stories, and the flagship story S0.</span></p>
+
+  <div class="lakh" role="group" aria-labelledby="lakh-h">
+    <div class="lakh-top"><span id="lakh-h" class="big">₹1,00,000 in <span id="lakh-out">2001</span></span><label for="lakh-year">Drag the year. Every tile is computed from DBIE prices for that year.</label></div>
+    <input type="range" id="lakh-year" min="2001" max="2026" step="1" value="2001" aria-label="Year">
+    <div class="lakh-ends"><span>2001</span><span>2011</span><span>2021</span><span>2026</span></div>
+    <div class="shelf" id="lakh-shelf"></div>
+    <figcaption style="margin-top:10px">DBIE: monthly gold and silver prices in Mumbai (calendar-year averages; 2026 is January to July), rural wage rates (mason, male, all-India; 2026 not yet published), rupee–dollar rate (financial-year average), minimum support price for wheat, and CPI for industrial workers chained across its 1982, 2001 and 2016 bases with the Labour Bureau linking factors 4.63 and 2.88 (to be confirmed in gate 2). Jewellery names are rough guides to the gold content only; they exclude making charges and GST, and the weights behind them need a source before publication.</figcaption>
+  </div>
+
+  <h3 id="lens-reads">What the lens shows straight away</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>₹1 lakh bought</th><th class="num">2001</th><th class="num">2011</th><th class="num">2021</th><th class="num">2026</th><th>What it says</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">Gold</td><td class="num">224 g</td><td class="num">42 g</td><td class="num">21 g</td><td class="num">6.7 g</td><td>Gold rose far faster than prices in general</td></tr>
+      <tr><td class="ent">Silver</td><td class="num">13.5 kg</td><td class="num">1.8 kg</td><td class="num">1.5 kg</td><td class="num">0.4 kg</td><td>Silver's 2026 jump is sharper still</td></tr>
+      <tr><td class="ent">A rural mason's days</td><td class="num">913</td><td class="num">433</td><td class="num">189</td><td class="num">153<span class="sub">2025</span></td><td>Labour got dearer faster than prices: real wages rose</td></tr>
+      <tr><td class="ent">US dollars</td><td class="num">$2,097</td><td class="num">$2,087</td><td class="num">$1,342</td><td class="num">$1,132</td><td>Flat for a decade, then falling: links to S1</td></tr>
+      <tr><td class="ent">Wheat at MSP</td><td class="num">161 q</td><td class="num">78 q</td><td class="num">50 q</td><td class="num">39 q</td><td>Support prices rose roughly with prices: links to S10</td></tr>
+      <tr><td class="ent">Worth in 2026 prices</td><td class="num">₹4.38 lakh</td><td class="num">₹2.26 lakh</td><td class="num">₹1.23 lakh</td><td class="num">₹1.00 lakh</td><td>The yardstick everything else is measured against</td></tr>
+    </tbody>
+  </table></div>
+  <p>Read across a row and the story writes itself. ₹1 lakh in 2001 is worth ₹4.38 lakh of today's prices, but the 224 grams of gold it bought would cost about ₹33.6 lakh today. So gold rose about eight times faster than the workers' price index. The same ₹1 lakh bought the same number of dollars in 2001 and 2011, then a third fewer by 2026. A mason's day cost ₹109 in 2001 and ₹653 in 2025, six times as much, against prices up 4.2 times by 2025. <span class="inf">Our reading</span> The lens turns every index into something a reader can picture without losing the arithmetic.</p>
+
+  <h3 id="lens-rules">Rules for using the lens honestly</h3>
+  <div class="cards">
+    <li><h4>Only real rupee prices</h4><p>DBIE carries actual rupee prices for a short list: gold, silver, wages by occupation and state, support prices by crop, exchange rates, per-capita income by state, interest rates, small-savings rates. Most other prices are indices, which tell you how much a price changed, not what it was. For those we say "₹1 lakh of 2001 food spending would cost ₹X today", never "₹1 lakh bought Y kg of onions".</p></li>
+    <li><h4>Say what the price is</h4><p>The Mumbai bullion price is not what a jeweller charges: no making charges, no GST, and the 2024 and 2026 import-duty changes sit inside it. Wages are daily rates for one occupation in rural India. Support prices are what the government offers, not what every farmer gets.</p></li>
+    <li><h4>Objects are a guide, not a measure</h4><p>"About a pair of bangles" helps a reader; the number beside it is the claim. The gram thresholds behind each object name need a cited source, or the reader chooses the object themselves.</p></li>
+    <li><h4>One yardstick, named</h4><p>Real values use one price index throughout, named, with its base links shown. CPI for industrial workers has the longest unbroken chain on DBIE. The farm-labourer index suits rural stories (S6, S10). <span class="status dec">Decision</span> which yardstick is the house default.</p></li>
+  </div>
+
+  <h3 id="lens-map">How the lens appears in each story</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Story</th><th>What ₹1 lakh turns into</th><th>Visual form</th></tr></thead>
+    <tbody>
+      <tr><td class="ent"><a href="#s0">S0 What ₹1 lakh bought</a></td><td>All six translations, any year 2001–2026</td><td>The lakh shelf above, grown into a full story</td></tr>
+      <tr><td class="ent"><a href="#s1">S1 Rupee</a></td><td>Dollars for a $10,000 course fee, in nominal and real terms</td><td>A fee slip that rewrites itself as the year changes</td></tr>
+      <tr><td class="ent"><a href="#s2">S2 Cash</a></td><td>₹1 lakh as a stack of notes by denomination in 2015, 2017, 2023 and 2026</td><td>A note stack that changes colour and height</td></tr>
+      <tr><td class="ent"><a href="#s3">S3 Remittances</a></td><td>Of every ₹1 lakh sent home, how much now leaves under LRS, and on what</td><td>The border, counting out of a lakh</td></tr>
+      <tr><td class="ent"><a href="#s4">S4 Households</a></td><td>Of ₹1 lakh of household income: saved, borrowed back, kept</td><td>The ledger grids</td></tr>
+      <tr><td class="ent"><a href="#s5">S5 Government bonds</a></td><td>Who holds ₹1 lakh of government bonds</td><td>100 dots of ₹1,000 each</td></tr>
+      <tr><td class="ent"><a href="#s6">S6 Wages</a></td><td>Days of farm work needed to earn ₹1 lakh, by state and year</td><td>A calendar that fills with working days</td></tr>
+      <tr><td class="ent"><a href="#s7">S7 Gold</a></td><td>Grams of gold, as jewellery shrinking from necklace to ring</td><td>The shrinking necklace</td></tr>
+      <tr><td class="ent"><a href="#s8">S8 States</a></td><td>Months of average income ₹1 lakh represents in each state</td><td>The tile map, coloured by months</td></tr>
+      <tr><td class="ent"><a href="#s10">S10 MSP</a></td><td>Quintals of paddy or wheat ₹1 lakh buys at the support price</td><td>Sacks that shrink year by year</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="slate">
+  <div class="sec-head"><span class="sec-num">05</span><h2>The stories</h2></div>
+  <p class="tldr"><b>In short</b><span>Eleven plans: the flagship S0 built on the lens, then ten topical stories. Each gives the narrative, the verified numbers, a small chart drawn from our DBIE release, a sketch of the signature visual, what the reader and the economist each take away, where readers can play, the live debate and the traps. Figures marked DBIE come from release 2026-10-06-d0f2cac and have not yet passed gates 2 to 4.</span></p>
+
+<article class="story" id="s0">
+  <div class="story-head"><span class="story-num">S0</span><h3>What ₹1 lakh bought</h3></div>
+  <div class="story-tags"><span class="status w1">Wave 1 · flagship</span><span class="status w3">Money and payments</span><span class="status w3">Effort: medium</span></div>
+  <p class="hook">Your parents' ₹1 lakh and yours are not the same money. This story takes one sum through 25 years and shows what it bought each year in gold, silver, a mason's days, dollars and wheat, and what it is worth today. Then it asks which of those changed most, and why that matters for anyone saving.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">224 g → 6.7 g</div><div class="l">gold bought by ₹1 lakh, 2001 → 2026 (Jan–Jul average) <span class="ds">gold and silver prices</span></div></div>
+    <div class="stat"><div class="v">₹4.38 lakh</div><div class="l">what ₹1 lakh of 2001 is worth in 2026 prices <span class="ds">CPI industrial workers</span></div></div>
+    <div class="stat"><div class="v">913 → 153</div><div class="l">days of a rural mason's work ₹1 lakh paid for, 2001 → 2025 <span class="ds">wage rates</span></div></div>
+    <div class="stat"><div class="v">$2,097 → $1,132</div><div class="l">dollars ₹1 lakh bought, 2001-02 → 2025-26 <span class="ds">exchange rates FY</span></div></div>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>The heirloom.</b> "In 2001 your family had ₹1 lakh for a wedding. What could it buy in gold?" Reader picks from necklace, bangles, chain, ring. Reveal: about 224 grams, a heavy necklace set.</span></li>
+    <li><span><b>Ten years on.</b> The same ₹1 lakh in 2011: 42 grams. The necklace shrinks on screen to bangles. 2021: a chain. 2026: a ring.</span></li>
+    <li><span><b>But money itself shrank too.</b> ₹1 lakh of 2001 is worth ₹4.38 lakh today. Bring that back to gold and the necklace still would not come back: it would need ₹33.6 lakh.</span></li>
+    <li><span><b>The other shelves.</b> A mason's days, dollars, wheat. Each shrinks at its own pace. The reader sees that "inflation" is not one number: gold ran ahead, labour ran ahead of prices, the dollar moved in steps, wheat support prices kept pace.</span></li>
+    <li><span><b>Your own year.</b> The reader enters any year and amount, from ₹10,000 to ₹10 lakh, and gets their own shelf, with a link to share it.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>Inflation made physical: the shrinking necklace.</li><li>Why "₹1 lakh was a lot of money" was true, and by how much.</li><li>A shareable card for their own year and amount.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Relative prices made visible: gold, labour, the dollar and food against one general index.</li><li>The deflator is named and chained, with the linking factors shown; a toggle swaps CPI-IW for the farm-labourer index or WPI.</li><li>Real returns on gold over any window, as a by-product.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Pick a year</span><span class="on">Pick an amount</span><span class="on">Swap the yardstick</span><span>Shrinking necklace (guided)</span></div>
+  <details class="more"><summary>Fact-check traps <span class="meta">5 items</span></summary><div class="body"><ul class="plain">
+    <li>CPI-IW chaining uses the Labour Bureau's linking factors (4.63 for 1982 → 2001, 2.88 for 2001 → 2016). Confirm both from the Labour Bureau's own notes in gate 2.</li>
+    <li>Gold is the Mumbai monthly average, not a jeweller's price; 2026 is a part-year average and gold fell from its March 2026 peak.</li>
+    <li>The mason series is one occupation and one gender; the Labour Bureau's occupation codes changed in November 2013 (this series runs through it, but check the definition).</li>
+    <li>Support prices are matched to the year by marketing year; state that alignment.</li>
+    <li>Object names (necklace, bangles) need cited typical weights, or the reader chooses the object.</li>
+  </ul></div></details>
+</article>
+<!-- S1 =========================================================================================== -->
+<article class="story" id="s1">
+  <div class="story-head"><span class="story-num">S1</span><h3>Two numbers, one rupee</h3></div>
+  <div class="story-tags"><span class="status w1">Wave 1</span><span class="status w3">The rupee and the world</span><span class="status w3">Effort: large</span></div>
+  <p class="hook">The rupee went from ₹46 to ₹88 a dollar in 22 years and made headlines at every step. Measured against 40 trading partners and adjusted for prices, it ended within a point of where it started. Both numbers are true; they answer different questions.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">₹45.95 → ₹88.31</div><div class="l">rupees per US dollar, yearly average, 2003-04 to 2025-26 <span class="ds">exchange rates FY</span></div></div>
+    <div class="stat"><div class="v">−44%</div><div class="l">nominal effective rate (40 currencies, trade weights), Apr 2004 → Jul 2026: 138.5 → 78.0 <span class="ds">REER/NEER monthly</span></div></div>
+    <div class="stat"><div class="v">90.9 → 91.8</div><div class="l">real effective rate over the same months, base 2015-16 = 100 <span class="ds">REER/NEER monthly</span></div></div>
+    <div class="stat"><div class="v">≈108 → ≈91</div><div class="l">real rate, Nov 2024 peak to mid-2026: a bigger swing in 20 months than across 22 years <a class="s pub" href="https://www.drishtiias.com/daily-updates/daily-news-analysis/indian-rupee-from-overvaluation-to-undervaluation">Drishti, 04-08-2026</a></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">The rupee fell; its real value did not</p><p class="chart-sub">40-currency trade-weighted indices, 2015-16 = 100, quarterly months. Hover to read.</p><div id="c-rupee"></div><figcaption>DBIE, Indices of REER and NEER (monthly), base 2015-16. Lower means a weaker rupee.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The currency constellation</p><svg data-sketch="constellation" viewBox="0 0 380 210" role="img" aria-label="Sketch: the rupee at the centre with trading-partner currencies orbiting; nominal rings drift outward while real dots stay on one orbit"></svg><figcaption>The rupee sits at the centre; 40 partner currencies orbit, sized by trade weight. In nominal mode they drift away year by year. Switch to real and they settle back on one orbit. Built on the same dot engine as the ₹2 lakh line, in polar coordinates.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "Since 2004 the rupee has lost about half its value against the dollar. How much less competitive are Indian goods abroad?" A slider from 0 to 60%.</span></li>
+    <li><span><b>The fall everyone sees.</b> The dollar line, and the 40-currency nominal index, falling 44%.</span></li>
+    <li><span><b>The turn.</b> Prices rose faster in India than in its partners. Adjust for that and the real index is flat: 90.9 then, 91.8 now.</span></li>
+    <li><span><b>The swings that do matter.</b> The real rate climbs to about 108 in late 2024, then drops to about 89–92 by 2026. Short swings, not the long slide, move competitiveness.</span></li>
+    <li><span><b>"Record low" and "undervalued" can both be true.</b> 2026 is the example. Close with what each number answers.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>Why a falling rupee is mostly a story about prices, not about the economy shrinking.</li><li>What the headline "record low" does and does not tell you.</li><li>A personal hook: what a $1,000 course fee cost in 2004 and today, and in "real" terms.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>The decomposition, live: real change ≈ nominal change + India's inflation − partners' inflation, by year.</li><li>Toggles: 6- versus 40-currency basket; trade versus export weights; monthly versus annual average.</li><li>The base issue stated plainly: 100 means parity with 2015-16, not equilibrium.</li><li>Series codes, the January 2021 rebasing note, and CSVs.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Toggle nominal / real</span><span class="on">Scrub 2004 → 2026</span><span class="on">Basket: 6 or 40 currencies</span><span>Fee calculator (fixed inputs)</span></div>
+  <details class="more"><summary>What economists and institutions are saying <span class="meta">2017 to 2026</span></summary><div class="body"><ul class="plain">
+    <li>The real rate peaked at about 108 in November 2024, read then as about 8% overvalued against 2015-16, and fell below 100 by mid-2025 <a class="s pub" href="https://theprint.in/opinion/rupees-exchange-rate-us-reer/2758849/">ThePrint, 07-10-2025</a>.</li>
+    <li>Governor Malhotra: "We don't target any specific price levels or bands" (05-12-2025, rupee near 90) <a class="s pub" href="https://www.business-standard.com/finance/news/rbi-governor-malhotra-rupee-depreciation-market-driven-inr-stance-125120500459_1.html">BS</a>. A late-July 2026 remark calling the rupee undervalued is reported only secondhand so far.</li>
+    <li>IMF's 2025 Article IV reclassified India's de facto regime from "stabilised" to "crawl-like" <a class="s gov" href="https://www.imf.org/en/news/articles/2025/11/24/pr-25392-india-imf-executive-board-concludes-2025-article-iv-consultation">IMF, 24-11-2025</a>.</li>
+    <li>2026: the rupee crossed 95 on 30-04-2026 after the Hormuz disruption; RBI's June measures included an FCNR(B) hedging subsidy; the swap window drew $52.3 billion before early closure <a class="s rbi" href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63198">RBI</a> <a class="s pub" href="https://businesstoday.in/amp/latest/economy/story/rbi-limits-fcnrb-forex-swap-facility-after-52-3-bn-inflows-ecb-ofcb-window-stays-open-549331-2026-08-14">BT, 14-08-2026</a>.</li>
+    <li>Raghuram Rajan, January 2025: the slide was "really a dollar issue" <a class="s pub" href="https://www.businesstoday.in/india/story/raghuram-rajan-rupee-hasnt-depreciated-that-much-its-really-a-dollar-issue-460939-2025-01-15">BT</a>. Arvind Subramanian argued in 2017 that an overvalued rupee hurt competitiveness <a class="s pub" href="https://www.business-standard.com/amp/article/pti-stories/rupee-should-not-become-too-strong-says-subramanian-117042801210_1.html">BS</a>.</li>
+    <li>Gap worth filling: no interactive piece shows the dollar rate, NEER and REER together from 2004.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">7 items</span></summary><div class="body"><ul class="plain">
+    <li>RBI rebased in January 2021: 2004-05 → 2015-16 base, 36 → 40 currencies, back-cast to 2004-05 only <a class="s rbi" href="https://website.rbi.org.in/web/rbi/-/publications/rbi-bulletin/effective-exchange-rate-indices-of-the-indian-rupee-20020">RBI Bulletin</a>. Do not splice to the 1993 series.</li>
+    <li>REER of 100 is parity with 2015-16, not "fair value". Never write "overvalued by X%" without "relative to 2015-16".</li>
+    <li>Current REER is CPI-based; older debates used WPI-based measures.</li>
+    <li>Recent months are provisional; outlets quote 108.03 to 109.86 for the same peak. Pin the vintage.</li>
+    <li>Percent direction: ₹45.95 → ₹88.31 is a 92% rise in rupees per dollar and a 48% fall in the rupee's dollar value. Pick one convention.</li>
+    <li>FY2025-26 average is ₹88.31; the 2026 spot rate went past 96. Say which.</li>
+    <li>"Crawl-like", not "crawling peg", and the IMF says the label is statistical and backward-looking.</li>
+  </ul></div></details>
+</article>
+
+<!-- S2 =========================================================================================== -->
+<article class="story" id="s2">
+  <div class="story-head"><span class="story-num">S2</span><h3>Cash didn't die</h3></div>
+  <div class="story-tags"><span class="status w1">Wave 1</span><span class="status w3">Money and payments</span><span class="status w3">Effort: large</span></div>
+  <p class="hook">UPI payments grew nineteen-fold in under seven years and ATM withdrawals fell by a third. Cash in circulation still rose to ₹41.7 lakh crore. People changed how they pay. They did not change how much cash they keep.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">122 → 2,366<small>crore</small></div><div class="l">UPI payments a month, Nov 2019 → Jul 2026 <span class="ds">payment system indicators</span></div></div>
+    <div class="stat"><div class="v">62.7 → 40.8<small>crore</small></div><div class="l">ATM cash withdrawals a month, same months <span class="ds">payment system indicators</span></div></div>
+    <div class="stat"><div class="v">3.4 → 9.7<small>crore</small></div><div class="l">micro-ATM withdrawals a month (village banking agents) <span class="ds">payment system indicators</span></div></div>
+    <div class="stat"><div class="v">₹16.6 → ₹41.7<small>lakh cr</small></div><div class="l">currency in circulation, Mar 2016 → Mar 2026 <span class="ds">reserve money components</span></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">The stock: cash against the size of the economy</p><p class="chart-sub">Currency in circulation as % of GDP, March of each year. GDP on the retired 2011-12 base; see traps.</p><div id="c-cash"></div><figcaption>DBIE, reserve money components (monthly) and macro-economic aggregates. To be recomputed on the 2022-23 GDP base before publication.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>Tide and rain</p><svg data-sketch="tide" viewBox="0 0 380 200" role="img" aria-label="Sketch: a tide line of cash against GDP with UPI payments falling as rain"></svg><figcaption>The tide is cash held, as a share of the economy, since 1971, with demonetisation as a visible ebb. UPI falls as rain, one drop per crore payments. The rain thickens; the tide still comes back. A second scene, the denomination wall, rebuilds itself through 2016 and 2023 as the ₹1,000 note goes, the ₹2,000 comes and goes, and ₹500 notes reach 85% of value.</figcaption></figure>
+  </div>
+  <figure class="chart" style="margin-top:12px"><p class="chart-title">The flows: how people pay and withdraw, monthly</p><div class="ctrl" role="group" aria-label="Scale"><button type="button" data-pay="abs" aria-pressed="true">Crore a month</button><button type="button" data-pay="idx" aria-pressed="false">Index, Nov 2019 = 100</button></div><div id="c-pay"></div><figcaption>DBIE, payment system indicators, Nov 2019 to Jul 2026, log scale. Series start at the November 2019 redefinition and are not spliced to earlier data.</figcaption></figure>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "UPI now handles over 2,000 crore payments a month. Since 2016, has the cash people hold gone up or down?"</span></li>
+    <li><span><b>The ebb.</b> November 2016: ₹500 and ₹1,000 notes, 86% of the value of cash, withdrawn. Cash falls to 8.7% of GDP.</span></li>
+    <li><span><b>The rain.</b> UPI arrives and multiplies. Debit-card payments fall from 41.8 to 10.2 crore a month: UPI's first replacement was the card, not the note.</span></li>
+    <li><span><b>The tide returns.</b> Cash held climbs back to around its pre-2016 share. ATM withdrawals fall. People hold notes and spend them less.</span></li>
+    <li><span><b>Where cash still moves.</b> Micro-ATMs at village banking agents nearly triple. Close on the stock-versus-flow distinction, the core of the story.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>The answer to "if everyone uses UPI, why is there more cash?": paying and keeping are different jobs.</li><li>What happened to the ₹2,000 note, in one scene.</li><li>A "your monthly cash" comparison: average ATM withdrawal rose from about ₹4,500 to about ₹5,400.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Transaction demand against store-of-value and precautionary demand, as in RBI's own research <a class="s rbi" href="https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=4344">RBI Occasional Paper</a> <a class="s rbi" href="https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=23646">RBI Bulletin, 24-09-2025</a>.</li><li>Toggles: CIC or currency with the public; GDP base; March or average-of-year.</li><li>The global cash paradox for context <a class="s gov" href="https://www.ecb.europa.eu/pub/economic-bulletin/articles/2021/html/ecb.ebart202102_03~58cc4e1b97.en.html">ECB 2021</a> <a class="s gov" href="https://www.bis.org/publ/qtrpdf/r_qt1803g.pdf">BIS 2018</a>.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Crore / index toggle</span><span class="on">Denomination wall, year by year</span><span class="on">Scrub the tide 1971 → 2026</span><span>Rain scene (fixed)</span></div>
+  <details class="more"><summary>What economists and institutions are saying</summary><div class="body"><ul class="plain">
+    <li>RBI researchers find currency demand driven by "precautionary and store-of-value motives" while "use of cash as a payment medium continues to fall"; cash-to-GDP peaked at 14.4% in 2020-21, inflated by pandemic GDP <a class="s rbi" href="https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=4344">RBI</a>.</li>
+    <li>RBI Bulletin, September 2025: UPI is negatively associated with cash demand, but income dominates; the authors say the estimates "do not necessarily imply causality" <a class="s rbi" href="https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=23646">RBI</a>.</li>
+    <li>RBI Annual Report 2025-26: banknotes in circulation up 11.9% in value to ₹41,23,995 crore (notes only); ₹500 notes about 85.5% of value; e₹ ₹771.7 crore, down on the year <a class="s rbi" href="https://rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1468">RBI AR</a>.</li>
+    <li>SBI Research: 86% of UPI merchant payments are under ₹500, so UPI competes with small notes <a class="s pub" href="https://moneylife.in/article/currency-in-circulation-peaks-at-40-lakh-crore-despite-digital-push-sbi-urges-never-disincentivise-upi/79681.html">Moneylife, 16-02-2026</a>.</li>
+    <li>98.45% of ₹2,000 notes had returned by 31-03-2026 <a class="s pub" href="https://oga-prod.angelone.in/news/economy/rbi-update-over-98-percent-of-rs-2000-notes-returned-to-banks-as-of-march-31-2026">Angel One</a>.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">6 items</span></summary><div class="body"><ul class="plain">
+    <li><b>GDP base.</b> MoSPI moved to a 2022-23 base on 27-02-2026, lowering nominal GDP by about 3–4% <a class="s gov" href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026227806401.pdf">PIB</a>. Our 11.7% uses the old base; on the new base it is likely nearer 12%. The back series is due by December 2026. <span class="status dec">Decision</span> wait for it, or publish on the old base with a stated note.</li>
+    <li>Currency in circulation includes cash held by banks; currency with the public excludes it. Name the series.</li>
+    <li>March 2017 is a remonetisation trough, not an equilibrium. Festival and election months spike.</li>
+    <li>Card and ATM data before November 2019 are not comparable. Never splice.</li>
+    <li>Do not compare a monthly UPI value (a flow) with the cash stock.</li>
+    <li>P2P transfers are 71% of UPI value; much of UPI is people moving money, not spending that replaces cash.</li>
+  </ul></div></details>
+</article>
+
+<!-- S3 =========================================================================================== -->
+<article class="story" id="s3">
+  <div class="story-head"><span class="story-num">S3</span><h3>Money in, money out</h3></div>
+  <div class="story-tags"><span class="status w2">Wave 2</span><span class="status w3">The rupee and the world</span><span class="status w3">Effort: medium</span></div>
+  <p class="hook">In 1990-91 Indians abroad sent home $2.1 billion. In 2024-25 the figure was $135.4 billion, more than India received in gross foreign direct investment. Meanwhile, a new outbound middle class now sends about $30 billion a year the other way, more than half of it for travel.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">$2.1 → $135.4<small>bn</small></div><div class="l">private transfer receipts, 1990-91 → 2024-25 <span class="ds">invisibles by category</span></div></div>
+    <div class="stat"><div class="v">$118.7 &gt; $71.0<small>bn</small></div><div class="l">private transfers against gross FDI inflows, 2023-24 <span class="ds">invisibles</span> <span class="ds">foreign investment</span></div></div>
+    <div class="stat"><div class="v">$1.3 → $29.6<small>bn</small></div><div class="l">outward remittances under LRS, 2014-15 → 2024-25 (peak $31.7 bn in 2023-24) <span class="ds">outward remittance</span></div></div>
+    <div class="stat"><div class="v">$17.0<small>bn</small></div><div class="l">of 2024-25 LRS went on travel; study abroad peaked at $5.0 bn in 2019-20 <span class="ds">outward remittance</span></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">Two streams across the border</p><p class="chart-sub">US$ billion by financial year: private transfers received, and outward remittances under LRS.</p><div id="c-remit"></div><figcaption>DBIE, invisibles by category of transactions (1950-51 to 2024-25) and outward remittances under LRS (monthly, summed). LRS before 2015-16 omits travel and several purposes.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The border</p><svg data-sketch="border" viewBox="0 0 380 200" role="img" aria-label="Sketch: a vertical border with particles flowing in for remittances and out for LRS by purpose"></svg><figcaption>One line is India's border. Particles cross inward for money sent home and outward for LRS, coloured by purpose, at a rate proportional to dollars. Scrubbing from 1971, the inward stream swells; after 2015 an outward stream appears and splits into colours. A coda reuses the arc map from the 1991 story to show where the money comes from, using RBI's remittance survey shares.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "Which brings more foreign money into India each year: foreign companies investing, or Indians abroad sending money home?"</span></li>
+    <li><span><b>The stream swells.</b> From $2.1 billion in 1990-91 to $135 billion. The senders change too: advanced economies now supply about half, the Gulf about 38% <a class="s rbi" href="https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=23260">RBI survey, 19-03-2025</a>.</span></li>
+    <li><span><b>The steady one.</b> Year to year, money sent home moves far less than portfolio or FDI flows.</span></li>
+    <li><span><b>The new stream.</b> LRS outflows: travel, gifts, support for relatives, study, investment. The October 2023 change to tax collected at source shows up as a surge before and a dip after.</span></li>
+    <li><span><b>The balance.</b> For every ₹100 that comes home, about ₹22 now goes out under LRS.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>The size of the diaspora economy, in a unit they can feel.</li><li>Where their own foreign travel and fees show up in national data.</li><li>A clear answer to "is it still the Gulf?".</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Volatility comparison: remittances against FDI and portfolio flows.</li><li>Remittances against the merchandise trade deficit (about 42% financed on average, 2010-11 to 2023-24, per RBI).</li><li>LRS as a liberalisation record with clear policy breaks: ceiling changes, TCS, the credit-card carve-out.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Scrub 1971 → 2025</span><span class="on">Filter LRS by purpose</span><span class="on">₹100 in, ₹ out</span><span>Source-country map (fixed)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>India was the top recipient in calendar 2024 at about $129 billion (World Bank) <a class="s pub" href="https://www.business-standard.com/economy/news/at-129-bn-india-top-recipient-of-remittances-this-year-world-bank-124121801266_1.html">BS, 18-12-2024</a>.</li>
+    <li>RBI's Sixth Remittances Survey: the US share rose to 27.7% in 2023-24; Maharashtra receives 20.5% and Kerala 19.7%; sending $200 cost 4.9% <a class="s rbi" href="https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=23260">RBI</a>.</li>
+    <li>Whether India's remittances are countercyclical is disputed in the literature <a class="s pub" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8409263">2021 study</a>.</li>
+    <li>Indian students abroad fell from about 13.3 lakh (2024) to about 12.5 lakh (2025) <a class="s pub" href="https://monitor.icef.com/2025/12/the-number-of-indian-students-abroad-fell-in-2025/">ICEF</a>.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">5 items</span></summary><div class="body"><ul class="plain">
+    <li><b>Private transfers are not only remittances.</b> The line includes local withdrawals from NRI deposits and other items. Use "money sent home" only for the remittance component, or name the measure exactly. Check whether RBI now publishes workers' remittances separately.</li>
+    <li>RBI reports April–March; the World Bank reports calendar years. Do not mix them in a ranking.</li>
+    <li>LRS travel understates foreign travel spend: overseas credit-card use sits outside LRS.</li>
+    <li>LRS categories before 2015-16 are incomplete (travel and study start near zero); begin purpose charts in 2015-16.</li>
+    <li>Our bulletin LRS file is mislabelled (total at index 9). Use the SDMX series until it is fixed.</li>
+  </ul></div></details>
+</article>
+
+<!-- S4 =========================================================================================== -->
+<article class="story" id="s4">
+  <div class="story-head"><span class="story-num">S4</span><h3>What households keep</h3></div>
+  <div class="story-tags"><span class="status w2">Wave 2</span><span class="status w3">Households</span><span class="status w3">Effort: medium</span><span class="status dec">Blocked on data base</span></div>
+  <p class="hook">"Indians are saving less" was a 2023 headline. The data says something more precise: households kept putting about the same share of income into financial assets, and borrowed more against it. The newest official estimates, on the 2022-23 base, show borrowing easing again in 2024-25.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">3.8% → 6.2%</div><div class="l">household borrowing, % of GDP, 2021-22 → 2023-24 (old base) <span class="ds">household flows</span></div></div>
+    <div class="stat"><div class="v">≈11–12%</div><div class="l">gross financial saving, % of GDP, roughly flat across the decade (old base) <span class="ds">sector-wise savings</span></div></div>
+    <div class="stat"><div class="v">5.2 → 7.0%</div><div class="l">net financial saving, % of GNDI, 2022-23 → 2024-25 on the new base <a class="s rbi" href="https://rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1476">RBI AR 2025-26</a></div></div>
+    <div class="stat"><div class="v">₹45 per ₹100</div><div class="l">into mutual funds and shares for every ₹100 into deposits, 2024-25 (₹21 in 2020-21) <a class="s pub" href="https://www.business-standard.com/amp/markets/mutual-fund/stocks-mutual-funds-gaining-fast-as-savers-shift-allegiance-from-banks-125112701089_1.html">BS, 27-11-2025</a></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">Saving held up; borrowing rose</p><p class="chart-sub">Household sector, % of GDP, 2011-12 base (to be replaced). Net = gross financial saving − borrowing.</p><div id="c-hh"></div><figcaption>DBIE, sector-wise domestic savings, 2011-12 base, to 2023-24. The 2022-23 base series (to 2024-25) is in RBI's Annual Report but not yet on DBIE.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The household ledger</p><svg data-sketch="ledger" viewBox="0 0 380 180" role="img" aria-label="Sketch: three 10 by 10 grids showing rupees saved, borrowed back and kept"></svg><figcaption>Three ₹100 grids side by side, in the isotype style of "The lights came on": what households put into financial assets, how much they borrowed back, and what was left. Tapping a square names the instrument (deposits, insurance, provident funds, mutual funds, shares, currency). A "your household" mode lets readers set their own split.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "Out of every ₹100 a household earns, how much ends up as net financial savings?"</span></li>
+    <li><span><b>Two sides of one ledger.</b> What goes in (deposits, insurance, PF, funds, shares, cash) and what is borrowed (homes, vehicles, personal loans).</span></li>
+    <li><span><b>The 2023 headline, unpacked.</b> Gross saving flat; borrowing up; so net saving down. Arithmetic, not a judgement.</span></li>
+    <li><span><b>The mix moves.</b> From deposits towards mutual funds and shares; from banks towards NBFCs as lenders.</span></li>
+    <li><span><b>The newer picture.</b> On the new base, borrowing eases in 2024-25. End on why we date every number: the story depended on the vintage.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>A straight answer to "are Indians saving less?".</li><li>Where the family rupee goes, compared with their own.</li><li>Why headlines said 47-year low and 50-year low at once.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Vintage toggle: the same year as first estimated and as revised.</li><li>Old base against new base, side by side, never spliced.</li><li>Stock (debt-to-GDP, about 41–45%) and flow (borrowing about 5–6%) on separate, labelled panels.</li><li>GDP against GNDI denominators.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Scrub years</span><span class="on">Your household split</span><span class="on">Vintage toggle</span><span>Instrument tap (fixed values)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>September 2023: RBI data put net financial saving at 5.1% of GDP for 2022-23, the lowest since 1975-76; the Finance Ministry said there was "no distress" and that borrowing went to homes and vehicles <a class="s pub" href="https://www.business-standard.com/amp/economy/news/there-was-no-distress-in-household-savings-clarifies-finance-ministry-123092101181_1.html">BS, 21-09-2023</a>.</li>
+    <li>SBI Research called the low-savings reading "completely misleading", citing physical savings <a class="s pub" href="https://www.business-standard.com/finance/personal-finance/55-of-retail-credit-used-for-housing-education-car-buys-in-last-2-years-123092100973_1.html">BS</a>. Motilal Oswal's Nikhil Gupta read rising non-housing debt as a concern <a class="s pub" href="https://www.business-standard.com/economy/news/household-debt-registered-new-high-by-q3fy24-savings-plummeted-report-124040900472_1.html">BS, 09-04-2024</a>.</li>
+    <li>RBI raised risk weights on consumer credit on 16-11-2023. Governor Malhotra called the shift to equity a "healthy trend" <a class="s pub" href="https://www.business-standard.com/amp/economy/news/rbi-governor-malhotra-not-concerned-over-shift-in-household-savings-to-equity-125080601440_1.html">BS, 06-08-2025</a>.</li>
+    <li>RBI's Financial Stability Reports put household debt near 41–45% of GDP, low against EM peers; the five-year average itself was recomputed between reports.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">6 items</span></summary><div class="body"><ul class="plain">
+    <li><b>Base change.</b> All our ratios use the 2011-12 base. The 2022-23 base gives different levels and a different ending. <span class="status dec">Decision</span> wait for DBIE, or use RBI's Annual Report tables as a named non-DBIE source.</li>
+    <li>2022-23 net saving has at least three vintages (5.1%, 5.3%, 4.9%). Quote one, named.</li>
+    <li>HDFC's merger in July 2023 moves liabilities from HFCs to banks in 2023-24; the total is unaffected.</li>
+    <li>2020-21 is a pandemic spike in net saving; use a pre-2019 baseline.</li>
+    <li>Physical savings still rest on the 2019 debt and investment survey; a new one runs to June 2027.</li>
+    <li>Gold and silver savings were revised up sharply in the new base; physical saving is not comparable across bases.</li>
+  </ul></div></details>
+</article>
+
+<!-- S5 =========================================================================================== -->
+<article class="story" id="s5">
+  <div class="story-head"><span class="story-num">S5</span><h3>Who lends to the government</h3></div>
+  <div class="story-tags"><span class="status w1">Wave 1</span><span class="status w3">Government and debt</span><span class="status w3">Effort: medium</span></div>
+  <p class="hook">In March 2007 banks held half of the central government's bonds. By March 2026 they held a third. Insurance companies held a steady quarter throughout, the RBI's share nearly tripled, and foreign investors, after three global index inclusions, hold 3%. Your LIC premium and PF contribution are part of this table.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">49.7% → 33.0%</div><div class="l">commercial banks' share of central government dated securities, Mar 2007 → Mar 2026 <span class="ds">dated securities ownership</span></div></div>
+    <div class="stat"><div class="v">6.5% → 17.6%</div><div class="l">RBI's share, same dates <span class="ds">dated securities ownership</span></div></div>
+    <div class="stat"><div class="v">0.2% → 3.0%</div><div class="l">foreign portfolio investors' share <span class="ds">dated securities ownership</span></div></div>
+    <div class="stat"><div class="v">16% → 23%</div><div class="l">provident funds' share of state government bonds, Jun 2015 → Mar 2026 <span class="ds">dated securities ownership</span></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">₹100 of central government bonds, by holder</p><p class="chart-sub">Quarterly, Mar 2007 → Mar 2026. Total outstanding ₹125.7 lakh crore at Mar 2026. Hover a band.</p><div id="c-gsec"></div><figcaption>DBIE, ownership pattern of Government of India dated securities. Pension funds separated from "Others" from Mar 2022; banks include the HDFC merger from Sep 2023.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The ₹100 bond</p><svg data-sketch="bonds" viewBox="0 0 380 170" role="img" aria-label="Sketch: 100 dots coloured by holder in 2007 and 2026"></svg><figcaption>One hundred dots, each ₹1 of every ₹100 of government bonds, re-sort between owners quarter by quarter on the existing dot engine. Behind them, a gauge shows total government debt to GDP. Policy dates (SLR steps, G-SAP, index inclusions, the 2026 tax exemption for foreign investors) appear as markers, without comment.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "Who owns the most Indian government debt: banks, foreign investors, insurers or the RBI?" Most readers guess foreigners.</span></li>
+    <li><span><b>2007.</b> Banks, half. Insurers, a quarter. Foreigners, almost none.</span></li>
+    <li><span><b>The slow shift.</b> Banks' share falls as their required bond holding (SLR) is cut to 18% by April 2020, though they still hold well above it.</span></li>
+    <li><span><b>The long-money holders.</b> Insurers and provident and pension funds, with their need for long bonds; state bonds lean on provident funds.</span></li>
+    <li><span><b>The RBI and the world.</b> The RBI's share rises through bond purchases; foreign holdings rise with index inclusion but stay small. Close: public debt is mostly held by Indians' own savings.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>"Is India's debt mostly foreign?" answered: no, about 3%.</li><li>How their insurance and provident fund connect to the state's borrowing.</li><li>Shares and rupee amounts together: banks hold a smaller share of a much bigger total.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Central and state securities side by side; Treasury bills as a third panel.</li><li>Category-break markers and an "as reported" against "harmonised" toggle.</li><li>The financial-repression literature, attributed <a class="s pub" href="https://blog.theleapjournal.org/2024/08/who-lends-to-indian-state.html">LEAP, 24-08-2024</a>.</li><li>RBI holdings explained as liquidity operations, with the caveat that the table cannot say what share of the deficit RBI "financed".</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Central / state / T-bills</span><span class="on">Shares or ₹ amounts</span><span class="on">Scrub quarters</span><span>Policy markers (fixed)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>RBI bought ₹6.39 lakh crore through open market operations in 2025-26, about 47% of gross issuance between 04-04-2025 and 13-02-2026 <a class="s pub" href="https://www.outlookmoney.com/personal-finance/rbi-absorbs-nearly-half-of-governments-bond-supply-through-omo-purchases-in-fy26">Outlook Money, 18-02-2026</a>.</li>
+    <li>JP Morgan's index phased India in from 28-06-2024 to 10%; inflows fell short of the $20–30 billion projected <a class="s pub" href="https://www.business-standard.com/amp/markets/news/front-loaded-then-flat-jpmorgan-index-fails-to-sustain-far-bond-inflows-125062900533_1.html">BS</a>. Bloomberg followed in January 2025 and FTSE from September 2025.</li>
+    <li>An ordinance of 05-06-2026 exempts foreign investors' interest and gains on government bonds <a class="s gov" href="https://newsonair.gov.in/centre-grants-tax-exemption-to-fpis-on-capital-gains-and-interest-income-from-government-securities/">AIR</a>.</li>
+    <li>RBI's December 2025 FSR notes weaker long-bond demand from insurers and pension funds <a class="s pub" href="https://www.business-standard.com/finance/news/heavy-sovereign-issuance-steepens-yield-curve-rbi-fsr-125123101020_1.html">BS</a>.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">5 items</span></summary><div class="body"><ul class="plain">
+    <li>Pension funds were split out of "Others" from March 2022; the format was revised from the June 2023 Bulletin.</li>
+    <li>From September 2023 the banks' share includes the HDFC merger: part of the jump is a reclassification.</li>
+    <li>Central dated securities include special securities and Sovereign Gold Bonds; bank primary dealers sit with banks.</li>
+    <li>Recent quarters are provisional. Check that ₹125.7 lakh crore comes from the same table vintage as the shares.</li>
+    <li>Repo collateral is not outright holding. Do not say "RBI financed X% of the deficit" from these shares.</li>
+  </ul></div></details>
+</article>
+
+<!-- S6 =========================================================================================== -->
+<article class="story" id="s6">
+  <div class="story-head"><span class="story-num">S6</span><h3>What a day's wage buys</h3></div>
+  <div class="story-tags"><span class="status w2">Wave 2</span><span class="status w3">Households</span><span class="status w3">Effort: medium</span></div>
+  <p class="hook">A man doing general farm work earned ₹217 a day in April 2014 and ₹414 in April 2025. The prices farm workers pay rose 1.7 times over the same months. What a day's wage buys rose by about an eighth in eleven years, roughly 1% a year.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">₹217 → ₹414</div><div class="l">male general agricultural labourer, all-India daily wage, Apr 2014 → Apr 2025 <span class="ds">wage rates</span></div></div>
+    <div class="stat"><div class="v">×1.70</div><div class="l">CPI for agricultural labourers, same months (771 → 1,307, base 1986-87) <span class="ds">CPI-AL</span></div></div>
+    <div class="stat"><div class="v">≈ +12%</div><div class="l">real gain over eleven years: 1.90 ÷ 1.70 <span class="inf">Our reading</span></div></div>
+    <div class="stat"><div class="v">0.8%</div><div class="l">a year, real growth for male farm labourers 2014-15 to 2023-24 in Drèze and Das <a class="s pub" href="https://www.ideasforindia.in/topics/poverty-inequality/the-problem-of-india-s-stagnant-real-wages.html">I4I, 26-07-2024</a></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">Wage and prices, both from April 2014 = 100</p><p class="chart-sub">Male general agricultural labourer daily wage against CPI for agricultural labourers, monthly.</p><div id="c-wage"></div><figcaption>DBIE, wage rates (rural, all-India) and CPI-AL on the 1986-87 base, which ends May 2025 when the index was rebased to 2019.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The day's basket</p><svg data-sketch="basket" viewBox="0 0 380 200" role="img" aria-label="Sketch: a basket of goods that a day's wage buys, growing only slightly over the years"></svg><figcaption>A basket fills with the goods in the farm-labourer price index that one day's wage buys. Scrub the years and the rupee figure above doubles while the basket barely grows. Then the tile map shows the same comparison state by state, and a calendar shows how many working days ₹1 lakh takes.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Guess.</b> "A farm labourer's daily wage nearly doubled since 2014. How much more can it buy?"</span></li>
+    <li><span><b>The rupee figure.</b> ₹217 to ₹414, and the same for construction and non-farm work.</span></li>
+    <li><span><b>The basket.</b> Prices for farm workers' goods rose 1.7 times. The basket grows by about an eighth.</span></li>
+    <li><span><b>State by state.</b> The spread is wide. Kerala pays several times what the lowest-paying states pay.</span></li>
+    <li><span><b>Against the rest of the economy.</b> Per-capita income grew faster than the farm wage over the same years, the gap S8 picks up.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>The answer to "wages nearly doubled, so why does it not feel like it?".</li><li>Their own state, and farm work against construction.</li><li>Days of work to earn ₹1 lakh, then and now.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>Deflator toggle: CPI-AL, CPI-RL, CPI rural.</li><li>The Labour Bureau series (WRRI) against PLFS casual wages, which disagree; named, not reconciled.</li><li>Occupation and gender small multiples where the data exists.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Pick a state</span><span class="on">Pick an occupation</span><span class="on">Deflator toggle</span><span>Basket (guided)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>Drèze and Das: real wage growth of 0.8% a year for men and 1.1% for women in farm work, 2014-15 to 2023-24; non-farm flat <a class="s pub" href="https://www.ideasforindia.in/topics/poverty-inequality/the-problem-of-india-s-stagnant-real-wages.html">I4I</a>.</li>
+    <li>Das and Usami find PLFS shows faster post-pandemic growth for casual workers, a gap "not easily explained" <a class="s pub" href="https://ras.org.in/articles/334/text/article.html">RAS</a>.</li>
+    <li>One explanation offered for flat wages is the sharp rise in rural women's labour-force participation.</li>
+    <li>MGNREGA was replaced by VB-G RAM G from 01-07-2026, with a ₹300 floor (secondary reporting; verify).</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">4 items</span></summary><div class="body"><ul class="plain">
+    <li><b>CPI-AL rebased</b> from June 2025 to 2019 = 100 with new weights and villages. Do not splice; end the frozen story at May 2025 or use an official linking factor.</li>
+    <li>One occupation, one gender, April to April. Say so in the sentence.</li>
+    <li>The all-India women's series for general farm work is missing in our cut; a gender comparison may be possible only by state.</li>
+    <li>The older wage series covered 20 states; all-India figures before November 2013 differ in coverage.</li>
+  </ul></div></details>
+</article>
+
+<!-- S7 =========================================================================================== -->
+<article class="story" id="s7">
+  <div class="story-head"><span class="story-num">S7</span><h3>The 10-gram question</h3></div>
+  <div class="story-tags"><span class="status w2">Wave 2</span><span class="status w3">The rupee and the world</span><span class="status w3">Effort: medium</span></div>
+  <p class="hook">Ten grams of gold cost ₹3,417 in Mumbai in April 1990 and ₹1,42,606 in July 2026. Part of that rise is gold getting dearer in dollars, part is the rupee getting cheaper, and part is import duty. The RBI's own gold went from 5.5% of India's reserves to 14.5%, mostly through price.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">42×</div><div class="l">Mumbai gold, Apr 1990 → Jul 2026, about 10.8% a year <span class="ds">gold and silver prices</span></div></div>
+    <div class="stat"><div class="v">≈8×</div><div class="l">faster than the workers' price index since 2001 (gold ×33.6, CPI-IW ×4.4) <span class="inf">Our reading</span></div></div>
+    <div class="stat"><div class="v">5.5% → 14.5%</div><div class="l">gold's share of forex reserves, Dec 2016 → Sep 2026 ($20 bn → $111 bn) <span class="ds">forex reserves weekly</span></div></div>
+    <div class="stat"><div class="v">6% → 15%</div><div class="l">import duty, cut in July 2024 and raised again from 13-05-2026 <a class="s pub" href="https://www.theweek.in/news/biz-tech/2026/05/13/india-gold-import-duty-hike.html">The Week</a></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">Ten grams of gold in Mumbai, 1990 → 2026</p><p class="chart-sub">Monthly average, ₹ per 10 g, log scale so equal steps mean equal percentage rises.</p><div id="c-gold"></div><figcaption>DBIE, monthly average price of gold and silver in Mumbai.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The shrinking necklace</p><svg data-sketch="race" viewBox="0 0 380 200" role="img" aria-label="Sketch: three runners, gold, fixed deposit and prices, on an oval track"></svg><figcaption>Your idea, at the centre of this story. The reader picks a year, such as a wedding year, and an amount. A necklace of beads, one bead per gram, appears for what that sum bought. As the years advance the necklace shrinks to bangles, a chain and a ring for the same rupees. Then a second pass brings the rupees forward by inflation, so readers see gold beat prices. A coda is the race shown here: gold, a fixed deposit and prices running laps from the chosen year.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>The wedding year.</b> Pick a year and a sum; see the jewellery it bought.</span></li>
+    <li><span><b>The shrinking necklace.</b> The same sum, year by year, down to a ring.</span></li>
+    <li><span><b>Three engines.</b> Split the rupee price of gold into the dollar gold price, the rupee's fall (from S1) and import duty. This is the economist's decomposition, drawn as three stacked bars per decade.</span></li>
+    <li><span><b>Against a fixed deposit.</b> The race, with interest rates from DBIE.</span></li>
+    <li><span><b>The country's gold.</b> The RBI's share of reserves rose mostly through price; tonnes moved little. Close without advice: what the past did, not what to buy.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>The family-jewellery question, answered with their own year.</li><li>Why Indian gold costs more than Dubai's: duty and the rupee.</li><li>What the RBI's gold is and why its share grew.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>₹ gold return ≈ $ gold return + rupee depreciation + duty change, by window.</li><li>Real return against CPI and against fixed-deposit rates, any start year.</li><li>Valuation against volume in the reserves.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Your year and amount</span><span class="on">Real / nominal</span><span class="on">Race start year</span><span>Decomposition (fixed per decade)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>Household gold estimates range from WGC's dated 25,000 t to Morgan Stanley's 34,600 t (June 2025) <a class="s pub" href="https://www.business-standard.com/amp/markets/news/india-holds-34-600-tonnes-of-gold-3-1x-the-value-of-current-equity-holding-125101000806_1.html">BS</a>. Treat as a range.</li>
+    <li>Sovereign Gold Bonds stopped after February 2024; the gold monetisation scheme's medium and long-term deposits ended 26-03-2025.</li>
+    <li>RBI held 880.52 t at end-March 2026 and brought 104 t home in the half-year to March <a class="s rbi" href="https://rbi.org.in/Scripts/PublicationsView.aspx?id=23811">RBI</a>.</li>
+    <li>The organised gold-loan book is put at about ₹18 lakh crore (ICRA, July 2026); new loan-to-value rules apply from 01-04-2026.</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">5 items</span></summary><div class="body"><ul class="plain">
+    <li>Mumbai price is not international price × exchange rate: duty, GST and premiums sit between.</li>
+    <li>Check purity (999 or 995) and whether DBIE's figure is an average or month-end. Our July 2026 figure is below some trade quotes for the same month.</li>
+    <li>Mark both duty changes on any premium chart.</li>
+    <li>Reserve share rising is a valuation effect; say tonnes alongside.</li>
+    <li>No advice. "Gold beat fixed deposits from year X" is history; "buy gold" is not ours to say.</li>
+  </ul></div></details>
+</article>
+
+<!-- S8 =========================================================================================== -->
+<article class="story" id="s8">
+  <div class="story-head"><span class="story-num">S8</span><h3>How far apart the states are</h3></div>
+  <div class="story-tags"><span class="status w2">Wave 2</span><span class="status w3">States</span><span class="status w3">Effort: large</span></div>
+  <p class="hook">Every large state got richer between 2011-12 and 2023-24. Gujarat's income per person more than doubled; Bihar's grew by half. So the ratio between them went from four to six. Bihar today is below where Gujarat was in 2011-12.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">4.0 → 6.1</div><div class="l">Gujarat ÷ Bihar per-capita income, 2011-12 → 2023-24, constant prices <span class="ds">per-capita NSDP</span></div></div>
+    <div class="stat"><div class="v">×2.24</div><div class="l">Gujarat, ₹87,481 → ₹1,95,617 <span class="ds">per-capita NSDP</span></div></div>
+    <div class="stat"><div class="v">×1.48</div><div class="l">Bihar, ₹21,750 → ₹32,227 <span class="ds">per-capita NSDP</span></div></div>
+    <div class="stat"><div class="v">×2.05</div><div class="l">Odisha, one of the lower-income states that grew fastest <span class="ds">per-capita NSDP</span></div></div>
+  </div>
+  <div class="vis">
+    <figure class="chart"><p class="chart-title">Large states, 2011-12 and 2023-24</p><p class="chart-sub">Per-capita net state domestic product, 2011-12 prices, log scale. Hover any line.</p><div id="c-states"></div><figcaption>DBIE, per-capita NSDP state-wise at constant prices. 18 large states shown; 33 in the data.</figcaption></figure>
+    <figure class="sketch"><p class="chart-title"><em>Signature visual</em>The time-distance</p><svg data-sketch="timedist" viewBox="0 0 380 190" role="img" aria-label="Sketch: states placed on a timeline by the year the leading state reached their income today"></svg><figcaption>Each state is placed on a timeline at the year the leading large state reached the income that state has today. A ratio becomes "how many years behind". Then the tile map from the ₹2 lakh line, coloured by months of average income that ₹1 lakh represents in each state.</figcaption></figure>
+  </div>
+  <h4>Narrative</h4>
+  <ol class="acts">
+    <li><span><b>Draw it.</b> Readers draw how they think the gap between richest and poorest large state moved since 2012.</span></li>
+    <li><span><b>Everyone rose.</b> All 18 large states grew in real terms.</span></li>
+    <li><span><b>But apart.</b> The spread widened: the faster states were mostly the richer ones.</span></li>
+    <li><span><b>Exceptions.</b> Odisha and a few others caught up; West Bengal and Punjab slipped in rank.</span></li>
+    <li><span><b>Years behind.</b> The time-distance view, and what ₹1 lakh means in each state.</span></li>
+  </ol>
+  <div class="two">
+    <div class="panel"><h4>For the reader</h4><ul class="plain"><li>"Where does my state rank, and is it catching up?"</li><li>Gap shown in rupees and as a ratio, side by side.</li></ul></div>
+    <div class="panel"><h4>For economists</h4><ul class="plain"><li>σ-convergence (spread over time) and β-convergence (do poorer states grow faster), both computed and shown.</li><li>Ratio against absolute-gap toggle.</li><li>NSDP is production in the state, not residents' income; remittances to poorer states are not counted.</li></ul></div>
+  </div>
+  <h4>Where readers play</h4>
+  <div class="play"><span class="on">Pick your state</span><span class="on">Ratio / gap</span><span class="on">Draw-it guess</span><span>Time-distance (guided)</span></div>
+  <details class="more"><summary>Live debates</summary><div class="body"><ul class="plain">
+    <li>EAC-PM: Bihar's per-capita income fell from 70.3% of the national average in 1960-61 to 32.8% in 2023-24; Gujarat 160.7% <a class="s gov" href="https://eacpm.gov.in/wp-content/uploads/2024/09/State-GDP-Working-Paper_Final.pdf">EAC-PM, Sep 2024</a>.</li>
+    <li>Absolute convergence is largely absent in the literature; some studies find conditional convergence <a class="s pub" href="https://www.kent.ac.uk/economics/repec/1313.pdf">Cherodian &amp; Thirlwall</a>.</li>
+    <li>The 16th Finance Commission keeps the states' share at 41% and changes the weights (secondary; verify from the report).</li>
+  </ul></div></details>
+  <details class="more"><summary>Fact-check traps <span class="meta">4 items</span></summary><div class="body"><ul class="plain">
+    <li>State accounts move to the 2022-23 base during 2026-27; our 2011-12 constant series will be superseded. <span class="status dec">Decision</span> publish on the 2011-12 base, frozen and labelled, or wait.</li>
+    <li>Population denominators for recent years are projections; there has been no census since 2011.</li>
+    <li>States publish on different timetables; 2023-24 may be a quick estimate for some.</li>
+    <li>A wider ratio does not mean the poorer state shrank. Say both.</li>
+  </ul></div></details>
+</article>
+
+<!-- S9 =========================================================================================== -->
+<article class="story" id="s9">
+  <div class="story-head"><span class="story-num">S9</span><h3>The cost of waiting</h3></div>
+  <div class="story-tags"><span class="status w3">Wave 3</span><span class="status w3">Government and debt</span><span class="status w3">Effort: small</span></div>
+  <p class="hook">In March 2024 the government was tracking 449 delayed central projects. First estimated at ₹8.78 lakh crore, they were then expected to cost ₹14.0 lakh crore. Railway projects alone were expected to cost more than double their first estimates.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">449</div><div class="l">delayed central sector projects, end-March 2024 <span class="ds">delayed projects</span></div></div>
+    <div class="stat"><div class="v">+60%</div><div class="l">anticipated over original cost, all delayed projects <span class="ds">delayed projects</span></div></div>
+    <div class="stat"><div class="v">₹2.0 → ₹4.5<small>lakh cr</small></div><div class="l">143 delayed railway projects, original → anticipated <span class="ds">delayed projects</span></div></div>
+    <div class="stat"><div class="v">204</div><div class="l">delayed road projects, the largest count, at +24% <span class="ds">delayed projects</span></div></div>
+  </div>
+  <figure class="chart"><p class="chart-title">Original against now-anticipated cost, delayed projects by sector, March 2024</p><p class="chart-sub">₹ lakh crore. Filled bar: original estimate. Outline: anticipated cost. Label: overrun.</p><div id="c-proj"></div><figcaption>DBIE, central sector delayed projects (MoSPI). Sectors with original cost under ₹0.1 lakh crore omitted.</figcaption></figure>
+  <h4>Narrative and visual</h4>
+  <p>A scale model: each project a block whose height grows from its first estimate to today's, with time on the other axis, so cost and delay are read together. The ₹1 lakh lens becomes "for every ₹1 lakh first budgeted, ₹1.6 lakh is now expected". A sector picker lets readers follow railways, roads or power from 1995. Economists get the overrun distribution, not just totals, and the definition breaks marked.</p>
+  <details class="more"><summary>Fact-check traps <span class="meta">4 items</span></summary><div class="body"><ul class="plain">
+    <li>The project list changes every month; totals from different months are different sets.</li>
+    <li>MoSPI moved to PAIMANA in September 2025 and the explicit "delayed" category disappeared <a class="s pub" href="https://www.basispointinsight.com/Story/Topic/the-growing-opacity-in-india-s-infrastructure-data_7407c042a029.html">BasisPoint, 12-08-2026</a>. Our series ends in March 2024, before the break.</li>
+    <li>Many agencies do not report revised costs; overruns are understated, as MoSPI notes.</li>
+    <li>Delay is measured against the latest schedule, not always the first.</li>
+  </ul></div></details>
+</article>
+
+<!-- S10 ========================================================================================== -->
+<article class="story" id="s10">
+  <div class="story-head"><span class="story-num">S10</span><h3>Does MSP keep up?</h3></div>
+  <div class="story-tags"><span class="status w3">Wave 3</span><span class="status w3">States</span><span class="status w3">Effort: small</span></div>
+  <p class="hook">The support price for common paddy rose from ₹1,310 a quintal in 2013-14 to ₹2,300 in 2024-25, 1.76 times. The prices farm workers pay rose 1.73 times. Over three decades the two have moved almost together. Nobody in the mainstream press has drawn that line in real terms.</p>
+  <div class="stats three">
+    <div class="stat"><div class="v">×1.76</div><div class="l">paddy MSP, 2013-14 → 2024-25 <span class="ds">minimum support price</span></div></div>
+    <div class="stat"><div class="v">×1.73</div><div class="l">CPI for agricultural labourers, same years (annual average) <span class="ds">CPI-AL</span></div></div>
+    <div class="stat"><div class="v">161 → 39</div><div class="l">quintals of wheat ₹1 lakh bought at MSP, 2001 → 2026 <span class="ds">minimum support price</span></div></div>
+  </div>
+  <figure class="chart"><p class="chart-title">Support prices against farm workers' prices, 2013-14 = 100</p><p class="chart-sub">Common paddy and wheat MSP against CPI-AL annual average, log scale.</p><div id="c-msp"></div><figcaption>DBIE, minimum support prices and CPI-AL (1986-87 base, ends 2024-25 on full years).</figcaption></figure>
+  <h4>Narrative and visual</h4>
+  <p>Sacks of grain that ₹1 lakh buys, shrinking year by year in step with a shrinking ₹1 lakh. The reader picks a crop and sees which kept pace and which did not, with pulses and oilseeds as the contrast. Economists get a deflator toggle (CPI-AL, CPI, WPI) and the cost benchmarks (A2+FL against C2) as named reference lines, with no judgement on which is right. A natural pairing with S6: the wage and the crop price deflated by the same index.</p>
+  <details class="more"><summary>Fact-check traps <span class="meta">4 items</span></summary><div class="body"><ul class="plain">
+    <li>Kharif and rabi marketing years are labelled differently; align carefully. DBIE's year keys need checking against CACP tables.</li>
+    <li>CPI-AL rebased in June 2025 (see S6).</li>
+    <li>MSP matters only where procurement happens; say so, without judging the policy.</li>
+    <li>State bonuses on MSP change what farmers receive in some states; out of scope, but named.</li>
+  </ul></div></details>
+</article>
+</section>
+
+<section id="product">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Beyond stories: a product in itself</h2></div>
+  <p class="tldr"><b>In short</b><span>The research turned up dozens of plain questions people keep asking, each answerable from DBIE with one chart and one paragraph. Together with the stories, the ₹1 lakh lens and a kit for economists, that is a product: the public's reference for Indian economic data, from the institution that hosts the data.</span></p>
+  <div class="cards">
+    <li><h4>DBIE Answers</h4><p>Short, frozen, dated answers to the questions in section 03: "Why is there more cash than ever?", "Who owns India's debt?", "Is the rupee undervalued?". Each is one chart, one paragraph, the series code and a link to the full story. In the StatsCAN Plus mould: under three minutes. Checked through the same gates, but faster, because each has one or two claims.</p></li>
+    <li><h4>The ₹1 lakh calculator</h4><p>The lens as a standing tool: any amount, any year, any yardstick. It is the most shareable thing on the site and the obvious entry point from social media. Every output card carries its sources and vintage.</p></li>
+    <li><h4>The economist's kit</h4><p>Per chart: CSV, the transformation script, the DBIE series codes, and a ready query against the data API that is already in this repository. Per story: a notebook that reproduces every number. This is what turns citations into trust.</p></li>
+    <li><h4>Chart of the month</h4><p>One chart, one paragraph, released with a new DBIE release. Keeps the site alive between long stories without breaking the frozen rule: each one is dated and never edited.</p></li>
+    <li><h4>Embeds for journalists</h4><p>Frozen, dated embeds of any chart with a "cite this" line. OWID's archived embeds are the model. People will quote us anyway; this makes them quote the right number and vintage.</p></li>
+    <li><h4>Ask the data, carefully</h4><p>The repository already has an MCP package over the database. A guarded "ask DBIE" that answers only from series and shows its query could come later. It needs its own fact-check design, so it is a later phase.</p></li>
+  </div>
+</section>
+
+<section id="build">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Build plan</h2></div>
+  <p class="tldr"><b>In short</b><span>Build the shared pieces once (story shell, drawer, toggles, lens, claim register), then ship wave 1 one story at a time, each through the four gates. Every story follows the same seven steps.</span></p>
+  <h3 id="phases">Phases</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Phase</th><th>What</th><th>Done when</th></tr></thead>
+    <tbody>
+      <tr><td class="ent">0 · Foundations</td><td>Story shell with vintage stamp and corrections log; "For economists" drawer with chart/table/CSV tabs; measurement toggle; draw-it guess; the ₹1 lakh lens component; claim register and recompute script; edition routing</td><td>One existing story (the ₹2 lakh line) retrofitted to the shell and passing the recompute script</td></tr>
+      <tr><td class="ent">1 · Wave 1</td><td>S0 What ₹1 lakh bought, S1 Rupee, S5 Who lends, S2 Cash (after the GDP-base decision)</td><td>Each published, frozen, with its kit and a named sign-off</td></tr>
+      <tr><td class="ent">2 · Wave 2</td><td>S3, S4, S6, S7, S8, plus DBIE Answers for the questions already researched</td><td>Base-year decisions taken; data gaps scraped or sourced</td></tr>
+      <tr><td class="ent">3 · Wave 3 and product</td><td>S9, S10, the calculator, embeds, chart of the month</td><td>Review dates set for every published story</td></tr>
+    </tbody>
+  </table></div>
+  <h3 id="pipeline">Per-story pipeline</h3>
+  <ol class="acts">
+    <li><span><b>Research note.</b> Literature, debates, public questions, traps, as in this note but deeper; kept beside the story like the ₹2 lakh line's research file.</span></li>
+    <li><span><b>Claim register.</b> Every claim the story will make, with series, transformation and vintage, before any design.</span></li>
+    <li><span><b>Storyboard.</b> Scenes, the guess, the signature visual, the two or three interactive charts. Reviewed against the inference rules.</span></li>
+    <li><span><b>Build.</b> On the shared shell and dot engine; numbers compiled from the frozen release.</span></li>
+    <li><span><b>Gates 1–3.</b> Recompute, independent recompute, subject review and referee panel.</span></li>
+    <li><span><b>Gate 4.</b> Copy edit, chart checklist, accessibility, named sign-off.</span></li>
+    <li><span><b>Publish frozen.</b> Vintage stamp, kit, review date, corrections log opened.</span></li>
+  </ol>
+  <h3 id="gaps">Data gaps to close first</h3>
+  <ul class="plain">
+    <li>GDP on the 2022-23 base (S2, S4): not on DBIE in our scrape of 29-09-2026.</li>
+    <li>Household savings on the new base (S4): in RBI's Annual Report, not on DBIE.</li>
+    <li>CPI-AL on the 2019 base and its linking factor (S6, S10).</li>
+    <li>FDI inflows for 2024-25 (S3): the annual table in our release stops at 2023-24.</li>
+    <li>Women's all-India wage series (S6).</li>
+    <li>The mislabelled bulletin LRS file (S3): parked as you asked, but it must be fixed before S3.</li>
+  </ul>
+</section>
+
+<section id="questions" class="q-sec">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Open questions</h2></div>
+  <p class="tldr"><b>In short</b><span>Decisions that change what we build. Each has a suggested answer to react to. The ones on governance and sign-off matter most, because they decide how fast anything can ship.</span></p>
+  <h3>Governance and accuracy</h3>
+  <ol class="qs">
+    <li><b>Who signs off a story?</b><span class="why">Gate 4 needs a name. Options: an RBIH editor, an RBI economist (DEPR or DSIM), an external referee, or a combination.</span><span class="rec">an RBIH editor signs; an RBI DSIM or DEPR reviewer checks definitions for stories that touch RBI's own data or operations (S1, S2, S5).</span></li>
+    <li><b>Does any story need RBI clearance?</b><span class="why">S1 (rupee), S2 (currency) and S5 (RBI's bond holdings) describe RBI's own operations, even neutrally.</span><span class="rec">share drafts of those three with the relevant RBI department before publication, as a courtesy review, not a clearance.</span></li>
+    <li><b>Byline and disclaimer?</b><span class="why">House view or authors' view changes how quotes are attributed. BoE and RBI's Mint Street Memos use an authors'-views disclaimer.</span><span class="rec">"RBIH data team" byline with a line that the analysis is RBIH's and not RBI's.</span></li>
+    <li><b>Only DBIE numbers, or other official sources too?</b><span class="why">S4 needs RBI Annual Report tables; S3 benefits from RBI's remittance survey; S8 from EAC-PM.</span><span class="rec">headline numbers from DBIE or another RBI publication only; other sources only as attributed context.</span></li>
+    <li><b>Wait for new bases, or publish on old ones?</b><span class="why">S2, S4 and S8 all hinge on base years in transition.</span><span class="rec">S2 on the new GDP base once the back series lands; S4 waits; S8 publishes on the 2011-12 base, frozen and labelled.</span></li>
+    <li><b>How public is the corrections log?</b><span class="rec">on the story page, dated, as ONS does.</span></li>
+    <li><b>Who owns the review date on each story?</b><span class="rec">the story's author, with a 12-month default.</span></li>
+  </ol>
+  <h3>Audience and voice</h3>
+  <ol class="qs" start="8" style="counter-reset:q 7">
+    <li><b>Is the voice the same as the live stories ("A So What? data story")?</b><span class="rec">yes, with the drawer adding the economist's layer.</span></li>
+    <li><b>Hindi, and other languages?</b><span class="why">The lens and the jewellery framing travel well; translation doubles the copy and the checks.</span><span class="rec">S0 in Hindi from launch; others later.</span></li>
+    <li><b>Mobile first?</b><span class="why">Most Indian traffic is mobile. The constellation and the border need different layouts on a phone.</span><span class="rec">design every signature visual for 390 px first.</span></li>
+    <li><b>How far can attributed views go?</b><span class="why">Quoting economists helps readers, but a quote can read as endorsement.</span><span class="rec">quote institutions freely; quote individuals only on both sides of a debate, never as the story's conclusion.</span></li>
+    <li><b>The jewellery objects: our weights, or the reader's choice?</b><span class="rec">reader chooses the object; we show grams.</span></li>
+  </ol>
+  <h3>Product and scope</h3>
+  <ol class="qs" start="13" style="counter-reset:q 12">
+    <li><b>Which yardstick is the house default for "in today's prices"?</b><span class="rec">CPI for industrial workers for long series; CPI combined from 2011 where the story allows.</span></li>
+    <li><b>Is DBIE Answers in scope now, or after wave 1?</b><span class="rec">after S0, because S0's calculator is its first answer.</span></li>
+    <li><b>Do we publish code and notebooks publicly?</b><span class="rec">yes, per story, in a public repository.</span></li>
+    <li><b>Launch cadence?</b><span class="rec">one story every three to four weeks; Answers weekly once the shell exists.</span></li>
+    <li><b>Edition addresses?</b><span class="rec"><code>/stories/&lt;slug&gt;</code> always shows the latest edition with a banner listing older ones at <code>/stories/&lt;slug&gt;/&lt;year&gt;</code>.</span></li>
+    <li><b>Any topics off-limits?</b><span class="why">Monetary-policy effectiveness, RBI's balance sheet and inflation targeting are all in DBIE.</span><span class="rec">off-limits for now; revisit after wave 1.</span></li>
+  </ol>
+  <h3>Section headings and the existing four</h3>
+  <ol class="qs" start="19" style="counter-reset:q 18">
+    <li><b>Adopt the five headings?</b><span class="why">The rupee and the world; Money and payments; Households; Government and debt; States.</span><span class="rec">yes, and move the two external-debt stories under the first and fourth.</span></li>
+    <li><b>Retrofit the four live stories to the new shell and gates?</b><span class="rec">yes, as phase 0's test case, starting with the ₹2 lakh line.</span></li>
+    <li><b>Should the live stories carry a vintage stamp now?</b><span class="rec">yes, immediately: it costs little and protects us.</span></li>
+    <li><b>Who reviews this plan before we start?</b><span class="rec">you, then the data team; version 1.1 records the decisions.</span></li>
+  </ol>
+</section>
+
+<section id="method">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Sources and method</h2></div>
+  <ul class="plain">
+    <li><b>DBIE figures.</b> Computed on 08-10-2026 from data release 2026-10-06-d0f2cac (scrape of 29-09-2026) in the dbie.rbihub.in repository, using the release's JSON files and DBIE's own code lists for labels. The charts on this page are drawn from the same numbers, embedded in the page. None has yet passed gates 2 to 4.</li>
+    <li><b>Web research.</b> Five research passes on 08-10-2026 covered storytelling practice, the rupee and gold, cash and payments, household savings and government bonds, and remittances, wages, states, projects and MSP. Where a source is secondary (news or exam-prep summaries of a primary document) the text says so or the claim is marked to verify. Nothing here should be quoted publicly before gate 2.</li>
+    <li><b>Known data issue.</b> In <code>public/data/outward-remittances-lrs.json</code> the values do not follow the category order: the total sits at index 9. The SDMX outward-remittance series is correct and was used instead.</li>
+    <li><b>Sketches.</b> The dashed panels are design sketches, not data, except where a caption says a number is real.</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <span><b>RBIH</b> · dbie.rbihub.in story slate · Version 1.0 · 08-10-2026</span>
+  <span>Planning draft for internal discussion. Not for publication.</span>
+</footer>
+</div>
+<script type="application/json" id="plan-data">{"rupee":[["2004-04",138.5,90.9],["2004-07",132.1,88.2],["2004-10",132.0,89.1],["2005-01",134.1,89.9],["2005-04",135.5,90.0],["2005-07",140.1,93.7],["2005-10",136.2,91.2],["2006-01",136.1,91.2],["2006-04",133.3,89.0],["2006-07",128.1,87.7],["2006-10",131.0,91.9],["2007-01",132.4,91.5],["2007-04",137.0,94.2],["2007-07",141.5,99.0],["2007-10",142.2,99.7],["2008-01",140.7,97.3],["2008-04",135.2,93.6],["2008-07",126.2,88.2],["2008-10",120.6,87.6],["2009-01",121.2,88.1],["2009-04",119.9,86.2],["2009-07",119.8,90.4],["2009-10",121.3,93.5],["2010-01",123.9,98.0],["2010-04",128.9,99.9],["2010-07",123.1,99.0],["2010-10",126.4,102.1],["2011-01",124.0,102.3],["2011-04",124.2,100.8],["2011-07",123.6,103.4],["2011-10",114.0,97.3],["2012-01",111.0,94.6],["2012-04",108.8,94.0],["2012-07",103.8,92.6],["2012-10",107.1,97.2],["2013-01",104.3,95.4],["2013-04",105.2,96.4],["2013-07",98.4,92.8],["2013-10",94.7,91.6],["2014-01",95.1,91.7],["2014-04",97.4,93.4],["2014-07",98.2,96.7],["2014-10",98.6,97.4],["2015-01",99.7,98.2],["2015-04",101.9,99.8],["2015-07",101.4,100.9],["2015-10",100.8,101.8],["2016-01",99.8,100.6],["2016-04",98.5,99.2],["2016-07",99.2,102.2],["2016-10",100.3,102.8],["2017-01",100.7,101.5],["2017-04",105.2,106.0],["2017-07",103.8,106.8],["2017-10",102.4,106.0],["2018-01",103.1,106.3],["2018-04",100.0,102.8],["2018-07",98.9,102.7],["2018-10",93.7,97.0],["2019-01",96.9,99.7],["2019-04",99.0,101.8],["2019-07",100.1,104.7],["2019-10",98.1,103.7],["2020-01",96.9,104.1],["2020-04",94.0,102.4],["2020-07",93.7,103.2],["2020-10",94.7,106.4],["2021-01",93.7,103.0],["2021-04",92.3,102.2],["2021-07",92.6,104.9],["2021-10",93.0,105.7],["2022-01",93.9,105.4],["2022-04",93.1,105.0],["2022-07",91.8,103.7],["2022-10",91.7,104.2],["2023-01",89.1,100.2],["2023-04",89.1,100.3],["2023-07",90.7,106.2],["2023-10",91.7,105.2],["2024-01",90.7,103.7],["2024-04",92.0,104.5],["2024-07",91.9,107.5],["2024-10",90.9,107.3],["2025-01",90.7,104.5],["2025-04",89.0,101.6],["2025-07",86.5,100.1],["2025-10",84.5,97.1],["2026-01",82.1,94.7],["2026-04",79.1,90.8],["2026-07",78.0,91.8]],"cash":[["1992",9.62,0.64],["1993",9.37,0.71],["1994",9.75,0.85],["1995",10.19,1.05],["1996",10.17,1.23],["1997",9.84,1.37],["1998",9.78,1.51],["1999",9.92,1.76],["2000",9.91,1.97],["2001",10.2,2.18],["2002",10.83,2.51],["2003",11.33,2.82],["2004",11.71,3.27],["2005",11.57,3.69],["2006",11.83,4.3],["2007",11.85,5.04],["2008",12.06,5.91],["2009",12.53,6.91],["2010",12.56,8.0],["2011",12.44,9.5],["2012",12.22,10.67],["2013",11.98,11.91],["2014",11.58,13.01],["2015",11.62,14.48],["2016",12.08,16.63],["2017",8.68,13.35],["2018",10.7,18.29],["2019",11.31,21.37],["2020",12.17,24.47],["2021",14.37,28.54],["2022",13.28,31.34],["2023",12.56,33.79],["2024",11.66,35.11],["2025",11.26,37.24],["2026",11.66,41.66]],"pay":[["2019-11",121.9,62.7,3.4],["2019-12",130.8,64.9,3.3],["2020-01",130.5,65.3,4.0],["2020-02",132.6,61.8,3.9],["2020-03",124.7,54.4,3.4],["2020-04",100.0,29.5,8.8],["2020-05",123.4,40.8,10.0],["2020-06",133.7,47.1,9.9],["2020-07",149.7,46.8,7.4],["2020-08",161.9,48.6,8.1],["2020-09",180.0,50.7,7.2],["2020-10",207.2,56.6,7.2],["2020-11",221.0,58.8,6.8],["2020-12",223.4,56.8,7.2],["2021-01",230.3,57.3,7.8],["2021-02",229.3,55.3,6.6],["2021-03",273.2,60.4,7.6],["2021-04",264.1,52.5,7.3],["2021-05",252.9,41.7,8.2],["2021-06",280.8,47.6,8.6],["2021-07",324.6,53.7,8.7],["2021-08",355.6,56.8,10.6],["2021-09",365.6,55.4,8.9],["2021-10",421.8,60.3,9.5],["2021-11",418.6,56.9,9.3],["2021-12",456.6,59.2,9.4],["2022-01",461.7,55.5,11.3],["2022-02",452.7,53.0,9.3],["2022-03",540.6,59.7,10.3],["2022-04",558.4,58.3,9.8],["2022-05",594.6,58.7,10.7],["2022-06",586.3,57.3,11.7],["2022-07",628.9,57.8,10.8],["2022-08",658.2,57.7,10.6],["2022-09",678.1,57.3,10.0],["2022-10",730.5,61.2,11.6],["2022-11",730.9,56.1,9.4],["2022-12",782.9,58.9,9.3],["2023-01",803.9,57.5,9.6],["2023-02",753.5,54.7,9.2],["2023-03",865.2,59.2,10.8],["2023-04",886.3,57.1,10.0],["2023-05",941.5,56.9,9.8],["2023-06",933.5,55.8,9.4],["2023-07",996.4,55.9,10.8],["2023-08",1058.6,57.2,10.6],["2023-09",1055.6,53.8,9.9],["2023-10",1140.9,57.2,9.9],["2023-11",1123.5,55.4,10.8],["2023-12",1202.0,54.6,9.3],["2024-01",1220.3,53.1,8.4],["2024-02",1210.3,51.7,8.1],["2024-03",1344.0,55.6,10.6],["2024-04",1330.4,52.4,9.2],["2024-05",1403.6,51.7,8.8],["2024-06",1388.5,50.8,9.7],["2024-07",1443.6,50.7,9.4],["2024-08",1496.3,51.6,9.7],["2024-09",1504.2,49.5,9.8],["2024-10",1658.5,55.5,12.3],["2024-11",1548.2,47.6,9.0],["2024-12",1673.0,49.5,9.1],["2025-01",1699.6,49.1,9.2],["2025-02",1610.6,45.0,9.2],["2025-03",1830.2,49.8,11.0],["2025-04",1789.3,46.0,9.3],["2025-05",1867.7,46.0,10.2],["2025-06",1839.5,43.8,9.4],["2025-07",1946.8,44.7,10.0],["2025-08",2000.8,46.3,12.5],["2025-09",1963.3,44.0,10.3],["2025-10",2070.1,46.6,10.8],["2025-11",2046.7,44.0,10.5],["2025-12",2163.5,44.7,9.3],["2026-01",2170.3,44.4,9.6],["2026-02",2039.4,41.7,8.7],["2026-03",2264.1,44.7,10.8],["2026-04",2234.7,41.3,9.0],["2026-05",2320.2,41.8,8.4],["2026-06",2271.6,40.1,9.3],["2026-07",2365.8,40.8,9.7]],"den":{"2016":{"500":7.85375,"1000":6.32568,"2000":0.0,"200":0.0,"100":1.57783,"rest":0.877},"2017":{"500":2.94098,"1000":0.08925,"2000":6.57063,"200":0.0,"100":2.52801,"rest":1.223},"2023":{"500":25.8169,"1000":0.0,"2000":3.6222,"200":1.25241,"100":1.80584,"rest":1.287},"2025":{"500":31.72287,"1000":0.0,"2000":0.06366,"200":1.73509,"100":2.27891,"rest":1.433}},"remit":[["1951",0.09],["1952",0.1],["1953",0.11],["1954",0.1],["1955",0.11],["1956",0.12],["1957",0.13],["1958",0.13],["1959",0.12],["1960",0.12],["1961",0.1],["1962",0.09],["1963",0.08],["1964",0.1],["1965",0.09],["1966",0.16],["1967",0.12],["1968",0.1],["1969",0.12],["1970",0.13],["1971",0.13],["1972",0.16],["1973",0.14],["1974",0.2],["1975",0.29],["1976",0.52],["1977",0.85],["1978",1.29],["1979",1.35],["1980",2.18],["1981",2.71],["1982",2.33],["1983",2.52],["1984",2.57],["1985",2.51],["1986",2.22],["1987",2.34],["1988",2.72],["1989",2.67],["1990",2.3],["1991",2.08],["1992",3.8],["1993",3.86],["1994",5.29],["1995",8.11],["1996",8.54],["1997",12.44],["1998",11.88],["1999",10.34],["2000",12.29],["2001",13.06],["2002",15.76],["2003",17.19],["2004",22.18],["2005",21.07],["2006",24.95],["2007",30.84],["2008",43.51],["2009",46.9],["2010",53.64],["2011",55.62],["2012",66.13],["2013",67.63],["2014",69.64],["2015",69.82],["2016",65.59],["2017",61.3],["2018",69.13],["2019",76.4],["2020",83.19],["2021",80.19],["2022",89.13],["2023",112.47],["2024",118.71],["2025",135.43]],"lrs":{"total":{"2009":0.808,"2010":0.983,"2011":1.164,"2012":1.002,"2013":1.206,"2014":1.094,"2015":1.326,"2016":4.643,"2017":8.171,"2018":11.334,"2019":13.788,"2020":18.761,"2021":12.684,"2022":19.611,"2023":27.141,"2024":31.736,"2025":29.563},"travel":null,"study":null,"relatives":null,"gift":null,"invest":null},"hh":[["2012",23.64,10.68,3.32,15.9],["2013",22.48,10.7,3.32,14.73],["2014",20.34,10.6,3.19,12.61],["2015",19.56,10.08,3.02,12.14],["2016",17.97,10.86,2.8,9.57],["2017",18.11,10.49,3.04,10.36],["2018",19.29,12.03,4.39,11.38],["2019",20.34,11.98,4.08,12.22],["2020",19.13,11.56,3.85,11.2],["2021",22.69,15.45,3.71,10.76],["2022",20.1,11.07,3.81,12.58],["2023",18.63,10.89,5.94,13.44],["2024",18.13,11.39,6.24,12.76]],"gsec":{"cols":["(A) Total (in Rs. Crores)","1 Commercial Banks","2 Co-operative Banks","3 Non-Bank PDs","4 Insurance Companies","5 Mutual Funds","6 Provident Funds","7 Pension Funds","8 Financial Institutions","9 Corporates","10 Foreign Portfolio Investors","11 RBI","12 Others"],"rows":[["Mar 2007",null,49.68,2.97,0.41,26.19,0.44,6.68,null,0.7,4.79,0.18,6.51,1.86],["Jun 2007",null,50.21,2.9,0.31,27.12,0.69,6.87,null,0.59,4.08,0.34,5.8,1.4],["Sep 2007",null,52.03,2.9,0.4,26.32,1.04,6.54,null,0.52,3.05,0.37,5.35,1.88],["Dec 2007",null,52.32,2.82,0.38,26.14,1.33,6.5,null,0.49,2.72,0.49,5.46,1.73],["Mar 2008",null,51.26,3.22,0.34,24.78,0.79,6.38,null,0.41,3.48,0.52,4.78,4.38],["Jun 2008",null,51.08,3.37,0.23,25.53,0.58,6.62,null,0.48,1.66,0.47,5.64,4.33],["Sep 2008",null,51.47,3.21,0.19,25.52,0.31,6.25,null,0.42,1.52,0.71,5.73,4.86],["Dec 2008",null,48.82,3.01,0.34,24.52,1.1,6.59,null,0.43,3.82,0.49,7.52,3.38],["Mar 2009",null,46.9,2.92,0.29,23.2,0.82,6.59,null,0.41,4.72,0.24,9.71,4.2],["Jun 2009",null,47.07,3.08,0.11,23.07,0.83,6.41,null,0.4,3.54,0.3,11.06,4.13],["Sep 2009",null,46.8,3.08,0.26,22.14,0.75,6.31,null,0.29,3.65,0.45,10.57,5.69],["Dec 2009",null,47.38,3.24,0.18,22.07,0.78,6.51,null,0.28,3.27,0.59,10.2,5.5],["Mar 2010",null,47.25,3.35,0.14,22.16,0.4,6.76,null,0.35,2.99,0.59,11.76,4.24],["Jun 2010",null,48.27,3.4,0.23,22.05,0.38,6.56,null,0.34,2.82,0.62,9.67,5.65],["Sep 2010",null,48.48,3.5,0.29,22.18,0.73,6.79,null,0.35,2.57,0.55,9.2,5.36],["Dec 2010",null,47.4,3.38,0.26,22.11,0.88,6.89,null,0.33,2.33,0.61,10.67,5.14],["Mar 2011",null,47.03,3.41,0.11,22.22,0.18,7.06,null,0.35,1.94,0.97,12.84,3.89],["Jun 2011",null,47.55,3.31,0.1,22.47,0.41,7.01,null,0.34,1.86,0.89,12.9,3.15],["Sep 2011",null,47.89,3.28,0.12,22.57,0.32,7.23,null,0.35,1.64,0.97,12.52,3.13],["Dec 2011",null,47.31,3.21,0.09,22.42,0.27,7.31,null,0.34,1.58,0.85,13.56,3.07],["Mar 2012",null,46.11,2.98,0.1,21.08,0.17,7.45,null,0.37,1.38,0.88,14.41,5.07],["Jun 2012",null,44.22,3.07,0.08,21.19,0.29,7.31,null,0.34,1.37,0.89,17.62,3.63],["Sep 2012",null,44.54,3.03,0.1,21.3,0.55,7.19,null,0.37,1.61,1.1,16.02,4.2],["Dec 2012",null,43.96,2.89,0.15,19.54,1.2,7.12,null,0.64,1.62,1.24,15.95,5.68],["Mar 2013",null,43.86,2.81,0.11,18.56,0.68,7.37,null,0.75,1.14,1.61,16.99,6.12],["Jun 2013",null,43.85,2.78,0.08,19.2,1.24,7.19,null,0.63,1.2,1.59,18.22,4.02],["Sep 2013",null,44.7,2.73,0.04,19.27,1.61,7.2,null,0.71,1.19,1.4,16.83,4.32],["Dec 2013",null,44.73,2.69,0.15,19.27,1.56,7.37,null,0.67,1.27,1.38,16.01,4.89],["Mar 2014",null,44.46,2.76,0.11,19.54,0.78,7.18,null,0.72,0.79,1.68,16.05,5.92],["Jun 2014",null,43.43,2.76,0.28,20.21,1.29,7.21,null,1.51,0.89,2.45,15.03,4.94],["Sep 2014",null,42.95,2.71,0.2,20.55,1.26,7.13,null,1.44,1.06,3.37,14.33,4.99],["Dec 2014",null,42.77,2.57,0.34,21.02,1.68,7.47,null,0.73,1.12,3.62,14.5,4.18],["Mar 2015",null,43.3,2.62,0.31,20.87,1.89,7.58,null,2.07,1.25,3.67,13.48,2.96],["Jun 2015",4238369,43.14,2.73,0.35,21.37,2.37,7.08,null,0.7,1.12,3.59,13.06,4.49],["Sep 2015",4343325,43.03,2.64,0.54,22.09,2.69,7.17,null,0.6,0.84,3.57,12.08,4.75],["Dec 2015",4487080,43.59,2.71,0.35,21.9,2.52,7.11,null,0.68,0.86,3.68,12.07,4.51],["Mar 2016",4532473,41.81,2.75,0.33,22.18,2.09,6.01,null,0.72,1.28,3.65,13.47,5.72],["Jun 2016",4642234,39.9,2.68,0.45,22.63,2.09,5.89,null,0.71,1.31,3.63,14.88,5.83],["Sep 2016",4796749,40,2.47,0.14,22.68,2.13,6.25,null,0.84,1.09,3.82,14.8,5.79],["Dec 2016",4924698,40.92,2.63,0.28,22.55,1.96,6.24,null,0.86,1.05,3.13,14.61,5.77],["Mar 2017",4910975,40.46,2.7,0.16,22.9,1.49,6.27,null,0.81,1.05,3.53,14.65,5.98],["Jun 2017",5043094,39.68,2.65,0.31,23.13,1.44,6.13,null,0.73,1.29,4.29,14.29,6.07],["Sep 2017",5145183,40.37,2.62,0.33,23.49,1.86,5.99,null,0.78,1.04,4.58,12.84,6.11],["Dec 2017",5281350,41.4,2.69,0.33,23.63,1.33,5.32,null,0.82,1.09,4.53,11.94,6.92],["Mar 2018",5396778,42.68,2.57,0.29,23.49,1,5.88,null,0.9,0.91,4.35,11.62,6.3],["Jun 2018",5455681,41.84,2.59,0.33,24.24,1.13,5.79,null,0.93,1.09,3.84,11.63,6.58],["Sep 2018",5602830,41.41,2.51,0.37,24.61,1.41,5.71,null,0.97,1.01,3.65,11.76,6.58],["Dec 2018",5758103,40.51,2.38,0.33,24.57,0.64,5.54,null,1.01,1.05,3.6,13.81,6.55],["Mar 2019",5921026,40.28,2.29,0.31,24.34,0.35,5.47,null,1.05,0.97,3.22,15.27,6.46],["Jun 2019",6072243,39.05,2.17,0.36,24.88,0.64,5.35,null,1.05,0.99,3.27,15.67,6.57],["Sep 2019",6314426,39.66,2.01,0.42,24.86,0.77,4.87,null,1.15,0.92,3.31,14.99,7.05],["Dec 2019",6512659,39.05,1.97,0.39,24.9,1.53,4.93,null,1.14,0.84,3.33,14.72,7.23],["Mar 2020",6486585,40.41,1.9,0.39,25.09,1.43,4.72,null,0.53,0.81,2.44,15.13,7.17],["Jun 2020",6704983,38.98,1.86,0.36,26.24,2.02,4.96,null,1.19,0.78,1.79,14.7,7.11],["Sep 2020",7137069,38.55,1.86,0.34,25.33,2.42,4.77,null,1.42,0.94,2.05,15,7.32],["Dec 2020",7357111,37.81,1.83,0.25,25.64,2.62,4.61,null,1,1.05,2.1,15.71,7.37],["Mar 2021",7635902,37.77,1.82,0.27,25.3,2.94,4.44,null,1,1.06,1.87,16.2,7.33],["Jun 2021",7882533,35.99,1.82,0.34,25.83,2.82,4.04,null,1.43,1.39,1.79,17.11,7.43],["Sep 2021",8235318,37.82,1.5,0.35,24.18,2.91,3.77,null,1.17,0.72,1.81,16.98,8.79],["Dec 2021",8439811,35.4,1.82,0.27,25.74,3.08,4.33,null,1.69,1.37,1.66,16.92,7.73],["Mar 2022",8529036,35.93,1.81,0.29,25.89,2.91,4.6,3.5,0.94,1.47,1.56,16.62,4.46],["Jun 2022",8784931,36.16,1.84,0.33,26.34,2.32,4.77,3.61,1.09,1.52,1.43,16.06,4.57],["Sep 2022",9098788,36.44,1.8,0.38,25.94,2.58,4.66,3.84,0.98,1.58,1.38,15.28,5.14],["Dec 2022",9373372,36.13,1.7,0.44,26.14,2.87,4.67,3.91,1.07,1.57,1.31,14.73,5.45],["Mar 2023",9645776,36.61,1.64,0.49,25.97,2.81,4.71,3.98,0.98,1.62,1.36,14.26,5.57],["Jun 2023",9898751,36.58,1.56,0.73,26.21,2.69,4.59,4.18,1.2,1.22,1.59,13.78,5.67],["Sep 2023",10383607,37.96,1.52,0.66,26.05,3.02,4.42,4.32,0.54,1.21,1.61,13.06,5.64],["Dec 2023",10538792,37.55,1.49,0.67,26.16,3.03,4.57,4.44,0.55,1.33,1.92,12.54,5.74],["Mar 2024",10740389,37.66,1.47,0.66,25.98,2.9,4.47,4.52,0.55,1.35,2.34,12.31,5.79],["Jun 2024",10946860,37.52,1.42,0.7,26.11,2.87,4.41,4.74,0.57,1.44,2.34,11.92,5.97],["Sep 2024",11271589,37.55,1.35,0.77,25.95,3.14,4.25,4.86,0.63,1.6,2.8,11.16,5.92],["Dec 2024",11422728,37.98,1.36,0.65,26.14,3.11,4.25,5.05,0.64,1.45,2.81,10.55,6.01],["Mar 2025",11642652,36.18,1.29,0.76,25.81,2.68,4.24,4.91,0.71,1.49,3.12,12.78,6.01],["Jun 2025",11854200,35.28,1.29,0.59,25.95,2.46,4.35,4.96,0.74,1.26,2.8,14.21,6.13],["Sep 2025",12137000,35.43,1.32,0.6,25.81,2.77,4.45,4.9,0.76,1.25,2.97,13.54,6.22],["Dec 2025",12393606,34.31,1.33,0.55,25.89,2.74,4.58,4.77,0.76,1.23,2.96,14.52,6.35],["Mar 2026",12567045,32.99,1.33,0.51,25.59,1.6,4.5,4.62,0.75,1.22,2.95,17.59,6.35]]},"wage":[["2013-11",224.66,777],["2013-12",218.23,765],["2014-01",216.22,757],["2014-02",217.22,757],["2014-03",215.7,763],["2014-04",217.33,771],["2014-05",219.4,777],["2014-06",218.42,785],["2014-07",220.82,799],["2014-08",222.52,808],["2014-09",223.91,811],["2014-10",225.88,813],["2014-11",227.21,813],["2014-12",228.2,807],["2015-01",230.01,804],["2015-02",230.24,803],["2015-03",231.27,803],["2015-04",229.81,805],["2015-05",229.98,811],["2015-06",231.6,820],["2015-07",234.43,822],["2015-08",236.21,832],["2015-09",237.12,839],["2015-10",237.27,849],["2015-11",238.36,853],["2015-12",239.7,853],["2016-01",242.24,849],["2016-02",241.81,843],["2016-03",243.78,843],["2016-04",244.21,848],["2016-05",245.27,860],["2016-06",246.25,869],["2016-07",247.25,877],["2016-08",249.53,876],["2016-09",252.38,873],["2016-10",254.55,876],["2016-11",256.08,878],["2016-12",256.43,876],["2017-01",258.88,870],["2017-02",259.94,869],["2017-03",259.98,866],["2017-04",261.3,870],["2017-05",261.8,872],["2017-06",263.17,877],["2017-07",265.36,884],["2017-08",266.07,894],["2017-09",266.47,893],["2017-10",267.69,901],["2017-11",268.86,905],["2017-12",269.1,900],["2018-01",270.52,895],["2018-02",272.09,889],["2018-03",272.19,887],["2018-04",272.36,888],["2018-05",272.58,891],["2018-06",273.37,894],["2018-07",274.45,902],["2018-08",277.35,907],["2018-09",277.96,910],["2018-10",278.74,913],["2018-11",278.65,914],["2018-12",279.32,913],["2019-01",280.81,915],["2019-02",281.16,917],["2019-03",282.07,924],["2019-04",281.97,932],["2019-05",282.74,940],["2019-06",283.42,950],["2019-07",285.24,958],["2019-08",284.72,965],["2019-09",286.59,976],["2019-10",286.97,987],["2019-11",287.97,1000],["2020-02",292.79,1010],["2020-03",293.11,1007],["2020-06",313.12,1018],["2020-07",313.45,1021],["2020-08",311.96,1026],["2020-09",306.8,1037],["2020-10",306.78,1052],["2020-11",307.48,1060],["2020-12",309.74,1047],["2021-01",311.06,1038],["2021-02",312.91,1037],["2021-03",314,1035],["2021-04",315.97,1041],["2021-05",316.26,1049],["2021-06",316.72,1057],["2021-07",318.82,1061],["2021-08",319.8,1066],["2021-09",323.76,1067],["2021-10",324.79,1081],["2021-11",324.87,1092],["2021-12",325.87,1097],["2022-01",327.84,1095],["2022-02",331.66,1095],["2022-03",332.37,1098],["2022-04",334.11,1108],["2022-05",336.17,1119],["2022-06",338.11,1125],["2022-07",340.5,1131],["2022-08",342.8,1140],["2022-09",343.88,1149],["2022-10",347.3,1159],["2022-11",349.77,1167],["2022-12",350.63,1167],["2023-01",352.47,1170],["2023-02",355.22,1171],["2023-03",357.37,1175],["2023-04",360.83,1180],["2023-05",363.52,1186],["2023-06",365.83,1196],["2023-07",368.38,1215],["2023-08",370.84,1224],["2023-09",371.81,1226],["2023-10",373.66,1241],["2023-11",375.79,1253],["2023-12",378.14,1257],["2024-01",379.67,1258],["2024-02",381.21,1258],["2024-03",382.98,1259],["2024-04",384.65,1263],["2024-05",386.37,1269],["2024-06",389.19,1280],["2024-07",391.81,1290],["2024-08",396.58,1297],["2024-09",398.93,1304],["2024-10",400.21,1315],["2024-11",402.18,1320],["2024-12",403.5,1320],["2025-01",405.15,1316],["2025-02",407.74,1309],["2025-03",409.29,1306],["2025-04",413.73,1307]],"gold":[["1990-04",3417],["1990-07",3285],["1990-10",3491],["1991-01",3688],["1991-04",3583],["1991-07",4066],["1991-10",4491],["1992-01",4931],["1992-04",4497],["1992-07",4137],["1992-10",4079],["1993-01",3977],["1993-04",4331],["1993-07",4565],["1993-10",4484],["1994-01",4659],["1994-04",4641],["1994-07",4597],["1994-10",4755],["1995-01",4701],["1995-04",4805],["1995-07",4689],["1995-10",4956],["1996-01",5301],["1996-04",5220],["1996-07",5114],["1996-10",5137],["1997-01",4896],["1997-04",4788],["1997-07",4469],["1997-10",4400],["1998-01",4009],["1998-04",4210],["1998-07",4271],["1998-10",4336],["1999-01",4347],["1999-04",4389],["1999-07",4051],["1999-10",4749],["2000-01",4509],["2000-04",4460],["2000-07",4529],["2000-10",4538],["2001-01",4466],["2001-04",4267],["2001-07",4380],["2001-10",4688],["2002-01",4693],["2002-04",5041],["2002-07",5188],["2002-10",5210],["2003-01",5752],["2003-04",5192],["2003-07",5363],["2003-10",5695],["2004-01",6179],["2004-04",5916],["2004-07",6059],["2004-10",6361],["2005-01",6149],["2005-04",6151],["2005-07",6058],["2005-10",6874],["2006-01",7925],["2006-04",8985],["2006-07",9559],["2006-10",8695],["2007-01",9069],["2007-04",9321],["2007-07",8741],["2007-10",9691],["2008-01",11291],["2008-04",11810],["2008-07",13028],["2008-10",12691],["2009-01",13473],["2009-04",14475],["2009-07",14720],["2009-10",15882],["2010-01",16706],["2010-04",16693],["2010-07",18270],["2010-10",19474],["2011-01",20204],["2011-04",21470],["2011-07",22627],["2011-10",26668],["2012-01",27598],["2012-04",28563],["2012-07",29468],["2012-10",31056],["2013-01",30520],["2013-04",27743],["2013-07",26928],["2013-10",30710],["2014-01",29582],["2014-04",29329],["2014-07",28008],["2014-10",26991],["2015-01",27403],["2015-04",26683],["2015-07",25539],["2015-10",26577],["2016-01",25998],["2016-04",28818],["2016-07",30942],["2016-10",30071],["2017-01",28746],["2017-04",29010],["2017-07",28170],["2017-10",29505],["2018-01",29854],["2018-04",30986],["2018-07",30097],["2018-10",31489],["2019-01",32230],["2019-04",31659],["2019-07",34522],["2019-10",38214],["2020-01",39984],["2020-04",45504],["2020-07",49878],["2020-10",50698],["2021-01",49612],["2021-04",46517],["2021-07",47764],["2021-10",47219],["2022-01",47960],["2022-04",52023],["2022-07",50784],["2022-10",50506],["2023-01",56246],["2023-04",60145],["2023-07",58922],["2023-10",58773],["2024-01",62322],["2024-04",71353],["2024-07",71189],["2024-10",76713],["2025-01",79079],["2025-04",93091],["2025-07",97581],["2025-10",121908],["2026-01",145947],["2026-04",149927],["2026-07",142606]],"states":[["Andhra Pradesh",69000,131082.8993],["Arunachal Pradesh",73540,111107.0108],["Assam",41142,75937.55709],["Bihar",21750,32226.93157],["Chhattisgarh",55177,87680.60566],["Goa",259444,357610.724],["Gujarat",87481,195617.1475],["Haryana",106085,182816.3744],["Himachal Pradesh",87721,154330.1503],["Jammu & Kashmir",51775,76653.02712],["Jharkhand",41254,65062.31512],["Karnataka",90263,191969.9192],["Kerala",97912,162040.0596],["Madhya Pradesh",38497,67300.52994],["Maharashtra",99597,166012.6708],["Manipur",39762,65471.20121],["Meghalaya",59794,74489.1348],["Mizoram",57654,152363.219],["Nagaland",53010,81158.16012],["Odisha",48387,99395.90377],["Punjab",85577,129561.4309],["Rajasthan",57192,90414.02123],["Sikkim",158667,292339.4743],["Tamil Nadu",93112,179731.5997],["Telangana",91121,176999.5314],["Tripura",47155,97249.59604],["Uttar Pradesh",32002,50340.67383],["Uttarakhand",100314,150931.061],["West Bengal",51543,77933.01922],["Andaman & Nicobar Islands",89100,177335.0339],["Chandigarh",158967,256912.2878],["Delhi",185001,271489.9488],["Puducherry",119649,145921.1951]],"proj":{"DEL_COST_OVRN":{"1995":400064000000,"2000":299019000000,"2005":253876000000,"2010":604260000000,"2015":1240050000000,"2020":2711400700000,"2024":5233761600000.0},"DEL_NBR_PRJ":{"1995":83,"2000":102,"2005":125,"2010":366,"2015":328,"2020":567,"2024":449},"DEL_NON_ANT":{"1995":790039000000,"2000":825012000000,"2005":815461000000,"2010":4006070000000,"2015":6992340000000,"2020":12020045500000.0,"2024":14012111400000},"DEL_ORG_EST":{"1995":389974000000,"2000":525993000000,"2005":561586000000,"2010":3401810000000,"2015":5752270000000,"2020":9308644800000.0,"2024":8778349800000.0}},"msp":{"paddy":{"1976":74,"1977":74,"1978":77,"1979":85,"1980":95,"1981":105,"1982":115,"1983":122,"1984":132,"1985":137,"1986":142,"1987":146,"1988":150,"1989":160,"1990":185,"1991":205,"1992":230,"1993":270,"1994":310,"1995":340,"1996":360,"1997":380,"1998":415,"1999":440,"2000":490,"2001":510,"2002":530,"2003":530,"2004":550,"2005":560,"2006":570,"2007":580,"2008":745,"2009":900,"2010":1050,"2011":1000,"2012":1080,"2013":1250,"2014":1310,"2015":1360,"2016":1410,"2017":1470,"2018":1550,"2019":1750,"2020":1815,"2021":1868,"2022":1940,"2023":2040,"2024":2183,"2025":2300,"2026":2369,"2027":2441},"wheat":{"1976":105,"1977":110,"1978":112,"1979":115,"1980":117,"1981":130,"1982":142,"1983":151,"1984":152,"1985":157,"1986":162,"1987":166,"1988":173,"1989":183,"1990":215,"1991":225,"1992":280,"1993":330,"1994":350,"1995":360,"1996":380,"1997":475,"1998":510,"1999":550,"2000":580,"2001":610,"2002":620,"2003":620,"2004":630,"2005":640,"2006":650,"2007":850,"2008":1000,"2009":1080,"2010":1100,"2011":1170,"2012":1285,"2013":1350,"2014":1400,"2015":1450,"2016":1525,"2017":1625,"2018":1735,"2019":1840,"2020":1925,"2021":1975,"2022":2015,"2023":2125,"2024":2275,"2025":2425,"2026":2585},"cpial":{"1997":255.8,"1998":264.4,"1999":293.4,"2000":306.4,"2001":305.4,"2002":308.8,"2003":318.5,"2004":330.9,"2005":339.5,"2006":352.6,"2007":380.2,"2008":408.6,"2009":450.4,"2010":513.1,"2011":564.4,"2012":610.7,"2013":671.9,"2014":749.8,"2015":799.5,"2016":834.9,"2017":869.8,"2018":888.9,"2019":907.3,"2020":979.6,"2021":1033.7,"2022":1074.9,"2023":1148.4,"2024":1229.4,"2025":1299.1}},"projSec":[["Atomic energy",272710000000,472660000000,3],["Coal",232392900000,290572100000,8],["Civil aviation",48247600000,86277300000,8],["Finance",2090000000,2620000000,1],["Mines",49920000000,72803700000,3],["Others",1403430500000,2148652400000,30],["Petroleum",1874562500000,2522770800000,27],["Power",715048300000,1263813300000,19],["Railways",2007157200000,4521027200000,143],["Steel",20929699999.999996,27188400000,1],["Surface transport",1904562900000,2355766700000,204],["Telecommunication",247298200000,247959500000,2]],"lakh":[[2001,224.1,13.49,913,2097,161.3,34.32,4462,47.69],[2002,195.0,12.62,873,2066,161.3,35.8,5129,48.4],[2003,178.0,12.3,849,2176,158.7,37.16,5617,45.95],[2004,163.5,9.43,828,2226,156.2,38.56,6117,44.93],[2005,155.2,9.03,806,2259,153.8,40.2,6442,44.27],[2006,112.2,5.7,776,2210,117.6,42.68,8910,45.25],[2007,107.0,5.32,729,2484,100.0,45.4,9343,40.26],[2008,81.6,4.63,662,2174,92.6,49.19,12249,45.99],[2009,65.7,4.2,586,2108,90.9,54.53,15228,47.44],[2010,54.7,3.14,507,2195,85.5,61.08,18268,45.56],[2011,41.9,1.8,433,2087,77.8,66.48,23872,47.92],[2012,33.8,1.74,370,1838,74.1,72.7,29628,54.41],[2013,34.2,2.02,313,1653,71.4,80.64,29222,60.5],[2014,35.5,2.35,270,1635,69.0,85.73,28163,61.14],[2015,38.0,2.72,251,1527,65.6,90.75,26334,65.47],[2016,34.1,2.42,237,1491,61.5,95.26,29355,67.07],[2017,34.5,2.5,225,1551,57.6,97.63,28975,64.45],[2018,32.7,2.61,216,1430,54.3,102.37,30625,69.92],[2019,28.7,2.43,208,1410,51.9,110.21,34853,70.9],[2020,21.2,1.86,194,1347,50.6,114.97,47231,74.23],[2021,21.1,1.51,189,1342,49.6,122.03,47366,74.5],[2022,19.6,1.63,179,1244,47.1,129.22,50944,80.36],[2023,16.9,1.41,169,1208,44.0,136.4,59027,82.79],[2024,14.1,1.2,159,1182,41.2,141.58,70726,84.58],[2025,9.8,0.83,153,1132,38.7,145.54,101561,88.31],[2026,6.7,0.4,null,1132,38.7,150.29,149810,88.31]]}</script>
+<script>// Contents toggle on narrow screens and the current-section highlight.
+(function () {
+  try { const t = localStorage.getItem("slate-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  const toc = document.getElementById("toc"), tg = document.getElementById("toc-toggle");
+  tg.addEventListener("click", () => { const o = toc.classList.toggle("open"); tg.setAttribute("aria-expanded", o); });
+  toc.addEventListener("click", (e) => { if (e.target.closest("a")) { toc.classList.remove("open"); tg.setAttribute("aria-expanded", false); } });
+  const links = [...toc.querySelectorAll("a")];
+  const targets = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); } });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  targets.forEach(t => io.observe(t));
+})();
+</script>
+<script>// Small real-data charts and concept sketches for the story slate. Every number drawn here comes from the
+// DBIE data release 2026-10-06-d0f2cac (the JSON in #plan-data), computed by the scratchpad extraction script.
+(function () {
+  const D = JSON.parse(document.getElementById("plan-data").textContent);
+  const NS = "http://www.w3.org/2000/svg";
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const el = (tag, attrs, parent) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+  const txt = (parent, x, y, s, cls, anchor) => {
+    const t = el("text", { x, y, "text-anchor": anchor || "start" }, parent);
+    if (cls) t.setAttribute("class", cls);
+    t.textContent = s;
+    return t;
+  };
+  const tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true; document.body.appendChild(tip);
+  const showTip = (e, html) => { tip.innerHTML = html; tip.hidden = false; const x = Math.min(e.clientX + 14, innerWidth - 270); tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px"; };
+  const hideTip = () => { tip.hidden = true; };
+  const fmt = (v, d = 1) => v == null ? "–" : v.toLocaleString("en-IN", { maximumFractionDigits: d, minimumFractionDigits: d });
+  const ym = (s) => { const [y, m] = s.split("-").map(Number); return y + ((m || 1) - 1) / 12; };
+
+  // A line chart with optional log scale and a hover crosshair that reads every series at one x.
+  function lineChart(host, o) {
+    host.innerHTML = "";
+    const W = 560, H = o.h || 230, m = { l: 40, r: o.rpad || 64, t: 10, b: 24 };
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": o.aria }, host);
+    const xs = o.series.flatMap(s => s.pts.map(p => p[0]));
+    const ys = o.series.flatMap(s => s.pts.map(p => p[1])).filter(v => v != null);
+    const x0 = o.x0 ?? Math.min(...xs), x1 = o.x1 ?? Math.max(...xs);
+    const yLo = o.y0 ?? Math.min(...ys), yHi = o.y1 ?? Math.max(...ys);
+    const lg = !!o.log;
+    const fy = (v) => lg ? Math.log10(v) : v;
+    const X = (v) => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r);
+    const Y = (v) => H - m.b - (fy(v) - fy(yLo)) / (fy(yHi) - fy(yLo)) * (H - m.t - m.b);
+    (o.yTicks || []).forEach(t => {
+      el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: css("--grid"), "stroke-width": 1 }, svg);
+      txt(svg, m.l - 6, Y(t) + 3.5, o.yFmt ? o.yFmt(t) : t, "tick", "end");
+    });
+    (o.xTicks || []).forEach(t => txt(svg, X(t), H - 6, o.xFmt ? o.xFmt(t) : t, "tick", "middle"));
+    (o.bands || []).forEach(b => {
+      el("rect", { x: X(b[0]), y: m.t, width: Math.max(1, X(b[1]) - X(b[0])), height: H - m.t - m.b, fill: css("--neutral-wash") }, svg);
+      if (b[2]) txt(svg, X(b[0]) + 3, m.t + 11, b[2], "tick");
+    });
+    o.series.forEach(s => {
+      let d = "", pen = false;
+      s.pts.forEach(p => { if (p[1] == null) { pen = false; return; } d += (pen ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1); pen = true; });
+      el("path", { d, fill: "none", stroke: css(s.color), "stroke-width": s.w || 2, "stroke-linejoin": "round", "stroke-dasharray": s.dash || "" }, svg);
+      const last = [...s.pts].reverse().find(p => p[1] != null);
+      if (last && s.label) {
+        el("circle", { cx: X(last[0]), cy: Y(last[1]), r: 3, fill: css(s.color) }, svg);
+        const t = txt(svg, X(last[0]) + 6, Y(last[1]) + (s.dy || 0) + 3.5, s.label, "lab");
+        t.style.fill = css(s.color);
+      }
+    });
+    (o.notes || []).forEach(n => {
+      el("circle", { cx: X(n[0]), cy: Y(n[1]), r: 3.2, fill: "none", stroke: css("--ink-2"), "stroke-width": 1.2 }, svg);
+      txt(svg, X(n[0]) + (n[3] || 6), Y(n[1]) + (n[4] || -6), n[2], "tick", n[5] || "start");
+    });
+    const cross = el("line", { y1: m.t, y2: H - m.b, stroke: css("--hair-strong"), "stroke-width": 1, visibility: "hidden" }, svg);
+    const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+    hit.addEventListener("pointermove", (e) => {
+      const r = svg.getBoundingClientRect();
+      const xv = x0 + ((e.clientX - r.left) / r.width * W - m.l) / (W - m.l - m.r) * (x1 - x0);
+      const rows = o.series.map(s => { let best = null, bd = 1e9; s.pts.forEach(p => { const dd = Math.abs(p[0] - xv); if (dd < bd && p[1] != null) { bd = dd; best = p; } }); return [s, best]; });
+      const ref = rows[0][1]; if (!ref) return;
+      cross.setAttribute("x1", X(ref[0])); cross.setAttribute("x2", X(ref[0])); cross.setAttribute("visibility", "visible");
+      showTip(e, `<b>${o.tipX ? o.tipX(ref) : ref[2] || ref[0]}</b>` + rows.map(([s, p]) => p ? `<span style="color:${css(s.color)}">●</span> ${s.name}: ${o.tipFmt ? o.tipFmt(p[1], s) : fmt(p[1])}` : "").join("<br>"));
+    });
+    hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+    return svg;
+  }
+
+  // Stacked 100% area for ownership shares.
+  function stackChart(host, rows, keys, colors, labels) {
+    host.innerHTML = "";
+    const W = 560, H = 240, m = { l: 34, r: 110, t: 8, b: 24 };
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Shares of central government dated securities by holder, 2007 to 2026" }, host);
+    const xs = rows.map(r => r.x), x0 = Math.min(...xs), x1 = Math.max(...xs);
+    const X = (v) => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r);
+    const Y = (v) => H - m.b - v / 100 * (H - m.t - m.b);
+    [0, 25, 50, 75, 100].forEach(t => { txt(svg, m.l - 6, Y(t) + 3.5, t + "%", "tick", "end"); });
+    [2008, 2012, 2016, 2020, 2024].forEach(t => txt(svg, X(t), H - 6, t, "tick", "middle"));
+    const base = rows.map(() => 0), pend = [];
+    keys.forEach((k, ki) => {
+      const top = rows.map((r, i) => base[i] + (r[k] || 0));
+      let d = "M" + rows.map((r, i) => X(r.x).toFixed(1) + "," + Y(top[i]).toFixed(1)).join("L");
+      d += "L" + rows.map((r, i) => [X(r.x).toFixed(1), Y(base[i]).toFixed(1)]).reverse().map(p => p.join(",")).join("L") + "Z";
+      const p = el("path", { d, fill: css(colors[ki]), stroke: css("--raised"), "stroke-width": .6 }, svg);
+      const lr = rows[rows.length - 1], mid = (base[rows.length - 1] + top[rows.length - 1]) / 2;
+      if ((lr[k] || 0) > 2.5) pend.push([Y(mid), `${labels[ki]} ${fmt(lr[k], 0)}%`]);
+      p.addEventListener("pointermove", (e) => showTip(e, `<b>${labels[ki]}</b>Mar 2007: ${fmt(rows[0][k])}% · ${lr.p}: ${fmt(lr[k])}%`));
+      p.addEventListener("pointerleave", hideTip);
+      rows.forEach((r, i) => base[i] = top[i]);
+    });
+    // Spread the end labels so none overlap: walk bottom-up, keep 12 units apart.
+    pend.sort((p, q) => q[0] - p[0]);
+    let last = 1e9;
+    pend.forEach(p => { const y = Math.min(p[0], last - 12); last = y; txt(svg, W - m.r + 6, y + 3.5, p[1], "lab"); });
+  }
+
+  // Slope chart for state incomes.
+  function slopeChart(host, rows, opt) {
+    host.innerHTML = "";
+    const W = 560, H = 300, m = { l: 120, r: 130, t: 16, b: 22 };
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Per-capita state income, 2011-12 and 2023-24, constant prices" }, host);
+    const lg = (v) => Math.log10(v);
+    const lo = 20000, hi = 220000;
+    const Y = (v) => H - m.b - (lg(v) - lg(lo)) / (lg(hi) - lg(lo)) * (H - m.t - m.b);
+    const xa = m.l, xb = W - m.r;
+    txt(svg, xa, 10, "2011-12", "tick", "middle"); txt(svg, xb, 10, "2023-24", "tick", "middle");
+    rows.forEach(r => {
+      const hl = opt.hl.includes(r[0]);
+      const c = hl ? css("--accent") : css("--hair-strong");
+      el("line", { x1: xa, x2: xb, y1: Y(r[1]), y2: Y(r[2]), stroke: c, "stroke-width": hl ? 2.2 : 1.2 }, svg);
+      if (hl) {
+        txt(svg, xa - 6, Y(r[1]) + 3.5, `${r[0]} ₹${Math.round(r[1] / 1000)}k`, "lab", "end");
+        txt(svg, xb + 6, Y(r[2]) + 3.5, `₹${Math.round(r[2] / 1000)}k ×${(r[2] / r[1]).toFixed(2)}`, "lab acc");
+      }
+      const hit = el("line", { x1: xa, x2: xb, y1: Y(r[1]), y2: Y(r[2]), stroke: "transparent", "stroke-width": 7 }, svg);
+      hit.addEventListener("pointermove", (e) => showTip(e, `<b>${r[0]}</b>₹${fmt(r[1], 0)} → ₹${fmt(r[2], 0)} (×${(r[2] / r[1]).toFixed(2)})`));
+      hit.addEventListener("pointerleave", hideTip);
+    });
+  }
+
+  // Grouped bars, original estimate against now-anticipated cost.
+  function barPairs(host, rows) {
+    host.innerHTML = "";
+    const W = 560, rowH = 26, m = { l: 118, r: 70, t: 6, b: 6 }, H = m.t + m.b + rows.length * rowH;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Delayed central sector projects by sector, original and anticipated cost, March 2024" }, host);
+    const mx = Math.max(...rows.map(r => r[2]));
+    const X = (v) => m.l + v / mx * (W - m.l - m.r);
+    rows.forEach((r, i) => {
+      const y = m.t + i * rowH;
+      txt(svg, m.l - 6, y + 15, r[0], "tick", "end");
+      el("rect", { x: m.l, y: y + 4, width: X(r[2]) - m.l, height: 16, fill: css("--accent-wash"), stroke: css("--accent-hair") }, svg);
+      el("rect", { x: m.l, y: y + 4, width: X(r[1]) - m.l, height: 16, fill: css("--s1") }, svg);
+      txt(svg, X(r[2]) + 5, y + 16, `+${Math.round((r[2] / r[1] - 1) * 100)}%`, "lab acc");
+    });
+  }
+
+  let wired = false;
+  function drawAll() {
+  // ---------- 1. Rupee: nominal vs real
+  const rup = D.rupee.map(r => [ym(r[0]), r[1], r[2], r[0]]);
+  lineChart(document.getElementById("c-rupee"), {
+    aria: "Rupee's 40-currency nominal and real effective exchange rate indices, 2004 to 2026",
+    series: [
+      { name: "Real (REER)", color: "--s1", pts: rup.map(r => [r[0], r[2], r[3]]), label: "Real " + fmt(rup.at(-1)[2]), w: 2.4 },
+      { name: "Nominal (NEER)", color: "--s3", pts: rup.map(r => [r[0], r[1], r[3]]), label: "Nominal " + fmt(rup.at(-1)[1]) },
+    ],
+    y0: 70, y1: 145, yTicks: [80, 100, 120, 140], xTicks: [2005, 2010, 2015, 2020, 2025],
+    tipX: (p) => p[2], notes: [[rup[0][0], rup[0][1], "138.5", 6, 4]],
+  });
+
+  // ---------- 2. Cash: CIC/GDP and the payment flows
+  const cash = D.cash.map(r => [+r[0], r[1], r[0]]);
+  lineChart(document.getElementById("c-cash"), {
+    aria: "Currency in circulation as a share of GDP, March 1992 to March 2026",
+    series: [{ name: "Currency / GDP", color: "--s1", pts: cash, label: fmt(cash.at(-1)[1]) + "%", w: 2.4 }],
+    y0: 7, y1: 15.5, yTicks: [8, 10, 12, 14], yFmt: (t) => t + "%", xTicks: [1995, 2000, 2005, 2010, 2015, 2020, 2025],
+    tipFmt: (v) => fmt(v, 2) + "% of GDP", tipX: (p) => "March " + p[0],
+    notes: [[2016, 12.08, "12.1% Mar 2016", -6, -8, "end"], [2017, 8.68, "8.7% after demonetisation", 6, 12], [2021, 14.37, "14.4% (pandemic GDP)", -6, -8, "end"]],
+  });
+  const pay = D.pay.map(r => [ym(r[0]), r[1], r[2], r[3], r[0]]);
+  const flowHost = document.getElementById("c-pay");
+  const drawPay = (mode) => {
+    const base = pay[0];
+    const v = (i) => (r) => mode === "idx" ? (r[i] && base[i] ? r[i] / base[i] * 100 : null) : r[i];
+    lineChart(flowHost, {
+      aria: "UPI, ATM and micro-ATM transactions per month, November 2019 to July 2026", h: 200, log: true,
+      series: [
+        { name: "UPI", color: "--s1", pts: pay.map(r => [r[0], v(1)(r), r[4]]), label: "UPI", w: 2.4 },
+        { name: "ATM withdrawals", color: "--s3", pts: pay.map(r => [r[0], v(2)(r), r[4]]), label: "ATM" },
+        { name: "Micro-ATM withdrawals", color: "--s4", pts: pay.map(r => [r[0], v(3)(r), r[4]]), label: "Micro-ATM", dy: 6 },
+      ],
+      y0: mode === "idx" ? 50 : 2, y1: mode === "idx" ? 2500 : 3000,
+      yTicks: mode === "idx" ? [50, 100, 250, 500, 1000, 2000] : [3, 10, 30, 100, 300, 1000, 3000],
+      xTicks: [2020, 2022, 2024, 2026], tipX: (p) => p[2],
+      tipFmt: (x) => mode === "idx" ? fmt(x, 0) + " (Nov 2019 = 100)" : fmt(x, 1) + " crore",
+    });
+  };
+  const pressed = document.querySelector('[data-pay][aria-pressed="true"]');
+  drawPay(pressed ? pressed.dataset.pay : "abs");
+  if (!wired) document.querySelectorAll("[data-pay]").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-pay]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    drawPay(b.dataset.pay);
+  }));
+  wired = true;
+
+  // ---------- 3. Remittances in, LRS out
+  const rem = D.remit.map(r => [+r[0], r[1]]);
+  const lrs = Object.entries(D.lrs.total).map(([y, v]) => [+y, v]);
+  lineChart(document.getElementById("c-remit"), {
+    aria: "Private transfer receipts and outward LRS remittances, US dollars billion",
+    series: [
+      { name: "Money sent home (private transfers)", color: "--s1", pts: rem, label: "In $" + fmt(rem.at(-1)[1], 0) + "bn", w: 2.4 },
+      { name: "Money sent out (LRS)", color: "--s3", pts: lrs, label: "Out $" + fmt(lrs.at(-1)[1], 0) + "bn" },
+    ],
+    y0: 0, y1: 140, yTicks: [0, 35, 70, 105, 140], yFmt: (t) => "$" + t, xTicks: [1975, 1985, 1995, 2005, 2015, 2025],
+    tipX: (p) => "FY ending March " + p[0], tipFmt: (v) => "$" + fmt(v, 1) + " bn",
+    notes: [[1991, 2.08, "$2.1bn 1990-91", 0, -10, "middle"]],
+  });
+
+  // ---------- 4. Household saving and borrowing (% of GDP, 2011-12 base)
+  const hh = D.hh.map(r => [+r[0], r[2], r[3], r[2] - r[3], r[0]]);
+  lineChart(document.getElementById("c-hh"), {
+    aria: "Household gross financial saving, borrowing and net financial saving as a share of GDP, 2011-12 to 2023-24",
+    series: [
+      { name: "Gross financial saving", color: "--s3", pts: hh.map(r => [r[0], r[1]]), label: "Saved " + fmt(hh.at(-1)[1]) },
+      { name: "Borrowing", color: "--s1", pts: hh.map(r => [r[0], r[2]]), label: "Borrowed " + fmt(hh.at(-1)[2]), w: 2.4 },
+      { name: "Net financial saving", color: "--ink", pts: hh.map(r => [r[0], r[3]]), label: "Net " + fmt(hh.at(-1)[3]), dash: "4 3", dy: 4 },
+    ],
+    y0: 0, y1: 16, yTicks: [0, 4, 8, 12, 16], yFmt: (t) => t + "%", xTicks: [2012, 2015, 2018, 2021, 2024],
+    tipX: (p) => (p[0] - 1) + "-" + String(p[0]).slice(2), tipFmt: (v) => fmt(v, 1) + "% of GDP",
+  });
+
+  // ---------- 5. Who owns the central government's bonds
+  const g = D.gsec; const cols = g.cols;
+  const idx = (s) => cols.findIndex(c => c.includes(s));
+  const keymap = { banks: idx("Commercial Banks"), ins: idx("Insurance"), rbi: idx("RBI"), pf: idx("Provident"), pen: idx("Pension"), fpi: idx("Foreign"), mf: idx("Mutual") };
+  const pm = { Mar: 2, Jun: 5, Sep: 8, Dec: 11 };
+  const grows = g.rows.map(r => {
+    const [mo, yr] = r[0].split(" ");
+    const o = { x: +yr + (pm[mo] || 0) / 12, p: r[0] };
+    for (const k in keymap) o[k] = r[keymap[k] + 1] || 0;
+    o.other = Math.max(0, 100 - Object.keys(keymap).reduce((s, k) => s + o[k], 0));
+    return o;
+  });
+  stackChart(document.getElementById("c-gsec"), grows,
+    ["banks", "ins", "rbi", "pf", "pen", "mf", "fpi", "other"],
+    ["--s1", "--s2", "--s6", "--s4", "--s3", "--s5", "--prx", "--s7"],
+    ["Banks", "Insurers", "RBI", "Provident funds", "Pension funds", "Mutual funds", "Foreign investors", "Others"]);
+
+  // ---------- 6. Wages vs farm-labourer prices
+  const w0 = D.wage.find(r => r[0] === "2014-04");
+  const wg = D.wage.map(r => [ym(r[0]), r[1] / w0[1] * 100, r[2] / w0[2] * 100, r[1], r[0]]);
+  lineChart(document.getElementById("c-wage"), {
+    aria: "Male general agricultural labourer daily wage and CPI for agricultural labourers, indexed to April 2014",
+    series: [
+      { name: "Daily wage (₹)", color: "--s1", pts: wg.map(r => [r[0], r[1], r[4]]), label: "Wage " + fmt(wg.at(-1)[1], 0), w: 2.4 },
+      { name: "Prices (CPI-AL)", color: "--s3", pts: wg.map(r => [r[0], r[2], r[4]]), label: "Prices " + fmt(wg.at(-1)[2], 0), dy: 6 },
+    ],
+    x0: 2014, y0: 90, y1: 200, yTicks: [100, 125, 150, 175, 200], xTicks: [2014, 2016, 2018, 2020, 2022, 2024],
+    tipX: (p) => p[2], tipFmt: (v) => fmt(v, 0) + " (Apr 2014 = 100)",
+  });
+
+  // ---------- 7. Gold
+  const gold = D.gold.map(r => [ym(r[0]), r[1], r[0]]);
+  lineChart(document.getElementById("c-gold"), {
+    aria: "Monthly average price of 10 grams of gold in Mumbai, 1990 to 2026, log scale", log: true,
+    series: [{ name: "Gold, ₹ per 10 g", color: "--s2", pts: gold, label: "₹" + fmt(gold.at(-1)[1], 0), w: 2.4 }],
+    y0: 2500, y1: 200000, yTicks: [3000, 10000, 30000, 100000], yFmt: (t) => "₹" + (t >= 1000 ? t / 1000 + "k" : t),
+    xTicks: [1990, 2000, 2010, 2020], tipX: (p) => p[2], tipFmt: (v) => "₹" + fmt(v, 0),
+    notes: [[gold[0][0], gold[0][1], "₹3,417", 6, 12]],
+  });
+
+  // ---------- 8. States
+  const big = ["Bihar", "Uttar Pradesh", "Jharkhand", "Madhya Pradesh", "West Bengal", "Odisha", "Kerala", "Maharashtra", "Tamil Nadu", "Karnataka", "Gujarat", "Rajasthan", "Assam", "Telangana", "Haryana", "Punjab", "Andhra Pradesh", "Chhattisgarh"];
+  slopeChart(document.getElementById("c-states"), D.states.filter(r => big.includes(r[0])), { hl: ["Bihar", "Gujarat", "Uttar Pradesh", "Karnataka", "Odisha"] });
+
+  // ---------- 9. Delayed projects by sector (March 2024)
+  const per = D.projSec.map(r => [r[0], r[1] / 1e12, r[2] / 1e12]).filter(r => r[1] > 0.1).sort((a, b) => b[2] - a[2]);
+  barPairs(document.getElementById("c-proj"), per);
+
+  // ---------- 10. MSP vs CPI-AL
+  const base = 2014;
+  const cp = D.msp.cpial, pd = D.msp.paddy, wh = D.msp.wheat;
+  const yrs = Object.keys(cp).map(Number).filter(y => y >= 1997);
+  lineChart(document.getElementById("c-msp"), {
+    aria: "Minimum support price for common paddy and wheat against CPI for agricultural labourers, indexed to 2013-14",
+    series: [
+      { name: "Paddy MSP", color: "--s1", pts: yrs.map(y => [y, pd[y] / pd[base] * 100]), label: "Paddy", w: 2.2 },
+      { name: "Wheat MSP", color: "--s2", pts: yrs.map(y => [y, wh[y] / wh[base] * 100]), label: "Wheat", dy: -6 },
+      { name: "CPI-AL", color: "--s3", pts: yrs.map(y => [y, cp[y] / cp[base] * 100]), label: "Prices", dy: 8 },
+    ],
+    y0: 25, y1: 200, yTicks: [50, 100, 150, 200], xTicks: [2000, 2005, 2010, 2015, 2020, 2025], log: true,
+    tipX: (p) => (p[0] - 1) + "-" + String(p[0]).slice(2), tipFmt: (v) => fmt(v, 0) + " (2013-14 = 100)",
+  });
+
+  // ---------- Concept sketches (illustrative, not data). Each draws the shape of a signature visual so the team
+  // can argue about it before anyone builds it. Positions are schematic; where a sketch uses a real number it says so.
+  const C = (v) => css(v);
+  const SKETCH = {
+    // 1. Constellation: rupee at centre, partners orbit; nominal drifts out, real stays on one ring.
+    constellation(svg) {
+      const cx = 150, cy = 105;
+      el("circle", { cx, cy, r: 62, fill: "none", stroke: C("--hair-strong"), "stroke-dasharray": "3 3" }, svg);
+      const partners = [["USD", 15, 0], ["EUR", 12, 50], ["CNY", 13, 100], ["AED", 9, 150], ["JPY", 6, 200], ["GBP", 5, 250], ["SGD", 5, 300], ["KRW", 4, 330]];
+      partners.forEach(([n, wgt, a]) => {
+        const rad = a * Math.PI / 180;
+        const xr = cx + 62 * Math.cos(rad), yr = cy + 62 * Math.sin(rad);
+        const xn = cx + 92 * Math.cos(rad), yn = cy + 92 * Math.sin(rad);
+        el("line", { x1: xr, y1: yr, x2: xn, y2: yn, stroke: C("--s3"), "stroke-dasharray": "2 3" }, svg);
+        el("circle", { cx: xn, cy: yn, r: wgt / 2 + 2, fill: "none", stroke: C("--s3") }, svg);
+        el("circle", { cx: xr, cy: yr, r: wgt / 2 + 2, fill: C("--s1"), opacity: .85 }, svg);
+        txt(svg, xr, yr + 3.5, n, "", "middle").style.fill = C("--raised");
+      });
+      el("circle", { cx, cy, r: 14, fill: C("--accent") }, svg);
+      txt(svg, cx, cy + 4, "₹", "", "middle").style.cssText = `fill:${C("--raised")};font-size:14px;font-weight:700`;
+      txt(svg, 262, 40, "Filled: real (REER) orbit,", ""); txt(svg, 262, 54, "where they stay", "");
+      txt(svg, 262, 80, "Rings: nominal (NEER),", ""); txt(svg, 262, 94, "drifting away", "");
+      txt(svg, 262, 120, "Size = trade weight", ""); txt(svg, 262, 146, "Toggle: nominal / real", "").style.fill = C("--prx");
+      txt(svg, 262, 160, "Scrub: 2004 → 2026", "").style.fill = C("--prx");
+    },
+    // 2. Tide and rain: cash/GDP tide with UPI particles falling.
+    tide(svg) {
+      const W = 380, H = 200;
+      const pts = D.cash.filter(r => +r[0] >= 2008).map((r, i, a) => [20 + i / (a.length - 1) * (W - 40), H - 20 - (r[1] - 6) / 10 * (H - 60)]);
+      let d = `M20,${H - 20}` + pts.map(p => `L${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("") + `L${W - 20},${H - 20}Z`;
+      el("path", { d, fill: C("--accent-wash"), stroke: C("--s1"), "stroke-width": 1.8 }, svg);
+      let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      for (let i = 0; i < 140; i++) {
+        const t = rnd(); const x = 20 + Math.pow(t, .35) * (W - 40); const y = 12 + rnd() * 60;
+        if (x > W * .55 || rnd() > .7) el("line", { x1: x, y1: y, x2: x - 1.5, y2: y + 6, stroke: C("--s3"), "stroke-width": 1.2, opacity: .7 }, svg);
+      }
+      txt(svg, 24, H - 6, "2008", "tick"); txt(svg, W - 24, H - 6, "2026", "tick", "end");
+      txt(svg, 24, 92, "Tide: currency ÷ GDP (real data, 2011-12 base)", "tick");
+      txt(svg, W - 22, 10, "Rain: 1 drop = 1 crore UPI payments", "tick", "end").style.fill = C("--s3");
+    },
+    // 3. The border: inward and outward particle streams.
+    border(svg) {
+      const W = 380, H = 200, bx = 190;
+      el("line", { x1: bx, x2: bx, y1: 14, y2: H - 14, stroke: C("--ink"), "stroke-width": 2 }, svg);
+      txt(svg, bx - 8, 12, "World", "tick", "end"); txt(svg, bx + 8, 12, "India", "tick");
+      let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      for (let i = 0; i < 90; i++) { const y = 30 + rnd() * 70, x = 30 + rnd() * 320; el("circle", { cx: x, cy: y, r: 2.2, fill: C("--s1"), opacity: x < bx ? .45 : .95 }, svg); }
+      const cols = ["--s3", "--s2", "--s4", "--s5", "--prx"]; const lab = ["Travel", "Gifts", "Relatives", "Study", "Invest"];
+      for (let i = 0; i < 26; i++) { const k = i % 5; const y = 122 + k * 12, x = 60 + rnd() * 280; el("circle", { cx: x, cy: y, r: 2.2, fill: C(cols[k]), opacity: x > bx ? .45 : .95 }, svg); }
+      lab.forEach((l, k) => txt(svg, 22, 126 + k * 12, l, "tick").style.fill = C(cols[k]));
+      txt(svg, 350, 64, "→ in", "lab acc", "end"); txt(svg, 350, 182, "← out (LRS)", "lab", "end");
+    },
+    // 4. Household ledger: ₹100 isotype per side.
+    ledger(svg) {
+      const cell = 9, gap = 2;
+      const draw = (x0, n, color, label) => { for (let i = 0; i < 100; i++) { const c = i % 10, r = Math.floor(i / 10); el("rect", { x: x0 + c * (cell + gap), y: 30 + r * (cell + gap), width: cell, height: cell, rx: 2, fill: i < n ? C(color) : C("--neutral-wash") }, svg); } txt(svg, x0, 22, label, "lab"); };
+      draw(14, 100, "--s3", "₹100 saved in financial assets");
+      draw(150, 54, "--s1", "of which borrowed back");
+      draw(286, 46, "--ink-2", "what is left: net");
+      txt(svg, 14, 158, "Shares here are illustrative. The real split comes from the gate-checked figures.", "tick");
+      txt(svg, 14, 172, "Scrub years 2011-12 → 2024-25; tap a square for the instrument.", "tick").style.fill = C("--prx");
+    },
+    // 5. ₹100 of government bonds re-sorting between owners.
+    bonds(svg) {
+      const groups = [["Banks", 50, 33, "--s1"], ["Insurers", 26, 26, "--s2"], ["RBI", 7, 18, "--s6"], ["PF + pension", 7, 9, "--s4"], ["Foreign", 0, 3, "--prx"], ["Others", 10, 11, "--s7"]];
+      const col = (x0, k, title) => { let i = 0; txt(svg, x0, 16, title, "lab"); groups.forEach(g => { for (let j = 0; j < g[k]; j++, i++) { const c = i % 10, r = Math.floor(i / 10); el("circle", { cx: x0 + 5 + c * 11, cy: 30 + r * 11, r: 4.2, fill: C(g[3]) }, svg); } }); };
+      col(14, 1, "Mar 2007"); col(150, 2, "Mar 2026");
+      groups.forEach((g, i) => { el("circle", { cx: 290, cy: 30 + i * 18, r: 5, fill: C(g[3]) }, svg); txt(svg, 300, 34 + i * 18, `${g[0]} ${g[1]}→${g[2]}`, "tick"); });
+      txt(svg, 14, 156, "Rounded shares from the ownership table; dots re-sort quarter by quarter.", "tick");
+    },
+    // 6. Day's basket: wage turned into goods.
+    basket(svg) {
+      el("path", { d: "M40,70 L340,70 L315,170 L65,170 Z", fill: C("--accent-wash"), stroke: C("--s1"), "stroke-width": 1.5 }, svg);
+      const items = [["Rice", 9], ["Dal", 4], ["Oil", 3], ["Milk", 5], ["Veg", 6], ["Fuel", 3]];
+      let x = 70; items.forEach(([n, k], i) => { for (let j = 0; j < k; j++) el("rect", { x: x + (j % 3) * 9, y: 150 - Math.floor(j / 3) * 9, width: 7, height: 7, rx: 1.5, fill: C(["--s1", "--s2", "--s4", "--s3", "--s5", "--s6"][i]) }, svg); txt(svg, x, 165, n, "tick"); x += 44; });
+      txt(svg, 40, 30, "₹217 → ₹414 a day (real data, Apr 2014 → Apr 2025)", "lab acc");
+      txt(svg, 40, 48, "…but the basket it buys grows only about 12%", "tick");
+      txt(svg, 40, 190, "Basket items and weights follow the farm-labourer price index; quantities illustrative.", "tick");
+    },
+    // 7. Race track: gold, FD, prices.
+    race(svg) {
+      const cx = 140, cy = 100;
+      [70, 56, 42].forEach((r, i) => { el("ellipse", { cx, cy, rx: r + 40, ry: r, fill: "none", stroke: C("--hair-strong") }, svg); });
+      const run = [["Gold", 70, 300, "--s2"], ["Fixed deposit", 56, 210, "--s3"], ["Prices", 42, 170, "--s1"]];
+      run.forEach(([n, r, a, c], i) => { const t = a * Math.PI / 180; const x = cx + (r + 40) * Math.cos(t), y = cy + r * Math.sin(t); el("circle", { cx: x, cy: y, r: 6, fill: C(c) }, svg); el("circle", { cx: 290, cy: 54 + i * 22, r: 5, fill: C(c) }, svg); txt(svg, 300, 58 + i * 22, n, "tick"); });
+      txt(svg, 280, 140, "Pick a start year", "tick").style.fill = C("--prx"); txt(svg, 280, 154, "One lap = one year", "tick");
+    },
+    // 8. Time-distance: states placed by when the leader was at their level.
+    timedist(svg) {
+      const W = 380; const x0 = 30, x1 = W - 20; const X = (y) => x0 + (y - 1995) / 30 * (x1 - x0);
+      el("line", { x1: x0, x2: x1, y1: 120, y2: 120, stroke: C("--axis") }, svg);
+      [1995, 2005, 2015, 2025].forEach(y => { txt(svg, X(y), 136, y, "tick", "middle"); });
+      [["Gujarat", 2024, "--accent"], ["Karnataka", 2023.6], ["Kerala", 2019], ["Odisha", 2012], ["UP", 2003], ["Bihar", 1997]].forEach(([n, y, c], i) => {
+        el("circle", { cx: X(y), cy: 120, r: 5, fill: C(c || "--s3") }, svg);
+        el("line", { x1: X(y), x2: X(y), y1: 115, y2: 60 - (i % 3) * 16, stroke: C("--hair-strong") }, svg);
+        txt(svg, X(y), 56 - (i % 3) * 16, n, "tick", "middle");
+      });
+      txt(svg, x0, 168, "Each state sits at the year the leading state reached its income today.", "tick");
+      txt(svg, x0, 182, "Positions schematic; the real years need the leader's longer series.", "tick");
+    },
+  };
+  document.querySelectorAll("[data-sketch]").forEach(svg => { svg.innerHTML = ""; SKETCH[svg.dataset.sketch] && SKETCH[svg.dataset.sketch](svg); });
+  }
+  drawAll();
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
+
+  // Theme toggle redraw
+  const root = document.documentElement;
+  const tb = document.getElementById("theme-toggle");
+  tb.addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("slate-theme", root.dataset.theme); } catch (e) {}
+    drawAll();
+  });
+})();
+
+// ---------- The ₹1 lakh lens: one slider, six translations, all from DBIE prices.
+(function () {
+  const D = JSON.parse(document.getElementById("plan-data").textContent);
+  const rows = D.lakh; // [year, gold g, silver kg, mason days, USD, wheat quintals, CPI-IW (2016=100 chained), gold ₹/10g, ₹/$]
+  const by = Object.fromEntries(rows.map(r => [r[0], r]));
+  const slider = document.getElementById("lakh-year");
+  const out = document.getElementById("lakh-out");
+  const shelf = document.getElementById("lakh-shelf");
+  if (!slider || !shelf) return;
+  const cssv = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const nf = (v, d = 0) => v == null ? "–" : v.toLocaleString("en-IN", { maximumFractionDigits: d, minimumFractionDigits: d });
+  const piece = (g) => g >= 100 ? "a heavy necklace set" : g >= 40 ? "a pair of bangles" : g >= 18 ? "a chain" : g >= 8 ? "a pair of earrings" : "a ring";
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (t, a, p) => { const n = document.createElementNS(NS, t); for (const k in a) n.setAttribute(k, a[k]); p && p.appendChild(n); return n; };
+  function glyphGold(svg, g) {
+    // A ring of beads whose count follows the grams: more gold, longer string.
+    // One bead per 5 g, strung on an arc that lengthens with the gold: necklace, bangles, chain, ring.
+    const n = Math.max(1, Math.round(g / 5));
+    if (n < 4) { mk("circle", { cx: 60, cy: 30, r: 9, fill: "none", stroke: cssv("--s2"), "stroke-width": 3.5 }, svg); return; }
+    const span = Math.min(0.92, 0.25 + n / 60), r = 20 + Math.min(24, n * .5);
+    for (let i = 0; i < n; i++) { const a = Math.PI * (0.5 - span / 2 + span * i / (n - 1)); mk("circle", { cx: 60 + r * Math.cos(a), cy: 6 + r * Math.sin(a) * 1.05, r: Math.max(1.6, Math.min(3, 120 / n / 2.4)), fill: cssv("--s2") }, svg); }
+  }
+  function glyphGrid(svg, units, color, per) {
+    const n = Math.min(100, Math.round(units / per));
+    for (let i = 0; i < 100; i++) { const c = i % 20, rr = Math.floor(i / 20); mk("rect", { x: 2 + c * 5.8, y: 4 + rr * 5.8, width: 4.6, height: 4.6, rx: 1, fill: i < n ? cssv(color) : cssv("--neutral-wash") }, svg); }
+  }
+  function render() {
+    const y = +slider.value, r = by[y], now = by[2026];
+    const worth = 1e5 * now[6] / r[6];
+    out.textContent = y;
+    const tiles = [
+      ["Gold", `${nf(r[1], 1)} g`, `about ${piece(r[1])}; Mumbai price ₹${nf(r[7])} per 10 g`, (s) => glyphGold(s, r[1])],
+      ["Silver", `${nf(r[2], 2)} kg`, "Mumbai price, yearly average", (s) => glyphGrid(s, r[2] * 1000, "--s5", 135)],
+      ["A mason's days", r[3] ? `${nf(r[3])} days` : "not yet published", "rural mason, male, all-India daily wage", (s) => r[3] && glyphGrid(s, r[3], "--s1", 9.2)],
+      ["US dollars", `$${nf(r[4])}`, `at ₹${nf(r[8], 2)} a dollar (financial-year average)`, (s) => glyphGrid(s, r[4], "--s3", 21)],
+      ["Wheat at MSP", `${nf(r[5], 1)} quintals`, "minimum support price, marketing year", (s) => glyphGrid(s, r[5], "--s4", 1.62)],
+      ["Worth in 2026", `₹${nf(worth / 1e5, 2)} lakh`, "₹1 lakh of that year, carried to 2026 prices by the workers' price index", (s) => glyphGrid(s, worth / 1e3, "--accent", 4.4)],
+    ];
+    shelf.innerHTML = "";
+    tiles.forEach(([t, v, sub, draw]) => {
+      const li = document.createElement("div"); li.className = "lk";
+      li.innerHTML = `<div class="lk-t">${t}</div><div class="lk-v">${v}</div>`;
+      const svg = mk("svg", { viewBox: "0 0 120 60", "aria-hidden": "true" }); li.appendChild(svg); draw(svg);
+      const p = document.createElement("div"); p.className = "lk-s"; p.textContent = sub; li.appendChild(p);
+      shelf.appendChild(li);
+    });
+  }
+  slider.addEventListener("input", render);
+  document.getElementById("theme-toggle").addEventListener("click", render);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  render();
+})();
+</script>
+</body>
+</html>
