@@ -66,3 +66,6 @@ infra/terraform/**/*.tfplan
 
 # Which archived scrape data/ holds (written by pnpm data:archive / data:fetch)
 data/.scrape-version
+
+# session logs written by the agent (YYYY-wWW agent-log.md)
+*agent-log.md

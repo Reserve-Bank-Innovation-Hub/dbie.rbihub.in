@@ -1,0 +1,146 @@
+/* Days of work: the rows of day-squares (DaysRows.tsx) and the split bar (SplitBar.tsx). Every class carries the dy-
+   prefix. The squares size themselves from the figure's width: the widest strip, counted in squares (--dy-units, set
+   by DaysRows from the data), shares out what the label and the figure leave, in whole pixels, up to 12px on a wide
+   figure and 9px on a narrow one, with gaps a third of a square. */
+
+#what-got-cheaper-page {
+
+    /* ROWS OF DAY-SQUARES ============================================================================================ */
+    .dy-frame {
+        container-type : inline-size;
+    }
+
+    .dy-rows {
+        display        : flex;
+        flex-direction : column;
+        gap            : 8px;
+    }
+
+    .dy-row {
+        --dy-label-w : 176px;
+        --dy-fig-w   : 72px;
+        --dy-sq-max  : 12px;
+        /* the label, the two gaps, room for the figure, and the wider gap after the tenth square */
+        --dy-fixed   : calc(var(--dy-label-w) + 24px + var(--dy-fig-w) + 8px);
+        --dy-sq      : clamp(4px, round(down, (100cqw - var(--dy-fixed)) / var(--dy-units), 1px), var(--dy-sq-max));
+        --dy-gap     : round(down, var(--dy-sq) / 3, 1px);
+
+        display     : flex;
+        align-items : center;
+        gap         : 12px;
+        font-family : var(--font-sans-serif);
+        font-size   : 14px;
+        line-height : 20px;
+        color       : var(--ink);
+    }
+
+    /* the site sets a line height on every span; these keep the row's */
+    .dy-name, .dy-days, .dy-split-left, .dy-split-right { line-height : 20px; }
+
+    .dy-label {
+        flex        : none;
+        width       : var(--dy-label-w);
+        display     : flex;
+        align-items : center;
+        gap         : 8px;
+    }
+
+    .dy-emoji { flex : none; width : 24px; font-size : 18px; line-height : 1; text-align : center; }
+
+    .dy-strip {
+        flex        : none;
+        display     : flex;
+        align-items : center;
+        gap         : var(--dy-gap);
+    }
+
+    .dy-sq {
+        position   : relative;
+        flex       : none;
+        box-sizing : border-box;
+        width      : var(--dy-sq);
+        height     : var(--dy-sq);
+
+        /* an empty day: the rule at twice its strength, which a 1px square needs to show on the dark paper */
+        &.is-slot { border : 1px solid color-mix(in oklch, var(--ink), transparent 76%); }
+        &.is-extra { width : calc(var(--dy-sq) * var(--dy-part, 1)); }
+        &.is-first-extra { margin-left : calc(8px - var(--dy-gap)); }
+    }
+
+    .dy-fill {
+        position         : absolute;
+        inset            : 0;
+        background       : var(--ink);
+        transform-origin : 0 50%;
+    }
+
+    .is-slot > .dy-fill  { inset : -1px; }
+    .is-extra > .dy-fill { background : var(--c-dearer); }
+
+    .dy-days {
+        flex                 : none;
+        white-space          : nowrap;
+        font-variant-numeric : tabular-nums;
+    }
+
+    /* A narrow figure: the name and the figure on one line, the strip under them at the full width. */
+    @container (max-width : 639px) {
+        .dy-rows { gap : 12px; }
+
+        .dy-row {
+            --dy-sq-max  : 9px;
+            --dy-fixed   : 8px;
+
+            display               : grid;
+            grid-template-columns : minmax(0, 1fr) auto;
+            grid-template-areas   : "label days" "strip strip";
+            row-gap               : 4px;
+            column-gap            : 12px;
+        }
+
+        .dy-label { grid-area : label; width : auto; }
+        .dy-strip { grid-area : strip; }
+        .dy-days  { grid-area : days; text-align : right; }
+    }
+
+    /* THE SPLIT BAR ================================================================================================== */
+    .dy-split-labels {
+        display         : flex;
+        align-items     : flex-end;
+        justify-content : space-between;
+        gap             : 16px;
+        margin-bottom   : 8px;
+        font-family     : var(--font-sans-serif);
+        font-size       : 14px;
+        line-height     : 20px;
+        color           : var(--ink);
+        font-variant-numeric : tabular-nums;
+    }
+
+    .dy-split-left  { flex : 1 1 auto; min-width : 0; }
+    .dy-split-right { flex : none; white-space : nowrap; text-align : right; }
+
+    .dy-split-bar {
+        display          : flex;
+        gap              : 2px;
+        height           : 16px;
+        transform-origin : 0 50%;
+    }
+
+    .dy-split-part {
+        flex-basis : 0;
+        min-width  : 0;
+
+        &.is-cheaper { background : var(--c-cheaper); }
+        &.is-dearer  { background : var(--c-dearer); }
+    }
+
+    .dy-split-list {
+        margin      : 16px 0 0;
+        font-family : var(--font-sans-serif);
+        font-size   : 13px;
+        line-height : 20px;
+        color       : var(--ink-soft);
+        font-variant-numeric : tabular-nums;
+    }
+}

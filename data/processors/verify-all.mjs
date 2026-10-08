@@ -111,6 +111,7 @@ const datasets = [
   { name: 'story-external-debt', mode: 'exact' },        // story series — re-snapshot when their sources refresh
   { name: 'story-the-lights-came-on', mode: 'exact' },
   { name: 'story-the-two-lakh-line', mode: 'exact' },
+  { name: 'story-what-got-cheaper', mode: 'exact' },
   { name: 'treasury-bill-auctions', mode: 'fresh' },
   { name: 'treasury-bills-ownership', mode: 'fresh' },
   { name: 'union-government-accounts', mode: 'fresh' },

@@ -1,0 +1,223 @@
+/* The walk: a tall section whose sticky frame holds one SVG and the caption card. Colours come only from the page's
+   tokens on #what-got-cheaper-page; the one easing is --walk-ease, set from EASE on the frame. */
+#what-got-cheaper-page {
+    .walk {
+        position   : relative;
+        background : var(--paper);
+    }
+
+    .walk-frame {
+        position    : sticky;
+        top         : 0;
+        height      : 100vh;
+        height      : 100svh;
+        overflow    : hidden;
+        background  : var(--paper);
+        color       : var(--ink);
+        font-family : var(--font-sans-serif);
+    }
+
+    .walk-svg {
+        position : absolute;
+        inset    : 0;
+        display  : block;
+    }
+
+    /* THE FRAME ================================================================================================== */
+    .walk-grid { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
+    .walk-zero { stroke : var(--ink); stroke-width : 1; shape-rendering : crispEdges; }
+
+    .walk-tick, .walk-head, .walk-zone, .walk-marker, .walk-end text {
+        font-family          : var(--font-sans-serif);
+        font-size            : 12px;
+        font-variant-numeric : tabular-nums;
+    }
+
+    .walk-tick   { fill : var(--ink-soft); }
+    .walk-head   { fill : var(--ink-soft); }
+    /* A zone word keeps a margin of paper round its letters where a chip's line runs under it on a phone. */
+    .walk-zone   { fill : var(--ink-soft); stroke : var(--paper); stroke-width : 4px; stroke-linejoin : round; paint-order : stroke; }
+    .walk-marker { fill : var(--ink-soft); }
+    .walk-marker-tick { stroke : var(--ink-soft); stroke-width : 1; shape-rendering : crispEdges; }
+
+    /* THE LINES ================================================================================================== */
+    .walk-line {
+        fill            : none;
+        stroke-width    : 1.5;
+        stroke-linejoin : round;
+        stroke-linecap  : round;
+        transition      : stroke-width 0.2s var(--walk-ease), opacity 0.2s var(--walk-ease);
+    }
+
+    .walk-line.is-future { stroke : var(--ink-faint); stroke-width : 1; }
+    .walk-line.is-active { stroke-width : 2; }
+    .walk-line.is-done.tone-basket { stroke-width : 1.5; }
+
+    .tone-dearer  { --tone : var(--c-dearer); }
+    .tone-cheaper { --tone : var(--c-cheaper); }
+    .tone-basket  { --tone : var(--c-basket); }
+    .tone-deemph  { --tone : var(--c-deemph); }
+
+    .walk-line.tone-dearer, .walk-line.tone-cheaper, .walk-line.tone-basket, .walk-line.tone-deemph { stroke : var(--tone); }
+    .walk-line.tone-deemph { stroke-width : 1.25; }
+
+    .walk-series.is-extra { animation : walk-in 0.3s var(--walk-ease) backwards; }
+
+    .walk-hit {
+        fill           : none;
+        stroke         : transparent;
+        stroke-width   : 12;
+        pointer-events : stroke;
+    }
+
+    /* THE END LABELS ============================================================================================= */
+    .walk-end {
+        animation  : walk-in 0.3s var(--walk-ease) backwards;
+        transition : opacity 0.2s var(--walk-ease);
+
+        text       { fill : var(--tone); }
+        &.tone-basket text { font-weight : 600; }
+    }
+
+    .walk-end-label { transition : transform 0.3s var(--walk-ease); }
+
+    .walk-end text.walk-end-emoji { font-size : 18px; }
+
+    .walk-leader { stroke : var(--rule); stroke-width : 1; }
+
+    .walk-markers { transition : opacity 0.2s var(--walk-ease); }
+
+    /* Hovering a line or its label lifts it and dims the rest, on the finished chart and for a pointer only. */
+    @media (hover : hover) {
+        .walk.is-finished {
+            .walk-end { cursor : default; }
+            .is-dim { opacity : 0.2; }
+            .walk-series.is-hot .walk-line { stroke-width : 2.5; }
+        }
+    }
+
+    /* THE GOOD ON ITS LINE ======================================================================================= */
+    /* The emoji renders in the platform's own emoji font, whatever the fill; its size is set on the element. */
+    .walk-emoji { pointer-events : none; }
+
+    .walk-cue {
+        position       : absolute;
+        font-size      : 13px;
+        line-height    : 20px;
+        color          : var(--ink-soft);
+        white-space    : nowrap;
+        pointer-events : none;
+
+        &.is-unplaced { visibility : hidden; }
+    }
+
+    /* THE CAPTION CARD =========================================================================================== */
+    .walk-caption {
+        position         : absolute;
+        box-sizing       : border-box;
+        padding          : 16px;
+        background       : var(--paper);
+        border           : 1px solid var(--rule);
+        display          : flex;
+        flex-direction   : column;
+        gap              : 4px;
+
+        &.is-empty, &.is-unplaced { visibility : hidden; }
+
+        &.is-chips { gap : 8px; }
+    }
+
+    .walk-caption-head {
+        display     : flex;
+        align-items : center;
+        gap         : 8px;
+        min-width   : 0;
+
+    }
+
+    .walk-caption-emoji {
+        flex        : none;
+        font-size   : 28px;
+        line-height : 32px;
+    }
+
+    .walk-caption-name {
+        margin        : 0;
+        font-family   : var(--font-serif);
+        font-size     : 20px;
+        font-weight   : 400;
+        line-height   : 24px;
+        color         : var(--ink);
+        white-space   : nowrap;
+        overflow      : hidden;
+        text-overflow : ellipsis;
+    }
+
+    .walk-caption-readout {
+        display              : block;
+        min-height           : 20px;
+        font-size            : 13px;
+        line-height          : 20px;
+        font-variant-numeric : tabular-nums;
+        color                : var(--ink-soft);
+    }
+
+    .walk-caption-text {
+        margin      : 4px 0 0;
+        font-size   : 13px;
+        line-height : 20px;
+        color       : var(--ink);
+    }
+
+    .walk-chips-note {
+        margin      : 0;
+        font-size   : 12px;
+        line-height : 16px;
+        color       : var(--ink-soft);
+    }
+
+    .walk-chips {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 8px;
+    }
+
+    .walk-chip {
+        min-height    : 44px;
+        padding       : 0 12px;
+        font-family   : var(--font-sans-serif);
+        font-size     : 14px;
+        line-height   : 20px;
+        color         : var(--ink);
+        background    : var(--paper);
+        border        : 1px solid var(--rule);
+        border-radius : 4px;
+        cursor        : pointer;
+        transition    : color 0.2s var(--walk-ease), border-color 0.2s var(--walk-ease);
+
+        &.is-on { color : var(--accent); border-color : var(--accent); }
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+    }
+
+    /* On a wide finished chart the chips and the note sit in the band above the plot, without the card's frame. */
+    .walk-caption.is-band {
+        padding    : 0;
+        border     : none;
+        background : transparent;
+        gap        : 10px;
+
+        .walk-chips      { flex-wrap : nowrap; }
+        .walk-chips-note { white-space : nowrap; }
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .walk-end, .walk-series.is-extra { animation : none; }
+        .walk-end-label, .walk-line, .walk-markers, .walk-chip { transition : none; }
+        .walk-cue { display : none; }
+    }
+}
+
+@keyframes walk-in {
+    from { opacity : 0; }
+    to   { opacity : 1; }
+}

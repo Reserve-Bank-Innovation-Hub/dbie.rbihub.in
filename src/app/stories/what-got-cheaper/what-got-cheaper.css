@@ -1,0 +1,318 @@
+#what-got-cheaper-page {
+    /* The site's own chart scheme (src/components/charts/chartConfig.ts), by role, so the story reads like every other
+       chart here: the first three categorical slots for the three major groups (grown or mined, fuel and power,
+       factory-made), the emphasis hue, the de-emphasis grey and the cool and warm poles. */
+    --c-major-0 : var(--green);
+    --c-major-1 : var(--pink);
+    --c-major-2 : var(--violet);
+    --c-emph    : var(--violet);
+    --c-second  : var(--green);
+    --c-deemph  : var(--grey);
+    --c-cool    : var(--blue-light10);
+    --c-warm    : var(--salmon);
+    --c-faint   : var(--grey-light80);
+    --fig-bg    : var(--grid-cell-bg);
+    --ink       : var(--paragraph-text-colour);
+    --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
+    --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
+    --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+    /* The roles the figures are drawn in: the paper every figure sits on, the hairline rule, and the two directions of
+       a price line (the diverging poles of the site's scheme) with the basket in ink. */
+    --paper     : var(--fig-bg);
+    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
+    --c-dearer  : var(--c-warm);
+    --c-cheaper : var(--c-cool);
+    --c-basket  : var(--ink);
+
+    .sr-only {
+        position    : absolute;
+        width       : 1px;
+        height      : 1px;
+        overflow    : hidden;
+        clip        : rect(0 0 0 0);
+        white-space : nowrap;
+    }
+
+    .major-0 { --c-major : var(--c-major-0); }
+    .major-1 { --c-major : var(--c-major-1); }
+    .major-2 { --c-major : var(--c-major-2); }
+
+    /* THE TITLE ================================================================================================== */
+    .title-block {
+        padding : var(--medium) 0 var(--small);
+    }
+
+    .hero-title {
+        font-family    : var(--font-serif);
+        font-size      : clamp(44px, 7vw, 88px);
+        line-height    : 0.98;
+        letter-spacing : -0.02em;
+
+        .accent { color : var(--accent); }
+    }
+
+    .hero-sub {
+        max-width : 60ch;
+    }
+
+    /* THE CHAPTERS =============================================================================================== */
+    .chapter {
+        padding-top : var(--large);
+    }
+
+    .kicker {
+        color          : var(--accent);
+        letter-spacing : 0.1em;
+        font-size      : 13px;
+    }
+
+    .chapter-title {
+        max-width : 26ch;
+    }
+
+    .story-figure {
+        margin     : 0;
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
+
+        figcaption {
+            display        : flex;
+            flex-direction : column;
+            gap            : 4px;
+            margin-bottom  : 16px;
+        }
+    }
+
+    .figure-title {
+        font-weight : 600;
+        font-size   : 15px;
+        color       : var(--heading-text-colour);
+    }
+
+    .figure-units,
+    .figure-note {
+        font-size : 13px;
+        color     : var(--ink-soft);
+    }
+
+    .figure-note { margin : 12px 0 0; }
+
+    .table-view {
+        margin-top : 12px;
+
+        summary {
+            cursor      : pointer;
+            font-size   : 12px;
+            font-weight : 600;
+            color       : var(--accent);
+        }
+
+        .table-scroll {
+            max-height : 320px;
+            overflow   : auto;
+            margin-top : 8px;
+        }
+
+        table {
+            width           : 100%;
+            border-collapse : collapse;
+            font-size       : 12px;
+        }
+
+        th, td {
+            padding       : 4px 8px;
+            border-bottom : 1px solid var(--rule);
+            text-align    : left;
+        }
+
+        .num { text-align : right; font-variant-numeric : tabular-nums; }
+    }
+
+    /* the figures' marks */
+    .hbars-wrap, .long-wrap {
+        position : relative;
+        width    : 100%;
+    }
+
+    .story-figure svg text {
+        font-family : var(--font-sans-serif);
+        fill        : var(--ink);
+    }
+
+    .row-label, .legend-label { font-size : 12.5px; }
+
+    .bar-value, .row-note, .tick {
+        font-size            : 12px;
+        font-variant-numeric : tabular-nums;
+    }
+
+    .row-note, .tick { fill : var(--ink-soft) !important; }
+    .row-hit { fill : transparent; }
+    .hbar-row { transition : opacity 0.25s ease; }
+    .is-dim { opacity : 0.3; }
+
+    .hbars {
+        .kind-accent .bar { fill : var(--c-emph); }
+        .kind-muted .bar  { fill : var(--c-deemph); }
+        .kind-fall .bar   { fill : var(--c-cheaper); }
+        .kind-rise .bar   { fill : var(--c-dearer); }
+        .kind-money .bar  { fill : var(--c-second); }
+        .kind-second .bar { fill : var(--c-major-1); }
+        .kind-third .bar  { fill : var(--c-major-0); }
+        .kind-total .bar  { fill : var(--heading-text-colour); }
+    }
+    .zero-line { stroke : var(--ink-soft); stroke-width : 1; }
+
+    .chart-tip {
+        position       : absolute;
+        z-index        : 6;
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        max-width      : 300px;
+        padding        : 8px 12px;
+        border         : 1px solid var(--rule);
+        background     : var(--paper);
+        color          : var(--ink);
+        font-size      : 12.5px;
+        line-height    : 1.35;
+        pointer-events : none;
+        transform      : translate(-50%, 18px);
+
+        strong { font-weight : 600; font-size : 13px; color : var(--heading-text-colour); }
+    }
+
+    /* the long chart */
+    .long-chart {
+        .grid         { stroke : var(--rule); stroke-width : 1; }
+        .grid.is-base { stroke : var(--ink-soft); stroke-width : 1; }
+        .crosshair    { stroke : var(--ink-soft); stroke-width : 1; }
+    }
+
+    .long-line {
+        fill            : none;
+        stroke          : var(--c-major);
+        stroke-width    : 1.5;
+        stroke-linejoin : round;
+        stroke-linecap  : round;
+        transition      : opacity 0.25s ease, stroke-width 0.25s ease;
+
+        &.is-hot { stroke-width : 2.5; }
+    }
+
+    .long-all {
+        fill            : none;
+        stroke          : var(--heading-text-colour);
+        stroke-width    : 2;
+        stroke-linejoin : round;
+        transition      : opacity 0.25s ease;
+    }
+
+    .long-label {
+        position    : absolute;
+        display     : flex;
+        align-items : baseline;
+        gap         : 6px;
+        transform   : translateY(-50%);
+        font-size   : 12px;
+        font-weight : 600;
+        line-height : 1.1;
+        white-space : nowrap;
+        color       : var(--c-major, var(--heading-text-colour));
+        transition  : opacity 0.25s ease;
+        cursor      : default;
+
+        &.is-all { color : var(--heading-text-colour); }
+    }
+
+    .long-dot { fill : var(--c-major); stroke : var(--paper); stroke-width : 2; &.is-all { fill : var(--heading-text-colour); } }
+
+    /* LOOK UP A GOOD ============================================================================================= */
+    .lookup {
+        padding    : 24px;
+        border     : 1px solid var(--rule);
+        background : var(--paper);
+    }
+
+    .lookup-label {
+        display       : block;
+        margin-bottom : 8px;
+        font-weight   : 600;
+        font-size     : 15px;
+        color         : var(--heading-text-colour);
+    }
+
+    .lookup-input {
+        width         : 100%;
+        padding       : 8px 12px;
+        border        : 1px solid var(--rule);
+        border-radius : 4px;
+        background    : var(--paper);
+        color         : var(--ink);
+        font          : inherit;
+        font-size     : 14px;
+
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 1px; }
+    }
+
+    .lookup-result {
+        min-height  : 2.6em;
+        margin      : 12px 0 0;
+        font-family : var(--font-serif);
+        font-size   : 15px;
+        color       : var(--heading-text-colour);
+    }
+
+    /* IN SHORT =================================================================================================== */
+    #so-what {
+        padding : var(--large) 0 var(--medium);
+    }
+
+    .so-what-title {
+        font-family    : var(--font-serif);
+        font-size      : clamp(64px, 11vw, 160px);
+        line-height    : 0.95;
+        letter-spacing : -0.03em;
+        margin-bottom  : var(--medium);
+    }
+
+    .cite-link {
+        color                     : var(--accent);
+        text-decoration           : underline;
+        text-decoration-thickness : 1px;
+        text-underline-offset     : 3px;
+
+        &:hover { text-decoration-thickness : 2px; }
+    }
+
+    /* SOURCES ==================================================================================================== */
+    .download-link {
+        display    : block;
+        width      : fit-content;
+        color      : var(--accent);
+        transition : opacity 0.2s ease;
+
+        &:hover { opacity : 0.7; }
+        p { color : var(--accent); }
+        svg { stroke : var(--accent); }
+    }
+
+    /* A PHONE ==================================================================================================== */
+    @media (max-width : 900px) {
+        .title-block { padding-top : var(--small); }
+        .story-figure { padding : 16px; }
+        .lookup { padding : 16px; }
+
+        .chapter [data-portion] + [data-portion],
+        #so-what [data-portion] + [data-portion] { margin-top : 32px; }
+    }
+}
+
+/* The dark theme restates what its scheme changes: the accent lifted towards white as the site's dark focus colour is,
+   the warm pole two steps lighter, and a faint grey that reads on the dark cells. */
+.theme-dark #what-got-cheaper-page {
+    --accent  : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
+    --c-warm  : var(--salmon-light20);
+    --c-faint : var(--grey-dark60);
+}

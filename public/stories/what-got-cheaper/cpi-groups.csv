@@ -1,0 +1,30 @@
+# MoSPI, consumer price index (2012 = 100), all India combined, as published on DBIE: calendar-year averages by group
+code,group,from_year,to_year,avg_from,avg_to
+C_CFPI,Consumer Food Price Index,2014,2025,121.4,198.7
+C_GIAG,General Index,2013,2025,110,195.1
+C_GIAG_CF,Clothing and footwear,2013,2025,110,196.6
+C_GIAG_CF_C,Clothing,2013,2025,110.2,198.2
+C_GIAG_CF_F,Footwear,2013,2025,108.7,187.2
+C_GIAG_FB,Food and beverages,2013,2025,113.3,199.8
+C_GIAG_FB_CP,Cereals and products,2013,2025,114.1,198.2
+C_GIAG_FB_EG,Egg,2013,2025,112.2,198.3
+C_GIAG_FB_FR,Fruits,2013,2025,108.9,206
+C_GIAG_FB_MF,Meat and fish,2013,2025,113.6,227.5
+C_GIAG_FB_MP,Milk and products,2013,2025,108.4,190.3
+C_GIAG_FB_NB,Non-alcoholic beverages,2013,2025,108.9,185.7
+C_GIAG_FB_OF,Oils and fats,2013,2025,105.2,190.6
+C_GIAG_FB_PMSS,"Prepared meals, snacks, sweets etc.",2013,2025,112.2,210.5
+C_GIAG_FB_PP,Pulses and products,2013,2025,106.5,189.2
+C_GIAG_FB_SC,Sugar and confectionery,2013,2025,103.4,135.1
+C_GIAG_FB_SP,Spices,2013,2025,106.1,221.9
+C_GIAG_FB_VE,Vegetables,2013,2025,133.8,201.6
+C_GIAG_FL,Fuel and Light,2013,2025,108.6,180
+C_GIAG_HO,Housing,2013,2025,105.6,185.7
+C_GIAG_MS,Miscellaneous,2013,2025,106.8,192.6
+C_GIAG_MS_ED,Education,2013,2025,107.7,193.4
+C_GIAG_MS_HHGS,Household goods and services,2013,2025,108,184.8
+C_GIAG_MS_HTH,Health,2013,2025,106.8,202.5
+C_GIAG_MS_PCE,Personal Care and Effects,2013,2025,105,233.6
+C_GIAG_MS_RA,Recreation and Amusement,2013,2025,105.9,180.2
+C_GIAG_MS_TC,Transport and Communication,2013,2025,106.7,172.7
+C_GIAG_PTI,"Pan, Tobacco and Intoxicants",2013,2025,109.7,212.8
