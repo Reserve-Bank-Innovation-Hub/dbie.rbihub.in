@@ -4,7 +4,7 @@
 // baseline, the figure frame (title, units, chart, table view, note), and a tooltip.
 
 // REACT CORE ==========================================================================================================
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 export const EASE = [ 0.16, 1, 0.3, 1 ] as const;
 
@@ -32,20 +32,31 @@ interface FigureProps {
     table ?   : { head : string[]; rows : (string | number)[][]; numeric ? : boolean[] };
     note ?    : ReactNode;
     className ? : string;
+    noteFirst ? : boolean;       // the note above the table view rather than below it
 }
 
 // A figure on its own panel: sentence-case title, the units, the chart, a table view to read every value without
 // hovering, and a note.
-export const Figure = ({ title, units, children, table, note, className } : FigureProps) => (
-    <figure className={`story-figure ${className ?? ""}`}>
-        <figcaption>
-            <span className="figure-title">{title}</span>
-            {units && <span className="figure-units">{units}</span>}
-        </figcaption>
-        {children}
-        {table && (
-            <details className="table-view">
-                <summary>Table view</summary>
+// A figure shows its chart or its table, one at a time, with a toggle beneath; a figure with no table shows its
+// chart alone.
+export const Figure = ({ title, units, children, table, note, className, noteFirst = false } : FigureProps) => {
+    const [ view, setView ] = useState<"chart" | "table">("chart");
+    return (
+        <figure className={`story-figure ${className ?? ""}`}>
+            <figcaption>
+                <span className="figure-head">
+                    <span className="figure-title">{title}</span>
+                    {table && (
+                        <span className="view-toggle" role="group" aria-label="Chart or table">
+                            <button type="button" className={view === "chart" ? "is-on" : ""} aria-pressed={view === "chart"} onClick={() => setView("chart")}>Chart view</button>
+                            <button type="button" className={view === "table" ? "is-on" : ""} aria-pressed={view === "table"} onClick={() => setView("table")}>Table view</button>
+                        </span>
+                    )}
+                </span>
+                {units && <span className="figure-units">{units}</span>}
+            </figcaption>
+            {(!table || view === "chart") && children}
+            {table && view === "table" && (
                 <div className="table-scroll">
                     <table>
                         <thead><tr>{table.head.map((h, i) => <th key={i} className={table.numeric?.[i] ? "num" : ""}>{h}</th>)}</tr></thead>
@@ -56,11 +67,12 @@ export const Figure = ({ title, units, children, table, note, className } : Figu
                         </tbody>
                     </table>
                 </div>
-            </details>
-        )}
-        {note && <p className="figure-note">{note}</p>}
-    </figure>
-);
+            )}
+            {note && noteFirst && <p className="figure-note">{note}</p>}
+            {note && !noteFirst && <p className="figure-note">{note}</p>}
+        </figure>
+    );
+};
 
 // A tooltip at a point inside a chart: the value leads, the label follows.
 export const ChartTip = ({ x, y, head, lines, width } : { x : number; y : number; head : string; lines : string[]; width : number }) => (

@@ -12,7 +12,7 @@ import { FROM_YEAR, SUM, TO_YEAR, YEARS, Year, inr, kg, grams } from "./data";
 // Five shelves, one per thing, each holding what the sum bought in units: lumps of gold, bars of silver, fortnights of a
 // mason's work, hundred-dollar notes, sacks of wheat. A year control runs from the first year to the last; the piles
 // shrink or grow at their own rate as it moves, and the first year's pile stays as a ghost behind. A thing DBIE has no
-// figure for in the chosen year says so.
+// figure for in the chosen year shows an empty shelf and says so.
 
 interface Shelf { key : string; name : string; unit : string; per : number; of : (y : Year) => number | null; label : (y : Year) => string; }
 const SHELVES : Shelf[] = [
@@ -49,7 +49,7 @@ export const Shelves = () => {
     const row = YEARS.find(y => y.year === year)!, first = YEARS[0];
 
     return (
-        <Figure title={`What ₹${inr(SUM)} bought, shelf by shelf`} units="drag the year; the ghost is the first year's pile" table={TABLE}
+        <Figure title={`What ₹${inr(SUM)} bought, shelf by shelf`} className="figure-large" table={TABLE} noteFirst
             note="Mumbai silver per kilogram; the Labour Bureau's daily wage for men, mason; the yearly average rupee–dollar rate; the support price for wheat by marketing year. The last year is a part year.">
             <div className="shelves">
                 <div className="shelf-control r1">
@@ -65,7 +65,7 @@ export const Shelves = () => {
                         <div key={s.key} className={`shelf-row r${i + 2} ${now === null ? "is-missing" : ""}`}>
                             <div className="shelf-name"><span>{s.name}</span><span className="shelf-unit">{s.unit}</span></div>
                             <div className="shelf-units" aria-hidden="true">
-                                {Array.from({ length : nUnits }, (_, i) => <Unit key={i} k={s.key} fill={Math.max(0, Math.min(1, have - i))} />)}
+                                {now !== null && Array.from({ length : nUnits }, (_, i) => <Unit key={i} k={s.key} fill={Math.max(0, Math.min(1, have - i))} />)}
                             </div>
                             <div className="shelf-count">{s.label(row)}</div>
                         </div>

@@ -23,8 +23,10 @@ export interface Piece {
     year  : number;
     grams : string;              // "224.1 g"
     piece : string;              // "A full bridal set"
-    note  : string;              // the price it rests on
+    note  : string;              // the price it rests on; empty for none
     kind  : Kind;                // what is drawn on the bust
+    price? : { was : string; now : string };   // on the plate, the sum struck through and the price today over it
+    noYear? : boolean;                         // the plate without its year
 }
 
 // THE ROOM ============================================================================================================
@@ -202,6 +204,14 @@ const Bangle = ({ x } : { x : number }) => (
         {[ -22, -12, 0, 12, 22 ].map(y => <circle key={y} cx={r2(6 * Math.sqrt(1 - (y / 27) ** 2) - 2.6)} cy={y} r={1} className="pearl" />)}
     </g>
 );
+// A display unit on its own, for the money chapter: the whole case as it stands in the gallery, plinth, plate, holder
+// and glass, in a frame that fits it.
+export const DisplayUnit = ({ pc, label } : { pc : Piece; label : string }) => (
+    <svg className="display-unit" viewBox={`-240 -640 480 ${pc.price ? (pc.note ? 694 : 664) : 650}`} role="img" aria-label={label}>
+        <Unit pc={pc} />
+    </svg>
+);
+
 const Flower = ({ r = 4, n = 6 } : { r? : number; n? : number }) => (
     <g>
         {Array.from({ length : n }, (_, i) => { const a = i * 360 / n; return <circle key={i} cx={r2(Math.sin(a * Math.PI / 180) * r)} cy={r2(-Math.cos(a * Math.PI / 180) * r)} r={r * 0.5} className="pearl" />; })}
@@ -264,26 +274,35 @@ const HOLDERS : Record<Kind, ReactNode> = {
 
 // A UNIT ==============================================================================================================
 // The plinth, its label, the holder with its piece, and the case, in the unit's frame.
-const Unit = ({ pc } : { pc : Piece }) => (
+const Unit = ({ pc } : { pc : Piece }) => {
+    const tall = pc.price ? (pc.note ? 44 : 14) : 0;    // the plinth and plate grow to take the price line
+    return (
     <g className="unit-body">
         {/* the plinth: a top slab, the face, the label panel with a gold hairline */}
         <rect x={-225} y={-182} width={450} height={22} rx={2} className="plinth-top" />
-        <rect x={-210} y={-160} width={420} height={160} className="plinth" />
-        <rect x={-210} y={-160} width={420} height={160} className="plinth-shade" style={{ clipPath : "inset(0 0 0 50%)" }} />
+        <rect x={-210} y={-160} width={420} height={160 + tall} className="plinth" />
+        <rect x={-210} y={-160} width={420} height={160 + tall} className="plinth-shade" style={{ clipPath : "inset(0 0 0 50%)" }} />
         {/* the label: a museum plate on the plinth's face, ivory on the dark wood, set to the left */}
-        <rect x={-170} y={-148} width={344} height={122} rx={3} className="plate-shadow" />
-        <rect x={-172} y={-150} width={344} height={122} rx={3} className="plate" />
-        <text x={150} y={-120} textAnchor="end" className="label-year">{pc.year}</text>
+        <rect x={-170} y={-148} width={344} height={122 + tall} rx={3} className="plate-shadow" />
+        <rect x={-172} y={-150} width={344} height={122 + tall} rx={3} className="plate" />
+        {!pc.noYear && <text x={150} y={-120} textAnchor="end" className="label-year">{pc.year}</text>}
         <text x={-150} y={-105} className="label-grams">{pc.grams}</text>
         <text x={-150} y={-80} className="label-piece">{pc.piece}</text>
-        <text x={-150} y={-48} className="label-note">{pc.note}</text>
+        {pc.note && <text x={-150} y={-48} className="label-note">{pc.note}</text>}
+        {pc.price && (
+            <g className="label-price">
+                <text x={-150} y={-10 - (44 - tall)} className="label-was">{pc.price.was}</text>
+                <text x={150} y={-10 - (44 - tall)} textAnchor="end" className="label-now">{pc.price.now}</text>
+            </g>
+        )}
         {HOLDERS[pc.kind]}
         {/* the glass: a pane with a glare */}
         <rect x={-172} y={-620} width={344} height={438} rx={3} className="glass" />
         <path d="M-172 -620 L-60 -620 L-172 -420 Z" className="glare" />
         <path d="M172 -620 L172 -560 L-100 -182 L-172 -182 Z" className="glare" opacity={0.4} />
     </g>
-);
+    );
+};
 
 // THE COMPONENT =======================================================================================================
 // The text over the room comes in beats, one shown at a time: the first while the first unit is in the light, the

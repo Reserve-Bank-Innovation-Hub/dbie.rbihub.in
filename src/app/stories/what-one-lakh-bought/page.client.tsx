@@ -14,7 +14,7 @@ import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { Figure } from "./chartKit";
 import { NoteArt, NoteGrid } from "./NoteGrid";
 import { Kind, Showcase } from "./Showcase";
-import { Receipts } from "./Receipts";
+import { GoldSet, Receipt, ShelvesReceipt } from "./Receipts";
 import { Shelves } from "./Shelves";
 import { RanAhead } from "./RanAhead";
 import { OwnBill } from "./OwnBill";
@@ -47,9 +47,9 @@ const MASON_SPAN     = partYear(MASON_LAST.year, MASON_LAST.mason.months);
 const USD_SPAN       = NOW.usd.days ? `the first ${NOW.usd.days} trading days of ${NOW.year}` : `${NOW.year}`;
 
 // THE CHAPTERS ========================================================================================================
-const Chapter = ({ id, kicker, title, children } : { id : string; kicker : string; title : string; children : ReactNode }) => (
-    <Div className="chapter-text r1">
-        <Text className="kicker" weight="600" marginBottom="nano" id={id}>{kicker}</Text>
+const Chapter = ({ id, kicker, title, children } : { id : string; kicker ? : string; title : string; children ? : ReactNode }) => (
+    <Div className="chapter-text r1" id={kicker ? undefined : id}>
+        {kicker && <Text className="kicker" weight="600" marginBottom="nano" id={id}>{kicker}</Text>}
         <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{title}</Heading4>
         {children}
     </Div>
@@ -135,41 +135,37 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
             ]} />
 
             {/* 4 THE MONEY SHRANK TOO ================================================================================ */}
-            <Pinned steps={3}>
+            <Pinned steps={3} className="on-sandalwood">
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="the-money-shrank" kicker="THE MONEY SHRANK TOO" title={`₹1 lakh of ${FROM_YEAR} is ${lakh(HEADLINE.worthNow)} in ${TO_YEAR} prices`}>
-                            <Para>{`Prices in general rose too. By the consumer price index for industrial workers, the long series the
-                                Labour Bureau keeps, what cost [[₹100]] in [[${FROM_YEAR}]] cost [[${rs(Math.round(HEADLINE.priceRise * 100))}]] in [[${TO_YEAR}]].
-                                So ₹1 lakh of [[${FROM_YEAR}]] is [[${lakh(HEADLINE.worthNow)}]] of today’s money.`}</Para>
-                            <Para last>{`Bring that back to gold and the necklace still does not come back. The [[${grams(FIRST.gold.grams)}]] of
-                                [[${FROM_YEAR}]] cost [[${lakh(HEADLINE.necklaceNow)}]] at [[${TO_YEAR}]]’s price, [[${timesWords(HEADLINE.ranAhead.gold)}]] what the
-                                general rise in prices would explain.`}</Para>
+                    <Portion desktopSpan="11">
+                        <Chapter id="the-money-shrank" title={`₹1 lakh of ${FROM_YEAR} is ${lakh(HEADLINE.worthNow)} in ${TO_YEAR} prices`}>
+                            <Para>{`Prices in general rose too.`}</Para>
+                            <Para>{`By the consumer price index for industrial workers, the long series the Labour Bureau keeps, what cost
+                                [[₹100]] in [[${FROM_YEAR}]] cost [[${rs(Math.round(HEADLINE.priceRise * 100))}]] in [[${TO_YEAR}]].`}</Para>
+                            <Para last>{`So ₹1 lakh of [[${FROM_YEAR}]] is [[${lakh(HEADLINE.worthNow)}]] of today’s money.`}</Para>
                         </Chapter>
+                        <Receipt indexSpan={INDEX_SPAN} />
                     </Portion>
-                    <Portion desktopSpan="16">
-                        <Receipts indexSpan={INDEX_SPAN} />
+                    <Portion desktopSpan="13">
+                        <Div className="chapter-text r3">
+                            <Para>{`One can’t get the same bridal set for [[${rs(HEADLINE.worthNow)}]].`}</Para>
+                            <Para last>{`The [[${grams(FIRST.gold.grams)}]] of [[${FROM_YEAR}]] cost [[${lakh(HEADLINE.necklaceNow)}]] at [[${TO_YEAR}]]’s price,
+                                [[${timesWords(HEADLINE.ranAhead.gold)}]] what the general rise in prices would explain.`}</Para>
+                        </Div>
+                        <GoldSet />
                     </Portion>
                 </Row>
             </Pinned>
 
             {/* 5 THE OTHER SHELVES =================================================================================== */}
-            <Pinned steps={6}>
+            <Pinned steps={6} className="figs-bold" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="the-other-shelves" kicker="THE OTHER SHELVES" title="Silver, a mason’s days, dollars and wheat each shrank at their own pace">
-                            <Para>{`The same ₹1 lakh bought [[${kg(FIRST.silver.kg)}]] of silver in [[${FROM_YEAR}]] and [[${kg(NOW.silver.kg)}]] in [[${TO_YEAR}]].
-                                It paid a rural mason for [[${inr(FIRST.mason!.days)}]] days of work in [[${FROM_YEAR}]] and [[${inr(MASON_LAST.mason.days)}]] days
-                                in [[${MASON_LAST.year}]], the last year the Labour Bureau has published.`}</Para>
-                            <Para>{`It bought [[$${inr(FIRST.usd.dollars)}]] in [[${FROM_YEAR}]] and [[$${inr(NOW.usd.dollars)}]] in [[${TO_YEAR}]], and
-                                [[${FIRST.wheat!.quintals.toFixed(1)} quintals]] of wheat at the support price in [[${FIRST.wheat!.cropYear}]] against
-                                [[${WHEAT_LAST.wheat.quintals.toFixed(1)}]] in [[${WHEAT_LAST.wheat.cropYear}]].`}</Para>
-                            <Para last>{`Each is a real rupee price on DBIE, not an index: the Mumbai silver price, the Bureau’s daily wage for
-                                men, the yearly average rupee–dollar rate, and the price the government offers for wheat, which is not what
-                                every farmer gets.`}</Para>
+                    <Portion desktopSpan="10">
+                        <Chapter id="the-other-shelves" title="Silver, a mason’s days, dollars and wheat each shrank at their own pace">
                         </Chapter>
+                        <ShelvesReceipt />
                     </Portion>
-                    <Portion desktopSpan="16">
+                    <Portion desktopSpan="14">
                         <Shelves />
                     </Portion>
                 </Row>

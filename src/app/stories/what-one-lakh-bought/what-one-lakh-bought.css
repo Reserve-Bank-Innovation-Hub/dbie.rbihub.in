@@ -230,6 +230,9 @@
         width    : 100%;
         height   : 100%;
         display  : block;
+    }
+
+    .scene, .display-unit {
 
         .wall-top    { stop-color : color-mix(in oklch, var(--scene-wall), black 30%); }
         .wall-foot   { stop-color : var(--scene-wall); }
@@ -337,15 +340,14 @@
         .showcase-beat { position : static; opacity : 1; margin-top : 24px; }
     }
 
-    /* THE PINNED CHAPTERS ======================================================================================== */
-    /* A chapter that holds the screen: the frame sticks and fills it, the chapter's parts fade in by step. The parts
-       are marked r1 to r8 and the frame carries s1 to sN for the steps reached. */
+    /* THE FULL-SCREEN CHAPTERS =================================================================================== */
+    /* A chapter that fills the screen, its parts fading in one after another once it is in view. The parts are
+       marked r1 to r8 and the chapter carries s1 to sN for the steps reached. */
     .pinned {
         padding : 0;
 
         .pinned-frame {
-            position    : sticky;
-            top         : 0;
+            position    : relative;
             display     : flex;
             align-items : center;
             min-height  : 100vh;
@@ -356,7 +358,10 @@
             > [data-row] { width : 100%; }
         }
 
-        &.is-still .pinned-frame { position : static; min-height : 0; padding : var(--large) 0 var(--medium); }
+        /* a pinned chapter: the frame sticks to the top while the chapter's track scrolls under it */
+        &.is-pinned .pinned-frame { position : sticky; top : 0; height : 100vh; height : 100svh; }
+
+        &.is-still .pinned-frame { min-height : 0; padding : var(--large) 0 var(--medium); }
     }
 
     .r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8 {
@@ -372,33 +377,121 @@
 
     /* THE RECEIPTS =============================================================================================== */
     /* A bill on the story's paper: mono, each line a label with a dotted leader to its value, the total ruled off. */
-    .receipts {
-        display               : grid;
-        grid-template-columns : 1fr 1fr;
-        gap                   : 24px;
-        margin-bottom         : 24px;
+    /* The money chapter sits on the bills' sandalwood, its receipt and tag on the page's paper so they stand off it. */
+    .on-sandalwood {
+        --sandal : color-mix(in oklch, var(--bill), var(--paper) 45%);
+        background : var(--sandal);
 
-        .receipt-gold, .receipt-foot { grid-column : 1 / -1; }
+        /* the gold's paragraph starts level with the first paragraph on the left, below the title's height */
+        .chapter-text.r3 { padding-top : 74px; }
+
+        /* the gallery's floor runs under the foot of the chapter, its maroon boards with the floor lines, and the
+           maroon rises into the sandalwood above it as the gallery's light did */
+        .pinned-frame {
+            /* the content sits at the foot of the frame, so the case stands in the floor whatever the screen's height */
+            align-items    : flex-end;
+            padding-bottom : 36px;
+            background :
+                linear-gradient(to top, transparent 0, transparent 190px, color-mix(in oklch, var(--scene-floor), black 18%) 190px, color-mix(in oklch, var(--scene-maroon), transparent 20%) 230px, color-mix(in oklch, var(--scene-maroon), transparent 55%) 340px, transparent 56%),
+                linear-gradient(to top, color-mix(in oklch, var(--scene-floor), black 22%) 0, var(--scene-floor) 190px, transparent 190px);
+
+            /* the boards' edge lines and the shadow at the foot, laid beneath the content */
+            > [data-row] { position : relative; z-index : 1; }
+
+            &::after {
+                content        : "";
+                position       : absolute;
+                left           : 0;
+                right          : 0;
+                bottom         : 0;
+                z-index        : 0;
+                height         : 190px;
+                pointer-events : none;
+                background     :
+                    linear-gradient(to top, color-mix(in oklch, var(--scene-floor), black 35%) 0, transparent 100%),
+                    repeating-linear-gradient(90deg, transparent 0 calc(12.5% - 2px), color-mix(in oklch, var(--scene-floor), black 30%) calc(12.5% - 2px) 12.5%);
+                border-top     : 3px solid color-mix(in oklch, var(--scene-maroon), black 45%);
+            }
+        }
+
+        .receipt-two { background : none; clip-path : none; padding : 0; }
     }
 
-    /* A bill: sandalwood paper with crinkled top and bottom edges, torn off the roll. */
+    /* A plain receipt table on the page's own paper, for the other shelves. */
+    .receipt-two.is-plain {
+        background : none;
+        clip-path  : none;
+        padding    : 0;
+        margin-top : 0;
+        width      : 100%;
+        max-width  : 30rem;
+
+        .receipt-row { grid-template-columns : 1fr 96px 96px; column-gap : 16px; }
+        .receipt-value { font-size : 16px; }
+    }
+    .figs-bold .receipt-two .receipt-note { font-weight : 400; }
+    .on-sandalwood {
+        /* the receipt's footnote falls where the maroon rises, so it is set in the light sandalwood */
+        .receipt-two .receipt-foot { color : hsl(var(--ivory)); }
+    }
+
+    /* The receipt in two columns: a label, the first year, the last year, on one grid. */
+    .receipt-two {
+        margin-top : 24px;
+        width      : calc(100% - 50px);
+        max-width  : 60ch;
+
+        .receipt-row {
+            display               : grid;
+            grid-template-columns : 1fr 104px 104px;    /* fixed, so every row's year columns line up */
+            column-gap            : 56px;
+            align-items           : baseline;
+            padding               : 10px 0;
+            border-bottom         : 1px dotted var(--ink-faint);
+
+            &.is-total { border-top : 1px solid var(--ink); border-bottom : none; margin-top : 4px; font-weight : 600; }
+        }
+
+        .receipt-head-row {
+            padding-bottom : 10px;
+            margin-bottom  : 6px;
+            border-bottom  : 1px dashed var(--ink-faint);
+            font-size      : 11px;
+            font-weight    : 600;
+            text-transform : uppercase;
+            color          : var(--ink-soft);
+
+            span:not(:first-child) { text-align : right; }
+        }
+
+        .receipt-value { text-align : right; }
+    }
+
+    /* The gold as the bridal set, on the right, with a price tag under it: the sum struck through and the price at
+       the last year's gold over it. */
+    .gold-set {
+        margin-top : 8px;
+        max-width  : 34rem;
+    }
+
+    .display-unit {
+        display : block;
+        width   : min(100%, 28rem);
+        height  : auto;
+        margin  : 0 auto;
+    }
+
+    /* The plate's price line: the sum struck through in the warm pole, the price today in a heavier mono. */
+    .label-was { font-family : var(--font-mono); font-size : 17px; fill : color-mix(in oklch, hsl(var(--charcoal)), white 40%); text-decoration : line-through; text-decoration-color : hsl(var(--vermilion)); text-decoration-thickness : 2px; }
+    .label-now { font-family : var(--font-mono); font-size : 28px; font-weight : 600; fill : color-mix(in oklch, hsl(var(--vermilion)), black 18%); }
+    .display-unit .label-was { fill : color-mix(in oklch, hsl(var(--charcoal)), white 40%); }
+
     .receipt, .bill, .repriced {
         padding     : 30px 26px;
         background  : var(--bill);
         font-family : var(--font-mono);
         clip-path   : polygon(0% 7px, 2% 0px, 4% 7px, 6% 0px, 8% 7px, 10% 0px, 12% 7px, 14% 0px, 16% 7px, 18% 0px, 20% 7px, 22% 0px, 24% 7px, 26% 0px, 28% 7px, 30% 0px, 32% 7px, 34% 0px, 36% 7px, 38% 0px, 40% 7px, 42% 0px, 44% 7px, 46% 0px, 48% 7px, 50% 0px, 52% 7px, 54% 0px, 56% 7px, 58% 0px, 60% 7px, 62% 0px, 64% 7px, 66% 0px, 68% 7px, 70% 0px, 72% 7px, 74% 0px, 76% 7px, 78% 0px, 80% 7px, 82% 0px, 84% 7px, 86% 0px, 88% 7px, 90% 0px, 92% 7px, 94% 0px, 96% 7px, 98% 0px, 100% 7px, 100% calc(100% - 7px), 98% calc(100% - 0px), 96% calc(100% - 7px), 94% calc(100% - 0px), 92% calc(100% - 7px), 90% calc(100% - 0px), 88% calc(100% - 7px), 86% calc(100% - 0px), 84% calc(100% - 7px), 82% calc(100% - 0px), 80% calc(100% - 7px), 78% calc(100% - 0px), 76% calc(100% - 7px), 74% calc(100% - 0px), 72% calc(100% - 7px), 70% calc(100% - 0px), 68% calc(100% - 7px), 66% calc(100% - 0px), 64% calc(100% - 7px), 62% calc(100% - 0px), 60% calc(100% - 7px), 58% calc(100% - 0px), 56% calc(100% - 7px), 54% calc(100% - 0px), 52% calc(100% - 7px), 50% calc(100% - 0px), 48% calc(100% - 7px), 46% calc(100% - 0px), 44% calc(100% - 7px), 42% calc(100% - 0px), 40% calc(100% - 7px), 38% calc(100% - 0px), 36% calc(100% - 7px), 34% calc(100% - 0px), 32% calc(100% - 7px), 30% calc(100% - 0px), 28% calc(100% - 7px), 26% calc(100% - 0px), 24% calc(100% - 7px), 22% calc(100% - 0px), 20% calc(100% - 7px), 18% calc(100% - 0px), 16% calc(100% - 7px), 14% calc(100% - 0px), 12% calc(100% - 7px), 10% calc(100% - 0px), 8% calc(100% - 7px), 6% calc(100% - 0px), 4% calc(100% - 7px), 2% calc(100% - 0px), 0% calc(100% - 7px));
     }
-
-    /* The gold's line is a plain slip, no crinkle, in a light terracotta. */
-    .receipt-gold {
-        clip-path  : none;
-        padding    : 16px 26px;
-        border     : none;
-        background : color-mix(in srgb, hsl(var(--terracotta)), white 78%);
-
-        .receipt-value { color : color-mix(in srgb, hsl(var(--terracotta)), black 25%); }
-    }
-    .receipt-gold .receipt-value { color : var(--c-warm); }
 
     .receipt-head {
         display         : flex;
@@ -698,6 +791,23 @@
         color       : var(--heading-text-colour);
     }
 
+    /* a figure whose title stands as the chapter's own */
+    .figure-large .figure-title {
+        font-family : var(--font-serif);
+        font-weight : 500;
+        font-size   : clamp(19px, 1.7vw, 23px);
+        line-height : 1.2;
+    }
+
+    /* the figure's title with the chart-or-table toggle at its right */
+    .figure-head {
+        display         : flex;
+        align-items     : center;
+        justify-content : space-between;
+        gap             : 16px;
+        flex-wrap       : wrap;
+    }
+
     .figure-units,
     .figure-note {
         font-size : 13px;
@@ -706,20 +816,43 @@
 
     .figure-note { margin : 12px 0 0; }
 
-    .table-view {
-        margin-top : 12px;
+    /* The chart-or-table toggle: two buttons joined, the one in use filled in the accent. */
+    .view-toggle {
+        display       : inline-flex;
+        flex-shrink   : 0;
+        border        : 1px solid var(--accent);
+        border-radius : 4px;
+        overflow      : hidden;
 
-        summary {
-            cursor      : pointer;
+        button {
+            padding     : 6px 12px;
+            border      : 0;
+            background  : transparent;
+            color       : var(--accent);
+            font        : inherit;
             font-size   : 12px;
             font-weight : 600;
-            color       : var(--accent);
-        }
+            cursor      : pointer;
 
-        .table-scroll {
-            max-height : 320px;
-            overflow   : auto;
-            margin-top : 8px;
+            & + button { border-left : 1px solid var(--accent); }
+            &:hover { background : color-mix(in oklch, var(--accent), transparent 90%); }
+            &.is-on { background : var(--accent); color : var(--white); }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+    }
+
+    /* The table of a figure, in a scroll box; the header stays in view as the rows scroll under it. */
+    .table-scroll {
+        max-height : 320px;
+        overflow   : auto;
+        margin-top : 8px;
+
+        thead th {
+            position   : sticky;
+            top        : 0;
+            z-index    : 1;
+            background : var(--paper);
+            box-shadow : inset 0 -1px 0 var(--rule);
         }
     }
 
@@ -728,7 +861,7 @@
     }
 
     .year-table table,
-    .table-view table {
+    .table-scroll table {
         width           : 100%;
         border-collapse : collapse;
         font-size       : 13px;
@@ -760,7 +893,7 @@
     }
 
     /* The table view is the same table again, for readers who want it beside the figure's note. */
-    .year-table + .table-view { display : none; }
+    .story-figure:has(.year-table) .view-toggle { display : none; }
 
     /* THE SOURCES ================================================================================================ */
     .download-link {
@@ -773,7 +906,13 @@
     }
 
     @media (max-width : 900px) {
-        .receipts { grid-template-columns : 1fr; }
+        .gold-set { margin-top : 24px; }
+        .on-sandalwood .chapter-text.r3 { padding-top : 0; }
+        .receipt-two { margin-bottom : 28px; }
+        .receipt-two { width : 100%; }
+        .receipt-two .receipt-row { grid-template-columns : 1fr 84px 84px; column-gap : 12px; }
+        .receipt-two .receipt-value { font-size : 14px; }
+        .receipt-two .receipt-note { display : none; }
         .flatlay .repriced { width : 100%; rotate : -1.5deg; }
         .flatlay .repriced-back { left : 10px; }
         .on-table .chapter-text { rotate : 0deg; }
@@ -828,7 +967,6 @@
     #your-own-bill { background : color-mix(in srgb, hsl(var(--ivory)), black 80%); }
     .on-table { --table : color-mix(in oklch, hsl(var(--terracotta)), var(--brown-dark80) 78%); }
     .bill { background : var(--paper); }
-    .receipt-gold { background : color-mix(in srgb, hsl(var(--terracotta)), black 62%); .receipt-value { color : color-mix(in srgb, hsl(var(--terracotta)), white 35%); } }
     --c-warm  : var(--salmon-light20);
     --c-faint : var(--grey-dark60);
 }
