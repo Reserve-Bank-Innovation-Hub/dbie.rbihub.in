@@ -1,0 +1,1071 @@
+{
+ "source_notes": "All figures copied from Table VIII.1 \"Banknotes in Circulation\" (end-March) in Chapter VIII, Currency Management, of the RBI Annual Reports 2016-17 to 2025-26, read from the rbi.org.in HTML chapters on 09-10-2026. Each March uses the latest report that prints it (the third column of a report is its own year; each report repeats the two prior years). AR 2016-17, 2017-18 and 2018-19 print volume in million pieces and value in ₹ billion; AR 2019-20 onward print lakh pieces and ₹ crore. For March 2015, 2016 and 2017 only million/billion figures exist in these reports, so volume_lakh and value_crore are exact unit conversions of the printed rounded figures (×10 and ×100) and the printed values are kept alongside. ₹2 and ₹5 are always one combined row (\"2 and 5\"). Percentage shares are the parenthesised figures under each row (share in total volume/value); \"negligible\" is the report's \"…\". No report splits ₹500 into old (specified bank notes) and new series: the ₹500 row at March 2017 is a single figure, and the residual ₹1000 (all old series) appears in the ₹1000 row for March 2017 and March 2018. The ₹200 denomination first appears at March 2018 and ₹2000 at March 2017. Revisions: 2018-03 ₹10 value: AR 2017-18 printed 307 (₹ billion) = 30700 vs AR 2019-20 30645; beyond rounding | 2018-03 ₹10 value: AR 2018-19 printed 307 (₹ billion) = 30700 vs AR 2019-20 30645; beyond rounding | 2018-03 ₹10 value: AR 2017-18 and AR 2018-19 print ₹307 billion; AR 2019-20 prints ₹30,645 crore (₹306.45 billion), which matches 30,645 million pieces × ₹10. The later figure is used. | 2017-03 and 2018-03 ₹1000 volume share: AR 2016-17 prints (0.0) for March 2017; AR 2017-18 and 2018-19 print (…) \"Negligible\". | ₹1000 row: AR 2018-19 and AR 2019-20 print \"-\" for March 2019 and March 2020; the row is dropped from AR 2020-21 onward. No ₹1000 entry is recorded for March 2019 onward. | 2022-03 ₹100: volume 1,81,420 lakh but value ₹1,81,421 crore (as printed in AR 2021-22, 2022-23 and 2023-24); 2026-03 ₹100: volume 2,68,574 lakh but value ₹2,68,573 crore (AR 2025-26). Copied as printed; the one-unit gaps are rounding in the source. | Shares for 2015-03 to 2017-03 come from the report used for each year; percentage shares were not compared across reports.",
+ "years": [
+  {
+   "march": "2015-03",
+   "report": "RBI Annual Report 2016-17, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published Aug 30, 2017",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1208",
+   "units_as_printed": "volume in million pieces, value in ₹ billion (converted here: lakh = million × 10, crore = billion × 100; conversion is exact but precision is that of the printed figures)",
+   "total": {
+    "volume_lakh": 835790,
+    "value_crore": 1428900,
+    "volume_million_as_printed": 83579,
+    "value_billion_as_printed": 14289
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 116720,
+     "value_crore": 4600,
+     "volume_share_pct": 13.9,
+     "value_share_pct": 0.3,
+     "volume_million_as_printed": 11672,
+     "value_billion_as_printed": 46,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 303040,
+     "value_crore": 30300,
+     "volume_share_pct": 36.3,
+     "value_share_pct": 2.1,
+     "volume_million_as_printed": 30304,
+     "value_billion_as_printed": 303
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 43500,
+     "value_crore": 8700,
+     "volume_share_pct": 5.2,
+     "value_share_pct": 0.6,
+     "volume_million_as_printed": 4350,
+     "value_billion_as_printed": 87
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 34870,
+     "value_crore": 17400,
+     "volume_share_pct": 4.2,
+     "value_share_pct": 1.2,
+     "volume_million_as_printed": 3487,
+     "value_billion_as_printed": 174
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 150260,
+     "value_crore": 150300,
+     "volume_share_pct": 18.0,
+     "value_share_pct": 10.5,
+     "volume_million_as_printed": 15026,
+     "value_billion_as_printed": 1503
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 131280,
+     "value_crore": 656400,
+     "volume_share_pct": 15.7,
+     "value_share_pct": 46.0,
+     "volume_million_as_printed": 13128,
+     "value_billion_as_printed": 6564
+    },
+    {
+     "denom": "1000",
+     "series": "all",
+     "volume_lakh": 56120,
+     "value_crore": 561200,
+     "volume_share_pct": 6.7,
+     "value_share_pct": 39.3,
+     "volume_million_as_printed": 5612,
+     "value_billion_as_printed": 5612
+    }
+   ],
+   "also_reported_in": []
+  },
+  {
+   "march": "2016-03",
+   "report": "RBI Annual Report 2017-18, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published Aug 29, 2018",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1235",
+   "units_as_printed": "volume in million pieces, value in ₹ billion (converted here: lakh = million × 10, crore = billion × 100; conversion is exact but precision is that of the printed figures)",
+   "total": {
+    "volume_lakh": 902660,
+    "value_crore": 1641500,
+    "volume_million_as_printed": 90266,
+    "value_billion_as_printed": 16415
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 116260,
+     "value_crore": 4500,
+     "volume_share_pct": 12.9,
+     "value_share_pct": 0.3,
+     "volume_million_as_printed": 11626,
+     "value_billion_as_printed": 45,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 320150,
+     "value_crore": 32000,
+     "volume_share_pct": 35.5,
+     "value_share_pct": 1.9,
+     "volume_million_as_printed": 32015,
+     "value_billion_as_printed": 320
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 49240,
+     "value_crore": 9800,
+     "volume_share_pct": 5.4,
+     "value_share_pct": 0.6,
+     "volume_million_as_printed": 4924,
+     "value_billion_as_printed": 98
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 38900,
+     "value_crore": 19400,
+     "volume_share_pct": 4.3,
+     "value_share_pct": 1.2,
+     "volume_million_as_printed": 3890,
+     "value_billion_as_printed": 194
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 157780,
+     "value_crore": 157800,
+     "volume_share_pct": 17.5,
+     "value_share_pct": 9.6,
+     "volume_million_as_printed": 15778,
+     "value_billion_as_printed": 1578
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 157070,
+     "value_crore": 785400,
+     "volume_share_pct": 17.4,
+     "value_share_pct": 47.8,
+     "volume_million_as_printed": 15707,
+     "value_billion_as_printed": 7854
+    },
+    {
+     "denom": "1000",
+     "series": "all",
+     "volume_lakh": 63260,
+     "value_crore": 632600,
+     "volume_share_pct": 7.0,
+     "value_share_pct": 38.6,
+     "volume_million_as_printed": 6326,
+     "value_billion_as_printed": 6326
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2016-17 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1208)"
+   ]
+  },
+  {
+   "march": "2017-03",
+   "report": "RBI Annual Report 2018-19, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published Aug 29, 2019",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1263",
+   "units_as_printed": "volume in million pieces, value in ₹ billion (converted here: lakh = million × 10, crore = billion × 100; conversion is exact but precision is that of the printed figures)",
+   "total": {
+    "volume_lakh": 1002930,
+    "value_crore": 1310200,
+    "volume_million_as_printed": 100293,
+    "value_billion_as_printed": 13102
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 115570,
+     "value_crore": 4500,
+     "volume_share_pct": 11.5,
+     "value_share_pct": 0.3,
+     "volume_million_as_printed": 11557,
+     "value_billion_as_printed": 45,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 369290,
+     "value_crore": 36900,
+     "volume_share_pct": 36.8,
+     "value_share_pct": 2.8,
+     "volume_million_as_printed": 36929,
+     "value_billion_as_printed": 369
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 101580,
+     "value_crore": 20300,
+     "volume_share_pct": 10.2,
+     "value_share_pct": 1.5,
+     "volume_million_as_printed": 10158,
+     "value_billion_as_printed": 203
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 71130,
+     "value_crore": 35600,
+     "volume_share_pct": 7.1,
+     "value_share_pct": 2.7,
+     "volume_million_as_printed": 7113,
+     "value_billion_as_printed": 356
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 252800,
+     "value_crore": 252800,
+     "volume_share_pct": 25.2,
+     "value_share_pct": 19.3,
+     "volume_million_as_printed": 25280,
+     "value_billion_as_printed": 2528
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 58820,
+     "value_crore": 294100,
+     "volume_share_pct": 5.9,
+     "value_share_pct": 22.5,
+     "volume_million_as_printed": 5882,
+     "value_billion_as_printed": 2941,
+     "note": "Printed as a single ₹500 row; the report does not separate specified bank notes (old series) from the new Mahatma Gandhi (New) Series ₹500."
+    },
+    {
+     "denom": "1000",
+     "series": "all",
+     "volume_lakh": 890,
+     "value_crore": 8900,
+     "volume_share_pct": "negligible",
+     "value_share_pct": 0.7,
+     "volume_million_as_printed": 89,
+     "value_billion_as_printed": 89,
+     "note": "All ₹1000 notes were specified bank notes (old series, demonetised 08-11-2016); the residual is shown as printed in the ₹1000 row."
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 32850,
+     "value_crore": 657100,
+     "volume_share_pct": 3.3,
+     "value_share_pct": 50.2,
+     "volume_million_as_printed": 3285,
+     "value_billion_as_printed": 6571
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2016-17 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1208)",
+    "RBI Annual Report 2017-18 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1235)"
+   ]
+  },
+  {
+   "march": "2018-03",
+   "report": "RBI Annual Report 2019-20, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published Aug 25, 2020",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1292",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1023951,
+    "value_crore": 1803709
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 114253,
+     "value_crore": 4433,
+     "volume_share_pct": 11.2,
+     "value_share_pct": 0.2,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 306449,
+     "value_crore": 30645,
+     "volume_share_pct": 29.9,
+     "value_share_pct": 1.7
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 100160,
+     "value_crore": 20032,
+     "volume_share_pct": 9.8,
+     "value_share_pct": 1.1
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 73430,
+     "value_crore": 36715,
+     "volume_share_pct": 7.2,
+     "value_share_pct": 2.0
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 222150,
+     "value_crore": 222150,
+     "volume_share_pct": 21.7,
+     "value_share_pct": 12.3
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 18526,
+     "value_crore": 37053,
+     "volume_share_pct": 1.8,
+     "value_share_pct": 2.1
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 154690,
+     "value_crore": 773429,
+     "volume_share_pct": 15.1,
+     "value_share_pct": 42.9
+    },
+    {
+     "denom": "1000",
+     "series": "all",
+     "volume_lakh": 661,
+     "value_crore": 6610,
+     "volume_share_pct": "negligible",
+     "value_share_pct": 0.4,
+     "note": "All ₹1000 notes were specified bank notes (old series, demonetised 08-11-2016); the residual is shown as printed in the ₹1000 row."
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 33632,
+     "value_crore": 672642,
+     "volume_share_pct": 3.3,
+     "value_share_pct": 37.3
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2017-18 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1235)",
+    "RBI Annual Report 2018-19 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1263)"
+   ]
+  },
+  {
+   "march": "2019-03",
+   "report": "RBI Annual Report 2020-21, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 27, 2021",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1321",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1087594,
+    "value_crore": 2110892
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 113025,
+     "value_crore": 4372,
+     "volume_share_pct": 10.4,
+     "value_share_pct": 0.2,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 312598,
+     "value_crore": 31260,
+     "volume_share_pct": 28.7,
+     "value_share_pct": 1.5
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 87127,
+     "value_crore": 17425,
+     "volume_share_pct": 8.0,
+     "value_share_pct": 0.8
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 86015,
+     "value_crore": 43007,
+     "volume_share_pct": 7.9,
+     "value_share_pct": 2.0
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 200738,
+     "value_crore": 200738,
+     "volume_share_pct": 18.5,
+     "value_share_pct": 9.5
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 40005,
+     "value_crore": 80010,
+     "volume_share_pct": 3.7,
+     "value_share_pct": 3.8
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 215176,
+     "value_crore": 1075881,
+     "volume_share_pct": 19.8,
+     "value_share_pct": 51.0
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 32910,
+     "value_crore": 658199,
+     "volume_share_pct": 3.0,
+     "value_share_pct": 31.2
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2018-19 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1263)",
+    "RBI Annual Report 2019-20 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1292)"
+   ]
+  },
+  {
+   "march": "2020-03",
+   "report": "RBI Annual Report 2021-22, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 27, 2022",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1350",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1159768,
+    "value_crore": 2420975
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 112203,
+     "value_crore": 4331,
+     "volume_share_pct": 9.7,
+     "value_share_pct": 0.2,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 304022,
+     "value_crore": 30402,
+     "volume_share_pct": 26.2,
+     "value_share_pct": 1.3
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 82994,
+     "value_crore": 16599,
+     "volume_share_pct": 7.2,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 86009,
+     "value_crore": 43004,
+     "volume_share_pct": 7.4,
+     "value_share_pct": 1.8
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 199021,
+     "value_crore": 199021,
+     "volume_share_pct": 17.2,
+     "value_share_pct": 8.2
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 53646,
+     "value_crore": 107293,
+     "volume_share_pct": 4.6,
+     "value_share_pct": 4.4
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 294475,
+     "value_crore": 1472373,
+     "volume_share_pct": 25.4,
+     "value_share_pct": 60.8
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 27398,
+     "value_crore": 547952,
+     "volume_share_pct": 2.4,
+     "value_share_pct": 22.6
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2019-20 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1292)",
+    "RBI Annual Report 2020-21 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1321)"
+   ]
+  },
+  {
+   "march": "2021-03",
+   "report": "RBI Annual Report 2022-23, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 30, 2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1379",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1243671,
+    "value_crore": 2826863
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 111728,
+     "value_crore": 4307,
+     "volume_share_pct": 9.0,
+     "value_share_pct": 0.2,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 293681,
+     "value_crore": 29368,
+     "volume_share_pct": 23.6,
+     "value_share_pct": 1.0
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 90579,
+     "value_crore": 18116,
+     "volume_share_pct": 7.3,
+     "value_share_pct": 0.6
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 87524,
+     "value_crore": 43762,
+     "volume_share_pct": 7.0,
+     "value_share_pct": 1.5
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 190555,
+     "value_crore": 190555,
+     "volume_share_pct": 15.3,
+     "value_share_pct": 6.7
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 58304,
+     "value_crore": 116608,
+     "volume_share_pct": 4.7,
+     "value_share_pct": 4.1
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 386790,
+     "value_crore": 1933951,
+     "volume_share_pct": 31.1,
+     "value_share_pct": 68.4
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 24510,
+     "value_crore": 490195,
+     "volume_share_pct": 2.0,
+     "value_share_pct": 17.3
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2020-21 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1321)",
+    "RBI Annual Report 2021-22 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1350)"
+   ]
+  },
+  {
+   "march": "2022-03",
+   "report": "RBI Annual Report 2023-24, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 30, 2024",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1408",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1305326,
+    "value_crore": 3105721
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 111261,
+     "value_crore": 4284,
+     "volume_share_pct": 8.5,
+     "value_share_pct": 0.1,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 278046,
+     "value_crore": 27805,
+     "volume_share_pct": 21.3,
+     "value_share_pct": 0.9
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 110129,
+     "value_crore": 22026,
+     "volume_share_pct": 8.4,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 87141,
+     "value_crore": 43571,
+     "volume_share_pct": 6.7,
+     "value_share_pct": 1.4
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 181420,
+     "value_crore": 181421,
+     "volume_share_pct": 13.9,
+     "value_share_pct": 5.8
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 60441,
+     "value_crore": 120881,
+     "volume_share_pct": 4.6,
+     "value_share_pct": 3.9
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 455468,
+     "value_crore": 2277340,
+     "volume_share_pct": 34.9,
+     "value_share_pct": 73.3
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 21420,
+     "value_crore": 428394,
+     "volume_share_pct": 1.6,
+     "value_share_pct": 13.8
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2021-22 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1350)",
+    "RBI Annual Report 2022-23 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1379)"
+   ]
+  },
+  {
+   "march": "2023-03",
+   "report": "RBI Annual Report 2024-25, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 29, 2025",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1438",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1362137,
+    "value_crore": 3348228
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 110843,
+     "value_crore": 4263,
+     "volume_share_pct": 8.1,
+     "value_share_pct": 0.1,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 262123,
+     "value_crore": 26212,
+     "volume_share_pct": 19.2,
+     "value_share_pct": 0.8
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 125802,
+     "value_crore": 25160,
+     "volume_share_pct": 9.2,
+     "value_share_pct": 0.8
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 85716,
+     "value_crore": 42858,
+     "volume_share_pct": 6.3,
+     "value_share_pct": 1.3
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 180584,
+     "value_crore": 180584,
+     "volume_share_pct": 13.3,
+     "value_share_pct": 5.4
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 62620,
+     "value_crore": 125241,
+     "volume_share_pct": 4.6,
+     "value_share_pct": 3.7
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 516338,
+     "value_crore": 2581690,
+     "volume_share_pct": 37.9,
+     "value_share_pct": 77.1
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 18111,
+     "value_crore": 362220,
+     "volume_share_pct": 1.3,
+     "value_share_pct": 10.8
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2022-23 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1379)",
+    "RBI Annual Report 2023-24 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1408)"
+   ]
+  },
+  {
+   "march": "2024-03",
+   "report": "RBI Annual Report 2025-26, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 29, 2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1468754,
+    "value_crore": 3477805
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 110547,
+     "value_crore": 4249,
+     "volume_share_pct": 7.5,
+     "value_share_pct": 0.1,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 249506,
+     "value_crore": 24951,
+     "volume_share_pct": 17.0,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 133973,
+     "value_crore": 26795,
+     "volume_share_pct": 9.1,
+     "value_share_pct": 0.8
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 89783,
+     "value_crore": 44892,
+     "volume_share_pct": 6.1,
+     "value_share_pct": 1.3
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 205656,
+     "value_crore": 205656,
+     "volume_share_pct": 14.0,
+     "value_share_pct": 5.9
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 77108,
+     "value_crore": 154215,
+     "volume_share_pct": 5.2,
+     "value_share_pct": 4.4
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 601770,
+     "value_crore": 3008847,
+     "volume_share_pct": 41.0,
+     "value_share_pct": 86.5
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 410,
+     "value_crore": 8202,
+     "volume_share_pct": 0.03,
+     "value_share_pct": 0.2
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2023-24 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1408)",
+    "RBI Annual Report 2024-25 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1438)"
+   ]
+  },
+  {
+   "march": "2025-03",
+   "report": "RBI Annual Report 2025-26, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 29, 2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1550720,
+    "value_crore": 3686811
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 110352,
+     "value_crore": 4239,
+     "volume_share_pct": 7.1,
+     "value_share_pct": 0.1,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 253590,
+     "value_crore": 25359,
+     "volume_share_pct": 16.4,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 138398,
+     "value_crore": 27680,
+     "volume_share_pct": 8.9,
+     "value_share_pct": 0.8
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 98959,
+     "value_crore": 49480,
+     "volume_share_pct": 6.4,
+     "value_share_pct": 1.3
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 227891,
+     "value_crore": 227891,
+     "volume_share_pct": 14.7,
+     "value_share_pct": 6.2
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 86754,
+     "value_crore": 173509,
+     "volume_share_pct": 5.6,
+     "value_share_pct": 4.7
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 634458,
+     "value_crore": 3172287,
+     "volume_share_pct": 40.9,
+     "value_share_pct": 86.0
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 318,
+     "value_crore": 6366,
+     "volume_share_pct": 0.02,
+     "value_share_pct": 0.2
+    }
+   ],
+   "also_reported_in": [
+    "RBI Annual Report 2024-25 (https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1438)"
+   ]
+  },
+  {
+   "march": "2026-03",
+   "report": "RBI Annual Report 2025-26, Table VIII.1: Banknotes in Circulation (Chapter VIII, Currency Management), published May 29, 2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468",
+   "units_as_printed": "volume in lakh pieces, value in ₹ crore",
+   "total": {
+    "volume_lakh": 1713215,
+    "value_crore": 4123995
+   },
+   "denominations": [
+    {
+     "denom": "2 and 5",
+     "series": "all",
+     "volume_lakh": 110220,
+     "value_crore": 4232,
+     "volume_share_pct": 6.4,
+     "value_share_pct": 0.1,
+     "note": "Printed as one combined row \"2 and 5\"; no separate figures for ₹2 and ₹5."
+    },
+    {
+     "denom": "10",
+     "series": "all",
+     "volume_lakh": 275652,
+     "value_crore": 27565,
+     "volume_share_pct": 16.1,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "20",
+     "series": "all",
+     "volume_lakh": 140527,
+     "value_crore": 28105,
+     "volume_share_pct": 8.2,
+     "value_share_pct": 0.7
+    },
+    {
+     "denom": "50",
+     "series": "all",
+     "volume_lakh": 108240,
+     "value_crore": 54120,
+     "volume_share_pct": 6.3,
+     "value_share_pct": 1.3
+    },
+    {
+     "denom": "100",
+     "series": "all",
+     "volume_lakh": 268574,
+     "value_crore": 268573,
+     "volume_share_pct": 15.7,
+     "value_share_pct": 6.5
+    },
+    {
+     "denom": "200",
+     "series": "all",
+     "volume_lakh": 104245,
+     "value_crore": 208491,
+     "volume_share_pct": 6.1,
+     "value_share_pct": 5.1
+    },
+    {
+     "denom": "500",
+     "series": "all",
+     "volume_lakh": 705482,
+     "value_crore": 3527408,
+     "volume_share_pct": 41.2,
+     "value_share_pct": 85.5
+    },
+    {
+     "denom": "2000",
+     "series": "all",
+     "volume_lakh": 275,
+     "value_crore": 5501,
+     "volume_share_pct": 0.02,
+     "value_share_pct": 0.1
+    }
+   ],
+   "also_reported_in": []
+  }
+ ],
+ "events": [
+  {
+   "date": "2016-11-08",
+   "label": "Withdrawal of legal tender character of the old ₹500 and ₹1000 notes (specified bank notes)",
+   "quote": "The volume of notes in circulation continued to increase till November 8, 2016 when the Government of India notified that banknotes of ₹500 and ₹1000 denominations of the existing series issued by the Reserve Bank of India till then (henceforth, specified bank notes), shall cease to be legal tender with effect from November 9, 2016 (also termed as demonetisation).",
+   "source_title": "RBI Annual Report 2016-17, Chapter VIII: Currency Management, para VIII.1",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1208"
+  },
+  {
+   "date": "2023-05-19",
+   "label": "Announcement of withdrawal of ₹2000 banknotes from circulation (they remain legal tender)",
+   "quote": "In view of the above, and in pursuance of the “Clean Note Policy” of the Reserve Bank of India, it has been decided to withdraw the ₹2000 denomination banknotes from circulation. 4. The banknotes in ₹2000 denomination will continue to be legal tender.",
+   "source_title": "RBI press release 2023-2024/257, 19-05-2023: ₹2000 Denomination Banknotes – Withdrawal from Circulation; Will continue as Legal Tender",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=55707"
+  },
+  {
+   "date": "2023-05-19",
+   "label": "₹2000 notes in circulation at withdrawal announcement vs peak",
+   "quote": "The total value of these banknotes in circulation has declined from ₹6.73 lakh crore at its peak as on March 31, 2018 (37.3% of Notes in Circulation) to ₹3.62 lakh crore constituting only 10.8% of Notes in Circulation on March 31, 2023.",
+   "source_title": "RBI press release 2023-2024/257, 19-05-2023, para 2",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=55707"
+  },
+  {
+   "date": "2026-04-30",
+   "label": "Latest official status of ₹2000 withdrawal: 98.47% returned",
+   "quote": "The total value of ₹2000 banknotes in circulation, which was ₹3.56 lakh crore at the close of business on May 19, 2023, when the withdrawal of ₹2000 banknotes was announced, has declined to ₹5,451 crore at the close of business on April 30, 2026. Thus, 98.47% of the ₹2000 banknotes in circulation as on May 19, 2023, has since been returned.",
+   "source_title": "RBI press release 2026-2027/190, 01-05-2026: Withdrawal of ₹2000 Denomination Banknotes – Status",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=62669"
+  },
+  {
+   "date": "2026-03-31",
+   "label": "₹2000 withdrawal status at end-March 2026: 98.45% returned",
+   "quote": "The withdrawal of ₹2000 banknotes from circulation, initiated in terms of press release dated May 19, 2023, which continued during the year and 98.45 per cent of ₹3.56 lakh crores in circulation at the time of announcement, have since returned up to March 31, 2026.",
+   "source_title": "RBI Annual Report 2025-26, Chapter VIII: Currency Management, para VIII.10",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468"
+  },
+  {
+   "date": "2025-03-31",
+   "label": "₹500 share of banknote value at 86 per cent (2024-25)",
+   "quote": "During 2024-25, the share of ₹500 banknotes at 86 per cent, declined marginally in value terms.",
+   "source_title": "RBI Annual Report 2024-25, Chapter VIII: Currency Management, para VIII.9",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1438"
+  },
+  {
+   "date": "2026-03-31",
+   "label": "₹500 share of banknote value at end-March 2026: 85.5 per cent (table only)",
+   "quote": "Table VIII.1: Banknotes in Circulation (end-March) ... 500 | 7,05,482 | ₹35,27,408 crore | (41.2) volume share | (85.5) value share  [cells of the 2026 column, not prose]",
+   "source_title": "RBI Annual Report 2025-26, Chapter VIII: Currency Management, Table VIII.1",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468"
+  }
+ ],
+ "unverified": [
+  "No prose statement was found that ₹500 notes are \"about 85%\" of value in March 2026; AR 2025-26 Chapter VIII text (para VIII.9) mentions only that ₹500 has the highest volume share. The 85.5 per cent figure is the table value share only.",
+  "No ₹2000 withdrawal status press release was found in the RBI press release listings for June, July, August or September 2026 (checked by title); the latest found is dated 01-05-2026 (status as at 30-04-2026).",
+  "No old/new series split for ₹500 at end-March 2017 is printed in any of the reports read; series is recorded as \"all\".",
+  "March 2015 figures come only from AR 2016-17 (AR 2014-15 and AR 2015-16 were not read), so no revision check for March 2015."
+ ]
+}
