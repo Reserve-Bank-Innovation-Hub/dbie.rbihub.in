@@ -6,6 +6,16 @@ import type { ListSection } from "@/app/handbook/sections";
 
 export const STORY_SECTIONS : ListSection[] = [
     {
+        title : "The rupee and the world",
+        items : [
+            {
+                linkTo      : "/stories/rupee-and-world",
+                label       : "How do you measure a rupee?",
+                description : "A dollar costs more than twice as many rupees as in 2004, yet Indian goods cost buyers abroad about what they did then. Three ways to measure the rupee, and the question each one answers.",
+            },
+        ],
+    },
+    {
         title : "Bank credit",
         items : [
             {

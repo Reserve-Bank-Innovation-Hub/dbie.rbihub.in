@@ -1,0 +1,128 @@
+{
+ "about": "Events marked on the charts of the story 'How do you measure a rupee?' (src/app/stories/rupee-and-world). Each is from a Reserve Bank of India or Government of India document, opened and read on 08-10-2026; 'quote' is copied from it. The notes are worded neutrally; rupee levels in a note that the source does not give are the monthly averages of the story's own series (RBI reference rate, from DBIE). data/processors/story-rupee-and-world.mjs checks every month against the series and every link against an official domain. 'chart' names the line an event sits on: usd (rupees per dollar), neer (the basket's price) or rel (India's prices against its partners').",
+ "to_verify": [
+  "2013-08: the RBI page prints the old rupee-font glyph (a backtick) where the ₹ sign belongs in '₹68.36'.",
+  "2007-04: the Economic Survey gives percentages, not rupee levels; ₹44.03 and ₹39.4 are the series' monthly averages.",
+  "rel 2016-08: 'Inflation has since run closer to partners'' is a reading of this chart (the line flattens after 2016), not the source's words.",
+  "rel 2022-04: the source describes India only; partners' inflation also rose in 2022."
+ ],
+ "events": [
+  {
+   "month": "2007-04",
+   "label": "Capital inflows",
+   "note": "Large capital inflows meant foreign exchange came in faster than it was needed, and the rupee strengthened against the dollar: from ₹44.03 a dollar in March 2007 to about ₹39.4 by late 2007.",
+   "source_title": "Economic Survey 2007-08, Chapter 6 (External Sector), Ministry of Finance, February 2008",
+   "url": "https://www.indiabudget.gov.in/budget_archive/es2007-08/chapt2008/chap611.pdf",
+   "quote": "With the demand for foreign exchange (debit side of BoP) not keeping pace with the supply of foreign exchange (credit side of BoP), the rupee appreciated against the US dollar by 4.5 per cent in April 2007 (over March 2007) and by 3.4 per cent in May 2007 over April 2007.",
+   "chart": "usd"
+  },
+  {
+   "month": "2008-10",
+   "label": "Global financial crisis",
+   "note": "After Lehman Brothers failed in mid-September 2008, foreign investors withdrew funds from Indian equity markets and capital flowed out in September and October. A dollar went from about ₹40 in April 2008 to ₹51.23 in March 2009.",
+   "source_title": "RBI Annual Report 2008-09, Chapter II: Economic Review, 27-08-2009",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=896",
+   "quote": "There was, however, a sudden change in the external environment following Lehman Brothers’ failure in mid-September 2008. As in the case of other major EMEs, there was a large withdrawal of funds from the Indian equity markets by the FIIs, reflecting the credit squeeze and global deleveraging, which resulted in large capital outflows during September-October 2008, with concomitant pressures in the foreign exchange market.",
+   "chart": "usd"
+  },
+  {
+   "month": "2011-09",
+   "label": "Euro area debt crisis",
+   "note": "The US credit-rating downgrade and the deepening euro area debt crisis sent investors to the US dollar. Between August and mid-December 2011 the rupee moved by about 17% against the dollar, and again in May 2012 amid concern that Greece might leave the euro.",
+   "source_title": "RBI Annual Report 2011-12, Chapter II: Economic Review, para II.6.19, 23-08-2012",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1039",
+   "quote": "After being largely range bound in the first four months of the financial year 2011-12, rupee depreciated by about 17 per cent during August to mid-December of 2011 reflecting global uncertainties and domestic macro-economic weakness. The S&P’s sovereign rating downgrade of the US economy, deepening euro area crisis and lack of credible resolution mechanisms led to reduced risk appetite in global financial markets and a flight to US dollar considered as a safe asset by investors.",
+   "chart": "usd"
+  },
+  {
+   "month": "2013-08",
+   "label": "US Fed taper signal",
+   "note": "After the US Federal Reserve signalled in May 2013 that it might slow its asset purchases, capital left emerging markets. A dollar reached ₹68.36 on 28-08-2013 (RBI reference rate); the rupee recovered after Reserve Bank and Government measures, including a swap window for FCNR(B) deposits from 04-09-2013.",
+   "source_title": "RBI Annual Report 2013-14, Chapter II: Economic Review, para II.4.11, 21-08-2014",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1120",
+   "quote": "The Rupee came under severe pressure after the signalling of tapering of quantitative easing by the US Fed in May 2013, reaching an all-time low of ₹68.36 (RBI reference rate) against the US$ as on August 28, 2013. The Rupee began its recovery thereafter responding to the measures taken by the Reserve Bank and the government and a contraction in current account deficit (CAD).",
+   "chart": "usd"
+  },
+  {
+   "month": "2020-03",
+   "label": "COVID-19 pandemic",
+   "note": "The pandemic changed sentiment abruptly in March 2020, with large outflows from Indian equity and debt markets. A dollar went from ₹71.49 in February 2020 to ₹76.24 in April.",
+   "source_title": "RBI Annual Report 2019-20, Chapter II: Economic Review, 25-08-2020",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1286",
+   "quote": "COVID-19 brought an abrupt change in sentiments in March 2020. After exhibiting range-bound two-way movements with weakening bias during first three quarters, Indian rupee depreciated to an all-time low during Q4:2019-20 on large capital outflows from both the equity and debt markets.",
+   "chart": "usd"
+  },
+  {
+   "month": "2022-03",
+   "label": "War and US rate rises",
+   "note": "Geopolitical tensions in Eastern Europe from late February 2022, high crude oil prices, portfolio outflows and the US Federal Reserve's rate rises all bore on the rupee. A dollar went from ₹75.00 in February 2022 to about ₹82 by October.",
+   "source_title": "RBI Annual Report 2022-23, Chapter II: Economic Review, para II.5.32, 30-05-2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1373",
+   "quote": "The Indian rupee remained under pressure during Q1:2022-23 amid risk-off sentiments emanating from geopolitical tensions in the Eastern Europe and strengthening of US dollar, as the US Fed stepped up its monetary tightening and began trimming its balance sheet in June 2022.",
+   "chart": "usd"
+  },
+  {
+   "month": "2025-08",
+   "label": "US tariffs on Indian exports",
+   "note": "From mid-July 2025 the rupee moved between ₹85.8 and ₹88.76 a dollar, with portfolio outflows, higher US tariffs on Indian exports and narrower interest-rate differentials. The monthly average passed ₹90 in December 2025.",
+   "source_title": "RBI Monetary Policy Report, October 2025, Chapter I (RBI Bulletin, 20-10-2025)",
+   "url": "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=23707",
+   "quote": "From mid-July onwards, the rupee exhibited depreciating bias, moving within a range of ₹85.8-₹88.76. This movement was driven by portfolio outflows, increase in US tariff rates on Indian exports, and narrowing interest rate differentials.",
+   "chart": "usd"
+  },
+  {
+   "month": "2026-03",
+   "label": "West Asia conflict",
+   "note": "Conflict in the Middle East from March 2026 and the jump in crude oil prices, with portfolio outflows and a stronger dollar, bore on the rupee; 2025-26 closed at ₹94.83 a dollar. July 2026 had the highest monthly average of the series, ₹95.82.",
+   "source_title": "RBI Annual Report 2025-26, Chapter II: Economic Review, para II.5.22, 29-05-2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1462",
+   "quote": "However, it witnessed a renewed bout of pressure in March amid worsening risk sentiments due to the outbreak of conflict in the Middle East and consequent surge in crude oil prices. FPI outflows and strengthening in the dollar index also weighed on the INR.",
+   "chart": "usd"
+  },
+  {
+   "chart": "neer",
+   "month": "2014-11",
+   "label": "The lines cross: a strong dollar",
+   "note": "From here the dollars that were worth ₹100 in April 2004 cost more than the basket. In 2014-15 the US dollar rose 23% against other major currencies, on a robust US recovery, while weak recoveries in the euro zone and Japan pulled the euro and the yen down against it.",
+   "source_title": "RBI Annual Report 2014-15, Chapter II: Economic Review, para II.4.2, 27-08-2015",
+   "url": "https://rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1148",
+   "quote": "The US dollar index, which measures the dollar’s movement against other major currencies, strengthened by 23 per cent from 80.1 at end-March 2014 to 98.4 at end-March 2015. While it strengthened primarily on account of a robust US economic recovery, weak economic recovery in the euro zone and Japan during the year resulted in the euro and the Japanese yen depreciating against the US dollar."
+  },
+  {
+   "chart": "rel",
+   "month": "2010-02",
+   "label": "Food prices lift inflation",
+   "note": "Inflation in India stayed in double digits from February 2010. It began with food prices after a deficient monsoon and then spread more widely. (Measured then by wholesale prices.)",
+   "source_title": "RBI Bulletin, 'VI. Price Situation', para VI.1, 11-08-2010",
+   "url": "https://rbi.org.in/SCRIPTs/BS_ViewBulletin.aspx?Id=11436",
+   "quote": "The headline inflation has remained in double digits since February 2010, with increasing generalisation of price pressures over successive months. ... What started as a supply side pressure on inflation led by high food prices in response to the deficient monsoon, became increasingly more generalised."
+  },
+  {
+   "chart": "rel",
+   "month": "2013-11",
+   "label": "Inflation peaks at 11.5%",
+   "note": "After 2008, high inflation persisted alongside weaker growth. It peaked at 11.5% in November 2013, and the Reserve Bank set itself a path to bring it down: 8% by January 2015, 6% by January 2016.",
+   "source_title": "Speech, 'Seven Ages of India's Monetary Policy', Shri Shaktikanta Das, Governor, RBI, para 16, 24-01-2020",
+   "url": "https://www.rbi.org.in/commonperson/english/Scripts/speeches.aspx?Id=3161",
+   "quote": "In the post-global financial crisis period (i.e., post-2008), however, the credibility of this framework came into question as persistently high inflation and weakening growth began to co-exist. ... the Reserve Bank imposed on itself a glide path for bringing down inflation in a sequential manner – from its peak of 11.5 per cent in November 2013 to 8 per cent by January 2015; 6 per cent by January 2016 and 5 per cent by Q4 of 2016-17."
+  },
+  {
+   "chart": "rel",
+   "month": "2016-08",
+   "label": "A 4% inflation target",
+   "note": "After the RBI Act was amended in May 2016, the Government notified a 4% consumer price inflation target on 05-08-2016, with a band of 2% to 6%. A six-member Monetary Policy Committee was set up on 29-09-2016. Inflation has since run closer to partners'.",
+   "source_title": "RBI, 'Monetary Policy' overview, section 'Monetary Policy Framework'",
+   "url": "https://www.rbi.org.in/Scripts/FS_Overview.aspx?fn=2752",
+   "quote": "In May 2016, the RBI Act, 1934 was amended to provide a statutory basis for the implementation of the flexible inflation targeting framework. ... Accordingly, on August 5, 2016, the Central Government notified in the Official Gazette 4 per cent Consumer Price Index (CPI) inflation as the target for the period from August 5, 2016 to March 31, 2021 with the upper tolerance limit of 6 per cent and the lower tolerance limit of 2 per cent."
+  },
+  {
+   "chart": "rel",
+   "month": "2022-04",
+   "label": "Inflation peaks at 7.8%",
+   "note": "Consumer price inflation in India peaked at 7.8% in April 2022, on supply disruptions, higher world commodity prices after the war in Ukraine, and the currency; it stayed above 6% from January to October 2022.",
+   "source_title": "RBI Annual Report 2022-23, Chapter II: Economic Review, para II.3.3, 30-05-2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1373",
+   "quote": "In India, headline inflation remained above the upper tolerance level of the inflation target over the successive months during January-October 2022. ... Inflation reached a peak in April 2022 at 7.8 per cent driven by a sharp increase in inflation in all the three major groups - food, fuel and core (i.e., excluding food and fuel) inflation - on continued supply disruptions, rise in global commodity prices and currency depreciation"
+  }
+ ]
+}

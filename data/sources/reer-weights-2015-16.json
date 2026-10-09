@@ -1,0 +1,500 @@
+{
+ "source": {
+  "title": "Effective Exchange Rate Indices of the Indian Rupee",
+  "authors": "John V. Guria and Jitendra Sokal (Department of Economic and Policy Research, RBI)",
+  "publication": "Reserve Bank of India Bulletin, January 2021 (article)",
+  "date": "2021-01-21",
+  "url": "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=20020",
+  "pdf_url": "https://rbidocs.rbi.org.in/rdocs/Bulletin/PDFs/02AR_21012021134A1046A80A4AA4A1B136B56B88A7DE.PDF",
+  "table": "Table 1: New 40-Currency NEER/REER Basket – Normalised Weights (Per cent); Source: RBI staff calculations"
+ },
+ "column": "2015-16, normalised weights, per cent",
+ "basis": "Bilateral merchandise trade (trade: exports plus imports; export: exports only), normalised to 100. RBI revises the weights every year as geometric means over the preceding three years; this is the 2015-16 column, the base year of the indices.",
+ "to_verify": [
+  "The printed page number of Table 1 in the January 2021 Bulletin (the PDF was not reachable; the table was read from the article's HTML on rbi.org.in)."
+ ],
+ "trade": [
+  {
+   "country": "Euro Area",
+   "currency": "Euro",
+   "iso": "EUR",
+   "weight": 11.4
+  },
+  {
+   "country": "China",
+   "currency": "Chinese renminbi (yuan)",
+   "iso": "CNY",
+   "weight": 10.0
+  },
+  {
+   "country": "UAE",
+   "currency": "UAE dirham",
+   "iso": "AED",
+   "weight": 9.4
+  },
+  {
+   "country": "US",
+   "currency": "US dollar",
+   "iso": "USD",
+   "weight": 9.1
+  },
+  {
+   "country": "Saudi Arabia",
+   "currency": "Saudi riyal",
+   "iso": "SAR",
+   "weight": 6.4
+  },
+  {
+   "country": "Switzerland",
+   "currency": "Swiss franc",
+   "iso": "CHF",
+   "weight": 3.7
+  },
+  {
+   "country": "Hong Kong",
+   "currency": "Hong Kong dollar",
+   "iso": "HKD",
+   "weight": 2.9
+  },
+  {
+   "country": "Indonesia",
+   "currency": "Indonesian rupiah",
+   "iso": "IDR",
+   "weight": 2.9
+  },
+  {
+   "country": "Singapore",
+   "currency": "Singapore dollar",
+   "iso": "SGD",
+   "weight": 2.8
+  },
+  {
+   "country": "Iraq",
+   "currency": "Iraqi dinar",
+   "iso": "IQD",
+   "weight": 2.7
+  },
+  {
+   "country": "Korea",
+   "currency": "South Korean won",
+   "iso": "KRW",
+   "weight": 2.5
+  },
+  {
+   "country": "Kuwait",
+   "currency": "Kuwaiti dinar",
+   "iso": "KWD",
+   "weight": 2.5
+  },
+  {
+   "country": "Japan",
+   "currency": "Japanese yen",
+   "iso": "JPY",
+   "weight": 2.5
+  },
+  {
+   "country": "Qatar",
+   "currency": "Qatari riyal",
+   "iso": "QAR",
+   "weight": 2.4
+  },
+  {
+   "country": "Nigeria",
+   "currency": "Nigerian naira",
+   "iso": "NGN",
+   "weight": 2.3
+  },
+  {
+   "country": "UK",
+   "currency": "Pound sterling",
+   "iso": "GBP",
+   "weight": 2.2
+  },
+  {
+   "country": "Malaysia",
+   "currency": "Malaysian ringgit",
+   "iso": "MYR",
+   "weight": 2.2
+  },
+  {
+   "country": "Iran",
+   "currency": "Iranian rial",
+   "iso": "IRR",
+   "weight": 2.1
+  },
+  {
+   "country": "Australia",
+   "currency": "Australian dollar",
+   "iso": "AUD",
+   "weight": 2.0
+  },
+  {
+   "country": "South Africa",
+   "currency": "South African rand",
+   "iso": "ZAR",
+   "weight": 1.8
+  },
+  {
+   "country": "Brazil",
+   "currency": "Brazilian real",
+   "iso": "BRL",
+   "weight": 1.5
+  },
+  {
+   "country": "Thailand",
+   "currency": "Thai baht",
+   "iso": "THB",
+   "weight": 1.3
+  },
+  {
+   "country": "Vietnam",
+   "currency": "Vietnamese dong",
+   "iso": "VND",
+   "weight": 1.1
+  },
+  {
+   "country": "Bangladesh",
+   "currency": "Bangladeshi taka",
+   "iso": "BDT",
+   "weight": 0.9
+  },
+  {
+   "country": "Taiwan",
+   "currency": "New Taiwan dollar",
+   "iso": "TWD",
+   "weight": 0.9
+  },
+  {
+   "country": "Angola",
+   "currency": "Angolan kwanza",
+   "iso": "AOA",
+   "weight": 0.9
+  },
+  {
+   "country": "Russia",
+   "currency": "Russian rouble",
+   "iso": "RUB",
+   "weight": 0.9
+  },
+  {
+   "country": "Turkey",
+   "currency": "Turkish lira",
+   "iso": "TRY",
+   "weight": 0.9
+  },
+  {
+   "country": "Mexico",
+   "currency": "Mexican peso",
+   "iso": "MXN",
+   "weight": 0.9
+  },
+  {
+   "country": "Israel",
+   "currency": "Israeli new shekel",
+   "iso": "ILS",
+   "weight": 0.9
+  },
+  {
+   "country": "Sri Lanka",
+   "currency": "Sri Lankan rupee",
+   "iso": "LKR",
+   "weight": 0.8
+  },
+  {
+   "country": "Canada",
+   "currency": "Canadian dollar",
+   "iso": "CAD",
+   "weight": 0.8
+  },
+  {
+   "country": "Egypt",
+   "currency": "Egyptian pound",
+   "iso": "EGP",
+   "weight": 0.7
+  },
+  {
+   "country": "Oman",
+   "currency": "Omani rial",
+   "iso": "OMR",
+   "weight": 0.7
+  },
+  {
+   "country": "Nepal",
+   "currency": "Nepalese rupee",
+   "iso": "NPR",
+   "weight": 0.6
+  },
+  {
+   "country": "Kenya",
+   "currency": "Kenyan shilling",
+   "iso": "KES",
+   "weight": 0.6
+  },
+  {
+   "country": "Tanzania",
+   "currency": "Tanzanian shilling",
+   "iso": "TZS",
+   "weight": 0.5
+  },
+  {
+   "country": "Chile",
+   "currency": "Chilean peso",
+   "iso": "CLP",
+   "weight": 0.5
+  },
+  {
+   "country": "Ukraine",
+   "currency": "Ukrainian hryvnia",
+   "iso": "UAH",
+   "weight": 0.4
+  },
+  {
+   "country": "Ghana",
+   "currency": "Ghanaian cedi",
+   "iso": "GHS",
+   "weight": 0.2
+  }
+ ],
+ "export": [
+  {
+   "country": "Euro Area",
+   "currency": "Euro",
+   "iso": "EUR",
+   "weight": 14.0
+  },
+  {
+   "country": "China",
+   "currency": "Chinese renminbi (yuan)",
+   "iso": "CNY",
+   "weight": 5.0
+  },
+  {
+   "country": "UAE",
+   "currency": "UAE dirham",
+   "iso": "AED",
+   "weight": 12.4
+  },
+  {
+   "country": "US",
+   "currency": "US dollar",
+   "iso": "USD",
+   "weight": 14.7
+  },
+  {
+   "country": "Saudi Arabia",
+   "currency": "Saudi riyal",
+   "iso": "SAR",
+   "weight": 4.1
+  },
+  {
+   "country": "Switzerland",
+   "currency": "Swiss franc",
+   "iso": "CHF",
+   "weight": 0.5
+  },
+  {
+   "country": "Hong Kong",
+   "currency": "Hong Kong dollar",
+   "iso": "HKD",
+   "weight": 4.8
+  },
+  {
+   "country": "Indonesia",
+   "currency": "Indonesian rupiah",
+   "iso": "IDR",
+   "weight": 1.8
+  },
+  {
+   "country": "Singapore",
+   "currency": "Singapore dollar",
+   "iso": "SGD",
+   "weight": 4.4
+  },
+  {
+   "country": "Iraq",
+   "currency": "Iraqi dinar",
+   "iso": "IQD",
+   "weight": 0.4
+  },
+  {
+   "country": "Korea",
+   "currency": "South Korean won",
+   "iso": "KRW",
+   "weight": 1.6
+  },
+  {
+   "country": "Kuwait",
+   "currency": "Kuwaiti dinar",
+   "iso": "KWD",
+   "weight": 0.4
+  },
+  {
+   "country": "Japan",
+   "currency": "Japanese yen",
+   "iso": "JPY",
+   "weight": 2.3
+  },
+  {
+   "country": "Qatar",
+   "currency": "Qatari riyal",
+   "iso": "QAR",
+   "weight": 0.3
+  },
+  {
+   "country": "Nigeria",
+   "currency": "Nigerian naira",
+   "iso": "NGN",
+   "weight": 1.0
+  },
+  {
+   "country": "UK",
+   "currency": "Pound sterling",
+   "iso": "GBP",
+   "weight": 3.5
+  },
+  {
+   "country": "Malaysia",
+   "currency": "Malaysian ringgit",
+   "iso": "MYR",
+   "weight": 1.8
+  },
+  {
+   "country": "Iran",
+   "currency": "Iranian rial",
+   "iso": "IRR",
+   "weight": 1.5
+  },
+  {
+   "country": "Australia",
+   "currency": "Australian dollar",
+   "iso": "AUD",
+   "weight": 0.9
+  },
+  {
+   "country": "South Africa",
+   "currency": "South African rand",
+   "iso": "ZAR",
+   "weight": 1.9
+  },
+  {
+   "country": "Brazil",
+   "currency": "Brazilian real",
+   "iso": "BRL",
+   "weight": 2.2
+  },
+  {
+   "country": "Thailand",
+   "currency": "Thai baht",
+   "iso": "THB",
+   "weight": 1.4
+  },
+  {
+   "country": "Vietnam",
+   "currency": "Vietnamese dong",
+   "iso": "VND",
+   "weight": 1.9
+  },
+  {
+   "country": "Bangladesh",
+   "currency": "Bangladeshi taka",
+   "iso": "BDT",
+   "weight": 2.2
+  },
+  {
+   "country": "Taiwan",
+   "currency": "New Taiwan dollar",
+   "iso": "TWD",
+   "weight": 0.9
+  },
+  {
+   "country": "Angola",
+   "currency": "Angolan kwanza",
+   "iso": "AOA",
+   "weight": 0.2
+  },
+  {
+   "country": "Russia",
+   "currency": "Russian rouble",
+   "iso": "RUB",
+   "weight": 0.8
+  },
+  {
+   "country": "Turkey",
+   "currency": "Turkish lira",
+   "iso": "TRY",
+   "weight": 1.7
+  },
+  {
+   "country": "Mexico",
+   "currency": "Mexican peso",
+   "iso": "MXN",
+   "weight": 0.8
+  },
+  {
+   "country": "Israel",
+   "currency": "Israeli new shekel",
+   "iso": "ILS",
+   "weight": 1.3
+  },
+  {
+   "country": "Sri Lanka",
+   "currency": "Sri Lankan rupee",
+   "iso": "LKR",
+   "weight": 1.9
+  },
+  {
+   "country": "Canada",
+   "currency": "Canadian dollar",
+   "iso": "CAD",
+   "weight": 0.8
+  },
+  {
+   "country": "Egypt",
+   "currency": "Egyptian pound",
+   "iso": "EGP",
+   "weight": 1.1
+  },
+  {
+   "country": "Oman",
+   "currency": "Omani rial",
+   "iso": "OMR",
+   "weight": 1.0
+  },
+  {
+   "country": "Nepal",
+   "currency": "Nepalese rupee",
+   "iso": "NPR",
+   "weight": 1.4
+  },
+  {
+   "country": "Kenya",
+   "currency": "Kenyan shilling",
+   "iso": "KES",
+   "weight": 1.5
+  },
+  {
+   "country": "Tanzania",
+   "currency": "Tanzanian shilling",
+   "iso": "TZS",
+   "weight": 1.0
+  },
+  {
+   "country": "Chile",
+   "currency": "Chilean peso",
+   "iso": "CLP",
+   "weight": 0.2
+  },
+  {
+   "country": "Ukraine",
+   "currency": "Ukrainian hryvnia",
+   "iso": "UAH",
+   "weight": 0.2
+  },
+  {
+   "country": "Ghana",
+   "currency": "Ghanaian cedi",
+   "iso": "GHS",
+   "weight": 0.3
+  }
+ ]
+}
