@@ -6,6 +6,16 @@ import type { ListSection } from "@/app/handbook/sections";
 
 export const STORY_SECTIONS : ListSection[] = [
     {
+        title : "Agriculture",
+        items : [
+            {
+                linkTo      : "/stories/the-women-who-stayed",
+                label       : "The women who stayed",
+                description : "Since 2000-01, rural men have been leaving farm work for building sites, factories and shops. Most rural women who work are still in agriculture.",
+            },
+        ],
+    },
+    {
         title : "The rupee and the world",
         items : [
             {
