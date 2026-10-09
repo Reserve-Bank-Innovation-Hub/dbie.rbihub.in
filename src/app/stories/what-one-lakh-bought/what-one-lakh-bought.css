@@ -925,7 +925,7 @@
     @media (max-width : 900px) {
         /* a phone's screen is shorter than these chapters, so they flow instead of holding */
         .pinned.is-pinned { height : auto; }
-        .pinned.is-pinned .pinned-frame { position : static; height : auto; min-height : 100svh; }
+        .pinned.is-pinned .pinned-frame { position : relative; height : auto; min-height : 100svh; }
         .commodities { display : none; }
         .gold-set { margin-top : 24px; }
         .on-sandalwood .chapter-text.r3 { padding-top : 0; }
@@ -955,6 +955,8 @@
         }
 
         .showcase-text { display : block; }
+        /* the scene keeps to the lower part of the screen, under the text, the wall colour filling the rest */
+        .scene { top : auto; bottom : 0; height : 62%; }
         .showcase-kicker { position : static; margin-bottom : 8px; }
         .showcase-beat { left : 16px; right : 16px; top : 48px; }
         .showcase-beat.is-opening { position : relative; left : 0; right : 0; top : 0; }
