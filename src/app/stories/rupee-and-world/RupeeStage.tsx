@@ -25,22 +25,21 @@ import { geoBounds, geoContains, geoDistance, geoGraticule10, geoInterpolate, ge
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 
 // LIB =================================================================================================================
-import { resolveScheme } from "@/components/charts/chartConfig";
-import { fictoanColour } from "@/lib/fictoan-colours";
 
 // DATA ================================================================================================================
 import { BAND, COST, CROSS, DOLLAR_GAP, EVENTS, HALVES_MEET, HALVES_PEAK, HEADLINE, LINES, MONTHS, N, PARTNERS, type Line, iOf, monthName, monthShort } from "./data";
 import { COINS, CoinBasket, VIEW_H, VIEW_TOP } from "./CoinBasket";
 import { PriceScale } from "./PriceScale";
+import { Constellation } from "./Constellation";
 
 // THE SCENES ==========================================================================================================
 // After the dollar chart, two scenes with no chart: a basket of the 40 currencies bought in 2004 ("coins") and again
 // in 2026 ("coins26"), drawn by CoinBasket.tsx over an empty stage.
-export type SceneId = "hero" | "basket" | "dollar" | "coins" | "coins26" | "neer" | "scale" | "prices" | "guess" | "halves" | "reer" | "swing";
+export type SceneId = "hero" | "basket" | "dollar" | "coins" | "coins26" | "neer" | "orbit" | "scale" | "prices" | "guess" | "halves" | "reer" | "orbitReal" | "swing";
 const isGlobe = (s : SceneId) => s === "hero" || s === "basket";
 export const isCoins = (s : SceneId) => s === "coins" || s === "coins26";
 // the scenes drawn as illustrations over an empty stage (the basket of coins, the balance scale)
-const isIllus = (s : SceneId) => isCoins(s) || s === "scale";
+const isIllus = (s : SceneId) => isCoins(s) || s === "scale" || s === "orbit" || s === "orbitReal";
 
 const LINE_KEYS : Line[] = [ "usd", "neer", "rel", "reer" ];
 // What each line is called: on the dollar chart in rupees for a dollar, on the others as prices from April 2004 = 100.
@@ -61,7 +60,7 @@ const labelOf = (cfg : ChartCfg, l : Line) => (cfg.unit === "cost" ? COST_LABEL[
 const MORE_RUPEES = "↑ more rupees spent to buy the same basket of currencies.";
 const PRICES = "↑ India’s prices rising faster than its partners’.";
 const GOODS = "↑ Indian goods cost more abroad · ↓ they cost less.";
-const HALVES = "Orange above blue: Indian prices rose faster than the rupee cost of partners’ currencies.";
+const HALVES = "Terracotta above purple: Indian prices rose faster than the rupee cost of partners’ currencies.";
 const RUPEES = { unit : "inr" as const, from : 0, lo : 35, hi : 105, ticks : [ 40, 60, 80, 100 ] };
 // one scale for all the price charts, from the lowest guess (50) to dollars that were worth ₹100 in 2004, at their highest (218)
 const PRICE  = { unit : "cost" as const, from : 0, lo : 40, hi : 232, ticks : [ 50, 100, 150, 200 ] };
@@ -140,7 +139,12 @@ let landPromise : Promise<Land> | null = null;
 const loadLand = () => landPromise ??= (async () => {
     const get = (f : string) => fetch(`/stories/rupee-and-world/${f}`).then(r => r.json() as Promise<FeatureCollection<Geometry, Props>>);
     const [ world, india ] = await Promise.all([ get("world-countries.geojson"), get("india-soi.geojson") ]);
-    const countries : Country[] = [ ...world.features.filter(f => f.properties.iso !== "IND"), ...india.features ].map(f => {
+    // India's outline without its inner rings: the Survey of India file keeps slivers between Ladakh and Jammu and
+    // Kashmir as holes, which would draw as a line across the north
+    const solid = (f : Feature<Geometry, Props>) : Feature<Geometry, Props> => f.geometry.type === "MultiPolygon"
+        ? { ...f, geometry : { type : "MultiPolygon", coordinates : f.geometry.coordinates.map(poly => [ poly[0] ]) } }
+        : f.geometry.type === "Polygon" ? { ...f, geometry : { type : "Polygon", coordinates : [ f.geometry.coordinates[0] ] } } : f;
+    const countries : Country[] = [ ...world.features.filter(f => f.properties.iso !== "IND"), ...india.features.map(solid) ].map(f => {
         // Natural Earth files France without an ISO code
         const iso = f.properties.iso === "-99" && f.properties.name === "France" ? "FRA" : f.properties.iso;
         return { name : f.properties.name, iso, code : CODE_OF[iso] ?? null, feature : f, box : geoBounds(f) as Country["box"] };
@@ -182,18 +186,35 @@ const pageRGB = (cssVar : string, fallback : RGB) : RGB => {
     const [ r, g, b ] = c2.getImageData(0, 0, 1, 1).data;
     return [ r, g, b ];
 };
+// RBIH's brand palette (the Kosh design guidelines): Terracotta and Indivara the primaries, Turmeric and Neem the
+// accents, Sandalwood, Ivory and Charcoal the neutrals. Each role keeps one colour through the story: India and its
+// prices terracotta, the partners and the basket indivara, the dollar charcoal, the answer (goods abroad) neem. The
+// dark theme lifts each to a lighter tint of its own family.
+export const BRAND = {
+    terracotta : [ 186, 100, 79 ] as RGB, indivara : [ 134, 79, 227 ] as RGB, turmeric : [ 234, 170, 58 ] as RGB,
+    neem : [ 107, 142, 35 ] as RGB, sandalwood : [ 225, 213, 188 ] as RGB, ivory : [ 242, 240, 230 ] as RGB,
+    charcoal : [ 47, 47, 47 ] as RGB,
+};
+// RBIH's indivara scale, base to 10 (each step 10% nearer white), and a partner's step by weight: 70 for the heaviest
+// to 20 for the lightest
+const INDI : RGB[] = Array.from({ length : 10 }, (_, k) => mix(BRAND.indivara, [ 255, 255, 255 ], k * 0.1));
+const indiFor = (weight : number) => INDI[3 + Math.min(5, Math.floor((1 - Math.sqrt(weight / MAX_W)) * 6))];
 export const palette = (theme : string, fromPage = true) : Pal => {
     const dark = theme === "theme-dark";
-    const s = resolveScheme("line", undefined, theme);
-    const emph = rgbOf(s.emphasis), cool = rgbOf(s.positive), warm = rgbOf(s.negative);
-    const accent = fromPage ? pageRGB("--accent", ACCENT_LIGHT) : ACCENT_LIGHT;
+    const W : RGB = [ 255, 255, 255 ], up = (c : RGB, t : number) => (dark ? mix(c, W, t) : c);
+    void ACCENT_LIGHT;
     const paper = fromPage ? pageRGB("--fig-bg", [ 255, 255, 255 ]) : [ 255, 255, 255 ] as RGB;
     const head = fromPage ? pageRGB("--heading-text-colour", [ 40, 40, 40 ]) : [ 40, 40, 40 ] as RGB;
     return {
-        field : rgbOf(fictoanColour("grey", dark ? "dark30" : "light50")),
-        faint : rgbOf(fictoanColour("grey", dark ? "dark60" : "light80")),
-        emph, warm, ink : rgbOf(s.ink.primary), paper, head,
-        line  : { usd : rgbOf(s.ink.secondary), neer : cool, rel : warm, reer : accent },
+        field : dark ? mix(BRAND.charcoal, W, 0.32) : mix(BRAND.sandalwood, BRAND.charcoal, 0.25),
+        faint : dark ? mix(BRAND.charcoal, W, 0.12) : BRAND.sandalwood,
+        emph  : up(BRAND.indivara, 0.2), warm : up(BRAND.terracotta, 0.22), ink : dark ? BRAND.ivory : BRAND.charcoal, paper, head,
+        line  : {
+            usd  : dark ? BRAND.sandalwood : BRAND.charcoal,
+            neer : up(BRAND.indivara, 0.3),
+            rel  : up(BRAND.terracotta, 0.25),
+            reer : up(BRAND.neem, 0.35),
+        },
     };
 };
 // The palette, re-read whenever the theme changes: after the change has reached the page, since --accent is read
@@ -228,9 +249,11 @@ const frameOf = (scene : SceneId, w : number, h : number) : Frame => {
         : { x0 : Math.max(64, w * 0.05), x1 : w - card - 150, y0 : h * 0.17, y1 : h * 0.83 };
     let globe;
     if (scene === "hero") {
-        // a planet rising behind the title: wider than the screen, its horizon in the upper third
-        const R = Math.max(w * 0.62, h * 0.95);
-        globe = { cx : w / 2, cy : h * 0.42 + R * 0.72, R, alpha : 0.9 };
+        // the whole globe beside the title, on the right; on a phone, above it
+        globe = mobile
+            ? { cx : w / 2, cy : h * 0.2, R : Math.min(w * 0.36, h * 0.16), alpha : 1 }
+            // a huge globe on the right, running off the right and bottom edges, the title on the left
+            : { cx : w * 0.8, cy : h * 0.66, R : Math.max(h * 0.78, w * 0.4), alpha : 1 };
     } else if (scene === "basket") {
         const room = mobile ? w : w - card;
         const R = mobile ? Math.min(w * 0.4, h * 0.16) : Math.min(room * 0.36, h * 0.37);
@@ -270,6 +293,14 @@ const facing = (codes : string[]) : [ number, number ] => {
     return [ Math.atan2(c[1], c[0]) * 180 / Math.PI, Math.atan2(c[2], Math.hypot(c[0], c[1])) * 180 / Math.PI ];
 };
 
+// a coin's fall: accelerating down, then two small bounces as it lands
+const bounce = (t : number) => {
+    const n = 7.5625, d = 2.75;
+    if (t < 1 / d) return n * t * t;
+    if (t < 2 / d) return n * (t -= 1.5 / d) * t + 0.75;
+    if (t < 2.5 / d) return n * (t -= 2.25 / d) * t + 0.9375;
+    return n * (t -= 2.625 / d) * t + 0.984375;
+};
 const ease = (t : number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const TAU = Math.PI * 2, RAD = Math.PI / 180;
 
@@ -344,6 +375,9 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
         const cr = new Float32Array(L), cg = new Float32Array(L), cb = new Float32Array(L);
         const fx = new Float32Array(L), fy = new Float32Array(L), b = new Float32Array(L).fill(1), dur = new Float32Array(L).fill(1);
         const tx = new Float32Array(L), ty = new Float32Array(L);
+        // coins: a month's point that arrives from the globe or an illustration falls from above as a blank coin,
+        // lands on its line, and fades once the line is drawn through it
+        const fall = new Uint8Array(L), pendingFall = new Uint8Array(L);
 
         const proj = geoOrthographic().clipAngle(90).precision(0.6);
         const labelFont = getComputedStyle(document.body).fontFamily || "sans-serif";
@@ -363,6 +397,21 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             if (!visible) return;
             const dt = Math.min(0.1, (now - last) / 1000); last = now;
             const { scene : sc, focus : fo, turn, pal : P, w, h } = live.current;
+            // the globe's own colours (RBIH): land in ivory to sandalwood, India #C17461, a country pointed at #595959,
+            // the beams solid indivara
+            const darkTheme = document.documentElement.classList.contains("theme-dark");
+            // The globe is a white sphere in both themes; on it, countries outside the basket are the palest sandalwood,
+            // partners run from sandalwood to a deep sandalwood with their weight, India #C17461; a country pointed at turns
+            // #595959 with the rest dimmed; the beams are RBIH indivara.
+            void darkTheme;
+            // Countries in RBIH indivara tints (the Kosh scale: each step 10% nearer white): a partner deeper the more it
+            // weighs, from step 70 to step 20; countries outside the basket step 10; India terracotta; the beams the
+            // deep indivara base; the country pointed at keeps its own shade while the rest fall to the lightest step.
+            const SEA : RGB = [ 255, 255, 255 ], SEA_RIM : RGB = INDI[3];
+            const LAND = { none : INDI[9] };
+            const INDIA : RGB = BRAND.terracotta;
+            const HOT : RGB = [ 89, 89, 89 ];
+            const BEAM : RGB = BRAND.indivara;
             if (!w) { raf = requestAnimationFrame(loop); return; }
             const F = frameOf(sc, w, h), cfg = CHART[sc];
 
@@ -370,12 +419,11 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             const k = reduced || first ? 1 : 1 - Math.exp(-dt / 0.28);
             g.cx += (F.globe.cx - g.cx) * k; g.cy += (F.globe.cy - g.cy) * k; g.R += (F.globe.R - g.R) * k;
             g.alpha += (F.globe.alpha - g.alpha) * (reduced || first ? 1 : 1 - Math.exp(-dt / 0.3));
-            let lamT = g.lam, phiT = sc === "hero" ? 4 : 18;
+            let lamT = g.lam, phiT = sc === "hero" ? 14 : 18;
             if (sc === "hero") {
+                // the whole globe is in view: India swings 40° either side of facing the reader, never round the back
                 if (!reduced) swingPhase += dt * SWING_RATE;
-                // the swing that takes India to 40% of the width either side of the centre
-                const reach = Math.min(0.95, 0.4 * w / (F.globe.R * Math.cos(DELHI[1] * RAD)));
-                lamT = DELHI[0] + Math.asin(reach) / RAD * Math.sin(swingPhase);
+                lamT = DELHI[0] + 28 * Math.sin(swingPhase);
             }
             else if (sc === "basket") {
                 // the chips turn the globe; the pointer on a country only lights it, and the globe holds still under it
@@ -396,14 +444,19 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                     fx[i] = x[i]; fy[i] = y[i];
                     const s = slot[i], toChart = !!cfg && s >= 0;
                     let delay = seed[i] * 0.12, d = 0.7;          // globe to globe: quick, so the basket is in place as the scroll ends
-                    if (toChart && (shown === null || isGlobe(shown) || isIllus(shown))) { delay = 0.05 + 1.1 * (s % N) / N + seed[i] * 0.15; d = 1.0; }
+                    // coins fall only from the globe into the first chart; after an illustration a chart fades in
+                    const coins = toChart && (shown === null || isGlobe(shown));
+                    const fromIllus = toChart && shown !== null && isIllus(shown);
+                    fall[i] = coins && !reduced && !first && !resize ? 1 : 0; pendingFall[i] = fall[i];
+                    if (coins) { delay = 0.05 + 1.1 * (s % N) / N + seed[i] * 0.15; d = 1.0; }
                     else if (cfg && shown && !isGlobe(shown)) { delay = seed[i] * 0.12; d = 0.8; }
                     else if (!cfg && shown && !isGlobe(shown)) { delay = seed[i] * 0.45; d = 1.1; }   // a chart back into the globe
-                    dur[i] = reduced || first || resize ? 0 : d;
-                    b[i] = reduced || first || resize ? 1 : -delay / d;
+                    dur[i] = reduced || first || resize || fromIllus ? 0 : d;
+                    b[i] = reduced || first || resize || fromIllus ? 1 : -delay / d;
+                    if (fromIllus) { a[i] = 0; }
                 }
                 // the hairlines wait until the dots have landed when the line is drawn from the globe
-                lineFrom = now + (cfg && (shown === null || isGlobe(shown) || isIllus(shown)) && !reduced && !first && !resize ? 1900 : 0);
+                lineFrom = now + (cfg && (shown === null || isGlobe(shown)) && !reduced && !first && !resize ? 1900 : 0);
                 shown = sc; shownW = w; shownH = h;
             }
 
@@ -427,20 +480,19 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 } else if (cfg) {
                     tx[i] = fx[i]; ty[i] = fy[i] + 24; ta = 0; tr = rGlobe; tc = P.field;
                 } else {
-                    tx[i] = gx; ty[i] = gy;
-                    const c = land.countries[land.country[i]];
-                    const vis = Math.max(0, Math.min(1, (depth + 0.02) / 0.18));
-                    if (c.iso === "IND") { tc = P.warm; ta = vis; }
-                    else if (c.code) {
-                        const wgt = 0.3 + 0.7 * Math.sqrt((WEIGHT[c.code] ?? 0) / MAX_W);
-                        const on = !focusSet || focusSet.has(c.code);
-                        tc = on ? mix(P.field, P.emph, wgt) : P.field; ta = vis * (on ? 1 : 0.55);
-                    } else { tc = P.field; ta = vis * (focusSet ? 0.45 : 0.7); }
-                    ta *= g.alpha; tr = rGlobe;
+                    // on the globe the points are unseen: the countries themselves are drawn, filled by weight
+                    tx[i] = gx; ty[i] = gy; ta = 0; tr = rGlobe; tc = P.field;
+                    void depth;
+                }
+                if (pendingFall[i] && cfg) {
+                    // a falling coin starts above the chart, over the month it will land on
+                    pendingFall[i] = 0;
+                    fx[i] = tx[i] + (seed[i] - 0.5) * 36; fy[i] = F.chart.y0 - 90 - seed[i] * 260;
+                    x[i] = fx[i]; y[i] = fy[i];
                 }
                 // position: eased from where the scene began; colour, size and alpha: smoothed toward the target
                 if (b[i] < 1) b[i] = Math.min(1, b[i] + (dur[i] > 0 ? dt / dur[i] : 1));
-                const e = ease(Math.max(0, b[i]));
+                const e = fall[i] ? bounce(Math.max(0, b[i])) : ease(Math.max(0, b[i]));
                 x[i] = fx[i] + (tx[i] - fx[i]) * e; y[i] = fy[i] + (ty[i] - fy[i]) * e;
                 r[i] += (tr - r[i]) * kc; a[i] += (ta - a[i]) * kc;
                 cr[i] += (tc[0] - cr[i]) * kc; cg[i] += (tc[1] - cg[i]) * kc; cb[i] += (tc[2] - cb[i]) * kc;
@@ -454,36 +506,53 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 ctx.save();
                 ctx.globalAlpha = g.alpha;
                 ctx.beginPath(); path({ type : "Sphere" });
+                // charcoal, a touch lighter towards the upper left so it reads as a sphere
                 const grad = ctx.createRadialGradient(g.cx - g.R * 0.35, g.cy - g.R * 0.4, g.R * 0.05, g.cx, g.cy, g.R);
-                grad.addColorStop(0, rgba(P.emph, 0.035)); grad.addColorStop(1, rgba(P.emph, 0.1));
+                grad.addColorStop(0, rgba(SEA, 1)); grad.addColorStop(1, rgba(INDI[9], 0.6));
                 ctx.fillStyle = grad; ctx.fill();
-                ctx.strokeStyle = rgba(P.field, 0.55); ctx.lineWidth = 0.8; ctx.stroke();
-                ctx.beginPath(); path(grat); ctx.strokeStyle = rgba(P.field, 0.16); ctx.lineWidth = 0.5; ctx.stroke();
-                if (focusSet) {
-                    ctx.beginPath();
-                    for (const c of land.countries) if (c.code && focusSet.has(c.code)) path(c.feature);
-                    ctx.fillStyle = rgba(P.emph, 0.16); ctx.fill();
+                ctx.strokeStyle = rgba(SEA_RIM, 1); ctx.lineWidth = 1; ctx.stroke();
+                ctx.beginPath(); path(grat); ctx.strokeStyle = rgba(SEA_RIM, 0.18); ctx.lineWidth = 0.5; ctx.stroke();
+                // the countries, filled in RBIH's ivory and sandalwood: a partner deeper the more it weighs in the basket,
+                // the rest the palest ivory, India its own terracotta; a country pointed at (or picked out) in charcoal
+                for (const c of land.countries) {
+                    let fill : RGB, al = 1;
+                    if (c.iso === "IND") fill = INDIA;
+                    else if (c.code) {
+                        const wgt = Math.sqrt((WEIGHT[c.code] ?? 0) / MAX_W);
+                        // picked out: a country keeps its own shade, the rest fall to the lightest indivara
+                        fill = focusSet && !focusSet.has(c.code) ? LAND.none : indiFor(WEIGHT[c.code] ?? 0); void wgt; void HOT;
+                    } else fill = LAND.none;
+                    ctx.beginPath(); path(c.feature);
+                    ctx.fillStyle = rgba(fill, al); ctx.fill();
                 }
                 ctx.beginPath();
                 for (const c of land.countries) path(c.feature);
-                ctx.strokeStyle = rgba(P.field, 0.5); ctx.lineWidth = 0.5; ctx.stroke();
+                ctx.strokeStyle = rgba(SEA, 0.9); ctx.lineWidth = 0.6; ctx.stroke();
+                // India last, filled over everything: Natural Earth's neighbours overlap the Survey of India's northern
+                // boundary, and their borders would otherwise draw lines across Ladakh and Jammu and Kashmir
                 ctx.beginPath();
                 for (const c of land.countries) if (c.iso === "IND") path(c.feature);
-                ctx.strokeStyle = rgba(P.warm, 0.9); ctx.lineWidth = 0.9; ctx.stroke();
+                ctx.fillStyle = rgba(INDIA, 1); ctx.fill();
+                ctx.strokeStyle = rgba(INDIA, 1); ctx.lineWidth = 0.9; ctx.stroke();
                 ctx.restore();
             }
 
             // in a chart, a hairline through each line's months, so the dots read as a line; it follows the dots
-            const hair = cfg ? Math.max(0, Math.min(1, (now - lineFrom) / 500)) : 0;
-            if (cfg && hair > 0) {
-                ctx.lineWidth = 1; ctx.lineJoin = "round";
+            // The lines: solid, drawn through each line's monthly points, at the points' own strength (so a line
+            // leaving a chart fades and a faint one stays faint). They wait for falling coins to land.
+            const hair = Math.max(0, Math.min(1, (now - lineFrom) / 500));
+            if (hair > 0) {
+                ctx.lineJoin = "round"; ctx.lineCap = "round";
                 for (let s = 0; s < 4; s++) {
                     const line = LINE_KEYS[s];
-                    const strength = hair * (cfg.on.includes(line) ? 0.45 : cfg.faint.includes(line) ? 0.12 : 0);
-                    if (!strength) continue;
+                    let sum = 0, cnt = 0;
+                    for (let m = 0; m < N; m++) { const i = dotOf[s * N + m]; if (a[i] > 0.02) { sum += a[i]; cnt++; } }
+                    const strength = hair * (cnt ? sum / cnt : 0);
+                    if (strength < 0.02) continue;
+                    ctx.lineWidth = strength > 0.5 ? (F.mobile ? 2 : 2.6) : 1.6;
                     ctx.beginPath();
                     let started = false;
-                    for (let m = cfg.from; m < N; m++) {
+                    for (let m = 0; m < N; m++) {
                         const i = dotOf[s * N + m];
                         if (a[i] < 0.05) { started = false; continue; }
                         if (started) ctx.lineTo(x[i], y[i]); else { ctx.moveTo(x[i], y[i]); started = true; }
@@ -493,26 +562,25 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 }
             }
 
-            // the dots, batched by colour
-            const buckets = new Map<string, number[]>();
-            for (let i = 0; i < L; i++) {
-                if (a[i] < 0.02) continue;
-                const key = `${cr[i] | 0},${cg[i] | 0},${cb[i] | 0},${Math.round(a[i] * 20) / 20}`;
-                const list = buckets.get(key);
-                if (list) list.push(i); else buckets.set(key, [ i ]);
-            }
-            for (const [ key, list ] of buckets) {
-                ctx.fillStyle = `rgba(${key})`;
-                ctx.beginPath();
-                for (const i of list) { ctx.moveTo(x[i] + r[i], y[i]); ctx.arc(x[i], y[i], r[i], 0, TAU); }
-                ctx.fill();
+            // the coins still falling or just landed, flat gold discs with a rim, fading once the line is drawn
+            const coinFade = Math.max(0, Math.min(1, (lineFrom + 700 - now) / 700));
+            if (coinFade > 0) {
+                ctx.lineWidth = 1;
+                for (let i = 0; i < L; i++) {
+                    if (!fall[i] || a[i] < 0.05) continue;
+                    const rc = F.mobile ? 3.4 : 4.6;
+                    ctx.globalAlpha = coinFade * Math.min(1, a[i] * 1.5);
+                    ctx.beginPath(); ctx.arc(x[i], y[i], rc, 0, TAU);
+                    ctx.fillStyle = "#eaaa3a"; ctx.fill(); ctx.strokeStyle = "#a9771f"; ctx.stroke();      // turmeric
+                }
+                ctx.globalAlpha = 1;
             }
 
             // the arcs from India to each partner, lifted off the surface, with a bead running out along each
             if (g.alpha > 0.01) {
                 ctx.save();
                 const scale = arcScale(g.R);
-                const low = sc === "hero";               // behind the title the arcs fly lower
+                const low = false;
                 const sp = (lon : number, lat : number, lift : number) => {
                     const la = lat * RAD, dl = lon * RAD - l0, cl = Math.cos(la), cd = Math.cos(dl);
                     const px = g.R * cl * Math.sin(dl), py = g.R * (cP * Math.sin(la) - sP * cl * cd);
@@ -528,28 +596,25 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                     const al = g.alpha * arcAlpha[k2];
                     // a ribbon as wide as the partner's weight, its colour running from India's to the partners'
                     const width = arcWidth(arc.weight, scale);
-                    const from = P.warm, to = focusSet && on ? P.warm : P.emph;
                     ctx.lineWidth = width; ctx.lineCap = "round";
+                    ctx.strokeStyle = rgba(BEAM, al);
                     const K = 36, h0 = 0.06 + (low ? 0.08 : 0.2) * arc.dist / Math.PI;
                     let prev : { x : number; y : number; vis : boolean } | null = null;
                     for (let j = 0; j <= K; j++) {
                         const t = j / K, [ lo, la ] = arc.at(t), q = sp(lo, la, 1 + h0 * Math.sin(Math.PI * t));
-                        if (prev && prev.vis && q.vis) {
-                            ctx.strokeStyle = rgba(mix(from, to, Math.min(1, t * 1.6)), al);
-                            ctx.beginPath(); ctx.moveTo(prev.x, prev.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-                        }
+                        if (prev && prev.vis && q.vis) { ctx.beginPath(); ctx.moveTo(prev.x, prev.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
                         prev = q;
                     }
                     const end = sp(arc.end[0], arc.end[1], 1);
                     if (end.vis) {
-                        ctx.fillStyle = rgba(focusSet && on ? P.warm : P.emph, Math.min(1, al * 1.6));
+                        ctx.fillStyle = rgba(BEAM, Math.min(1, al * 1.6));
                         ctx.beginPath(); ctx.arc(end.x, end.y, Math.max(2, width * 0.75), 0, TAU); ctx.fill();
                     }
                     if (!reduced && on) {
                         const t = ((now * 0.00011 * (1 + 0.05 * arc.weight)) + k2 * 0.137) % 1, [ lo, la ] = arc.at(t);
                         const q = sp(lo, la, 1 + h0 * Math.sin(Math.PI * t));
                         if (q.vis) {
-                            ctx.fillStyle = rgba(P.warm, g.alpha * Math.sin(Math.PI * t));
+                            ctx.fillStyle = rgba(BEAM, g.alpha * Math.sin(Math.PI * t));
                             ctx.beginPath(); ctx.arc(q.x, q.y, 1.8 * scale, 0, TAU); ctx.fill();
                         }
                     }
@@ -557,9 +622,9 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                 const india = sp(DELHI[0], DELHI[1], 1);
                 if (india.vis) {
                     const pulse = reduced ? 0.5 : (now * 0.0006) % 1;
-                    ctx.strokeStyle = rgba(P.warm, g.alpha * (1 - pulse)); ctx.lineWidth = 1.2;
+                    ctx.strokeStyle = rgba(INDIA, g.alpha * (1 - pulse)); ctx.lineWidth = 1.2;
                     ctx.beginPath(); ctx.arc(india.x, india.y, (3 + 14 * pulse) * scale, 0, TAU); ctx.stroke();
-                    ctx.fillStyle = rgba(P.warm, g.alpha);
+                    ctx.fillStyle = rgba(INDIA, g.alpha);
                     ctx.beginPath(); ctx.arc(india.x, india.y, 3 * scale, 0, TAU); ctx.fill();
                 }
 
@@ -579,8 +644,8 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                         if (taken.some(b => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue;
                         taken.push(box);
                         const fade = g.alpha * Math.min(1, (q.depth - 0.08) / 0.15);
-                        ctx.strokeStyle = rgba(P.paper, 0.9 * fade); ctx.lineWidth = 3.5; ctx.strokeText(text, lx, ly);
-                        ctx.fillStyle = rgba(P.head, fade); ctx.fillText(text, lx, ly);
+                        ctx.strokeStyle = rgba(SEA, 0.9 * fade); ctx.lineWidth = 3.5; ctx.strokeText(text, lx, ly);
+                        ctx.fillStyle = rgba(BRAND.charcoal, fade); ctx.fillText(text, lx, ly);
                     }
                 }
                 ctx.restore();
@@ -758,12 +823,19 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             {/* THE BASKET OF CURRENCIES, BOUGHT IN 2004 AND IN 2026 */}
             {F && <CoinBasket scene={scene} box={F.chart} />}
             {F && <PriceScale scene={scene} box={F.chart} />}
+            {/* the currency constellation, twice: in rupees after the basket's chart, turned to prices after the answer */}
+            {F && (
+                <div className={`coin-scene orbit-scene ${scene === "orbit" || scene === "orbitReal" ? "is-on" : ""}`}
+                    style={{ left : F.chart.x0, top : Math.max(8, F.chart.y0 - 60), width : F.chart.x1 - F.chart.x0 + 120, height : F.chart.y1 - F.chart.y0 + 110 }}>
+                    <Constellation active={scene === "orbit" || scene === "orbitReal"} realView={scene === "orbitReal"} />
+                </div>
+            )}
 
             {/* THE BASKET'S KEY */}
             {F && (
                 <div className={`stage-layer globe-key ${scene === "basket" ? "is-on" : ""}`} style={{ left : F.mobile ? 16 : 24, top : F.mobile ? 12 : 24 }}>
-                    <p>Each dot is land. A partner’s dots are deeper the more it weighs in the basket.</p>
-                    <span className="key-ramp" style={{ background : `linear-gradient(to right, ${cssOf(mix(pal.field, pal.emph, 0.3))}, ${cssOf(pal.emph)})` }} />
+                    <p>A partner’s colour is deeper the more it weighs in the basket.</p>
+                    <span className="key-ramp" style={{ background : `linear-gradient(to right, ${[ 8, 7, 6, 5, 4, 3 ].map((k, i) => `${cssOf(INDI[k])} ${(i * 100 / 6).toFixed(1)}% ${((i + 1) * 100 / 6).toFixed(1)}%`).join(", ")})` }} />
                     <span className="key-ends"><span>0.2%</span><span>{MAX_W.toFixed(1)}%</span></span>
                     <p className="key-arcs-title">An arc is as wide as the partner’s weight</p>
                     <svg className="key-arcs" width={230} height={66} aria-hidden="true">
@@ -778,7 +850,7 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                         })}
                         <defs>
                             <linearGradient id="key-grad" gradientUnits="userSpaceOnUse" x1={4} x2={110} y1={0} y2={0}>
-                                <stop offset="0" stopColor={cssOf(pal.warm)} /><stop offset="0.62" stopColor={cssOf(pal.emph)} />
+                                <stop offset="0" stopColor="#864fe3" /><stop offset="1" stopColor="#864fe3" />
                             </linearGradient>
                         </defs>
                     </svg>
@@ -864,7 +936,7 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                         )}
                     </svg>
                     <div className="axis-title" style={{ left : CF.chart.x0 - 4, top : CF.chart.y0 - (C.key ? 64 : 44) }}>
-                        <strong>Each dot is a month.</strong>{" "}
+                        <strong>{`Monthly, ${monthName(MONTHS[C.from])} to ${monthName(MONTHS[N - 1])}.`}</strong>{" "}
                         {C.unit === "inr" ? "The average number of rupees paid for one US dollar."
                             : `Prices in April 2004 = 100 (the dashed line).${C.band ? " The shaded band is the range this price stayed in." : ""}`}
                         {C.key && <span className="axis-key">{C.key}</span>}
@@ -936,13 +1008,15 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
 
 // WHAT EACH SCENE SAYS TO A SCREEN READER =============================================================================
 const DESCRIBE : Record<SceneId, string> = {
-    hero    : "A globe of dots, India and the 40 trading partners in the rupee’s basket joined to it by arcs.",
+    hero    : "A globe, India and the 40 trading partners in the rupee’s basket joined to it by arcs.",
     basket  : "A globe on which each trading partner is shaded by its weight in the basket.",
-    dollar  : "A line of dots, one a month from April 2004, of the rupees paid for one US dollar, rising from ₹43.93 to ₹95.82, with numbered events.",
+    dollar  : "A line, month by month from April 2004, of the rupees paid for one US dollar, rising from ₹43.93 to ₹95.82, with numbered events.",
     coins   : "A basket of 40 coins, one for each partner’s currency, sized by its weight; a ₹100 note pays for it in April 2004.",
     coins26 : "The same basket in July 2026: a ₹100 note, a ₹50 note and three ₹10 notes pay for it, with ₹2 back.",
     halves  : "India’s prices against its partners’ and the basket’s price together: prices ran ahead from 2013, widest in November 2024, and the two meet again in 2026.",
     neer    : "The basket’s price, month by month, from ₹100 to ₹178, beside dollars that were worth ₹100 in April 2004, now ₹218; the basket cost more until late 2014, the dollars since.",
+    orbit   : "The currency constellation: the rupee at the centre, every currency as far from it as it costs in rupees, from the dashed ring at 100 in April 2004; played month by month to July 2026.",
+    orbitReal : "The same constellation, adjusted for prices: the basket's ring settles back on the dashed ring, at 101.",
     scale   : "A balance scale with the same goods on both pans, India’s prices on one and its partners’ on the other, level at 100 in April 2004; in July 2026 India’s side sinks, its tag at 179.",
     prices  : "India’s prices against its partners’, month by month, rising from 100 to 179.",
     guess   : "India’s prices against its partners’, as before.",

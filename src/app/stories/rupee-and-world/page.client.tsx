@@ -11,14 +11,13 @@ import { MotionConfig } from "framer-motion";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
-import { Constellation } from "./Constellation";
 import { Recap } from "./Recap";
 import { AnimatedNumber, CountUp, Reveal } from "./Motion";
 import { RupeeStage, cssOf, usePalette, type SceneId } from "./RupeeStage";
 
 // DATA ================================================================================================================
 import {
-    BAND, BASKET, COST, CROSS, DOLLAR_GAP, EVENTS, HALVES_MEET, HALVES_PEAK, HEADLINE, MONTHS, N, PARTNERS, REGIONS, REL_RISE, SERIES, SWING_MONTHS, USD,
+    BAND, BASKET, COST, CROSS, RATES, DOLLAR_GAP, EVENTS, HALVES_MEET, HALVES_PEAK, HEADLINE, MONTHS, N, PARTNERS, REGIONS, REL_RISE, SERIES, SWING_MONTHS, USD,
     YEARLY, idx1, inr, monthName, pct, weightOf,
 } from "./data";
 
@@ -33,6 +32,11 @@ const FROM = monthName(HEADLINE.first), TO = monthName(HEADLINE.last);
 const realEnd = 100 * (SERIES.reer40t[N - 1] / SERIES.reer40t[0] - 1);
 // The opening's prices, April 2004 = 100, in the latest month: the basket of currencies, dollars that were worth ₹100 then, India's
 // prices against its partners', and Indian goods abroad (COST in data.ts); and the last at the swing's two ends.
+// where the constellation's four planets end, from 100 in April 2004
+const orbitEnd = {
+    usd : Math.round(COST.usd[N - 1]), eur : Math.round(100 * RATES.EUR[N - 1] / RATES.EUR[0]),
+    gbp : Math.round(100 * RATES.GBP[N - 1] / RATES.GBP[0]), jpy : Math.round(100 * RATES.JPY[N - 1] / RATES.JPY[0]),
+};
 const basketNow = COST.neer[N - 1], dollarNow = COST.usd[N - 1], pricesNow = COST.rel[N - 1], goodsNow = COST.reer[N - 1];
 const goodsPeak = COST.reer[MONTHS.indexOf(HEADLINE.swing.peakMonth)], goodsTrough = COST.reer[MONTHS.indexOf(HEADLINE.swing.troughMonth)];
 // the two halves at the swing's ends, and the dollar chart's marks for the events between them (by position in EVENTS)
@@ -150,7 +154,7 @@ const TadaNumber = ({ value, start } : { value : number; start : boolean }) => {
 };
 
 // THE OPENING =========================================================================================================
-const STEPS : SceneId[] = [ "hero", "basket", "dollar", "coins", "coins26", "neer", "scale", "prices", "guess", "halves", "reer", "swing" ];
+const STEPS : SceneId[] = [ "hero", "basket", "dollar", "coins", "coins26", "neer", "orbit", "scale", "prices", "guess", "halves", "reer", "orbitReal", "swing" ];
 const signed = (v : number, dp = 0) => `${v >= 0 ? "+" : "−"}${Math.abs(v).toFixed(dp)}%`;
 
 const TheOpening = () => {
@@ -311,22 +315,26 @@ const TheOpening = () => {
             <Div className="steps">
                 {/* THE TITLE ================================================================================ */}
                 <Div className="step is-hero" data-scene="hero" ref={ref("hero")}>
+                    {/* the title on the left, the globe on the right (RupeeStage); a contents strip under the words */}
                     <Div className="title-card">
                         <PageCrumbs />
                         <Text className="hero-kicker" weight="600" marginBottom="nano">THE RUPEE AND THE WORLD</Text>
                         {/* the rupee sign stands in for the R; screen readers get the words */}
                         <Heading1 className="hero-title" marginBottom="micro" aria-label="How do you measure a rupee?">
-                            <span aria-hidden="true">How do you measure a <span className="accent"><span className="coin">₹</span>upee</span>?</span>
+                            <span aria-hidden="true">How do you<br />measure a <span className="accent"><span className="coin">₹</span>upee?</span></span>
                         </Heading1>
-                        <Text className="hero-sub" fontStyle="serif" size="large">
-                            {prose(`Ask how the rupee is doing and most people check one number: rupees per dollar, ₹${usd.fy0.toFixed(2)} on
-                                average in ${HEADLINE.fy0} and ₹${usd.fyN.toFixed(2)} in ${HEADLINE.fyN}. But India trades with the whole world,
-                                not only America. So the Reserve Bank keeps two more measures: an average of the rupee’s rate against 40
-                                currencies, weighted by how much India trades with each country, and the same average adjusted for
-                                prices, which shows whether Indian goods got cheaper or more expensive for buyers abroad. Here is what each one
-                                measures, and why they tell different stories.`)}
+                        <p className="hero-lead">{prose(`Ask how the rupee is doing and most people check one number: rupees per dollar,
+                            ₹${usd.fy0.toFixed(2)} on average in ${HEADLINE.fy0} and ₹${usd.fyN.toFixed(2)} in ${HEADLINE.fyN}.`)}</p>
+                        <Text className="hero-sub" fontStyle="serif">
+                            {prose(`But India trades with the whole world, not only America. So the Reserve Bank keeps two more measures,
+                                and each answers a different question. Here is what each one measures, and why they tell different stories.`)}
                         </Text>
-                        <Text size="small" className="hero-cue" marginTop="small">The story continues below</Text>
+                        <ol className="hero-contents" aria-label="Three measures">
+                            <li><span>01</span>Rupees per dollar</li>
+                            <li><span>02</span>A basket of 40 currencies</li>
+                            <li><span>03</span>Indian goods, priced abroad</li>
+                        </ol>
+                        <Text size="small" className="hero-cue" marginTop="small">Scroll to begin</Text>
                     </Div>
                 </Div>
 
@@ -415,8 +423,8 @@ const TheOpening = () => {
                 <Div className="step" data-scene="neer" ref={ref("neer")}>
                     <StepCard active={on("neer")} kicker="MEASURE 2 · THE BASKET, MONTH BY MONTH"
                         big={MONTHS[CROSS].slice(0, 4)} title="the year the dollar and the basket swapped places">
-                        <Say>{`Here is the basket’s price every month (blue), beside the price of dollars that were worth ₹100 in
-                            ${FROM} (grey). Until ${MONTHS[CROSS].slice(0, 4)} the basket cost more: the dollar was weaker than the
+                        <Say>{`Here is the basket’s price every month (purple), beside the price of dollars that were worth ₹100 in
+                            ${FROM} (charcoal). Until ${MONTHS[CROSS].slice(0, 4)} the basket cost more: the dollar was weaker than the
                             other currencies in it, so the dollar rate showed less change than the basket did.`}</Say>
                         <Text fontStyle="serif" marginBottom="nano">
                             {prose(`Since ${monthName(MONTHS[CROSS])} the dollar has pulled ahead. In 2014-15 alone it rose 23% against
@@ -427,6 +435,21 @@ const TheOpening = () => {
                         </Text>
                         <Say last>{`Economists call the basket’s price the nominal effective exchange rate (NEER). The Reserve Bank
                             publishes it as an index, which went from ${idx1(neer.from)} to ${idx1(neer.to)}.`}</Say>
+                    </StepCard>
+                </Div>
+
+                {/* THE CURRENCY CONSTELLATION, IN RUPEES ===================================================== */}
+                <Div className="step" data-scene="orbit" ref={ref("orbit")}>
+                    <StepCard active={on("orbit")} kicker="MEASURE 2, SEEN FROM THE RUPEE" title="The currency constellation: every currency as far from the rupee as it costs">
+                        <ol className="how-to-read">
+                            <li><b>The ₹ at the centre</b> is the rupee.</li>
+                            <li><b>Distance is cost.</b> Each currency sits as far out as it costs in rupees. In {FROM} every one sat on the dashed ring, at 100.</li>
+                            <li><b>The ring of 40 coins</b> is the basket; each coin as large as its trade weight.</li>
+                            <li><b>The four planets</b> are the dollar, euro, pound and yen, the currencies the Reserve Bank sets a daily reference rate for.</li>
+                            <li><b>Watch the months play:</b> the further a currency drifts out, the more rupees it costs. Pause or drag to any month.</li>
+                        </ol>
+                        <Say last>{`By ${TO}: the dollar at ${orbitEnd.usd}, the euro ${orbitEnd.eur}, the basket ${Math.round(basketNow)}, the pound
+                            ${orbitEnd.gbp} and the yen ${orbitEnd.jpy}. The basket sits among them, an average of all 40.`}</Say>
                     </StepCard>
                 </Div>
 
@@ -448,7 +471,7 @@ const TheOpening = () => {
                 <Div className="step" data-scene="prices" ref={ref("prices")}>
                     <StepCard active={on("prices")} kicker="THE OTHER HALF · MONTH BY MONTH" big={`${Math.round(pricesNow)}`}
                         title={`India’s prices against its partners’, ${TO}, for 100 in ${FROM}`}>
-                        <Say>{`Here is that balance every month (orange). It climbed almost without a break: in most years prices
+                        <Say>{`Here is that balance every month (terracotta). It climbed almost without a break: in most years prices
                             in India rose faster than in the countries it trades with, each in its own currency.`}</Say>
                         <Say last>{`So, two halves. Partners’ currencies cost ${Math.round(basketNow - 100)}% more rupees. Indian prices
                             rose ${Math.round(pricesNow - 100)}% more than theirs. For a shop abroad, which of the two wins?`}</Say>
@@ -483,12 +506,12 @@ const TheOpening = () => {
                     <StepCard active={on("halves")} kicker="BEFORE THE ANSWER · THE TWO HALVES, SIDE BY SIDE"
                         big={<>{Math.round(pricesNow)}<span className="big-of"> and </span>{Math.round(basketNow)}</>}
                         title={`India’s prices and the basket in ${TO}: they meet again`}>
-                        <Say>{`Here are both halves together: India’s prices against its partners’ (orange) and the rupee price of
-                            the basket of currencies (blue). When the orange line runs above the blue, Indian prices have risen faster
+                        <Say>{`Here are both halves together: India’s prices against its partners’ (terracotta) and the rupee price of
+                            the basket of currencies (purple). When the terracotta line runs above the purple, Indian prices have risen faster
                             than the cost of partners’ currencies, and Indian goods cost more abroad.`}</Say>
-                        <Say>{`From 2013 the orange line ran ahead. The gap was widest in ${monthName(MONTHS[HALVES_PEAK])}:
+                        <Say>{`From 2013 the terracotta line ran ahead. The gap was widest in ${monthName(MONTHS[HALVES_PEAK])}:
                             ${Math.round(COST.rel[HALVES_PEAK])} against ${Math.round(COST.neer[HALVES_PEAK])}. Then the basket caught up${HALVES_MEET > 0
-                                ? `, meeting the orange line in ${monthName(MONTHS[HALVES_MEET])}` : ""}, and by ${TO} the two stand at
+                                ? `, meeting the terracotta line in ${monthName(MONTHS[HALVES_MEET])}` : ""}, and by ${TO} the two stand at
                             ${Math.round(pricesNow)} and ${Math.round(basketNow)}.`}</Say>
                         <Say last>{`So what does the batch of shoes cost abroad now?`}</Say>
                     </StepCard>
@@ -506,6 +529,19 @@ const TheOpening = () => {
                             shaded band, ${Math.round(BAND.lo)} to ${Math.round(BAND.hi)} on this scale (${idx1(range.min)} to ${idx1(range.max)} on the
                             Reserve Bank’s index).`}</Say>
                         {locked !== null && <Text className="guess-verdict" weight="600">{verdict(locked)}</Text>}
+                    </StepCard>
+                </Div>
+
+                {/* THE CONSTELLATION, ADJUSTED FOR PRICES ==================================================== */}
+                <Div className="step" data-scene="orbitReal" ref={ref("orbitReal")}>
+                    <StepCard active={on("orbitReal")} kicker="THE ANSWER, SEEN FROM THE RUPEE"
+                        big={<>{Math.round(basketNow)}<span className="big-arrow" aria-label="to">→</span>{Math.round(goodsNow)}</>}
+                        title="Adjust for prices, and the ring comes home">
+                        <Say>{`Back to the constellation, now adjusted for prices: the cost of each partner’s currency, set against
+                            how much faster prices rose in India. The basket’s ring shrinks from ${Math.round(basketNow)} back to
+                            ${Math.round(goodsNow)}, almost exactly on the dashed ring where it started in ${FROM.split(" ")[1]}.`}</Say>
+                        <Say last>{`That is the answer, drawn: for the countries that buy from India, Indian goods cost about what
+                            they did. The four planets fade, because DBIE carries no price adjustment for each country on its own.`}</Say>
                     </StepCard>
                 </Div>
 
@@ -574,24 +610,6 @@ export const RupeeAndWorldPage = () => {
                                     </Text>
                                     <Say last>{`So next time the dollar rate makes the news, ask which question it answers.`}</Say>
                                 </StepCard>
-                            </Reveal>
-                        </Portion>
-                    </Row>
-                </Section>
-
-                {/* EXPLORE: THE CURRENCY CONSTELLATION ===================================================================== */}
-                <Section className="chapter">
-                    <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                        <Portion desktopSpan="24">
-                            {/* the chapter's words sit inside the panel, so the whole of it fits one screen */}
-                            <Reveal className="page-stop">
-                                <Constellation>
-                                    <Text className="kicker" weight="600" marginBottom="nano" id="explore">WANT TO GO DEEPER?</Text>
-                                    <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">The currency constellation</Heading4>
-                                    <Para last>{`The rupee sits at the centre. Every other currency sits as far from it as it costs in rupees,
-                                        each starting on the dashed ring at 100 in ${FROM}. The ring of coins is the basket of 40; the four
-                                        planets are the currencies the Reserve Bank sets a daily reference rate for.`}</Para>
-                                </Constellation>
                             </Reveal>
                         </Portion>
                     </Row>
@@ -682,7 +700,7 @@ export const RupeeAndWorldPage = () => {
                             <MethodNote title="The price term.">{`REER ÷ NEER × 100 is the relative price the two indices imply. It is derived here,
                                 not published. Because both indices use the same weights, ln REER = ln NEER + ln(REER ÷ NEER) holds exactly,
                                 and the processor checks it for every month.`}</MethodNote>
-                            <MethodNote title="The opening’s charts.">{`Each dot is a month. The dollar chart is in rupees for one US dollar, monthly
+                            <MethodNote title="The opening’s charts.">{`The charts are monthly. The dollar chart is in rupees for one US dollar, monthly
                                 averages. The others are prices that start at 100 in ${FROM}, so that every line rises the same way: the
                                 basket of 40 currencies is the NEER turned into a price (its first value over each month’s, × 100); dollars that were
                                 worth ₹100 in April 2004 are the dollar rate over its first value; India’s prices against its partners’ are REER ÷ NEER over
@@ -719,7 +737,7 @@ export const RupeeAndWorldPage = () => {
                                 NEER’s first value so the two changes can be compared; it is a rebased index, not a second scale.`}</MethodNote>
                             <MethodNote title="The weights and the globe.">{`The 40 partners’ trade weights for 2015-16 are from the Reserve Bank’s January
                                 2021 Bulletin, not from DBIE. The Reserve Bank revises the weights each year; the indices use each year’s
-                                own. On the globe a partner’s land dots deepen with its weight; the euro area is its 19 members of 2015-16,
+                                own. On the globe a partner’s colour deepens with its weight; the euro area is its 19 members of 2015-16,
                                 and each arc ends at a partner’s capital (the euro area at Frankfurt). India’s outline is the Survey of
                                 India’s; other borders are Natural Earth’s.`}</MethodNote>
                             <MethodNote title="Nothing typed by hand." last>{`Every number here is read from the DBIE series by a program that checks

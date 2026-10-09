@@ -4,15 +4,17 @@
 // costs in rupees, from 100 in April 2004 (the dashed ring). The basket of 40 currencies is a ring of coins, each as
 // large as its trade weight; the four currencies RBI sets a reference rate for (the dollar, the euro, the pound and the
 // yen) are planets on their own paths, from DBIE's monthly averages. Play runs the 268 months; the slider picks one.
+// It is two of the story's steps on the stage: first in rupees, played from 2004; then, after the answer, turned to
+// prices, so the reader watches the ring settle back on the dashed one.
 // "Adjusted for prices" turns the basket's ring into what Indian goods cost abroad (the REER from 100): the ring
 // settles back on the dashed one. The four planets have no price adjustment on DBIE (that needs each country's own
 // prices), so they fade in that view rather than be guessed at. Drawn flat: plain discs, no shading or shadows.
 
 // REACT CORE ==========================================================================================================
-import { CSSProperties, ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useState } from "react";
 
 // ANIMATION ===========================================================================================================
-import { useInView, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 
 // DATA ================================================================================================================
 import { Basket, MONTHS, N, PARTNERS, RATES, SERIES_OF, USD, monthName } from "./data";
@@ -33,29 +35,28 @@ const PLANETS = [
     { code : "JPY", name : "Yen",           series : from100(RATES.JPY),       angle : 228,  metal : "silver" },
 ] as const;
 
-const BASKETS : { key : Basket; label : string }[] = [
-    { key : "40t", label : "40, by trade" },
-    { key : "40e", label : "40, by exports" },
-    { key : "6",   label : "6 currencies" },
-];
-
 // The scale: 100 sits on the dashed ring; the farthest any currency goes is the dollar's 218.
 const C = 300, R100 = 112, rOf = (v : number) => R100 * v / 100;
 const MAX_W = PARTNERS[0]?.weight ?? 1;
 const pol = (r : number, deg : number) => [ C + r * Math.cos(deg * Math.PI / 180), C + r * Math.sin(deg * Math.PI / 180) ] as const;
 
-export const Constellation = ({ children } : { children ? : ReactNode }) => {
-    const host = useRef<HTMLDivElement>(null);
-    const seen = useInView(host, { once : true, amount : 0.45 });
+export const Constellation = ({ active, realView } : { active : boolean; realView : boolean }) => {
     const reduced = useReducedMotion();
     const [ m, setM ] = useState(N - 1);
     const [ playing, setPlaying ] = useState(false);
-    const [ real, setReal ] = useState(false);
-    const [ basket, setBasket ] = useState<Basket>("40t");
+    const [ real, setReal ] = useState(realView);
+    const basket = "40t" as Basket;
     const [ hover, setHover ] = useState<{ x : number; y : number; head : string; line : string } | null>(null);
 
-    // the first time it comes into view, it plays the 268 months from the start
-    useEffect(() => { if (seen && !reduced) { setM(0); setPlaying(true); } }, [ seen, reduced ]);
+    // on arrival: the first visit plays the 268 months in rupees; the second starts in rupees at the latest month and,
+    // a moment later, turns the ring to prices
+    useEffect(() => {
+        if (!active) { setPlaying(false); return; }
+        if (!realView) { setReal(false); if (reduced) setM(N - 1); else { setM(0); setPlaying(true); } return; }
+        setPlaying(false); setM(N - 1); setReal(false);
+        const t = window.setTimeout(() => setReal(true), reduced ? 0 : 900);
+        return () => clearTimeout(t);
+    }, [ active, realView, reduced ]);
     useEffect(() => {
         if (!playing) return;
         let raf = 0, last = performance.now(), acc = 0;
@@ -97,36 +98,21 @@ export const Constellation = ({ children } : { children ? : ReactNode }) => {
     };
 
     return (
-        <div ref={host} className="constellation">
-            {/* the left column: the chapter's words, the controls, the month's reading, the timeline */}
+        <div className={`constellation is-embedded ${real ? "is-real" : ""}`}>
+            {/* the month's reading and the switch between views, over the top-left corner */}
             <div className="cn-side">
-                {children}
-            <div className="cn-controls" role="group" aria-label="Constellation controls">
-                <div className="seg" role="radiogroup" aria-label="Measure">
-                    <button type="button" role="radio" aria-checked={!real} className={!real ? "is-on" : ""} onClick={() => setReal(false)}>In rupees</button>
-                    <button type="button" role="radio" aria-checked={real} className={real ? "is-on" : ""} onClick={() => setReal(true)}>Adjusted for prices</button>
-                </div>
-                <div className="seg" role="radiogroup" aria-label="Basket: 40 currencies weighted by trade, 40 weighted by exports, or 6 currencies">
-                    {BASKETS.map(b => (
-                        <button key={b.key} type="button" role="radio" aria-checked={basket === b.key} className={basket === b.key ? "is-on" : ""} onClick={() => setBasket(b.key)}>{b.label}</button>
-                    ))}
-                </div>
-            </div>
-                {/* the reading for the month */}
                 <div className="cn-readout">
                     <span className="cn-month">{monthName(MONTHS[m])}</span>
                     <span className="cn-basket-value" style={{ "--c" : real ? "var(--c-reer)" : "var(--c-neer)" } as CSSProperties}>
                         {real ? Math.round(ringV) : `₹${Math.round(ringV)}`}
                     </span>
-                    <span className="cn-basket-label">{real ? "what Indian goods cost abroad" : "for the basket that cost ₹100 in April 2004"}</span>
+                    <span className="cn-basket-label">{real ? "the ring, adjusted for prices: what Indian goods cost abroad" : "the ring: the basket that cost ₹100 in April 2004"}</span>
                     {real && <span className="cn-faded-note">The four planets fade: DBIE carries no price adjustment for each country on its own.</span>}
                 </div>
-            <div className="cn-time">
-                <button type="button" className="cn-play" onClick={toggle} aria-label={playing ? "Pause" : "Play the months"}>{playing ? "❚❚" : "▶"}</button>
-                <input type="range" min={0} max={N - 1} step={1} value={m} aria-label="Month" aria-valuetext={monthName(MONTHS[m])}
-                    onChange={e => { setPlaying(false); setM(+e.target.value); }} />
-                <span className="cn-years"><span>{MONTHS[0].slice(0, 4)}</span><span>{MONTHS[N - 1].slice(0, 4)}</span></span>
-            </div>
+                <div className="seg" role="radiogroup" aria-label="Measure">
+                    <button type="button" role="radio" aria-checked={!real} className={!real ? "is-on" : ""} onClick={() => setReal(false)}>In rupees</button>
+                    <button type="button" role="radio" aria-checked={real} className={real ? "is-on" : ""} onClick={() => setReal(true)}>Adjusted for prices</button>
+                </div>
             </div>
 
             <div className="cn-stage">
@@ -183,9 +169,14 @@ export const Constellation = ({ children } : { children ? : ReactNode }) => {
                         <strong>{hover.head}</strong><span>{hover.line}</span>
                     </div>
                 )}
-
             </div>
 
+            <div className="cn-time">
+                <button type="button" className="cn-play" onClick={toggle} aria-label={playing ? "Pause" : "Play the months"}>{playing ? "❚❚" : "▶"}</button>
+                <input type="range" min={0} max={N - 1} step={1} value={m} aria-label="Month" aria-valuetext={monthName(MONTHS[m])}
+                    onChange={e => { setPlaying(false); setM(+e.target.value); }} />
+                <span className="cn-years"><span>{MONTHS[0].slice(0, 4)}</span><span>{MONTHS[N - 1].slice(0, 4)}</span></span>
+            </div>
         </div>
     );
 };

@@ -68,9 +68,10 @@ const NOTES : Note[] = [
 ];
 const NOTE_COLOUR = { 100 : [ "#c5b3e6", "#8f76c2" ], 50 : [ "#9fdde8", "#4fa9bd" ], 10 : [ "#d7ad84", "#9a6a43" ] } as const;
 const NOTE_WORDS = { 100 : "एक सौ रुपये", 50 : "पचास रुपये", 10 : "दस रुपये" } as const;
+const NOTE_ENGLISH = { 100 : "ONE HUNDRED RUPEES", 50 : "FIFTY RUPEES", 10 : "TEN RUPEES" } as const;
 
-// A note: its colour, a border, a rosette, the portrait window with Gandhi drawn in a few lines in the note's own ink
-// (spectacles, head, shawl: a sketch, not the engraving), the value in words and in figures, and a sheen across it.
+// A note: its colour, a border, a rosette, a plain oval window, the value in English and in Hindi and in figures, and a
+// sheen across it. No portrait.
 const NoteArt = ({ value } : { value : 100 | 50 | 10 }) => {
     const [ face, ink ] = NOTE_COLOUR[value];
     return (
@@ -79,21 +80,10 @@ const NoteArt = ({ value } : { value : 100 | 50 | 10 }) => {
             <rect x={5} y={5} width={150} height={60} rx={2} fill="none" stroke={ink} strokeOpacity={0.45} strokeDasharray="2 2" />
             <circle cx={36} cy={33} r={17} fill="none" stroke={ink} strokeOpacity={0.45} />
             <circle cx={36} cy={33} r={11} fill="none" stroke={ink} strokeOpacity={0.3} strokeDasharray="1.5 1.5" />
-            <ellipse cx={86} cy={36} rx={19} ry={25} fill="#ffffff" fillOpacity={0.35} />
-            <g fill="none" stroke={ink} strokeWidth={1.1} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M69 61 Q71 49 86 47.5 Q101 49 103 61" fill={ink} fillOpacity={0.22} />
-                <path d="M82 46 L82.5 42.5 M90 46 L89.5 42.5" />
-                <ellipse cx={86} cy={31} rx={9.5} ry={11.5} fill={face} />
-                <ellipse cx={76.4} cy={32} rx={1.8} ry={3} fill={face} />
-                <ellipse cx={95.6} cy={32} rx={1.8} ry={3} fill={face} />
-                <circle cx={82.4} cy={30.5} r={3.1} />
-                <circle cx={89.6} cy={30.5} r={3.1} />
-                <path d="M85.5 30.2 Q86 29.4 86.5 30.2 M79.3 30 L77 31 M92.7 30 L95 31" />
-                <path d="M86 32 Q85 35.4 86.8 36.4" />
-                <path d="M82.6 38.2 Q86 37 89.4 38.2" />
-                <path d="M83 40.4 Q86 42.6 89 40.4" />
-            </g>
-            <text x={14} y={64} fontSize={9} fill={ink}>{NOTE_WORDS[value]}</text>
+            {/* the watermark window, left plain */}
+            <ellipse cx={86} cy={34} rx={18} ry={23} fill="#ffffff" fillOpacity={0.38} stroke={ink} strokeOpacity={0.35} />
+            <text x={12} y={14} fontSize={6.6} fontWeight={700} letterSpacing={0.4} fill={ink}>{NOTE_ENGLISH[value]}</text>
+            <text x={12} y={64} fontSize={8.5} fill={ink}>{NOTE_WORDS[value]}</text>
             <text x={150} y={58} textAnchor="end" fontSize={22} fontWeight={700} fill={ink}>₹{value}</text>
             <rect width={160} height={70} rx={4} fill="url(#note-sheen)" />
         </g>
