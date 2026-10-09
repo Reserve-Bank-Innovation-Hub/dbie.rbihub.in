@@ -35,7 +35,7 @@ export const STORY_SECTIONS : ListSection[] = [
         items : [
             {
                 linkTo      : "/stories/what-one-lakh-bought",
-                label       : "What ₹1 lakh bought",
+                label       : "What ₹1 lakh could buy",
                 description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
             },
         ],

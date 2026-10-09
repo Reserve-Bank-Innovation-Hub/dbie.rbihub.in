@@ -8,6 +8,7 @@ import { Figure } from "./chartKit";
 
 // DATA ================================================================================================================
 import { FROM_YEAR, SUM, TO_YEAR, YEARS, Year, inr, kg, grams } from "./data";
+import { emo } from "./emoji";
 
 // Five shelves, one per thing, each holding what the sum bought in units: lumps of gold, bars of silver, fortnights of a
 // mason's work, hundred-dollar notes, sacks of wheat. A year control runs from the first year to the last; the piles
@@ -16,8 +17,8 @@ import { FROM_YEAR, SUM, TO_YEAR, YEARS, Year, inr, kg, grams } from "./data";
 
 interface Shelf { key : string; name : string; unit : string; per : number; of : (y : Year) => number | null; label : (y : Year) => string; }
 const SHELVES : Shelf[] = [
-    { key : "gold",   name : "🪙 Gold",          unit : "10 g each",   per : 10,  of : y => y.gold.grams,            label : y => grams(y.gold.grams) },
-    { key : "silver", name : "🥈 Silver",        unit : "1 kg each",   per : 1,   of : y => y.silver.kg,             label : y => kg(y.silver.kg) },
+    { key : "gold",   name : "🪎 Gold",          unit : "10 g each",   per : 10,  of : y => y.gold.grams,            label : y => grams(y.gold.grams) },
+    { key : "silver", name : "🪙 Silver",        unit : "1 kg each",   per : 1,   of : y => y.silver.kg,             label : y => kg(y.silver.kg) },
     { key : "mason",  name : "👷 A mason’s work", unit : "fortnights of 12 days", per : 12, of : y => y.mason?.days ?? null, label : y => y.mason ? `${inr(y.mason.days)} days` : "not yet published" },
     { key : "usd",    name : "💵 US dollars",    unit : "$100 notes",  per : 100, of : y => y.usd.dollars,           label : y => `$${inr(y.usd.dollars)}` },
     { key : "wheat",  name : "🌾 Wheat at MSP",  unit : "10 quintals each", per : 10, of : y => y.wheat?.quintals ?? null, label : y => y.wheat ? `${y.wheat.quintals.toFixed(1)} quintals` : "not yet published" },
@@ -49,7 +50,7 @@ export const Shelves = () => {
     const row = YEARS.find(y => y.year === year)!, first = YEARS[0];
 
     return (
-        <Figure title={`What ₹${inr(SUM)} bought, shelf by shelf`} className="figure-large" table={TABLE} noteFirst
+        <Figure title={`What ₹${inr(SUM)} could buy, shelf by shelf`} className="figure-large" table={TABLE} noteFirst
             note="Mumbai silver per kilogram; the Labour Bureau's daily wage for men, mason; the yearly average rupee–dollar rate; the support price for wheat by marketing year. The last year is a part year.">
             <div className="shelves">
                 <div className="shelf-control r1">
@@ -63,7 +64,7 @@ export const Shelves = () => {
                     const have = now === null ? 0 : now / s.per;
                     return (
                         <div key={s.key} className={`shelf-row r${i + 2} ${now === null ? "is-missing" : ""}`}>
-                            <div className="shelf-name"><span>{s.name}</span><span className="shelf-unit">{s.unit}</span></div>
+                            <div className="shelf-name"><span>{emo(s.name)}</span><span className="shelf-unit">{s.unit}</span></div>
                             <div className="shelf-units" aria-hidden="true">
                                 {now !== null && Array.from({ length : nUnits }, (_, i) => <Unit key={i} k={s.key} fill={Math.max(0, Math.min(1, have - i))} />)}
                             </div>

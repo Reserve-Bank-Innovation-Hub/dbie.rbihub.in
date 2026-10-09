@@ -66,23 +66,6 @@ const YEAR_TABLE = {
     ]),
 };
 
-// The household bill of section 7, re-priced once the group-wise factors are sourced; drawn twice on the table, the
-// back copy a little darker and hidden from readers of the page.
-const RepricedBill = ({ back = false } : { back ? : boolean }) => (
-    <div className={back ? "repriced repriced-back" : "repriced"} role={back ? undefined : "group"} aria-hidden={back || undefined}
-        aria-label={back ? undefined : `A ${FROM_YEAR} household bill, to be re-priced for ${TO_YEAR} once the group-wise linking factors are sourced`}>
-        <div className="receipt-head r1"><span>Household bill, re-priced</span><span>{FROM_YEAR} → {TO_YEAR}</span></div>
-        {[ "🥗 Food", "🏠 Housing", "🔥 Fuel and light", "👕 Clothing" ].map((g, i) => (
-            <div key={g} className={`receipt-line r${i + 2}`}>
-                <span className="receipt-label">{g}<span className="receipt-note">₹1 lakh of {FROM_YEAR} spending</span></span>
-                <span className="receipt-value is-pending">awaiting the factors</span>
-            </div>
-        ))}
-        <p className="bill-foot r5">{prose(`Each line will carry what ₹1 lakh of that spending in ${FROM_YEAR} would cost in ${TO_YEAR}, by the workers’
-            index for that group. The groups’ bases are not yet joined; no figure is shown until they are.`)}</p>
-    </div>
-);
-
 // The kicker over the gallery once the table has turned: the first beat's is the heirloom's own.
 const TURN_KICKER = <Text className="kicker" weight="600" id="ten-years-on">TEN YEARS ON, AND ON</Text>;
 
@@ -95,7 +78,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                 paper that leaves as the grid pulls back. */}
             <NoteGrid note={note} corner={<PageCrumbs />}>
                 <Heading1 className="hero-title" marginBottom="micro">
-                    What <span className="accent">₹1 lakh</span> bought
+                    What <span className="accent">₹1 lakh</span> could buy
                 </Heading1>
                 <Text className="hero-sub figs-bold" fontStyle="serif" size="large" marginBottom="micro">
                     {rich(`Your parents’ [[₹1 lakh]] and yours are not the same money.`)}
@@ -120,33 +103,33 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                         <Para>{`Say your family had ₹1 lakh for a wedding in [[${FROM_YEAR}]]. Gold in Mumbai averaged [[${rs(FIRST.gold.price)}]]
                             for 10 grams that year, so the sum bought [[${grams(FIRST.gold.grams)}]]: ${pieceOf(FIRST.gold.grams)}, by weight.`}</Para>
                         <Para last>{`That is the bullion price the Reserve Bank publishes, before a jeweller’s making charges and
-                            tax. The weight is the claim; the necklace is a way to picture it.`}</Para>
+                            tax.`}</Para>
                     </Div>
                 ) },
                 { kicker : TURN_KICKER, body : <Para last>{`Turn the case and the years go by. In [[${LENS[1].year}]], [[${grams(LENS[1].gold.grams)}]], ${pieceOf(LENS[1].gold.grams)}.`}</Para> },
                 { kicker : TURN_KICKER, body : <Para last>{`In [[${LENS[2].year}]], one could buy a chain with a pendant for [[${grams(LENS[2].gold.grams)}]].`}</Para> },
                 { kicker : TURN_KICKER, body : (
                     <Div className="chapter-text">
-                        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{rich(`By [[${TO_YEAR}]] the same ₹1 lakh bought [[${grams(NOW.gold.grams)}]]`)}</Heading4>
-                        <Para last>{`[[${TO_YEAR}]] is a part year, ${GOLD_2026_SPAN} so far. Gold reached its highest month in that
-                            span, and the year’s figure will move as each new month comes in.`}</Para>
+                        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{rich(`In [[${TO_YEAR}]], the same ₹1 lakh buys [[${grams(NOW.gold.grams)}]]`)}</Heading4>
+                        <Para>{`This is considering ${GOLD_2026_SPAN} so far.`}</Para>
+                        <Para last>{`Gold reached its highest month in that span, and the year’s figure will move as each new month comes in.`}</Para>
                     </Div>
                 ) },
             ]} />
 
             {/* 4 THE MONEY SHRANK TOO ================================================================================ */}
-            <Pinned steps={3} className="on-sandalwood">
+            <Pinned steps={3} className="on-sandalwood" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="11">
-                        <Chapter id="the-money-shrank" title={`₹1 lakh of ${FROM_YEAR} is ${lakh(HEADLINE.worthNow)} in ${TO_YEAR} prices`}>
-                            <Para>{`Prices in general rose too.`}</Para>
+                    <Portion desktopSpan="9">
+                        <Chapter id="the-money-shrank" title="Prices in general rose too">
                             <Para>{`By the consumer price index for industrial workers, the long series the Labour Bureau keeps, what cost
                                 [[₹100]] in [[${FROM_YEAR}]] cost [[${rs(Math.round(HEADLINE.priceRise * 100))}]] in [[${TO_YEAR}]].`}</Para>
                             <Para last>{`So ₹1 lakh of [[${FROM_YEAR}]] is [[${lakh(HEADLINE.worthNow)}]] of today’s money.`}</Para>
                         </Chapter>
                         <Receipt indexSpan={INDEX_SPAN} />
                     </Portion>
-                    <Portion desktopSpan="13">
+                    <Portion desktopSpan="1" />
+                    <Portion desktopSpan="14">
                         <Div className="chapter-text r3">
                             <Para>{`One can’t get the same bridal set for [[${rs(HEADLINE.worthNow)}]].`}</Para>
                             <Para last>{`The [[${grams(FIRST.gold.grams)}]] of [[${FROM_YEAR}]] cost [[${lakh(HEADLINE.necklaceNow)}]] at [[${TO_YEAR}]]’s price,
@@ -158,88 +141,68 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
             </Pinned>
 
             {/* 5 THE OTHER SHELVES =================================================================================== */}
-            <Pinned steps={6} className="figs-bold" pin>
+            <Pinned steps={6} className="figs-bold shelves-ground" pin>
+                <img className="commodities" src="/images/stories/what-one-lakh-bought/other-commodities.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" />
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="10">
                         <Chapter id="the-other-shelves" title="Silver, a mason’s days, dollars and wheat each shrank at their own pace">
                         </Chapter>
                         <ShelvesReceipt />
                     </Portion>
-                    <Portion desktopSpan="14">
+                    <Portion desktopSpan="13">
                         <Shelves />
                     </Portion>
                 </Row>
             </Pinned>
 
             {/* 6 WHICH RAN AHEAD ===================================================================================== */}
-            <Pinned steps={6}>
+            <Pinned steps={6} className="on-ivory" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="which-ran-ahead" kicker="WHICH RAN AHEAD OF PRICES" title="Gold ran far ahead of prices, wages ahead, the dollar behind, wheat about level">
-                            <Para>{`Set each price against the workers’ index. Gold rose [[${timesWords(HEADLINE.ranAhead.gold)}]] as fast as prices in
-                                general between [[${FROM_YEAR}]] and [[${TO_YEAR}]], silver [[${timesWords(HEADLINE.ranAhead.silver)}]]. A mason’s day rose
-                                [[${timesWords(HEADLINE.ranAhead.mason)}]] than prices to [[${MASON_LAST.year}]]: the day’s work buys more than it did.`}</Para>
-                            <Para last>{`The dollar went the other way: ₹1 lakh buys [[${timesWords(HEADLINE.ranAhead.usd)}]] of them, after prices, than it did.
-                                Wheat at the support price stayed [[${timesWords(HEADLINE.ranAhead.wheat)}]] with prices to [[${WHEAT_LAST.year}]].
-                                Inflation is one number; what things cost is not.`}</Para>
+                    <Portion desktopSpan="9">
+                        <Chapter id="which-ran-ahead" title="Gold ran far ahead of prices, wages ahead, the dollar behind, wheat about level">
+                            <Para>{`Set each price against the workers’ index.`}</Para>
+                            <Para>{`Gold rose [[${timesWords(HEADLINE.ranAhead.gold)}]] as fast as prices in general between [[${FROM_YEAR}]] and [[${TO_YEAR}]],
+                                silver [[${timesWords(HEADLINE.ranAhead.silver)}]].`}</Para>
+                            <Para>{`A mason’s day rose [[${timesWords(HEADLINE.ranAhead.mason)}]] than prices to [[${MASON_LAST.year}]]: the day’s work buys more than it did.`}</Para>
+                            <Para>{`The dollar went the other way: ₹1 lakh buys [[${timesWords(HEADLINE.ranAhead.usd)}]] of them, after prices, than it did.`}</Para>
+                            <Para last>{`Wheat at the support price stayed [[${timesWords(HEADLINE.ranAhead.wheat)}]] with prices to [[${WHEAT_LAST.year}]].`}</Para>
                         </Chapter>
                     </Portion>
-                    <Portion desktopSpan="16">
+                    <Portion desktopSpan="1" />
+                    <Portion desktopSpan="13">
                         <RanAhead />
                     </Portion>
                 </Row>
             </Pinned>
 
-            {/* 7 THE SPENDING YOU CANNOT WEIGH ======================================================================= */}
-            <Pinned steps={5} className="on-table">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="cannot-weigh" kicker="THE SPENDING YOU CANNOT WEIGH" title={`What ₹1 lakh of everyday spending in ${FROM_YEAR} costs today`}>
-                            <Para>{`Groceries, rent, fuel and school fees are not priced in rupees on DBIE; they are price indices, which say
-                                how much a kind of spending rose, not what a kilogram cost. So this part can only say what ₹1 lakh of
-                                food, housing or fuel spending in [[${FROM_YEAR}]] would cost today, never what it bought.`}</Para>
-                            <Para last>{`The figures wait on one piece of data: the Labour Bureau’s group-wise linking factors, which join the
-                                food, housing, fuel and clothing indices across the 1982, 2001 and 2016 bases the way the factors above
-                                join the general index. Until they are sourced, no figure is shown here.`}</Para>
-                        </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="16">
-                        {/* a flat lay: the bill on the tabletop, seen from above, with a second copy of it under it */}
-                        <div className="flatlay r1">
-                            <RepricedBill back />
-                            <RepricedBill />
-                        </div>
-                    </Portion>
-                </Row>
-            </Pinned>
-
             {/* 8 YOUR OWN BILL ======================================================================================= */}
-            <Pinned steps={2} id="your-own-bill">
+            <Pinned steps={2} id="your-own-bill" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Chapter id="your-year" kicker="YOUR OWN BILL" title="Any year, any sum: the bill made out">
-                            <Para>{`Pick any year and any sum, from [[₹10,000]] to [[₹10 lakh]], and the bill is made out for it: the five shelves
-                                and what the sum is worth today. Every bill carries the yardstick and the date of the data.`}</Para>
+                    <Portion desktopSpan="9">
+                        <Chapter id="your-year" title="Create your own bill">
+                            <Para last>{`Pick any year and any sum, from [[₹10,000]] to [[₹10 lakh]], and see the updated bill.`}</Para>
                         </Chapter>
                     </Portion>
-                    <Portion desktopSpan="16">
+                    <Portion desktopSpan="1" />
+                    <Portion desktopSpan="14">
                         <OwnBill />
                     </Portion>
                 </Row>
             </Pinned>
 
-            {/* 9 THE EXACT FIGURES =================================================================================== */}
-            <Section className="chapter">
+            {/* 9 THE DATA SET, THEN THE SOURCES: the page's foot, a breath of the accent rising under both ============= */}
+            <div className="page-foot">
+            <Section className="chapter data-set">
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="8">
-                        <Chapter id="every-year" kicker="EVERY YEAR, EVERY SHELF" title="The exact figures">
+                        <Chapter id="every-year" title="The data set">
                             <Para last>{`The table gives the figures for every year from [[${FROM_YEAR}]] to [[${TO_YEAR}]], and the download
                                 has the prices behind them: the gold and silver prices, the mason’s wage, the dollar rate, the support
                                 price and the index.`}</Para>
                         </Chapter>
                     </Portion>
                     <Portion desktopSpan="16">
-                        <Figure title={`What ₹${inr(SUM)} bought, ${FROM_YEAR} to ${TO_YEAR}`} units="calendar-year averages of the prices on DBIE; wheat by marketing year; the last year is a part year" table={YEAR_TABLE}
+                        <Figure title={`What ₹${inr(SUM)} could buy, ${FROM_YEAR} to ${TO_YEAR}`} units="calendar-year averages of the prices on DBIE; wheat by marketing year; the last year is a part year" table={YEAR_TABLE}
                             note={`Gold to ${monthName(HEADLINE.last.gold)}, the index to ${monthName(HEADLINE.last.index)}, the mason’s wage to ${monthName(HEADLINE.last.mason)}, the dollar to ${HEADLINE.last.usd}, wheat to ${HEADLINE.last.wheat}.`}>
                             <Div className="year-table">
                                 <table>
@@ -260,7 +223,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
 
             {/* SOURCES, METHOD, DOWNLOADS ============================================================================ */}
             <Section id="wolb-sources">
-                <Row horizontalPadding="small" marginTop="large" allowUltraWide>
+                <Row horizontalPadding="small" marginTop="none" allowUltraWide>
                     <Portion desktopSpan="24"><Divider kind="secondary" verticalMargin="micro" /></Portion>
                     <Portion desktopSpan="12">
                         <Text weight="600" size="tiny" verticalMargin="micro">SOURCES</Text>
@@ -275,7 +238,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                                 and Farmers Welfare, minimum support prices by crop year to ${HEADLINE.last.wheat}, as published on DBIE.`)}
                         </Text>
 
-                        <Text weight="600" size="tiny" verticalMargin="micro">DOWNLOADS</Text>
+                        <Text weight="600" size="tiny" className="downloads-head" verticalMargin="micro">DOWNLOADS</Text>
                         <Link href="/stories/what-one-lakh-bought/one-lakh-by-year.csv" download className="download-link">
                             <Div verticallyCentreItems>
                                 <Download size="16px" />
@@ -318,6 +281,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                     </Portion>
                 </Row>
             </Section>
+            </div>
         </Article>
     </MotionConfig>
 );

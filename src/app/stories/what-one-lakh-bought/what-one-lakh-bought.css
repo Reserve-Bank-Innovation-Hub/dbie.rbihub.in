@@ -13,6 +13,8 @@
     --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
     --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
     --paper     : var(--fig-bg);
+    /* a faint ivory for the chapters that sit off the paper without a colour of their own */
+    --ivory-faint : color-mix(in oklab, hsl(var(--ivory)), var(--paper) 25%);
     --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
     --gold      : hsl(var(--turmeric));
     /* the bills' paper: the brand sand, lightened, a sandalwood */
@@ -77,7 +79,7 @@
     .notes {
         position   : relative;
         margin-top : 0;
-        background : var(--paper);
+        background : var(--ivory-faint);
     }
 
     .notes-frame {
@@ -86,7 +88,7 @@
         height     : 100vh;
         height     : 100svh;
         overflow   : hidden;
-        background : var(--paper);
+        background : var(--ivory-faint);
     }
 
     /* The crumbs over the notes, in the note's own ink rather than the site's link blue, with a faint halo of the
@@ -163,6 +165,17 @@
         padding-top    : var(--large);
         padding-bottom : var(--medium);
     }
+
+    /* the data set runs close onto the sources, the two on one ground with the accent rising from its foot */
+    .data-set { padding-bottom : var(--nano); }
+    .page-foot { background : linear-gradient(to top, color-mix(in oklab, hsl(var(--indivara)), transparent 91%) 0, color-mix(in oklab, hsl(var(--indivara)), transparent 97%) 40%, transparent 85%); }
+    #wolb-sources {
+        padding-bottom : var(--medium);
+        hr { height : 1px; background : var(--rule); }
+    }
+
+    /* an emoji that opens a name is set 15% larger than the words beside it */
+    .emo { font-size : 1.15em; }
 
     .chapter-title {
         max-width : 24ch;
@@ -359,6 +372,7 @@
         }
 
         /* a pinned chapter: the frame sticks to the top while the chapter's track scrolls under it */
+        &.is-pinned { height : var(--hold); }
         &.is-pinned .pinned-frame { position : sticky; top : 0; height : 100vh; height : 100svh; }
 
         &.is-still .pinned-frame { min-height : 0; padding : var(--large) 0 var(--medium); }
@@ -375,6 +389,34 @@
     .is-still .r1, .is-still .r2, .is-still .r3, .is-still .r4, .is-still .r5, .is-still .r6, .is-still .r7, .is-still .r8,
     .chapter:not(.pinned) .r1 { opacity : 1; translate : none; }
 
+    /* THE SHELVES' GROUND ======================================================================================== */
+    /* The shelves chapter sits on the bills' sandalwood, with a still life of its things in the bottom-left corner,
+       behind the text. */
+    .on-ivory {
+        background : var(--ivory-faint);
+
+        /* a breath of the accent rising from the bottom-left corner */
+        .pinned-frame { background : radial-gradient(ellipse 70% 80% at 0% 100%, color-mix(in oklab, hsl(var(--indivara)), transparent 88%), transparent 70%); }
+    }
+
+    .shelves-ground {
+        --earth        : #976646;
+        --table-ground : color-mix(in oklch, var(--bill), var(--paper) 45%);
+        background     : var(--table-ground);
+
+        /* the earth brown rises from the foot of the frame into the sandalwood, the still life standing in it */
+        .pinned-frame { overflow : hidden; background : linear-gradient(to top, var(--earth) 0, color-mix(in oklch, var(--earth), transparent 55%) 22%, transparent 52%); }
+        .pinned-frame > [data-row] { position : relative; z-index : 1; }
+        .commodities {
+            position       : absolute;
+            left           : 10px;
+            bottom         : -20px;
+            width          : min(29.9vw, 414px);
+            height         : auto;
+            pointer-events : none;
+        }
+    }
+
     /* THE RECEIPTS =============================================================================================== */
     /* A bill on the story's paper: mono, each line a label with a dotted leader to its value, the total ruled off. */
     /* The money chapter sits on the bills' sandalwood, its receipt and tag on the page's paper so they stand off it. */
@@ -383,7 +425,7 @@
         background : var(--sandal);
 
         /* the gold's paragraph starts level with the first paragraph on the left, below the title's height */
-        .chapter-text.r3 { padding-top : 74px; }
+        .chapter-text.r3 { padding-top : 48px; }
 
         /* the gallery's floor runs under the foot of the chapter, its maroon boards with the floor lines, and the
            maroon rises into the sandalwood above it as the gallery's light did */
@@ -392,7 +434,7 @@
             align-items    : flex-end;
             padding-bottom : 36px;
             background :
-                linear-gradient(to top, transparent 0, transparent 190px, color-mix(in oklch, var(--scene-floor), black 18%) 190px, color-mix(in oklch, var(--scene-maroon), transparent 20%) 230px, color-mix(in oklch, var(--scene-maroon), transparent 55%) 340px, transparent 56%),
+                linear-gradient(to top, transparent 0, transparent 190px, color-mix(in oklch, var(--scene-maroon), black 12%) 190px, color-mix(in oklch, var(--scene-maroon), transparent 18%) 240px, color-mix(in oklch, var(--scene-maroon), transparent 40%) 310px, color-mix(in oklch, var(--scene-maroon), transparent 62%) 400px, color-mix(in oklch, var(--scene-maroon), transparent 80%) 500px, color-mix(in oklch, var(--scene-maroon), transparent 92%) 600px, transparent 78%),
                 linear-gradient(to top, color-mix(in oklch, var(--scene-floor), black 22%) 0, var(--scene-floor) 190px, transparent 190px);
 
             /* the boards' edge lines and the shadow at the foot, laid beneath the content */
@@ -430,21 +472,17 @@
         .receipt-value { font-size : 16px; }
     }
     .figs-bold .receipt-two .receipt-note { font-weight : 400; }
-    .on-sandalwood {
-        /* the receipt's footnote falls where the maroon rises, so it is set in the light sandalwood */
-        .receipt-two .receipt-foot { color : hsl(var(--ivory)); }
-    }
 
     /* The receipt in two columns: a label, the first year, the last year, on one grid. */
     .receipt-two {
         margin-top : 24px;
-        width      : calc(100% - 50px);
+        width      : 100%;
         max-width  : 60ch;
 
         .receipt-row {
             display               : grid;
             grid-template-columns : 1fr 104px 104px;    /* fixed, so every row's year columns line up */
-            column-gap            : 56px;
+            column-gap            : 28px;
             align-items           : baseline;
             padding               : 10px 0;
             border-bottom         : 1px dotted var(--ink-faint);
@@ -486,7 +524,7 @@
     .label-now { font-family : var(--font-mono); font-size : 28px; font-weight : 600; fill : color-mix(in oklch, hsl(var(--vermilion)), black 18%); }
     .display-unit .label-was { fill : color-mix(in oklch, hsl(var(--charcoal)), white 40%); }
 
-    .receipt, .bill, .repriced {
+    .receipt, .bill {
         padding     : 30px 26px;
         background  : var(--bill);
         font-family : var(--font-mono);
@@ -513,7 +551,9 @@
         padding         : 10px 0;
         border-bottom   : 1px dotted var(--ink-faint);
 
-        &.is-total { border-top : 1px solid var(--ink); border-bottom : none; margin-top : 4px; font-weight : 600; }
+        &.is-total { border-top : 1px solid color-mix(in oklch, var(--ink), transparent 55%); border-bottom : none; margin-top : 4px; font-weight : 600; }
+        /* the line before the total gives up its dotted rule, so the total's grey rule stands alone */
+        &:has(+ .is-total) { border-bottom : none; }
     }
 
     .receipt-label {
@@ -559,7 +599,24 @@
         border-bottom : 1px solid var(--rule);
 
         label { font-size : 12px; font-weight : 600; color : var(--ink-soft); }
-        input[type="range"] { width : 100%; accent-color : var(--accent); }
+        /* the year slider drawn plain: a hairline track, the accent round for a thumb, no native border or ring */
+        input[type="range"] {
+            width      : 100%;
+            height     : 24px;
+            margin     : 0;
+            appearance : none;
+            background : transparent;
+            outline    : none;
+            cursor     : pointer;
+
+            &::-webkit-slider-runnable-track { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
+            &::-moz-range-track              { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
+            &::-moz-range-progress           { height : 5px; border-radius : 3px; background : var(--accent); }
+            &::-webkit-slider-thumb { appearance : none; width : 16px; height : 16px; margin-top : -5.5px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
+            &::-moz-range-thumb     { width : 16px; height : 16px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
+            &:focus-visible::-webkit-slider-thumb { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
+            &:focus-visible::-moz-range-thumb     { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
+        }
     }
 
     .shelf-year {
@@ -657,16 +714,10 @@
     .own-bill { margin-bottom : 24px; }
 
     .bill-controls {
-        max-width     : 36rem;
+        max-width     : none;
         margin-bottom : 20px;
     }
 
-    .bill-prompt {
-        margin      : 0 0 14px;
-        font-family : var(--font-serif);
-        font-size   : 16px;
-        color       : var(--ink);
-    }
 
     /* The two fields, set apart from the page: a label above each, a firm border, the accent on focus. */
     .bill-fields {
@@ -703,8 +754,24 @@
     }
 
     /* The reader's own bill: the chapter is set on ivory, the bill itself on the page's paper so it stands off it. */
-    #your-own-bill { background : hsl(var(--ivory)); }
-    .bill { max-width : 36rem; background : var(--paper); }
+    #your-own-bill {
+        background : var(--ivory-faint);
+
+        /* the same breath of the accent as the chapter above, from the top-left corner here */
+        .pinned-frame { background : radial-gradient(ellipse 70% 80% at 0% 0%, color-mix(in oklab, hsl(var(--indivara)), transparent 88%), transparent 70%); }
+    }
+    .bill { background : var(--paper); }
+    /* under a quantity on the reader's bill, what it costs at the last price, in the note's face, set to the right */
+    .bill .receipt-value { text-align : right; }
+    .bill .receipt-line  { align-items : center; padding : 14px 0; }
+    .receipt-worth {
+        display     : block;
+        margin-top  : 2px;
+        font-family : var(--font-sans-serif);
+        font-size   : 12px;
+        font-weight : 400;
+        color       : var(--ink-soft);
+    }
 
     .bill-title {
         margin        : 0 0 8px;
@@ -713,61 +780,6 @@
         font-family   : var(--font-serif);
         font-size     : 19px;
         color         : var(--heading-text-colour);
-    }
-
-    /* The flat lay: the whole chapter is a tabletop seen from above, edge to edge, in one dark brown that falls off
-       softly towards the corners, with a fine grain of noise over it so it reads as a surface. The chapter's text lies on it as a sheet of ivory paper; the bill lies beside it a
-       little askew with a shadow, and a second copy of the bill lies straight under it, darker. */
-    .on-table {
-        --table : color-mix(in oklch, hsl(var(--terracotta)), var(--brown-dark60) 72%);
-
-        .pinned-frame {
-            background :
-                url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%22240%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.55%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22240%22%20height%3D%22240%22%20filter%3D%22url%28%23n%29%22%2F%3E%3C%2Fsvg%3E") 0 0 / 240px 240px repeat,
-                radial-gradient(ellipse at 50% 40%, color-mix(in oklch, var(--table), white 6%) 0%, var(--table) 45%, color-mix(in oklch, var(--table), black 28%) 100%);
-            background-blend-mode : soft-light, normal;
-
-            > [data-row] { position : relative; z-index : 1; }
-        }
-
-        /* the text on a sheet of paper laid on the table */
-        .chapter-text {
-            padding    : 28px 30px;
-            background : hsl(var(--ivory));
-            rotate     : -0.8deg;
-            filter     : drop-shadow(0 12px 16px color-mix(in oklch, black, transparent 60%));
-
-            .kicker, .chapter-title, p { color : hsl(var(--charcoal)); }
-            .kicker { color : color-mix(in oklch, hsl(var(--terracotta)), black 20%); }
-            .fig { background : color-mix(in oklch, hsl(var(--terracotta)), transparent 82%); color : hsl(var(--charcoal)); }
-        }
-    }
-
-    .flatlay {
-        position      : relative;
-        padding       : 24px 0 40px;
-        margin-bottom : 0;
-    }
-
-    .flatlay .repriced {
-        position : relative;
-        width    : 70%;
-        margin   : 0 auto;
-        rotate   : -2.5deg;
-        filter   : drop-shadow(0 14px 18px color-mix(in oklch, black, transparent 60%));
-    }
-
-    /* the copy under the bill: the same shape, straight, nudged up and to the right, darker and blank */
-    .flatlay .repriced-back {
-        position  : absolute;
-        left      : 15%;
-        top       : 24px;
-        margin    : 0;
-        translate : 26px -10px;
-        rotate    : 0deg;
-        filter    : brightness(0.86) drop-shadow(0 10px 14px color-mix(in oklch, black, transparent 65%));
-
-        > * { visibility : hidden; }
     }
 
     /* THE FIGURES ================================================================================================ */
@@ -795,7 +807,7 @@
     .figure-large .figure-title {
         font-family : var(--font-serif);
         font-weight : 500;
-        font-size   : clamp(19px, 1.7vw, 23px);
+        font-size   : clamp(17px, 1.5vw, 20px);
         line-height : 1.2;
     }
 
@@ -847,11 +859,14 @@
         overflow   : auto;
         margin-top : 8px;
 
+        /* the table takes the ground it sits on; only the sticky header is painted, in that same ground, so the
+           rows scroll under it */
+        table { background : transparent; }
         thead th {
             position   : sticky;
             top        : 0;
             z-index    : 1;
-            background : var(--paper);
+            background : var(--table-ground, var(--paper));
             box-shadow : inset 0 -1px 0 var(--rule);
         }
     }
@@ -896,16 +911,22 @@
     .story-figure:has(.year-table) .view-toggle { display : none; }
 
     /* THE SOURCES ================================================================================================ */
+    .downloads-head { padding-top : var(--nano); }
     .download-link {
         display    : block;
         width      : fit-content;
         color      : var(--accent);
         transition : opacity 0.2s ease;
 
+        & + .download-link { margin-top : 10px; }
         &:hover { opacity : 0.7; }
     }
 
     @media (max-width : 900px) {
+        /* a phone's screen is shorter than these chapters, so they flow instead of holding */
+        .pinned.is-pinned { height : auto; }
+        .pinned.is-pinned .pinned-frame { position : static; height : auto; min-height : 100svh; }
+        .commodities { display : none; }
         .gold-set { margin-top : 24px; }
         .on-sandalwood .chapter-text.r3 { padding-top : 0; }
         .receipt-two { margin-bottom : 28px; }
@@ -913,9 +934,6 @@
         .receipt-two .receipt-row { grid-template-columns : 1fr 84px 84px; column-gap : 12px; }
         .receipt-two .receipt-value { font-size : 14px; }
         .receipt-two .receipt-note { display : none; }
-        .flatlay .repriced { width : 100%; rotate : -1.5deg; }
-        .flatlay .repriced-back { left : 10px; }
-        .on-table .chapter-text { rotate : 0deg; }
         .shelf-row { grid-template-columns : 1fr auto; }
         .shelf-units { grid-column : 1 / -1; }
         .shelf-control { grid-template-columns : auto 1fr auto; }
@@ -963,9 +981,9 @@
 .theme-dark #what-one-lakh-bought-page {
     --accent  : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
     --bill    : color-mix(in oklch, hsl(var(--sand)), black 62%);
+    --ivory-faint : color-mix(in srgb, hsl(var(--ivory)), black 84%);
 
-    #your-own-bill { background : color-mix(in srgb, hsl(var(--ivory)), black 80%); }
-    .on-table { --table : color-mix(in oklch, hsl(var(--terracotta)), var(--brown-dark80) 78%); }
+    .shelves-ground .commodities { opacity : 0.75; }
     .bill { background : var(--paper); }
     --c-warm  : var(--salmon-light20);
     --c-faint : var(--grey-dark60);

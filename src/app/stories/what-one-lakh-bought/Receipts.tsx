@@ -5,13 +5,14 @@ import { DisplayUnit } from "./Showcase";
 
 // DATA ================================================================================================================
 import { FACTORS, FIRST, FROM_YEAR, HEADLINE, MASON_LAST, NOW, SUM, TO_YEAR, WHEAT_LAST, grams, inr, kg, pieceOf, rs, times } from "./data";
+import { emo } from "./emoji";
 
 // One receipt in two columns: the first year's bill for the sum beside the last year's bill for the same goods,
 // re-priced by the workers' price index; and, apart, the gold, which the index does not bring back, as the set it was.
 
 const Line = ({ label, note, a, b, total = false } : { label : string; note ? : string; a : string; b : string; total ? : boolean }) => (
     <div className={`receipt-row ${total ? "is-total" : ""}`}>
-        <span className="receipt-label">{label}{note && <span className="receipt-note">{note}</span>}</span>
+        <span className="receipt-label">{typeof label === "string" ? emo(label) : label}{note && <span className="receipt-note">{note}</span>}</span>
         <span className="receipt-value">{a}</span>
         <span className="receipt-value">{b}</span>
     </div>
@@ -38,7 +39,7 @@ export const ShelvesReceipt = () => (
         <div className="receipt-row receipt-head-row">
             <span /><span>{FROM_YEAR}</span><span>{TO_YEAR}</span>
         </div>
-        <Line label="🥈 Silver" a={kg(FIRST.silver.kg)} b={kg(NOW.silver.kg)} />
+        <Line label="🪙 Silver" a={kg(FIRST.silver.kg)} b={kg(NOW.silver.kg)} />
         <Line label="👷 A mason’s work" a={`${inr(FIRST.mason!.days)} days`} b={`${inr(MASON_LAST.mason.days)} days`} />
         <Line label="💵 US dollars" a={`$${inr(FIRST.usd.dollars)}`} b={`$${inr(NOW.usd.dollars)}`} />
         <Line label="🌾 Wheat at MSP, quintals" a={FIRST.wheat!.quintals.toFixed(1)} b={WHEAT_LAST.wheat.quintals.toFixed(1)} />

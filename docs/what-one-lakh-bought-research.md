@@ -1,6 +1,6 @@
-# What ₹1 lakh bought: the research note
+# What ₹1 lakh could buy: the research note
 
-The story "What ₹1 lakh bought" (S0 of the story slate, `docs/story-slate.html` on branch `stories-artifact`) carries one
+The story "What ₹1 lakh could buy" (S0 of the story slate, `docs/story-slate.html` on branch `stories-artifact`) carries one
 sum, ₹1 lakh, from 2001 to the latest year on DBIE and prices it each year in gold, silver, a rural mason's days, US
 dollars and wheat at the support price, and in the prices of the latest year by the consumer price index for
 industrial workers. This note records what the processor (`data/processors/story-what-one-lakh-bought.mjs`) does,
@@ -36,9 +36,12 @@ where its figures differ from the slate's draft, and the traps still open before
 - **The dollar's direction.** ₹1 lakh buying fewer dollars is the rupee buying less; the page states it that way and
   never as "the rupee fell X%".
 
-## Open before section 7 can show a figure
+## The everyday-spending section, dropped
 
-The everyday-spending section needs the Labour Bureau's group-wise linking factors (food, housing, fuel and light,
-clothing) to chain the CPI-IW groups across the three bases; the general index's factors do not apply to the groups.
-Alternatives: WPI items (petrol, diesel, milk, wheat, rice), which the what-got-cheaper processor already links across
-bases from their overlap years, phrased as "₹1 lakh of this spending would cost ₹Y today".
+The slate's section 7 (₹1 lakh of food, housing, fuel or clothing spending in 2001, re-priced for today) needed the
+CPI-IW group indices chained across the 1982, 2001 and 2016 bases. DBIE carries the groups (CO_FDGP, CO_HOUS,
+CO_GIAG_FL, CO_GIAG_CBF, CO_GIAG_MS, CO_GIAG_PSTI) on all three bases, the 1982 base from January 1995, but the bases
+do not overlap and neither DBIE's bulletin table nor the Labour Bureau's 2016-series report and linking-factor note
+publish group-wise factors: both give the general index's 2.88 and 4.63 and centre-wise factors only. The section was
+removed on 09-10-2026 rather than chain the groups with the general factors. If group-wise factors are ever published,
+the groups' data is already in the scrape.

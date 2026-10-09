@@ -1,7 +1,7 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { CSSProperties, ReactNode, useEffect, useRef, useState } from "react";
 
 // UI ==================================================================================================================
 import { useInView, useReducedMotion } from "framer-motion";
@@ -29,7 +29,7 @@ export const Pinned = ({ steps, id, className, pin = false, children } : { steps
     const at = reduced ? steps : step;
     const cls = Array.from({ length : at }, (_, i) => `s${i + 1}`).join(" ");
     return (
-        <section ref={ref} id={id} className={`chapter pinned ${className ?? ""} ${pin && !reduced ? "is-pinned" : ""} ${reduced ? "is-still" : ""} ${cls}`} style={pin && !reduced ? { height : `${100 + HOLD}svh` } : undefined}>
+        <section ref={ref} id={id} className={`chapter pinned ${className ?? ""} ${pin && !reduced ? "is-pinned" : ""} ${reduced ? "is-still" : ""} ${cls}`} style={pin && !reduced ? { "--hold" : `${100 + HOLD}svh` } as CSSProperties : undefined}>
             <div className="pinned-frame">{children}</div>
         </section>
     );

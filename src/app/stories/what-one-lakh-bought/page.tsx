@@ -11,7 +11,7 @@ import type { NoteArt } from "./NoteGrid";
 import { FROM_YEAR, TO_YEAR } from "./data";
 
 export const metadata : Metadata = {
-    title       : "What ₹1 lakh bought | Stories — Database on Indian Economy",
+    title       : "What ₹1 lakh could buy | Stories — Database on Indian Economy",
     description : `One sum, ₹1 lakh, carried from ${FROM_YEAR} to ${TO_YEAR}: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today. Built from the prices published on the Reserve Bank’s DBIE.`,
 };
 
