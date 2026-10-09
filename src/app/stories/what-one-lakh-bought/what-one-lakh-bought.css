@@ -292,7 +292,7 @@
 
         .chapter-text { max-width : 48ch; }
         .kicker, .chapter-title, p { color : var(--scene-ink); }
-        .kicker { color : color-mix(in oklch, hsl(var(--indivara)), white 55%); }
+        .kicker { color : hsl(var(--turmeric)); }
     }
 
     /* The texts over the room, one in place of another as the table turns, all at the chapter's own size. */
@@ -613,15 +613,69 @@
     #your-own-bill { background : hsl(var(--ivory)); }
     .bill { max-width : 36rem; background : var(--paper); }
 
-    .bill-sum {
-        margin               : 10px 0 6px;
-        font-size            : clamp(32px, 4vw, 44px);
-        font-variant-numeric : tabular-nums;
-        line-height          : 1;
-        color                : var(--heading-text-colour);
+    .bill-title {
+        margin        : 0 0 8px;
+        padding-bottom : 12px;
+        border-bottom : 1px dashed var(--ink-faint);
+        font-family   : var(--font-serif);
+        font-size     : 19px;
+        color         : var(--heading-text-colour);
     }
 
-    .repriced { margin-bottom : 24px; }
+    /* The flat lay: the whole chapter is a tabletop seen from above, edge to edge, in one dark brown that falls off
+       softly towards the corners, with a fine grain of noise over it so it reads as a surface. The chapter's text lies on it as a sheet of ivory paper; the bill lies beside it a
+       little askew with a shadow, and a second copy of the bill lies straight under it, darker. */
+    .on-table {
+        --table : color-mix(in oklch, hsl(var(--terracotta)), var(--brown-dark60) 72%);
+
+        .pinned-frame {
+            background :
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%22240%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.55%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22240%22%20height%3D%22240%22%20filter%3D%22url%28%23n%29%22%2F%3E%3C%2Fsvg%3E") 0 0 / 240px 240px repeat,
+                radial-gradient(ellipse at 50% 40%, color-mix(in oklch, var(--table), white 6%) 0%, var(--table) 45%, color-mix(in oklch, var(--table), black 28%) 100%);
+            background-blend-mode : soft-light, normal;
+
+            > [data-row] { position : relative; z-index : 1; }
+        }
+
+        /* the text on a sheet of paper laid on the table */
+        .chapter-text {
+            padding    : 28px 30px;
+            background : hsl(var(--ivory));
+            rotate     : -0.8deg;
+            filter     : drop-shadow(0 12px 16px color-mix(in oklch, black, transparent 60%));
+
+            .kicker, .chapter-title, p { color : hsl(var(--charcoal)); }
+            .kicker { color : color-mix(in oklch, hsl(var(--terracotta)), black 20%); }
+            .fig { background : color-mix(in oklch, hsl(var(--terracotta)), transparent 82%); color : hsl(var(--charcoal)); }
+        }
+    }
+
+    .flatlay {
+        position      : relative;
+        padding       : 24px 0 40px;
+        margin-bottom : 0;
+    }
+
+    .flatlay .repriced {
+        position : relative;
+        width    : 70%;
+        margin   : 0 auto;
+        rotate   : -2.5deg;
+        filter   : drop-shadow(0 14px 18px color-mix(in oklch, black, transparent 60%));
+    }
+
+    /* the copy under the bill: the same shape, straight, nudged up and to the right, darker and blank */
+    .flatlay .repriced-back {
+        position  : absolute;
+        left      : 15%;
+        top       : 24px;
+        margin    : 0;
+        translate : 26px -10px;
+        rotate    : 0deg;
+        filter    : brightness(0.86) drop-shadow(0 10px 14px color-mix(in oklch, black, transparent 65%));
+
+        > * { visibility : hidden; }
+    }
 
     /* THE FIGURES ================================================================================================ */
     .story-figure {
@@ -720,6 +774,9 @@
 
     @media (max-width : 900px) {
         .receipts { grid-template-columns : 1fr; }
+        .flatlay .repriced { width : 100%; rotate : -1.5deg; }
+        .flatlay .repriced-back { left : 10px; }
+        .on-table .chapter-text { rotate : 0deg; }
         .shelf-row { grid-template-columns : 1fr auto; }
         .shelf-units { grid-column : 1 / -1; }
         .shelf-control { grid-template-columns : auto 1fr auto; }
@@ -769,6 +826,7 @@
     --bill    : color-mix(in oklch, hsl(var(--sand)), black 62%);
 
     #your-own-bill { background : color-mix(in srgb, hsl(var(--ivory)), black 80%); }
+    .on-table { --table : color-mix(in oklch, hsl(var(--terracotta)), var(--brown-dark80) 78%); }
     .bill { background : var(--paper); }
     .receipt-gold { background : color-mix(in srgb, hsl(var(--terracotta)), black 62%); .receipt-value { color : color-mix(in srgb, hsl(var(--terracotta)), white 35%); } }
     --c-warm  : var(--salmon-light20);

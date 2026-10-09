@@ -15,7 +15,7 @@ import { useSize } from "./useSize";
 // and everything is shown.
 const PER_STEP = 55;                                    // svh of scroll per step
 
-export const Pinned = ({ steps, id, children } : { steps : number; id ? : string; children : ReactNode }) => {
+export const Pinned = ({ steps, id, className, children } : { steps : number; id ? : string; className ? : string; children : ReactNode }) => {
     const ref = useRef<HTMLElement>(null);
     const { ref : frameRef, width } = useSize<HTMLDivElement>();
     const reduced = !!useReducedMotion();
@@ -27,7 +27,7 @@ export const Pinned = ({ steps, id, children } : { steps : number; id ? : string
     const at = still ? steps : step;
     const cls = Array.from({ length : at }, (_, i) => `s${i + 1}`).join(" ");
     return (
-        <section ref={ref} id={id} className={`chapter pinned ${still ? "is-still" : ""} ${cls}`} style={still ? undefined : { height : `${100 + steps * PER_STEP}svh` }}>
+        <section ref={ref} id={id} className={`chapter pinned ${className ?? ""} ${still ? "is-still" : ""} ${cls}`} style={still ? undefined : { height : `${100 + steps * PER_STEP}svh` }}>
             <div ref={frameRef} className="pinned-frame">{children}</div>
         </section>
     );

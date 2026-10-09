@@ -47,8 +47,7 @@ export const OwnBill = () => {
                 </div>
             </div>
             <div className="bill r2">
-                <div className="receipt-head"><span>Bill for the bearer</span><span>{year}</span></div>
-                <div className="bill-sum">{rs(sum)}</div>
+                <p className="bill-title">What {rs(sum)} could buy you in the year {year}</p>
                 <div className="receipt-line"><span className="receipt-label">🪙 Gold<span className="receipt-note">Mumbai, {rs(row.gold.price)} per 10 g{row.gold.months < 12 ? `, ${row.gold.months} months` : ""}</span></span><span className="receipt-value">{grams(row.gold.grams * k)}</span></div>
                 <div className="receipt-line"><span className="receipt-label">🥈 Silver<span className="receipt-note">Mumbai, {rs(row.silver.price)} per kg</span></span><span className="receipt-value">{kg(row.silver.kg * k)}</span></div>
                 <div className="receipt-line"><span className="receipt-label">👷 A mason’s work<span className="receipt-note">{row.mason ? `rural men’s wage, ${rs(row.mason.wage)} a day` : "not yet published for this year"}</span></span><span className="receipt-value">{row.mason ? `${inr(Math.round(row.mason.days * k))} days` : "–"}</span></div>

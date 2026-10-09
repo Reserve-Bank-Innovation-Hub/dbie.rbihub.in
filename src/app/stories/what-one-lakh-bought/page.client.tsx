@@ -66,6 +66,23 @@ const YEAR_TABLE = {
     ]),
 };
 
+// The household bill of section 7, re-priced once the group-wise factors are sourced; drawn twice on the table, the
+// back copy a little darker and hidden from readers of the page.
+const RepricedBill = ({ back = false } : { back ? : boolean }) => (
+    <div className={back ? "repriced repriced-back" : "repriced"} role={back ? undefined : "group"} aria-hidden={back || undefined}
+        aria-label={back ? undefined : `A ${FROM_YEAR} household bill, to be re-priced for ${TO_YEAR} once the group-wise linking factors are sourced`}>
+        <div className="receipt-head r1"><span>Household bill, re-priced</span><span>{FROM_YEAR} → {TO_YEAR}</span></div>
+        {[ "🥗 Food", "🏠 Housing", "🔥 Fuel and light", "👕 Clothing" ].map((g, i) => (
+            <div key={g} className={`receipt-line r${i + 2}`}>
+                <span className="receipt-label">{g}<span className="receipt-note">₹1 lakh of {FROM_YEAR} spending</span></span>
+                <span className="receipt-value is-pending">awaiting the factors</span>
+            </div>
+        ))}
+        <p className="bill-foot r5">{prose(`Each line will carry what ₹1 lakh of that spending in ${FROM_YEAR} would cost in ${TO_YEAR}, by the workers’
+            index for that group. The groups’ bases are not yet joined; no figure is shown until they are.`)}</p>
+    </div>
+);
+
 // The kicker over the gallery once the table has turned: the first beat's is the heirloom's own.
 const TURN_KICKER = <Text className="kicker" weight="600" id="ten-years-on">TEN YEARS ON, AND ON</Text>;
 
@@ -178,7 +195,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
             </Pinned>
 
             {/* 7 THE SPENDING YOU CANNOT WEIGH ======================================================================= */}
-            <Pinned steps={5}>
+            <Pinned steps={5} className="on-table">
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="8">
                         <Chapter id="cannot-weigh" kicker="THE SPENDING YOU CANNOT WEIGH" title={`What ₹1 lakh of everyday spending in ${FROM_YEAR} costs today`}>
@@ -191,16 +208,10 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                         </Chapter>
                     </Portion>
                     <Portion desktopSpan="16">
-                        <div className="repriced r1" role="group" aria-label={`A ${FROM_YEAR} household bill, to be re-priced for ${TO_YEAR} once the group-wise linking factors are sourced`}>
-                            <div className="receipt-head r1"><span>Household bill, re-priced</span><span>{FROM_YEAR} → {TO_YEAR}</span></div>
-                            {[ "🥗 Food", "🏠 Housing", "🔥 Fuel and light", "👕 Clothing" ].map((g, i) => (
-                                <div key={g} className={`receipt-line r${i + 2}`}>
-                                    <span className="receipt-label">{g}<span className="receipt-note">₹1 lakh of {FROM_YEAR} spending</span></span>
-                                    <span className="receipt-value is-pending">awaiting the factors</span>
-                                </div>
-                            ))}
-                            <p className="bill-foot r5">{prose(`Each line will carry what ₹1 lakh of that spending in ${FROM_YEAR} would cost in ${TO_YEAR}, by the workers’
-                                index for that group. The groups’ bases are not yet joined; no figure is shown until they are.`)}</p>
+                        {/* a flat lay: the bill on the tabletop, seen from above, with a second copy of it under it */}
+                        <div className="flatlay r1">
+                            <RepricedBill back />
+                            <RepricedBill />
                         </div>
                     </Portion>
                 </Row>
