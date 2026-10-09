@@ -31,6 +31,16 @@ export const STORY_SECTIONS : ListSection[] = [
         ],
     },
     {
+        title : "Money and payments",
+        items : [
+            {
+                linkTo      : "/stories/what-one-lakh-bought",
+                label       : "What ₹1 lakh bought",
+                description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
+            },
+        ],
+    },
+    {
         title : "External debt",
         items : [
             {
