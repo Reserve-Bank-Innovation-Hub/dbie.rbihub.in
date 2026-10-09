@@ -69,3 +69,7 @@ data/.scrape-version
 
 # session logs written by the agent (YYYY-wWW agent-log.md)
 *agent-log.md
+
+# Drop folder for story planning material (plans, sketches, reference files); only its README is committed
+public/design-ref/*
+!public/design-ref/README.md
