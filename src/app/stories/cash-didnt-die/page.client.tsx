@@ -10,19 +10,19 @@ import { Article, Heading1, Heading4, Text } from "fictoan-react";
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 
 // DATA ================================================================================================================
-import { HEADLINE, USERS } from "./data.gen";
+import { HEADLINE, MACHINES, PAY_MONTHS, USERS } from "./data.gen";
 
 // STYLES ==============================================================================================================
 import "./cash-didnt-die.css";
 
-// three.js loads only in the browser and only on this story.
+// The stages load only in the browser and only on this story (three.js with them).
 const TitleStage = dynamic(() => import("./CashStage").then(m => m.TitleStage), {
     ssr     : false,
     loading : () => <div className="cash-stage is-title is-loading" aria-hidden="true" />,
 });
-const MachinesStage = dynamic(() => import("./CashStage").then(m => m.MachinesStage), {
+const GridsStage = dynamic(() => import("./CashStage").then(m => m.GridsStage), {
     ssr     : false,
-    loading : () => <div className="cash-stage is-machines is-loading" aria-hidden="true" />,
+    loading : () => <div className="grids is-loading" aria-hidden="true" />,
 });
 const RainStage = dynamic(() => import("./CashStage").then(m => m.RainStage), {
     ssr     : false,
@@ -30,6 +30,9 @@ const RainStage = dynamic(() => import("./CashStage").then(m => m.RainStage), {
 });
 
 const lakhCrore = (crore : number) => (crore / 1e5).toFixed(1);
+const monthYear = (ym : string) => new Date(`${ym}-01T00:00:00`).toLocaleString("en-GB", { month : "long", year : "numeric" });
+// the month micro-ATMs were most numerous
+const MICRO_PEAK = MACHINES.micro.indexOf(Math.max(...MACHINES.micro));
 const times = Math.round(HEADLINE.upi.times);
 const fmtCr = (v : number) => Math.round(v).toLocaleString("en-IN");
 
@@ -67,19 +70,30 @@ export const CashDidntDiePage = () => (
             </RainStage>
         </section>
 
-        <section className="rain is-machines">
-            <div className="rain-words">
+        <section className="rain is-grids">
+            <GridsStage view="machines">
                 <Text className="kicker" weight="600" marginBottom="nano">THE MACHINES</Text>
                 <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">
-                    More cash machines, shorter queues
+                    Five times as many micro-ATMs as ATMs, a quarter of the withdrawals
                 </Heading4>
-                <Text fontStyle="serif">
-                    ATMs barely grew in number, and each is visited less. Micro-ATMs, carried by banking agents, more than
-                    tripled; each is used lightly, but together they took {(HEADLINE.micro.to / HEADLINE.micro.from).toFixed(1)} times
-                    as many withdrawals in July 2026 as in November 2019.
+                <Text className="grids-dek" fontStyle="serif">
+                    “Increase in digitalisation of payments has reduced the customers’ requirement of transacting with
+                    ATMs,” the RBI noted in <a href="https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23639">December 2025</a>.
+                    Micro-ATMs peaked at {MACHINES.micro[MICRO_PEAK].toFixed(1)} lakh in {monthYear(PAY_MONTHS[MICRO_PEAK])} and
+                    numbered {MACHINES.micro[MACHINES.micro.length - 1].toFixed(1)} lakh by {monthYear(PAY_MONTHS[PAY_MONTHS.length - 1])};
+                    the RBI <a href="https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23813">records the fall</a> but
+                    has not said why.
                 </Text>
-            </div>
-            <MachinesStage />
+            </GridsStage>
+        </section>
+
+        <section className="rain is-grids">
+            <GridsStage view="value">
+                <Text className="kicker" weight="600" marginBottom="nano">THE CASH</Text>
+                <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">
+                    Fewer trips to the ATM, more taken out each time
+                </Heading4>
+            </GridsStage>
         </section>
     </Article>
 );

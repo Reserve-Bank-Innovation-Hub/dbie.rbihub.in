@@ -1,6 +1,6 @@
 "use client";
 
-// The story's 3D stages: the title's phone and note, the crowd of phones month by month, and the fields of machines month by month. Loaded
+// The story's stages: the title's phone and note (3D), the crowd of phones month by month, and the fields of machines month by month. Loaded
 // through next/dynamic with SSR off (page.client.tsx), so three.js reaches only this story's bundle. Without WebGL a
 // stage shows a line of text; with reduced motion each draws one still frame.
 
@@ -9,11 +9,11 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 // LOCAL ===============================================================================================================
 import { mountPhoneScene, type PhoneScene } from "./phoneScene";
-import { mountFieldsScene } from "./fieldsScene";
+import { type GridHalf, mountGridsScene } from "./gridsScene";
 import { type Band, mountRainScene } from "./rainScene";
 
 // DATA ================================================================================================================
-import { MACHINES, PAY, PAY_MONTHS, USERS, USER_POINTS } from "./data.gen";
+import { MACHINES, NOTE_YEARS, PAY, PAY_MONTHS, USERS, USER_POINTS } from "./data.gen";
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const NO_GL = "This 3D scene needs WebGL, which this browser has turned off.";
@@ -88,39 +88,79 @@ const TimeBar = ({ m, playing, toggle, seek } : { m : number; playing : boolean;
 const Readout = ({ children } : { children : ReactNode }) => <div className="rain-readout">{children}</div>;
 
 // THE MACHINES, MONTH BY MONTH ========================================================================================
-// One machine on screen for every 10,000; one person in a queue for every 10 withdrawals a day at a machine, so a
-// field's people are its month's withdrawals: crore a month × 1e7 ÷ days ÷ 10 ÷ 10,000 = crore × 100 ÷ days.
-const PER_ICON = 1e4, PER_PERSON_DAY = 10;
+// In 2D: ATMs on the left, micro-ATMs on the right, two grids in each half. The first step shows the machines and the
+// withdrawals made at them, the second the withdrawals and the cash they took out. A square is the same on both sides:
+// 10,000 machines, 50 lakh withdrawals in the month, or ₹2,500 crore withdrawn in the month; large enough a unit that
+// the squares are the size of the UPI wall's hands, not dots.
+const PER_MACHINES = 10000, PER_WITHDRAWALS = 0.5, PER_VALUE = 2500;  // machines; crore withdrawals; ₹ crore
 const daysIn = (ym : string) => { const [ y, mo ] = ym.split("-").map(Number); return new Date(y, mo, 0).getDate(); };
-// withdrawals per machine a day, that month
+// withdrawals per machine a day, that month; the average withdrawal, in rupees
 const perDay = (crore : number, lakhMachines : number, ym : string) => crore * 1e7 / (lakhMachines * 1e5) / daysIn(ym);
-const icons = (lakh : number[]) => lakh.map(l => l * 1e5 / PER_ICON);
-const peopleOf = (crore : number[]) => crore.map((c, i) => c * 1e7 / daysIn(PAY_MONTHS[i]) / PER_PERSON_DAY / PER_ICON);
+const average = (valueCrore : number, volumeCrore : number) => valueCrore / volumeCrore;
+const rupees = (crore : number) => crore >= 1e5 ? `₹${(crore / 1e5).toFixed(2)} lakh crore` : `₹${fmt(crore)} crore`;
+const machinesSeries = (lakh : number[], kind : "atm" | "micro") =>
+    ({ cells : lakh.map(l => l * 1e5 / PER_MACHINES), kind, label : (m : number) => `Machines · ${lakh[m].toFixed(2)} lakh` });
+const withdrawalsSeries = (crore : number[]) =>
+    ({ cells : crore.map(c => c / PER_WITHDRAWALS), kind : "withdrawal" as const, label : (m : number) => `Withdrawals in the month · ${crore[m].toFixed(crore[m] < 20 ? 2 : 1)} crore` });
+const valueSeries = (crore : number[]) =>
+    ({ cells : crore.map(c => c / PER_VALUE), kind : "cash" as const, label : (m : number) => `Cash withdrawn in the month · ${rupees(crore[m])}` });
 
-export const MachinesStage = () => {
-    const p = useMonthPlayer((canvas, cb) => mountFieldsScene(canvas, {
-        reduced : cb.reduced, atmN : icons(MACHINES.atm), microN : icons(MACHINES.micro),
-        atmPeople : peopleOf(PAY.atm.volume), microPeople : peopleOf(PAY.micro.volume), onMonth : cb.onMonth, onEnd : cb.onEnd,
-    }));
+// The cash withdrawn is drawn as notes, coloured in the mix of ₹100 and larger banknotes in circulation, by number, at the latest
+// March on or before each month (RBI Annual Report, Table VIII.1): ₹500, ₹100, ₹200 and ₹2,000. Smaller notes are left
+// out, since cash machines pay out mostly ₹100 and above.
+const NOTE_DENOMS = [ "500", "100", "200", "2000" ];
+const NOTE_MIX = PAY_MONTHS.map(ym => {
+    const year = [ ...(NOTE_YEARS ?? []) ].reverse().find(y => y.march <= ym) ?? (NOTE_YEARS ?? [])[0];
+    if (!year) return [ 0.5, 0.25, 0.25, 0 ];
+    const count = (d : string) => year.notes.find(n => n.denom === d)?.volume ?? 0;
+    const total = NOTE_DENOMS.reduce((a, d) => a + count(d), 0);
+    return NOTE_DENOMS.map(d => count(d) / total);
+});
+const LATEST_NOTES = (NOTE_YEARS ?? [])[(NOTE_YEARS ?? []).length - 1];
+
+const VIEWS : Record<"machines" | "value", { left : GridHalf; right : GridHalf }> = {
+    machines : {
+        left  : { title : "ATMs", lead : "atm", top : machinesSeries(MACHINES.atm, "atm"), bottom : withdrawalsSeries(PAY.atm.volume) },
+        right : { title : "Micro-ATMs", lead : "micro", top : machinesSeries(MACHINES.micro, "micro"), bottom : withdrawalsSeries(PAY.micro.volume) },
+    },
+    value : {
+        left  : { title : "ATMs", lead : "atm", top : withdrawalsSeries(PAY.atm.volume), bottom : valueSeries(PAY.atm.value) },
+        right : { title : "Micro-ATMs", lead : "micro", top : withdrawalsSeries(PAY.micro.volume), bottom : valueSeries(PAY.micro.value) },
+    },
+};
+// the most squares any grid needs, across both steps, so both steps lay out alike
+const FIT_MAX = Math.max(...Object.values(VIEWS).flatMap(v => [ v.left, v.right ]).flatMap(h => [ ...h.top.cells, ...h.bottom.cells ]));
+
+export const GridsStage = ({ view, children } : { view : "machines" | "value"; children : ReactNode }) => {
+    const p = useMonthPlayer((canvas, cb) => mountGridsScene(canvas, { reduced : cb.reduced, ...VIEWS[view], fitMax : FIT_MAX, noteMix : NOTE_MIX, onMonth : cb.onMonth, onEnd : cb.onEnd }));
     const ym = PAY_MONTHS[p.m];
     const atmDay = perDay(PAY.atm.volume[p.m], MACHINES.atm[p.m], ym), microDay = perDay(PAY.micro.volume[p.m], MACHINES.micro[p.m], ym);
+    const atmAvg = average(PAY.atm.value[p.m], PAY.atm.volume[p.m]), microAvg = average(PAY.micro.value[p.m], PAY.micro.volume[p.m]);
+    const label = view === "machines"
+        ? `${monthName(ym)}. ATMs: ${MACHINES.atm[p.m].toFixed(2)} lakh machines, ${PAY.atm.volume[p.m].toFixed(1)} crore withdrawals in the month. Micro-ATMs: ${MACHINES.micro[p.m].toFixed(2)} lakh machines, ${PAY.micro.volume[p.m].toFixed(2)} crore withdrawals.`
+        : `${monthName(ym)}. ATMs: ${PAY.atm.volume[p.m].toFixed(1)} crore withdrawals taking out ${rupees(PAY.atm.value[p.m])}. Micro-ATMs: ${PAY.micro.volume[p.m].toFixed(2)} crore withdrawals taking out ${rupees(PAY.micro.value[p.m])}.`;
     return (
-        <div className="cash-stage is-machines">
-            <canvas ref={p.ref} role="img"
-                aria-label={`${monthName(ym)}: ${MACHINES.atm[p.m].toFixed(2)} lakh ATMs, about ${Math.round(atmDay)} withdrawals each a day; ${MACHINES.micro[p.m].toFixed(2)} lakh micro-ATMs with banking agents, about ${microDay.toFixed(1)} each a day. One machine on screen for every 10,000, one person for every 10 withdrawals a day.`} />
-            {p.failed && <p className="stage-fallback">{NO_GL}</p>}
-            <Readout>
-                <span className="rain-month">{monthName(ym)}</span>
-                <span className="rain-row"><i className="key-atm" aria-hidden="true" /><b>{MACHINES.atm[p.m].toFixed(2)}</b> lakh ATMs</span>
-                <span className="rain-sub">{Math.round(atmDay)} withdrawals a machine a day; {fmt(PAY.atm.volume[p.m])} crore in the month</span>
-                <span className="rain-row"><i className="key-agent" aria-hidden="true" /><b>{MACHINES.micro[p.m].toFixed(2)}</b> lakh micro-ATMs</span>
-                <span className="rain-sub">{microDay.toFixed(1)} withdrawals a machine a day; {PAY.micro.volume[p.m].toFixed(1)} crore in the month</span>
-                <span className="rain-key">
-                    Each machine on screen is 10,000 machines; each person in a queue is 10 withdrawals a day at a machine.
-                    Micro-ATMs are handheld machines that banking agents carry, the same scale as the ATMs.
-                </span>
-            </Readout>
-            <TimeBar {...p} />
+        <div className="grids">
+            <div className="grids-words">{children}</div>
+            <div className="grids-stage">
+                <canvas ref={p.ref} role="img" aria-label={label} />
+            </div>
+            <div className="grids-foot">
+                <p className="grids-readout">
+                    <b>{monthName(ym)}</b>
+                    {view === "machines"
+                        ? <>An ATM: about {Math.round(atmDay)} withdrawals a day. A micro-ATM: about {microDay.toFixed(1)}.</>
+                        : <>The average withdrawal: ₹{fmt(atmAvg)} at an ATM, ₹{fmt(microAvg)} at a micro-ATM.</>}
+                </p>
+                <TimeBar {...p} />
+                <p className="grids-key">
+                    Each square, on both sides: {view === "machines" ? "10,000 machines, or 50 lakh withdrawals in the month" : "50 lakh withdrawals, or ₹2,500 crore withdrawn, in the month"}.
+                    Micro-ATMs are the handheld machines banking agents carry. Squares fill from one corner only to show size; it is not a map.
+                    Notes are coloured in the mix of ₹100 and larger banknotes in circulation each March, by number, from the RBI{"'"}s{" "}
+                    {LATEST_NOTES ? <a href={LATEST_NOTES.url}>Annual Report</a> : "Annual Report"}: ₹500 green, ₹200 turmeric,
+                    ₹100 lavender, ₹2,000 pink. The RBI does not publish which notes the machines pay out.
+                </p>
+            </div>
         </div>
     );
 };

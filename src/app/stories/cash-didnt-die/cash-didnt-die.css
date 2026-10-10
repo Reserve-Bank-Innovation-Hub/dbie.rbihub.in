@@ -205,6 +205,37 @@
         .rain-time     { position : static; transform : none; width : auto; }
     }
 
+    /* THE GRIDS ======================================================================================================= */
+    /* ATMs and micro-ATMs side by side: the words above, the two halves of squares filling the middle, the month, the
+       slider and the key below. */
+    .rain.is-grids { background : var(--kosh-ivory); }
+    .grids {
+        display            : grid;
+        grid-template-rows : auto minmax(0, 1fr) auto;
+        gap                : 16px;
+        height             : 100%;
+        padding            : 6vh clamp(16px, 6vw, 96px) 4vh;
+    }
+    .grids-words .chapter-title { max-width : 30ch; }
+    /* on a wide screen the dek sits beside the heading, and the readout, slider and key share one line, so the grids
+       get the height */
+    @media (min-width : 761px) {
+        .grids { padding-top : 4vh; padding-bottom : 3vh; }
+        .grids-words { display : grid; grid-template-columns : minmax(0, 1fr) minmax(0, 1.25fr); column-gap : 48px; align-items : end; }
+        .grids-words > :not(.grids-dek) { grid-column : 1; }
+        .grids-words .grids-dek { grid-column : 2; grid-row : 1 / span 2; margin : 0; }
+        .grids-foot { grid-template-columns : 1fr minmax(300px, 420px) 1fr; align-items : center; column-gap : 32px; text-align : left; justify-items : stretch; }
+        .grids-foot .grids-key { text-align : left; }
+    }
+    .grids-dek { max-width : 72ch; margin : 6px 0 0; font-size : 15px; line-height : 1.5; color : var(--ink-soft); a { color : var(--accent); } }
+    .grids-stage { position : relative; min-height : 0; canvas { display : block; width : 100%; height : 100%; } }
+    .grids-foot {
+        display : grid; gap : 10px; justify-items : center; text-align : center;
+        .rain-time { position : static; transform : none; }
+    }
+    .grids-readout { margin : 0; font-size : 15px; b { margin-right : 10px; color : var(--accent); } }
+    .grids-key { margin : 0; max-width : 70ch; font-size : 12px; line-height : 1.45; color : var(--ink-soft); a { color : var(--accent); } }
+
     /* PHONES ========================================================================================================== */
     @media (max-width : 760px) {
         .opening { --melt : 97%; }                        /* the phone sits low; melt into the page below it */
@@ -219,6 +250,8 @@
         }
         .opening.is-intro .hero::before { opacity : 0; }    /* the wash comes in with the words, not over the opening */
         .rain-words { top : 3vh; }
+        .rain.is-grids { height : 100svh; overflow : hidden; padding : 0; }
+        .grids { padding : 3vh 16px 2vh; gap : 10px; }
         /* the month-by-month steps stack on a phone: words, the scene, the readout, the slider */
         .rain { height : auto; overflow : visible; padding : 24px 0 32px; }
         .rain-words { position : static; width : auto; margin : 0 16px; padding : 0; background : none; backdrop-filter : none; }

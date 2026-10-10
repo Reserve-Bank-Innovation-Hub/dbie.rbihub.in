@@ -355,7 +355,7 @@ function smudges() {
 // a hanging bulb and a string of small lights, a board that says chai, a kettle on the stove, glasses on the counter,
 // and, on the counter right of the phone, the stall's QR code on its stand, a little less soft. Painted on a canvas
 // and blurred (or, where a canvas cannot blur, drawn small and scaled up, which blurs it as well).
-const STALL_W = 22, STALL_H = 14, STALL_BOTTOM = -6, STALL_Z = -16;   // where it stands, in the scene's units
+const STALL_W = 22, STALL_H = 22, STALL_BOTTOM = -14, STALL_Z = -16;  // where it stands; it reaches well below the frame
 function stallTexture() {
     const W = 1600, H = Math.round(W * STALL_H / STALL_W);
     const px = (x : number) => (x + STALL_W / 2) / STALL_W * W;          // scene x and y to the canvas
