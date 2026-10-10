@@ -67,7 +67,7 @@ export function noteTexture(renderer : THREE.WebGLRenderer) : THREE.CanvasTextur
     g.fillText("500", 64, 118);
     g.font = "600 34px system-ui, sans-serif";
     g.textAlign = "center";
-    g.fillText("FIVE HUNDRED RUPEES", W * 0.36, H - 70);
+    g.fillText("FIVE HUNDRED RUPEES", W * 0.3, H - 70);    // clear of the fold, so no letter shows on the folded half
     g.font = "600 40px 'Kohinoor Devanagari', 'Noto Sans Devanagari', 'Mangal', sans-serif";
     g.fillText("पाँच सौ रुपये", W * 0.36, 112);
     g.textAlign = "right";

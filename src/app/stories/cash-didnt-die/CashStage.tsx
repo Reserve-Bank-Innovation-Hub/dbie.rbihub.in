@@ -1,6 +1,6 @@
 "use client";
 
-// The story's 3D stages: the title's ATM, the crowd of phones month by month, and the fields of machines month by month. Loaded
+// The story's 3D stages: the title's phone and note, the crowd of phones month by month, and the fields of machines month by month. Loaded
 // through next/dynamic with SSR off (page.client.tsx), so three.js reaches only this story's bundle. Without WebGL a
 // stage shows a line of text; with reduced motion each draws one still frame.
 
@@ -8,7 +8,7 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 // LOCAL ===============================================================================================================
-import { mountAtmScene, type AtmScene } from "./atmScene";
+import { mountPhoneScene, type PhoneScene } from "./phoneScene";
 import { mountFieldsScene } from "./fieldsScene";
 import { type Band, mountRainScene } from "./rainScene";
 
@@ -28,17 +28,17 @@ export const TitleStage = () => {
     useEffect(() => {
         if (!ref.current) return;
         // the page's words wait, hidden (the page is served that way), while the opening plays, and come in as the
-        // machine comes to rest
+        // phone lands
         const opening = ref.current.closest(".opening");
-        let s : AtmScene | null = null;
+        let s : PhoneScene | null = null;
         try {
-            s = mountAtmScene(ref.current, { reduced : reducedMotion(), onReveal : () => opening?.classList.remove("is-intro") });
+            s = mountPhoneScene(ref.current, { reduced : reducedMotion(), onReveal : () => opening?.classList.remove("is-intro") });
         } catch { opening?.classList.remove("is-intro"); setFailed(true); }
         return () => s?.dispose();                      // the words keep waiting for the next mount (or the CSS timer)
     }, []);
     return (
         <div className="cash-stage is-title">
-            <canvas ref={ref} role="img" aria-label="A cash machine pays out ₹500 notes in a stream that does not stop; they flutter forward and fall out of view. Its screen reads: Cash didn’t die." />
+            <canvas ref={ref} role="img" aria-label="At a chai stall, a phone scans the stall's QR code and pays ₹50 by UPI; the payment joins the day's list. The phone is set face down on the table: folded behind it, in its clear case, is a ₹500 note. The payments go on, lighting the table green from under the phone, while the note stays." />
             {failed && <p className="stage-fallback">{NO_GL}</p>}
         </div>
     );
