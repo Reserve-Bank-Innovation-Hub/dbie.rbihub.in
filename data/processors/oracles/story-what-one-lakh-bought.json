@@ -1,0 +1,921 @@
+{
+ "headline": {
+  "sum": 100000,
+  "fromYear": 2001,
+  "toYear": 2026,
+  "lensYears": [
+   2001,
+   2011,
+   2021,
+   2026
+  ],
+  "priceRise": 4.38,
+  "worthNow": 437908,
+  "necklaceNow": 3397212,
+  "ranAhead": {
+   "gold": 7.76,
+   "silver": 7.99,
+   "mason": 1.41,
+   "masonAgainstIndexTo": 2025,
+   "usd": 0.45,
+   "wheat": 0.98,
+   "wheatTo": 2025
+  },
+  "last": {
+   "gold": "2026-05",
+   "silver": "2026-05",
+   "mason": "2025-04",
+   "usd": "2026-09-28",
+   "wheat": "2025-26",
+   "index": "2026-07"
+  },
+  "masonBreak": {
+   "before": "2013-10",
+   "after": "2013-11",
+   "from": 329.76,
+   "to": 350.91
+  }
+ },
+ "factors": {
+  "to2016": 2.88,
+  "to2001": 4.63
+ },
+ "years": [
+  {
+   "year": 2001,
+   "gold": {
+    "price": 4461.6,
+    "months": 12,
+    "grams": 224.1
+   },
+   "silver": {
+    "price": 7415.66,
+    "months": 12,
+    "kg": 13.48
+   },
+   "mason": {
+    "wage": 109.48,
+    "months": 12,
+    "days": 913
+   },
+   "usd": {
+    "rate": 47.19,
+    "days": null,
+    "dollars": 2119
+   },
+   "wheat": {
+    "price": 620,
+    "cropYear": "2001-02",
+    "quintals": 161.3
+   },
+   "index": {
+    "value": 34.32,
+    "months": 12,
+    "base": "BY_1982"
+   },
+   "worthNow": 437908
+  },
+  {
+   "year": 2002,
+   "gold": {
+    "price": 5128.85,
+    "months": 12,
+    "grams": 195
+   },
+   "silver": {
+    "price": 7924.26,
+    "months": 12,
+    "kg": 12.62
+   },
+   "mason": {
+    "wage": 114.55,
+    "months": 12,
+    "days": 873
+   },
+   "usd": {
+    "rate": 48.6,
+    "days": null,
+    "dollars": 2058
+   },
+   "wheat": {
+    "price": 620,
+    "cropYear": "2002-03",
+    "quintals": 161.3
+   },
+   "index": {
+    "value": 35.8,
+    "months": 12,
+    "base": "BY_1982"
+   },
+   "worthNow": 419804
+  },
+  {
+   "year": 2003,
+   "gold": {
+    "price": 5616.68,
+    "months": 12,
+    "grams": 178
+   },
+   "silver": {
+    "price": 8130.04,
+    "months": 12,
+    "kg": 12.3
+   },
+   "mason": {
+    "wage": 117.81,
+    "months": 12,
+    "days": 849
+   },
+   "usd": {
+    "rate": 46.58,
+    "days": null,
+    "dollars": 2147
+   },
+   "wheat": {
+    "price": 630,
+    "cropYear": "2003-04",
+    "quintals": 158.7
+   },
+   "index": {
+    "value": 37.16,
+    "months": 12,
+    "base": "BY_1982"
+   },
+   "worthNow": 404440
+  },
+  {
+   "year": 2004,
+   "gold": {
+    "price": 6117.46,
+    "months": 12,
+    "grams": 163.5
+   },
+   "silver": {
+    "price": 10599.55,
+    "months": 12,
+    "kg": 9.43
+   },
+   "mason": {
+    "wage": 120.84,
+    "months": 12,
+    "days": 828
+   },
+   "usd": {
+    "rate": 45.32,
+    "days": null,
+    "dollars": 2207
+   },
+   "wheat": {
+    "price": 640,
+    "cropYear": "2004-05",
+    "quintals": 156.3
+   },
+   "index": {
+    "value": 38.56,
+    "months": 12,
+    "base": "BY_1982"
+   },
+   "worthNow": 389756
+  },
+  {
+   "year": 2005,
+   "gold": {
+    "price": 6441.88,
+    "months": 12,
+    "grams": 155.2
+   },
+   "silver": {
+    "price": 11068.77,
+    "months": 12,
+    "kg": 9.03
+   },
+   "mason": {
+    "wage": 124.1,
+    "months": 12,
+    "days": 806
+   },
+   "usd": {
+    "rate": 44.1,
+    "days": null,
+    "dollars": 2268
+   },
+   "wheat": {
+    "price": 650,
+    "cropYear": "2005-06",
+    "quintals": 153.8
+   },
+   "index": {
+    "value": 40.2,
+    "months": 12,
+    "base": "BY_1982"
+   },
+   "worthNow": 373856
+  },
+  {
+   "year": 2006,
+   "gold": {
+    "price": 8910.21,
+    "months": 12,
+    "grams": 112.2
+   },
+   "silver": {
+    "price": 17551.26,
+    "months": 12,
+    "kg": 5.7
+   },
+   "mason": {
+    "wage": 128.84,
+    "months": 12,
+    "days": 776
+   },
+   "usd": {
+    "rate": 45.31,
+    "days": null,
+    "dollars": 2207
+   },
+   "wheat": {
+    "price": 850,
+    "cropYear": "2006-07",
+    "quintals": 117.6
+   },
+   "index": {
+    "value": 42.68,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 352132
+  },
+  {
+   "year": 2007,
+   "gold": {
+    "price": 9343.39,
+    "months": 12,
+    "grams": 107
+   },
+   "silver": {
+    "price": 18796.86,
+    "months": 12,
+    "kg": 5.32
+   },
+   "mason": {
+    "wage": 137.13,
+    "months": 12,
+    "days": 729
+   },
+   "usd": {
+    "rate": 41.35,
+    "days": null,
+    "dollars": 2418
+   },
+   "wheat": {
+    "price": 1000,
+    "cropYear": "2007-08",
+    "quintals": 100
+   },
+   "index": {
+    "value": 45.4,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 331035
+  },
+  {
+   "year": 2008,
+   "gold": {
+    "price": 12248.52,
+    "months": 12,
+    "grams": 81.6
+   },
+   "silver": {
+    "price": 21612.7,
+    "months": 12,
+    "kg": 4.63
+   },
+   "mason": {
+    "wage": 150.95,
+    "months": 12,
+    "days": 662
+   },
+   "usd": {
+    "rate": 43.5,
+    "days": null,
+    "dollars": 2299
+   },
+   "wheat": {
+    "price": 1080,
+    "cropYear": "2008-09",
+    "quintals": 92.6
+   },
+   "index": {
+    "value": 49.19,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 305530
+  },
+  {
+   "year": 2009,
+   "gold": {
+    "price": 15227.76,
+    "months": 12,
+    "grams": 65.7
+   },
+   "silver": {
+    "price": 23790.49,
+    "months": 12,
+    "kg": 4.2
+   },
+   "mason": {
+    "wage": 170.72,
+    "months": 12,
+    "days": 586
+   },
+   "usd": {
+    "rate": 48.4,
+    "days": null,
+    "dollars": 2066
+   },
+   "wheat": {
+    "price": 1100,
+    "cropYear": "2009-10",
+    "quintals": 90.9
+   },
+   "index": {
+    "value": 54.53,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 275610
+  },
+  {
+   "year": 2010,
+   "gold": {
+    "price": 18267.53,
+    "months": 12,
+    "grams": 54.7
+   },
+   "silver": {
+    "price": 31839.99,
+    "months": 12,
+    "kg": 3.14
+   },
+   "mason": {
+    "wage": 197.38,
+    "months": 12,
+    "days": 507
+   },
+   "usd": {
+    "rate": 45.73,
+    "days": null,
+    "dollars": 2187
+   },
+   "wheat": {
+    "price": 1170,
+    "cropYear": "2010-11",
+    "quintals": 85.5
+   },
+   "index": {
+    "value": 61.08,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 246054
+  },
+  {
+   "year": 2011,
+   "gold": {
+    "price": 23871.54,
+    "months": 12,
+    "grams": 41.9
+   },
+   "silver": {
+    "price": 55505.43,
+    "months": 12,
+    "kg": 1.8
+   },
+   "mason": {
+    "wage": 231.02,
+    "months": 12,
+    "days": 433
+   },
+   "usd": {
+    "rate": 46.67,
+    "days": null,
+    "dollars": 2143
+   },
+   "wheat": {
+    "price": 1285,
+    "cropYear": "2011-12",
+    "quintals": 77.8
+   },
+   "index": {
+    "value": 66.48,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 226068
+  },
+  {
+   "year": 2012,
+   "gold": {
+    "price": 29628.35,
+    "months": 12,
+    "grams": 33.8
+   },
+   "silver": {
+    "price": 57335.99,
+    "months": 12,
+    "kg": 1.74
+   },
+   "mason": {
+    "wage": 270.44,
+    "months": 12,
+    "days": 370
+   },
+   "usd": {
+    "rate": 53.44,
+    "days": null,
+    "dollars": 1871
+   },
+   "wheat": {
+    "price": 1350,
+    "cropYear": "2012-13",
+    "quintals": 74.1
+   },
+   "index": {
+    "value": 72.7,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 206726
+  },
+  {
+   "year": 2013,
+   "gold": {
+    "price": 29221.48,
+    "months": 12,
+    "grams": 34.2
+   },
+   "silver": {
+    "price": 49433.15,
+    "months": 12,
+    "kg": 2.02
+   },
+   "mason": {
+    "wage": 319.23,
+    "months": 12,
+    "days": 313
+   },
+   "usd": {
+    "rate": 58.6,
+    "days": null,
+    "dollars": 1707
+   },
+   "wheat": {
+    "price": 1400,
+    "cropYear": "2013-14",
+    "quintals": 71.4
+   },
+   "index": {
+    "value": 80.64,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 186372
+  },
+  {
+   "year": 2014,
+   "gold": {
+    "price": 28162.71,
+    "months": 12,
+    "grams": 35.5
+   },
+   "silver": {
+    "price": 42518.21,
+    "months": 12,
+    "kg": 2.35
+   },
+   "mason": {
+    "wage": 370.44,
+    "months": 12,
+    "days": 270
+   },
+   "usd": {
+    "rate": 61.03,
+    "days": null,
+    "dollars": 1639
+   },
+   "wheat": {
+    "price": 1450,
+    "cropYear": "2014-15",
+    "quintals": 69
+   },
+   "index": {
+    "value": 85.73,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 175306
+  },
+  {
+   "year": 2015,
+   "gold": {
+    "price": 26334.53,
+    "months": 12,
+    "grams": 38
+   },
+   "silver": {
+    "price": 36756.55,
+    "months": 12,
+    "kg": 2.72
+   },
+   "mason": {
+    "wage": 397.95,
+    "months": 12,
+    "days": 251
+   },
+   "usd": {
+    "rate": 64.15,
+    "days": null,
+    "dollars": 1559
+   },
+   "wheat": {
+    "price": 1525,
+    "cropYear": "2015-16",
+    "quintals": 65.6
+   },
+   "index": {
+    "value": 90.75,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 165609
+  },
+  {
+   "year": 2016,
+   "gold": {
+    "price": 29354.83,
+    "months": 12,
+    "grams": 34.1
+   },
+   "silver": {
+    "price": 41294.08,
+    "months": 12,
+    "kg": 2.42
+   },
+   "mason": {
+    "wage": 422.2,
+    "months": 12,
+    "days": 237
+   },
+   "usd": {
+    "rate": 67.2,
+    "days": null,
+    "dollars": 1488
+   },
+   "wheat": {
+    "price": 1625,
+    "cropYear": "2016-17",
+    "quintals": 61.5
+   },
+   "index": {
+    "value": 95.26,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 157768
+  },
+  {
+   "year": 2017,
+   "gold": {
+    "price": 28975.37,
+    "months": 12,
+    "grams": 34.5
+   },
+   "silver": {
+    "price": 39941.93,
+    "months": 12,
+    "kg": 2.5
+   },
+   "mason": {
+    "wage": 443.75,
+    "months": 12,
+    "days": 225
+   },
+   "usd": {
+    "rate": 65.12,
+    "days": null,
+    "dollars": 1536
+   },
+   "wheat": {
+    "price": 1735,
+    "cropYear": "2017-18",
+    "quintals": 57.6
+   },
+   "index": {
+    "value": 97.63,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 153938
+  },
+  {
+   "year": 2018,
+   "gold": {
+    "price": 30625.28,
+    "months": 12,
+    "grams": 32.7
+   },
+   "silver": {
+    "price": 38280.51,
+    "months": 12,
+    "kg": 2.61
+   },
+   "mason": {
+    "wage": 462.57,
+    "months": 12,
+    "days": 216
+   },
+   "usd": {
+    "rate": 68.39,
+    "days": null,
+    "dollars": 1462
+   },
+   "wheat": {
+    "price": 1840,
+    "cropYear": "2018-19",
+    "quintals": 54.3
+   },
+   "index": {
+    "value": 102.37,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 146811
+  },
+  {
+   "year": 2019,
+   "gold": {
+    "price": 34852.78,
+    "months": 12,
+    "grams": 28.7
+   },
+   "silver": {
+    "price": 41077.16,
+    "months": 12,
+    "kg": 2.43
+   },
+   "mason": {
+    "wage": 481.78,
+    "months": 11,
+    "days": 208
+   },
+   "usd": {
+    "rate": 70.42,
+    "days": null,
+    "dollars": 1420
+   },
+   "wheat": {
+    "price": 1925,
+    "cropYear": "2019-20",
+    "quintals": 51.9
+   },
+   "index": {
+    "value": 110.21,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 136367
+  },
+  {
+   "year": 2020,
+   "gold": {
+    "price": 47231.37,
+    "months": 12,
+    "grams": 21.2
+   },
+   "silver": {
+    "price": 53667.99,
+    "months": 12,
+    "kg": 1.86
+   },
+   "mason": {
+    "wage": 514.85,
+    "months": 9,
+    "days": 194
+   },
+   "usd": {
+    "rate": 74.1,
+    "days": null,
+    "dollars": 1350
+   },
+   "wheat": {
+    "price": 1975,
+    "cropYear": "2020-21",
+    "quintals": 50.6
+   },
+   "index": {
+    "value": 116.34,
+    "months": 12,
+    "base": "BY_2001"
+   },
+   "worthNow": 129182
+  },
+  {
+   "year": 2021,
+   "gold": {
+    "price": 47366.12,
+    "months": 12,
+    "grams": 21.1
+   },
+   "silver": {
+    "price": 66120.06,
+    "months": 12,
+    "kg": 1.51
+   },
+   "mason": {
+    "wage": 529.63,
+    "months": 12,
+    "days": 189
+   },
+   "usd": {
+    "rate": 73.92,
+    "days": null,
+    "dollars": 1353
+   },
+   "wheat": {
+    "price": 2015,
+    "cropYear": "2021-22",
+    "quintals": 49.6
+   },
+   "index": {
+    "value": 122.03,
+    "months": 12,
+    "base": "BY_2016"
+   },
+   "worthNow": 123158
+  },
+  {
+   "year": 2022,
+   "gold": {
+    "price": 50944.02,
+    "months": 12,
+    "grams": 19.6
+   },
+   "silver": {
+    "price": 61346.53,
+    "months": 12,
+    "kg": 1.63
+   },
+   "mason": {
+    "wage": 558.12,
+    "months": 12,
+    "days": 179
+   },
+   "usd": {
+    "rate": 78.6,
+    "days": null,
+    "dollars": 1272
+   },
+   "wheat": {
+    "price": 2125,
+    "cropYear": "2022-23",
+    "quintals": 47.1
+   },
+   "index": {
+    "value": 129.23,
+    "months": 12,
+    "base": "BY_2016"
+   },
+   "worthNow": 116297
+  },
+  {
+   "year": 2023,
+   "gold": {
+    "price": 59027.02,
+    "months": 12,
+    "grams": 16.9
+   },
+   "silver": {
+    "price": 71081.73,
+    "months": 12,
+    "kg": 1.41
+   },
+   "mason": {
+    "wage": 592.17,
+    "months": 12,
+    "days": 169
+   },
+   "usd": {
+    "rate": 82.6,
+    "days": null,
+    "dollars": 1211
+   },
+   "wheat": {
+    "price": 2275,
+    "cropYear": "2023-24",
+    "quintals": 44
+   },
+   "index": {
+    "value": 136.4,
+    "months": 12,
+    "base": "BY_2016"
+   },
+   "worthNow": 110183
+  },
+  {
+   "year": 2024,
+   "gold": {
+    "price": 70725.56,
+    "months": 12,
+    "grams": 14.1
+   },
+   "silver": {
+    "price": 83442.78,
+    "months": 12,
+    "kg": 1.2
+   },
+   "mason": {
+    "wage": 628.08,
+    "months": 12,
+    "days": 159
+   },
+   "usd": {
+    "rate": 83.67,
+    "days": null,
+    "dollars": 1195
+   },
+   "wheat": {
+    "price": 2425,
+    "cropYear": "2024-25",
+    "quintals": 41.2
+   },
+   "index": {
+    "value": 141.58,
+    "months": 12,
+    "base": "BY_2016"
+   },
+   "worthNow": 106152
+  },
+  {
+   "year": 2025,
+   "gold": {
+    "price": 101560.92,
+    "months": 12,
+    "grams": 9.8
+   },
+   "silver": {
+    "price": 120294.55,
+    "months": 12,
+    "kg": 0.83
+   },
+   "mason": {
+    "wage": 653.1,
+    "months": 4,
+    "days": 153
+   },
+   "usd": {
+    "rate": 87.17,
+    "days": null,
+    "dollars": 1147
+   },
+   "wheat": {
+    "price": 2585,
+    "cropYear": "2025-26",
+    "quintals": 38.7
+   },
+   "index": {
+    "value": 145.54,
+    "months": 12,
+    "base": "BY_2016"
+   },
+   "worthNow": 103264
+  },
+  {
+   "year": 2026,
+   "gold": {
+    "price": 151593.59,
+    "months": 5,
+    "grams": 6.6
+   },
+   "silver": {
+    "price": 259363.86,
+    "months": 5,
+    "kg": 0.39
+   },
+   "mason": null,
+   "usd": {
+    "rate": 93.95,
+    "days": 178,
+    "dollars": 1064
+   },
+   "wheat": null,
+   "index": {
+    "value": 150.29,
+    "months": 7,
+    "base": "BY_2016"
+   },
+   "worthNow": 100000
+  }
+ ]
+}

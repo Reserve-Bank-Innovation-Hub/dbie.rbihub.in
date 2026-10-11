@@ -1,0 +1,34 @@
+<!-- The ₹1,000 note the hero grid is built from, after the flat notes in public/design-ref/one-lakh-story/
+     ref-dribbble.webp, in the colours of the real ₹1,000 note (ref-1000-note.png there), with the rupee disc of
+     ref-purple-note.png where that sheet puts a portrait: a placeholder until the illustrated note arrives as
+     note-1000.svg in that folder, which then replaces this file as it is (page.tsx reads the file at build time and
+     inlines its contents as the grid's symbol, keeping its viewBox). Proportion 177 × 73, the note's 177 × 73 mm; it
+     was issued from 2000 and withdrawn in November 2016, so it is the note of the story's first year. The design: a
+     pale salmon ground in three fields, the denomination set tall and flat on the left, pill bars standing in for
+     the lettering, a terracotta disc carrying the rupee sign in the middle, a dashed divider, and on the right the
+     ₹1000 numeral, a ring and a row of dots; a notch in two corners. No portrait, no issuer's name, nothing that
+     imitates the real note. The colours are the page's note tokens, with fixed fallbacks so the file reads on its
+     own. The group marked note-detail fades out when the grid is far away; the fields and the disc stay.
+     After editing this file, reload the page: the dev server's hot reload does not pick it up, since page.tsx reads it
+     rather than importing it. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 73">
+    <rect x="0" y="0" width="177" height="73" fill="var(--note-paper, oklch(91% .07 40))" />
+    <rect x="0" y="0" width="50" height="73" fill="var(--note-window, #f3f1e7)" opacity="0.55" />
+    <rect x="124" y="0" width="53" height="73" fill="var(--note-window, #f3f1e7)" opacity="0.55" />
+    <circle cx="87" cy="41" r="18" fill="var(--note-band, #ba644f)" />
+    <g class="note-detail" style="opacity: var(--note-detail, 1); visibility: var(--note-detail-vis, visible)">
+        <text x="87" y="50" text-anchor="middle" font-family="var(--font-sans-serif, 'Geist', sans-serif)" font-size="25" font-weight="700" fill="var(--note-window, #f3f1e7)">₹</text>
+        <text transform="translate(27 62) rotate(-90)" font-family="var(--font-mono, 'Geist Mono', monospace)" font-size="13" font-weight="700" letter-spacing="0.5" fill="var(--note-ink, #6e3527)" opacity="0.85">₹1000</text>
+        <rect x="56" y="8" width="42" height="5" rx="2.5" fill="var(--note-ink, #6e3527)" opacity="0.5" />
+        <rect x="56" y="16" width="26" height="3.5" rx="1.75" fill="var(--note-ink, #6e3527)" opacity="0.35" />
+        <rect x="56" y="62" width="18" height="3" rx="1.5" fill="var(--note-ink, #6e3527)" opacity="0.3" />
+        <path d="M121 3v67" stroke="var(--note-lace, oklch(79% .165 40))" stroke-width="1.2" stroke-dasharray="3 3" />
+        <text x="170" y="17" text-anchor="end" font-family="var(--font-mono, 'Geist Mono', monospace)" font-size="9" font-weight="700" fill="var(--note-ink, #6e3527)">₹1000</text>
+        <circle cx="137" cy="46" r="6.5" fill="none" stroke="var(--note-ink, #6e3527)" stroke-width="0.8" />
+        <g fill="var(--note-lace, oklch(79% .165 40))">
+            <circle cx="152" cy="46" r="1.6" /><circle cx="158" cy="46" r="1.6" /><circle cx="164" cy="46" r="1.6" />
+        </g>
+        <rect x="150" y="56" width="20" height="2.5" rx="1.25" fill="var(--note-ink, #6e3527)" opacity="0.3" />
+        <path d="M177 0v8l-8-8zM0 73v-8l8 8z" fill="var(--note-ink, #6e3527)" opacity="0.55" />
+    </g>
+</svg>

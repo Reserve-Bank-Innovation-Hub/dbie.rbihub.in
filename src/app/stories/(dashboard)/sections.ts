@@ -6,6 +6,16 @@ import type { ListSection } from "@/app/handbook/sections";
 
 export const STORY_SECTIONS : ListSection[] = [
     {
+        title : "Agriculture",
+        items : [
+            {
+                linkTo      : "/stories/the-women-who-stayed",
+                label       : "The women who stayed",
+                description : "Since 2000-01, rural men have been leaving farm work for building sites, factories and shops. Most rural women who work are still in agriculture.",
+            },
+        ],
+    },
+    {
         title : "The rupee and the world",
         items : [
             {
@@ -37,6 +47,21 @@ export const STORY_SECTIONS : ListSection[] = [
                 linkTo      : "/stories/what-got-cheaper",
                 label       : "What got cheaper",
                 description : "Of the 697 goods in India’s wholesale price index, 33 cost less in 2025-26 than in 2011-12 and 103 cost at least twice as much. Solar power systems fell by more than half, and jasmine costs six times what it did.",
+            },
+        ],
+    },
+    {
+        title : "Money and payments",
+        items : [
+            {
+                linkTo      : "/stories/what-one-lakh-bought",
+                label       : "What ₹1 lakh could buy",
+                description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
+            },
+            {
+                linkTo      : "/stories/cash-didnt-die",
+                label       : "Cash didn't die",
+                description : "UPI payments grew nineteenfold between November 2019 and July 2026, and the cash Indians hold kept growing too. India pays with the phone and keeps the cash.",
             },
         ],
     },
