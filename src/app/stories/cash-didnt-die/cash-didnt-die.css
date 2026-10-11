@@ -1,15 +1,29 @@
-/* The RBIH Kosh palette, in a rule of its own: declared inside the nested block below, the build dropped them.
-   Ivory and Indivara are prefixed because the site's theme owns --ivory and --indivara (as bare HSL numbers). */
+/* The RBIH Kosh palette by role, in a rule of its own: declared inside the nested block below, the build dropped them.
+   Ivory and Indivara are prefixed because the site's theme owns --ivory and --indivara (as bare HSL numbers). The
+   dark theme (below) swaps the roles: the opening's evening studio becomes the page, ivory the ink. */
 #cash-didnt-die-page {
     --kosh-ivory    : #f2f0e6;
     --kosh-indivara : #864fe3;
+    --page          : #f2f0e6;
+    --card          : #ffffff;
+    --box           : #e1d5bc;
     --sandal        : #e1d5bc;
     --sandal-6      : #f3eee4;
     --ink           : #2f2f2f;
     --ink-soft      : color-mix(in oklch, #2f2f2f, transparent 30%);
     --accent        : #ba644f;
-    background      : var(--kosh-ivory);
+    background      : var(--page);
     color           : var(--ink);
+}
+.theme-dark #cash-didnt-die-page {
+    --page          : #16151a;
+    --card          : color-mix(in oklch, #f2f0e6 8%, #16151a);
+    --box           : color-mix(in oklch, #e1d5bc 22%, #16151a);
+    --sandal        : color-mix(in oklch, #e1d5bc 26%, #16151a);
+    --sandal-6      : color-mix(in oklch, #e1d5bc 10%, #16151a);
+    --ink           : #f2f0e6;
+    --ink-soft      : color-mix(in oklch, #f2f0e6, transparent 30%);
+    --accent        : color-mix(in oklch, #ba644f, white 22%);
 }
 
 #cash-didnt-die-page {
@@ -25,7 +39,7 @@
         height     : 100svh;
         overflow   : hidden;
         background :
-            linear-gradient(to bottom, transparent var(--melt, 90%), var(--kosh-ivory) 100%),
+            linear-gradient(to bottom, transparent var(--melt, 90%), var(--page) 100%),
             radial-gradient(ellipse 70% 60% at 60% 45%, color-mix(in oklch, #ba644f 9%, var(--studio)), var(--studio) 75%),
             var(--studio);
         color      : #f2f0e6;
@@ -88,7 +102,7 @@
         height   : 100vh;
         height   : 100svh;
         overflow : hidden;
-        background : linear-gradient(var(--kosh-ivory), var(--sandal-6));
+        background : linear-gradient(var(--page), var(--sandal-6));
     }
     .rain-words {
         position       : absolute;
@@ -98,7 +112,7 @@
         width          : min(440px, calc(100% - 32px));
         padding        : 18px 20px;
         border-radius  : 14px;
-        background     : color-mix(in oklch, var(--kosh-ivory), transparent 12%);
+        background     : color-mix(in oklch, var(--page), transparent 12%);
         backdrop-filter: blur(3px);
     }
     .rain-readout {
@@ -110,7 +124,7 @@
         width          : min(300px, calc(100% - 32px));
         padding        : 16px 18px;
         border-radius  : 14px;
-        background     : color-mix(in oklch, var(--kosh-ivory), transparent 12%);
+        background     : color-mix(in oklch, var(--page), transparent 12%);
         backdrop-filter: blur(3px);
         font-size      : 14px;
         .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.1em; text-transform : uppercase; color : var(--accent); }
@@ -125,8 +139,8 @@
     .key-hand { width : 18px; font-style : normal; font-size : 14px; text-align : center; }
     .hands-mode {
         justify-self : start; margin-bottom : 6px;
-        display : flex; gap : 2px; padding : 3px; border-radius : 999px; background : color-mix(in oklch, var(--kosh-ivory), transparent 8%);
-        box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 85%);
+        display : flex; gap : 2px; padding : 3px; border-radius : 999px; background : color-mix(in oklch, var(--page), transparent 8%);
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 85%);
         button { border : 0; background : none; padding : 6px 14px; border-radius : 999px; font : 600 13px var(--font-sans-serif); color : var(--ink-soft); cursor : pointer; }
         button.is-on { background : var(--accent); color : #fff; }
     }
@@ -163,7 +177,7 @@
 
     /* THE SPLIT STEPS ================================================================================================= */
     /* As in S1: the scene on the left, a card with the words, the readout and the slider on the right. */
-    .rain.is-split { background : var(--kosh-ivory); }
+    .rain.is-split { background : var(--page); }
     .split {
         display               : grid;
         grid-template-columns : minmax(0, 1fr) min(400px, 34vw);
@@ -186,7 +200,7 @@
         text-wrap       : balance;
         font-weight     : 600;
         color           : var(--ink);
-        background      : color-mix(in oklch, #ffffff, transparent 6%);
+        background      : color-mix(in oklch, var(--card), transparent 6%);
         pointer-events  : none;
         text-size-adjust         : none;     /* phones' font boosting would wrap it */
         -webkit-text-size-adjust : none;
@@ -199,15 +213,15 @@
         gap            : 14px;
         padding        : 24px;
         border-radius  : 16px;
-        background     : #ffffff;
-        box-shadow     : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 90%), 0 12px 32px color-mix(in oklch, #2f2f2f, transparent 92%);
+        background     : var(--card);
+        box-shadow     : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%), 0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
         .rain-readout  { position : static; width : auto; padding : 0; background : none; backdrop-filter : none; }
         .rain-time     { position : static; transform : none; width : auto; }
     }
 
     /* THE GUESS AND THE TIDE ========================================================================================== */
     /* Flat steps in the split layout: the picture on the left, the words on the right. */
-    .rain.is-step { background : var(--kosh-ivory); }
+    .rain.is-step { background : var(--page); }
     .split-card a { color : var(--accent); }
     .step-note { color : var(--ink-soft); font-size : 12px; line-height : 1.45; margin-top : 4px; }
     .guess-stage, .tide-stage { svg { display : block; overflow : visible; } }
@@ -220,8 +234,8 @@
     .pile-band { fill : #f2f0e6; stroke : #a8957a; stroke-width : 0.8; }
     /* a bundle drops from above the stage, lands, gives a small bounce and settles */
 
-    .guess-mark { font : 600 72px var(--font-serif, serif); fill : color-mix(in oklch, #2f2f2f, transparent 75%); }
-    .guess-floor { stroke : color-mix(in oklch, #2f2f2f, transparent 80%); stroke-width : 1; }
+    .guess-mark { font : 600 72px var(--font-serif, serif); fill : color-mix(in oklch, var(--ink), transparent 75%); }
+    .guess-floor { stroke : color-mix(in oklch, var(--ink), transparent 80%); stroke-width : 1; }
     .guess-label text { font : 600 14px var(--font-sans-serif); fill : var(--ink); }
     .guess-label .guess-value { font-weight : 500; fill : var(--ink-soft); transition : opacity 0.6s 0.8s; &.is-hidden { opacity : 0; transition : none; } }
     .guess-choices {
@@ -229,7 +243,7 @@
         button {
             border : 0; border-radius : 999px; padding : 10px 18px; cursor : pointer;
             font : 600 14px var(--font-sans-serif); color : var(--ink);
-            background : #ffffff; box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 82%);
+            background : var(--card); box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 82%);
             transition : background 0.2s, color 0.2s;
             &:hover { box-shadow : 0 0 0 1px var(--accent); }
             &.is-on { background : var(--accent); color : #ffffff; box-shadow : none; }
@@ -242,7 +256,7 @@
         &.is-shown { opacity : 1; transform : none; }
         b { color : var(--accent); }
     }
-    .tide-grid line { stroke : color-mix(in oklch, #2f2f2f, transparent 88%); }
+    .tide-grid line { stroke : color-mix(in oklch, var(--ink), transparent 88%); }
     .tide-grid text, .tide-year { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); }
     .tide-line { fill : none; stroke : #864fe3; stroke-width : 2.5; stroke-linejoin : round; }
     .tide-wipe { transform : scaleX(0); transform-origin : left; transform-box : fill-box; transition : transform 2.4s cubic-bezier(0.45, 0, 0.25, 1); &.is-drawn { transform : none; } }
@@ -250,7 +264,7 @@
         opacity : 0; transition : opacity 0.6s;
         &.is-shown { opacity : 1; }
         circle { fill : #864fe3; }
-        text { font : 600 13px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : #f2f0e6; stroke-width : 4px; stroke-linejoin : round; }
+        text { font : 600 13px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : var(--page); stroke-width : 4px; stroke-linejoin : round; }
         &.is-ebb circle { fill : var(--accent); }
         &.is-ebb text { fill : var(--accent); }
         .tide-sub { font-weight : 500; fill : var(--ink-soft); }
@@ -266,17 +280,17 @@
     /* THE CARD, THE NOTE WALL AND THE CLOSE ============================================================================ */
     .pay-stage, .wall-stage { svg { display : block; overflow : visible; } }
     .pay-line { fill : none; stroke-width : 2.5; stroke-linejoin : round; &.is-upi { stroke : #6b8e23; } &.is-debit { stroke : #864fe3; } }
-    .pay-base { stroke : color-mix(in oklch, #2f2f2f, transparent 60%); stroke-dasharray : 4 4; }
+    .pay-base { stroke : color-mix(in oklch, var(--ink), transparent 60%); stroke-dasharray : 4 4; }
     .pay-end {
         opacity : 0; transition : opacity 0.6s 2.3s;
         &.is-shown { opacity : 1; }
-        text { font : 600 13px var(--font-sans-serif); paint-order : stroke; stroke : #f2f0e6; stroke-width : 4px; }
+        text { font : 600 13px var(--font-sans-serif); paint-order : stroke; stroke : var(--page); stroke-width : 4px; }
         .pay-num { font-weight : 500; }
         &.is-upi { circle, text { fill : #6b8e23; } }
         &.is-debit { circle, text { fill : #864fe3; } }
     }
     .tide-wipe { transition-property : transform; }
-    .wall-slot { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 94%); }
+    .wall-slot { fill : none; stroke : color-mix(in oklch, var(--ink), transparent 94%); }
     .wall-note { stroke-width : 1; }
     .wall-brick { transition : transform 0.7s cubic-bezier(0.55, 0, 0.45, 1.25); }
     .wall-brick .is-new { animation : brick-fall 0.75s cubic-bezier(0.55, 0, 0.45, 1) both; }
@@ -308,15 +322,15 @@
         b { margin-left : auto; font-variant-numeric : tabular-nums; }
     }
     .split-card .rain-time { position : static; transform : none; width : auto; }
-    .rain.is-close { background : var(--kosh-ivory); }
+    .rain.is-close { background : var(--page); }
     .close {
         height : 100%; display : grid; align-content : center; gap : 5vh;
         padding : 6vh clamp(16px, 8vw, 140px);
     }
     .close-pair { display : grid; grid-template-columns : 1fr 1fr; gap : clamp(16px, 4vw, 64px); }
     .close-half {
-        display : grid; gap : 6px; padding : 28px; border-radius : 16px; background : #ffffff;
-        box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 90%), 0 12px 32px color-mix(in oklch, #2f2f2f, transparent 92%);
+        display : grid; gap : 6px; padding : 28px; border-radius : 16px; background : var(--card);
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%), 0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
         b { font : 700 clamp(30px, 4.4vw, 60px) / 1.05 var(--font-serif); }
         span { color : var(--ink-soft); font-size : 15px; }
         .close-label { font-size : 12px; font-weight : 700; letter-spacing : 0.12em; text-transform : uppercase; }
@@ -338,15 +352,15 @@
     .line-stage.is-neem { .line-path { stroke : #6b8e23; } .line-mark:not(.is-ebb) circle { fill : #6b8e23; } }
     .line-stage.is-terracotta { .line-path { stroke : #ba644f; } .line-mark:not(.is-ebb) circle { fill : #ba644f; } }
     .line-stage.is-indivara { .line-path { stroke : #864fe3; } }
-    .line-level { line { stroke : color-mix(in oklch, #2f2f2f, transparent 55%); stroke-dasharray : 5 5; } text { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); } }
+    .line-level { line { stroke : color-mix(in oklch, var(--ink), transparent 55%); stroke-dasharray : 5 5; } text { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); } }
     .line-event {
         opacity : 0; transition : opacity 0.5s; cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help;
         &.is-shown { opacity : 1; }
-        line { stroke : color-mix(in oklch, #2f2f2f, transparent 75%); stroke-dasharray : 2 3; }
-        circle { fill : #ffffff; stroke : var(--accent); stroke-width : 1.5; }
+        line { stroke : color-mix(in oklch, var(--ink), transparent 75%); stroke-dasharray : 2 3; }
+        circle { fill : var(--card); stroke : var(--accent); stroke-width : 1.5; }
         text { font : 700 11px var(--font-sans-serif); fill : var(--accent); }
     }
-    .tide-grid line.is-zero { stroke : color-mix(in oklch, #2f2f2f, transparent 55%); }
+    .tide-grid line.is-zero { stroke : color-mix(in oklch, var(--ink), transparent 55%); }
     .season-bar {
         transform : scaleY(0); transform-box : view-box; transition : transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         &.is-drawn { transform : none; }
@@ -366,7 +380,7 @@
     .time-tick {
         position : absolute; top : calc(-32px - var(--level, 0) * 22px); transform : translateX(-50%);
         width : 18px !important; height : 18px !important; padding : 0; border-radius : 50%;
-        background : #ffffff !important; color : var(--accent) !important; border : 1.5px solid var(--accent) !important;
+        background : var(--card) !important; color : var(--accent) !important; border : 1.5px solid var(--accent) !important;
         font : 700 10px / 1 var(--font-sans-serif) !important; cursor : pointer;
         &.is-passed { background : var(--accent) !important; color : #ffffff !important; }
         /* a stem down to the track */
@@ -384,8 +398,8 @@
     .event-now {
         /* the latest event, in a box of its own, set apart from the key above it */
         margin : 14px 0 0; padding : 10px 12px; border-radius : 8px; text-align : left;
-        background : #e1d5bc; border : 1px solid color-mix(in oklch, #ba644f, transparent 55%);
-        min-height : 3.2em; font-size : 12.5px; line-height : 1.45; color : #2f2f2f;          /* charcoal */
+        background : var(--box); border : 1px solid color-mix(in oklch, #ba644f, transparent 55%);
+        min-height : 3.2em; font-size : 12.5px; line-height : 1.45; color : var(--ink);          /* charcoal */
         opacity : 0; transition : opacity 0.4s; &.is-shown { opacity : 1; }
         &:not(.is-shown) { visibility : hidden; }
         b { color : var(--ink); margin-right : 4px; }
@@ -401,19 +415,19 @@
 
     /* THE SEASON CLOCK AND THE FESTIVE RIDGES =========================================================================== */
     .season-stage { cursor : default; }
-    .season-zero { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 50%); stroke-width : 1.2; }
-    .season-ring { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 88%); stroke-dasharray : 2 4; }
+    .season-zero { fill : none; stroke : color-mix(in oklch, var(--ink), transparent 50%); stroke-width : 1.2; }
+    .season-ring { fill : none; stroke : color-mix(in oklch, var(--ink), transparent 88%); stroke-dasharray : 2 4; }
     .season-petal {
         cursor : pointer; opacity : 0; transform : scale(0.6); transition : transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s, filter 0.2s;
         &.is-drawn { opacity : 1; transform : none; }
         &.is-up { fill : #ba644f; } &.is-down { fill : #864fe3; }
-        &.is-on { filter : brightness(1.15) drop-shadow(0 2px 6px color-mix(in oklch, #2f2f2f, transparent 70%)); }
+        &.is-on { filter : brightness(1.15) drop-shadow(0 2px 6px color-mix(in oklch, var(--ink), transparent 70%)); }
     }
     .season-month { font : 600 11px var(--font-sans-serif); fill : var(--ink-soft); pointer-events : none; }
     .season-centre text { font : 500 13px var(--font-sans-serif); fill : var(--ink-soft); &.is-big { font : 700 26px var(--font-serif, serif); fill : var(--ink); } }
     .season-part {
         cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help;
-        path { fill : color-mix(in oklch, #e1d5bc, transparent 20%); transition : fill 0.2s; }
+        path { fill : color-mix(in oklch, var(--sandal), transparent 20%); transition : fill 0.2s; }
         text { font : 700 11px var(--font-sans-serif); letter-spacing : 0.04em; text-transform : uppercase; fill : var(--ink-soft); }
         &.is-on path { fill : var(--accent); } &.is-on text { fill : var(--accent); }
     }
@@ -428,7 +442,7 @@
         &.is-on { .festive-fill { fill : color-mix(in oklch, #ba644f, transparent 55%); } .festive-line { stroke-width : 3; } }
     }
     .festive-val { font : 600 12px var(--font-sans-serif); fill : #ba644f; }
-    .festive-gone line { stroke : color-mix(in oklch, #2f2f2f, transparent 75%); stroke-dasharray : 3 4; }
+    .festive-gone line { stroke : color-mix(in oklch, var(--ink), transparent 75%); stroke-dasharray : 3 4; }
     @media (prefers-reduced-motion : reduce) { .season-petal, .festive-ridge .festive-line, .festive-ridge .festive-fill { transition : none; } }
 
     /* PINS AND READOUTS ================================================================================================ */
@@ -438,11 +452,11 @@
     .pin {
         position : absolute; left : 0; top : 0; width : 0; height : 0; pointer-events : auto; z-index : 4; cursor : default;
         &.is-open { z-index : 7; }
-        .pin-stem { position : absolute; left : 0; bottom : 0; height : var(--lift); border-left : 1px dashed color-mix(in oklch, #2f2f2f, transparent 50%); transform-origin : bottom; }
+        .pin-stem { position : absolute; left : 0; bottom : 0; height : var(--lift); border-left : 1px dashed color-mix(in oklch, var(--ink), transparent 50%); transform-origin : bottom; }
         .pin-mark {
             position : absolute; left : -11px; top : calc(-1 * var(--lift) - 11px);
             display : grid; place-items : center; width : 22px; height : 22px; padding : 0;
-            border : 2px solid #f2f0e6; border-radius : 50%; background : var(--ink); color : #f2f0e6;
+            border : 2px solid var(--page); border-radius : 50%; background : var(--ink); color : var(--page);
             font : 700 11px / 1 var(--font-sans-serif); cursor : pointer; transition : transform 0.2s, background 0.2s;
             &:hover, &:focus-visible { transform : scale(1.2); background : var(--accent); outline : none; }
         }
@@ -450,14 +464,14 @@
         .pin-label {
             position : absolute; left : 16px; top : calc(-1 * var(--lift) - 8px); white-space : nowrap;
             font : 600 12px var(--font-sans-serif); color : var(--ink);
-            text-shadow : 0 0 3px #f2f0e6, 0 0 3px #f2f0e6, 0 0 6px #f2f0e6;
+            text-shadow : 0 0 3px var(--page), 0 0 3px var(--page), 0 0 6px var(--page);
         }
         &.is-right .pin-label { left : auto; right : 16px; }
         &.is-down { .pin-stem { bottom : auto; top : 0; } .pin-mark { top : calc(var(--lift) - 11px); } .pin-label { top : calc(var(--lift) - 8px); } }
         .pin-note {
             position : absolute; left : -16px; top : calc(-1 * var(--lift) + 18px); width : 280px; display : flex; flex-direction : column; gap : 4px;
-            padding : 10px 12px; border-radius : 8px; background : #ffffff;
-            box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 88%), 0 10px 28px color-mix(in oklch, #2f2f2f, transparent 85%);
+            padding : 10px 12px; border-radius : 8px; background : var(--card);
+            box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 10px 28px color-mix(in oklch, var(--ink), transparent 85%);
             font-size : 12.5px; line-height : 1.45; color : var(--ink);
             strong { font-size : 13px; }
             a { color : var(--accent); font-weight : 600; font-size : 12px; }
@@ -469,24 +483,24 @@
     }
 
 
-    .hairline { position : absolute; left : 0; top : 0; width : 0; border-left : 1px solid color-mix(in oklch, #2f2f2f, transparent 55%); pointer-events : none; z-index : 3; }
-    .hair-dot { position : absolute; left : -5px; top : -5px; width : 10px; height : 10px; border-radius : 50%; background : var(--ink); box-shadow : 0 0 0 2px #f2f0e6; pointer-events : none; z-index : 3; }
+    .hairline { position : absolute; left : 0; top : 0; width : 0; border-left : 1px solid color-mix(in oklch, var(--ink), transparent 55%); pointer-events : none; z-index : 3; }
+    .hair-dot { position : absolute; left : -5px; top : -5px; width : 10px; height : 10px; border-radius : 50%; background : var(--ink); box-shadow : 0 0 0 2px var(--page); pointer-events : none; z-index : 3; }
     .chart-tip {
         position : absolute; left : 0; top : 0; z-index : 6; display : flex; flex-direction : column; gap : 2px;
-        max-width : 220px; padding : 8px 12px; border-radius : 6px; background : #ffffff; pointer-events : none;
-        box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 88%), 0 8px 24px color-mix(in oklch, #2f2f2f, transparent 88%);
+        max-width : 220px; padding : 8px 12px; border-radius : 6px; background : var(--card); pointer-events : none;
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 8px 24px color-mix(in oklch, var(--ink), transparent 88%);
         font-size : 12.5px; line-height : 1.35; color : var(--ink-soft);
         strong { font-size : 13px; color : var(--ink); }
     }
     .tide-panel { font : 700 12px var(--font-sans-serif); letter-spacing : 0.06em; text-transform : uppercase; fill : var(--ink-soft); &.is-right { fill : var(--accent); } }
-    .tide-break line { stroke : color-mix(in oklch, #2f2f2f, transparent 40%); stroke-width : 1.5; }
+    .tide-break line { stroke : color-mix(in oklch, var(--ink), transparent 40%); stroke-width : 1.5; }
     .tide-break .tide-carry { stroke : var(--accent); stroke-dasharray : 3 4; stroke-width : 1; }
     @media (prefers-reduced-motion : reduce) { .pin.is-shown .pin-mark, .pin.is-shown .pin-stem { animation : none; } }
 
     /* THE GRIDS ======================================================================================================= */
     /* ATMs and micro-ATMs side by side: the words above, the two halves of squares filling the middle, the month, the
        slider and the key below. */
-    .rain.is-grids { background : var(--kosh-ivory); }
+    .rain.is-grids { background : var(--page); }
     .grids {
         display            : grid;
         grid-template-rows : auto minmax(0, 1fr) auto;

@@ -28,7 +28,9 @@ export interface GridsOptions {
 export interface GridsScene { play : () => void; pause : () => void; setMonth : (m : number) => void; dispose : () => void }
 
 const hex = (c : number) => `#${c.toString(16).padStart(6, "0")}`;
-const INK = hex(KOSH.charcoal), INK_SOFT = "rgba(47,47,47,0.62)", RULE = "rgba(47,47,47,0.14)";
+// the machines' own charcoal; the words and the rule take the page's ink instead, read as they are drawn, so they follow
+// the site's theme
+const INK = hex(KOSH.charcoal);
 
 // One square of each kind, drawn at (x, y) with side s and opacity a.
 // Cash withdrawn is drawn as notes coloured by denomination, in the mix of ₹100 and larger notes in circulation that
@@ -208,18 +210,19 @@ export function mountGridsScene(canvas : HTMLCanvasElement, o : GridsOptions) : 
     RELAYOUTS.set(id, () => { settle(); draw(pos()); });
 
     // the newest machine in each grid breathes, fading down and up again, slowly
-    let breath = 1;
+    let breath = 1, ink = INK;
     const drawGrid = (series : GridSeries, pos : number, x0 : number, y0 : number) => {
         const i = Math.floor(pos), f = pos - i;
         const v = series.cells[i] + ((series.cells[Math.min(last, i + 1)] ?? series.cells[i]) - series.cells[i]) * f;
-        g.fillStyle = INK_SOFT; g.font = `500 ${W < 600 ? 11 : 13}px ${font}`; g.textAlign = "left"; g.textBaseline = "alphabetic";
+        g.fillStyle = ink; g.globalAlpha = 0.62; g.font = `500 ${W < 600 ? 11 : 13}px ${font}`; g.textAlign = "left"; g.textBaseline = "alphabetic";
         const text = series.label(Math.round(pos));
         if (W < 600) {
             // on a phone, the caption on two lines: what it is, and how many
             const [ what, howMany ] = text.split(" · ");
             g.fillText(what, x0, y0 + 13);
-            g.fillStyle = INK; g.font = `600 12px ${font}`; g.fillText(howMany ?? "", x0, y0 + 28);
+            g.globalAlpha = 1; g.font = `600 12px ${font}`; g.fillText(howMany ?? "", x0, y0 + 28);
         } else g.fillText(text, x0, y0 + 17);
+        g.globalAlpha = 1;
         const top = y0 + labelH;
         const full = Math.floor(v);
         const newest = Math.ceil(v) - 1, breathes = series.kind === "atm" || series.kind === "micro";
@@ -234,14 +237,15 @@ export function mountGridsScene(canvas : HTMLCanvasElement, o : GridsOptions) : 
         if (!W || !H) return;
         g.setTransform(dpr, 0, 0, dpr, 0, 0);
         g.clearRect(0, 0, W, H);
+        ink = getComputedStyle(canvas).getPropertyValue("--ink").trim() || INK;
         // the line between the halves
-        g.fillStyle = RULE; g.fillRect(half + gutter / 2 - 0.5, 0, 1, H);
+        g.fillStyle = ink; g.globalAlpha = 0.14; g.fillRect(half + gutter / 2 - 0.5, 0, 1, H); g.globalAlpha = 1;
         [ o.left, o.right ].forEach((h, side) => {
             const x0 = side ? half + gutter : 0;
             // the lead drawing, then the title beside it
             const lh = titleH - 8;
             if (h.lead === "atm") leadATM(g, x0, 2, lh, font); else leadMicro(g, x0, 2, lh, font);
-            g.fillStyle = INK; g.font = `700 ${W < 600 ? 17 : 24}px ${font}`; g.textAlign = "left"; g.textBaseline = "middle";
+            g.fillStyle = ink; g.font = `700 ${W < 600 ? 17 : 24}px ${font}`; g.textAlign = "left"; g.textBaseline = "middle";
             g.fillText(h.title, x0 + lh * (h.lead === "atm" ? 0.62 : 0.98) + (W < 600 ? 8 : 16), titleH / 2);
             drawGrid(h.top, pos, x0, titleH);
             drawGrid(h.bottom, pos, x0, titleH + labelH + rows * s + between);
@@ -256,6 +260,9 @@ export function mountGridsScene(canvas : HTMLCanvasElement, o : GridsOptions) : 
     const ro = new ResizeObserver(() => { layout(); draw(pos()); });
     ro.observe(host);
     document.fonts?.ready.then(() => draw(pos()));
+    // a change of theme redraws at once, even when the loop is not running
+    const mo = new MutationObserver(() => draw(pos()));
+    mo.observe(document.documentElement, { attributes : true, attributeFilter : [ "class" ] });
     const unloop = o.reduced ? () => {} : loopWhileVisible(canvas, (dt, now) => {
         breath = 0.25 + 0.75 * (0.5 + 0.5 * Math.cos(now * Math.PI * 2 / 1.8));
         if (playing && (inMonth += dt) >= MONTH) {
@@ -274,6 +281,6 @@ export function mountGridsScene(canvas : HTMLCanvasElement, o : GridsOptions) : 
         },
         pause : () => { playing = false; inMonth = 0; draw(pos()); },
         setMonth : (i : number) => { m = i; inMonth = 0; draw(pos()); },
-        dispose : () => { unloop(); ro.disconnect(); SIZES.delete(id); RELAYOUTS.delete(id); RELAYOUTS.forEach(f => f()); },
+        dispose : () => { unloop(); ro.disconnect(); mo.disconnect(); SIZES.delete(id); RELAYOUTS.delete(id); RELAYOUTS.forEach(f => f()); },
     };
 }
