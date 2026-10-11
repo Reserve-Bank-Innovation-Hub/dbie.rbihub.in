@@ -3,10 +3,11 @@
 // One slide a step: one wheel or trackpad gesture, or one key, moves the page to the next (or previous) element marked
 // `data-slide`, the way S1's opening pages. The page is moved by its own short animation rather than the browser's
 // smooth scroll, so it is known when the move ends; a gesture's later events, a trackpad's momentum included, are
-// swallowed, and a new gesture is one that starts after a pause in the wheel or pushes clearly harder than the dying
-// momentum, so a quick second swipe still counts (made during a move, it is taken as soon as the move ends). Below the
-// last slide the page scrolls freely. A touch screen snaps by CSS instead (the stylesheet, under a coarse pointer, on
-// `html[data-story-snap]`), since the handler never sees a finger.
+// swallowed, and a new gesture is one that starts after a pause in the wheel or, once the gesture is a moment old, pushes
+// far harder than the dying momentum's mean over the last moment (a trackpad's events can arrive merged, doubling one
+// delta, so a jump against the last event alone is not enough). A quick second swipe still counts: made during a move,
+// it is taken as soon as the move ends. Below the last slide the page scrolls freely. A touch screen snaps by CSS
+// instead (the stylesheet, under a coarse pointer, on `html[data-story-snap]`), since the handler never sees a finger.
 
 // REACT CORE ==========================================================================================================
 import { useEffect } from "react";
@@ -16,7 +17,8 @@ export function useSlidePaging(root : string) {
         const html = document.documentElement;
         html.setAttribute("data-story-snap", "");
         const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-        let moving = false, anim = 0, lastWheel = 0, lastSize = 0, armed = true, queued : 1 | -1 | 0 = 0, owned = false;
+        let moving = false, anim = 0, lastWheel = 0, gestureAt = 0, armed = true, queued : 1 | -1 | 0 = 0, owned = false;
+        let recent : { t : number; size : number }[] = [];        // the wheel's sizes over the last moment
         // each slide's resting scroll position: its top (measured from the layout, so a slide still rising into view
         // counts where it will rest), centred instead when it is shorter than the screen
         const layoutTop = (el : HTMLElement) => { let y = 0, e : HTMLElement | null = el; while (e) { y += e.offsetTop; e = e.offsetParent as HTMLElement | null; } return y; };
@@ -55,14 +57,19 @@ export function useSlidePaging(root : string) {
             if (Math.abs(e.deltaY) < Math.abs(e.deltaX) || e.ctrlKey) return;
             const dir = e.deltaY > 0 ? 1 : -1;
             const now = performance.now(), size = Math.abs(e.deltaY) * (e.deltaMode === 1 ? 16 : 1);
-            const sameGesture = now - lastWheel <= 180 && size <= lastSize * 1.6 + 6;
+            recent = recent.filter(r => now - r.t <= 200);
+            const usual = recent.length ? recent.reduce((a, r) => a + r.size, 0) / recent.length : 0;   // the mean, which a merged event barely moves
+            // a swipe's own ramp-up is never a new swipe: a jump counts only once the gesture is a moment old
+            const fresh = now - lastWheel > 220 || (now - gestureAt > 350 && size > usual * 2 + 12 && size > 24);
+            if (fresh) gestureAt = now;
+            recent.push({ t : now, size });
             const target = moving ? 0 : next(dir);
-            if (target === null && !(owned && sameGesture)) { owned = false; lastWheel = now; lastSize = size; return; }
+            if (target === null && !(owned && !fresh)) { owned = false; lastWheel = now; return; }
             e.preventDefault();
             owned = true;
-            if (target === null) { lastWheel = now; lastSize = size; return; }
-            if (now - lastWheel > 180 || size > lastSize * 1.6 + 6) armed = true;
-            lastWheel = now; lastSize = size;
+            if (target === null) { lastWheel = now; return; }
+            if (fresh) armed = true;
+            lastWheel = now;
             if (!armed || size < 1) return;
             armed = false;
             if (moving) queued = dir; else go(target);

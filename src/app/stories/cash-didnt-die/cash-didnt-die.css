@@ -64,7 +64,7 @@
     /* While the opening shot plays, the words wait; the page is served so, and the scene lets them in. Should the scene
        never run, they come in after eight seconds anyway; with reduced motion they never wait. */
     .opening.is-intro .hero > * { opacity : 0; transform : translateY(18px); animation : hero-late 1s 8s ease-out forwards; }
-    @keyframes hero-late { to { opacity : 1; transform : none; } }
+
     @media (prefers-reduced-motion : reduce) { .opening.is-intro .hero > * { opacity : 1; transform : none; animation : none; } }
     .hero-title {
         font-size   : clamp(44px, 6.4vw, 92px);
@@ -192,7 +192,7 @@
         -webkit-text-size-adjust : none;
         animation       : rain-caption-in 0.6s ease-out both;
     }
-    @keyframes rain-caption-in { from { opacity : 0; } }
+
     @media (prefers-reduced-motion : reduce) { .rain-caption { animation : none; } }
     .split-card {
         display        : grid;
@@ -212,11 +212,14 @@
     .step-note { color : var(--ink-soft); font-size : 12px; line-height : 1.45; margin-top : 4px; }
     .guess-stage, .tide-stage { svg { display : block; overflow : visible; } }
     .pile-note {
-        fill : #cfdcaa; stroke : #6b8e23; stroke-width : 1;
-        opacity : 0; transform : translateY(-24px); transform-box : fill-box;
-        transition : opacity 0.35s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        &.is-up { opacity : 1; transform : none; }
+        opacity : 0;
+        &.is-up { animation : pile-fall 0.9s cubic-bezier(0.55, 0, 0.45, 1) both; }
     }
+    .pile-body { fill : #cfdcaa; stroke : #6b8e23; stroke-width : 1; }
+    .pile-edge { stroke : color-mix(in oklch, #6b8e23, transparent 45%); stroke-width : 0.8; }
+    .pile-band { fill : #f2f0e6; stroke : #a8957a; stroke-width : 0.8; }
+    /* a bundle drops from above the stage, lands, gives a small bounce and settles */
+
     .guess-mark { font : 600 72px var(--font-serif, serif); fill : color-mix(in oklch, #2f2f2f, transparent 75%); }
     .guess-floor { stroke : color-mix(in oklch, #2f2f2f, transparent 80%); stroke-width : 1; }
     .guess-label text { font : 600 14px var(--font-sans-serif); fill : var(--ink); }
@@ -253,9 +256,10 @@
         .tide-sub { font-weight : 500; fill : var(--ink-soft); }
     }
     .tide-pulse { fill : none !important; stroke : var(--accent); stroke-width : 2; transform-box : fill-box; transform-origin : center; animation : tide-pulse 2s ease-out infinite; }
-    @keyframes tide-pulse { from { transform : scale(1); opacity : 0.8; } to { transform : scale(3.2); opacity : 0; } }
+
     @media (prefers-reduced-motion : reduce) {
         .pile-note, .tide-wipe, .guess-answer { transition : none; }
+        .pile-note.is-up { animation : none; opacity : 1; }
         .tide-pulse { animation : none; }
     }
 
@@ -272,12 +276,19 @@
         &.is-debit { circle, text { fill : #864fe3; } }
     }
     .tide-wipe { transition-property : transform; }
-    .wall-note {
-        stroke-width : 1; transition : fill 0.5s, stroke 0.5s, opacity 0.5s;
-        &.is-empty { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 94%); }
-    }
+    .wall-slot { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 94%); }
+    .wall-note { stroke-width : 1; }
+    .wall-brick { transition : transform 0.7s cubic-bezier(0.55, 0, 0.45, 1.25); }
+    .wall-brick .is-new { animation : brick-fall 0.75s cubic-bezier(0.55, 0, 0.45, 1) both; }
+    .wall-brick.is-leaving { animation : brick-clear 0.8s steps(1, end) forwards; }
+    .wall-inner { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 85%); stroke-width : 0.6; }
+    .wall-guilloche { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 82%); stroke-width : 0.6; }
+    .wall-oval { fill : color-mix(in oklch, #ffffff, transparent 35%); stroke : color-mix(in oklch, #2f2f2f, transparent 85%); stroke-width : 0.6; }
+    .wall-value { font-family : var(--font-sans-serif); font-weight : 700; fill : color-mix(in oklch, #2f2f2f, transparent 35%); }
+    @media (prefers-reduced-motion : reduce) { .wall-brick { transition : none; } .wall-brick .is-new, .wall-brick.is-leaving { animation : none; } }
     .d-2000 { fill : #f4c6dc; stroke : #c4508a; }
     .d-1000 { fill : #ecc6bc; stroke : #ba644f; }
+    .d-500old { fill : #f6dfa8; stroke : #eaaa3a; }
     .d-500  { fill : #cfdcaa; stroke : #6b8e23; }
     .d-200  { fill : #f6dfa8; stroke : #eaaa3a; }
     .d-100  { fill : #ddd0f6; stroke : #864fe3; }
@@ -285,13 +296,14 @@
     .wall-chip { display : inline-block; width : 16px; height : 10px; border-radius : 2px; border : 1.5px solid; margin-right : 8px; vertical-align : -1px; }
     .wall-chip.d-2000 { background : #f4c6dc; border-color : #c4508a; }
     .wall-chip.d-1000 { background : #ecc6bc; border-color : #ba644f; }
+    .wall-chip.d-500old { background : #f6dfa8; border-color : #eaaa3a; }
     .wall-chip.d-500  { background : #cfdcaa; border-color : #6b8e23; }
     .wall-chip.d-200  { background : #f6dfa8; border-color : #eaaa3a; }
     .wall-chip.d-100  { background : #ddd0f6; border-color : #864fe3; }
     .wall-chip.d-small { background : #ede6d7; border-color : #a8957a; }
-    .wall-readout { display : grid; gap : 8px; font-size : 14px; .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.06em; text-transform : uppercase; color : var(--accent); } .rain-key { font-size : 12px; color : var(--ink-soft); } }
+    .wall-readout { display : grid; gap : 14px; font-size : 14px; .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.06em; text-transform : uppercase; color : var(--accent); } .rain-key { font-size : 12px; color : var(--ink-soft); } }
     .wall-key {
-        list-style : none; margin : 0; padding : 0; display : grid; grid-template-columns : 1fr 1fr; gap : 4px 16px;
+        list-style : none; margin : 0; padding : 0; display : grid; grid-template-columns : 1fr 1fr; gap : 10px 32px;
         li { display : flex; align-items : center; transition : opacity 0.4s; &.is-gone { opacity : 0.35; } }
         b { margin-left : auto; font-variant-numeric : tabular-nums; }
     }
@@ -328,7 +340,7 @@
     .line-stage.is-indivara { .line-path { stroke : #864fe3; } }
     .line-level { line { stroke : color-mix(in oklch, #2f2f2f, transparent 55%); stroke-dasharray : 5 5; } text { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); } }
     .line-event {
-        opacity : 0; transition : opacity 0.5s; cursor : help;
+        opacity : 0; transition : opacity 0.5s; cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help;
         &.is-shown { opacity : 1; }
         line { stroke : color-mix(in oklch, #2f2f2f, transparent 75%); stroke-dasharray : 2 3; }
         circle { fill : #ffffff; stroke : var(--accent); stroke-width : 1.5; }
@@ -352,13 +364,19 @@
     /* numbered events: ticks over the month slider, the latest one under the readout, and lists under the charts */
     .time-track { position : relative; input[type="range"] { width : 100%; } }
     .time-tick {
-        position : absolute; top : -16px; transform : translateX(-50%);
+        position : absolute; top : -32px; transform : translateX(-50%);
         width : 18px !important; height : 18px !important; padding : 0; border-radius : 50%;
         background : #ffffff !important; color : var(--accent) !important; border : 1.5px solid var(--accent) !important;
         font : 700 10px / 1 var(--font-sans-serif) !important; cursor : pointer;
         &.is-passed { background : var(--accent) !important; color : #ffffff !important; }
+        /* a stem down to the track */
+        &::after { content : ""; position : absolute; left : 50%; top : 100%; height : 12px; border-left : 1px dashed color-mix(in oklch, #ba644f, transparent 40%); }
+        /* while playing holds at the event: the marker breathes in and out */
+        &.is-holding { animation : tick-breathe 0.9s ease-in-out infinite alternate; }
     }
-    .rain-time { row-gap : 10px; padding-top : 14px; }
+
+    @media (prefers-reduced-motion : reduce) { .time-tick.is-holding { animation : none; } }
+    .rain-time { row-gap : 10px; padding-top : 30px; }
     .event-now, .event-list li {
         i { display : inline-grid; place-items : center; width : 18px; height : 18px; margin-right : 6px; border-radius : 50%; background : var(--accent); color : #fff; font : normal 700 10px / 1 var(--font-sans-serif); vertical-align : 1px; }
         a { color : var(--accent); white-space : nowrap; }
@@ -370,12 +388,96 @@
     }
     .grids-now { display : grid; gap : 6px; }
     .sr-only { position : absolute; width : 1px; height : 1px; overflow : hidden; clip-path : inset(50%); white-space : nowrap; }
-    .event-list li { cursor : help; span:not(.sr-only) { color : var(--ink); } }
-    .event-list.is-patterns li { cursor : help; }
+    .event-list li { cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help; span:not(.sr-only) { color : var(--ink); } }
+    .event-list.is-patterns li { cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help; }
     .event-list {
         list-style : none; margin : 4px 0 0; padding : 0; display : grid; gap : 6px; font-size : 12.5px; line-height : 1.45; color : var(--ink-soft);
         b { color : var(--ink); }
     }
+
+    /* THE SEASON CLOCK AND THE FESTIVE RIDGES =========================================================================== */
+    .season-stage { cursor : default; }
+    .season-zero { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 50%); stroke-width : 1.2; }
+    .season-ring { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 88%); stroke-dasharray : 2 4; }
+    .season-petal {
+        cursor : pointer; opacity : 0; transform : scale(0.6); transition : transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s, filter 0.2s;
+        &.is-drawn { opacity : 1; transform : none; }
+        &.is-up { fill : #ba644f; } &.is-down { fill : #864fe3; }
+        &.is-on { filter : brightness(1.15) drop-shadow(0 2px 6px color-mix(in oklch, #2f2f2f, transparent 70%)); }
+    }
+    .season-month { font : 600 11px var(--font-sans-serif); fill : var(--ink-soft); pointer-events : none; }
+    .season-centre text { font : 500 13px var(--font-sans-serif); fill : var(--ink-soft); &.is-big { font : 700 26px var(--font-serif, serif); fill : var(--ink); } }
+    .season-part {
+        cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help;
+        path { fill : color-mix(in oklch, #e1d5bc, transparent 20%); transition : fill 0.2s; }
+        text { font : 700 11px var(--font-sans-serif); letter-spacing : 0.04em; text-transform : uppercase; fill : var(--ink-soft); }
+        &.is-on path { fill : var(--accent); } &.is-on text { fill : var(--accent); }
+    }
+    .chart-tip.is-season { left : 12px; top : 12px; transform : none; max-width : 300px; pointer-events : auto; a { color : var(--accent); font-weight : 600; font-size : 12px; } }
+    .festive-stage { cursor : default; }
+    .festive-ridge {
+        cursor : pointer;
+        .festive-hit { fill : transparent; }
+        .festive-fill { fill : color-mix(in oklch, #ba644f, transparent 82%); opacity : 0; transition : opacity 0.6s calc(var(--d) + 0.6s); }
+        .festive-line { fill : none; stroke : #ba644f; stroke-width : 2; stroke-linejoin : round; stroke-dasharray : 1400; stroke-dashoffset : 1400; transition : stroke-dashoffset 1.2s ease-out var(--d); }
+        &.is-drawn { .festive-fill { opacity : 1; } .festive-line { stroke-dashoffset : 0; } }
+        &.is-on { .festive-fill { fill : color-mix(in oklch, #ba644f, transparent 55%); } .festive-line { stroke-width : 3; } }
+    }
+    .festive-val { font : 600 12px var(--font-sans-serif); fill : #ba644f; }
+    .festive-gone line { stroke : color-mix(in oklch, #2f2f2f, transparent 75%); stroke-dasharray : 3 4; }
+    @media (prefers-reduced-motion : reduce) { .season-petal, .festive-ridge .festive-line, .festive-ridge .festive-fill { transition : none; } }
+
+    /* PINS AND READOUTS ================================================================================================ */
+    /* the record's events as pins on a line (as in S1), and the readout that follows the pointer along a series */
+    .line-stage, .pay-stage, .tide-stage, .season-stage, .festive-stage { touch-action : pan-y; cursor : crosshair; }
+    .pins { position : absolute; inset : 0; pointer-events : none; }
+    .pin {
+        position : absolute; left : 0; top : 0; width : 0; height : 0; pointer-events : auto; z-index : 4; cursor : default;
+        &.is-open { z-index : 7; }
+        .pin-stem { position : absolute; left : 0; bottom : 0; height : var(--lift); border-left : 1px dashed color-mix(in oklch, #2f2f2f, transparent 50%); transform-origin : bottom; }
+        .pin-mark {
+            position : absolute; left : -11px; top : calc(-1 * var(--lift) - 11px);
+            display : grid; place-items : center; width : 22px; height : 22px; padding : 0;
+            border : 2px solid #f2f0e6; border-radius : 50%; background : var(--ink); color : #f2f0e6;
+            font : 700 11px / 1 var(--font-sans-serif); cursor : pointer; transition : transform 0.2s, background 0.2s;
+            &:hover, &:focus-visible { transform : scale(1.2); background : var(--accent); outline : none; }
+        }
+        &.is-open .pin-mark { background : var(--accent); transform : scale(1.2); }
+        .pin-label {
+            position : absolute; left : 16px; top : calc(-1 * var(--lift) - 8px); white-space : nowrap;
+            font : 600 12px var(--font-sans-serif); color : var(--ink);
+            text-shadow : 0 0 3px #f2f0e6, 0 0 3px #f2f0e6, 0 0 6px #f2f0e6;
+        }
+        &.is-right .pin-label { left : auto; right : 16px; }
+        &.is-down { .pin-stem { bottom : auto; top : 0; } .pin-mark { top : calc(var(--lift) - 11px); } .pin-label { top : calc(var(--lift) - 8px); } }
+        .pin-note {
+            position : absolute; left : -16px; top : calc(-1 * var(--lift) + 18px); width : 280px; display : flex; flex-direction : column; gap : 4px;
+            padding : 10px 12px; border-radius : 8px; background : #ffffff;
+            box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 88%), 0 10px 28px color-mix(in oklch, #2f2f2f, transparent 85%);
+            font-size : 12.5px; line-height : 1.45; color : var(--ink);
+            strong { font-size : 13px; }
+            a { color : var(--accent); font-weight : 600; font-size : 12px; }
+        }
+        &.is-right .pin-note { left : auto; right : -16px; }
+        /* the pins arrive once the line has reached them: the mark drops, the stem rises, the name fades in */
+        opacity : 0;
+        &.is-shown { opacity : 1; transition : opacity 0.3s var(--d); .pin-mark { animation : pin-drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d) both; } .pin-stem { animation : pin-rise 0.4s ease-out calc(var(--d) + 0.3s) both; } }
+    }
+
+
+    .hairline { position : absolute; left : 0; top : 0; width : 0; border-left : 1px solid color-mix(in oklch, #2f2f2f, transparent 55%); pointer-events : none; z-index : 3; }
+    .hair-dot { position : absolute; left : -5px; top : -5px; width : 10px; height : 10px; border-radius : 50%; background : var(--ink); box-shadow : 0 0 0 2px #f2f0e6; pointer-events : none; z-index : 3; }
+    .chart-tip {
+        position : absolute; left : 0; top : 0; z-index : 6; display : flex; flex-direction : column; gap : 2px;
+        max-width : 220px; padding : 8px 12px; border-radius : 6px; background : #ffffff; pointer-events : none;
+        box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 88%), 0 8px 24px color-mix(in oklch, #2f2f2f, transparent 88%);
+        font-size : 12.5px; line-height : 1.35; color : var(--ink-soft);
+        strong { font-size : 13px; color : var(--ink); }
+    }
+    .tide-panel { font : 700 12px var(--font-sans-serif); letter-spacing : 0.06em; text-transform : uppercase; fill : var(--ink-soft); &.is-right { fill : var(--accent); } }
+    .tide-break line { stroke : color-mix(in oklch, #2f2f2f, transparent 40%); stroke-width : 1.5; }
+    .tide-break .tide-carry { stroke : var(--accent); stroke-dasharray : 3 4; stroke-width : 1; }
+    @media (prefers-reduced-motion : reduce) { .pin.is-shown .pin-mark, .pin.is-shown .pin-stem { animation : none; } }
 
     /* THE GRIDS ======================================================================================================= */
     /* ATMs and micro-ATMs side by side: the words above, the two halves of squares filling the middle, the month, the
@@ -463,3 +565,23 @@
     html[data-story-snap] { scroll-snap-type : y mandatory; }
     html[data-story-snap] #cash-didnt-die-page [data-slide] { scroll-snap-align : start; }
 }
+
+/* Keyframes live at the top level: declared inside the nested page block, the build drops them. */
+@keyframes hero-late { to { opacity : 1; transform : none; } }
+@keyframes rain-caption-in { from { opacity : 0; } }
+@keyframes pile-fall {
+        0%   { opacity : 0; transform : translateY(var(--drop)); }
+        8%   { opacity : 1; }
+        70%  { transform : translateY(0); }
+        82%  { transform : translateY(-5px); }
+        92%  { transform : translateY(0); }
+        96%  { transform : translateY(-1px); }
+        100% { opacity : 1; transform : translateY(0); }
+    }
+@keyframes tide-pulse { from { transform : scale(1); opacity : 0.8; } to { transform : scale(3.2); opacity : 0; } }
+@keyframes tick-breathe { from { transform : translateX(-50%) scale(1); box-shadow : 0 0 0 0 color-mix(in oklch, #ba644f, transparent 50%); } to { transform : translateX(-50%) scale(1.35); box-shadow : 0 0 0 7px color-mix(in oklch, #ba644f, transparent 85%); } }
+@keyframes pin-drop { from { transform : translateY(-18px) scale(0.6); opacity : 0; } }
+@keyframes pin-rise { from { transform : scaleY(0); } }
+/* a new note drops in from above the wall; a note that goes flashes white, twice, like a cleared line, and is gone */
+@keyframes brick-fall { from { transform : translateY(var(--from)); } }
+@keyframes brick-clear { 0% { opacity : 1; filter : brightness(1); } 20% { filter : brightness(1.8); } 40% { filter : brightness(1); } 60% { filter : brightness(1.8); } 80% { opacity : 0.4; } 100% { opacity : 0; } }

@@ -8,7 +8,7 @@ import { Article, Heading1, Heading4, Text } from "fictoan-react";
 
 // LOCAL COMPONENTS ====================================================================================================
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
-import { CloseStep, EventList, FestiveStep, GuessStep, PatternList, LineStep, NoteWallStep, PayStep, SeasonStep, TideStep } from "./Steps";
+import { CloseStep, FestiveStep, GuessStep, LineStep, NoteWallStep, PayStep, SeasonStep, TideStep } from "./Steps";
 import { eventsFor, eventsForYears, patternsFor } from "./record";
 import { useSlidePaging } from "./paging";
 
@@ -37,6 +37,10 @@ const monthYear = (ym : string) => new Date(`${ym}-01T00:00:00`).toLocaleString(
 // the tide: the ebb year, the decade before it, and the last year it was as low
 const EBB_FY = "2016-17", EBB = TIDE_FYS.indexOf(EBB_FY);
 const DECADE = TIDE.slice(EBB - 10, EBB);
+// the range the tide moved in before 2016-17
+const BEFORE = TIDE.slice(0, EBB), LOW_BEFORE = BEFORE.indexOf(Math.min(...BEFORE)), HIGH_BEFORE = BEFORE.indexOf(Math.max(...BEFORE));
+// the largest fall from one year to the next before the ebb, in percentage points
+const MAX_DROP = Math.max(...BEFORE.slice(1).map((v, k) => BEFORE[k] - v));
 const LOWER_FY = (() => { for (let k = EBB - 1; k >= 0; k--) if (TIDE[k] <= TIDE[EBB]) return TIDE_FYS[k]; return TIDE_FYS[0]; })();
 // the tide's return: the first year after the ebb back at the decade's level, and the highest year
 const BACK = TIDE.findIndex((v, k) => k > EBB && v >= Math.min(...DECADE)), BACK_FY = TIDE_FYS[BACK];
@@ -69,12 +73,19 @@ const SEASON = SEASON_ORDER.map(mm => {
     const ch = CIC_MONTHS.map((m, k) => k && m >= "2018-01" && m.slice(5) === mm ? (CIC[k] / CIC[k - 1] - 1) * 100 : NaN).filter(v => !isNaN(v));
     return ch.reduce((a, b) => a + b, 0) / ch.length;
 });
-const SEASON_LABELS = SEASON_ORDER.map(mm => new Date(`2020-${mm}-01T00:00:00`).toLocaleString("en-GB", { month : "short" }));
+const SEASON_BY_MONTH = Object.fromEntries(SEASON_ORDER.map((mm, i) => [ mm, SEASON[i] ]));
 const SEASON_PEAK = new Date(`2020-${SEASON_ORDER[SEASON.indexOf(Math.max(...SEASON))]}-01T00:00:00`).toLocaleString("en-GB", { month : "long" });
 const SEASON_YEARS = `2018 to ${CIC_MONTHS[CIC_MONTHS.length - 1].slice(0, 4)}`;
 // the official record for each step that has one
 const CARD_EVENTS = eventsFor("card"), SMALL_EVENTS = eventsFor("small");
 const REFILL_EVENTS = eventsFor("refill", REFILL_MONTHS), TIDE_EVENTS = eventsForYears("tide"), SEASON_RECORD = patternsFor("season");
+// the RBI's reading of each quarter, round the clock: summer and sowing (April to June), the monsoon slack (July to
+// September), and festivals and harvests (October to December, January to March)
+const recordOf = (label : string) => SEASON_RECORD.find(e => e.label === label);
+const SEASON_PARTS = ([ [ 4, 6, "Summer, weddings, sowing", "Summer, weddings, sowing" ], [ 7, 9, "The monsoon slack", "The monsoon slack" ],
+    [ 10, 12, "Festivals, harvests, weddings", "Festivals, kharif harvest" ], [ 1, 3, "Festivals, harvests, weddings", "Rabi harvest, festivals, weddings" ] ] as const)
+    .map(([ from, to, key, label ]) => ({ from, to, label, note : recordOf(key)?.note ?? "", source : recordOf(key)?.source ?? "", url : recordOf(key)?.url ?? "" }))
+    .filter(p => p.url);
 // the festive weeks: the extra cash drawn before Diwali, averaged over the first four years and the last four
 const FEST_EARLY = FESTIVE.years.slice(0, 4), FEST_LATE = FESTIVE.years.slice(-4);
 const festAvg = (ys : typeof FESTIVE.years, k : "before" | "crore") => ys.reduce((a, y) => a + y[k], 0) / ys.length;
@@ -117,28 +128,38 @@ export const CashDidntDiePage = () => {
             </section>
 
             <section className="rain is-split is-step" data-slide>
-                <TideStep upto="2016-17" marks={[ { fy : TIDE_FYS[0], at : "under-right" }, { fy : EBB_FY, at : "right", accent : true, pulse : true } ]}>
-                    <Text className="kicker" weight="600" marginBottom="nano">THE EBB</Text>
+                <TideStep breakAt={EBB_FY} events={TIDE_EVENTS} marks={[
+                    { fy : TIDE_FYS[0], at : "under-right" },
+                    { fy : EBB_FY, at : "below", accent : true },
+                    { fy : TIDE_FYS[TIDE_FYS.length - 1], at : "right", accent : true, pulse : true },
+                ]}>
+                    <Text className="kicker" weight="600" marginBottom="nano">THE TIDE</Text>
                     <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">
-                        November 2016: the tide of cash went out
+                        In November 2016 the tide of cash went out. It came back.
                     </Heading4>
                     <Text fontStyle="serif" marginBottom="micro">
                         For a decade, the cash people held had stayed between {Math.min(...DECADE).toFixed(1)}% and {Math.max(...DECADE).toFixed(1)}% of
                         GDP. On 8 November 2016 the ₹500 and ₹1,000 notes <a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=38520">stopped
-                        being legal tender</a>. In {EBB_FY} the share fell to {TIDE[EBB].toFixed(1)}%, its lowest since {LOWER_FY}.
+                        being legal tender</a>. Those two notes were {BIG_2016.toFixed(1)}% of the value of all banknotes. In {EBB_FY} the share
+                        fell to {TIDE[EBB].toFixed(1)}%, its lowest since {LOWER_FY}. Over the seven decades before, it had moved between
+                        {" "}{TIDE[LOW_BEFORE].toFixed(1)}% ({TIDE_FYS[LOW_BEFORE]}) and {TIDE[HIGH_BEFORE].toFixed(1)}% ({TIDE_FYS[HIGH_BEFORE]}), and never fallen by more than {MAX_DROP.toFixed(1)} points in a year. In {EBB_FY} it fell
+                        {" "}{(TIDE[EBB - 1] - TIDE[EBB]).toFixed(1)}.
                     </Text>
                     <Text fontStyle="serif" marginBottom="micro">
-                        Then, month by month, the notes came back.
+                        By {BACK_FY} it was back to {TIDE[BACK].toFixed(1)}%. In {PEAK_FY}, the pandemic year, it reached {TIDE[PEAK].toFixed(1)}%,
+                        the highest since the series began; the RBI links that to “a panic-driven surge in precautionary demand for
+                        cash” and to the fall in GDP. It has eased since, to {TIDE[TIDE.length - 1].toFixed(1)}% in {TIDE_FYS[TIDE_FYS.length - 1]}, with “the
+                        ebbing of pandemic uncertainty and the increasing usage of digital payments”.
                     </Text>
                     <Text className="step-note" size="small">
                         Currency with the public, the average over each financial year, as a share of nominal GDP on the
-                        2011-12 base. DBIE, macro-economic aggregates.
+                        2011-12 base. DBIE, macro-economic aggregates. Point at the line for any year.
                     </Text>
                 </TideStep>
             </section>
 
             <section className="rain is-split is-step" data-slide>
-                <LineStep months={REFILL_MONTHS} values={REFILL} fmt={v => `₹${v.toFixed(1)}`} ticks={[ 5, 10, 15, 20 ]} lo={0} hi={22}
+                <LineStep months={REFILL_MONTHS} values={REFILL} fmt={v => `₹${v.toFixed(1)}`} read={i => [ `₹${REFILL[i].toFixed(2)} lakh crore in circulation`, i ? `${REFILL[i] >= REFILL[i - 1] ? "+" : ""}${((REFILL[i] / REFILL[i - 1] - 1) * 100).toFixed(1)}% on the month before` : "" ].filter(Boolean)} ticks={[ 5, 10, 15, 20 ]} lo={0} hi={22}
                     tone="terracotta" axis="Currency in circulation, ₹ lakh crore, end of month" events={REFILL_EVENTS}
                     level={{ value : OCT16, label : "October 2016 level" }}
                     marks={[ { month : "2016-10", at : "above", note : "October 2016" }, { month : REFILL_LOW, at : "right", accent : true, pulse : true, note : monthYear(REFILL_LOW) }, { month : REFILL_BACK, at : "below", note : monthYear(REFILL_BACK) } ]}>
@@ -156,7 +177,6 @@ export const CashDidntDiePage = () => {
                         limits on withdrawals between January and March 2017. By June 2017, notes in circulation were about 85%
                         of their level on 4 November 2016. Then the rain began.
                     </Text>
-                    <EventList events={REFILL_EVENTS} />
                     <Text className="step-note" size="small">Currency in circulation at the end of each month, notes and coins. DBIE, reserve money components.</Text>
                 </LineStep>
             </section>
@@ -187,7 +207,6 @@ export const CashDidntDiePage = () => {
                         UPI payments grew {times} times. The first thing UPI took over looks like the card, not the note. The
                         RBI says the fall is “potentially driven by the rise of digital wallets, UPI, and credit card adoption”.
                     </Text>
-                    <EventList events={CARD_EVENTS} />
                     <Text className="step-note" size="small">
                         DBIE, payment system indicators. The series start at the November 2019 change in how they are
                         counted, and are not joined to earlier data.
@@ -196,7 +215,7 @@ export const CashDidntDiePage = () => {
             </section>
 
             <section className="rain is-split is-step" data-slide>
-                <LineStep months={PAY_MONTHS} values={UPI_AVG} fmt={v => `₹${fmtCr(v)}`} ticks={[ 1000, 1200, 1400, 1600, 1800 ]} lo={900} hi={1900}
+                <LineStep months={PAY_MONTHS} values={UPI_AVG} fmt={v => `₹${fmtCr(v)}`} read={i => [ `₹${fmtCr(UPI_AVG[i])} the average payment`, `${fmtCr(PAY.upi.volume[i])} crore payments in the month` ]} ticks={[ 1000, 1250, 1500, 1750, 2000 ]} lo={900} hi={Math.ceil(Math.max(...UPI_AVG) / 250) * 250 + 150}
                     tone="neem" axis="The average UPI payment, ₹, each month" events={SMALL_EVENTS}
                     marks={[ { month : PAY_MONTHS[0], at : "under-right", note : monthYear(PAY_MONTHS[0]) }, { month : UPI_AVG_PEAK, at : "under-right", note : monthYear(UPI_AVG_PEAK) }, { month : PAY_MONTHS[PAY_MONTHS.length - 1], at : "right", accent : true, pulse : true, note : monthYear(PAY_MONTHS[PAY_MONTHS.length - 1]) } ]}>
                     <Text className="kicker" weight="600" marginBottom="nano">SMALL PAYMENTS</Text>
@@ -214,7 +233,6 @@ export const CashDidntDiePage = () => {
                         meant “to protect daily micro-purchases like tea stalls” (<a href="https://financialservices.gov.in/sites/default/files/2026-09/FAQs---Merchant-Discount-Rate--MDR--on-Select-UPI--P2M--Transactions_0.pdf">Ministry
                         of Finance, 15-09-2026</a>). The fee starts after these figures end, so its effect is not yet in them.
                     </Text>
-                    <EventList events={SMALL_EVENTS} />
                     <Text className="step-note" size="small">
                         The value of UPI payments in the month divided by their number; includes transfers between people.
                         DBIE, payment system indicators.
@@ -223,35 +241,7 @@ export const CashDidntDiePage = () => {
             </section>
 
             <section className="rain is-split is-step" data-slide>
-                <TideStep upto={TIDE_FYS[TIDE_FYS.length - 1]} from={EBB_FY} events={TIDE_EVENTS} marks={[
-                    { fy : EBB_FY, at : "below" },
-                    { fy : PEAK_FY, at : "above", note : `${PEAK_FY}, the pandemic year` },
-                    { fy : TIDE_FYS[TIDE_FYS.length - 1], at : "right", accent : true, pulse : true },
-                ]}>
-                    <Text className="kicker" weight="600" marginBottom="nano">THE TIDE RETURNS</Text>
-                    <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">
-                        Yet the cash came back
-                    </Heading4>
-                    <Text fontStyle="serif" marginBottom="micro">
-                        By {BACK_FY} the cash people held was back to {TIDE[BACK].toFixed(1)}% of GDP, where it had been before
-                        November 2016. In {PEAK_FY}, the pandemic year, it reached {TIDE[PEAK].toFixed(1)}%, the highest since
-                        the series began in {TIDE_FYS[0]}, and it was {TIDE[TIDE.length - 1].toFixed(1)}% in {TIDE_FYS[TIDE_FYS.length - 1]}.
-                    </Text>
-                    <Text fontStyle="serif" marginBottom="micro">
-                        The RBI ties the high to “a panic-driven surge in precautionary demand for cash” in 2020 and to the fall
-                        in GDP in the pandemic, and the easing since to “the ebbing of pandemic uncertainty and the increasing
-                        usage of digital payments”. How people paid changed; how much cash they held did not shrink.
-                    </Text>
-                    <EventList events={TIDE_EVENTS} />
-                    <Text className="step-note" size="small">
-                        Currency with the public, the average over each financial year, as a share of nominal GDP on the
-                        2011-12 base. DBIE, macro-economic aggregates.
-                    </Text>
-                </TideStep>
-            </section>
-
-            <section className="rain is-split is-step" data-slide>
-                <SeasonStep labels={SEASON_LABELS} values={SEASON}>
+                <SeasonStep values={SEASON_BY_MONTH} parts={SEASON_PARTS}>
                     <Text className="kicker" weight="600" marginBottom="nano">CASH HAS A SEASON</Text>
                     <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">
                         Cash swells from October to May, and ebbs in the monsoon
@@ -264,7 +254,6 @@ export const CashDidntDiePage = () => {
                         monsoon dip to a “seasonal slack in economic activity in cash-intensive sectors such as construction and
                         agriculture”.
                     </Text>
-                    <PatternList items={SEASON_RECORD} />
                     <Text fontStyle="serif" marginBottom="micro">Some of the year’s pull comes in a few weeks, with the festivals.</Text>
                     <Text className="step-note" size="small">
                         Change in currency in circulation from the end of one month to the end of the next, averaged over

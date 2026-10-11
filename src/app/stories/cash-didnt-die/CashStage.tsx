@@ -49,33 +49,48 @@ export const TitleStage = () => {
 // What the two month-by-month stages share: a scene with play, pause and setMonth, started the first time the stage
 // is mostly on screen, and the play button and slider under it.
 interface Player { play : () => void; pause : () => void; setMonth : (m : number) => void; dispose : () => void }
-const useMonthPlayer = (mount : (canvas : HTMLCanvasElement, cb : { onMonth : (m : number) => void; onEnd : () => void; reduced : boolean }) => Player) => {
+// `holds`: months where playing stops a moment (an event on the slider), the marker breathing, before going on.
+const HOLD = 1800;
+const useMonthPlayer = (mount : (canvas : HTMLCanvasElement, cb : { onMonth : (m : number) => void; onEnd : () => void; reduced : boolean }) => Player, holds : number[] = []) => {
     const ref = useRef<HTMLCanvasElement>(null);
     const scene = useRef<Player | null>(null);
     const [ failed, setFailed ] = useState(false);
     const [ m, setM ] = useState(0);
     const [ playing, setPlaying ] = useState(false);
+    const [ holding, setHolding ] = useState<number | null>(null);
+    const playingRef = useRef(false), holdTimer = useRef(0);
+    playingRef.current = playing;
+    const onMonth = (k : number) => {
+        setM(k);
+        if (!playingRef.current || !holds.includes(k)) return;
+        scene.current?.pause(); setHolding(k);
+        clearTimeout(holdTimer.current);
+        holdTimer.current = window.setTimeout(() => { setHolding(null); if (playingRef.current) scene.current?.play(); }, HOLD);
+    };
+    const onMonthRef = useRef(onMonth);
+    onMonthRef.current = onMonth;
     useEffect(() => {
         const canvas = ref.current;
         if (!canvas) return;
         const reduced = reducedMotion();
-        try { scene.current = mount(canvas, { onMonth : setM, onEnd : () => setPlaying(false), reduced }); }
+        try { scene.current = mount(canvas, { onMonth : k => onMonthRef.current(k), onEnd : () => setPlaying(false), reduced }); }
         catch { setFailed(true); return; }
         if (reduced) setM(LAST);
         const io = new IntersectionObserver(([ e ]) => {
             if (e.intersectionRatio > 0.6 && !reduced) { scene.current?.play(); setPlaying(true); io.disconnect(); }
         }, { threshold : [ 0.6 ] });
         io.observe(canvas);
-        return () => { io.disconnect(); scene.current?.dispose(); scene.current = null; };
+        return () => { io.disconnect(); clearTimeout(holdTimer.current); scene.current?.dispose(); scene.current = null; };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const toggle = () => {
+        clearTimeout(holdTimer.current); setHolding(null);
         if (playing) { scene.current?.pause(); setPlaying(false); return; }
         if (m >= LAST) setM(0);
         scene.current?.play(); setPlaying(true);
     };
-    const seek = (i : number) => { scene.current?.pause(); setPlaying(false); setM(i); scene.current?.setMonth(i); };
-    return { ref, failed, m, playing, toggle, seek };
+    const seek = (i : number) => { clearTimeout(holdTimer.current); setHolding(null); scene.current?.pause(); setPlaying(false); setM(i); scene.current?.setMonth(i); };
+    return { ref, failed, m, playing, holding, toggle, seek };
 };
 
 // THE RECORD ==========================================================================================================
@@ -89,14 +104,14 @@ export const EventNow = ({ events, m } : { events : StepEvent[]; m : number }) =
     );
 };
 
-const TimeBar = ({ m, playing, toggle, seek, events } : { m : number; playing : boolean; toggle : () => void; seek : (i : number) => void; events? : StepEvent[] }) => (
+const TimeBar = ({ m, playing, holding, toggle, seek, events } : { m : number; playing : boolean; holding? : number | null; toggle : () => void; seek : (i : number) => void; events? : StepEvent[] }) => (
     <div className="rain-time">
         <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play the months"}>{playing ? "❚❚" : "▶"}</button>
         <div className="time-track">
             <input type="range" min={0} max={LAST} step={1} value={m} aria-label="Month" aria-valuetext={monthName(PAY_MONTHS[m])}
                 onChange={e => seek(+e.target.value)} />
             {(events ?? []).map(e => (
-                <button key={e.n} type="button" className={`time-tick ${e.k <= m ? "is-passed" : ""}`} style={{ left : `${e.k / LAST * 100}%` }}
+                <button key={e.n} type="button" className={`time-tick ${e.k <= m ? "is-passed" : ""} ${holding === e.k ? "is-holding" : ""}`} style={{ left : `${e.k / LAST * 100}%` }}
                     title={`${monthName(e.month)}: ${e.label}`} aria-label={`Go to ${monthName(e.month)}: ${e.label}`} onClick={() => seek(e.k)}>{e.n}</button>
             ))}
         </div>
@@ -151,7 +166,7 @@ const FIT_MAX = Math.max(...Object.values(VIEWS).flatMap(v => [ v.left, v.right 
 
 export const GridsStage = ({ view, children } : { view : "machines" | "value"; children : ReactNode }) => {
     const events = eventsFor(view === "machines" ? "machines" : "cash");
-    const p = useMonthPlayer((canvas, cb) => mountGridsScene(canvas, { reduced : cb.reduced, ...VIEWS[view], fitMax : FIT_MAX, noteMix : NOTE_MIX, onMonth : cb.onMonth, onEnd : cb.onEnd }));
+    const p = useMonthPlayer((canvas, cb) => mountGridsScene(canvas, { reduced : cb.reduced, ...VIEWS[view], fitMax : FIT_MAX, noteMix : NOTE_MIX, onMonth : cb.onMonth, onEnd : cb.onEnd }), events.map(e => e.k));
     const ym = PAY_MONTHS[p.m];
     const atmDay = perDay(PAY.atm.volume[p.m], MACHINES.atm[p.m], ym), microDay = perDay(PAY.micro.volume[p.m], MACHINES.micro[p.m], ym);
     const atmAvg = average(PAY.atm.value[p.m], PAY.atm.volume[p.m]), microAvg = average(PAY.micro.value[p.m], PAY.micro.volume[p.m]);
@@ -211,7 +226,7 @@ export const RainStage = ({ children } : { children : ReactNode }) => {
     const p = useMonthPlayer((canvas, cb) => mountRainScene(canvas, {
         reduced : cb.reduced, unit : PER_FLASH, upi : PAY.upi.volume, hands : HANDS, onMonth : cb.onMonth, onEnd : cb.onEnd,
         marquee : SIGN, onCaption : setBand,
-    }));
+    }), RAIN_EVENTS.map(e => e.k));
     const ym = PAY_MONTHS[p.m];
     const sourced = USER_POINTS.some(q => q.month === ym);
     return (
@@ -226,7 +241,7 @@ export const RainStage = ({ children } : { children : ReactNode }) => {
                 {children}
                 <Readout>
                     <span className="rain-month">{monthName(ym)}</span>
-                    <span className="rain-row"><i className="key-hand" aria-hidden="true">✋</i><b>{USERS[p.m].toFixed(1)}</b> crore UPI users{sourced ? "" : "*"}</span>
+                    <span className="rain-row"><i className="key-hand" aria-hidden="true">👤</i><b>{USERS[p.m].toFixed(1)}</b> crore UPI users{sourced ? "" : "*"}</span>
                     <span className="rain-row is-upi"><i className="key-tick" aria-hidden="true">✓</i><b>{fmt(PAY.upi.volume[p.m])}</b> crore payments</span>
                     <span className="rain-row"><i className="key-hand" aria-hidden="true" /><b>{Math.round(PAY.upi.volume[p.m] / USERS[p.m])}</b> payments a user, a month</span>
                     <span className="rain-key">

@@ -218,7 +218,7 @@ const FESTIVE_YEARS = fest.filter(f => !FEST_LEFT_OUT.includes(f.year)).map(f =>
 }).filter(Boolean);
 check(FESTIVE_YEARS.length >= 10, `festive weeks: only ${FESTIVE_YEARS.length} years`);
 const FESTIVE = {
-    years : FESTIVE_YEARS.map(({ path : _p, ...y }) => y),
+    years : FESTIVE_YEARS.map(y => ({ ...y, path : y.path.map(r2) })),
     path : Array.from({ length : 13 }, (_, j) => r2(FESTIVE_YEARS.reduce((a, y) => a + y.path[j], 0) / FESTIVE_YEARS.length)),
     leftOut : FEST_LEFT_OUT, lastWeek : wkDate[wkDate.length - 1],
 };
@@ -278,7 +278,7 @@ const GEN = [
     '',
     '// The festive weeks: cash drawn in the three weeks up to Diwali week above the year\'s normal pace (%), the change in ₹ crore,',
     '// the four weeks after (%), and the average path from six weeks before to six after (cumulative %, above the normal pace).',
-    `export const FESTIVE : { years : { year : number; diwali : string; week : string; verified : boolean; before : number; crore : number; after : number }[]; path : number[]; leftOut : number[]; lastWeek : string } = ${ts(FESTIVE)};`,
+    `export const FESTIVE : { years : { year : number; diwali : string; week : string; verified : boolean; before : number; crore : number; after : number; path : number[] }[]; path : number[]; leftOut : number[]; lastWeek : string } = ${ts(FESTIVE)};`,
     '',
     '// What changed around each series, from official documents (data/sources/cash-events.json), by the step they are shown on.',
     `export const EVENTS : { slide : string; month : string | null; label : string; note : string; source : string; url : string }[] = ${ts(EVENTS)};`,
