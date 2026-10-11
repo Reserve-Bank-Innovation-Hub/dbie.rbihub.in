@@ -241,7 +241,6 @@
     }
     .tide-grid line { stroke : color-mix(in oklch, #2f2f2f, transparent 88%); }
     .tide-grid text, .tide-year { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); }
-    .tide-area { fill : url(#tide-fill); }
     .tide-line { fill : none; stroke : #864fe3; stroke-width : 2.5; stroke-linejoin : round; }
     .tide-wipe { transform : scaleX(0); transform-origin : left; transform-box : fill-box; transition : transform 2.4s cubic-bezier(0.45, 0, 0.25, 1); &.is-drawn { transform : none; } }
     .tide-mark {
@@ -258,6 +257,67 @@
     @media (prefers-reduced-motion : reduce) {
         .pile-note, .tide-wipe, .guess-answer { transition : none; }
         .tide-pulse { animation : none; }
+    }
+
+    /* THE CARD, THE NOTE WALL AND THE CLOSE ============================================================================ */
+    .pay-stage, .wall-stage { svg { display : block; overflow : visible; } }
+    .pay-line { fill : none; stroke-width : 2.5; stroke-linejoin : round; &.is-upi { stroke : #6b8e23; } &.is-debit { stroke : #864fe3; } }
+    .pay-base { stroke : color-mix(in oklch, #2f2f2f, transparent 60%); stroke-dasharray : 4 4; }
+    .pay-end {
+        opacity : 0; transition : opacity 0.6s 2.3s;
+        &.is-shown { opacity : 1; }
+        text { font : 600 13px var(--font-sans-serif); paint-order : stroke; stroke : #f2f0e6; stroke-width : 4px; }
+        .pay-num { font-weight : 500; }
+        &.is-upi { circle, text { fill : #6b8e23; } }
+        &.is-debit { circle, text { fill : #864fe3; } }
+    }
+    .tide-wipe { transition-property : transform; }
+    .wall-note {
+        stroke-width : 1; transition : fill 0.5s, stroke 0.5s, opacity 0.5s;
+        &.is-empty { fill : none; stroke : color-mix(in oklch, #2f2f2f, transparent 94%); }
+    }
+    .d-2000 { fill : #f4c6dc; stroke : #c4508a; }
+    .d-1000 { fill : #ecc6bc; stroke : #ba644f; }
+    .d-500  { fill : #cfdcaa; stroke : #6b8e23; }
+    .d-200  { fill : #f6dfa8; stroke : #eaaa3a; }
+    .d-100  { fill : #ddd0f6; stroke : #864fe3; }
+    .d-small { fill : #ede6d7; stroke : #a8957a; }
+    .wall-chip { display : inline-block; width : 16px; height : 10px; border-radius : 2px; border : 1.5px solid; margin-right : 8px; vertical-align : -1px; }
+    .wall-chip.d-2000 { background : #f4c6dc; border-color : #c4508a; }
+    .wall-chip.d-1000 { background : #ecc6bc; border-color : #ba644f; }
+    .wall-chip.d-500  { background : #cfdcaa; border-color : #6b8e23; }
+    .wall-chip.d-200  { background : #f6dfa8; border-color : #eaaa3a; }
+    .wall-chip.d-100  { background : #ddd0f6; border-color : #864fe3; }
+    .wall-chip.d-small { background : #ede6d7; border-color : #a8957a; }
+    .wall-readout { display : grid; gap : 8px; font-size : 14px; .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.06em; text-transform : uppercase; color : var(--accent); } .rain-key { font-size : 12px; color : var(--ink-soft); } }
+    .wall-key {
+        list-style : none; margin : 0; padding : 0; display : grid; grid-template-columns : 1fr 1fr; gap : 4px 16px;
+        li { display : flex; align-items : center; transition : opacity 0.4s; &.is-gone { opacity : 0.35; } }
+        b { margin-left : auto; font-variant-numeric : tabular-nums; }
+    }
+    .split-card .rain-time { position : static; transform : none; width : auto; }
+    .rain.is-close { background : var(--kosh-ivory); }
+    .close {
+        height : 100%; display : grid; align-content : center; gap : 5vh;
+        padding : 6vh clamp(16px, 8vw, 140px);
+    }
+    .close-pair { display : grid; grid-template-columns : 1fr 1fr; gap : clamp(16px, 4vw, 64px); }
+    .close-half {
+        display : grid; gap : 6px; padding : 28px; border-radius : 16px; background : #ffffff;
+        box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 90%), 0 12px 32px color-mix(in oklch, #2f2f2f, transparent 92%);
+        b { font : 700 clamp(30px, 4.4vw, 60px) / 1.05 var(--font-serif); }
+        span { color : var(--ink-soft); font-size : 15px; }
+        .close-label { font-size : 12px; font-weight : 700; letter-spacing : 0.12em; text-transform : uppercase; }
+        &.is-paying { .close-label, b { color : #6b8e23; } }
+        &.is-keeping { .close-label, b { color : var(--accent); } }
+    }
+    .close-words { max-width : 72ch; a { color : var(--accent); } }
+    .close-line { margin : 18px 0 0; font : 600 clamp(22px, 2.4vw, 32px) / 1.25 var(--font-serif); color : var(--ink); }
+    .story-notes {
+        padding : 8vh clamp(16px, 8vw, 140px) 12vh; max-width : 980px;
+        ul { margin : 0; padding-left : 18px; display : grid; gap : 10px; font-size : 14px; line-height : 1.55; color : var(--ink-soft); }
+        b { color : var(--ink); }
+        a { color : var(--accent); }
     }
 
     /* THE GRIDS ======================================================================================================= */
@@ -314,7 +374,13 @@
         .rain.is-step .split-stage { height : auto; min-height : 0; order : 2; align-self : stretch; }
         .rain.is-step .step-note { display : none; }
         .guess-choices button { padding : 8px 14px; font-size : 13px; }
-        .guess-answer { min-height : 6em; font-size : 14px; }   /* room kept for the answer, so the piles do not move when it comes */
+        .guess-answer { min-height : 6em; font-size : 14px; }
+        .close { padding : 4vh 16px; gap : 3vh; }
+        .close-pair { grid-template-columns : 1fr; gap : 12px; }
+        .close-half { padding : 16px 18px; }
+        .rain.is-close { height : 100svh; overflow : hidden; padding : 0; }
+        .wall-key { grid-template-columns : 1fr 1fr; font-size : 12px; }
+        .rain.is-step .split-card .rain-key { display : none; }   /* room kept for the answer, so the piles do not move when it comes */
         .grids { padding : 3vh 16px 2vh; gap : 10px; }
         /* the month-by-month steps stack on a phone: words, the scene, the readout, the slider */
         .rain { height : auto; overflow : visible; padding : 24px 0 32px; }

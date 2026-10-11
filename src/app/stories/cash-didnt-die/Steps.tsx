@@ -1,14 +1,14 @@
 "use client";
 
-// The story's flat steps, drawn in SVG: the guess (how much cash, before and after) and the tide (cash with the public
-// as a share of GDP since 1951-52). Each starts its motion the first time it is mostly on screen; with reduced motion
+// The story's flat steps, drawn in SVG: the guess (how much cash, before and after), the tide (cash with the public as a
+// share of GDP since 1951-52), UPI against debit cards, the wall of notes by denomination, and the close. Each starts its motion the first time it is mostly on screen; with reduced motion
 // each is drawn at once.
 
 // REACT CORE ==========================================================================================================
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useId, useRef, useState } from "react";
 
 // DATA ================================================================================================================
-import { CIC, CIC_MONTHS, TIDE, TIDE_FYS } from "./data.gen";
+import { CIC, CIC_MONTHS, NOTE_YEARS, PAY, PAY_MONTHS, TIDE, TIDE_FYS } from "./data.gen";
 
 const reducedMotion = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const lakhCrore = (crore : number) => (crore / 1e5).toFixed(1);
@@ -104,33 +104,39 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
 };
 
 // THE TIDE ============================================================================================================
-// Cash with the public as a share of GDP, by financial year from 1951-52, drawn in from the left up to `upto` (the
-// ebb of 2016-17 on this step). Marked: where it starts, and the year of the ebb.
-export const TideStep = ({ upto, children } : { upto : string; children : ReactNode }) => {
+// Cash with the public as a share of GDP, by financial year from 1951-52, up to `upto`, the years shown filling the
+// width so the line ends at the right edge, where the story has got to. It draws in from `from` (the line before it is
+// there already, as the reader left it on the earlier step), and the marked years come in once it has.
+export interface TideMark { fy : string; at : "right" | "below" | "above" | "under-right"; accent? : boolean; pulse? : boolean; note? : string }
+export const TideStep = ({ upto, from, marks, children } : { upto : string; from? : string; marks : TideMark[]; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ drawn, setDrawn ] = useState(false);
     useEffect(() => { if (seen || reducedMotion()) setDrawn(true); }, [ seen ]);
+    const uid = useId().replace(/:/g, "");
     const { w, h } = size;
-    const n = TIDE_FYS.indexOf(upto) + 1;
+    const n = TIDE_FYS.indexOf(upto) + 1, f0 = from ? TIDE_FYS.indexOf(from) : 0;
     const pad = { l : 44, r : 24, t : 28, b : 40 };
-    // the years shown fill the width, so the line always ends at the right edge, where the story has got to
     const X = (i : number) => pad.l + i / (n - 1) * (w - pad.l - pad.r - 70);
     const Y = (v : number) => pad.t + (1 - v / 14) * (h - pad.t - pad.b);
     const pts = TIDE.slice(0, n).map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`);
-    const ebb = n - 1, start = 0;
     const years = [ "1951-52", "1971-72", "1991-92", "2011-12" ].map(f => TIDE_FYS.indexOf(f)).filter(i => i < n - 4);
+    const startAt = w ? X(f0) / w : 0;
+    const drawFor = 2.4 * (1 - startAt);
     return (
         <div className="split">
             <div className="split-stage tide-stage" ref={ref}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
-                        aria-label={`Cash with the public as a share of GDP, ${TIDE_FYS[0]} to ${upto}: ${TIDE[0]}% at the start; ${TIDE[ebb]}% in ${upto}.`}>
+                        aria-label={`Cash with the public as a share of GDP, ${TIDE_FYS[0]} to ${upto}: ${marks.map(m => `${TIDE[TIDE_FYS.indexOf(m.fy)]}% in ${m.fy}`).join("; ")}.`}>
                         <defs>
-                            <linearGradient id="tide-fill" x1="0" x2="0" y1="0" y2="1">
+                            <linearGradient id={`${uid}-fill`} x1="0" x2="0" y1="0" y2="1">
                                 <stop offset="0" stopColor="#864fe3" stopOpacity="0.28" />
                                 <stop offset="1" stopColor="#864fe3" stopOpacity="0.02" />
                             </linearGradient>
-                            <clipPath id="tide-draw"><rect className={`tide-wipe ${drawn ? "is-drawn" : ""}`} x={0} y={0} width={w} height={h} /></clipPath>
+                            <clipPath id={`${uid}-draw`}>
+                                <rect className="tide-wipe" x={0} y={0} width={w} height={h}
+                                    style={{ transform : drawn ? "none" : `scaleX(${startAt})`, transitionDuration : `${drawFor}s` }} />
+                            </clipPath>
                         </defs>
                         {[ 4, 8, 12 ].map(v => (
                             <g key={v} className="tide-grid">
@@ -139,20 +145,25 @@ export const TideStep = ({ upto, children } : { upto : string; children : ReactN
                             </g>
                         ))}
                         {years.map(i => <text key={i} className="tide-year" x={X(i)} y={h - pad.b + 22} textAnchor="middle">{TIDE_FYS[i].slice(0, 4)}</text>)}
-                        <g clipPath="url(#tide-draw)">
-                            <polygon className="tide-area" points={`${X(0)},${Y(0)} ${pts.join(" ")} ${X(ebb)},${Y(0)}`} />
+                        <g clipPath={`url(#${uid}-draw)`}>
+                            <polygon className="tide-area" fill={`url(#${uid}-fill)`} points={`${X(0)},${Y(0)} ${pts.join(" ")} ${X(n - 1)},${Y(0)}`} />
                             <polyline className="tide-line" points={pts.join(" ")} />
                         </g>
-                        <g className={`tide-mark ${drawn ? "is-shown" : ""}`} style={{ transitionDelay : "0.2s" }}>
-                            <circle cx={X(start)} cy={Y(TIDE[start])} r={4} />
-                            <text x={X(start) + 10} y={Y(TIDE[start]) + 24}>{TIDE[start].toFixed(1)}% in {TIDE_FYS[start]}</text>
-                        </g>
-                        <g className={`tide-mark is-ebb ${drawn ? "is-shown" : ""}`} style={{ transitionDelay : "2.6s" }}>
-                            <circle className="tide-pulse" cx={X(ebb)} cy={Y(TIDE[ebb])} r={6} />
-                            <circle cx={X(ebb)} cy={Y(TIDE[ebb])} r={5} />
-                            <text x={X(ebb) + 14} y={Y(TIDE[ebb]) + 5}>{TIDE[ebb].toFixed(1)}%</text>
-                            <text className="tide-sub" x={X(ebb) + 14} y={Y(TIDE[ebb]) + 22}>{upto}</text>
-                        </g>
+                        {marks.map(m => {
+                            const i = TIDE_FYS.indexOf(m.fy), x = X(i), y = Y(TIDE[i]);
+                            // a mark shows as soon as the line reaches it
+                            const delay = i <= f0 ? 0.2 : drawFor * (x / w - startAt) / (1 - startAt) + 0.2;
+                            const [ tx, ty, anchor ] : [ number, number, "start" | "middle" ] = m.at === "right" ? [ x + 14, y + 5, "start" ]
+                                : m.at === "below" ? [ x, y + 26, "middle" ] : m.at === "above" ? [ x, y - 30, "middle" ] : [ x + 10, y + 24, "start" ];
+                            return (
+                                <g key={m.fy} className={`tide-mark ${m.accent ? "is-ebb" : ""} ${drawn ? "is-shown" : ""}`} style={{ transitionDelay : `${delay}s` }}>
+                                    {m.pulse && <circle className="tide-pulse" cx={x} cy={y} r={6} />}
+                                    <circle cx={x} cy={y} r={m.accent ? 5 : 4} />
+                                    <text x={tx} y={ty} textAnchor={anchor}>{TIDE[i].toFixed(1)}%</text>
+                                    <text className="tide-sub" x={tx} y={ty + 17} textAnchor={anchor}>{m.note ?? m.fy}</text>
+                                </g>
+                            );
+                        })}
                     </svg>
                 )}
             </div>
@@ -160,3 +171,169 @@ export const TideStep = ({ upto, children } : { upto : string; children : ReactN
         </div>
     );
 };
+
+// THE CARD WENT FIRST =================================================================================================
+// UPI payments and debit-card payments, month by month from November 2019, on a log scale (so a fall to a quarter and
+// a rise of 19 times both read as the distances they are), in crore a month or as an index of November 2019. The lines
+// draw in when the step comes on screen; each ends in its latest value.
+const LINES = [
+    { key : "upi", label : "UPI", cls : "is-upi", values : PAY.upi.volume },
+    { key : "debit", label : "Debit cards", cls : "is-debit", values : PAY.debit.volume },
+];
+const fmtVal = (v : number) => v >= 100 ? Math.round(v).toLocaleString("en-IN") : v.toFixed(1);
+export const PayStep = ({ children } : { children : ReactNode }) => {
+    const { ref, size, seen } = useStage<HTMLDivElement>();
+    const [ drawn, setDrawn ] = useState(false);
+    const [ index, setIndex ] = useState(false);
+    useEffect(() => { if (seen || reducedMotion()) setDrawn(true); }, [ seen ]);
+    const uid = useId().replace(/:/g, "");
+    const { w, h } = size;
+    const pad = { l : 52, r : 120, t : 28, b : 52 };
+    const series = LINES.map(l => ({ ...l, shown : index ? l.values.map(v => v / l.values[0] * 100) : l.values }));
+    const ticks = index ? [ 10, 100, 1000 ] : [ 1, 10, 100, 1000 ];
+    const lo = Math.log10(index ? 10 : 5), hi = Math.log10(index ? 3000 : 3500);
+    const X = (i : number) => pad.l + i / (PAY_MONTHS.length - 1) * (w - pad.l - pad.r);
+    const Y = (v : number) => pad.t + (1 - (Math.log10(v) - lo) / (hi - lo)) * (h - pad.t - pad.b);
+    // a label each January; on a narrow stage, every other one
+    const years = PAY_MONTHS.map((m, i) => [ m, i ] as const).filter(([ m ]) => m.endsWith("-01") && (w > 520 || +m.slice(0, 4) % 2 === 0));
+    const last = PAY_MONTHS.length - 1;
+    return (
+        <div className="split">
+            <div className="split-stage pay-stage" ref={ref}>
+                {w > 0 && (
+                    <svg width={w} height={h} role="img"
+                        aria-label={`Payments a month, November 2019 to ${PAY_MONTHS[last]}: UPI from ${fmtVal(PAY.upi.volume[0])} to ${fmtVal(PAY.upi.volume[last])} crore; debit cards from ${fmtVal(PAY.debit.volume[0])} to ${fmtVal(PAY.debit.volume[last])} crore.`}>
+                        <defs>
+                            <clipPath id={`${uid}-draw`}><rect className="tide-wipe" x={0} y={0} width={w} height={h} style={{ transform : drawn ? "none" : "scaleX(0)" }} /></clipPath>
+                        </defs>
+                        {ticks.map(v => (
+                            <g key={v} className="tide-grid">
+                                <line x1={pad.l} x2={w - pad.r + 40} y1={Y(v)} y2={Y(v)} />
+                                <text x={pad.l - 8} y={Y(v) + 4} textAnchor="end">{v.toLocaleString("en-IN")}</text>
+                            </g>
+                        ))}
+                        {index && <line className="pay-base" x1={pad.l} x2={w - pad.r + 40} y1={Y(100)} y2={Y(100)} />}
+                        {years.map(([ m, i ]) => <text key={m} className="tide-year" x={X(i)} y={h - pad.b + 22} textAnchor="middle">{m.slice(0, 4)}</text>)}
+                        <g clipPath={`url(#${uid}-draw)`}>
+                            {series.map(sr => <polyline key={sr.key} className={`pay-line ${sr.cls}`} points={sr.shown.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ")} />)}
+                        </g>
+                        {series.map(sr => (
+                            <g key={sr.key} className={`pay-end ${sr.cls} ${drawn ? "is-shown" : ""}`}>
+                                <circle cx={X(last)} cy={Y(sr.shown[last])} r={4} />
+                                <text x={X(last) + 10} y={Y(sr.shown[last]) - 2}>{sr.label}</text>
+                                <text className="pay-num" x={X(last) + 10} y={Y(sr.shown[last]) + 15}>{index ? fmtVal(sr.shown[last]) : `${fmtVal(sr.shown[last])} crore`}</text>
+                            </g>
+                        ))}
+                        <text className="tide-year" x={pad.l} y={pad.t - 12}>{index ? "Index, November 2019 = 100 (log scale)" : "Crore payments a month (log scale)"}</text>
+                    </svg>
+                )}
+            </div>
+            <aside className="split-card">
+                {children}
+                <div className="hands-mode" role="group" aria-label="Show as">
+                    <button type="button" className={index ? "" : "is-on"} aria-pressed={!index} onClick={() => setIndex(false)}>Crore a month</button>
+                    <button type="button" className={index ? "is-on" : ""} aria-pressed={index} onClick={() => setIndex(true)}>Index, Nov 2019 = 100</button>
+                </div>
+            </aside>
+        </div>
+    );
+};
+
+// THE NOTE WALL =======================================================================================================
+// The banknotes in circulation at the end of each March, from 2015, as a wall of notes, each ₹10,000 crore of value,
+// grouped and coloured by denomination: the ₹2,000 first, then the ₹1,000, the ₹500, the ₹200, the ₹100 and everything
+// smaller. The year moves on by itself once the step is on screen, or by the slider.
+const BRICK = 10000;                                              // ₹ crore a note on the wall
+const DENOMS = [
+    { key : "2000", label : "₹2,000", match : [ "2000" ], cls : "d-2000" },
+    { key : "1000", label : "₹1,000", match : [ "1000" ], cls : "d-1000" },
+    { key : "500", label : "₹500", match : [ "500" ], cls : "d-500" },
+    { key : "200", label : "₹200", match : [ "200" ], cls : "d-200" },
+    { key : "100", label : "₹100", match : [ "100" ], cls : "d-100" },
+    { key : "small", label : "₹50 and below", match : [ "50", "20", "10", "2 and 5" ], cls : "d-small" },
+];
+const YEARS = NOTE_YEARS ?? [];
+const WALL = YEARS.map(y => {
+    const values = DENOMS.map(d => y.notes.filter(n => d.match.includes(n.denom)).reduce((a, n) => a + n.value, 0));
+    const total = values.reduce((a, b) => a + b, 0);
+    // each group's notes, rounded on the running total so the groups always add up to the wall
+    let run = 0;
+    const ends = values.map(v => Math.round((run += v) / BRICK));
+    return { march : y.march, total, values, shares : values.map(v => v / total), ends };
+});
+const MOST = Math.max(...WALL.map(y => y.ends[y.ends.length - 1]));
+const fmtLakhCrore = (crore : number) => `₹${(crore / 1e5).toFixed(1)} lakh crore`;
+export const NoteWallStep = ({ children } : { children : ReactNode }) => {
+    const { ref, size, seen } = useStage<HTMLDivElement>();
+    const [ k, setK ] = useState(YEARS.length - 1);
+    const [ playing, setPlaying ] = useState(false);
+    const started = useRef(false);
+    useEffect(() => {
+        if (!seen || started.current || reducedMotion()) return;
+        started.current = true; setK(0); setPlaying(true);
+    }, [ seen ]);
+    useEffect(() => {
+        if (!playing) return;
+        if (k >= YEARS.length - 1) { setPlaying(false); return; }
+        const t = setTimeout(() => setK(k + 1), k === 0 ? 1600 : 1100);
+        return () => clearTimeout(t);
+    }, [ playing, k ]);
+    const { w, h } = size;
+    const year = WALL[k];
+    if (!year) return null;
+    // the wall: a fixed grid big enough for the largest year, notes laid row by row from the bottom up
+    const cols = Math.max(12, Math.round(Math.sqrt(MOST * 0.62 * (w || 1) / (h || 1))));   // shaped to the stage
+    const rows = Math.ceil(MOST / cols);
+    const cell = Math.max(4, Math.min((w - 8) / cols, (h - 40) / rows / 0.62));
+    const nw = cell, nh = cell * 0.62, x0 = (w - cols * nw) / 2, y0 = h - 8;
+    const count = year.ends[year.ends.length - 1];
+    const groupOf = (i : number) => year.ends.findIndex(e => i < e);
+    return (
+        <div className="split">
+            <div className="split-stage wall-stage" ref={ref}>
+                {w > 0 && (
+                    <svg width={w} height={h} role="img"
+                        aria-label={`Banknotes in circulation, March ${year.march.slice(0, 4)}: ${fmtLakhCrore(year.total)}. ${DENOMS.map((d, j) => `${d.label} ${(year.shares[j] * 100).toFixed(1)}%`).join(", ")} of the value.`}>
+                        {Array.from({ length : rows * cols }, (_, i) => {
+                            const g = i < count ? groupOf(i) : -1;
+                            const x = x0 + (i % cols) * nw, y = y0 - (Math.floor(i / cols) + 1) * nh;
+                            return <rect key={i} className={`wall-note ${g >= 0 ? DENOMS[g].cls : "is-empty"}`} x={x + 1} y={y + 1} width={nw - 2} height={nh - 2} rx={1.5} />;
+                        })}
+                    </svg>
+                )}
+            </div>
+            <aside className="split-card">
+                {children}
+                <div className="wall-readout">
+                    <span className="rain-month">March {year.march.slice(0, 4)} · {fmtLakhCrore(year.total)} in notes</span>
+                    <ul className="wall-key">
+                        {DENOMS.map((d, j) => (
+                            <li key={d.key} className={year.shares[j] < 0.0005 ? "is-gone" : ""}>
+                                <i className={`wall-chip ${d.cls}`} aria-hidden="true" />{d.label}<b>{(year.shares[j] * 100).toFixed(1)}%</b>
+                            </li>
+                        ))}
+                    </ul>
+                    <span className="rain-key">Each note on the wall is ₹10,000 crore of the value of banknotes in circulation at the end of March.</span>
+                </div>
+                <div className="rain-time">
+                    <button type="button" onClick={() => { if (playing) setPlaying(false); else { if (k >= YEARS.length - 1) setK(0); setPlaying(true); } }} aria-label={playing ? "Pause" : "Play the years"}>{playing ? "❚❚" : "▶"}</button>
+                    <input type="range" min={0} max={YEARS.length - 1} step={1} value={k} aria-label="Year" aria-valuetext={`March ${year.march.slice(0, 4)}`}
+                        onChange={e => { setPlaying(false); setK(+e.target.value); }} />
+                    <span className="rain-years"><span>{YEARS[0]?.march.slice(0, 4)}</span><span>{YEARS[YEARS.length - 1]?.march.slice(0, 4)}</span></span>
+                </div>
+            </aside>
+        </div>
+    );
+};
+
+// PAYING AND KEEPING ==================================================================================================
+// The close: the two jobs side by side, each as one number against where it started.
+export const CloseStep = ({ paying, keeping, children } : { paying : ReactNode; keeping : ReactNode; children : ReactNode }) => (
+    <div className="close">
+        <div className="close-pair">
+            <div className="close-half is-paying">{paying}</div>
+            <div className="close-half is-keeping">{keeping}</div>
+        </div>
+        <div className="close-words">{children}</div>
+    </div>
+);
