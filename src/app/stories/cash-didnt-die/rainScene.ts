@@ -159,7 +159,7 @@ export function mountRainScene(canvas : HTMLCanvasElement, o : RainOptions) : Ra
     // font column spans two wall columns (a cell is twice as tall as it is wide), and its five rows sit on the grid's
     // rows 3 to 7 from the bottom (on the desktop wall of 16 rows, lines 9 to 13 from the top), which hands fill by the end.
     const led = ledColumns(o.marquee), LED_W = 2 * led.length;
-    const LED_SPEED = 32, LED_ROW = 3;                   // wall columns a second; the sign's bottom row
+    const LED_SPEED = 40, LED_ROW = 3;                   // wall columns a second; the sign's bottom row
     let scroll = -1;
     // seconds since the sign finished, until the caption shows; -1 when not counting. `band` is the caption's place,
     // kept up to date by the camera, and `captioned` whether the page has it.

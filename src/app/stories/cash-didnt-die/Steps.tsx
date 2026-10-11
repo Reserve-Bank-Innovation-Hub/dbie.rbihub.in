@@ -105,7 +105,7 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
                 <p className={`guess-answer ${guess ? "is-shown" : ""}`} aria-live="polite">
                     {guess && <>
                         <b>{VERDICT[guess]}</b> It went up {TIMES.toFixed(1)} times: ₹{lakhCrore(MARCH_2016)} lakh crore in March 2016,
-                        ₹{lakhCrore(MARCH_LAST)} lakh crore in March {LAST_YEAR}. Each note in the piles is ₹1 lakh crore of currency in circulation.
+                        ₹{lakhCrore(MARCH_LAST)} lakh crore in March {LAST_YEAR}. Each note in the piles stands for ₹1 lakh crore of currency in circulation.
                     </>}
                 </p>
             </aside>
@@ -418,7 +418,7 @@ export const NoteWallStep = ({ children } : { children : ReactNode }) => {
                             </li>
                         ))}
                     </ul>
-                    <span className="rain-key">Each note on the wall is ₹10,000 crore of the value of banknotes in circulation at the end of March. The RBI prints one ₹500 row: the old series to March 2016, the new from March 2017.</span>
+                    <span className="rain-key">Each note on the wall stands for ₹10,000 crore of the value of banknotes in circulation at the end of March. The RBI prints one ₹500 row: the old series to March 2016, the new from March 2017.</span>
                 </div>
                 <div className="rain-time">
                     <button type="button" onClick={() => { if (playing) setPlaying(false); else { if (k >= YEARS.length - 1) setK(0); setPlaying(true); } }} aria-label={playing ? "Pause" : "Play the years"}>{playing ? "❚❚" : "▶"}</button>

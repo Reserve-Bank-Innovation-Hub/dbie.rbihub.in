@@ -364,13 +364,13 @@
     /* numbered events: ticks over the month slider, the latest one under the readout, and lists under the charts */
     .time-track { position : relative; input[type="range"] { width : 100%; } }
     .time-tick {
-        position : absolute; top : -32px; transform : translateX(-50%);
+        position : absolute; top : calc(-32px - var(--level, 0) * 22px); transform : translateX(-50%);
         width : 18px !important; height : 18px !important; padding : 0; border-radius : 50%;
         background : #ffffff !important; color : var(--accent) !important; border : 1.5px solid var(--accent) !important;
         font : 700 10px / 1 var(--font-sans-serif) !important; cursor : pointer;
         &.is-passed { background : var(--accent) !important; color : #ffffff !important; }
         /* a stem down to the track */
-        &::after { content : ""; position : absolute; left : 50%; top : 100%; height : 12px; border-left : 1px dashed color-mix(in oklch, #ba644f, transparent 40%); }
+        &::after { content : ""; position : absolute; left : 50%; top : 100%; height : calc(12px + var(--level, 0) * 22px); border-left : 1px dashed color-mix(in oklch, #ba644f, transparent 40%); }
         /* while playing holds at the event: the marker breathes in and out */
         &.is-holding { animation : tick-breathe 0.9s ease-in-out infinite alternate; }
     }
@@ -382,8 +382,12 @@
         a { color : var(--accent); white-space : nowrap; }
     }
     .event-now {
-        margin : 0; min-height : 3.2em; font-size : 12.5px; line-height : 1.45; color : var(--ink-soft);
+        /* the latest event, in a box of its own, set apart from the key above it */
+        margin : 14px 0 0; padding : 10px 12px; border-radius : 8px; text-align : left;
+        background : #e1d5bc; border : 1px solid color-mix(in oklch, #ba644f, transparent 55%);
+        min-height : 3.2em; font-size : 12.5px; line-height : 1.45; color : #2f2f2f;          /* charcoal */
         opacity : 0; transition : opacity 0.4s; &.is-shown { opacity : 1; }
+        &:not(.is-shown) { visibility : hidden; }
         b { color : var(--ink); margin-right : 4px; }
     }
     .grids-now { display : grid; gap : 6px; }

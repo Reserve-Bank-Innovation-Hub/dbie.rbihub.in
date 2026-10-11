@@ -104,14 +104,26 @@ export const EventNow = ({ events, m } : { events : StepEvent[]; m : number }) =
     );
 };
 
+// A marker within a few months of one already placed at its height rises a level, so neither hides the other.
+const tickLevels = (events : StepEvent[]) => {
+    const placed : { k : number; level : number }[] = [];
+    return events.map(e => {
+        let level = 0;
+        while (placed.some(p => p.level === level && Math.abs(p.k - e.k) < LAST * 0.07)) level++;
+        placed.push({ k : e.k, level });
+        return { e, level };
+    });
+};
+
 const TimeBar = ({ m, playing, holding, toggle, seek, events } : { m : number; playing : boolean; holding? : number | null; toggle : () => void; seek : (i : number) => void; events? : StepEvent[] }) => (
     <div className="rain-time">
         <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play the months"}>{playing ? "❚❚" : "▶"}</button>
         <div className="time-track">
             <input type="range" min={0} max={LAST} step={1} value={m} aria-label="Month" aria-valuetext={monthName(PAY_MONTHS[m])}
                 onChange={e => seek(+e.target.value)} />
-            {(events ?? []).map(e => (
-                <button key={e.n} type="button" className={`time-tick ${e.k <= m ? "is-passed" : ""} ${holding === e.k ? "is-holding" : ""}`} style={{ left : `${e.k / LAST * 100}%` }}
+            {tickLevels(events ?? []).map(({ e, level }) => (
+                <button key={e.n} type="button" className={`time-tick ${e.k <= m ? "is-passed" : ""} ${holding === e.k ? "is-holding" : ""}`}
+                    style={{ left : `${e.k / LAST * 100}%`, "--level" : level } as React.CSSProperties}
                     title={`${monthName(e.month)}: ${e.label}`} aria-label={`Go to ${monthName(e.month)}: ${e.label}`} onClick={() => seek(e.k)}>{e.n}</button>
             ))}
         </div>
@@ -191,9 +203,11 @@ export const GridsStage = ({ view, children } : { view : "machines" | "value"; c
                 </div>
                 <TimeBar {...p} events={events} />
                 <p className="grids-key">
-                    Each square, on both sides: {view === "machines" ? "10,000 machines, or 50 lakh withdrawals in the month" : "50 lakh withdrawals, or ₹2,500 crore withdrawn, in the month"}.
-                    Micro-ATMs are the handheld machines banking agents carry. Squares fill from one corner only to show size; it is not a map.
-                    Notes are coloured in the mix of ₹100 and larger banknotes in circulation each March, by number, from the RBI{"'"}s{" "}
+                    {view === "machines"
+                        ? "On both sides, each machine icon stands for 10,000 machines, and each hand icon for 50 lakh withdrawals in the month."
+                        : "On both sides, each hand icon stands for 50 lakh withdrawals in the month, and each note icon for ₹2,500 crore withdrawn in the month."}
+                    {" "}Micro-ATMs are the handheld machines banking agents carry. The icons fill from one corner only to show size; it is not a map.
+                    The notes are coloured in the mix of ₹100 and larger banknotes in circulation each March, by number, from the RBI{"'"}s{" "}
                     {LATEST_NOTES ? <a href={LATEST_NOTES.url}>Annual Report</a> : "Annual Report"}: ₹500 green, ₹200 turmeric,
                     ₹100 lavender, ₹2,000 pink. The RBI does not publish which notes the machines pay out.
                 </p>
@@ -245,9 +259,9 @@ export const RainStage = ({ children } : { children : ReactNode }) => {
                     <span className="rain-row is-upi"><i className="key-tick" aria-hidden="true">✓</i><b>{fmt(PAY.upi.volume[p.m])}</b> crore payments</span>
                     <span className="rain-row"><i className="key-hand" aria-hidden="true" /><b>{Math.round(PAY.upi.volume[p.m] / USERS[p.m])}</b> payments a user, a month</span>
                     <span className="rain-key">
-                        Each hand is {USERS_PER_HAND * 100} lakh UPI users: unique users onboarded, as NPCI counts them (not monthly active
+                        Each hand stands for {USERS_PER_HAND * 100} lakh UPI users: unique users onboarded, as NPCI counts them (not monthly active
                         users), from PIB, RBI and Parliament at eight dates; *between them, a straight line, and after
-                        {" "}{monthName(USER_POINTS[USER_POINTS.length - 1].month)}, the latest count held. Each green flash is {PER_FLASH} crore{" "}
+                        {" "}{monthName(USER_POINTS[USER_POINTS.length - 1].month)}, the latest count held. Each green flash stands for {PER_FLASH} crore{" "}
                         payments. The grid fills from one corner only to show growth; it is not a map. About{" "}
                         {NEARLY.toLocaleString("en-IN")} payments in a blink is from {monthName(PAY_MONTHS[LAST])}: {fmt(PAY.upi.volume[LAST])} crore payments over{" "}
                         {daysIn(PAY_MONTHS[LAST])} days is about {Math.round(PER_SECOND).toLocaleString("en-IN")} a second, or{" "}
