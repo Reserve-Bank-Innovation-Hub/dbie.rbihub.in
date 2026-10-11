@@ -14,6 +14,7 @@ import { type Band, mountRainScene } from "./rainScene";
 
 // DATA ================================================================================================================
 import { MACHINES, NOTE_YEARS, PAY, PAY_MONTHS, USERS, USER_POINTS } from "./data.gen";
+import { eventsFor, type StepEvent } from "./record";
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const NO_GL = "This 3D scene needs WebGL, which this browser has turned off.";
@@ -77,11 +78,28 @@ const useMonthPlayer = (mount : (canvas : HTMLCanvasElement, cb : { onMonth : (m
     return { ref, failed, m, playing, toggle, seek };
 };
 
-const TimeBar = ({ m, playing, toggle, seek } : { m : number; playing : boolean; toggle : () => void; seek : (i : number) => void }) => (
+// THE RECORD ==========================================================================================================
+// The latest event the months have reached, under the readout: its number, month and what the record says.
+export const EventNow = ({ events, m } : { events : StepEvent[]; m : number }) => {
+    const e = [ ...events ].reverse().find(x => x.k <= m);
+    return (
+        <p className={`event-now ${e ? "is-shown" : ""}`} aria-live="polite">
+            {e && <><i>{e.n}</i><b>{monthName(e.month)}</b> {e.note} <a href={e.url}>Source</a></>}
+        </p>
+    );
+};
+
+const TimeBar = ({ m, playing, toggle, seek, events } : { m : number; playing : boolean; toggle : () => void; seek : (i : number) => void; events? : StepEvent[] }) => (
     <div className="rain-time">
         <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play the months"}>{playing ? "❚❚" : "▶"}</button>
-        <input type="range" min={0} max={LAST} step={1} value={m} aria-label="Month" aria-valuetext={monthName(PAY_MONTHS[m])}
-            onChange={e => seek(+e.target.value)} />
+        <div className="time-track">
+            <input type="range" min={0} max={LAST} step={1} value={m} aria-label="Month" aria-valuetext={monthName(PAY_MONTHS[m])}
+                onChange={e => seek(+e.target.value)} />
+            {(events ?? []).map(e => (
+                <button key={e.n} type="button" className={`time-tick ${e.k <= m ? "is-passed" : ""}`} style={{ left : `${e.k / LAST * 100}%` }}
+                    title={`${monthName(e.month)}: ${e.label}`} aria-label={`Go to ${monthName(e.month)}: ${e.label}`} onClick={() => seek(e.k)}>{e.n}</button>
+            ))}
+        </div>
         <span className="rain-years"><span>{PAY_MONTHS[0].slice(0, 4)}</span><span>{PAY_MONTHS[LAST].slice(0, 4)}</span></span>
     </div>
 );
@@ -132,6 +150,7 @@ const VIEWS : Record<"machines" | "value", { left : GridHalf; right : GridHalf }
 const FIT_MAX = Math.max(...Object.values(VIEWS).flatMap(v => [ v.left, v.right ]).flatMap(h => [ ...h.top.cells, ...h.bottom.cells ]));
 
 export const GridsStage = ({ view, children } : { view : "machines" | "value"; children : ReactNode }) => {
+    const events = eventsFor(view === "machines" ? "machines" : "cash");
     const p = useMonthPlayer((canvas, cb) => mountGridsScene(canvas, { reduced : cb.reduced, ...VIEWS[view], fitMax : FIT_MAX, noteMix : NOTE_MIX, onMonth : cb.onMonth, onEnd : cb.onEnd }));
     const ym = PAY_MONTHS[p.m];
     const atmDay = perDay(PAY.atm.volume[p.m], MACHINES.atm[p.m], ym), microDay = perDay(PAY.micro.volume[p.m], MACHINES.micro[p.m], ym);
@@ -146,13 +165,16 @@ export const GridsStage = ({ view, children } : { view : "machines" | "value"; c
                 <canvas ref={p.ref} role="img" aria-label={label} />
             </div>
             <div className="grids-foot">
-                <p className="grids-readout">
-                    <b>{monthName(ym)}</b>
-                    {view === "machines"
-                        ? <>An ATM: about {Math.round(atmDay)} withdrawals a day. A micro-ATM: about {microDay.toFixed(1)}.</>
-                        : <>The average withdrawal: ₹{fmt(atmAvg)} at an ATM, ₹{fmt(microAvg)} at a micro-ATM.</>}
-                </p>
-                <TimeBar {...p} />
+                <div className="grids-now">
+                    <p className="grids-readout">
+                        <b>{monthName(ym)}</b>
+                        {view === "machines"
+                            ? <>An ATM: about {Math.round(atmDay)} withdrawals a day. A micro-ATM: about {microDay.toFixed(1)}.</>
+                            : <>The average withdrawal: ₹{fmt(atmAvg)} at an ATM, ₹{fmt(microAvg)} at a micro-ATM.</>}
+                    </p>
+                    <EventNow events={events} m={p.m} />
+                </div>
+                <TimeBar {...p} events={events} />
                 <p className="grids-key">
                     Each square, on both sides: {view === "machines" ? "10,000 machines, or 50 lakh withdrawals in the month" : "50 lakh withdrawals, or ₹2,500 crore withdrawn, in the month"}.
                     Micro-ATMs are the handheld machines banking agents carry. Squares fill from one corner only to show size; it is not a map.
@@ -180,6 +202,8 @@ const NEARLY = Math.ceil(PER_BLINK / 1000) * 1000;
 
 const SIGN = `~${NEARLY.toLocaleString("en-IN")} UPI payments were made while you blinked`;
 const CAPTION = `Nearly ${NEARLY.toLocaleString("en-IN")} UPI payments are made in the time it takes you to blink.`;
+
+const RAIN_EVENTS = eventsFor("rain");
 
 export const RainStage = ({ children } : { children : ReactNode }) => {
     // after the LED sign, its message as a full sentence in plain type on a band over the wall's middle rows
@@ -214,8 +238,9 @@ export const RainStage = ({ children } : { children : ReactNode }) => {
                         {daysIn(PAY_MONTHS[LAST])} days is about {Math.round(PER_SECOND).toLocaleString("en-IN")} a second, or{" "}
                         {Math.round(PER_BLINK).toLocaleString("en-IN")} in a blink of a third of a second.
                     </span>
+                    <EventNow events={RAIN_EVENTS} m={p.m} />
                 </Readout>
-                <TimeBar {...p} />
+                <TimeBar {...p} events={RAIN_EVENTS} />
             </aside>
         </div>
     );

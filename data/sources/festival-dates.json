@@ -1,0 +1,117 @@
+{
+ "about": "Dates of Deepavali (Diwali) and Dussehra (Vijaya Dashami) as gazetted for Central Government offices (DoPT holiday lists), used by data/processors/story-cash-didnt-die.mjs to measure the cash drawn in the festive weeks. Each year's dates were read from that year's DoPT office memorandum (Annexure-I, central offices in Delhi/New Delhi) on 11-10-2026. The memoranda let offices in some states keep the Diwali holiday on Naraka Chaturdasi instead, usually the day before; the central date is used.",
+ "years": [
+  {
+   "year": 2012,
+   "diwali": "2012-11-13",
+   "dussehra": "2012-10-24",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/3/2011-JCA-2 dated 27-06-2011, Holidays to be observed in Central Government Offices during the year 2012",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_3_2011-JCA-2-1.pdf"
+  },
+  {
+   "year": 2013,
+   "diwali": "2013-11-03",
+   "dussehra": "2013-10-13",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/4/2012-JCA-2 dated 05-06-2012, Holidays to be observed in Central Government Offices during the year 2013",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_4_2012-JCA-2.pdf"
+  },
+  {
+   "year": 2014,
+   "diwali": "2014-10-23",
+   "dussehra": "2014-10-03",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/5/2013-JCA-2 dated 11-06-2013, Holidays to be observed in Central Government Offices during the year 2014",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_5_2013-JCA-2-11062013.pdf"
+  },
+  {
+   "year": 2015,
+   "diwali": "2015-11-11",
+   "dussehra": "2015-10-22",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/5/2014-JCA-2 dated 06-06-2014, Holidays to be observed in Central Government Offices during the year 2015",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_5_2014_JCA_2-06062014.pdf"
+  },
+  {
+   "year": 2016,
+   "diwali": "2016-10-30",
+   "dussehra": "2016-10-11",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/7/2015-JCA-2 dated 11-06-2015, Holidays to be observed in Central Government Offices during the year 2016",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_7_2015-JCA-2-11062015.pdf"
+  },
+  {
+   "year": 2017,
+   "diwali": "2017-10-19",
+   "dussehra": "2017-09-30",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/8/2016-JCA-2 dated 24-06-2016, Holidays to be observed in Central Government Offices during the year 2017",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_8_2016-JCA-2-24062016.pdf"
+  },
+  {
+   "year": 2018,
+   "diwali": "2018-11-07",
+   "dussehra": "2018-10-19",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/3/2017-JCA-2 dated 14-06-2017, Holidays to be observed in Central Government Offices during the year 2018",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/12_3_2017-JCA-2-14062017.pdf"
+  },
+  {
+   "year": 2019,
+   "diwali": "2019-10-27",
+   "dussehra": "2019-10-08",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/2/2018-JCA-2 dated 11-07-2018, Holidays to be observed in Central Government Offices during the year 2019",
+   "url": "https://dopt.gov.in/sites/default/files/holiday%20list%202019%202_1.pdf"
+  },
+  {
+   "year": 2020,
+   "diwali": "2020-11-14",
+   "dussehra": "2020-10-25",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/1/2019-JCA-2 dated 18-06-2019, Holidays to be observed in Central Government Offices during the year 2020",
+   "url": "https://dopt.gov.in/sites/default/files/Holiday%20list%202020.pdf"
+  },
+  {
+   "year": 2021,
+   "diwali": "2021-11-04",
+   "dussehra": "2021-10-15",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/9/2020-JCA-2 dated 10-06-2020, Holidays to be observed in Central Government Offices during the year 2021",
+   "url": "https://dopt.gov.in/sites/default/files/Holiday%20list%20%281%29.pdf"
+  },
+  {
+   "year": 2022,
+   "diwali": "2022-10-24",
+   "dussehra": "2022-10-05",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/5/2021-JCA-2 dated 08-06-2021, Holidays to be observed in Central Government Offices during the year 2022",
+   "url": "https://dopt.gov.in/sites/default/files/holiday%20list%202022..pdf"
+  },
+  {
+   "year": 2023,
+   "diwali": "2023-11-12",
+   "dussehra": "2023-10-24",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/5/2022-JCA dated 16-06-2022, Holidays to be observed in Central Government Offices during the year 2023",
+   "url": "https://documents.doptcirculars.nic.in/D2/D02est/Naresh_NIC_1_20220616164953373JH62n.pdf"
+  },
+  {
+   "year": 2024,
+   "diwali": "2024-10-31",
+   "dussehra": "2024-10-12",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/2/2023-JCA dated 03-07-2023, Holidays to be observed in Central Government Offices during the year 2024",
+   "url": "https://dopt.gov.in/sites/default/files/Holiday%20to%20be%20observed%20in%20Central%20government%20offices%20during%20the%20year%202024.PDF"
+  },
+  {
+   "year": 2025,
+   "diwali": "2025-10-20",
+   "dussehra": "2025-10-02",
+   "verified": true,
+   "source_title": "DoPT OM F.No.12/2/2023-JCA dated 09-07-2024, Holidays to be observed in Central Government Offices during the year 2025",
+   "url": "https://dopt.gov.in/sites/default/files/List%20of%20holidays%202025.pdf"
+  }
+ ]
+}

@@ -4,14 +4,18 @@
 //   payment system indicators, new format (report 612)   monthly from November 2019: UPI, card payments, cash
 //                                                        withdrawals at ATMs and at micro-ATMs (village banking agents)
 //   RMC_M_RN    reserve money components, monthly      currency in circulation (COM11), from 1991
+//   RMC_W_RN    reserve money components, weekly       currency in circulation (COM11), Fridays, from 2001
 //   AMAGG_RN    average monetary aggregates, yearly    currency with the public (CMS1101101), financial-year average
 //   MACRO_ECN_AGG_RN  macro-economic aggregates        nominal GDP, 2011-12 base (NII_GDP, current prices)
 //   MONTRY_RATIOS_RN  monetary ratios                  GDP ÷ currency with the public as the Reserve Bank prints it,
 //                                                       read only to check the ratio computed here
 //
-// Two inputs are not on DBIE: data/sources/banknotes-by-denomination.json, the banknotes in circulation by denomination
+// Four inputs are not on DBIE: data/sources/banknotes-by-denomination.json, the banknotes in circulation by denomination
 // from the Reserve Bank's Annual Reports, used when present; and data/sources/upi-users.json, the unique UPI users at
 // the few dates official documents give them (PIB, RBI, Parliament), interpolated month by month.
+// data/sources/festival-dates.json holds the gazetted dates of Diwali and Dussehra, for the festive weeks.
+// A fourth, data/sources/cash-events.json, is the official record of what changed around each series (RBI and Government
+// of India documents), marked on the story's steps.
 //
 // Writes data/processors/out/story-cash-didnt-die.json (the oracle), src/app/stories/cash-didnt-die/data.gen.ts and
 // the downloads under public/stories/cash-didnt-die/. It fails, writing nothing, if a check does not hold.
@@ -32,6 +36,8 @@ const MONETARY  = path.join(REPO, 'data/sdmx/financial-sector/monetary-statistic
 const GDP_FILE  = path.join(REPO, 'data/sdmx/real-sector/national-income/macro-economic-aggregates.csv');
 const NOTES     = path.join(REPO, 'data/sources/banknotes-by-denomination.json');
 const USERS_SRC = path.join(REPO, 'data/sources/upi-users.json');
+const EVENTS_SRC = path.join(REPO, 'data/sources/cash-events.json');
+const FEST_SRC = path.join(REPO, 'data/sources/festival-dates.json');
 
 const errors = [];
 const check = (cond, msg) => { if (!cond) errors.push(msg); };
@@ -187,9 +193,53 @@ const USERS_HELD = PAY_MONTHS.find(m => ymIndex(m) > ymIndex(lastPoint)) ?? null
 // payments per user a month, the first month and the last sourced one
 HEADLINE.perUser = { from : r1(PAY.upi.volume[0] / USERS[0]), fromMonth : PAY_MONTHS[0], to : r1(PAY.upi.volume[PAY_MONTHS.indexOf(lastPoint)] / USERS[PAY_MONTHS.indexOf(lastPoint)]), toMonth : lastPoint };
 
+// The festive weeks: currency in circulation every week (RMC_W_RN, COM11, Fridays), and the cash drawn in the three
+// weeks up to the week of Diwali (the gazetted date, data/sources/festival-dates.json), over and above that year's
+// normal pace: the average weekly growth over the 52 weeks ending ten weeks before. Then the four weeks after. 2016
+// (demonetisation), 2017 (the refill after it) and 2020 (the pandemic) are left out. The path is the average, across those years, of the cumulative
+// growth above the normal pace from six weeks before to six weeks after.
+const weekRows = objects(path.join(MONETARY, 'reserve-money-components-weekly.csv')).filter(r => r.COMP_RN === 'COM11')
+    .map(r => ({ date : r.TIME_PERIOD, crore : num(r.OBS_VALUE) / 1e7 })).filter(r => r.crore > 0).sort((a, b) => a.date.localeCompare(b.date));
+check(weekRows.length > 1000 && weekRows[weekRows.length - 1].date >= '2025-01-01', `weekly cash: ${weekRows.length} weeks to ${weekRows[weekRows.length - 1]?.date}`);
+const FEST_LEFT_OUT = [ 2016, 2017, 2020 ];   // demonetisation, the refill after it, the pandemic
+const fest = JSON.parse(fs.readFileSync(FEST_SRC, 'utf8')).years;
+for (const f of fest) check(f.verified && /^https:\/\/(www\.)?(dopt\.gov\.in|documents\.doptcirculars\.nic\.in)\//.test(f.url ?? ''), `festival dates ${f.year}: not read from a DoPT holiday list`);
+const wk = weekRows.map(r => r.crore), wkDate = weekRows.map(r => r.date);
+const FESTIVE_YEARS = fest.filter(f => !FEST_LEFT_OUT.includes(f.year)).map(f => {
+    const i = wkDate.findIndex(d => d >= f.diwali);
+    if (i < 62 || i + 6 >= wk.length) return null;
+    const norm = (wk[i - 10] / wk[i - 62] - 1) / 52 * 100;               // % a week
+    return {
+        year : f.year, diwali : f.diwali, week : wkDate[i], verified : !!f.verified,
+        before : r2((wk[i] / wk[i - 3] - 1) * 100 - 3 * norm), crore : Math.round(wk[i] - wk[i - 3]),
+        after : r2((wk[i + 4] / wk[i] - 1) * 100 - 4 * norm),
+        path : Array.from({ length : 13 }, (_, j) => j - 6).map(t => (wk[i + t] / wk[i - 6] - 1) * 100 - (t + 6) * norm),
+    };
+}).filter(Boolean);
+check(FESTIVE_YEARS.length >= 10, `festive weeks: only ${FESTIVE_YEARS.length} years`);
+const FESTIVE = {
+    years : FESTIVE_YEARS.map(({ path : _p, ...y }) => y),
+    path : Array.from({ length : 13 }, (_, j) => r2(FESTIVE_YEARS.reduce((a, y) => a + y.path[j], 0) / FESTIVE_YEARS.length)),
+    leftOut : FEST_LEFT_OUT, lastWeek : wkDate[wkDate.length - 1],
+};
+
+// The official record of what changed around each series, marked on the steps: data/sources/cash-events.json. Each
+// event must name a step, fall in a month the step's series covers (or be a pattern with no month), and come from an
+// official site.
+const SLIDES = [ 'refill', 'rain', 'card', 'small', 'tide', 'season', 'machines', 'cash', 'notes' ];
+const EVENTS = JSON.parse(fs.readFileSync(EVENTS_SRC, 'utf8')).events.map(e => ({ slide : e.slide, month : e.month, label : e.label, note : e.note, source : e.source_title, url : e.url }));
+for (const e of EVENTS) {
+    check(SLIDES.includes(e.slide), `events: ${e.label}: unknown step ${e.slide}`);
+    check(e.slide === 'season' ? e.month === null : /^\d{4}-(0[1-9]|1[0-2])$/.test(e.month), `events: ${e.label}: month ${e.month} (a seasonal pattern has none; every other event has one)`);
+    check(e.label && e.note && e.source, `events: ${e.month} needs a label, a note and a source`);
+    check(/^https:\/\/(www\.|static\.)?(rbi\.org\.in|pib\.gov\.in|mospi\.gov\.in|indiabudget\.gov\.in|sansad\.in)\//i.test(e.url), `events: ${e.label}: ${e.url} is not an official site`);
+    if ([ 'rain', 'card', 'small', 'machines', 'cash' ].includes(e.slide)) check(PAY_MONTHS.includes(e.month), `events: ${e.label}: ${e.month} is outside the payments months`);
+    if (e.slide === 'refill') check(CIC_MONTHS.includes(e.month), `events: ${e.label}: ${e.month} is outside the cash months`);
+}
+
 // ── write ─────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-const out = { HEADLINE, PAY_MONTHS, PAY, MACHINES, CIC_MONTHS, CIC, TIDE_FYS, TIDE, STOCK, NOTE_YEARS, USER_POINTS, USERS, USERS_HELD };
+const out = { HEADLINE, PAY_MONTHS, PAY, MACHINES, CIC_MONTHS, CIC, TIDE_FYS, TIDE, STOCK, NOTE_YEARS, USER_POINTS, USERS, USERS_HELD, EVENTS, FESTIVE };
 fs.mkdirSync(OUT_DIR, { recursive : true });
 fs.writeFileSync(path.join(OUT_DIR, `${NAME}.json`), JSON.stringify(out, null, 1));
 
@@ -225,6 +275,13 @@ const GEN = [
     `export const USER_POINTS : { month : string; users : number; approximate : boolean; source : string; url : string }[] = ${ts(USER_POINTS)};`,
     `export const USERS : number[] = ${ts(USERS)};`,
     `export const USERS_HELD : string | null = ${ts(USERS_HELD)};`,
+    '',
+    '// The festive weeks: cash drawn in the three weeks up to Diwali week above the year\'s normal pace (%), the change in ₹ crore,',
+    '// the four weeks after (%), and the average path from six weeks before to six after (cumulative %, above the normal pace).',
+    `export const FESTIVE : { years : { year : number; diwali : string; week : string; verified : boolean; before : number; crore : number; after : number }[]; path : number[]; leftOut : number[]; lastWeek : string } = ${ts(FESTIVE)};`,
+    '',
+    '// What changed around each series, from official documents (data/sources/cash-events.json), by the step they are shown on.',
+    `export const EVENTS : { slide : string; month : string | null; label : string; note : string; source : string; url : string }[] = ${ts(EVENTS)};`,
     '',
 ].join('\n');
 const genPath = path.join(REPO, `src/app/stories/${SLUG}/data.gen.ts`);
