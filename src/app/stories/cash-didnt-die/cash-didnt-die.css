@@ -205,6 +205,61 @@
         .rain-time     { position : static; transform : none; width : auto; }
     }
 
+    /* THE GUESS AND THE TIDE ========================================================================================== */
+    /* Flat steps in the split layout: the picture on the left, the words on the right. */
+    .rain.is-step { background : var(--kosh-ivory); }
+    .split-card a { color : var(--accent); }
+    .step-note { color : var(--ink-soft); font-size : 12px; line-height : 1.45; margin-top : 4px; }
+    .guess-stage, .tide-stage { svg { display : block; overflow : visible; } }
+    .pile-note {
+        fill : #cfdcaa; stroke : #6b8e23; stroke-width : 1;
+        opacity : 0; transform : translateY(-24px); transform-box : fill-box;
+        transition : opacity 0.35s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        &.is-up { opacity : 1; transform : none; }
+    }
+    .guess-mark { font : 600 72px var(--font-serif, serif); fill : color-mix(in oklch, #2f2f2f, transparent 75%); }
+    .guess-floor { stroke : color-mix(in oklch, #2f2f2f, transparent 80%); stroke-width : 1; }
+    .guess-label text { font : 600 14px var(--font-sans-serif); fill : var(--ink); }
+    .guess-label .guess-value { font-weight : 500; fill : var(--ink-soft); transition : opacity 0.6s 0.8s; &.is-hidden { opacity : 0; transition : none; } }
+    .guess-choices {
+        display : flex; flex-wrap : wrap; gap : 8px;
+        button {
+            border : 0; border-radius : 999px; padding : 10px 18px; cursor : pointer;
+            font : 600 14px var(--font-sans-serif); color : var(--ink);
+            background : #ffffff; box-shadow : 0 0 0 1px color-mix(in oklch, #2f2f2f, transparent 82%);
+            transition : background 0.2s, color 0.2s;
+            &:hover { box-shadow : 0 0 0 1px var(--accent); }
+            &.is-on { background : var(--accent); color : #ffffff; box-shadow : none; }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+    }
+    .guess-answer {
+        margin : 0; min-height : 4.5em; font : 400 16px / 1.5 var(--font-serif, serif); color : var(--ink);
+        opacity : 0; transform : translateY(8px); transition : opacity 0.5s 0.3s, transform 0.5s 0.3s;
+        &.is-shown { opacity : 1; transform : none; }
+        b { color : var(--accent); }
+    }
+    .tide-grid line { stroke : color-mix(in oklch, #2f2f2f, transparent 88%); }
+    .tide-grid text, .tide-year { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); }
+    .tide-area { fill : url(#tide-fill); }
+    .tide-line { fill : none; stroke : #864fe3; stroke-width : 2.5; stroke-linejoin : round; }
+    .tide-wipe { transform : scaleX(0); transform-origin : left; transform-box : fill-box; transition : transform 2.4s cubic-bezier(0.45, 0, 0.25, 1); &.is-drawn { transform : none; } }
+    .tide-mark {
+        opacity : 0; transition : opacity 0.6s;
+        &.is-shown { opacity : 1; }
+        circle { fill : #864fe3; }
+        text { font : 600 13px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : #f2f0e6; stroke-width : 4px; stroke-linejoin : round; }
+        &.is-ebb circle { fill : var(--accent); }
+        &.is-ebb text { fill : var(--accent); }
+        .tide-sub { font-weight : 500; fill : var(--ink-soft); }
+    }
+    .tide-pulse { fill : none !important; stroke : var(--accent); stroke-width : 2; transform-box : fill-box; transform-origin : center; animation : tide-pulse 2s ease-out infinite; }
+    @keyframes tide-pulse { from { transform : scale(1); opacity : 0.8; } to { transform : scale(3.2); opacity : 0; } }
+    @media (prefers-reduced-motion : reduce) {
+        .pile-note, .tide-wipe, .guess-answer { transition : none; }
+        .tide-pulse { animation : none; }
+    }
+
     /* THE GRIDS ======================================================================================================= */
     /* ATMs and micro-ATMs side by side: the words above, the two halves of squares filling the middle, the month, the
        slider and the key below. */
@@ -251,6 +306,15 @@
         .opening.is-intro .hero::before { opacity : 0; }    /* the wash comes in with the words, not over the opening */
         .rain-words { top : 3vh; }
         .rain.is-grids { height : 100svh; overflow : hidden; padding : 0; }
+        /* the guess and the tide fit one screen: the words and the choices first, the picture below them */
+        .rain.is-step { height : 100svh; overflow : hidden; padding : 2vh 0 1vh; }
+        .rain.is-step .split { height : 100%; grid-template-rows : auto minmax(0, 1fr); align-content : stretch; gap : 10px; }
+        .rain.is-step .split-card { display : flex; flex-direction : column; gap : 6px; padding : 0; background : none; box-shadow : none; order : 1; }
+        .rain.is-step .split-card > * { order : 0; }
+        .rain.is-step .split-stage { height : auto; min-height : 0; order : 2; align-self : stretch; }
+        .rain.is-step .step-note { display : none; }
+        .guess-choices button { padding : 8px 14px; font-size : 13px; }
+        .guess-answer { min-height : 6em; font-size : 14px; }   /* room kept for the answer, so the piles do not move when it comes */
         .grids { padding : 3vh 16px 2vh; gap : 10px; }
         /* the month-by-month steps stack on a phone: words, the scene, the readout, the slider */
         .rain { height : auto; overflow : visible; padding : 24px 0 32px; }
@@ -265,4 +329,11 @@
         .rain-readout { position : static; width : auto; margin : 0 16px; background : none; backdrop-filter : none; padding : 8px 0 0; }
         .rain-time { position : static; transform : none; width : auto; margin : 12px 16px 0; }
     }
+}
+
+/* On a touch screen the story snaps a slide at a time (paging.ts sets the attribute while the story is open); a mouse,
+   a trackpad and the keys are paged by script instead, which the snap would fight. */
+@media (pointer : coarse) {
+    html[data-story-snap] { scroll-snap-type : y mandatory; }
+    html[data-story-snap] #cash-didnt-die-page [data-slide] { scroll-snap-align : start; }
 }
