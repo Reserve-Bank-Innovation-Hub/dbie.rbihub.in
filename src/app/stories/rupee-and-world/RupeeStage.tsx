@@ -715,15 +715,17 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
         if (cfg && px >= F.chart.x0 - 6 && px <= F.chart.x1 + 6 && py >= F.chart.y0 - 30 && py <= F.chart.y1 + 20) {
             const m = Math.max(cfg.from, Math.min(N - 1, Math.round(cfg.from + (px - F.chart.x0) / (F.chart.x1 - F.chart.x0) * (N - 1 - cfg.from))));
             setHoverMonth(m);
+            // the box sits by the highest of the month's points, not wherever the pointer is
             setTip({
-                x : xAt(cfg, F, m), y : py, head : monthName(MONTHS[m]),
+                x : xAt(cfg, F, m), y : Math.min(...cfg.on.map(l => yAt(cfg, F, valueOf(cfg, l)[m]))), head : monthName(MONTHS[m]),
                 lines : cfg.on.map(l => `${labelOf(cfg, l)}: ${fmt(cfg, valueOf(cfg, l)[m], l)}${cfg.unit === "cost" && RBI_INDEX[l] ? ` (RBI index ${RBI_INDEX[l]![m].toFixed(1)})` : ""}`),
             });
             return;
         }
         setTip(null); setHoverMonth(null);
     };
-    const onLeave = () => { clearTimeout(letGo.current); setTip(null); setHoverCode(null); setHoverMonth(null); };
+    // a finger's tap or drag reads the chart too, and its reading stays when the finger lifts
+    const onLeave = (e : RPointerEvent<HTMLDivElement>) => { if (e.pointerType !== "mouse") return; clearTimeout(letGo.current); setTip(null); setHoverCode(null); setHoverMonth(null); };
 
     // ---- the overlay -----------------------------------------------------------------------------------------------------
     // The chart's furniture stays drawn for the last chart scene while the stage turns back into the globe, so it can
@@ -817,7 +819,7 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
     const guessLevel = guess ?? 0;
 
     return (
-        <div ref={wrapRef} className={`rupee-stage scene-${scene}`} onPointerMove={onPointer} onPointerLeave={onLeave} role="img" aria-label={DESCRIBE[scene]}>
+        <div ref={wrapRef} className={`rupee-stage scene-${scene}`} onPointerMove={onPointer} onPointerDown={onPointer} onPointerLeave={onLeave} role="img" aria-label={DESCRIBE[scene]}>
             <canvas ref={canvasRef} />
 
             {/* THE BASKET OF CURRENCIES, BOUGHT IN 2004 AND IN 2026 */}
@@ -884,7 +886,11 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
                             </g>
                         )}
                         {hoverMonth !== null && cfg && openEvent === null && (
-                            <line className="crosshair" x1={xAt(cfg, CF, hoverMonth)} x2={xAt(cfg, CF, hoverMonth)} y1={CF.chart.y0 - 10} y2={CF.chart.y1} />
+                            <g className="readout">
+                                <line className="crosshair" x1={xAt(cfg, CF, hoverMonth)} x2={xAt(cfg, CF, hoverMonth)} y1={CF.chart.y0 - 10} y2={CF.chart.y1} />
+                                {/* a dot on each line at the month */}
+                                {cfg.on.map(l => <circle key={l} className="hair-dot" cx={xAt(cfg, CF, hoverMonth)} cy={yAt(cfg, CF, valueOf(cfg, l)[hoverMonth])} r={5} fill={cssOf(pal.line[l])} />)}
+                            </g>
                         )}
                         {/* the dollar against the basket: the space between the two shaded by which cost more, where
                             they last crossed, and the gap now */}
@@ -997,7 +1003,7 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             )}
 
             {tip && openEvent === null && (
-                <div className="stage-tip" style={{ transform : `translate(${Math.min(tip.x + 14, size.w - 250)}px, ${Math.max(8, tip.y - 70)}px)` }}>
+                <div className="stage-tip" style={{ transform : `translate(${Math.max(8, Math.min(tip.x + 14, size.w - 270))}px, ${Math.max(8, tip.y - (scene === "basket" ? 70 : 24 + 18 * tip.lines.length))}px)` }}>
                     <strong>{tip.head}</strong>
                     {tip.lines.map(l => <span key={l}>{l}</span>)}
                 </div>

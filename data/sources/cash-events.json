@@ -1,0 +1,340 @@
+{
+ "about": "Events marked on the steps of the story 'Cash didn't die' (src/app/stories/cash-didnt-die): the official record of what changed around each series. Each is from a Reserve Bank of India or Government of India document, opened and read on 11-10-2026; 'quote' is copied from it, and 'note' says only what the source says. 'slide' names the step it is shown on; 'strength' is 'direct' where the source speaks to the change itself and 'contextual' where it records a policy or event around it. data/processors/story-cash-didnt-die.mjs checks each month and each link.",
+ "events": [
+  {
+   "slide": "card",
+   "month": "2022-06",
+   "label": "Credit cards linked to UPI",
+   "note": "RBI proposed letting credit cards be linked to UPI, starting with RuPay credit cards; until then UPI drew on savings and current accounts.",
+   "source_title": "Statement on Developmental and Regulatory Policies, RBI, 08-06-2022",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53831",
+   "quote": "In order to further deepen the reach and usage, it is proposed to allow linking of credit cards to UPI. To start with Rupay credit cards will be enabled with this facility.",
+   "strength": "contextual"
+  },
+  {
+   "slide": "card",
+   "month": "2026-05",
+   "label": "RBI links debit decline to UPI",
+   "note": "RBI reported that debit card payments fell from 408.7 crore in 2021 to 133.6 crore in 2025. It said the decline is potentially driven by digital wallets, UPI and credit cards.",
+   "source_title": "Payment Systems Report, December 2025, RBI, 18-05-2026",
+   "url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23813",
+   "quote": "While the decline in debit card transactions, both in volume and value, is potentially driven by the rise of digital wallets, UPI, and credit card adoption, debit cards remain more widely held than credit cards.",
+   "strength": "direct"
+  },
+  {
+   "slide": "cash",
+   "month": "2021-06",
+   "label": "ATM fees revised",
+   "note": "The RBI raised the ATM interchange fee to ₹17 a cash withdrawal from 01-08-2021, and let banks raise the charge beyond the free transactions to ₹21 from 01-01-2022. The free monthly allowance stayed at five at a customer's own bank's ATMs, and three in metro and five in non-metro centres at other banks' ATMs.",
+   "source_title": "Usage of Automated Teller Machines / Cash Recycler Machines – Review of Interchange Fee and Customer Charges (RBI/2021-22/52), Reserve Bank of India, 10-06-2021",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12111",
+   "quote": "Allow increase in interchange fee per transaction from ₹15 to ₹17 for financial transactions and from ₹5 to ₹6 for non-financial transactions in all centres. This shall be effective from August 1, 2021.",
+   "strength": "direct"
+  },
+  {
+   "slide": "cash",
+   "month": "2025-04",
+   "label": "ATMs to dispense ₹100, ₹200",
+   "note": "The RBI directed banks and white-label ATM operators to make ATMs dispense ₹100 and ₹200 notes regularly: 75% of ATMs from at least one cassette by 30-09-2025, 90% by 31-03-2026.",
+   "source_title": "Dispensation of ₹100 and ₹200 denomination banknotes through ATMs (RBI/2025-26/33), Reserve Bank of India, 28-04-2025",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12844",
+   "quote": "all banks and White Label ATM Operators (WLAOs) shall ensure that their ATMs dispense ₹100 and ₹200 denomination banknotes on a regular basis as per following milestones: By September 30, 2025: 75% of all ATMs shall dispense either ₹100 or ₹200 denomination banknotes from at least one cassette.",
+   "strength": "direct"
+  },
+  {
+   "slide": "cash",
+   "month": "2025-05",
+   "label": "ATM charge cap ₹23",
+   "note": "From 01-05-2025 a withdrawal beyond the free ones may cost at most ₹23, and the interchange fee is left to the ATM network. The free monthly allowance did not change.",
+   "source_title": "Usage of Automated Teller Machines / Cash Recycler Machines – Review of Interchange Fee and Customer Charges (updated as on 28-03-2025), Reserve Bank of India, 28-03-2025",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12111",
+   "quote": "The ATM interchange fee will be as decided by the ATM network. ... Beyond the free transactions, a customer may be charged a maximum fee of ₹23 per transaction. This shall be effective from May 01, 2025.",
+   "strength": "direct"
+  },
+  {
+   "slide": "machines",
+   "month": "2020-04",
+   "label": "PMGKY cash at BC points",
+   "note": "The RBI recorded that after the government announced cash benefits under the Pradhan Mantri Garib Kalyan Yojana, cash withdrawals at business correspondent points surged during COVID-19. Banks raised overdraft limits in BC settlement accounts and helped meet BCs' costs.",
+   "source_title": "Annual Report 2019-20, Chapter IV (Credit Delivery and Financial Inclusion), para IV.33, Reserve Bank of India, 25-08-2020",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1288",
+   "quote": "with announcement of disbursing cash benefits to beneficiaries by Government of India under Pradhan Mantri Garib Kalyan Yojana, operations at BC points, particularly cash withdrawals have witnessed significant surge.",
+   "strength": "contextual"
+  },
+  {
+   "slide": "machines",
+   "month": "2024-02",
+   "label": "AePS checks announced",
+   "note": "With more than 37 crore people having used AePS in 2023, the RBI proposed mandatory due diligence of AePS touchpoint operators by banks, along with additional fraud-risk requirements.",
+   "source_title": "Statement on Developmental and Regulatory Policies, para 4 (Enhancing the Robustness of AePS), Reserve Bank of India, 08-02-2024",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=57276",
+   "quote": "In 2023, more than 37 crore users undertook AePS transactions, which points to the important role played by AePS in financial inclusion. To enhance the security of AePS transactions, it is proposed to streamline the onboarding process, including mandatory due diligence, for AePS touchpoint operators, to be followed by banks.",
+   "strength": "direct"
+  },
+  {
+   "slide": "machines",
+   "month": "2025-06",
+   "label": "AePS operator directions issued",
+   "note": "Citing frauds through identity theft, the RBI told banks to carry out due diligence on every AePS touchpoint operator before onboarding them. The directions took effect on 01-01-2026.",
+   "source_title": "Aadhaar Enabled Payment System – Due Diligence of AePS Touchpoint Operators (RBI/2025-26/63), Reserve Bank of India, 27-06-2025",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12877",
+   "quote": "In recent times, there have been reports of frauds perpetuated through AePS due to identity theft or compromise of customer credentials. ... it has been decided to issue directions for streamlining the process for onboarding of AePS touchpoint operators and strengthening fraud risk management.",
+   "strength": "direct"
+  },
+  {
+   "slide": "machines",
+   "month": "2025-12",
+   "label": "Fewer BC outlets reported",
+   "note": "The RBI reported 14,77,594 BC outlets in December 2025, against 17,23,303 in December 2024. It attributed the fall to revised reporting by one public sector bank and some private banks realigning their BC networks.",
+   "source_title": "Annual Report 2025-26, Chapter IV (Credit Delivery and Financial Inclusion), notes to the financial inclusion table, Reserve Bank of India, 29-05-2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1464",
+   "quote": "the total number of BC Outlets (villages and urban locations) was reported as 17,23,303 ... for December 2024. The corresponding numbers as per MPFI return for December 2025 was 14,77,594. The decrease in number of BC outlets was on account of revised reporting by one public sector bank and realignment of BC network by some private sector banks.",
+   "strength": "contextual"
+  },
+  {
+   "slide": "notes",
+   "month": "2026-03",
+   "label": "₹500 is 85.5% of value",
+   "note": "At end-March 2026, ₹500 notes made up 85.5% of the value and 41.2% of the volume of banknotes in circulation. During 2025-26, the value of banknotes in circulation grew 11.9% and their volume grew 10.5%.",
+   "source_title": "Annual Report 2025-26, Chapter VIII (Currency Management), para VIII.9 and Table VIII.1, Reserve Bank of India, 29-05-2026",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1468",
+   "quote": "The value and volume of banknotes in circulation increased by 11.9 per cent and 10.5 per cent, respectively, during 2025-26 ( Table VIII.1 ). In volume terms, ₹500 denomination constituted the highest share of the total banknotes in circulation, followed by ₹10 denomination banknotes. [Table VIII.1, ₹500, 2026: 7,05,482 lakh pieces (41.2); ₹35,27,408 crore (85.5)]",
+   "strength": "direct"
+  },
+  {
+   "slide": "notes",
+   "month": "2026-04",
+   "label": "98.47% of ₹2,000 returned",
+   "note": "By 30-04-2026, ₹2,000 notes in circulation had fallen from ₹3.56 lakh crore (19-05-2023) to ₹5,451 crore, meaning 98.47% had come back. The notes remain legal tender.",
+   "source_title": "Withdrawal of ₹2000 Denomination Banknotes – Status (Press Release 2026-2027/190), Reserve Bank of India, 01-05-2026",
+   "url": "https://www.rbi.org.in/SCRIPTS/BS_ViewCurrencyPressRelease.aspx?Id=62669",
+   "quote": "The total value of ₹2000 banknotes in circulation, which was ₹3.56 lakh crore at the close of business on May 19, 2023, when the withdrawal of ₹2000 banknotes was announced, has declined to ₹5,451 crore at the close of business on April 30, 2026. Thus, 98.47% of the ₹2000 banknotes in circulation as on May 19, 2023, has since been returned.",
+   "strength": "direct"
+  },
+  {
+   "slide": "rain",
+   "month": "2020-01",
+   "label": "Zero MDR on UPI and RuPay",
+   "note": "From January 2020 the merchant discount rate on RuPay debit card and BHIM-UPI payments was set to zero by amending the Payments and Settlement Systems Act and the Income-tax Act.",
+   "source_title": "Cabinet approves Incentive scheme for promotion of low-value BHIM-UPI transactions (P2M), PIB (Ministry of Electronics & IT), 19-03-2025",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2112874",
+   "quote": "Since January 2020, to promote digital transactions, MDR was made zero for RuPay Debit Cards and BHIM-UPI transactions through amendments in section 10A in the Payments and Settlement Systems Act, 2007 and section 269SU of the Income-tax Act, 1961.",
+   "strength": "direct"
+  },
+  {
+   "slide": "rain",
+   "month": "2022-03",
+   "label": "UPI for feature phones",
+   "note": "RBI launched UPI123Pay so that feature-phone users could pay over UPI; it counted more than 40 crore feature-phone subscribers in the country.",
+   "source_title": "Reserve Bank of India launches (a) UPI for Feature Phones (UPI123pay) and (b) 24x7 Helpline for Digital Payments (DigiSaathi), RBI press release, 08-03-2022",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=53385",
+   "quote": "Considering that there are more than 40 crore feature phone mobile subscribers in the country, UPI123pay will materially improve the options for such users to access UPI.",
+   "strength": "contextual"
+  },
+  {
+   "slide": "rain",
+   "month": "2023-01",
+   "label": "Incentives for UPI merchant payments",
+   "note": "The Cabinet approved ₹2,600 crore for FY2022-23 to pay acquiring banks for RuPay debit card and low-value BHIM-UPI merchant payments, after concerns that zero MDR could slow digital payments.",
+   "source_title": "Cabinet approves the incentive scheme for promotion of RuPay Debit Cards and low-value BHIM-UPI transactions (P2M), PIB (Ministry of Electronics & IT), 11-01-2023",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1890314",
+   "quote": "the National Payments Corporation of India (NPCI) requested, among other things, for incentivisation of BHIM-UPI and RuPay Debit Card transactions to create a cost-effective value proposition for ecosystem stakeholders, increase merchant acceptance footprints and faster migration from cash payments to digital payments.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2016-12",
+   "label": "₹5.54 lakh crore of new notes",
+   "note": "Between 9-11-2016 and 31-12-2016 the RBI put 23.8 billion banknotes worth ₹5,540 billion into circulation. The RBI and the printing presses stepped up production and supply of new notes.",
+   "source_title": "Annual Report 2017-18, Chapter II: Economic Review, Reserve Bank of India, 29-08-2018",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1229",
+   "quote": "Between November 9, 2016 – the effective date of demonetisation – and December 31, 2016, the Reserve Bank pumped in 23.8 billion pieces of banknotes into circulation aggregating ₹5,540 billion in value.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2017-01",
+   "label": "ATM and current-account limits lifted",
+   "note": "The RBI withdrew cash-withdrawal limits on current, cash-credit and overdraft accounts with immediate effect, and limits on ATM withdrawals from 01-02-2017. Limits on savings accounts stayed in place.",
+   "source_title": "Limits on Cash withdrawals from Bank accounts and ATMs - Restoration of status quo ante (RBI/2016-17/217), Reserve Bank of India, 30-01-2017",
+   "url": "https://www.rbi.org.in/commonman/english/Scripts/Notification.aspx?Id=2091",
+   "quote": "Limits placed vide the circulars cited above on cash withdrawals from Current accounts/ Cash credit accounts/ Overdraft accounts stand withdrawn with immediate effect.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2017-03",
+   "label": "Savings withdrawal limits end",
+   "note": "After reviewing the pace of remonetisation, the RBI raised the savings-account withdrawal limit from ₹24,000 to ₹50,000 a week on 20-02-2017 and removed it altogether from 13-03-2017.",
+   "source_title": "Removal of limits on withdrawal of cash from Saving Bank Accounts (RBI/2016-17/224), Reserve Bank of India, 08-02-2017",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10856&Mode=0",
+   "quote": "Effective March 13, 2017, there will be no limits on cash withdrawals from Savings Bank accounts.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2017-06",
+   "label": "Back to 85 per cent",
+   "note": "The RBI and the presses stepped up production and supply of notes; by 30-06-2017 notes in circulation stood at ₹15.06 trillion, about 85 per cent of the 4-11-2016 level.",
+   "source_title": "Annual Report 2016-17, Chapter VIII: Currency Management, Reserve Bank of India, 30-08-2017",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1208",
+   "quote": "Reflecting these measures, total NiC increased rapidly to ₹15.06 trillion as on June 30, 2017, which was about 85 per cent of the NiC as on November 4, 2016.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2018-03",
+   "label": "Pre-demonetisation level passed",
+   "note": "The RBI says the pace of remonetisation quickened and currency in circulation went past its pre-demonetisation level in March 2018.",
+   "source_title": "Annual Report 2017-18, Chapter I: Assessment and Prospects, Reserve Bank of India, 29-08-2018",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1228",
+   "quote": "reserve money growth was driven primarily by the expansion of currency in circulation (CiC) as the pace of remonetisation quickened and eventually, the pre-demonetisation level of CiC was exceeded in March 2018.",
+   "strength": "direct"
+  },
+  {
+   "slide": "refill",
+   "month": "2018-08",
+   "label": "Old notes almost all returned",
+   "note": "After verification, ₹15,417.93 billion of the old ₹500 and ₹1,000 notes had been in circulation on 8-11-2016, and ₹15,310.73 billion of them came back.",
+   "source_title": "Annual Report 2017-18, Chapter XII: The Reserve Bank's Accounts for 2017-18, Reserve Bank of India, 29-08-2018",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1239",
+   "quote": "The total value of SBNs in circulation as on November 08, 2016, post verification and reconciliation, was ₹15,417.93 billion. The total value of SBNs returned from circulation is ₹15,310.73 billion.",
+   "strength": "direct"
+  },
+  {
+   "slide": "season",
+   "month": null,
+   "label": "Summer, weddings, sowing",
+   "note": "The RBI says currency demand rises in April-June with summer holidays, weddings, rabi procurement and kharif sowing, and that most of the year's variation happens in October-March.",
+   "source_title": "Annual Report 2019-20, Chapter II: Economic Review, Reserve Bank of India, 25-08-2020",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1286",
+   "quote": "CiC also exhibits seasonality across months/quarters – expanding in Q1, followed by contraction in Q2, with more than three-fourths of its annual variation occurring during Q3 and Q4. The year 2019-20 began with the usual seasonal spurt in currency demand in Q1 associated with summer holidays, weddings, rabi procurement and kharif sowing.",
+   "strength": "direct"
+  },
+  {
+   "slide": "season",
+   "month": null,
+   "label": "The monsoon slack",
+   "note": "Currency in circulation contracts in July-September, which the RBI links to the seasonal slack in cash-intensive work such as construction and agriculture.",
+   "source_title": "Annual Report 2022-23, Chapter II: Economic Review, Reserve Bank of India, 30-05-2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1373",
+   "quote": "It also exhibits a quarterly pattern driven by a seasonal spurt in Q1 associated with rabi procurement and kharif sowing, followed by a contraction in CiC in Q2 due to seasonal slack in economic activity in cash-intensive sectors such as construction and agriculture.",
+   "strength": "direct"
+  },
+  {
+   "slide": "season",
+   "month": null,
+   "label": "Festivals, harvests, weddings",
+   "note": "Currency in circulation expands in October-December with festivals and the kharif harvest, and in January-March with the rabi harvest, festivals and the wedding season.",
+   "source_title": "Annual Report 2022-23, Chapter II: Economic Review, Reserve Bank of India, 30-05-2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1373",
+   "quote": "CiC expands in Q3, reflecting increased demand for currency for festivals and kharif harvest. Expansion in CiC in Q4 tracks the harvest of rabi crops, various festivals and the wedding season.",
+   "strength": "direct"
+  },
+  {
+   "slide": "season",
+   "month": null,
+   "label": "Year-end and sowing peaks",
+   "note": "RBI seasonal factors show heightened demand for currency around the financial year-end (March) and the start of the agricultural season (June).",
+   "source_title": "Seasonality in India's Key Economic Indicators, RBI Bulletin, Reserve Bank of India, 24-12-2020",
+   "url": "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=19964",
+   "quote": "It is observed that the heightened seasonal demand for currency in circulation around financial year-end and beginning of agricultural season, viz., March and June gives a cue for efficient currency management in the country",
+   "strength": "direct"
+  },
+  {
+   "slide": "small",
+   "month": "2025-01",
+   "label": "Small merchant payments surge",
+   "note": "RBI found that UPI merchant payments below ₹500 rose from 291.54 crore in 2019 to 9,112.72 crore in 2024, while person-to-person payments of that size stopped growing after June 2022.",
+   "source_title": "Payment Systems Report, half year ended December 2024, RBI, 27-01-2025",
+   "url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23127",
+   "quote": "P2M payment transactions exhibited remarkable growth, rising from 291.54 crore in CY-2019 to 9112.72 crore in CY-2024, with a higher five-year CAGR of 99%, indicating broader acceptance of UPI for small retail transactions and bill payments.",
+   "strength": "direct"
+  },
+  {
+   "slide": "small",
+   "month": "2025-03",
+   "label": "Incentive for payments up to ₹2,000",
+   "note": "For FY2024-25 the government narrowed the incentive to UPI merchant payments of up to ₹2,000 at small merchants, at 0.15% of the value, with an outlay of ₹1,500 crore.",
+   "source_title": "Cabinet approves Incentive scheme for promotion of low-value BHIM-UPI transactions (P2M), PIB (Ministry of Electronics & IT), 19-03-2025",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2112874",
+   "quote": "Only the UPI (P2M) transactions upto 2,000/- for Small Merchants are covered under the scheme. ... Enable small merchants to avail of UPI services at no additional cost. As small merchants are price-sensitive, incentives would encourage them to accept UPI payment.",
+   "strength": "direct"
+  },
+  {
+   "slide": "small",
+   "month": "2026-05",
+   "label": "Average UPI payment falls",
+   "note": "RBI reported that the average UPI transaction fell from ₹1,848 in 2021 to ₹1,313 in 2025. It said UPI is mainly used for small payments.",
+   "source_title": "Payment Systems Report, December 2025, RBI, 18-05-2026",
+   "url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23813",
+   "quote": "As UPI is mainly used for small value transactions, the average ticket size of such transactions remains low. From ₹1,848 in CY 2021, the average ticket size of UPI transactions declined further to ₹1313 in CY 2025.",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2016-11",
+   "label": "₹500 and ₹1,000 withdrawn",
+   "note": "The Government of India withdrew the legal tender status of the ₹500 and ₹1,000 notes of the Mahatma Gandhi series from 9 November 2016.",
+   "source_title": "Withdrawal of Legal Tender Status for ₹ 500 and ₹ 1000 Notes: RBI Notice, Reserve Bank of India, 08-11-2016",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=38520",
+   "quote": "have withdrawn the Legal Tender status of ₹ 500 and ₹ 1,000 denominations of banknotes",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2020-03",
+   "label": "COVID-19 pandemic",
+   "note": "The RBI records a rise in the cash-intensity of the economy in 2019-20, in response to the pandemic.",
+   "source_title": "Annual Report 2019-20, Chapter II: Economic Review, Reserve Bank of India, 25-08-2020",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1286",
+   "quote": "however, the currency-GDP ratio increased to its pre-demonetisation level of 12.0 per cent in 2019-20 from 11.3 per cent a year ago, indicating the rise in cash-intensity in the economy in response to the pandemic",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2020-04",
+   "label": "A dash for cash",
+   "note": "In April-June 2020 currency in circulation rose month on month far more than usual, which the RBI attributes to a panic-driven surge in precautionary demand for cash.",
+   "source_title": "Annual Report 2020-21, Chapter II: Economic Review, Reserve Bank of India, 27-05-2021",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1315",
+   "quote": "There was an unusual rise in month-over-month (M-o-M) CiC variation during April-June 2020 vis-à-vis the corresponding period of previous years due to the onset of the COVID-19 pandemic and a panic-driven surge in precautionary demand for cash as cushion in a health crisis",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2021-03",
+   "label": "A smaller GDP, a bigger ratio",
+   "note": "The RBI estimates that the ratio of currency to GDP was pushed up in 2020-21 both by the pandemic's fall in GDP and by an uncertainty-driven surge in currency.",
+   "source_title": "Annual Report 2022-23, Chapter II: Economic Review (Box II.4.1: The Currency Demand Paradox in India), Reserve Bank of India, 30-05-2023",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1373",
+   "quote": "a counterfactual assessment shows that the CiC-GDP ratio would have been 12 per cent in 2020-21 and 11.9 per cent in 2021-22 relative to the actual ratio of 14.4 per cent and 13.4 per cent, respectively, had it not been for the pandemic-induced fall in the base (GDP) and uncertainty-driven surge in currency levels.",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2024-03",
+   "label": "Uncertainty ebbs, digital grows",
+   "note": "The RBI says the ratio of currency to GDP moderated as pandemic uncertainty ebbed and digital payments were used more.",
+   "source_title": "Annual Report 2023-24, Chapter II: Economic Review, Reserve Bank of India, 30-05-2024",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1402",
+   "quote": "The currency-GDP ratio has moderated with the ebbing of pandemic uncertainty and the increasing usage of digital payments",
+   "strength": "direct"
+  },
+  {
+   "slide": "tide",
+   "month": "2025-03",
+   "label": "Ratio eases further",
+   "note": "The RBI says the ratio of currency to GDP moderated further in 2024-25 with the increasing use of digital payments.",
+   "source_title": "Annual Report 2024-25, Chapter II: Economic Review, Reserve Bank of India, 29-05-2025",
+   "url": "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?Id=1432",
+   "quote": "The currency-GDP ratio moderated further with the increasing usage of digital payments, including central bank digital currency (CBDC)",
+   "strength": "direct"
+  }
+ ],
+ "to_verify": [
+  "refill 2018-03: the RBI dates currency in circulation passing its pre-demonetisation level (4-11-2016) to March 2018; the story's own end-month series passes the end-October 2016 level in February 2018. Both are stated as such.",
+  "tide: the RBI's notes speak of currency in circulation as a share of GDP; the chart shows currency with the public. The notes carry no ratio figures, so the two measures are not mixed.",
+  "season: the RBI explains the pattern by quarter; the story's month-by-month averages are its own reading of DBIE's monthly series."
+ ]
+}

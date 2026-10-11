@@ -58,6 +58,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "What ₹1 lakh could buy",
                 description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
             },
+            {
+                linkTo      : "/stories/cash-didnt-die",
+                label       : "Cash didn't die",
+                description : "UPI payments grew nineteenfold between November 2019 and July 2026, and the cash Indians hold kept growing too. India pays with the phone and keeps the cash.",
+            },
         ],
     },
     {
