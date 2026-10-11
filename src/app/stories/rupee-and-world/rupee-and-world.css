@@ -829,6 +829,8 @@
     .grid { stroke : var(--rule); stroke-width : 1; shape-rendering : crispEdges; }
     .grid.is-base { stroke : var(--ink-soft); }
     .crosshair { stroke : var(--ink-soft); stroke-width : 1; }
+    .readout .crosshair { stroke : color-mix(in oklch, #2f2f2f, transparent 55%); }
+    .hair-dot { stroke : var(--fig-bg); stroke-width : 2; }
 
     .chart-tip {
         position       : absolute;
