@@ -110,17 +110,17 @@ const FlipCard = ({ c, i } : { c : RecapCard; i : number }) => {
 export const Recap = ({ colours } : { colours : { usd : string; neer : string; reer : string } }) => {
     const usd = USD as number[];
     const CARDS : RecapCard[] = [
-        { art : <DollarCoin />, kicker : "Measure 1 · rupees per dollar", question : "What does a dollar cost?",
+        { art : <DollarCoin />, kicker : "Rupees per dollar", question : "What does a dollar cost?",
           from : `₹${usd[0].toFixed(2)}`, to : `₹${usd[N - 1].toFixed(2)}`, values : COST.usd, colour : colours.usd,
           note : "For anyone paying in dollars: a student’s fees, an import bill, a holiday. Part of every move is the dollar’s own.",
           back : { how : "The Reserve Bank’s reference rate for the US dollar, averaged over each month’s working days. One currency, no weights, no prices: the number in the headlines.",
                    source : "Exchange rate of the Indian rupee, on DBIE", url : "/external/reer-and-neer" } },
-        { art : <MiniBasket />, kicker : "Measure 2 · a basket of currencies", question : "What do India’s 40 trading partners’ currencies cost, all at once?",
+        { art : <MiniBasket />, kicker : "NEER: a basket of 40 currencies", question : "What do India’s 40 trading partners’ currencies cost, all at once?",
           from : "₹100", to : `₹${Math.round(COST.neer[N - 1])}`, values : COST.neer, colour : colours.neer,
           note : "The rupee against the whole world it trades with, each currency weighted by trade: the NEER.",
           back : { how : "A weighted average of the rupee’s rate against 40 currencies, each weighted by its share of India’s trade (exports and imports). The Reserve Bank publishes it as an index, 2015-16 = 100; here it is turned into the basket’s rupee price.",
                    source : "RBI Bulletin, January 2021: the 40-currency indices", url : "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=20020" } },
-        { art : <ShoesOnPlaque />, kicker : "Measure 3 · Indian goods, priced abroad", question : "Did Indian goods get cheaper for the countries that buy them?",
+        { art : <ShoesOnPlaque />, kicker : "REER: Indian goods, priced abroad", question : "Did Indian goods get cheaper for the countries that buy them?",
           from : "100", to : `${Math.round(COST.reer[N - 1])}`, values : COST.reer, colour : colours.reer,
           note : "The basket and India’s prices together: the REER. Over 22 years the two halves cancel; in between, they swing.",
           back : { how : "The basket’s rate, adjusted for consumer prices in India against those in the 40 partners, weighted the same way. The Reserve Bank publishes it, with the NEER, as an indicator of external competitiveness.",

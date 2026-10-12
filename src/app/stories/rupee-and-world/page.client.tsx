@@ -13,7 +13,8 @@ import { MotionConfig } from "framer-motion";
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { Recap } from "./Recap";
 import { AnimatedNumber, CountUp, Reveal } from "./Motion";
-import { RupeeStage, cssOf, usePalette, type SceneId } from "./RupeeStage";
+import { CARD_LEFT, RupeeStage, cssOf, usePalette, type SceneId } from "./RupeeStage";
+import { SectionRail } from "./SectionRail";
 
 // DATA ================================================================================================================
 import {
@@ -64,10 +65,9 @@ const verdict = (g : number) => prose(`You said ${g}. Compared with the rest of 
     ${SHOE_A} to ${SHOE_B} today, roughly what it cost in 2004${g < SHOE_A - 10 ? ", far from the bargain the dollar rate suggests" : ""}.
     The real rate is the solid line; your guess is the dashed one.`);
 
-const Chapter = ({ kicker, title, children, id } : { kicker : string; title : string; children : ReactNode; id : string }) => (
+const Chapter = ({ title, children, id } : { title : string; children : ReactNode; id : string }) => (
     <Reveal>
-        <Text className="kicker" weight="600" marginBottom="nano" id={id}>{kicker}</Text>
-        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{title}</Heading4>
+        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro" id={id}>{title}</Heading4>
         {children}
     </Reveal>
 );
@@ -77,13 +77,19 @@ const MethodNote = ({ title, children, last = false } : { title : string; childr
     <Text size="tiny" marginBottom={last ? undefined : "micro"}><strong>{title}</strong> {prose(children)}</Text>
 );
 
-const StepCard = ({ active, kicker, big, title, children, wide = false } : { active : boolean; kicker : string; big ? : ReactNode; title : ReactNode; children ? : ReactNode; wide ? : boolean }) => (
+// A step's card: the header, which states the step's message in exact figures, then a picture-number, then a line or
+// two. No label above the header: the section marker at the top of the screen says where the reader is.
+const StepCard = ({ active, big, title, children, wide = false } : { active : boolean; big ? : ReactNode; title : ReactNode; children ? : ReactNode; wide ? : boolean }) => (
     <Card className={`step-card ${active ? "is-active" : ""} ${wide ? "is-wide" : ""}`} padding="micro">
-        <Text className="step-kicker" weight="600" size="small" marginBottom="nano">{kicker}</Text>
-        {big && <div className="step-big">{big}</div>}
         <Heading6 className="step-title" fontStyle="serif" weight="600" marginBottom="nano">{title}</Heading6>
+        {big && <div className="step-big">{big}</div>}
         {children}
     </Card>
+);
+
+// A term the story uses, defined in plain words where it first appears.
+const Define = ({ term, children } : { term : string; children : ReactNode }) => (
+    <div className="define" role="note"><b>{term}</b> {children}</div>
 );
 
 // A ring filled to a share of the basket, per cent: whole until a region or a partner is picked out.
@@ -154,7 +160,14 @@ const TadaNumber = ({ value, start } : { value : number; start : boolean }) => {
 };
 
 // THE OPENING =========================================================================================================
+// The steps in order: the title and the basket on the globe (one opening, the globe carried through), then the three
+// sections, one for each measure.
 const STEPS : SceneId[] = [ "hero", "basket", "dollar", "coins", "coins26", "neer", "orbit", "scale", "prices", "guess", "halves", "reer", "orbitReal", "swing" ];
+const SECTION_NAMES = [ "Rupees per dollar", "A basket of 40 currencies (NEER)", "Indian goods, priced abroad (REER)" ];
+// the dollar's share of the basket
+const USD_WEIGHT = PARTNERS.find(p => p.iso === "USD")?.weight ?? 0;
+// a step's card sits on the right of the stage, or on the left where the stage's picture is set to the right
+const stepClass = (id : SceneId) => `step ${CARD_LEFT.has(id) ? "is-left" : ""}`;
 const signed = (v : number, dp = 0) => `${v >= 0 ? "+" : "−"}${Math.abs(v).toFixed(dp)}%`;
 
 const TheOpening = () => {
@@ -325,30 +338,25 @@ const TheOpening = () => {
                     {/* the title on the left, the globe on the right (RupeeStage); a contents strip under the words */}
                     <Div className="title-card">
                         <PageCrumbs />
-                        <Text className="hero-kicker" weight="600" marginBottom="nano">THE RUPEE AND THE WORLD</Text>
                         {/* the rupee sign stands in for the R; screen readers get the words */}
                         <Heading1 className="hero-title" marginBottom="micro" aria-label="How do you measure a rupee?">
                             <span aria-hidden="true">How do you<br />measure a <span className="accent"><span className="coin">₹</span>upee?</span></span>
                         </Heading1>
-                        <p className="hero-lead">{prose(`Ask how the rupee is doing and most people check one number: rupees per dollar,
-                            ₹${usd.fy0.toFixed(2)} on average in ${HEADLINE.fy0} and ₹${usd.fyN.toFixed(2)} in ${HEADLINE.fyN}.`)}</p>
+                        <p className="hero-lead">{prose(`A US dollar cost ₹${(USD[0] as number).toFixed(2)} in ${FROM} and ₹${(USD[N - 1] as number).toFixed(2)} in ${TO}.`)}</p>
                         <Text className="hero-sub" fontStyle="serif">
-                            {prose(`But India trades with the whole world, not only America. So the Reserve Bank keeps two more measures,
-                                and each answers a different question. Here is what each one measures, and why they tell different stories.`)}
+                            {prose(`The Reserve Bank keeps two more measures of the rupee. Each answers a different question.`)}
                         </Text>
                         <ol className="hero-contents" aria-label="Three measures">
-                            <li><span>01</span>Rupees per dollar</li>
-                            <li><span>02</span>A basket of 40 currencies</li>
-                            <li><span>03</span>Indian goods, priced abroad</li>
+                            {SECTION_NAMES.map((name, i) => <li key={name}><span>0{i + 1}</span>{name}</li>)}
                         </ol>
                         <Text size="small" className="hero-cue" marginTop="small">Scroll to begin</Text>
                     </Div>
                 </Div>
 
-                {/* THE BASKET =============================================================================== */}
-                <Div className="step" data-scene="basket" ref={ref("basket")}>
+                {/* THE BASKET, ON THE GLOBE: the opening's second view, before the sections begin ============ */}
+                <Div className={stepClass("basket")} data-scene="basket" ref={ref("basket")}>
                     <StepCard
-                        active={on("basket")} kicker="THE BASKET" wide
+                        active={on("basket")} wide
                         big={(
                             // A picked-out region changes only the number and the one-line name under it, never the card's
                             // height: a card that grew or shrank would move the chips under the pointer.
@@ -360,15 +368,11 @@ const TheOpening = () => {
                                 </span>
                             </div>
                         )}
-                        title="A rupee is priced against 40 currencies at once"
+                        title={`The Reserve Bank prices the rupee against 40 currencies at once; the US dollar is ${USD_WEIGHT.toFixed(1)}% of the basket`}
                     >
-                        <Say>{`The dollar is one of them, at ${(PARTNERS.find(p => p.iso === "USD")?.weight ?? 0).toFixed(1)}%. The
-                            Reserve Bank’s index averages the rupee’s rate against each of 40 trading partners, giving each one a
-                            weight by its share of India’s trade, much as a stock index weighs its companies. So when the dollar rises
-                            against every currency, the dollar rate moves but the basket moves much less.`}</Say>
-                        <Text size="small" className="chip-hint" marginBottom="nano">{prose(`Trade weights for ${BASKET ? "2015-16" : "the base year"}, the
-                            index’s base year; the Reserve Bank updates them every year. Point at a region or a partner, here or on
-                            the globe.`)}</Text>
+                        <Say>{`Each currency is weighted by its share of India’s trade, much as a stock index weighs its companies.`}</Say>
+                        <Text size="small" className="chip-hint" marginBottom="nano">{prose(`Trade weights for 2015-16, the index’s base year. Point at a
+                            region or a partner, here or on the globe.`)}</Text>
                         <div className="chips" role="group" aria-label="Regions of the basket">
                             {REGIONS.map(r => (
                                 <button key={r.key} type="button" className={`chip ${focus?.label === r.label ? "is-on" : ""}`} {...chip(r.label, r.codes)}>
@@ -388,114 +392,85 @@ const TheOpening = () => {
                     </StepCard>
                 </Div>
 
-                {/* THE DOLLAR =============================================================================== */}
-                <Div className="step" data-scene="dollar" ref={ref("dollar")}>
-                    <StepCard active={on("dollar")} kicker="MEASURE 1 · RUPEES PER DOLLAR" big={<CountUp start={on("dollar")} from={USD[0] as number} to={USD[N - 1] as number} format={v => `₹${v.toFixed(2)}`} />} title={`for one US dollar in ${TO}, against ₹${(USD[0] as number).toFixed(2)} in ${FROM}`}>
-                        <Say>{`This is the rate in the headlines, and the one that matters to anyone paying in dollars: a student’s
-                            fees in the US, an import bill, a holiday. A $100 hotel night cost ₹${inr(100 * (USD[0] as number))} in
-                            ${FROM.split(" ")[1]}; today it costs ₹${inr(100 * (USD[N - 1] as number))}.`}</Say>
+                {/* 1 · RUPEES PER DOLLAR ===================================================================== */}
+                <Div className={stepClass("dollar")} data-scene="dollar" data-section="1" ref={ref("dollar")}>
+                    <StepCard active={on("dollar")} big={<CountUp start={on("dollar")} from={USD[0] as number} to={USD[N - 1] as number} format={v => `₹${v.toFixed(2)}`} />}
+                        title={`A US dollar cost ₹${(USD[N - 1] as number).toFixed(2)} in ${TO}, ${((USD[N - 1] as number) / (USD[0] as number)).toFixed(1)}x the ₹${(USD[0] as number).toFixed(2)} of ${FROM}`}>
                         {/* the mark drawn here is the same as the chart's, so the reader knows what to look for */}
                         <Text fontStyle="serif" marginBottom="nano">
-                            {prose(`Most of the rise came in sharp steps, each tied to a moment in the world economy. Point at a
-                                number`)}{" "}<span className="event-mark is-inline" aria-hidden="true">X</span>{" "}{prose(`on the line to see what
-                                happened.`)}
+                            {prose(`Most of the rise came in steps. Point at a number`)}{" "}<span className="event-mark is-inline" aria-hidden="true">X</span>{" "}{prose(`on the
+                                line for the event behind it.`)}
                         </Text>
-                        <Say last>{`But the dollar is just one of the 40 currencies India trades in. Next, the rupee against all of
-                            them.`}</Say>
+                        <Say last>{`But the dollar is one of the 40 currencies India trades in. Next, the rupee against all of them.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE BASKET OF CURRENCIES ================================================================= */}
-                <Div className="step" data-scene="coins" ref={ref("coins")}>
-                    <StepCard active={on("coins")} kicker="MEASURE 2 · A BASKET OF CURRENCIES" big="₹100" title={`for the basket in ${FROM}`}>
-                        <Say>{`Now swap the single dollar for a basket. This is how the Reserve Bank measures the rupee against
-                            all its trading partners at once: imagine a basket holding a little of each of the 40 currencies, in
-                            proportion to how much India trades with each country (the same weights as on the globe).`}</Say>
-                        <Say>{`So the euro coin is the biggest, then the yuan, the dirham and the dollar, down to the smallest
-                            coins for Chile, Ukraine and Ghana. Point at a coin to see which it is.`}</Say>
-                        <Say last>{`Buying the whole basket with rupees gives one exchange rate for all 40 at once. In ${FROM}, it cost ₹100.`}</Say>
+                {/* 2 · A BASKET OF 40 CURRENCIES (NEER) ===================================================== */}
+                <Div className={stepClass("coins")} data-scene="coins" data-section="2" ref={ref("coins")}>
+                    <StepCard active={on("coins")} big="₹100" title={`In ${FROM}, ₹100 bought a basket holding a little of each of the 40 currencies`}>
+                        <Say last>{`Each coin is one partner’s currency, as large as its trade weight: the euro largest, then the yuan,
+                            the dirham and the dollar. Point at a coin to see which it is.`}</Say>
                     </StepCard>
                 </Div>
 
-                <Div className="step" data-scene="coins26" ref={ref("coins26")}>
-                    <StepCard active={on("coins26")} kicker={`22 YEARS LATER · ${TO.toUpperCase()}`}
-                        big={<CountUp start={on("coins26")} from={100} to={basketNow} format={v => `₹${Math.round(v)}`} />} title="for the same basket">
-                        <Say>{`The same coins now cost ₹${Math.round(basketNow)}: a ₹100 note, a ₹50 and three ₹10s, with ₹${180 - Math.round(basketNow)} back.`}</Say>
-                        <Say last>{`Dollars that were worth ₹100 in ${FROM} now cost ₹${Math.round(dollarNow)}. The basket rose less,
-                            because the dollar itself rose against many of the other currencies in it.`}</Say>
+                <Div className={stepClass("coins26")} data-scene="coins26" data-section="2" ref={ref("coins26")}>
+                    <StepCard active={on("coins26")} big={<CountUp start={on("coins26")} from={100} to={basketNow} format={v => `₹${Math.round(v)}`} />}
+                        title={`By ${TO} the same basket cost ₹${Math.round(basketNow)}; dollars worth ₹100 in ${FROM.split(" ")[1]} cost ₹${Math.round(dollarNow)}`}>
+                        <Say last>{`The basket rose less because the dollar also rose against most of the other 39 currencies in it.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE BASKET'S PRICE ======================================================================= */}
-                <Div className="step" data-scene="neer" ref={ref("neer")}>
-                    <StepCard active={on("neer")} kicker="MEASURE 2 · THE BASKET, MONTH BY MONTH"
-                        big={MONTHS[CROSS].slice(0, 4)} title="the year the dollar and the basket swapped places">
-                        <Say>{`Here is the basket’s price every month (purple), beside the price of dollars that were worth ₹100 in
-                            ${FROM} (charcoal). Until ${MONTHS[CROSS].slice(0, 4)} the basket cost more: the dollar was weaker than the
-                            other currencies in it, so the dollar rate showed less change than the basket did.`}</Say>
+                <Div className={stepClass("neer")} data-scene="neer" data-section="2" ref={ref("neer")}>
+                    <StepCard active={on("neer")} big={<>{DOLLAR_GAP.toFixed(1)}%<span className="big-of"> more for the dollars</span></>}
+                        title={`Dollars have cost more than the basket since ${monthName(MONTHS[CROSS])}; by ${TO}, ${DOLLAR_GAP.toFixed(1)}% more`}>
+                        <Define term="NEER.">{prose(`The nominal effective exchange rate is this basket: the rupee against 40 currencies, each
+                            weighted by trade. The Reserve Bank publishes it as an index, 2015-16 = 100, that rises when the rupee
+                            strengthens (it went from ${idx1(neer.from)} to ${idx1(neer.to)}). The story turns it round into the basket’s
+                            rupee cost, which rises when the rupee weakens.`)}</Define>
                         <Text fontStyle="serif" marginBottom="nano">
-                            {prose(`Since ${monthName(MONTHS[CROSS])} the dollar has pulled ahead. In 2014-15 alone it rose 23% against
-                                other major currencies, the Reserve Bank noted, on a robust US recovery while recoveries in the euro
-                                zone and Japan were weak`)}{" "}<a className="cite-link" href={DOLLAR_2014.url} target="_blank" rel="noopener">({DOLLAR_2014.source} ↗)</a>.{" "}
-                            {prose(`By ${TO} those dollars cost ${Math.round(DOLLAR_GAP)}% more than the basket. Part of every move in
-                                the dollar rate is the dollar’s own.`)}
+                            {prose(`In 2014-15 the dollar rose 23% against other major currencies, on a robust US recovery while the
+                                euro zone and Japan were weak`)}{" "}<a className="cite-link" href={DOLLAR_2014.url} target="_blank" rel="noopener">({DOLLAR_2014.source} ↗)</a>.
                         </Text>
-                        <Say last>{`Economists call the basket’s price the nominal effective exchange rate (NEER). The Reserve Bank
-                            publishes it as an index, which went from ${idx1(neer.from)} to ${idx1(neer.to)}.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE CURRENCY CONSTELLATION, IN RUPEES ===================================================== */}
-                <Div className="step" data-scene="orbit" ref={ref("orbit")}>
-                    <StepCard active={on("orbit")} kicker="MEASURE 2, SEEN FROM THE RUPEE" title="The currency constellation: every currency as far from the rupee as it costs">
+                <Div className={stepClass("orbit")} data-scene="orbit" data-section="2" ref={ref("orbit")}>
+                    <StepCard active={on("orbit")}
+                        title={`Seen from the rupee, the dollar rose most of the four: ${orbitEnd.usd}, against ${orbitEnd.eur} for the euro, ${orbitEnd.gbp} for the pound and ${orbitEnd.jpy} for the yen`}>
                         <ol className="how-to-read">
-                            <li><b>The ₹ at the centre</b> is the rupee.</li>
-                            <li><b>Distance is cost.</b> Each currency sits as far out as it costs in rupees. In {FROM} every one sat on the dashed ring, at 100.</li>
-                            <li><b>The ring of 40 coins</b> is the basket; each coin as large as its trade weight.</li>
-                            <li><b>The four planets</b> are the dollar, euro, pound and yen, the currencies the Reserve Bank sets a daily reference rate for.</li>
-                            <li><b>Watch the months play:</b> the further a currency drifts out, the more rupees it costs. Pause or drag to any month.</li>
+                            <li><b>The ₹ at the centre</b> is the rupee; each currency sits as far out as it costs, from 100 on the dashed ring in {FROM}.</li>
+                            <li><b>The ring of 40 coins</b> is the basket, at {Math.round(basketNow)} by {TO}.</li>
+                            <li><b>The months play;</b> pause or drag to any month.</li>
                         </ol>
-                        <Say last>{`By ${TO}: the dollar at ${orbitEnd.usd}, the euro ${orbitEnd.eur}, the basket ${Math.round(basketNow)}, the pound
-                            ${orbitEnd.gbp} and the yen ${orbitEnd.jpy}. The basket sits among them, an average of all 40.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE OTHER HALF: PRICES ================================================================== */}
-                <Div className="step" data-scene="scale" ref={ref("scale")}>
-                    <StepCard active={on("scale")} kicker="THE OTHER HALF · PRICES"
+                {/* 3 · INDIAN GOODS, PRICED ABROAD (REER) =================================================== */}
+                <Div className={stepClass("scale")} data-scene="scale" data-section="3" ref={ref("scale")}>
+                    <StepCard active={on("scale")}
                         big={<><CountUp start={on("scale")} from={100} to={pricesNow} duration={2.6} format={v => `${Math.round(v)}`} /><span className="big-of"> for every 100 abroad</span></>}
-                        title={`India’s prices in ${TO}, against partners’ prices`}>
-                        <Say>{`Now the other half of the story: prices. Put the same goods on a scale, as priced in India on one
-                            side and abroad on the other, each in its own currency. In ${FROM}, call both sides 100.`}</Say>
-                        <Say>{`Prices rose in both places, but faster in India. Hold the partners’ side at 100, and by ${TO}
-                            India’s side weighs ${Math.round(pricesNow)}: Indian prices rose ${Math.round(pricesNow - 100)}% more than its partners’.`}</Say>
-                        <Text size="small" className="chip-hint">{prose(`These numbers are not rupees. They are a price index: ${Math.round(pricesNow)} means
-                            that for every 100 in partners’ prices, India’s prices stand at ${Math.round(pricesNow)}, both counted from 100 in ${FROM}.`)}</Text>
+                        title={`Over the same years, India’s prices rose ${(pricesNow - 100).toFixed(1)}% more than its partners’`}>
+                        <Say last>{`The same goods, priced in India and abroad, each in its own currency: 100 on both sides in ${FROM},
+                            ${Math.round(pricesNow)} against 100 by ${TO}. These are index numbers, not rupees.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* PRICES, MONTH BY MONTH ==================================================================== */}
-                <Div className="step" data-scene="prices" ref={ref("prices")}>
-                    <StepCard active={on("prices")} kicker="THE OTHER HALF · MONTH BY MONTH" big={`${Math.round(pricesNow)}`}
-                        title={`India’s prices against its partners’, ${TO}, for 100 in ${FROM}`}>
-                        <Say>{`Here is that balance every month (terracotta). It climbed almost without a break: in most years prices
-                            in India rose faster than in the countries it trades with, each in its own currency.`}</Say>
-                        <Say last>{`So, two halves. Partners’ currencies cost ${Math.round(basketNow - 100)}% more rupees. Indian prices
-                            rose ${Math.round(pricesNow - 100)}% more than theirs. For a shop abroad, which of the two wins?`}</Say>
+                <Div className={stepClass("prices")} data-scene="prices" data-section="3" ref={ref("prices")}>
+                    <StepCard active={on("prices")} big={`${Math.round(pricesNow)}`}
+                        title={`India’s prices against its partners’ rose almost every year, from 100 to ${Math.round(pricesNow)}`}>
+                        <Say last>{`So, two halves: partners’ currencies cost ${(basketNow - 100).toFixed(1)}% more rupees; Indian prices rose
+                            ${(pricesNow - 100).toFixed(1)}% more than theirs. For a shop abroad, which wins?`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE GUESS ================================================================================ */}
-                <Div className="step" data-scene="guess" ref={ref("guess")}>
-                    <StepCard active={on("guess")} kicker="POP QUIZ" title="Did Indian shoes get cheaper for a shop abroad?">
-                        <Say>{`In 2004 a shop abroad bought a batch of shoes made in India for 100, in its own currency. It could
-                            be anywhere India sells:`}</Say>
+                <Div className={stepClass("guess")} data-scene="guess" data-section="3" ref={ref("guess")}>
+                    <StepCard active={on("guess")} title="Did Indian shoes get cheaper for a shop abroad?">
+                        <Say>{`In 2004 a shop abroad paid 100, in its own currency, for a batch of shoes made in India:`}</Say>
                         {/* four of the largest partners: the UAE, the euro area, Singapore, the US */}
                         <div className="shop-flags" role="list" aria-label="For example">
                             <span role="listitem">🇦🇪 Dubai</span><span role="listitem">🇩🇪 Frankfurt</span><span role="listitem">🇸🇬 Singapore</span><span role="listitem">🇺🇸 New York</span>
                         </div>
-                        <Say>{`Since then, everything in the shop has become more expensive, and so have the Indian shoes. So,
-                            compared with the rest of the shop, are the shoes now cheaper or more expensive than in 2004?`}</Say>
+                        <Say>{`Compared with everything else the shop buys, what does the batch cost now?`}</Say>
                         <Div className="slider-row">
                             <ShoeSlider value={guess} onChange={v => { setGuess(v); setLocked(null); }} />
                             <Text className="guess-value" weight="700">{guess}</Text>
@@ -503,68 +478,44 @@ const TheOpening = () => {
                         <div className="slider-ends" aria-hidden="true">
                             <span><b>50</b>half as much</span><span><b>100</b>same as before</span><span><b>150</b>50% more</span>
                         </div>
-                        <Text size="small" className="chip-hint" marginBottom="nano">You will see your guess against the answer in a moment.</Text>
                         <button type="button" className="lock-in" onClick={lockIn}>{locked === null ? "Lock in my guess ↓" : "Locked in ↓"}</button>
                     </StepCard>
                 </Div>
 
-                {/* THE TWO HALVES, SIDE BY SIDE ============================================================== */}
-                <Div className="step" data-scene="halves" ref={ref("halves")}>
-                    <StepCard active={on("halves")} kicker="BEFORE THE ANSWER · THE TWO HALVES, SIDE BY SIDE"
-                        big={<>{Math.round(pricesNow)}<span className="big-of"> and </span>{Math.round(basketNow)}</>}
-                        title={`India’s prices and the basket in ${TO}: they meet again`}>
-                        <Say>{`Here are both halves together: India’s prices against its partners’ (terracotta) and the rupee price of
-                            the basket of currencies (purple). When the terracotta line runs above the purple, Indian prices have risen faster
-                            than the cost of partners’ currencies, and Indian goods cost more abroad.`}</Say>
-                        <Say>{`From 2013 the terracotta line ran ahead. The gap was widest in ${monthName(MONTHS[HALVES_PEAK])}:
-                            ${Math.round(COST.rel[HALVES_PEAK])} against ${Math.round(COST.neer[HALVES_PEAK])}. Then the basket caught up${HALVES_MEET > 0
-                                ? `, meeting the terracotta line in ${monthName(MONTHS[HALVES_MEET])}` : ""}, and by ${TO} the two stand at
-                            ${Math.round(pricesNow)} and ${Math.round(basketNow)}.`}</Say>
-                        <Say last>{`So what does the batch of shoes cost abroad now?`}</Say>
+                <Div className={stepClass("halves")} data-scene="halves" data-section="3" ref={ref("halves")}>
+                    <StepCard active={on("halves")} big={<>{Math.round(pricesNow)}<span className="big-of"> and </span>{Math.round(basketNow)}</>}
+                        title={`Indian prices and the basket were level again by ${TO}, ${Math.round(pricesNow)} and ${Math.round(basketNow)}, after their widest gap in ${monthName(MONTHS[HALVES_PEAK])}: ${Math.round(COST.rel[HALVES_PEAK])} against ${Math.round(COST.neer[HALVES_PEAK])}`}>
+                        <Say last>{`Where the terracotta line (India’s prices) runs above the purple (the basket), Indian goods cost
+                            more abroad.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE REAL RATE ============================================================================ */}
-                <Div className="step" data-scene="reer" ref={ref("reer")}>
-                    <StepCard active={on("reer")} kicker="THE ANSWER · MEASURE 3: INDIAN GOODS, PRICED ABROAD"
-                        big={<TadaNumber value={Math.round(goodsNow)} start={on("reer")} />} title={`what Indian goods cost abroad in ${TO}, for 100 in ${FROM}`}>
-                        <Say>{`Put the two together. Indian prices rose ${Math.round(pricesNow - 100)}% more than partners’; partners’ currencies
-                            cost ${Math.round(basketNow - 100)}% more rupees. In the partners’ own currencies, the price of Indian goods
-                            barely moves:
-                            ${Math.round(pricesNow)} ÷ ${Math.round(basketNow)} × 100 ≈ ${Math.round(goodsNow)}.`}</Say>
-                        <Say last={locked === null}>{`This is the real effective exchange rate (REER). In ${N} months it never left the
-                            shaded band, ${Math.round(BAND.lo)} to ${Math.round(BAND.hi)} on this scale (${idx1(range.min)} to ${idx1(range.max)} on the
-                            Reserve Bank’s index).`}</Say>
+                <Div className={stepClass("reer")} data-scene="reer" data-section="3" ref={ref("reer")}>
+                    <StepCard active={on("reer")} big={<TadaNumber value={Math.round(goodsNow)} start={on("reer")} />}
+                        title={`Put together, Indian goods cost buyers abroad ${Math.round(goodsNow)} in ${TO}, for 100 in ${FROM}`}>
+                        <Say>{`${Math.round(pricesNow)} ÷ ${Math.round(basketNow)} × 100 ≈ ${Math.round(goodsNow)}. In ${N} months it never left
+                            the shaded band, ${Math.round(BAND.lo)} to ${Math.round(BAND.hi)}.`}</Say>
+                        <Define term="REER.">{prose(`The real effective exchange rate is the NEER adjusted for consumer prices in India
+                            against those in the 40 partners: what Indian goods cost buyers abroad. The Reserve Bank’s index, 2015-16 =
+                            100, rises when Indian goods cost more abroad (${idx1(reer.from)} to ${idx1(reer.to)}; ${idx1(range.min)} to
+                            ${idx1(range.max)} at its extremes).`)}</Define>
                         {locked !== null && <Text className="guess-verdict" weight="600">{verdict(locked)}</Text>}
                     </StepCard>
                 </Div>
 
-                {/* THE CONSTELLATION, ADJUSTED FOR PRICES ==================================================== */}
-                <Div className="step" data-scene="orbitReal" ref={ref("orbitReal")}>
-                    <StepCard active={on("orbitReal")} kicker="THE ANSWER, SEEN FROM THE RUPEE"
-                        big={<>{Math.round(basketNow)}<span className="big-arrow" aria-label="to">→</span>{Math.round(goodsNow)}</>}
-                        title="Adjust for prices, and the ring comes home">
-                        <Say>{`Back to the constellation, now adjusted for prices: the cost of each partner’s currency, set against
-                            how much faster prices rose in India. The basket’s ring shrinks from ${Math.round(basketNow)} back to
-                            ${Math.round(goodsNow)}, almost exactly on the dashed ring where it started in ${FROM.split(" ")[1]}.`}</Say>
-                        <Say last>{`That is the answer, drawn: for the countries that buy from India, Indian goods cost about what
-                            they did. The four planets fade, because DBIE carries no price adjustment for each country on its own.`}</Say>
+                <Div className={stepClass("orbitReal")} data-scene="orbitReal" data-section="3" ref={ref("orbitReal")}>
+                    <StepCard active={on("orbitReal")} big={<>{Math.round(basketNow)}<span className="big-arrow" aria-label="to">→</span>{Math.round(goodsNow)}</>}
+                        title={`Adjusted for prices, the basket’s ring comes back from ${Math.round(basketNow)} to ${Math.round(goodsNow)}, almost where it began`}>
+                        <Say last>{`The four planets fade: DBIE carries no price adjustment for each country on its own.`}</Say>
                     </StepCard>
                 </Div>
 
-                {/* THE SWING ================================================================================ */}
-                <Div className="step" data-scene="swing" ref={ref("swing")}>
-                    <StepCard active={on("swing")} kicker="MEASURE 3, UP CLOSE · THE SWINGS THAT MATTER"
-                        big={<>{Math.round(goodsPeak)}<span className="big-arrow" aria-label="to">→</span>{Math.round(goodsTrough)}</>}
-                        title={`the batch of shoes, ${monthName(swing.peakMonth)} to ${monthName(swing.troughMonth)}`}>
-                        <Say>{`Zoom in on the last four years of the same line. In ${monthName(swing.peakMonth)} the batch of shoes
-                            would have cost the shop ${Math.round(goodsPeak)}, the most in all ${N} months (${idx1(swing.peak)} on the Reserve
-                            Bank’s index). By ${monthName(swing.troughMonth)} it was back to about ${Math.round(goodsTrough)}.`}</Say>
-                        <Say>{`What changed? Not Indian prices: they barely moved (${Math.round(relPeak)}, then ${Math.round(relTrough)}).
-                            The basket did: partners’ currencies went from costing ₹${Math.round(basketPeak)} to ₹${Math.round(basketTrough)},
-                            through the months of the US tariffs and the West Asia conflict (${tariffMark} and ${westAsiaMark} on the dollar chart).`}</Say>
-                        <Say last>{`Over ${Number(TO.split(" ")[1]) - Number(FROM.split(" ")[1])} years the two halves cancel. Within a year
-                            or two they can pull apart, and those swings are what buyers abroad feel.`}</Say>
+                <Div className={stepClass("swing")} data-scene="swing" data-section="3" ref={ref("swing")}>
+                    <StepCard active={on("swing")} big={<>{Math.round(goodsPeak)}<span className="big-arrow" aria-label="to">→</span>{Math.round(goodsTrough)}</>}
+                        title={`Within the band, Indian goods abroad rose to ${Math.round(goodsPeak)} in ${monthName(swing.peakMonth)} and fell to ${Math.round(goodsTrough)} by ${monthName(swing.troughMonth)}`}>
+                        <Say last>{`Indian prices barely moved (${Math.round(relPeak)}, then ${Math.round(relTrough)}); partners’ currencies went
+                            from ₹${Math.round(basketPeak)} to ₹${Math.round(basketTrough)}, through the US tariffs and the West Asia conflict
+                            (${tariffMark} and ${westAsiaMark} on the dollar chart).`}</Say>
                     </StepCard>
                 </Div>
             </Div>
@@ -591,6 +542,7 @@ export const RupeeAndWorldPage = () => {
     return (
         <MotionConfig reducedMotion="user">
             <Article id="rupee-and-world-page" style={vars}>
+                <SectionRail names={SECTION_NAMES} />
                 <TheOpening />
                 <Div className="after-opening">
 
@@ -599,23 +551,19 @@ export const RupeeAndWorldPage = () => {
                     <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                         <Portion desktopSpan="24">
                             <div data-page-stop>
-                            <Chapter id="three-measures" kicker="THREE MEASURES, THREE QUESTIONS" title="Which number to read depends on the question">
-                                <Para last>{`One rupee, measured three ways, from ${FROM} to ${TO}. The small lines share one scale, each
-                                    starting at 100. Turn a card over to see how it is measured.`}</Para>
+                            <Chapter id="three-measures" title={`From ${FROM} to ${TO}, the dollar rate rose ${((USD[N - 1] as number) / (USD[0] as number)).toFixed(1)}x and the basket ${(basketNow / 100).toFixed(1)}x, while what Indian goods cost abroad went from 100 to ${Math.round(goodsNow)}`}>
+                                <Para last>{`Each measure answers a different question. The small lines share one scale, each starting at
+                                    100; turn a card over to see how it is measured.`}</Para>
                             </Chapter>
                             <Recap colours={{ usd : cssOf(lines.usd), neer : cssOf(lines.neer), reer : cssOf(lines.reer) }} />
                             </div>
                             {/* the takeaway, in the same card the opening tells its story in */}
                             <Reveal delay={0.2} className="takeaway page-stop">
-                                <StepCard active kicker="THE TAKEAWAY" title="Why the three tell different stories">
-                                    <Say>{`A rupee buys fewer dollars than it did in ${FROM.split(" ")[1]}: that answers anyone paying in dollars.
-                                        Part of that is the dollar’s own rise against almost every currency.`}</Say>
+                                <StepCard active title="The dollar rate answers what a dollar costs; the REER answers what Indian goods cost abroad, and over 22 years that barely moved">
                                     <Text fontStyle="serif" marginBottom="nano">
-                                        {prose(`For the countries that buy from India, Indian goods cost about what they did then. That is the
-                                            number the Reserve Bank publishes, with the basket, as an indicator of external competitiveness`)}{" "}
+                                        {prose(`The Reserve Bank publishes the NEER and the REER as indicators of external competitiveness`)}{" "}
                                         <a className="cite-link" href="https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=7129" target="_blank" rel="noopener">(RBI Bulletin, Dec 2005 ↗)</a>.
                                     </Text>
-                                    <Say last>{`So next time the dollar rate makes the news, ask which question it answers.`}</Say>
                                 </StepCard>
                             </Reveal>
                         </Portion>
@@ -700,6 +648,12 @@ export const RupeeAndWorldPage = () => {
                         <Portion desktopSpan="half">
                             <Divider kind="secondary" verticalMargin="micro" />
                             <Text weight="600" size="tiny" verticalMargin="micro">METHOD</Text>
+                            <MethodNote title="NEER and REER, in brief.">{`The NEER (nominal effective exchange rate) is the rupee against a basket of 40
+                                currencies, each weighted by its share of India’s trade. The REER (real effective exchange rate) is the NEER
+                                adjusted for consumer prices in India against those in the same 40 countries: what Indian goods cost buyers
+                                abroad. On the Reserve Bank’s indices a higher number means a stronger rupee (NEER) or Indian goods costing
+                                more abroad (REER). The story shows the NEER turned round, as the rupee cost of the basket, so that it rises
+                                when the rupee weakens, as the dollar rate does.`}</MethodNote>
                             <MethodNote title="The indices.">{`The NEER is a weighted geometric average of the rupee’s exchange rates against the
                                 40 currencies, as an index; the REER multiplies it by the ratio of India’s consumer prices to its partners’
                                 consumer prices, weighted the same way. A higher index is a stronger rupee. The 2015-16 series begins in April
