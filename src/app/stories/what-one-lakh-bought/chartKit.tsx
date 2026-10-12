@@ -33,13 +33,14 @@ interface FigureProps {
     note ?    : ReactNode;
     className ? : string;
     noteFirst ? : boolean;       // the note above the table view rather than below it
+    aside ?   : ReactNode;       // shown in both views, after the chart or the table
 }
 
 // A figure on its own panel: sentence-case title, the units, the chart, a table view to read every value without
 // hovering, and a note.
 // A figure shows its chart or its table, one at a time, with a toggle beneath; a figure with no table shows its
 // chart alone.
-export const Figure = ({ title, units, children, table, note, className, noteFirst = false } : FigureProps) => {
+export const Figure = ({ title, units, children, table, note, className, noteFirst = false, aside } : FigureProps) => {
     const [ view, setView ] = useState<"chart" | "table">("chart");
     return (
         <figure className={`story-figure ${className ?? ""}`}>
@@ -68,6 +69,7 @@ export const Figure = ({ title, units, children, table, note, className, noteFir
                     </table>
                 </div>
             )}
+            {aside}
             {note && noteFirst && <p className="figure-note">{note}</p>}
             {note && !noteFirst && <p className="figure-note">{note}</p>}
         </figure>

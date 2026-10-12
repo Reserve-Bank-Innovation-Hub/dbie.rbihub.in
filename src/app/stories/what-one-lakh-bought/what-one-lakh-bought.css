@@ -184,6 +184,10 @@
     .chapter-text {
         max-width : 60ch;
     }
+    .on-sandalwood .chapter-text.r3 { max-width : none; }
+    /* the receipt and its foot follow the paragraphs closely */
+    .on-sandalwood .chapter-text.r1 { margin-bottom : 0; }
+    .on-sandalwood .receipt-two { margin-top : 6px; .receipt-foot { margin-top : 8px; } }
 
     /* A figure in a sentence: mono, a shade heavier, on a soft wash of the accent, so the numbers carry the story. */
     .fig {
@@ -288,7 +292,6 @@
         .label-piece { font-family : var(--font-serif); font-size : 17px; fill : hsl(var(--charcoal)); }
         .label-note  { font-family : var(--font-sans-serif); font-size : 12px; fill : color-mix(in oklch, hsl(var(--charcoal)), white 30%); }
 
-        .unit { transition : opacity 0.2s linear; }
     }
 
     /* The story over the room: the left of the stage, blurred behind the text, which is set in the room's ivory. */
@@ -347,7 +350,6 @@
 
         .showcase { height : auto !important; }
         .showcase-stage { position : static; }
-        .unit { opacity : 1 !important; }
         .showcase-text { display : block; }
         .showcase-kicker { position : static; }
         .showcase-beat { position : static; opacity : 1; margin-top : 24px; }
@@ -400,12 +402,14 @@
     }
 
     .shelves-ground {
+        .chapter-text.r1 { margin-bottom : 0; .chapter-title { margin-bottom : 28px; } }
+        .receipt-two { margin-top : 10px; }
         --earth        : #976646;
         --table-ground : color-mix(in oklch, var(--bill), var(--paper) 45%);
         background     : var(--table-ground);
 
         /* the earth brown rises from the foot of the frame into the sandalwood, the still life standing in it */
-        .pinned-frame { overflow : hidden; background : linear-gradient(to top, var(--earth) 0, color-mix(in oklch, var(--earth), transparent 55%) 22%, transparent 52%); }
+        .pinned-frame { overflow : hidden; background : linear-gradient(to top, color-mix(in oklch, var(--earth), transparent 30%) 0, color-mix(in oklch, var(--earth), transparent 70%) 22%, transparent 52%); }
         .pinned-frame > [data-row] { position : relative; z-index : 1; }
         .commodities {
             position       : absolute;
@@ -427,6 +431,34 @@
         /* the gold's paragraph starts level with the first paragraph on the left, below the title's height */
         .chapter-text.r3 { padding-top : 48px; }
 
+        /* the statement with the multiple on a card under it */
+        .statement {
+            display         : flex;
+            flex-direction  : column;
+            align-items     : flex-start;
+            gap             : 18px;
+
+            > div { flex : 0 1 auto; min-width : 0; }
+        }
+        .stat-card {
+            flex          : 0 0 auto;
+            align-self    : flex-start;
+            display       : block;
+            max-width     : 24ch;
+            margin        : 0;
+            padding       : 12px 20px;
+            border        : 1px solid hsl(var(--sand));
+            border-radius : 0;
+            background    : hsl(var(--ivory));
+            font-family   : var(--font-serif);
+            font-weight   : 700;
+            font-size     : clamp(16px, 1.25vw, 18px);
+            line-height   : 1.25;
+            color         : hsl(var(--charcoal));
+
+            .stat-times { color : var(--scene-accent); }
+        }
+
         /* the gallery's floor runs under the foot of the chapter, its maroon boards with the floor lines, and the
            maroon rises into the sandalwood above it as the gallery's light did */
         .pinned-frame {
@@ -437,8 +469,12 @@
                 linear-gradient(to top, transparent 0, transparent 190px, color-mix(in oklch, var(--scene-maroon), black 12%) 190px, color-mix(in oklch, var(--scene-maroon), transparent 18%) 240px, color-mix(in oklch, var(--scene-maroon), transparent 40%) 310px, color-mix(in oklch, var(--scene-maroon), transparent 62%) 400px, color-mix(in oklch, var(--scene-maroon), transparent 80%) 500px, color-mix(in oklch, var(--scene-maroon), transparent 92%) 600px, transparent 78%),
                 linear-gradient(to top, color-mix(in oklch, var(--scene-floor), black 22%) 0, var(--scene-floor) 190px, transparent 190px);
 
-            /* the boards' edge lines and the shadow at the foot, laid beneath the content */
+            /* the boards' edge lines and the shadow at the foot, laid beneath the content; on a wide screen the content
+               stands a little above the frame's centre */
             > [data-row] { position : relative; z-index : 1; }
+            /* on a wide screen the content hangs from the frame's top rather than floating at its centre, so the
+               case and the receipt keep their places as the columns change height */
+            @media (min-width : 901px) { align-items : flex-start; padding-top : 128px; }
 
             &::after {
                 content        : "";
@@ -510,6 +546,14 @@
     .gold-set {
         margin-top : 8px;
         max-width  : 34rem;
+    }
+    /* on a wide screen the statement and its card stand on the left and the display case on the right, level with
+       the first line */
+    @media (min-width : 901px) {
+        .statement-stack { display : flex; align-items : flex-start; gap : 32px; }
+        /* the statement takes six of the portion's fifteen columns, the case the rest */
+        .statement-stack .chapter-text { flex : 0 0 calc(6 / 15 * (100% - 32px)); min-width : 0; }
+        .statement-stack .gold-set { flex : 1 1 0; min-width : 0; margin-top : 8px; }
     }
 
     .display-unit {
@@ -592,7 +636,7 @@
 
     .shelf-control {
         display       : grid;
-        grid-template-columns : auto 1fr auto;
+        grid-template-columns : auto 1fr auto auto;
         align-items   : center;
         gap           : 14px;
         padding       : 4px 0 14px;
@@ -619,6 +663,21 @@
         }
     }
 
+    /* the play button beside the year: a small outlined pill, filled while the years run */
+    .shelf-play {
+        padding       : 4px 12px;
+        border        : 1px solid var(--accent);
+        border-radius : 999px;
+        background    : transparent;
+        color         : var(--accent);
+        font-family   : var(--font-sans-serif);
+        font-size     : 12px;
+        font-weight   : 600;
+        cursor        : pointer;
+
+        &.is-playing { background : var(--accent); color : white; }
+    }
+
     .shelf-year {
         font-family          : var(--font-mono);
         font-variant-numeric : tabular-nums;
@@ -626,49 +685,113 @@
         color                : var(--heading-text-colour);
     }
 
-    .shelf-row {
-        display               : grid;
-        grid-template-columns : 150px 1fr 140px;
-        align-items           : center;
-        gap                   : 16px;
-        padding               : 12px 0;
-        border-bottom         : 1px solid var(--rule);
+    /* the figure split: on a wide screen the heading runs across the top, the figure's title under it with the toggle
+       and the year slider on one line beneath; the receipt and its note share one card, which stands top right in chart view
+       (over the plot's empty corner) and on the left in table view, the year table beside it */
+    @media (min-width : 901px) {
+        .shelves-ground .chapter-text, .shelves-ground .chapter-title { max-width : none; }
+        .shelves-ground .shelves-figure { container-type : inline-size; }
+        .figure-split {
+            display               : grid;
+            grid-template-columns : minmax(0, 1fr) auto;
+            grid-template-rows    : auto auto;
+            column-gap            : 48px;
+            align-items           : start;
+            margin                : 0;
 
-        &:last-child { border-bottom : none; }
-        &.is-missing .shelf-count { color : var(--ink-soft); font-family : var(--font-sans-serif); font-size : 12px; }
+            figcaption, .shelf-control, .shelves-aside, .table-scroll { position : relative; z-index : 1; }
+            figcaption     { grid-column : 1; grid-row : 1; margin-bottom : 0; }
+            .figure-head   { flex-direction : column; align-items : flex-start; gap : 24px; }
+            /* the year slider shares the caption's cell, standing beside the toggle on its line */
+            .shelf-control { grid-column : 1; grid-row : 1; align-self : start; justify-self : start; width : clamp(280px, 24vw, 340px); margin : calc(1.2 * clamp(17px, 1.5vw, 20px) + 25px) 0 0 224px; padding : 0; border-bottom : none; }
+            /* the stage runs out to the frame's edges, so the plot is as wide as the screen allows, and sits 65px to the left of centre */
+            .shelves-stage { grid-column : 1 / -1; grid-row : 2; aspect-ratio : 2 / 1; max-height : none; margin : 22px calc(-1 * var(--small) + 65px) 0 calc(-1 * var(--small) - 65px); }
+            .shelves       { display : contents; }
+
+            /* the card: the receipt with the note under it, the same in both views */
+            .shelves-aside {
+                grid-column : 2;
+                grid-row    : 1 / span 2;
+                align-self  : start;
+                width       : clamp(300px, 32vw, 440px);
+                box-sizing  : border-box;
+                padding     : 14px 18px 16px;
+                background  : hsl(var(--ivory));
+                border      : 1px solid hsl(var(--sand));
+
+                .receipt-two { margin-top : 0; }
+                .receipt-row:last-of-type { border-bottom : none; }
+                .figure-note { margin : 18px 0 0; }
+            }
+
+            /* in table view the card stands on the left and the whole year table on the right, an empty column between;
+               the figure keeps at least the height it has in chart view, so the page does not jump between the two */
+            &:has(.table-scroll) {
+                grid-template-columns : clamp(300px, 32vw, 440px) minmax(0, 1fr);
+                column-gap            : calc(100% / 24 + 32px);
+                align-content         : start;
+                min-height            : calc(50cqw + 273px);
+                .shelves-aside { grid-column : 1; grid-row : 2; margin-top : 16px; }
+                .table-scroll  { grid-column : 2; grid-row : 2; margin-top : 16px; max-height : none; overflow : visible; }
+            }
+        }
+        .shelves-ground .shelves-canvas { height : 100%; aspect-ratio : auto; max-height : none; }
+        .shelves-ground .shelves-stage.is-loading { aspect-ratio : 2 / 1; max-height : none; }
+        /* the chapter's content hangs from the frame's top, so the heading stays put between chart and table view */
+        .shelves-ground .pinned-frame { align-items : flex-start; padding-bottom : calc(var(--medium) - 50px); }
     }
 
-    .shelf-name {
+    /* THE RACK: the 3D stage, a tag at each end of every shelf laid over the canvas */
+    .shelves-stage {
+        position : relative;
+        margin   : 8px 0 4px;
+
+        &.is-loading { aspect-ratio : 2.3 / 1; max-height : 52vh; }
+    }
+    /* an isometric plot is twice as wide as it is tall, so the canvas takes that shape */
+    .shelves-canvas {
+        aspect-ratio : 2.3 / 1;
+        max-height   : 52vh;
+        canvas { display : block; width : 100%; height : 100%; }
+    }
+
+    /* the tags lie on the ground beside their tiles; the stage sets their size and lays them in the tiles' direction */
+    .shelf-tag {
+        position         : absolute;
+        left             : 0;
+        top              : 0;
+        pointer-events   : none;
+        white-space      : nowrap;
+        transform-origin : 0 0;
+    }
+
+    .shelf-tag-name {
         display        : flex;
         flex-direction : column;
+        align-items    : flex-end;
+        text-align     : right;
         font-family    : var(--font-serif);
-        font-size      : 15px;
+        line-height    : 1.15;
         color          : var(--ink);
 
-        .shelf-unit { font-family : var(--font-sans-serif); font-size : 11px; color : var(--ink-soft); }
+        .shelf-unit { font-family : var(--font-sans-serif); font-size : 0.7em; color : var(--ink-soft); }
     }
 
-    .shelf-units { display : flex; flex-wrap : wrap; gap : 3px; min-height : 14px; }
-
-    .unit {
-        display : block;
-        fill    : var(--unit);
-
-        .unit-ghost { fill : none; stroke : var(--unit); stroke-width : 1; opacity : 0.35; }
-    }
-
-    .unit-gold   { --unit : var(--gold); }
-    .unit-silver { --unit : var(--c-deemph); }
-    .unit-mason  { --unit : var(--ink); }
-    .unit-usd    { --unit : var(--c-second); }
-    .unit-wheat  { --unit : var(--c-warm); }
-
-    .shelf-count {
+    .shelf-tag-count {
         font-family          : var(--font-mono);
         font-variant-numeric : tabular-nums;
-        font-size            : 16px;
-        text-align           : right;
+        line-height          : 1.15;
         color                : var(--heading-text-colour);
+
+        &.is-missing { color : var(--ink-soft); font-family : var(--font-sans-serif); font-size : 0.75em; }
+    }
+
+    .shelves-fallback {
+        position   : absolute;
+        inset      : auto 16px 45% 16px;
+        text-align : center;
+        font-size  : 14px;
+        color      : var(--ink-soft);
     }
 
     /* THE RAN-AHEAD CHART ======================================================================================== */
@@ -934,9 +1057,17 @@
         .receipt-two .receipt-row { grid-template-columns : 1fr 84px 84px; column-gap : 12px; }
         .receipt-two .receipt-value { font-size : 14px; }
         .receipt-two .receipt-note { display : none; }
-        .shelf-row { grid-template-columns : 1fr auto; }
-        .shelf-units { grid-column : 1 / -1; }
-        .shelf-control { grid-template-columns : auto 1fr auto; }
+        /* the rack alone on the canvas, the tags listed under it, one line a shelf, the front shelf first */
+        .shelves-canvas { aspect-ratio : 2 / 1.1; max-height : none; }
+        .statement { flex-direction : column; align-items : flex-start; .stat-card { max-width : none; } }
+        .shelves-stage.is-loading { aspect-ratio : 2 / 1.1; }
+        .is-narrow .shelf-tags { display : flex; justify-content : space-between; align-items : baseline; gap : 12px; padding : 7px 0; border-bottom : 1px solid var(--rule); }
+        .is-narrow .shelf-tags:last-of-type { border-bottom : none; }
+        .is-narrow .shelf-tag { position : static; transform : none !important; }
+        .is-narrow .shelf-tag-name { flex-direction : row; align-items : baseline; gap : 8px; text-align : left; font-size : 15px; .shelf-unit { font-size : 11px; } }
+        .is-narrow .shelf-tag-count { font-size : 16px; &.is-missing { font-size : 12px; } }
+        .is-narrow .shelf-tag { font-size : 15px !important; }
+        .shelf-control { grid-template-columns : auto 1fr auto auto; }
         .bill-fields { grid-template-columns : 1fr; }
 
         .chapter-text {
@@ -956,7 +1087,8 @@
 
         .showcase-text { display : block; }
         /* the scene keeps to the lower part of the screen, under the text, the wall colour filling the rest */
-        .scene { top : auto; bottom : 0; height : 62%; }
+        /* the scene's share shrinks on a short screen, Safari's with its bars, so the longest beat still clears it */
+        .scene { top : auto; bottom : 0; height : clamp(38%, calc(100% - 360px), 62%); }
         .showcase-kicker { position : static; margin-bottom : 8px; }
         .showcase-beat { left : 16px; right : 16px; top : 48px; }
         .showcase-beat.is-opening { position : relative; left : 0; right : 0; top : 0; }
@@ -987,6 +1119,8 @@
 
     .shelves-ground .commodities { opacity : 0.75; }
     .bill { background : var(--paper); }
+    .stat-card { background : var(--ivory-faint); color : var(--ink); }
+    .shelves-ground .figure-split .shelves-aside { background : var(--ivory-faint); border-color : var(--rule); }
     --c-warm  : var(--salmon-light20);
     --c-faint : var(--grey-dark60);
 }

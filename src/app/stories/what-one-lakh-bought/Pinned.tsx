@@ -15,7 +15,10 @@ const HOLD = 80;                                        // svh of scroll a pinne
 
 export const Pinned = ({ steps, id, className, pin = false, children } : { steps : number; id ? : string; className ? : string; pin ? : boolean; children : ReactNode }) => {
     const ref = useRef<HTMLElement>(null);
-    const reduced = !!useReducedMotion();
+    // read after mounting, so the server's markup and the first client render agree; the stilled layout follows a beat later
+    const prefersReduced = !!useReducedMotion();
+    const [ reduced, setReduced ] = useState(false);
+    useEffect(() => { setReduced(prefersReduced); }, [ prefersReduced ]);
     const inView = useInView(ref, { once : true, amount : 0.3 });
     const [ step, setStep ] = useState(1);
 

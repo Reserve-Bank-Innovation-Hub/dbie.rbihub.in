@@ -21,10 +21,7 @@ import { OwnBill } from "./OwnBill";
 import { Pinned } from "./Pinned";
 
 // DATA ================================================================================================================
-import {
-    FACTORS, FIRST, FROM_YEAR, HEADLINE, LENS, MASON_LAST, NOW, SPAN, SUM, TO_YEAR, WHEAT_LAST, YEARS,
-    grams, inr, kg, lakh, monthName, partYear, pieceOf, rs, times, timesWords,
-} from "./data";
+import { FACTORS, FIRST, FROM_YEAR, HEADLINE, LENS, MASON_LAST, NOW, SPAN, SUM, TO_YEAR, WHEAT_LAST, YEARS, grams, inr, kg, lakh, monthName, partYear, pieceOf, rs, timesWords } from "./data";
 
 // STYLES ==============================================================================================================
 import "./what-one-lakh-bought.css";
@@ -34,6 +31,8 @@ import "./what-one-lakh-bought.css";
 // the line breaks of the source into single spaces.
 const prose = (s : string) => s.replace(/\s*\n\s*/g, " ").trim();
 const cap = (s : string) => s.charAt(0).toUpperCase() + s.slice(1);
+// the multiple on the card: the figure in the accent, an opening "about" in the card's own ink
+const Times = () => { const w = timesWords(HEADLINE.ranAhead.gold); return w.startsWith("about ") ? <>About <span className="stat-times">{w.slice(6)}</span></> : <span className="stat-times">{cap(w)}</span>; };
 // A figure in a sentence is written [[like this]] and set as a highlight, so the numbers carry the story without a
 // card repeating them.
 const rich = (s : string) => prose(s).split(/\[\[(.+?)\]\]/).map((part, i) => i % 2 ? <strong key={i} className="fig">{part}</strong> : part);
@@ -120,7 +119,7 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
             {/* 4 THE MONEY SHRANK TOO ================================================================================ */}
             <Pinned steps={3} className="on-sandalwood" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="9">
+                    <Portion desktopSpan="8">
                         <Chapter id="the-money-shrank" title="Prices in general rose too">
                             <Para>{`By the consumer price index for industrial workers, the long series the Labour Bureau keeps, what cost
                                 [[₹100]] in [[${FROM_YEAR}]] cost [[${rs(Math.round(HEADLINE.priceRise * 100))}]] in [[${TO_YEAR}]].`}</Para>
@@ -129,28 +128,33 @@ export const WhatOneLakhBoughtPage = ({ note } : { note : NoteArt }) => (
                         <Receipt indexSpan={INDEX_SPAN} />
                     </Portion>
                     <Portion desktopSpan="1" />
-                    <Portion desktopSpan="14">
+                    <Portion desktopSpan="15">
+                        {/* the statement with its card under it on the left, the display case on the right */}
+                        <div className="statement-stack">
                         <Div className="chapter-text r3">
-                            <Para>{`One can’t get the same bridal set for [[${rs(HEADLINE.worthNow)}]].`}</Para>
-                            <Para last>{`The [[${grams(FIRST.gold.grams)}]] of [[${FROM_YEAR}]] cost [[${lakh(HEADLINE.necklaceNow)}]] at [[${TO_YEAR}]]’s price,
-                                [[${timesWords(HEADLINE.ranAhead.gold)}]] what the general rise in prices would explain.`}</Para>
+                            <div className="statement">
+                                <div>
+                                    <Para>{`One can’t get the same bridal set for [[${rs(HEADLINE.worthNow)}]].`}</Para>
+                                    <Para last>{`The [[${grams(FIRST.gold.grams)}]] of [[${FROM_YEAR}]] cost [[${lakh(HEADLINE.necklaceNow)}]] at [[${TO_YEAR}]]’s price.`}</Para>
+                                </div>
+                                {/* the multiple on a card beside the statement, so it stands out of the running text */}
+                                <p className="stat-card"><Times /> the general rise in prices</p>
+                            </div>
                         </Div>
                         <GoldSet />
+                        </div>
                     </Portion>
                 </Row>
             </Pinned>
 
             {/* 5 THE OTHER SHELVES =================================================================================== */}
-            <Pinned steps={6} className="figs-bold shelves-ground" pin>
-                <img className="commodities" src="/images/stories/what-one-lakh-bought/other-commodities.webp" alt="" aria-hidden="true" decoding="async" loading="lazy" />
+            <Pinned steps={6} className="figs-bold shelves-ground">
+                {/* the still life in the corner is set aside for now: <img className="commodities" src="/images/stories/what-one-lakh-bought/other-commodities.webp" alt="" /> */}
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="10">
+                    <Portion desktopSpan="24">
                         <Chapter id="the-other-shelves" title="Silver, a mason’s days, dollars and wheat each shrank at their own pace">
                         </Chapter>
-                        <ShelvesReceipt />
-                    </Portion>
-                    <Portion desktopSpan="13">
-                        <Shelves />
+                        <Shelves receipt={<ShelvesReceipt />} />
                     </Portion>
                 </Row>
             </Pinned>
