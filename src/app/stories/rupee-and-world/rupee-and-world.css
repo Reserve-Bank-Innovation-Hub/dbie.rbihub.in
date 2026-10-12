@@ -203,6 +203,51 @@
         &.is-wide { width : min(500px, 38vw); }
     }
 
+    /* cards on the left of the stage, where the step's picture is set to the right */
+    .step.is-left { justify-content : flex-start; }
+
+    /* the header carries the step's message in exact figures */
+    .step-card .step-title {
+        font-size   : clamp(19px, 1.45vw, 23px) !important;
+        line-height : 1.25 !important;
+        text-wrap   : balance;
+        color       : var(--heading-text-colour);
+    }
+
+    /* a term defined where it first appears */
+    .define {
+        margin        : 4px 0 10px;
+        padding       : 10px 12px;
+        border-radius : 8px;
+        font-size     : 13.5px;
+        line-height   : 1.5;
+        color         : var(--ink);
+        background    : color-mix(in oklch, #e1d5bc, transparent 55%);
+        border-left   : 3px solid var(--accent);
+        b { color : var(--accent); margin-right : 4px; }
+    }
+
+    /* THE SECTIONS: a slim marker at the top of the screen, in place of a label on each card */
+    .section-rail {
+        position : fixed; z-index : 20; top : 14px; left : 50%; transform : translate(-50%, -8px);
+        display : flex; gap : 2px; padding : 3px; border-radius : 999px;
+        background : color-mix(in oklch, var(--fig-bg), transparent 8%); backdrop-filter : blur(6px);
+        box-shadow : 0 0 0 1px var(--ink-faint), 0 6px 18px rgba(0, 0, 0, 0.06);
+        opacity : 0; pointer-events : none; transition : opacity 0.3s, transform 0.3s;
+        &.is-shown { opacity : 1; transform : translate(-50%, 0); pointer-events : auto; }
+        button {
+            display : flex; align-items : center; gap : 6px; border : 0; background : none; cursor : pointer;
+            padding : 5px 12px 5px 6px; border-radius : 999px; font : 500 12.5px var(--font-sans-serif); color : var(--ink-soft);
+            transition : background 0.2s, color 0.2s;
+            &.is-on { background : var(--accent); color : #ffffff; .rail-n { background : #ffffff; color : var(--accent); } }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+        .rail-n {
+            display : inline-grid; place-items : center; width : 18px; height : 18px; border-radius : 50%;
+            font : 700 10.5px / 1 var(--font-sans-serif); background : var(--ink-faint); color : var(--ink);
+        }
+    }
+
     .step-kicker {
         color          : var(--accent);
         letter-spacing : 0.12em;
@@ -796,6 +841,8 @@
     .chapter { padding-top : var(--large); }
     /* the chapters after the opening speak in the opening's type: its kicker, a serif heading, serif text */
     .kicker { color : var(--accent); letter-spacing : 0.12em; font-size : 11.5px; }
+    /* the close's header carries its message in figures, so it runs longer and a little smaller */
+    #three-measures.chapter-title { max-width : 52ch; font-size : clamp(22px, 2.1vw, 30px) !important; line-height : 1.2; }
     .chapter-title {
         max-width      : 30ch;
         font-family    : var(--font-serif);
@@ -932,7 +979,7 @@
 
     .recap-top      { display : flex; align-items : center; gap : 12px; }
     .recap-art      { width : 64px; height : 64px; flex : none; filter : drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)); }
-    .recap-kicker   { font-size : 11.5px; font-weight : 700; letter-spacing : 0.1em; text-transform : uppercase; color : var(--c); }
+    .recap-kicker   { font-size : 13px; font-weight : 600; color : var(--c); }
     .recap-question { margin : 0; font-family : var(--font-serif); font-weight : 600; font-size : 18px; line-height : 1.3; color : var(--heading-text-colour); }
     .recap-figures  {
         position    : relative;
@@ -1135,6 +1182,8 @@
     /* A PHONE ==================================================================================================== */
     @media (max-width : 900px) {
         .step { align-items : flex-end; justify-content : center; padding-bottom : 6vh; }
+        .step.is-left { justify-content : center; }
+        .section-rail { top : 8px; .rail-name { display : none; } button { padding : 4px; } }
         .step.is-hero { align-items : flex-start; padding : 38vh 16px 0; }
         .step.is-hero::before { inset : 34vh 0 0 0; width : auto; background : linear-gradient(to bottom, color-mix(in oklch, var(--fig-bg), transparent 100%), var(--fig-bg) 12%); }
         .title-card { max-width : 100%; }

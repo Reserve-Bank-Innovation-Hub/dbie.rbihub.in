@@ -240,13 +240,20 @@ interface Frame {
     globe  : { cx : number; cy : number; R : number; alpha : number };
     chart  : { x0 : number; x1 : number; y0 : number; y1 : number };
 }
+// The steps whose card sits on the left of the stage (the rest sit on the right), so the story does not read as one
+// template. Neighbouring charts share a side, so their lines do not jump across the screen between steps.
+export const CARD_LEFT : Set<SceneId> = new Set([ "coins", "coins26", "orbit", "scale", "orbitReal" ]);
 const frameOf = (scene : SceneId, w : number, h : number) : Frame => {
     const mobile = w < 900;
     // the basket's card is wider, to hold all 40 partners (.step-card.is-wide in the stylesheet)
     const card = mobile ? 0 : (scene === "basket" ? Math.min(500, 0.38 * w) : Math.min(420, 0.34 * w)) + 56;
+    // with the card on the left, the picture moves right; the end labels keep their room on the right either way
+    const left = !mobile && CARD_LEFT.has(scene);
     const chart = mobile
         ? { x0 : 40, x1 : w - 100, y0 : h * 0.1, y1 : h * 0.46 }
-        : { x0 : Math.max(64, w * 0.05), x1 : w - card - 150, y0 : h * 0.17, y1 : h * 0.83 };
+        : left
+            ? { x0 : card + Math.max(64, w * 0.05), x1 : w - 150, y0 : h * 0.17, y1 : h * 0.83 }
+            : { x0 : Math.max(64, w * 0.05), x1 : w - card - 150, y0 : h * 0.17, y1 : h * 0.83 };
     let globe;
     if (scene === "hero") {
         // the whole globe beside the title, on the right; on a phone, above it
