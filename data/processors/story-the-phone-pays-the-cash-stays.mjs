@@ -1,4 +1,4 @@
-// The figures for the story "Cash didn't die" (src/app/stories/cash-didnt-die), from the scraped DBIE files
+// The figures for the story "The phone pays, the cash stays" (src/app/stories/the-phone-pays-the-cash-stays), from the scraped DBIE files
 // (data/sdmx/** and data/reports/**, restored by `pnpm data:fetch`), read with the parsers the database loader uses.
 //
 //   payment system indicators, new format (report 612)   monthly from November 2019: UPI, card payments, cash
@@ -17,8 +17,8 @@
 // A fourth, data/sources/cash-events.json, is the official record of what changed around each series (RBI and Government
 // of India documents), marked on the story's steps.
 //
-// Writes data/processors/out/story-cash-didnt-die.json (the oracle), src/app/stories/cash-didnt-die/data.gen.ts and
-// the downloads under public/stories/cash-didnt-die/. It fails, writing nothing, if a check does not hold.
+// Writes data/processors/out/story-the-phone-pays-the-cash-stays.json (the oracle), src/app/stories/the-phone-pays-the-cash-stays/data.gen.ts
+// and the downloads under public/stories/the-phone-pays-the-cash-stays/. It fails, writing nothing, if a check does not hold.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,8 +28,8 @@ import { csvRows, readSdmxCsv } from '../../scripts/db/lib.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO      = path.join(__dirname, '../..');
 const OUT_DIR   = path.join(__dirname, 'out');
-const NAME      = 'story-cash-didnt-die';
-const SLUG      = 'cash-didnt-die';
+const NAME      = 'story-the-phone-pays-the-cash-stays';
+const SLUG      = 'the-phone-pays-the-cash-stays';
 
 const PAYMENTS  = path.join(REPO, 'data/reports/indicators/financial-sector-indicators/payment-system-indicators/612--payment-system-indicators--new-format.csv');
 const MONETARY  = path.join(REPO, 'data/sdmx/financial-sector/monetary-statistics');
@@ -297,5 +297,15 @@ fs.writeFileSync(path.join(pubDir, 'payments-monthly.csv'), '# Reserve Bank of I
 fs.writeFileSync(path.join(pubDir, 'cash-and-gdp-yearly.csv'), '# Reserve Bank of India, as published on DBIE: currency with the public (financial-year average) and nominal GDP (2011-12 base), rupees crore\n' + csv(
     [ 'financial_year', 'currency_with_public_crore', 'gdp_crore', 'share_pct' ],
     TIDE_FYS.map((fy, i) => [ fy, Math.round(cwpBy.get(fy)), Math.round(gdpBy.get(fy)), TIDE[i] ])));
+
+fs.writeFileSync(path.join(pubDir, 'cash-in-circulation-monthly.csv'), '# Reserve Bank of India, reserve money components (currency in circulation, end of month), as published on DBIE; rupees crore\n' + csv(
+    [ 'month', 'currency_in_circulation_crore' ],
+    CIC_MONTHS.map((m, i) => [ m, CIC[i] ])));
+if (NOTE_YEARS) fs.writeFileSync(path.join(pubDir, 'banknotes-by-denomination.csv'), '# Reserve Bank of India Annual Reports, Table VIII.1, banknotes in circulation at end-March (not on DBIE); volume in lakh pieces, value in rupees crore\n' + csv(
+    [ 'march', 'denomination', 'volume_lakh', 'value_crore', 'source' ],
+    NOTE_YEARS.flatMap(y => y.notes.map(n => [ y.march, `"${n.denom}"`, n.volume, n.value, `"${y.url}"` ]))));
+fs.writeFileSync(path.join(pubDir, 'upi-users.csv'), '# Unique UPI users onboarded (NPCI counts, not monthly active users), crore, at the dates official documents give them\n' + csv(
+    [ 'month', 'users_crore', 'approximate', 'source', 'url' ],
+    USER_POINTS.map(q => [ q.month, q.users, q.approximate, `"${q.source.replace(/"/g, "'")}"`, q.url ])));
 
 console.log(`${NAME}: payments ${PAY_MONTHS[0]} to ${PAY_MONTHS[last]} (${N} months); UPI ${HEADLINE.upi.from} → ${HEADLINE.upi.to} crore a month (${HEADLINE.upi.times}x); ATM withdrawals ${HEADLINE.atm.from} → ${HEADLINE.atm.to} crore (${HEADLINE.atm.change}%); micro-ATM ${HEADLINE.micro.from} → ${HEADLINE.micro.to}; machines: ATMs ${MACHINES.atm[0]} → ${MACHINES.atm[last]} lakh, micro-ATMs ${MACHINES.micro[0]} → ${MACHINES.micro[last]} lakh; cash ₹${HEADLINE.cash.march2016} crore (Mar 2016) → ₹${HEADLINE.cash.last} crore (${lastMarch}); tide ${TIDE_FYS[0]}–${HEADLINE.tide.last}: ${HEADLINE.tide.y2015}% (2015-16), ${HEADLINE.tide.y2017}% (2016-17), ${HEADLINE.tide.lastValue}% (${HEADLINE.tide.last}), high ${HEADLINE.tide.max.v}% (${HEADLINE.tide.max.fy}); banknotes ${NOTE_YEARS ? NOTE_YEARS.length + ' years' : 'not yet sourced'}; UPI users ${USERS[0]} → ${USERS[last]} crore (${USER_POINTS.length} points), ${HEADLINE.perUser.from} → ${HEADLINE.perUser.to} payments a user a month; Reserve Bank ratio agrees ${ratioAgree}/${ratioYears} years; self-check passed`);

@@ -42,8 +42,15 @@ const CAPTION_AFTER = 1.5;              // seconds of flashing between the sign 
 const FLASH = 0.5;                      // seconds a screen stays lit, fading
 const CELL_W = 0.5, CELL_H = 1.0, HAND = 1.2;          // a hand is drawn 1.2 times its modelled size
 
-// The grid: 38 × 16 on a wide screen, 28 × 22 on a phone, each about the stage's shape; about 600 cells.
-export const gridOf = (phone : boolean) => phone ? { cols : 28, rows : 22 } : { cols : 38, rows : 16 };
+// The grid: 28 × 22 on a phone; on a wider screen, shaped to the stage (a cell is twice as tall as it is wide), with an
+// even number of rows and about 620 cells, never fewer than the most hands any month shows.
+export const gridOf = (phone : boolean, aspect = 19 / 16, most = 0) => {
+    if (phone) return { cols : 28, rows : 22 };
+    let rows = Math.max(8, 2 * Math.round(Math.sqrt(310 / aspect) / 2));
+    let cols = Math.max(20, Math.round(2 * aspect * rows));
+    while (cols * rows < most + 20) cols++;
+    return { cols, rows };
+};
 const SKINS = [ 0xba644f, 0xc17361, 0xc88372, 0xcf9284 ];
 const CUFFS = [ KOSH.indivara, KOSH.turmeric, KOSH.neem, 0x24b6ff, KOSH.vermilion, KOSH.sandalwood, 0xa984ec, 0x2f2f2f ];
 
@@ -111,7 +118,7 @@ export function mountRainScene(canvas : HTMLCanvasElement, o : RainOptions) : Ra
     scene.add(sun);
 
     // THE GRID ========================================================================================================
-    const { cols, rows } = gridOf(phone);
+    const { cols, rows } = gridOf(phone, host.clientWidth / Math.max(1, host.clientHeight), Math.max(...o.hands));
     const P = cols * rows;
     const W = cols * CELL_W, H = rows * CELL_H;
     let seed = 7;
@@ -157,7 +164,7 @@ export function mountRainScene(canvas : HTMLCanvasElement, o : RainOptions) : Ra
     // THE LED SIGN ====================================================================================================
     // `scroll` is how many wall columns the text has moved in from the right edge, or -1 when the sign is off. Each
     // font column spans two wall columns (a cell is twice as tall as it is wide), and its five rows sit on the grid's
-    // rows 3 to 7 from the bottom (on the desktop wall of 16 rows, lines 9 to 13 from the top), which hands fill by the end.
+    // rows 3 to 7 from the bottom, which hands fill by the end.
     const led = ledColumns(o.marquee), LED_W = 2 * led.length;
     const LED_SPEED = 40, LED_ROW = 3;                   // wall columns a second; the sign's bottom row
     let scroll = -1;
@@ -278,4 +285,43 @@ export function mountRainScene(canvas : HTMLCanvasElement, o : RainOptions) : Ra
             renderer.dispose();
         },
     };
+}
+
+// One of the wall's hands on its own, as an image (a PNG data URL `px` tall): the same geometry, materials and light,
+// the screen lit with the rupee sign as a payment shows it. Rendered once, offscreen, for the close's pictures.
+export function handImage(px : number) : string {
+    const canvas = document.createElement("canvas");
+    const W = Math.round(px * 0.6), H = px;
+    canvas.width = W; canvas.height = H;
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias : true, alpha : true, preserveDrawingBuffer : true });
+    renderer.setPixelRatio(1); renderer.setSize(W, H, false);
+    renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.NoToneMapping;
+    renderer.setClearColor(0x000000, 0);
+    const scene = new THREE.Scene();
+    const half = 0.47, camera = new THREE.OrthographicCamera(-half * 0.6, half * 0.6, 0.39, -0.55, 0.1, 50);
+    camera.position.set(0, 0, 20);
+    scene.add(new THREE.HemisphereLight(0xffffff, KOSH.sandalwood, 2.2));
+    const sun = new THREE.DirectionalLight(0xffffff, 1.4);
+    sun.position.set(-3, 5, 8);
+    scene.add(sun);
+    const geo = handGeometry();
+    const mats = [
+        new THREE.MeshStandardMaterial({ vertexColors : true, roughness : 0.7 }),
+        new THREE.MeshStandardMaterial({ vertexColors : true, roughness : 0.7, color : SKINS[1] }),
+        new THREE.MeshStandardMaterial({ vertexColors : true, roughness : 0.7, color : KOSH.indivara }),
+    ];
+    [ geo.phone, geo.skin, geo.cuff ].forEach((g, k) => scene.add(new THREE.Mesh(g, mats[k])));
+    const screenGeo = new THREE.PlaneGeometry(0.26, 0.5); screenGeo.translate(0, 0.07, 0.021);
+    const screenMat = new THREE.MeshBasicMaterial({ color : KOSH.neem });
+    scene.add(new THREE.Mesh(screenGeo, screenMat));
+    const tex = checkTexture(renderer);
+    const checkGeo = new THREE.PlaneGeometry(0.27, 0.27); checkGeo.translate(0, 0.07, 0.023);
+    const checkMat = new THREE.MeshBasicMaterial({ map : tex, transparent : true, depthWrite : false });
+    scene.add(new THREE.Mesh(checkGeo, checkMat));
+    renderer.render(scene, camera);
+    const url = canvas.toDataURL("image/png");
+    [ geo.phone, geo.skin, geo.cuff, screenGeo, checkGeo ].forEach(g => g.dispose());
+    [ ...mats, screenMat, checkMat ].forEach(m => m.dispose());
+    tex.dispose(); renderer.dispose();
+    return url;
 }

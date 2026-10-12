@@ -1,5 +1,5 @@
 {
- "about": "Dates of Deepavali (Diwali) and Dussehra (Vijaya Dashami) as gazetted for Central Government offices (DoPT holiday lists), used by data/processors/story-cash-didnt-die.mjs to measure the cash drawn in the festive weeks. Each year's dates were read from that year's DoPT office memorandum (Annexure-I, central offices in Delhi/New Delhi) on 11-10-2026. The memoranda let offices in some states keep the Diwali holiday on Naraka Chaturdasi instead, usually the day before; the central date is used.",
+ "about": "Dates of Deepavali (Diwali) and Dussehra (Vijaya Dashami) as gazetted for Central Government offices (DoPT holiday lists), used by data/processors/story-the-phone-pays-the-cash-stays.mjs to measure the cash drawn in the festive weeks. Each year's dates were read from that year's DoPT office memorandum (Annexure-I, central offices in Delhi/New Delhi) on 11-10-2026. The memoranda let offices in some states keep the Diwali holiday on Naraka Chaturdasi instead, usually the day before; the central date is used.",
  "years": [
   {
    "year": 2012,

@@ -15,6 +15,7 @@ import { type Band, mountRainScene } from "./rainScene";
 // DATA ================================================================================================================
 import { MACHINES, NOTE_YEARS, PAY, PAY_MONTHS, USERS, USER_POINTS } from "./data.gen";
 import { eventsFor, type StepEvent } from "./record";
+import { NoteIcon } from "./Note";
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const NO_GL = "This 3D scene needs WebGL, which this browser has turned off.";
@@ -162,6 +163,13 @@ const NOTE_MIX = PAY_MONTHS.map(ym => {
     return NOTE_DENOMS.map(d => count(d) / total);
 });
 const LATEST_NOTES = (NOTE_YEARS ?? [])[(NOTE_YEARS ?? []).length - 1];
+// the legend under the cash grids, in the note wall's colours and order of size
+const NOTE_KEY = [
+    { value : "2000", label : "₹2,000", cls : "d-2000", i : 3 },
+    { value : "500", label : "₹500", cls : "d-500", i : 0 },
+    { value : "200", label : "₹200", cls : "d-200", i : 2 },
+    { value : "100", label : "₹100", cls : "d-100", i : 1 },
+];
 
 const VIEWS : Record<"machines" | "value", { left : GridHalf; right : GridHalf }> = {
     machines : {
@@ -202,15 +210,22 @@ export const GridsStage = ({ view, children } : { view : "machines" | "value"; c
                     <EventNow events={events} m={p.m} />
                 </div>
                 <TimeBar {...p} events={events} />
-                <p className="grids-key">
-                    {view === "machines"
-                        ? "On both sides, each machine icon stands for 10,000 machines, and each hand icon for 50 lakh withdrawals in the month."
-                        : "On both sides, each hand icon stands for 50 lakh withdrawals in the month, and each note icon for ₹2,500 crore withdrawn in the month."}
-                    {" "}Micro-ATMs are the handheld machines banking agents carry. The icons fill from one corner only to show size; it is not a map.
-                    The notes are coloured in the mix of ₹100 and larger banknotes in circulation each March, by number, from the RBI{"'"}s{" "}
-                    {LATEST_NOTES ? <a href={LATEST_NOTES.url}>Annual Report</a> : "Annual Report"}: ₹500 green, ₹200 turmeric,
-                    ₹100 lavender, ₹2,000 pink. The RBI does not publish which notes the machines pay out.
-                </p>
+                <div className="grids-key">
+                    {view === "value" && (
+                        <ul className="note-key" aria-label="The notes, by number in circulation that March">
+                            {NOTE_KEY.map(d => (
+                                <li key={d.value}><NoteIcon denom={d.value} value={d.value} width={30} />{d.label}<b>{(NOTE_MIX[p.m][d.i] * 100).toFixed(1)}%</b></li>
+                            ))}
+                        </ul>
+                    )}
+                    <p>
+                        {view === "machines"
+                            ? "On both sides, each machine icon stands for 10,000 machines, and each hand icon for 50 lakh withdrawals in the month. Micro-ATMs are the handheld machines banking agents carry."
+                            : <>On both sides, each hand icon stands for 50 lakh withdrawals in the month, and each note for ₹2,500 crore withdrawn. The notes follow
+                                the mix of ₹100 and larger banknotes in circulation that March, by number ({LATEST_NOTES ? <a href={LATEST_NOTES.url}>RBI Annual Report</a> : "RBI Annual Report"});
+                                the RBI does not publish which notes machines pay out.</>}
+                    </p>
+                </div>
             </div>
         </div>
     );
@@ -219,7 +234,8 @@ export const GridsStage = ({ view, children } : { view : "machines" | "value"; c
 // THE TAPS, MONTH BY MONTH ============================================================================================
 // A wall of hands in a grid of about 600 cells, filling from the bottom-left: each hand 10 lakh unique UPI users (official
 // counts at eight dates, joined by straight lines). Each green flash on a screen is 30 crore payments, so as payments
-// per user grow, the hands flash faster. The scene on the left, the words and the readout in a card on the right.
+// per user grow, the hands flash faster. The wall fills the screen; the words, the readout and the slider sit in a
+// band below it.
 const USERS_PER_HAND = 0.1;                                      // crore
 const PER_FLASH = 30;                                            // crore payments
 const HANDS = USERS.map(u => u / USERS_PER_HAND);
@@ -244,33 +260,32 @@ export const RainStage = ({ children } : { children : ReactNode }) => {
     const ym = PAY_MONTHS[p.m];
     const sourced = USER_POINTS.some(q => q.month === ym);
     return (
-        <div className="split">
-            <div className="split-stage">
+        <div className="taps">
+            <div className="taps-stage">
                 <canvas ref={p.ref} role="img"
                     aria-label={`Hands holding phones fill a grid from the bottom-left. ${monthName(ym)}: ${USERS[p.m].toFixed(1)} crore UPI users, ${Math.round(HANDS[p.m])} hands; ${fmt(PAY.upi.volume[p.m])} crore payments, each green flash ${PER_FLASH} crore of them.`} />
                 {p.failed && <p className="stage-fallback">{NO_GL}</p>}
                 {band && <p className="rain-caption" style={{ ...band, fontSize : Math.max(14, Math.min(24, band.height * 0.36, band.width / 36)) }}>{CAPTION}</p>}
             </div>
-            <aside className="split-card">
-                {children}
+            <div className="taps-foot">
+                <div className="taps-words">
+                    {children}
+                    <p className="step-note">
+                        Each hand stands for {USERS_PER_HAND * 100} lakh UPI users, and each green flash for {PER_FLASH} crore payments.
+                        *Between official counts, a straight line; after {monthName(USER_POINTS[USER_POINTS.length - 1].month)}, the latest held.
+                    </p>
+                </div>
                 <Readout>
                     <span className="rain-month">{monthName(ym)}</span>
                     <span className="rain-row"><i className="key-hand" aria-hidden="true">👤</i><b>{USERS[p.m].toFixed(1)}</b> crore UPI users{sourced ? "" : "*"}</span>
                     <span className="rain-row is-upi"><i className="key-tick" aria-hidden="true">✓</i><b>{fmt(PAY.upi.volume[p.m])}</b> crore payments</span>
-                    <span className="rain-row"><i className="key-hand" aria-hidden="true" /><b>{Math.round(PAY.upi.volume[p.m] / USERS[p.m])}</b> payments a user, a month</span>
-                    <span className="rain-key">
-                        Each hand stands for {USERS_PER_HAND * 100} lakh UPI users: unique users onboarded, as NPCI counts them (not monthly active
-                        users), from PIB, RBI and Parliament at eight dates; *between them, a straight line, and after
-                        {" "}{monthName(USER_POINTS[USER_POINTS.length - 1].month)}, the latest count held. Each green flash stands for {PER_FLASH} crore{" "}
-                        payments. The grid fills from one corner only to show growth; it is not a map. About{" "}
-                        {NEARLY.toLocaleString("en-IN")} payments in a blink is from {monthName(PAY_MONTHS[LAST])}: {fmt(PAY.upi.volume[LAST])} crore payments over{" "}
-                        {daysIn(PAY_MONTHS[LAST])} days is about {Math.round(PER_SECOND).toLocaleString("en-IN")} a second, or{" "}
-                        {Math.round(PER_BLINK).toLocaleString("en-IN")} in a blink of a third of a second.
-                    </span>
-                    <EventNow events={RAIN_EVENTS} m={p.m} />
+                    <span className="rain-row"><i className="key-hand" aria-hidden="true" /><b>{Math.round(PAY.upi.volume[p.m] / USERS[p.m])}</b> payments per user</span>
                 </Readout>
-                <TimeBar {...p} events={RAIN_EVENTS} />
-            </aside>
+                <div className="taps-time">
+                    <TimeBar {...p} events={RAIN_EVENTS} />
+                    <EventNow events={RAIN_EVENTS} m={p.m} />
+                </div>
+            </div>
         </div>
     );
 };

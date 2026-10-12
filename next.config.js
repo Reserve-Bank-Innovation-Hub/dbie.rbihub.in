@@ -40,6 +40,12 @@ const nextConfig = {
         return config;
     },
     reactStrictMode : true,
+    // stories that were renamed keep their old address, which now leads to the new one
+    async redirects() {
+        return [
+            { source : "/stories/cash-didnt-die", destination : "/stories/the-phone-pays-the-cash-stays", permanent : true },
+        ];
+    },
     async rewrites() {
         if (!releaseVersion) return [];
         return {

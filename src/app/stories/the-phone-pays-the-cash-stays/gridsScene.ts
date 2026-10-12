@@ -8,6 +8,7 @@
 
 // LOCAL ===============================================================================================================
 import { JOURNEY, KOSH, loopWhileVisible } from "./cashThree";
+import { NOTE_STYLES, drawNote } from "./Note";
 
 export type CellKind = "atm" | "micro" | "withdrawal" | "cash";
 export interface GridSeries {
@@ -36,12 +37,8 @@ const INK = hex(KOSH.charcoal);
 // Cash withdrawn is drawn as notes coloured by denomination, in the mix of ₹100 and larger notes in circulation that
 // year: ₹500 Neem, ₹100 lavender, ₹200 turmeric, ₹2,000 pink. Each square keeps a fixed place in the mix, so
 // a square changes colour only when the mix moves past it.
-const NOTES = [
-    [ "#cfdcaa", hex(KOSH.neem) ],                       // ₹500
-    [ "#ddd0f6", hex(KOSH.indivara) ],                   // ₹100
-    [ "#f6dfa8", hex(KOSH.turmeric) ],                   // ₹200
-    [ "#f4c6dc", "#c4508a" ],                            // ₹2,000
-];
+// The notes are the story's note (Note.tsx), in each denomination's colours: ₹500, ₹100, ₹200 and ₹2,000.
+const NOTES = [ "500", "100", "200", "2000" ];
 const notePick = (k : number, mix : number[]) => {
     const u = ((k * 2654435761) >>> 0) / 4294967296;     // the square's fixed place, 0 to 1
     let acc = 0;
@@ -107,11 +104,9 @@ function cell(g : CanvasRenderingContext2D, kind : CellKind, x : number, y : num
         }
         g.lineCap = "butt"; g.lineJoin = "miter";
     } else {
-        // cash withdrawn: a banknote, in its colour
-        g.fillStyle = note[0]; g.fillRect(x, y + w * 0.2, w, w * 0.6);
-        g.strokeStyle = note[1]; g.lineWidth = Math.max(1, w * 0.1);
-        g.strokeRect(x + g.lineWidth / 2, y + w * 0.2 + g.lineWidth / 2, w - g.lineWidth, w * 0.6 - g.lineWidth);
-        if (w >= 12) { g.fillStyle = hex(KOSH.sandal8); g.beginPath(); g.arc(x + w * 0.66, y + w * 0.5, w * 0.12, 0, Math.PI * 2); g.fill(); }
+        // cash withdrawn: the story's note, in its denomination's colours
+        const nh = w * 0.62;
+        drawNote(g, x, y + (w - nh) / 2, w, nh, NOTE_STYLES[note], note, font, w < 36 ? "value" : undefined);
     }
     g.globalAlpha = 1;
 }

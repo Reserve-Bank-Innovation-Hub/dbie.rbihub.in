@@ -59,9 +59,9 @@ export const STORY_SECTIONS : ListSection[] = [
                 description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
             },
             {
-                linkTo      : "/stories/cash-didnt-die",
-                label       : "Cash didn't die",
-                description : "UPI payments grew nineteenfold between November 2019 and July 2026, and the cash Indians hold kept growing too. India pays with the phone and keeps the cash.",
+                linkTo      : "/stories/the-phone-pays-the-cash-stays",
+                label       : "The phone pays, the cash stays",
+                description : "UPI payments grew 19.4 times between November 2019 and July 2026. Over the ten years to March 2026, currency in circulation grew 2.5 times.",
             },
         ],
     },
