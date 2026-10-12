@@ -1,7 +1,7 @@
 /* The RBIH Kosh palette by role, in a rule of its own: declared inside the nested block below, the build dropped them.
    Ivory and Indivara are prefixed because the site's theme owns --ivory and --indivara (as bare HSL numbers). The
    dark theme (below) swaps the roles: the opening's evening studio becomes the page, ivory the ink. */
-#cash-didnt-die-page {
+#the-phone-pays-the-cash-stays-page {
     --kosh-ivory    : #f2f0e6;
     --kosh-indivara : #864fe3;
     --page          : #f2f0e6;
@@ -15,7 +15,8 @@
     background      : var(--page);
     color           : var(--ink);
 }
-.theme-dark #cash-didnt-die-page {
+.theme-dark #the-phone-pays-the-cash-stays-page .season-part text { fill : var(--q-tint) !important; }
+.theme-dark #the-phone-pays-the-cash-stays-page {
     --page          : #16151a;
     --card          : color-mix(in oklch, #f2f0e6 8%, #16151a);
     --box           : color-mix(in oklch, #e1d5bc 22%, #16151a);
@@ -26,7 +27,7 @@
     --accent        : color-mix(in oklch, #ba644f, white 22%);
 }
 
-#cash-didnt-die-page {
+#the-phone-pays-the-cash-stays-page {
     .kicker { color : var(--accent); letter-spacing : 0.12em; font-size : 11.5px; }
 
     /* THE OPENING ===================================================================================================== */
@@ -127,7 +128,7 @@
         background     : color-mix(in oklch, var(--page), transparent 12%);
         backdrop-filter: blur(3px);
         font-size      : 14px;
-        .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.1em; text-transform : uppercase; color : var(--accent); }
+        .rain-month { font-size : 14px; font-weight : 700; color : var(--accent); }
         .rain-row   { display : flex; align-items : center; gap : 8px; }
         .rain-row b { font-size : 22px; font-variant-numeric : tabular-nums; min-width : 3.2em; text-align : right; }
         .is-upi b   { color : #6b8e23; }
@@ -315,7 +316,7 @@
     .wall-chip.d-200  { background : #f6dfa8; border-color : #eaaa3a; }
     .wall-chip.d-100  { background : #ddd0f6; border-color : #864fe3; }
     .wall-chip.d-small { background : #ede6d7; border-color : #a8957a; }
-    .wall-readout { display : grid; gap : 14px; font-size : 14px; .rain-month { font-size : 13px; font-weight : 700; letter-spacing : 0.06em; text-transform : uppercase; color : var(--accent); } .rain-key { font-size : 12px; color : var(--ink-soft); } }
+    .wall-readout { display : grid; gap : 14px; font-size : 14px; .rain-month { font-size : 14px; font-weight : 700; color : var(--accent); } .rain-key { font-size : 12px; color : var(--ink-soft); } }
     .wall-key {
         list-style : none; margin : 0; padding : 0; display : grid; grid-template-columns : 1fr 1fr; gap : 10px 32px;
         li { display : flex; align-items : center; transition : opacity 0.4s; &.is-gone { opacity : 0.35; } }
@@ -324,18 +325,32 @@
     .split-card .rain-time { position : static; transform : none; width : auto; }
     .rain.is-close { background : var(--page); }
     .close {
-        height : 100%; display : grid; align-content : center; gap : 5vh;
+        height : 100%; display : grid; align-content : center; gap : 3vh;
         padding : 6vh clamp(16px, 8vw, 140px);
     }
     .close-pair { display : grid; grid-template-columns : 1fr 1fr; gap : clamp(16px, 4vw, 64px); }
-    .close-half {
-        display : grid; gap : 6px; padding : 28px; border-radius : 16px; background : var(--card);
-        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%), 0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
-        b { font : 700 clamp(30px, 4.4vw, 60px) / 1.05 var(--font-serif); }
-        span { color : var(--ink-soft); font-size : 15px; }
-        .close-label { font-size : 12px; font-weight : 700; letter-spacing : 0.12em; text-transform : uppercase; }
-        &.is-paying { .close-label, b { color : #6b8e23; } }
-        &.is-keeping { .close-label, b { color : var(--accent); } }
+    .close-side {
+        display : grid; align-content : start; gap : 12px;
+        .close-big { display : flex; align-items : flex-end; gap : 20px; min-height : 150px; }
+        b { font : 700 clamp(48px, 6vw, 88px) / 0.9 var(--font-serif); }
+        &.is-paying b { color : #6b8e23; }
+        &.is-keeping b { color : var(--accent); }
+        .close-each { font-size : 13px; color : var(--ink-soft); }
+        .close-caption { font-size : 15px; color : var(--ink); }
+    }
+    .close-facts {
+        list-style : none; margin : 0; padding : 2vh 0 0; display : grid; grid-template-columns : repeat(3, minmax(0, 1fr)); gap : 14px 40px;
+        border-top : 1px solid color-mix(in oklch, var(--ink), transparent 88%);
+        li { display : grid; gap : 2px; }
+        b { font : 700 clamp(20px, 1.7vw, 26px) / 1.1 var(--font-serif); color : var(--ink); }
+        span { font-size : 13px; line-height : 1.4; color : var(--ink-soft); }
+    }
+    .close-side .close-big img { display : block; }
+    .close-units {
+        display : flex; flex-wrap : wrap; align-items : flex-end; gap : 6px; min-height : 34px;
+        .close-unit { display : block; line-height : 0; }
+        .is-part { overflow : hidden; }
+        svg { display : block; }
     }
     .close-words { max-width : 72ch; a { color : var(--accent); } }
     .close-line { margin : 18px 0 0; font : 600 clamp(22px, 2.4vw, 32px) / 1.25 var(--font-serif); color : var(--ink); }
@@ -427,9 +442,10 @@
     .season-centre text { font : 500 13px var(--font-sans-serif); fill : var(--ink-soft); &.is-big { font : 700 26px var(--font-serif, serif); fill : var(--ink); } }
     .season-part {
         cursor : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='%23ffffff' stroke='%23ba644f' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='%23ba644f'/%3E%3Crect x='9' y='8.4' width='2' height='6' rx='0.6' fill='%23ba644f'/%3E%3C/svg%3E") 10 10, help;
-        path { fill : color-mix(in oklch, var(--sandal), transparent 20%); transition : fill 0.2s; }
-        text { font : 700 11px var(--font-sans-serif); letter-spacing : 0.04em; text-transform : uppercase; fill : var(--ink-soft); }
-        &.is-on path { fill : var(--accent); } &.is-on text { fill : var(--accent); }
+        path { opacity : 0.85; transition : opacity 0.2s; }
+        text { font : 600 12px var(--font-sans-serif); fill : var(--ink-soft); }
+        &.is-on path { opacity : 1; filter : saturate(1.3); }
+        text { fill : var(--q-ink, var(--ink-soft)) !important; }
     }
     .chart-tip.is-season { left : 12px; top : 12px; transform : none; max-width : 300px; pointer-events : auto; a { color : var(--accent); font-weight : 600; font-size : 12px; } }
     .festive-stage { cursor : default; }
@@ -492,7 +508,7 @@
         font-size : 12.5px; line-height : 1.35; color : var(--ink-soft);
         strong { font-size : 13px; color : var(--ink); }
     }
-    .tide-panel { font : 700 12px var(--font-sans-serif); letter-spacing : 0.06em; text-transform : uppercase; fill : var(--ink-soft); &.is-right { fill : var(--accent); } }
+    .tide-panel { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); &.is-right { fill : var(--accent); } }
     .tide-break line { stroke : color-mix(in oklch, var(--ink), transparent 40%); stroke-width : 1.5; }
     .tide-break .tide-carry { stroke : var(--accent); stroke-dasharray : 3 4; stroke-width : 1; }
     @media (prefers-reduced-motion : reduce) { .pin.is-shown .pin-mark, .pin.is-shown .pin-stem { animation : none; } }
@@ -508,14 +524,14 @@
         height             : 100%;
         padding            : 6vh clamp(16px, 6vw, 96px) 4vh;
     }
-    .grids-words .chapter-title { max-width : 30ch; }
+    .grids-words .chapter-title { max-width : 40ch; }
     /* on a wide screen the dek sits beside the heading, and the readout, slider and key share one line, so the grids
        get the height */
     @media (min-width : 761px) {
         .grids { padding-top : 4vh; padding-bottom : 3vh; }
         .grids-words { display : grid; grid-template-columns : minmax(0, 1fr) minmax(0, 1.25fr); column-gap : 48px; align-items : end; }
-        .grids-words > :not(.grids-dek) { grid-column : 1; }
-        .grids-words .grids-dek { grid-column : 2; grid-row : 1 / span 2; margin : 0; }
+        .grids-words > :not(.step-line) { grid-column : 1; }
+        .grids-words .step-line { grid-column : 2; grid-row : 1 / span 2; margin : 0; }
         .grids-foot { grid-template-columns : 1fr minmax(300px, 420px) 1fr; align-items : center; column-gap : 32px; text-align : left; justify-items : stretch; }
         .grids-foot .grids-key { text-align : left; }
     }
@@ -526,7 +542,106 @@
         .rain-time { position : static; transform : none; }
     }
     .grids-readout { margin : 0; font-size : 15px; b { margin-right : 10px; color : var(--accent); } }
-    .grids-key { margin : 0; max-width : 70ch; font-size : 12px; line-height : 1.45; color : var(--ink-soft); a { color : var(--accent); } }
+    .grids-key { margin : 0; max-width : 70ch; font-size : 12px; line-height : 1.45; color : var(--ink-soft); a { color : var(--accent); } p { margin : 0; font-size : 12px !important; line-height : 1.45; color : var(--ink-soft); } }
+    .note-key {
+        list-style : none; margin : 0 0 8px; padding : 0; display : flex; flex-wrap : wrap; gap : 6px 18px; font-size : 13px; color : var(--ink);
+        li { display : flex; align-items : center; }
+        b { margin-left : 6px; font-variant-numeric : tabular-nums; }
+    }
+
+    /* THE LAYOUTS ====================================================================================================== */
+    /* A step's words sit on the right of its picture (the default), on the left, or above it across the width. */
+    .split.is-left {
+        grid-template-columns : min(400px, 34vw) minmax(0, 1fr);
+        padding               : 4vh clamp(16px, 2.5vw, 40px) 4vh clamp(16px, 4vw, 64px);
+        .split-card { order : -1; }
+    }
+    .split.is-top {
+        grid-template-columns : minmax(0, 1fr);
+        grid-template-rows    : auto minmax(0, 1fr);
+        align-items           : stretch;
+        gap                   : 2vh;
+        padding               : 5vh clamp(16px, 5vw, 80px) 3vh;
+        .split-card {
+            order : -1; padding : 0; background : none; box-shadow : none; border-radius : 0;
+            display : grid; grid-template-columns : minmax(0, 1.5fr) minmax(0, 1fr); column-gap : 48px; align-items : end;
+            > :first-child { grid-column : 1; grid-row : 1 / span 3; }
+            > :not(:first-child) { grid-column : 2; }
+            .chapter-title { max-width : 34ch; margin-bottom : 0; }
+        }
+    }
+    /* the header carries the message; the one line under it and the source stay small */
+    .chapter-title { text-wrap : balance; font-size : clamp(21px, 1.9vw, 30px) !important; line-height : 1.22 !important; font-weight : 600 !important; }
+    .step-line { font-size : 16px; line-height : 1.5; color : var(--ink-soft); margin : 0; a { color : var(--accent); } }
+
+    /* room at the top of each slide for the section marker */
+    @media (min-width : 761px) {
+        .split, .taps, .grids { padding-top : max(4vh, 60px) !important; }
+    }
+
+    /* THE SECTIONS ===================================================================================================== */
+    .section-rail {
+        position : fixed; z-index : 20; top : 14px; left : 50%; transform : translate(-50%, -8px);
+        display : flex; gap : 2px; padding : 3px; border-radius : 999px;
+        background : color-mix(in oklch, var(--card), transparent 8%); backdrop-filter : blur(6px);
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 6px 18px color-mix(in oklch, var(--ink), transparent 92%);
+        opacity : 0; pointer-events : none; transition : opacity 0.3s, transform 0.3s;
+        &.is-shown { opacity : 1; transform : translate(-50%, 0); pointer-events : auto; }
+        button {
+            display : flex; align-items : center; gap : 6px; border : 0; background : none; cursor : pointer;
+            padding : 5px 12px 5px 6px; border-radius : 999px; font : 500 12.5px var(--font-sans-serif); color : var(--ink-soft);
+            transition : background 0.2s, color 0.2s;
+            &.is-on { background : var(--accent); color : #ffffff; .rail-n { background : #ffffff; color : var(--accent); } }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+        .rail-n {
+            display : inline-grid; place-items : center; width : 18px; height : 18px; border-radius : 50%;
+            font : 700 10.5px / 1 var(--font-sans-serif); background : color-mix(in oklch, var(--ink), transparent 88%); color : var(--ink);
+        }
+    }
+
+    /* THE GUESS'S SCALE ================================================================================================ */
+    .guess-scale {
+        opacity : 0; animation : rise-in 0.5s ease-out forwards;
+        line { stroke : var(--accent); stroke-width : 1.5; }
+        .guess-carry { stroke : color-mix(in oklch, var(--ink), transparent 60%); stroke-width : 1; stroke-dasharray : 4 4; }
+        text { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); }
+        .is-top text { font-size : 20px; font-weight : 700; fill : var(--accent); }
+    }
+    .guess-unit { display : block; margin-top : 6px; font : 400 13px / 1.45 var(--font-sans-serif); color : var(--ink-soft); }
+    @media (prefers-reduced-motion : reduce) { .guess-scale { animation : none; opacity : 1; } }
+
+    /* SOURCES, METHOD, DOWNLOADS ======================================================================================= */
+    .page-foot { background : linear-gradient(to top, color-mix(in oklch, #ba644f, transparent 91%) 0, color-mix(in oklch, #ba644f, transparent 97%) 40%, transparent 85%); }
+    #phone-pays-sources {
+        padding : var(--large) 0 var(--medium);
+        hr { height : 1px; background : color-mix(in oklch, var(--ink), transparent 88%); }
+        a { color : var(--accent); }
+    }
+    .downloads-head { padding-top : var(--nano); }
+    .download-link {
+        display : block; width : fit-content; color : var(--accent); transition : opacity 0.2s ease;
+        & + .download-link { margin-top : 10px; }
+        &:hover { opacity : 0.7; }
+    }
+
+    /* THE UPI WALL ===================================================================================================== */
+    /* The wall fills the screen; the words, the readout and the slider share a band of about a quarter below it. */
+    .rain.is-taps { background : var(--page); }
+    .taps {
+        display : grid; grid-template-rows : minmax(0, 1fr) auto; height : 100%;
+        padding : 3vh clamp(16px, 3vw, 48px) 2.5vh;
+    }
+    .taps-stage { position : relative; min-height : 0; canvas { display : block; width : 100%; height : 100%; } }
+    .taps-foot {
+        display : grid; grid-template-columns : minmax(0, 1.5fr) minmax(220px, 0.8fr) minmax(280px, 1fr); column-gap : clamp(20px, 3vw, 48px);
+        align-items : start; min-height : 22vh; padding-top : 2vh;
+        border-top : 1px solid color-mix(in oklch, var(--ink), transparent 88%);
+        .chapter-title { margin-bottom : 8px; }
+        .rain-readout { position : static; width : auto; padding : 0; background : none; backdrop-filter : none; }
+        .rain-time { position : static; transform : none; width : auto; }
+        .event-now { margin-top : 10px; }
+    }
 
     /* PHONES ========================================================================================================== */
     @media (max-width : 760px) {
@@ -554,8 +669,8 @@
         .guess-answer { min-height : 6em; font-size : 14px; }
         .close { padding : 4vh 16px; gap : 3vh; }
         .close-pair { grid-template-columns : 1fr; gap : 12px; }
-        .close-half { padding : 16px 18px; }
-        .rain.is-close { height : 100svh; overflow : hidden; padding : 0; }
+        .close-side .close-big { min-height : 0; gap : 12px; } .close-side .close-big .hand-icon { width : 56px !important; height : auto !important; } .close-facts { grid-template-columns : 1fr 1fr; gap : 10px 16px; } .close-side .close-big .note-icon { width : 120px; height : auto; }
+        .rain.is-close { height : auto; min-height : 100svh; overflow : visible; padding : 0; }
         .wall-key { grid-template-columns : 1fr 1fr; font-size : 12px; }
         .rain.is-step .split-card .rain-key { display : none; }
         /* on a phone the record stays in the words (the RBI's own lines); the numbered lists and markers would crowd
@@ -574,6 +689,14 @@
         .cash-stage.is-rain canvas, .cash-stage.is-machines canvas { height : 62svh; }
         .rain-readout { position : static; width : auto; margin : 0 16px; background : none; backdrop-filter : none; padding : 8px 0 0; }
         .rain-time { position : static; transform : none; width : auto; margin : 12px 16px 0; }
+        .taps { padding : 2vh 0 3vh; grid-template-rows : auto auto; }
+        .taps-stage canvas { height : 58svh; }
+        .taps-foot { grid-template-columns : 1fr; row-gap : 12px; min-height : 0; padding : 2vh 16px 0; .rain-time { margin : 0; } }
+        .split.is-left, .split.is-top { grid-template-columns : 1fr; grid-template-rows : auto minmax(0, 1fr); padding : 0 16px; }
+        .split.is-top .split-card { display : flex; flex-direction : column; gap : 6px; }
+        .section-rail { top : 8px; .rail-name { display : none; } button { padding : 4px; } }
+        /* room at the top of each slide for the section marker */
+        .rain.is-step, .rain.is-grids .grids, .taps { padding-top : 46px !important; }
     }
 }
 
@@ -581,12 +704,13 @@
    a trackpad and the keys are paged by script instead, which the snap would fight. */
 @media (pointer : coarse) {
     html[data-story-snap] { scroll-snap-type : y mandatory; }
-    html[data-story-snap] #cash-didnt-die-page [data-slide] { scroll-snap-align : start; }
+    html[data-story-snap] #the-phone-pays-the-cash-stays-page [data-slide] { scroll-snap-align : start; }
 }
 
 /* Keyframes live at the top level: declared inside the nested page block, the build drops them. */
 @keyframes hero-late { to { opacity : 1; transform : none; } }
 @keyframes rain-caption-in { from { opacity : 0; } }
+@keyframes rise-in { to { opacity : 1; } }
 @keyframes pile-fall {
         0%   { opacity : 0; transform : translateY(var(--drop)); }
         8%   { opacity : 1; }

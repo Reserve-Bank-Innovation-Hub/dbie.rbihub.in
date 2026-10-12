@@ -1,0 +1,10 @@
+# Unique UPI users onboarded (NPCI counts, not monthly active users), crore, at the dates official documents give them
+month,users_crore,approximate,source,url
+2019-03,8,false,"PIB-hosted booklet 'Rise of a new era in digital payments' (data from NPCI), p.15, chart 'Number of Unique Customers in UPI (Cr)'",https://static.pib.gov.in/Writereaddata/userfiles/UPI.pdf
+2020-03,14,false,"same booklet, same chart",https://static.pib.gov.in/Writereaddata/userfiles/UPI.pdf
+2021-03,20,false,"same booklet, same chart",https://static.pib.gov.in/Writereaddata/userfiles/UPI.pdf
+2021-06,21,false,"same booklet, p.9",https://static.pib.gov.in/Writereaddata/userfiles/UPI.pdf
+2022-03,26,false,"PIB, updated booklet 'Rise of a new era in digital payments' (April 2022)",https://static.pib.gov.in/WriteReadData/specificdocs/documents/2022/apr/doc202242145701.pdf
+2024-06,42.4,false,"RBI, National Strategy for Financial Inclusion 2025-30, p.38, citing the Report on Currency and Finance 2023-24, p.9, data as of June 2024",https://www.rbi.org.in/commonman/Upload/English/Content/PDFs/English12052026.pdf
+2025-06,49.1,true,"PIB backgrounder (Ministry of Finance), 'India's UPI Revolution', 20-07-2025",https://www.pib.gov.in/PressNoteDetails.aspx?NoteId=154912&ModuleId=3
+2026-06,55.49,false,"Ministry of Finance via PIB: written reply in the Lok Sabha, 20-07-2026 (Release ID 2286608)",https://www.pib.gov.in/PressReleasePage.aspx?PRID=2286608

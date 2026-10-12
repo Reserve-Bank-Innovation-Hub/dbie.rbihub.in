@@ -5,6 +5,7 @@
 
 // REACT CORE ==========================================================================================================
 import * as THREE from "three";
+import { NOTE_STYLES, drawNote } from "./Note";
 
 // The RBIH Kosh palette, and nothing deeper than it.
 export const KOSH = {
@@ -20,60 +21,14 @@ export const JOURNEY = 10;
 // A ₹500 note is 150 × 66 mm.
 export const NOTE_W = 1.5, NOTE_H = 0.66;
 
-// The note's face. The ₹500 note's own colour is stone grey; here the paper is sandalwood and the print Neem green and
-// charcoal, so the note sits in the palette.
+// The note's face: the story's ₹500 (Note.tsx), in Neem. It is folded down the middle and only the right half shows,
+// so the disc with the rupee sign is drawn in that half.
 export function noteTexture(renderer : THREE.WebGLRenderer) : THREE.CanvasTexture {
     const W = 1200, H = Math.round(W * NOTE_H / NOTE_W);
     const cv = document.createElement("canvas");
     cv.width = W; cv.height = H;
     const g = cv.getContext("2d") as CanvasRenderingContext2D;
-    const ink = css(KOSH.charcoal), accent = css(KOSH.neem);
-
-    g.fillStyle = css(KOSH.sandal4);
-    g.fillRect(0, 0, W, H);
-    // fine guilloche across the paper
-    g.strokeStyle = css(KOSH.sandalwood);
-    g.lineWidth = 2;
-    for (let k = 0; k < 22; k++) {
-        g.beginPath();
-        for (let x = 0; x <= W; x += 8) {
-            const y = 40 + k * (H - 80) / 21 + 9 * Math.sin(x / 38 + k * 0.7);
-            if (x) g.lineTo(x, y); else g.moveTo(x, y);
-        }
-        g.stroke();
-    }
-    // the border
-    g.strokeStyle = accent; g.lineWidth = 6;
-    g.strokeRect(22, 22, W - 44, H - 44);
-    g.lineWidth = 2;
-    g.strokeRect(36, 36, W - 72, H - 72);
-    // the rosette, left of centre
-    g.save();
-    g.translate(W * 0.36, H * 0.5);
-    g.strokeStyle = accent; g.globalAlpha = 0.55; g.lineWidth = 2.2;
-    for (let k = 0; k < 18; k++) {
-        g.rotate(Math.PI / 9);
-        g.beginPath(); g.ellipse(0, 52, 30, 52, 0, 0, Math.PI * 2); g.stroke();
-    }
-    g.restore();
-    // the plain oval window, right of centre
-    g.fillStyle = css(KOSH.sandal8);
-    g.strokeStyle = css(KOSH.sandalwood); g.lineWidth = 5;
-    g.beginPath(); g.ellipse(W * 0.72, H * 0.47, 92, 122, 0, 0, Math.PI * 2); g.fill(); g.stroke();
-    // the value
-    g.fillStyle = ink;
-    g.textBaseline = "alphabetic";
-    g.font = "700 64px system-ui, sans-serif";
-    g.fillText("500", 64, 118);
-    g.font = "600 34px system-ui, sans-serif";
-    g.textAlign = "center";
-    g.fillText("FIVE HUNDRED RUPEES", W * 0.3, H - 70);    // clear of the fold, so no letter shows on the folded half
-    g.font = "600 40px 'Kohinoor Devanagari', 'Noto Sans Devanagari', 'Mangal', sans-serif";
-    g.fillText("पाँच सौ रुपये", W * 0.36, 112);
-    g.textAlign = "right";
-    g.fillStyle = accent;
-    g.font = "800 128px system-ui, sans-serif";
-    g.fillText("₹500", W - 64, H - 64);
+    drawNote(g, 0, 0, W, H, NOTE_STYLES["500"], "500", getComputedStyle(document.body).fontFamily || "system-ui, sans-serif", "full", 0.615);
 
     const tex = new THREE.CanvasTexture(cv);
     tex.colorSpace = THREE.SRGBColorSpace;

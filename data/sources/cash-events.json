@@ -1,5 +1,5 @@
 {
- "about": "Events marked on the steps of the story 'Cash didn't die' (src/app/stories/cash-didnt-die): the official record of what changed around each series. Each is from a Reserve Bank of India or Government of India document, opened and read on 11-10-2026; 'quote' is copied from it, and 'note' says only what the source says. 'slide' names the step it is shown on; 'strength' is 'direct' where the source speaks to the change itself and 'contextual' where it records a policy or event around it. data/processors/story-cash-didnt-die.mjs checks each month and each link.",
+ "about": "Events marked on the steps of the story 'The phone pays, the cash stays' (src/app/stories/the-phone-pays-the-cash-stays): the official record of what changed around each series. Each is from a Reserve Bank of India or Government of India document, opened and read on 11-10-2026; 'quote' is copied from it, and 'note' says only what the source says. 'slide' names the step it is shown on; 'strength' is 'direct' where the source speaks to the change itself and 'contextual' where it records a policy or event around it. data/processors/story-the-phone-pays-the-cash-stays.mjs checks each month and each link.",
  "events": [
   {
    "slide": "card",

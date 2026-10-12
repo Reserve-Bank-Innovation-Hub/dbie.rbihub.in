@@ -2,12 +2,11 @@
 // held up, the stall soft behind it, its QR code on the counter. The phone scans the code, Pay is tapped, ₹50 goes to
 // the chai stall, and the payment joins the day's list (milk, a cab, groceries, vegetables). Then the phone is turned
 // over and set face down on the stall's table: folded behind it, in its clear case, is a ₹500 note, a little worn.
-// The camera rises, the page's words come in, and the payments go on: each one lights the table green from under the
-// phone's edges, quicker and quicker, while the note stays where it is. No numbers: the title makes no claim, the
-// story's steps carry the data.
+// The camera rises and the page's words come in; a small, steady glow lifts the note off the dark glass. No numbers:
+// the title makes no claim, the story's steps carry the data.
 // No hand is shown. The phone and the case are generic (no maker's shapes or marks), the screens name no app, the
-// places are everyday kinds, not names, and the note is the story's own stylised ₹500 (sandalwood paper, Neem print,
-// no portrait), folded once, with a crease and grain. Reduced motion starts on the held frame.
+// places are everyday kinds, not names, and the note is the story's own ₹500 (Note.tsx: Neem, no
+// portrait), folded once, with a crease and grain. Reduced motion starts on the held frame.
 
 // REACT CORE ==========================================================================================================
 import * as THREE from "three";
@@ -21,15 +20,14 @@ export interface PhoneOptions { reduced : boolean; onReveal : () => void }
 
 // Sizes in decimetres (a phone 75 × 160 × 8 mm), the units the note texture uses. The table is y = 0.
 const PW = 0.75, PH = 1.6, PD = 0.075, PR = 0.11;     // the phone's body and corner radius
-const CASE_GAP = 0.03;                                 // between the phone's back and the case's back plate
 const ISLAND = 0.34, ISLAND_X = PW / 2 - 0.215, ISLAND_Y = PH / 2 - 0.225;   // the camera block: its size and centre
 const Y_DOWN = PD / 2 + 0.003;                         // lying on its screen
 
 // The clock, in seconds. The screen wakes by WAKE. SCAN_AT: the QR code; PAY_AT: the amount and Pay; PRESS_AT: Pay
 // tapped; PAID_AT: paid; LIST_AT: the day's list, the chai joining it at CHAI_AT. FLIP_AT to LAND_AT: the phone
-// turned over and set down; REVEAL_AT: the page's words; REST_AT: the camera has risen to the held shot; LEAK_AT: the first payment lighting the table from under the phone.
+// turned over and set down; REVEAL_AT: the page's words; REST_AT: the camera has risen to the held shot.
 const WAKE = 0.5, SCAN_AT = 0.4, PAY_AT = 1.45, PRESS_AT = 2.05, PAID_AT = 2.65, LIST_AT = 3.45, CHAI_AT = 3.6;
-const FLIP_AT = 4.8, LAND_AT = 6.0, REVEAL_AT = 7.2, REST_AT = 8.4, LEAK_AT = 7.8;
+const FLIP_AT = 4.8, LAND_AT = 6.0, REVEAL_AT = 7.2, REST_AT = 8.4;
 
 const hex = (c : number) => `#${c.toString(16).padStart(6, "0")}`;
 const clamp01 = (x : number) => Math.max(0, Math.min(1, x));
@@ -296,7 +294,21 @@ function woodTexture(renderer : THREE.WebGLRenderer) {
     return { map, pool : new THREE.CanvasTexture(pool) };
 }
 
-// A soft rounded rectangle the phone's shape, for the shadow under it and the light that leaks from under it.
+// A soft rounded rectangle of a given shape (width over height), for the glow behind the note.
+function softBox(color : string, aspect : number, blur : number) {
+    const cv = document.createElement("canvas");
+    cv.width = 256; cv.height = Math.round(256 / aspect);
+    const g = cv.getContext("2d") as CanvasRenderingContext2D;
+    const bw = cv.width * 0.72, bh = cv.height * 0.72;
+    g.shadowColor = color; g.shadowBlur = blur; g.shadowOffsetX = 1000;
+    g.fillStyle = color;
+    g.beginPath(); g.roundRect(-1000 + (cv.width - bw) / 2, (cv.height - bh) / 2, bw, bh, 10); g.fill();
+    const t = new THREE.CanvasTexture(cv);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+}
+
+// A soft rounded rectangle the phone's shape, for the shadow under it.
 function softRect(color : string, blur : number) {
     const cv = document.createElement("canvas");
     cv.width = 256; cv.height = 512;
@@ -330,24 +342,6 @@ function backPrint(renderer : THREE.WebGLRenderer) {
     t.colorSpace = THREE.SRGBColorSpace;
     t.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     return t;
-}
-
-// Smudges for the clear case: soft prints and wipes, as a roughness map (its green channel) over a polished base.
-function smudges() {
-    const W = 256, H = 512;
-    const cv = document.createElement("canvas");
-    cv.width = W; cv.height = H;
-    const g = cv.getContext("2d") as CanvasRenderingContext2D;
-    g.fillStyle = "rgb(0,18,0)"; g.fillRect(0, 0, W, H);
-    let seed = 3;
-    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    for (let k = 0; k < 14; k++) {
-        const x = rnd() * W, y = H * (0.35 + rnd() * 0.65), r = 14 + rnd() * 26;
-        const grd = g.createRadialGradient(x, y, 0, x, y, r);
-        grd.addColorStop(0, "rgba(0,120,0,0.55)"); grd.addColorStop(1, "rgba(0,120,0,0)");
-        g.fillStyle = grd; g.beginPath(); g.ellipse(x, y, r, r * 1.3, rnd() * 3, 0, Math.PI * 2); g.fill();
-    }
-    return new THREE.CanvasTexture(cv);
 }
 
 // THE STALL ===========================================================================================================
@@ -511,24 +505,6 @@ function backPrint(renderer : THREE.WebGLRenderer) {
     return t;
 }
 
-// Smudges for the clear case: soft prints and wipes, as a roughness map (its green channel) over a polished base.
-function smudges() {
-    const W = 256, H = 512;
-    const cv = document.createElement("canvas");
-    cv.width = W; cv.height = H;
-    const g = cv.getContext("2d") as CanvasRenderingContext2D;
-    g.fillStyle = "rgb(0,18,0)"; g.fillRect(0, 0, W, H);
-    let seed = 3;
-    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    for (let k = 0; k < 14; k++) {
-        const x = rnd() * W, y = H * (0.35 + rnd() * 0.65), r = 14 + rnd() * 26;
-        const grd = g.createRadialGradient(x, y, 0, x, y, r);
-        grd.addColorStop(0, "rgba(0,120,0,0.55)"); grd.addColorStop(1, "rgba(0,120,0,0)");
-        g.fillStyle = grd; g.beginPath(); g.ellipse(x, y, r, r * 1.3, rnd() * 3, 0, Math.PI * 2); g.fill();
-    }
-    return new THREE.CanvasTexture(cv);
-}
-
 // THE STALL =======================================================================================================
     const stallMat = keep(new THREE.MeshBasicMaterial({ map : keep(stallTexture()), transparent : true, depthWrite : false, toneMapped : false }));
     const stall = new THREE.Mesh(keep(new THREE.PlaneGeometry(STALL_W, STALL_H)), stallMat);
@@ -545,15 +521,11 @@ function smudges() {
     table.rotation.x = -Math.PI / 2; table.position.set(LAND.x, 0, LAND.z - 0.6);
     table.renderOrder = 0;
     scene.add(table);
-    // the shadow under the phone, and the light that comes from under it
+    // the shadow under the phone
     const shadowMat = keep(new THREE.MeshBasicMaterial({ map : keep(softRect("#000000", 26)), transparent : true, opacity : 0.75, depthWrite : false, toneMapped : false }));
     const shadow = new THREE.Mesh(keep(new THREE.PlaneGeometry(PW * 2, PH * 1.88)), shadowMat);
     shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.001; shadow.renderOrder = 1;
     scene.add(shadow);
-    const glowMat = keep(new THREE.MeshBasicMaterial({ map : keep(softRect("#ffffff", 60)), color : KOSH.neem, transparent : true, opacity : 0, blending : THREE.AdditiveBlending, depthWrite : false, toneMapped : false }));
-    const glow = new THREE.Mesh(keep(new THREE.PlaneGeometry(PW * 2.6, PH * 2)), glowMat);
-    glow.rotation.x = -Math.PI / 2; glow.position.y = 0.002; glow.renderOrder = 2;
-    scene.add(glow);
 
     // THE PHONE =======================================================================================================
     // `rig` places the phone on the table: it is turned (YZX) by its yaw on the table, then over about its long axis
@@ -672,7 +644,7 @@ function smudges() {
         for (let i = 0; i < p.count; i++) {
             const ax = Math.abs(p.getX(i)) / NWH, y = p.getY(i) / NH + 0.5;   // 0 at the fold, 0 at the bottom
             const roll = Math.exp(-Math.pow(ax / 0.045, 2)) * 0.0035;                 // the fold rolls up a little
-            const corner = Math.pow(Math.max(0, ax - 0.7) / 0.3, 2) * Math.pow(Math.max(0, 0.32 - y) / 0.32, 2) * 0.008;
+            const corner = Math.pow(Math.max(0, ax - 0.7) / 0.3, 2) * Math.pow(Math.max(0, 0.32 - y) / 0.32, 2) * 0.004;
             const ridge = Math.exp(-Math.pow((y - 0.5) / 0.03, 2)) * 0.0012;         // the old crease across, a ridge
             const wave = (1 + Math.sin(ax * 5.1 + 0.6) * Math.sin(y * 3.7)) * 0.0008;
             p.setZ(i, roll + corner + ridge + wave);
@@ -697,29 +669,33 @@ function smudges() {
     roll.position.set(0, 0, -0.0022);
     noteG.add(roll);
     // tucked in a little askew, as a note is
-    noteG.position.set(0.004 + NWH / 2, -0.3, -PD / 2 - 0.0145);
+    noteG.position.set(0.004 + NWH / 2, -0.3, -PD / 2 - 0.0075);
     noteG.rotation.set(0, Math.PI, 0.035);
+    // a small, steady glow round the note's visible half, from just behind it, so it lifts off the dark glass
+    const haloMat = keep(new THREE.MeshBasicMaterial({ map : keep(softBox("#ffffff", 0.95, 26)), color : 0xe7f0c8, transparent : true, opacity : 0.5, blending : THREE.AdditiveBlending, depthWrite : false, toneMapped : false, side : THREE.DoubleSide }));
+    const halo = new THREE.Mesh(keep(new THREE.PlaneGeometry(NWH * 1.28, NH * 1.3)), haloMat);
+    halo.position.set(NWH / 2, 0, -0.0035);
+    noteG.add(halo);
 
     // THE CASE ========================================================================================================
-    // Clear plastic: a back plate with a cut-out round the camera island, and a rim round the sides. A thin clear layer
-    // that catches the light and its smudges; it does not refract (refraction tore at its edges against the table).
-    const outer = rounded(PW + 0.016, PH + 0.016, PR + 0.008);
-    const plate = outer.clone();
-    const hole = rounded(ISLAND + 0.022, ISLAND + 0.022, 0.095);
-    plate.holes.push(new THREE.Path(hole.getPoints(16).map(v => v.add(new THREE.Vector2(ISLAND_X, ISLAND_Y)))));
-    const smudge = keep(smudges());
-    const caseMat = keep(new THREE.MeshPhysicalMaterial({ color : 0xffffff, roughness : 1, roughnessMap : smudge, metalness : 0, transparent : true, opacity : 0.1, envMapIntensity : 0.12, specularIntensity : 0.35, depthWrite : false }));
-    const plateGeo = new THREE.ExtrudeGeometry(plate, { depth : 0.008, bevelEnabled : true, bevelThickness : 0.003, bevelSize : 0.003, bevelSegments : 2, curveSegments : 24 });
-    const casePlate = new THREE.Mesh(keep(plateGeo), caseMat);
-    casePlate.position.z = -PD / 2 - CASE_GAP - 0.008;
+    // Clear plastic cut to the phone's own outline, 0.7 mm proud of it on every side: a rim round the sides, a touch
+    // smoky and standing just over the screen, so it reads as the phone's border; and a back plate CASE_GAP behind the
+    // glass, with the note between, all but invisible face on, catching the room's light as the phone turns and lands.
+    const CASE_GAP = 0.02, PLATE = 0.004, LIP = 0.002, PROUD = 0.007;
+    const outer = () => rounded(PW + 2 * PROUD, PH + 2 * PROUD, PR + PROUD);
+    const plate = outer();
+    plate.holes.push(new THREE.Path(rounded(ISLAND + 0.022, ISLAND + 0.022, 0.095).getPoints(16).map(v => v.add(new THREE.Vector2(ISLAND_X, ISLAND_Y)))));
+    const plateMat = keep(new THREE.MeshPhysicalMaterial({ color : 0xffffff, roughness : 0.06, metalness : 0, clearcoat : 1, clearcoatRoughness : 0.04, transparent : true, opacity : 0.14, envMapIntensity : 1.6, specularIntensity : 1, depthWrite : false }));
+    const casePlate = new THREE.Mesh(keep(new THREE.ExtrudeGeometry(plate, { depth : PLATE, bevelEnabled : false, curveSegments : 24 })), plateMat);
+    casePlate.position.z = -PD / 2 - CASE_GAP - PLATE;
+    casePlate.renderOrder = 3;
     turn.add(casePlate);
-    const rimShape = outer.clone();
-    rimShape.holes.push(new THREE.Path(rounded(PW + 0.002, PH + 0.002, PR + 0.001).getPoints(24)));
-    // the rim, seen edge on, is thicker plastic, so it shows more than the plate
-    const rimMat = keep(caseMat.clone());
-    rimMat.opacity = 0.28;
-    const caseRim = new THREE.Mesh(keep(new THREE.ExtrudeGeometry(rimShape, { depth : PD + CASE_GAP, bevelEnabled : false, curveSegments : 24 })), rimMat);
-    caseRim.position.z = -PD / 2 - CASE_GAP;
+    const rimShape = outer();
+    rimShape.holes.push(new THREE.Path(rounded(PW + 0.001, PH + 0.001, PR + 0.0005).getPoints(32)));
+    const rimMat = keep(new THREE.MeshPhysicalMaterial({ color : 0xdfe2e6, roughness : 0.22, metalness : 0, clearcoat : 1, clearcoatRoughness : 0.08, transparent : true, opacity : 0.62, envMapIntensity : 1.2, depthWrite : false }));
+    const caseRim = new THREE.Mesh(keep(new THREE.ExtrudeGeometry(rimShape, { depth : PD + CASE_GAP + PLATE + LIP, bevelEnabled : false, curveSegments : 32 })), rimMat);
+    caseRim.position.z = -PD / 2 - CASE_GAP - PLATE;
+    caseRim.renderOrder = 3;
     turn.add(caseRim);
 
     // THE PHONE IN USE ================================================================================================
@@ -807,17 +783,6 @@ function smudges() {
     };
 
     // THE CLOCK =======================================================================================================
-    // The payments that go on once the phone is face down: each one lights the table round the phone, and they come
-    // quicker, from every 2.4 s to every 1.1 s.
-    const LEAKS : number[] = [];
-    for (let s = 0, gap = 2.4; s < 600; s += gap, gap = Math.max(1.1, gap * 0.82)) LEAKS.push(s);
-    const leak = (since : number) => {
-        if (since < 0) return 0;
-        let last = 0;
-        for (const s of LEAKS) { if (s > since) break; last = s; }
-        const d = since - last;
-        return d < 0.12 ? d / 0.12 : Math.exp(-(d - 0.12) * 2.6);
-    };
     let revealed = false;
     const pose = () => {
         const t = time;
@@ -843,10 +808,6 @@ function smudges() {
         shadow.rotation.z = YAW_LAND;
         shadow.scale.setScalar(1 + lift * 0.9);
         shadowMat.opacity = 0.75 * (1 - lift) ** 2 * moved;
-        // once it is face down, each payment leaks out from under it
-        glow.position.set(rig.position.x, 0.002, rig.position.z);
-        glow.rotation.z = YAW_LAND;
-        glowMat.opacity = leak(t - LEAK_AT) * 0.8;
         aim();
         if (!revealed && t >= REVEAL_AT) { revealed = true; o.onReveal(); }
     };
@@ -856,7 +817,7 @@ function smudges() {
     // while building: ?t=<seconds> holds the scene at that moment
     const hold = process.env.NODE_ENV !== "production" ? Number(new URLSearchParams(location.search).get("t") ?? NaN) : NaN;
     if (o.reduced || hold >= 0) {
-        time = hold >= 0 ? hold : LEAK_AT + LEAKS[3] + 0.12;   // the held frame, at the height of a payment
+        time = hold >= 0 ? hold : REST_AT + 1;             // the held frame: at rest, the note in view
         pose();
         renderer.render(scene, camera);
         document.fonts?.ready.then(() => { shown = ""; pose(); renderer.render(scene, camera); });

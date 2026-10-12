@@ -11,7 +11,12 @@ import { ReactNode, useEffect, useId, useRef, useState } from "react";
 import { CIC, CIC_MONTHS, FESTIVE, NOTE_YEARS, PAY, PAY_MONTHS, TIDE, TIDE_FYS } from "./data.gen";
 import { monthName, type StepEvent } from "./record";
 import { Pins, Readout, useReadout } from "./ChartBits";
+import { NoteFace, NoteIcon } from "./Note";
 
+// Where a step's words sit beside its picture: on the right (the default), on the left, or above it across the width.
+// The steps vary it, so the story does not read as one template.
+export type Layout = "right" | "left" | "top";
+const splitClass = (layout? : Layout) => `split is-${layout ?? "right"}`;
 const reducedMotion = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const lakhCrore = (crore : number) => (crore / 1e5).toFixed(1);
 
@@ -40,7 +45,7 @@ const LAST_MARCH = (() => { for (let i = CIC_MONTHS.length - 1; i >= 0; i--) if 
 const MARCH_LAST = CIC[LAST_MARCH], LAST_YEAR = CIC_MONTHS[LAST_MARCH].slice(0, 4);
 const TIMES = MARCH_LAST / MARCH_2016;
 type Guess = "down" | "same" | "up";
-const VERDICT : Record<Guess, string> = { down : "Not down.", same : "Not the same.", up : "Yes, up." };
+const VERDICT : Record<Guess, string> = { down : "No, it rose.", same : "No, it rose.", up : "Yes, it rose." };
 
 // A pile of bundles, each ₹1 lakh crore: notes seen edge on (a few fine lines), a paper band round the middle, and a
 // slight skew, as a pile is never quite straight. On `rise` the bundles fall from above the stage, one after another
@@ -68,7 +73,7 @@ const Pile = ({ lakh, x, base, slab, width, rise, delay } : { lakh : number; x :
     );
 };
 
-export const GuessStep = ({ children } : { children : ReactNode }) => {
+export const GuessStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ guess, setGuess ] = useState<Guess | null>(null);
     const { w, h } = size;
@@ -77,7 +82,7 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
     const width = Math.min(220, w * 0.3), base = h - bottom;
     const xs = [ w * 0.3, w * 0.7 ];
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage guess-stage" ref={ref}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
@@ -85,6 +90,23 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
                         <Pile lakh={MARCH_2016 / 1e5} x={xs[0]} base={base} slab={slab} width={width} rise={seen} delay={0.2} />
                         <Pile lakh={MARCH_LAST / 1e5} x={xs[1]} base={base} slab={slab} width={width} rise={!!guess} delay={0.1} />
                         {!guess && <text className="guess-mark" x={xs[1]} y={base - 60} textAnchor="middle">?</text>}
+                        {/* once answered, a scale beside March's pile: March 2016's height is 1x, carried across */}
+                        {guess && (() => {
+                            const one = MARCH_2016 / 1e5 * slab, x = xs[1] + width / 2 + 28;
+                            const marks = [ 1, 2 ].map(k => ({ k, y : base - k * one, label : `${k}x` })).concat({ k : TIMES, y : base - TIMES * one, label : `${TIMES.toFixed(1)}x` });
+                            return (
+                                <g className="guess-scale" style={{ animationDelay : `${0.4 + Math.ceil(MARCH_LAST / 1e5) * 0.06}s` }}>
+                                    <line className="guess-carry" x1={xs[0] - width / 2} x2={x} y1={base - one} y2={base - one} />
+                                    <line className="guess-ruler" x1={x} x2={x} y1={base} y2={base - TIMES * one} />
+                                    {marks.map(m => (
+                                        <g key={m.label} className={m.k === TIMES ? "is-top" : ""}>
+                                            <line x1={x - 5} x2={x + 5} y1={m.y} y2={m.y} />
+                                            <text x={x + 10} y={m.y + 5}>{m.label}</text>
+                                        </g>
+                                    ))}
+                                </g>
+                            );
+                        })()}
                         <line className="guess-floor" x1={w * 0.1} x2={w * 0.9} y1={base + 1} y2={base + 1} />
                         {[ [ "March 2016", MARCH_2016 ], [ `March ${LAST_YEAR}`, MARCH_LAST ] ].map(([ label, v ], i) => (
                             <g key={i} className="guess-label">
@@ -98,14 +120,15 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
             <aside className="split-card">
                 {children}
                 <div className="guess-choices" role="group" aria-label="Your guess">
-                    {([ [ "down", "Gone down" ], [ "same", "About the same" ], [ "up", "Gone up" ] ] as [ Guess, string ][]).map(([ g, label ]) => (
+                    {([ [ "down", "Fallen" ], [ "same", "About the same" ], [ "up", "Risen" ] ] as [ Guess, string ][]).map(([ g, label ]) => (
                         <button key={g} type="button" className={guess === g ? "is-on" : ""} aria-pressed={guess === g} onClick={() => setGuess(g)}>{label}</button>
                     ))}
                 </div>
                 <p className={`guess-answer ${guess ? "is-shown" : ""}`} aria-live="polite">
                     {guess && <>
-                        <b>{VERDICT[guess]}</b> It went up {TIMES.toFixed(1)} times: ₹{lakhCrore(MARCH_2016)} lakh crore in March 2016,
-                        ₹{lakhCrore(MARCH_LAST)} lakh crore in March {LAST_YEAR}. Each note in the piles stands for ₹1 lakh crore of currency in circulation.
+                        <b>{VERDICT[guess]} {TIMES.toFixed(1)}x,</b> from ₹{lakhCrore(MARCH_2016)} lakh crore in March 2016 to
+                        ₹{lakhCrore(MARCH_LAST)} lakh crore in March {LAST_YEAR}.
+                        <span className="guess-unit">Each bundle stands for ₹1 lakh crore of currency in circulation.</span>
                     </>}
                 </p>
             </aside>
@@ -119,7 +142,7 @@ export const GuessStep = ({ children } : { children : ReactNode }) => {
 // its years can be read. The left draws in first, then the right; the marked years label themselves as the line
 // reaches them, and the official record's events stand as pins on the right.
 export interface TideMark { fy : string; at : "right" | "below" | "above" | "under-right"; accent? : boolean; pulse? : boolean; note? : string }
-export const TideStep = ({ breakAt, marks, events, children } : { breakAt : string; marks : TideMark[]; events? : StepEvent[]; children : ReactNode }) => {
+export const TideStep = ({ layout, breakAt, marks, events, children } : { layout? : Layout; breakAt : string; marks : TideMark[]; events? : StepEvent[]; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ drawn, setDrawn ] = useState(false);
     useEffect(() => { if (seen || reducedMotion()) setDrawn(true); }, [ seen ]);
@@ -148,7 +171,7 @@ export const TideStep = ({ breakAt, marks, events, children } : { breakAt : stri
     });
     const pins = (events ?? []).filter(e => e.k >= b).map(e => ({ ...e, x : XR(e.k), y : Y(TIDE[e.k]), delay : markAt(e.k, "r") + 0.1 }));
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage tide-stage" ref={ref} {...bind}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
@@ -161,8 +184,8 @@ export const TideStep = ({ breakAt, marks, events, children } : { breakAt : stri
                             <clipPath id={`${uid}-l`}><rect className="tide-wipe" x={0} y={0} width={pad.l + wl + 1} height={h} style={{ transform : drawn ? "none" : "scaleX(0)", transitionDuration : `${LEFT_FOR}s` }} /></clipPath>
                             <clipPath id={`${uid}-r`}><rect className="tide-wipe" x={pad.l + wl + gap - 1} y={0} width={wr + pad.r} height={h} style={{ transform : drawn ? "none" : "scaleX(0)", transitionDuration : `${RIGHT_FOR}s`, transitionDelay : drawn ? `${RIGHT_AT}s` : "0s" }} /></clipPath>
                         </defs>
-                        <text className="tide-panel" x={pad.l} y={22}>{narrow ? "The ebb" : `The ebb · ${TIDE_FYS[0]} to ${breakAt}`}</text>
-                        <text className="tide-panel is-right" x={pad.l + wl + gap} y={22}>{narrow ? "The return" : `The return · ${breakAt} to ${TIDE_FYS[n - 1]}`}</text>
+                        <text className="tide-panel" x={pad.l} y={22}>{TIDE_FYS[0]} to {breakAt}</text>
+                        <text className="tide-panel is-right" x={pad.l + wl + gap} y={22}>{narrow ? `${breakAt.slice(0, 4)}–${TIDE_FYS[n - 1].slice(2, 4)}` : `${breakAt} to ${TIDE_FYS[n - 1]}, every year`}</text>
                         {[ 4, 8, 12 ].map(v => (
                             <g key={v} className="tide-grid">
                                 <line x1={pad.l} x2={pad.l + wl} y1={Y(v)} y2={Y(v)} />
@@ -219,7 +242,7 @@ const LINES = [
     { key : "debit", label : "Debit cards", cls : "is-debit", values : PAY.debit.volume },
 ];
 const fmtVal = (v : number) => v >= 100 ? Math.round(v).toLocaleString("en-IN") : v.toFixed(1);
-export const PayStep = ({ events, children } : { events? : StepEvent[]; children : ReactNode }) => {
+export const PayStep = ({ layout, events, children } : { layout? : Layout; events? : StepEvent[]; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ drawn, setDrawn ] = useState(false);
     const [ index, setIndex ] = useState(false);
@@ -244,7 +267,7 @@ export const PayStep = ({ events, children } : { events? : StepEvent[]; children
     });
     const pins = (events ?? []).map(e => ({ ...e, x : X(e.k), y : Y(series[1].shown[e.k]), delay : 2.4 * e.k / last + 0.3 }));
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage pay-stage" ref={ref} {...bind}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
@@ -329,23 +352,7 @@ const bricksOf = (y : (typeof WALL)[number]) => {
     });
     return out;
 };
-const NoteFace = ({ w, h, g } : { w : number; h : number; g : number }) => {
-    const d = DENOMS[g];
-    const value = d.value;
-    return (
-        <>
-            <rect className={`wall-note ${d.cls}`} x={1} y={1} width={w - 2} height={h - 2} rx={1.5} />
-            {w >= 22 && <>
-                <rect className="wall-inner" x={3} y={3} width={w - 6} height={h - 6} />
-                {/* the guilloche: two fine waves across the note */}
-                {[ 0.38, 0.62 ].map(f => <path key={f} className="wall-guilloche" d={`M3,${h * f} ${Array.from({ length : 8 }, (_, k) => `Q${3 + (k + 0.5) * (w - 6) / 8},${h * f + (k % 2 ? 2 : -2)} ${3 + (k + 1) * (w - 6) / 8},${h * f}`).join(" ")}`} />)}
-                <ellipse className="wall-oval" cx={w * 0.72} cy={h * 0.5} rx={w * 0.11} ry={h * 0.28} />
-                {value && w >= 34 && <text className="wall-value" x={5} y={h * 0.42} fontSize={Math.min(12, h * 0.34)}>{value}</text>}
-            </>}
-        </>
-    );
-};
-export const NoteWallStep = ({ children } : { children : ReactNode }) => {
+export const NoteWallStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ k, setK ] = useState(YEARS.length - 1);
     const [ playing, setPlaying ] = useState(false);
@@ -382,13 +389,15 @@ export const NoteWallStep = ({ children } : { children : ReactNode }) => {
     const year = WALL[k];
     if (!year) return null;
     // the wall: a grid shaped to the stage, big enough for the largest year, laid row by row from the bottom up
-    const cols = Math.max(12, Math.round(Math.sqrt(MOST * 0.62 * (w || 1) / (h || 1))));
+    // each place on the wall is a note's shape (177 × 73), as on the close
+    const RATIO = 73 / 177;
+    const cols = Math.max(12, Math.round(Math.sqrt(MOST * RATIO * (w || 1) / (h || 1))));
     const rows = Math.ceil(MOST / cols);
-    const cell = Math.max(4, Math.min((w - 8) / cols, (h - 40) / rows / 0.62));
-    const nw = cell, nh = cell * 0.62, x0 = (w - cols * nw) / 2, y0 = h - 8;
+    const cell = Math.max(4, Math.min((w - 8) / cols, (h - 40) / rows / RATIO));
+    const nw = cell, nh = cell * RATIO, x0 = (w - cols * nw) / 2, y0 = h - 8;
     const place = (pos : number) => [ x0 + (pos % cols) * nw, y0 - (Math.floor(pos / cols) + 1) * nh ] as const;
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage wall-stage" ref={ref}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
@@ -399,7 +408,7 @@ export const NoteWallStep = ({ children } : { children : ReactNode }) => {
                             return (
                                 <g key={b.id} className={`wall-brick ${b.leaving ? "is-leaving" : ""}`} style={{ transform : `translate(${x}px, ${y}px)` }}>
                                     <g className={b.fresh ? "is-new" : ""} style={{ "--from" : `${-(y + nh + 20)}px`, animationDelay : `${(b.pos % cols) * 0.012}s` } as React.CSSProperties}>
-                                        <NoteFace w={nw} h={nh} g={b.g} />
+                                        <NoteFace x={1.5} y={1.5} w={nw - 3} h={nh - 3} denom={DENOMS[b.g].key} value={DENOMS[b.g].value} detail={DENOMS[b.g].value ? "full" : "low"} />
                                     </g>
                                 </g>
                             );
@@ -414,7 +423,7 @@ export const NoteWallStep = ({ children } : { children : ReactNode }) => {
                     <ul className="wall-key">
                         {DENOMS.map((d, j) => (
                             <li key={d.key} className={year.shares[j] < 0.0005 ? "is-gone" : ""}>
-                                <i className={`wall-chip ${d.cls}`} aria-hidden="true" />{d.label}<b>{(year.shares[j] * 100).toFixed(1)}%</b>
+                                <NoteIcon denom={d.key} value={d.value} width={30} />{d.label}<b>{(year.shares[j] * 100).toFixed(1)}%</b>
                             </li>
                         ))}
                     </ul>
@@ -432,14 +441,38 @@ export const NoteWallStep = ({ children } : { children : ReactNode }) => {
 };
 
 // PAYING AND KEEPING ==================================================================================================
-// The close: the two jobs side by side, each as one number against where it started.
-export const CloseStep = ({ paying, keeping, children } : { paying : ReactNode; keeping : ReactNode; children : ReactNode }) => (
-    <div className="close">
-        <div className="close-pair">
-            <div className="close-half is-paying">{paying}</div>
-            <div className="close-half is-keeping">{keeping}</div>
+// The close: the header, then the two multiples side by side, each with its large icon and, under it, a row of small
+// ones, one for each time the first figure fits into the last (the last one cut to the fraction); then six of the
+// story's figures, and a line of the RBI's. Static.
+export interface CloseSide { tone : "paying" | "keeping"; times : number; icon : ReactNode; unit : (w : number) => ReactNode; unitWidth : number; each : string; caption : string }
+const UnitRow = ({ times, unit, w } : { times : number; unit : (w : number) => ReactNode; w : number }) => {
+    const whole = Math.floor(times), part = times - whole;
+    return (
+        <div className="close-units" aria-hidden="true">
+            {Array.from({ length : whole }, (_, k) => <span key={k} className="close-unit">{unit(w)}</span>)}
+            {part > 0.05 && <span className="close-unit is-part" style={{ width : w * part }}>{unit(w)}</span>}
         </div>
+    );
+};
+export const CloseStep = ({ sides, facts, note, children } : { sides : CloseSide[]; facts? : { value : string; label : string }[]; note? : ReactNode; children : ReactNode }) => (
+    <div className="close">
         <div className="close-words">{children}</div>
+        <div className="close-pair">
+            {sides.map(sd => (
+                <div key={sd.tone} className={`close-side is-${sd.tone}`}>
+                    <div className="close-big">{sd.icon}<b>{sd.times.toFixed(1)}x</b></div>
+                    <UnitRow times={sd.times} unit={sd.unit} w={sd.unitWidth} />
+                    <span className="close-each">{sd.each}</span>
+                    <span className="close-caption">{sd.caption}</span>
+                </div>
+            ))}
+        </div>
+        {facts && (
+            <ul className="close-facts">
+                {facts.map(f => <li key={f.label}><b>{f.value}</b><span>{f.label}</span></li>)}
+            </ul>
+        )}
+        {note && <div className="close-words">{note}</div>}
     </div>
 );
 
@@ -447,8 +480,8 @@ export const CloseStep = ({ paying, keeping, children } : { paying : ReactNode; 
 // One series by month, drawn in when the step comes on screen, with an optional dashed reference level, marked months
 // (each labelled with its value and a note), and numbered events from the official record beneath the line.
 export interface LineMark { month : string; at : "right" | "below" | "above" | "under-right"; accent? : boolean; pulse? : boolean; note? : string }
-export const LineStep = ({ months, values, fmt, ticks, lo, hi, tone, axis, marks, level, events, read, children } : {
-    months : string[]; values : number[]; fmt : (v : number) => string; ticks : number[]; lo : number; hi : number;
+export const LineStep = ({ layout, months, values, fmt, ticks, lo, hi, tone, axis, marks, level, events, read, children } : {
+    layout? : Layout; months : string[]; values : number[]; fmt : (v : number) => string; ticks : number[]; lo : number; hi : number;
     tone : "neem" | "terracotta" | "indivara"; axis : string; marks : LineMark[]; level? : { value : number; label : string };
     events? : StepEvent[]; read? : (i : number) => string[]; children : ReactNode;
 }) => {
@@ -473,7 +506,7 @@ export const LineStep = ({ months, values, fmt, ticks, lo, hi, tone, axis, marks
         return { ...e, x : X(i), y : Y(values[i]), delay : 2.4 * i / n + 0.3 };
     });
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className={`split-stage line-stage is-${tone}`} ref={ref} {...bind}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
@@ -521,13 +554,18 @@ export const LineStep = ({ months, values, fmt, ticks, lo, hi, tone, axis, marks
 // A year as a clock, January at the top: for each month a petal, outward from the ring for the average growth of the
 // currency in circulation in that month, inward for a fall. Round the outside, the RBI's own reading of each quarter
 // (pointing at one shows its words and source). The petals open one after another, clockwise, like a hand going round.
+// each quarter's colour, by its first month: summer and sowing turmeric, the monsoon lavender, the festive months
+// terracotta, the rabi harvest Neem
+const QUARTER_TINT : Record<number, string> = { 4 : "#eaaa3a", 7 : "#864fe3", 10 : "#ba644f", 1 : "#6b8e23" };
+const QUARTER_INK : Record<number, string> = { 4 : "#a8741a", 7 : "#6a3cbd", 10 : "#9a4f3c", 1 : "#55721b" };
 export interface SeasonPart { from : number; to : number; label : string; note : string; source : string; url : string }   // months 1–12, inclusive
-export const SeasonStep = ({ values, parts, children } : { values : Record<string, number>; parts : SeasonPart[]; children : ReactNode }) => {
+export const SeasonStep = ({ layout, values, parts, children } : { layout? : Layout; values : Record<string, number>; parts : SeasonPart[]; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ drawn, setDrawn ] = useState(false);
     useEffect(() => { if (seen || reducedMotion()) setDrawn(true); }, [ seen ]);
     const [ over, setOver ] = useState<number | null>(null);
     const [ part, setPart ] = useState<number | null>(null);
+    const uid = useId().replace(/:/g, "");
     const { w, h } = size;
     const narrow = w < 560;
     const cx = w / 2, cy = h / 2 + 6, R = Math.max(60, Math.min(w / 2 - (narrow ? 30 : 190), h / 2 - (narrow ? 40 : 60)));   // room for the quarters' names
@@ -546,19 +584,28 @@ export const SeasonStep = ({ values, parts, children } : { values : Record<strin
     const focus = over ?? peak;
     const ringR = R + (narrow ? 14 : 30);
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage season-stage" ref={ref}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
                         aria-label={`Average change in currency in circulation in each month: ${months.map(m => `${name(m, "long")} ${val(m) > 0 ? "+" : ""}${val(m).toFixed(1)}%`).join(", ")}.`}>
-                        {/* the quarters, as the RBI reads them, round the outside */}
+                        {/* the quarters, as the RBI reads them: each a band behind its three months' petals, shading outward in
+                            its own colour, its name outside */}
+                        <defs>
+                            {parts.map((p, i) => (
+                                <radialGradient key={i} id={`${uid}-q${i}`} gradientUnits="userSpaceOnUse" cx={cx} cy={cy} r={ringR}>
+                                    <stop offset={r0 * 0.6 / ringR} stopColor={QUARTER_TINT[p.from] ?? "#e1d5bc"} stopOpacity={0.04} />
+                                    <stop offset={1} stopColor={QUARTER_TINT[p.from] ?? "#e1d5bc"} stopOpacity={0.42} />
+                                </radialGradient>
+                            ))}
+                        </defs>
                         {parts.map((p, i) => {
-                            const a0 = ang(p.from) - Math.PI / 12 + 0.03, a1 = ang(p.to) + Math.PI / 12 - 0.03;
+                            const a0 = ang(p.from) - Math.PI / 12 + 0.012, a1 = ang(p.to) + Math.PI / 12 - 0.012;
                             const [ lx, ly ] = pt(ringR + 16, (a0 + a1) / 2);
                             return (
                                 <g key={p.label} className={`season-part ${part === i ? "is-on" : ""}`} onPointerEnter={() => setPart(i)} onPointerLeave={() => setPart(null)} onClick={() => setPart(o => (o === i ? null : i))}>
-                                    <path d={sector(ringR - 4, ringR + 4, a0, a1)} />
-                                    {!narrow && <text x={lx} y={ly} textAnchor={lx < cx - 20 ? "end" : lx > cx + 20 ? "start" : "middle"}>{p.label}</text>}
+                                    <path d={sector(r0 * 0.6, ringR + 4, a0, a1)} fill={`url(#${uid}-q${i})`} />
+                                    {!narrow && <text x={lx} y={ly} textAnchor={lx < cx - 20 ? "end" : lx > cx + 20 ? "start" : "middle"} style={{ "--q-ink" : QUARTER_INK[p.from], "--q-tint" : QUARTER_TINT[p.from] } as React.CSSProperties}>{p.label}</text>}
                                 </g>
                             );
                         })}
@@ -600,7 +647,7 @@ export const SeasonStep = ({ values, parts, children } : { values : Record<strin
 // One ridge a year, 2012 at the top: the cash drawn out above that year's normal pace, from six weeks before Diwali to
 // six weeks after, all on one scale, so the ridges' heights compare; a dashed line runs down through the week of Diwali.
 // The ridges draw in one after another; pointing at a year (or a tap) gives its numbers. Left-out years are marked.
-export const FestiveStep = ({ children } : { children : ReactNode }) => {
+export const FestiveStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ drawn, setDrawn ] = useState(false);
     useEffect(() => { if (seen || reducedMotion()) setDrawn(true); }, [ seen ]);
@@ -617,7 +664,7 @@ export const FestiveStep = ({ children } : { children : ReactNode }) => {
     const XW = (j : number) => pad.l + j / 12 * (w - pad.l - pad.r);
     const base = (i : number) => pad.t + (i + 1) * rh;
     return (
-        <div className="split">
+        <div className={splitClass(layout)}>
             <div className="split-stage festive-stage" ref={ref}>
                 {w > 0 && (
                     <svg width={w} height={h} role="img"
