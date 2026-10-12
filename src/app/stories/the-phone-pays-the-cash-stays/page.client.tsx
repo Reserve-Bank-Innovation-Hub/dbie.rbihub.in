@@ -146,7 +146,7 @@ export const PhonePaysPage = () => {
                 <div className="hero">
                     <PageCrumbs />
                     <Heading1 className="hero-title" fontStyle="serif" weight="700" marginBottom="micro">
-                        The phone pays, <span>the cash stays</span>
+                        The phone pays, <span>but the cash stays</span>
                     </Heading1>
                     <Text className="hero-dek" fontStyle="serif">
                         UPI payments grew {UPI_TIMES}x between {monthYear(PAY_FIRST)} and {monthYear(PAY_LAST)}. What happened to cash?
