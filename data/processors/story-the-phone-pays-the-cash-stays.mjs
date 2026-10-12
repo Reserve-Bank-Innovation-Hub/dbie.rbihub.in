@@ -1,4 +1,4 @@
-// The figures for the story "The phone pays, the cash stays" (src/app/stories/the-phone-pays-the-cash-stays), from the scraped DBIE files
+// The figures for the story "The phone pays, but the cash stays" (src/app/stories/the-phone-pays-the-cash-stays), from the scraped DBIE files
 // (data/sdmx/** and data/reports/**, restored by `pnpm data:fetch`), read with the parsers the database loader uses.
 //
 //   payment system indicators, new format (report 612)   monthly from November 2019: UPI, card payments, cash

@@ -1,6 +1,7 @@
 // The story's banknote, drawn one way everywhere it appears: the title's ₹500, the note wall, the notes in the cash
 // grids, the legends and the close. It follows the flat note of "What ₹1 lakh could buy" (its note-1000.svg): a
-// paper ground in three fields, the two side fields paler, a disc carrying the rupee sign in the middle, the value set
+// paper ground in three fields, the two side fields paler, a disc carrying the rupee sign in the middle (and, large,
+// fine guilloche, a watermark oval, a dashed thread and an inner border), the value set
 // upright on the left, pill bars standing in for the lettering, a dashed divider, and on the right the numeral, a ring
 // and a row of dots, with a notch in two corners. No portrait, no issuer's name, nothing that imitates a real note.
 // Each denomination keeps the colours the story already gives it (₹500 Neem, ₹200 and the old ₹500 turmeric, ₹100
@@ -55,6 +56,28 @@ export function drawNote(g : CanvasRenderingContext2D, x : number, y : number, w
         g.restore();
         return;
     }
+    if (detail === "full") {
+        const a0 = g.globalAlpha;
+        // fine guilloche across the middle field, a pale oval watermark in the left one, a dashed thread, an inner border
+        g.strokeStyle = style.lace; g.lineWidth = 0.65 * P.u; g.globalAlpha = a0 * 0.8;
+        for (let k = 0; k < 9; k++) {
+            g.beginPath();
+            for (let i = 0; i <= 40; i++) {
+                const fx = 0.29 + i / 40 * 0.4, yy = y + h * (0.12 + k * 0.095) + Math.sin(i * 0.55 + k * 0.9) * h * 0.022;
+                if (i) g.lineTo(x + w * fx, yy); else g.moveTo(x + w * fx, yy);
+            }
+            g.stroke();
+        }
+        g.globalAlpha = a0 * 0.5; g.fillStyle = style.window;
+        g.beginPath(); g.ellipse(x + w * 0.1, y + h * 0.42, w * 0.055, h * 0.27, 0, 0, Math.PI * 2); g.fill();
+        g.globalAlpha = a0 * 0.4; g.strokeStyle = style.ink; g.lineWidth = 1.4 * P.u; g.setLineDash([ 4 * P.u, 2.5 * P.u ]);
+        g.beginPath(); g.moveTo(x + w * 0.62, y); g.lineTo(x + w * 0.62, y + h); g.stroke(); g.setLineDash([]);
+        g.globalAlpha = a0 * 0.3; g.lineWidth = 0.6 * P.u;
+        g.strokeRect(x + w * 0.018, y + h * 0.045, w * 0.964, h * 0.91);
+        g.globalAlpha = a0 * 0.7; g.strokeStyle = style.lace; g.lineWidth = 0.7 * P.u;
+        g.beginPath(); g.arc(P.disc.cx, P.disc.cy, P.disc.r * 1.18, 0, Math.PI * 2); g.stroke();
+        g.globalAlpha = a0;
+    }
     g.fillStyle = style.band; g.beginPath(); g.arc(P.disc.cx, P.disc.cy, P.disc.r, 0, Math.PI * 2); g.fill();
     if (detail !== "low") {
         g.fillStyle = style.window; g.textAlign = "center"; g.textBaseline = "middle";
@@ -92,6 +115,16 @@ export const NoteFace = ({ x = 0, y = 0, w, h, denom, value, detail = detailFor(
             <rect x={x} y={y} width={w} height={h} fill={s.paper} />
             <rect x={P.left[0]} y={P.left[1]} width={P.left[2]} height={P.left[3]} fill={s.window} opacity={0.55} />
             <rect x={P.right[0]} y={P.right[1]} width={P.right[2]} height={P.right[3]} fill={s.window} opacity={0.55} />
+            {detail === "full" && <>
+                {Array.from({ length : 9 }, (_, k) => (
+                    <path key={k} fill="none" stroke={s.lace} strokeWidth={0.65 * P.u} opacity={0.8}
+                        d={Array.from({ length : 41 }, (_, i) => `${i ? "L" : "M"}${(x + w * (0.29 + i / 40 * 0.4)).toFixed(1)} ${(y + h * (0.12 + k * 0.095) + Math.sin(i * 0.55 + k * 0.9) * h * 0.022).toFixed(1)}`).join("")} />
+                ))}
+                <ellipse cx={x + w * 0.1} cy={y + h * 0.42} rx={w * 0.055} ry={h * 0.27} fill={s.window} opacity={0.5} />
+                <path d={`M${x + w * 0.62} ${y}V${y + h}`} stroke={s.ink} strokeWidth={1.4 * P.u} strokeDasharray={`${4 * P.u} ${2.5 * P.u}`} opacity={0.4} />
+                <rect x={x + w * 0.018} y={y + h * 0.045} width={w * 0.964} height={h * 0.91} fill="none" stroke={s.ink} strokeWidth={0.6 * P.u} opacity={0.3} />
+                <circle cx={P.disc.cx} cy={P.disc.cy} r={P.disc.r * 1.18} fill="none" stroke={s.lace} strokeWidth={0.7 * P.u} opacity={0.7} />
+            </>}
             <circle cx={P.disc.cx} cy={P.disc.cy} r={P.disc.r} fill={s.band} />
             {detail !== "low" && value && <>
                 <text x={P.disc.cx} y={P.disc.cy + P.disc.r * 0.47} textAnchor="middle" fontSize={P.disc.r * 1.35} fontWeight={700} fill={s.window}>₹</text>

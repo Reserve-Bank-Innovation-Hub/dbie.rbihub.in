@@ -60,7 +60,7 @@ export const STORY_SECTIONS : ListSection[] = [
             },
             {
                 linkTo      : "/stories/the-phone-pays-the-cash-stays",
-                label       : "The phone pays, the cash stays",
+                label       : "The phone pays, but the cash stays",
                 description : "UPI payments grew 19.4 times between November 2019 and July 2026. Over the ten years to March 2026, currency in circulation grew 2.5 times.",
             },
         ],

@@ -672,8 +672,8 @@ function backPrint(renderer : THREE.WebGLRenderer) {
     noteG.position.set(0.004 + NWH / 2, -0.3, -PD / 2 - 0.0075);
     noteG.rotation.set(0, Math.PI, 0.035);
     // a small, steady glow round the note's visible half, from just behind it, so it lifts off the dark glass
-    const haloMat = keep(new THREE.MeshBasicMaterial({ map : keep(softBox("#ffffff", 0.95, 26)), color : 0xe7f0c8, transparent : true, opacity : 0.5, blending : THREE.AdditiveBlending, depthWrite : false, toneMapped : false, side : THREE.DoubleSide }));
-    const halo = new THREE.Mesh(keep(new THREE.PlaneGeometry(NWH * 1.28, NH * 1.3)), haloMat);
+    const haloMat = keep(new THREE.MeshBasicMaterial({ map : keep(softBox("#ffffff", 0.95, 26)), color : 0xf1f6d6, transparent : true, opacity : 0.95, blending : THREE.AdditiveBlending, depthWrite : false, toneMapped : false, side : THREE.DoubleSide }));
+    const halo = new THREE.Mesh(keep(new THREE.PlaneGeometry(NWH * 1.42, NH * 1.45)), haloMat);
     halo.position.set(NWH / 2, 0, -0.0035);
     noteG.add(halo);
 
