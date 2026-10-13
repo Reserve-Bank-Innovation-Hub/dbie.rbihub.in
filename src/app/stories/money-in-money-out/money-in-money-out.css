@@ -1,0 +1,720 @@
+/* The RBIH Kosh palette by role, in a rule of its own: declared inside the nested block below, the build drops them.
+   The streams keep one colour each through the story: money in neem, money kept Indivara, money out terracotta; the
+   Gulf countries turmeric, FDI charcoal. The dark theme (below) swaps the page and the ink. */
+#money-in-money-out-page {
+    --page     : #f2f0e6;
+    --card     : #ffffff;
+    --box      : #e1d5bc;
+    --sandal-6 : #f3eee4;
+    --ink      : #2f2f2f;
+    --ink-soft : color-mix(in oklch, #2f2f2f, transparent 30%);
+    --accent   : #ba644f;
+    --in       : #6b8e23;
+    --in-soft  : #cfdcaa;
+    --kept     : #864fe3;
+    --out      : #ba644f;
+    --gulf     : #eaaa3a;
+    --fdi      : #5a5a5a;
+    --hall     : #16151a;
+    --ivory-sandal : radial-gradient(ellipse 90% 80% at 50% 45%, #f2f0e6 30%, #e8dfcb 100%);
+    background : var(--page);
+    color      : var(--ink);
+}
+.theme-dark #money-in-money-out-page {
+    --page     : #16151a;
+    --card     : color-mix(in oklch, #f2f0e6 8%, #16151a);
+    --box      : color-mix(in oklch, #e1d5bc 22%, #16151a);
+    --sandal-6 : color-mix(in oklch, #e1d5bc 10%, #16151a);
+    --ink      : #f2f0e6;
+    --ink-soft : color-mix(in oklch, #f2f0e6, transparent 30%);
+    --accent   : color-mix(in oklch, #ba644f, white 22%);
+    --in       : color-mix(in oklch, #6b8e23, white 25%);
+    --in-soft  : color-mix(in oklch, #6b8e23 45%, #16151a);
+    --kept     : color-mix(in oklch, #864fe3, white 22%);
+    --out      : color-mix(in oklch, #ba644f, white 18%);
+    --fdi      : #b8b6ae;
+    --hall     : #0e0d11;
+    --ivory-sandal : radial-gradient(ellipse 90% 80% at 50% 45%, #1d1c20 30%, #16151a 100%);
+}
+
+#money-in-money-out-page {
+    /* THE OPENING ====================================================================================================== */
+    /* The coins' scene fills the screen; the title sits in the middle over a soft dark pool so it reads above the coins,
+       and comes in a letter at a time once the camera has swept in. */
+    .opening {
+        position   : relative;
+        height     : 100vh;
+        height     : 100svh;
+        overflow   : hidden;
+        background : var(--ivory-sandal);
+        color      : var(--ink);
+    }
+    .title-stage { position : absolute; inset : 0; canvas { display : block; width : 100%; height : 100%; } }
+    .hero {
+        position       : absolute;
+        left           : 50%;
+        top            : 47%;
+        transform      : translate(-50%, -50%);
+        width          : min(1100px, calc(100% - 32px));
+        text-align     : center;
+        pointer-events : none;
+        > :first-child { pointer-events : auto; display : inline-block; }
+        /* a frosted pool behind the words: the coins pass under it, softened, so the title and the line read cleanly */
+        &::before {
+            content : ""; position : absolute; inset : -14% -6%; z-index : -1; pointer-events : none;
+            background : color-mix(in srgb, var(--page) 97%, transparent);
+            backdrop-filter : blur(12px); -webkit-backdrop-filter : blur(12px);
+            mask-image : radial-gradient(ellipse 54% 54% at 50% 50%, #000 74%, transparent 100%);
+            -webkit-mask-image : radial-gradient(ellipse 54% 54% at 50% 50%, #000 74%, transparent 100%);
+        }
+        a { color : var(--ink-soft); }
+    }
+    .hero-title {
+        display        : grid;
+        justify-items  : center;
+        font-size      : clamp(56px, 10.5vw, 176px) !important;
+        line-height    : 0.95 !important;
+        letter-spacing : -0.02em;
+        color          : var(--ink);
+        margin-bottom  : 0.25em !important;
+    }
+    .hero-line { display : block; white-space : nowrap; }
+    .hero-line.is-out { color : var(--accent); }
+    .hero-ch { display : inline-block; white-space : pre; animation : hero-ch 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hero-dek {
+        max-width : 40ch; margin : 0 auto; font-size : clamp(17px, 1.6vw, 23px); line-height : 1.5;
+        color : var(--ink-soft);
+        animation : rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 2.9s both;
+    }
+    .hero > :first-child { animation : rise 1s ease-out 1.2s both; }
+    .hero-cue {
+        position : absolute; left : 50%; bottom : 1.2vh; z-index : 2; transform : translateX(-50%);
+        font : 600 22px var(--font-sans-serif); color : var(--ink-soft);
+        animation : rise 1s ease-out 3.4s both, cue 1.8s ease-in-out 4.4s infinite;
+    }
+
+    /* THE BOARD ======================================================================================================== */
+    .board {
+        display       : grid;
+        gap           : 8px;
+        padding       : 18px 16px;
+        border-radius : 12px;
+        background    : #0c0b0e;
+        box-shadow    : 0 0 0 1px #2c2a30, 0 24px 60px #00000080, inset 0 1px 0 #ffffff12;
+        cursor        : pointer;
+        min-width     : 0;
+    }
+    .board.is-big { padding : clamp(16px, 2vw, 28px) clamp(14px, 2vw, 28px); gap : clamp(8px, 1.2vh, 14px); border-radius : 18px; position : relative; }
+    .board.is-big .flap { height : calc(var(--cell) * 1.7); line-height : calc(var(--cell) * 1.7); font-size : calc(var(--cell) * 0.95); }
+    .board-head {
+        display : flex; justify-content : space-between; gap : 16px; padding : 0 4px 12px; margin-bottom : 4px;
+        border-bottom : 1px solid #ffffff1a; font : 700 clamp(10px, 0.9vw, 13px) var(--font-sans-serif); letter-spacing : 0.16em; color : #eaaa3a;
+        span:last-child { color : #f2f0e680; }
+    }
+    .board.is-big .board-tag { width : clamp(94px, 9vw, 140px); font-size : clamp(10.5px, 0.95vw, 14px); }
+    .slide.is-board { background : var(--ivory-sandal); overflow : hidden; }
+    .arrivals {
+        display : grid; align-content : center; gap : 3vh; height : 100%;
+        padding : max(6vh, 60px) clamp(16px, 5vw, 96px) 5vh;
+        .chapter-title { max-width : 34ch; }
+    }
+    .board-row { display : flex; align-items : center; gap : 12px; min-width : 0; }
+    .board-tag { flex : none; width : 94px; font : 700 10.5px var(--font-sans-serif); letter-spacing : 0.14em; }
+    .board-row.is-in .board-tag { color : #b9d77a; }
+    .board-row.is-kept .board-tag { color : #c4a6f5; }
+    .board-row.is-out .board-tag { color : #f0a58f; }
+    .board-row.is-plain .board-tag { color : #eaaa3a; }
+    .board-cells { display : flex; gap : 3px; }
+    .flap {
+        position      : relative;
+        width         : var(--cell);
+        height        : calc(var(--cell) * 1.45);
+        border-radius : 3px;
+        background    : linear-gradient(#26242a 50%, #1d1b20 50%);
+        color         : #f4ead0;
+        font          : 600 calc(var(--cell) * 0.86) / calc(var(--cell) * 1.45) ui-monospace, "SF Mono", Menlo, monospace;
+        text-align    : center;
+        &::after { content : ""; position : absolute; left : 0; right : 0; top : 50%; height : 1px; background : #000000a0; }
+        &.is-flip { animation : flap 62ms linear; }
+    }
+    .board-row.is-in .flap { color : #e3f0c4; }
+    .board-row.is-out .flap { color : #f8dccf; }
+    .board-row.is-kept .flap { color : #e6dafb; }
+
+    /* THE STEPS ======================================================================================================== */
+    .slide { position : relative; height : 100vh; height : 100svh; overflow : hidden; background : var(--page); }
+    .split {
+        display               : grid;
+        grid-template-columns : minmax(0, 1fr) min(400px, 34vw);
+        gap                   : clamp(16px, 3vw, 48px);
+        height                : 100%;
+        padding               : max(4vh, 60px) clamp(16px, 4vw, 64px) 4vh clamp(16px, 2.5vw, 40px);
+        align-items           : center;
+    }
+    .split-stage { position : relative; height : 100%; min-height : 0; svg { display : block; overflow : visible; } }
+    .split-card {
+        display       : grid;
+        gap           : 14px;
+        padding       : 24px;
+        border-radius : 16px;
+        background    : var(--card);
+        box-shadow    : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%), 0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
+        a { color : var(--accent); }
+    }
+    .split.is-left {
+        grid-template-columns : min(400px, 34vw) minmax(0, 1fr);
+        padding               : max(4vh, 60px) clamp(16px, 2.5vw, 40px) 4vh clamp(16px, 4vw, 64px);
+        .split-card { order : -1; }
+    }
+    .split.is-top {
+        grid-template-columns : minmax(0, 1fr);
+        grid-template-rows    : auto minmax(0, 1fr);
+        align-items           : stretch;
+        gap                   : 2vh;
+        padding               : max(5vh, 60px) clamp(16px, 5vw, 80px) 3vh;
+        .split-card {
+            order : -1; padding : 0; background : none; box-shadow : none; border-radius : 0;
+            display : grid; grid-template-columns : minmax(0, 1.5fr) minmax(0, 1fr); column-gap : 48px; align-items : end;
+            > :first-child { grid-column : 1; grid-row : 1 / span 4; }
+            > :not(:first-child) { grid-column : 2; }
+            .chapter-title { max-width : 36ch; margin-bottom : 0; }
+        }
+    }
+    .chapter-title { text-wrap : balance; font-size : clamp(21px, 1.9vw, 30px) !important; line-height : 1.22 !important; font-weight : 600 !important; }
+    .step-line { font-size : 16px; line-height : 1.5; color : var(--ink-soft); margin : 0; a { color : var(--accent); } }
+    .step-note { color : var(--ink-soft); font-size : 12px; line-height : 1.45; margin-top : 4px; a { color : var(--accent); } }
+
+    /* the shared marks of every chart */
+    .grid line { stroke : color-mix(in oklch, var(--ink), transparent 88%); }
+    .grid text, .axis-year { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); }
+    .wipe { transform-origin : left; transform-box : fill-box; transition : transform 2.4s cubic-bezier(0.45, 0, 0.25, 1); }
+    .series { fill : none; stroke-width : 2.5; stroke-linejoin : round; &.is-in { stroke : var(--in); } }
+    .mark {
+        opacity : 0; transition : opacity 0.6s;
+        &.is-shown { opacity : 1; }
+        circle { fill : var(--in); }
+        .pulse { fill : none; stroke : var(--in); stroke-width : 2; transform-box : fill-box; transform-origin : center; animation : pulse 1.8s ease-out infinite; }
+        text { font : 600 13px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : var(--page); stroke-width : 4px; stroke-linejoin : round; }
+        .mark-sub { font-weight : 500; fill : var(--ink-soft); }
+        &.is-event circle { fill : none; stroke : var(--accent); stroke-width : 2; }
+        &.is-event text { fill : var(--accent); }
+    }
+    .era { fill : color-mix(in srgb, var(--gulf), transparent 84%); }
+    .era-line { stroke : color-mix(in oklch, var(--ink), transparent 70%); stroke-dasharray : 3 4; }
+    .era-label { font : 600 12px var(--font-sans-serif); fill : var(--ink-soft); }
+
+    .toggle, .guess-choices {
+        display : flex; flex-wrap : wrap; gap : 8px;
+        button {
+            border : 0; border-radius : 999px; padding : 8px 16px; cursor : pointer;
+            font : 600 13px var(--font-sans-serif); color : var(--ink);
+            background : var(--card); box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 82%);
+            transition : background 0.2s, color 0.2s;
+            &:hover { box-shadow : 0 0 0 1px var(--accent); }
+            &.is-on { background : var(--accent); color : #ffffff; box-shadow : none; }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+    }
+    .guess-choices button { padding : 10px 18px; font-size : 14px; }
+
+    /* THE GUESS: TWO SUITCASES ========================================================================================= */
+    .case {
+        &.is-in  { --shell : #6b8e23; --shell-dark : #3f5a12; --shell-light : #a3c25a; }
+        &.is-fdi { --shell : #5a5a5a; --shell-dark : #2f2f2f; --shell-light : #9a9a96; }
+        .case-shadow { fill : #00000026; }
+        .case-wheel rect { fill : #2f2f2f; } .case-wheel circle { fill : #1f1f1f; } .case-wheel .hub { fill : #a9a69c; }
+        .case-trolley .grip { fill : #2f2f2f; } .case-trolley .collar { fill : #3a3a3a; }
+        .case-rim { stroke : var(--shell-dark); stroke-width : 1.5; }
+        .case-inside .lining { fill : #e1d5bc; stroke : #00000030; }
+        .case-inside .strap { stroke : #2f2f2f; stroke-width : 5; stroke-linecap : round; opacity : 0.75; fill : none; }
+        .case-inside .buckle { fill : #a9a69c; stroke : #6d6a62; }
+        .case-inside .pocket { fill : #d4c6a6; stroke : #b8a988; stroke-dasharray : 3 3; }
+        .case-side { fill : none; stroke : #2f2f2f; stroke-width : 5; stroke-linecap : round; }
+        .tag-string { fill : none; stroke : #6d6a62; stroke-width : 1.2; }
+        .tag-card { fill : #f2f0e6; stroke : #a8957a; } .tag-hole { fill : #a8957a; }
+        .tag-text { font : 700 9px var(--font-sans-serif); fill : #ba644f; letter-spacing : 0.06em; }
+        .door-face { stroke : var(--shell-dark); stroke-width : 1; }
+        .rib-shade { stroke : var(--shell-dark); stroke-width : 2.5; stroke-linecap : round; opacity : 0.7; }
+        .rib-light { stroke : var(--shell-light); stroke-width : 1.5; stroke-linecap : round; opacity : 0.8; }
+        .guard { fill : #2f2f2f; opacity : 0.85; }
+        .latch-slot { fill : #3a3a3a; }
+        .badge { fill : #f2f0e6; opacity : 0.85; }
+        .hinge { stroke : var(--shell-dark); stroke-width : 3; stroke-linecap : round; }
+        .flap-out { fill : var(--shell-dark); }
+        .flap-lining { fill : #d4c6a6; }
+        .flap-zip { stroke : #8a7a5c; stroke-width : 2; stroke-dasharray : 2 2; }
+        .case-label { font : 600 14px var(--font-sans-serif); fill : var(--ink); }
+        /* the door folds down: its face flattens towards the hinge, then the inside drops into view */
+        .case-door { transition : transform 0.35s cubic-bezier(0.5, 0, 0.9, 0.4); }
+        .case-flap { transform : scaleY(0); transition : transform 0.55s cubic-bezier(0.2, 1.4, 0.5, 1) 0.33s; }
+        &.is-open {
+            .case-door { transform : scaleY(0); }
+            .case-flap { transform : none; }
+        }
+    }
+    .case-value { font : 700 20px var(--font-serif, serif); fill : var(--ink); opacity : 0; transition : opacity 0.6s 2s; &.is-shown { opacity : 1; } }
+    .guess-floor { stroke : color-mix(in srgb, var(--ink), transparent 80%); }
+    .bundle {
+        opacity : 0; transform-box : fill-box; transform-origin : center;
+        &.is-out { animation : spill 1s cubic-bezier(0.3, 0, 0.4, 1) both; }
+        .bundle-edge { stroke-width : 0.8; }
+        .bundle-band { fill : #f2f0e6; stroke : #a8957a; stroke-width : 0.6; }
+    }
+    .stack.is-in .bundle-body { fill : var(--in-soft); stroke : var(--in); }
+    .stack.is-in .bundle-edge { stroke : color-mix(in srgb, var(--in), transparent 45%); }
+    .stack.is-fdi .bundle-body { fill : color-mix(in srgb, var(--fdi), var(--page) 65%); stroke : var(--fdi); }
+    .stack.is-fdi .bundle-edge { stroke : color-mix(in srgb, var(--fdi), transparent 45%); }
+    .loose-note {
+        opacity : 0;
+        &.is-out { animation : flutter 1.6s cubic-bezier(0.25, 0.6, 0.4, 1) both; }
+        rect { stroke-width : 0.8; }
+    }
+    .loose.is-in rect { fill : var(--in-soft); stroke : var(--in); }
+    .loose.is-fdi rect { fill : color-mix(in srgb, var(--fdi), var(--page) 65%); stroke : var(--fdi); }
+    .guess-scale {
+        opacity : 0; animation : fade-in 0.5s ease-out forwards;
+        line { stroke : var(--accent); stroke-width : 1.5; }
+        .guess-carry { stroke : color-mix(in oklch, var(--ink), transparent 60%); stroke-width : 1; stroke-dasharray : 4 4; }
+        .is-top { font : 700 22px var(--font-sans-serif); fill : var(--accent); }
+    }
+    .guess-answer {
+        margin : 0; min-height : 5em; font : 400 16px / 1.5 var(--font-serif, serif); color : var(--ink);
+        opacity : 0; transform : translateY(8px); transition : opacity 0.5s 0.3s, transform 0.5s 0.3s;
+        &.is-shown { opacity : 1; transform : none; }
+        b { color : var(--accent); }
+    }
+    .guess-unit { display : block; margin-top : 6px; font : 400 13px / 1.45 var(--font-sans-serif); color : var(--ink-soft); }
+
+    /* THE SPREAD ======================================================================================================= */
+    .spread-stage { svg { overflow : visible; } }
+    .grid.is-zero line { stroke : color-mix(in srgb, var(--ink), transparent 60%); stroke-dasharray : 3 4; }
+    .strip-line { stroke : color-mix(in srgb, var(--ink), transparent 85%); }
+    .strip { --tone : var(--in); &.is-fdi { --tone : var(--fdi); } }
+    .band { fill : color-mix(in srgb, var(--tone), transparent 86%); opacity : 0; transform : scaleX(0); transform-box : fill-box; transform-origin : center; transition : opacity 0.6s, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; &.is-shown { opacity : 1; transform : none; } }
+    .band-label { font : 700 13px var(--font-sans-serif); fill : var(--tone); opacity : 0; transition : opacity 0.5s 1.2s; &.is-shown { opacity : 1; } }
+    .lane-label { font : 700 15px var(--font-sans-serif); fill : var(--ink); }
+    .lane-sub { font : 500 12.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    .yr {
+        opacity : 0; cursor : default;
+        &.is-in { animation : yr-drop 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) both; }
+        circle { fill : var(--tone); stroke : var(--page); stroke-width : 1.5; transition : r 0.2s; }
+        text { font : 700 11.5px var(--font-sans-serif); fill : #ffffff; pointer-events : none; letter-spacing : -0.02em; }
+        &.is-on circle { stroke : var(--ink); stroke-width : 2; }
+    }
+    .spread-tip text { font : 700 13px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : var(--page); stroke-width : 4px; }
+    .axis-note { font : 500 11.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    .spread-key {
+        text { font : 500 12.5px var(--font-sans-serif); fill : var(--ink-soft); }
+        .dot.is-in { fill : var(--in); } .dot.is-fdi { fill : var(--fdi); }
+        .key-band.is-in { fill : color-mix(in srgb, var(--in), transparent 80%); } .key-band.is-fdi { fill : color-mix(in srgb, var(--fdi), transparent 80%); }
+    }
+
+    /* THE SLOPE ======================================================================================================== */
+    .slope-axis line { stroke : color-mix(in srgb, var(--ink), transparent 82%); }
+    .slope-axis rect { fill : var(--ink); }
+    .slope-axis text { font : 700 13px var(--font-sans-serif); fill : var(--page); }
+    .slope {
+        cursor : default; transition : opacity 0.3s;
+        --tone : var(--in);
+        &.is-gulf { --tone : var(--gulf); }
+        .slope-hit { stroke : transparent; stroke-width : 18; }
+        .slope-line { stroke-width : 3; stroke-linecap : round; stroke-dasharray : 1; stroke-dashoffset : 1; }
+        &.is-big .slope-line { stroke-width : 6; }
+        .slope-start { fill : var(--page); stroke : var(--tone); stroke-width : 2; }
+        circle.slope-end { fill : var(--tone); stroke : var(--page); stroke-width : 2; }
+        .slope-end { opacity : 0; transition : opacity 0.4s; }
+        .slope-name { font : 500 13px var(--font-sans-serif); fill : var(--ink-soft); }
+        .slope-val { font-weight : 700; fill : var(--ink); }
+        &.is-big .slope-name { font-size : 14.5px; font-weight : 700; fill : var(--ink); }
+        .chip { &.is-up { fill : color-mix(in srgb, var(--in), transparent 82%); } &.is-down { fill : color-mix(in srgb, var(--out), transparent 82%); } }
+        .chip-text { font : 700 10.5px var(--font-sans-serif); fill : var(--ink); }
+        &.is-drawn { .slope-line { stroke-dashoffset : 0; transition : stroke-dashoffset 1s ease-out; transition-delay : inherit; } .slope-end { opacity : 1; transition-delay : inherit; } }
+        &.is-dim { opacity : 0.22; }
+        &.is-on .slope-line { stroke-width : 8; }
+    }
+    .gulf-bracket {
+        opacity : 0; transition : opacity 0.6s 1.6s; &.is-shown { opacity : 1; }
+        path { fill : none; stroke : var(--gulf); stroke-width : 2; }
+        text { font : 600 12.5px var(--font-sans-serif); fill : var(--ink-soft); }
+        .gulf-total { font : 700 16px var(--font-sans-serif); fill : var(--ink); }
+    }
+    .slope-key { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); .is-gulf { fill : var(--gulf); } .is-other { fill : var(--in); } }
+
+    /* WHERE IT LANDS: THE WORLD MAP, THEN INDIA BY STATE ================================================================ */
+    .landing-stage { position : relative; --land : color-mix(in srgb, var(--box), var(--page) 55%); --sea : color-mix(in srgb, var(--kept), var(--page) 88%); }
+    .landing-stage svg { display : block; }
+    .landing-stage { overflow : hidden; }
+    .world-layer { position : absolute; inset : 0; transform-origin : 0 0; will-change : transform, opacity; overflow : hidden; }
+    .india-layer { position : absolute; inset : 0; }
+    .is-moving .flows { opacity : 0; transition : opacity 0.4s; }
+    .india-map { pointer-events : none; }
+    .india-state { fill : var(--out); stroke : color-mix(in srgb, var(--page), transparent 40%); stroke-width : 0.4; transition : fill 0.9s, stroke 0.9s; }
+    .india-map.is-states .india-state { stroke : color-mix(in srgb, var(--ink), transparent 65%); stroke-width : 0.8; }
+    .india-map.is-states .india-state:not(.is-named) { fill : var(--land); }
+    .ocean { fill : var(--sea); stroke : color-mix(in srgb, var(--kept), transparent 60%); stroke-width : 1; vector-effect : non-scaling-stroke; }
+    .graticule { fill : none; stroke : color-mix(in srgb, var(--kept), transparent 90%); stroke-width : 0.5; vector-effect : non-scaling-stroke; }
+    .land { fill : var(--land); stroke : color-mix(in srgb, var(--ink), transparent 82%); stroke-width : 0.5; vector-effect : non-scaling-stroke; transition : fill 0.6s; }
+    .state { fill : var(--out); stroke : color-mix(in srgb, var(--page), transparent 30%); stroke-width : 0.4; vector-effect : non-scaling-stroke; transition : fill 0.8s; }
+    .is-india .state { fill : var(--land); stroke : color-mix(in srgb, var(--ink), transparent 70%); stroke-width : 0.8; }
+    .india-rim { fill : none; stroke : none; }
+    .flow-line { fill : none; stroke : var(--in); stroke-opacity : 0.35; stroke-linecap : round; vector-effect : non-scaling-stroke; }
+    .flow-run { fill : none; stroke : var(--in); stroke-linecap : round; stroke-dasharray : 2 14; animation : flow-run 1.1s linear infinite; vector-effect : non-scaling-stroke; }
+    .flow.is-gulf { .flow-line, .flow-run { stroke : var(--gulf); } }
+    .flow-from { fill : var(--in); }
+    .flow.is-gulf .flow-from { fill : var(--gulf); }
+    .flow-line { stroke-dasharray : 2000; stroke-dashoffset : 2000; }
+    .is-drawn .flow-line { stroke-dashoffset : 0; transition : stroke-dashoffset 2s ease-out; }
+    .map-label { font : 700 12.5px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : var(--sea); stroke-width : 4px; stroke-linejoin : round; }
+    .delhi { circle { fill : var(--out); } .pulse { fill : none; stroke : var(--out); stroke-width : 2; transform-box : fill-box; transform-origin : center; animation : pulse 1.8s ease-out infinite; }
+        text { font : 800 13px var(--font-sans-serif); fill : var(--out); paint-order : stroke; stroke : var(--sea); stroke-width : 4px; } }
+    .map-key {
+        position : absolute; left : 12px; bottom : 28px; display : grid; grid-template-columns : auto auto; column-gap : 8px; row-gap : 5px; align-items : center;
+        padding : 10px 12px; border-radius : 10px; background : color-mix(in srgb, var(--card), transparent 8%); font-size : 12px; color : var(--ink-soft);
+        box-shadow : 0 0 0 1px color-mix(in srgb, var(--ink), transparent 90%);
+        &.is-india { bottom : auto; top : 8px; }
+        &.is-world { bottom : 12px; }
+        .key-ramp { width : 44px; height : 10px; border-radius : 3px; }
+        .key-ramp.is-in { background : linear-gradient(90deg, color-mix(in srgb, var(--in) 30%, var(--land)), var(--in)); }
+        .key-ramp.is-gulf { background : linear-gradient(90deg, color-mix(in srgb, var(--gulf) 30%, var(--land)), var(--gulf)); }
+        .key-ramp.is-out { background : linear-gradient(90deg, color-mix(in srgb, var(--out) 22%, var(--land)), var(--out)); }
+        .key-flow { width : 44px; height : 4px; border-radius : 2px; background : repeating-linear-gradient(90deg, var(--in) 0 3px, transparent 3px 9px), color-mix(in srgb, var(--in), transparent 65%); }
+        .key-note { grid-column : 1 / -1; margin-top : 4px; padding-top : 6px; border-top : 1px solid color-mix(in srgb, var(--ink), transparent 88%); color : var(--ink); font-weight : 600; }
+        .key-swatch { width : 44px; height : 10px; border-radius : 3px; &.is-india { background : var(--out); } &.is-land { background : var(--land); box-shadow : 0 0 0 1px color-mix(in srgb, var(--ink), transparent 70%); } }
+    }
+    .landing-note { position : absolute; left : 12px; top : 6px; margin : 0; font-size : 12px; color : var(--ink-soft); }
+    .leader { opacity : 0; animation : fade-in 0.5s ease-out forwards;
+        path { fill : none; stroke : var(--out); stroke-width : 1.4; stroke-dasharray : 3 3; } circle { fill : var(--out); stroke : var(--page); stroke-width : 1.5; } }
+    .state-cards { list-style : none; margin : 0; padding : 0; }
+    .state-card {
+        position : absolute; display : grid; grid-template-columns : 1fr auto; grid-template-rows : auto auto; align-content : center; column-gap : 10px; row-gap : 5px;
+        padding : 8px 14px; border-radius : 10px; background : var(--card); box-sizing : border-box;
+        box-shadow : 0 0 0 1px color-mix(in srgb, var(--ink), transparent 90%), 0 8px 20px color-mix(in srgb, var(--ink), transparent 93%);
+        animation : rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+        .state-name { font : 600 14px var(--font-sans-serif); color : var(--ink); align-self : center; }
+        .state-share { font : 700 20px var(--font-serif, serif); color : var(--out); text-align : right; }
+        .state-bar { grid-column : 1 / -1; height : 5px; border-radius : 3px; background : color-mix(in srgb, var(--ink), transparent 92%); overflow : hidden;
+            i { display : block; height : 100%; background : var(--out); transition : width 0.7s cubic-bezier(0.22, 1, 0.36, 1); } }
+        &.is-none .state-share { font-size : 12.5px; font-weight : 500; color : var(--ink-soft); }
+    }
+    .view-switch { display : flex; gap : 4px; padding : 3px; border-radius : 999px; background : color-mix(in srgb, var(--ink), transparent 93%); width : fit-content;
+        button { border : 0; background : none; border-radius : 999px; padding : 7px 14px; font : 600 13px var(--font-sans-serif); color : var(--ink-soft); cursor : pointer;
+            &.is-on { background : var(--card); color : var(--ink); box-shadow : 0 1px 4px color-mix(in srgb, var(--ink), transparent 85%); } } }
+    .round-slider {
+        display : grid; gap : 6px; min-width : 0;
+        .round-label { font : 700 11px var(--font-sans-serif); letter-spacing : 0.1em; text-transform : uppercase; color : var(--ink-soft); }
+        .round-track { position : relative; height : 46px; }
+        input[type="range"] { position : absolute; inset : 0 0 auto 0; width : 100%; height : 24px; margin : 0; opacity : 0; cursor : pointer; z-index : 2; }
+        .round-stops {
+            position : absolute; inset : 0; display : flex; justify-content : space-between;
+            &::before { content : ""; position : absolute; left : 9px; right : 9px; top : 11px; height : 3px; border-radius : 2px; background : color-mix(in srgb, var(--ink), transparent 85%); }
+            button { position : relative; display : grid; justify-items : center; gap : 6px; border : 0; background : none; padding : 0; cursor : pointer; z-index : 1;
+                i { width : 20px; height : 20px; border-radius : 50%; background : var(--card); box-shadow : 0 0 0 2px color-mix(in srgb, var(--ink), transparent 70%); transition : transform 0.2s, background 0.2s; }
+                span { font : 600 12.5px var(--font-sans-serif); color : var(--ink-soft); white-space : nowrap; }
+                &.is-past i { background : color-mix(in srgb, var(--accent), var(--card) 50%); box-shadow : none; }
+                &.is-on i { background : var(--accent); box-shadow : 0 0 0 4px color-mix(in srgb, var(--accent), transparent 75%); transform : scale(1.15); }
+                &.is-on span { color : var(--accent); } }
+        }
+        input[type="range"]:focus-visible + .round-stops .is-on i { outline : 2px solid var(--accent); outline-offset : 3px; }
+    }
+
+    /* THE VAULT ======================================================================================================== */
+    .vault .layer {
+        transition : opacity 0.7s, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity : 0; transform : translateY(18px);
+        &.is-nre { fill : color-mix(in srgb, var(--kept), var(--page) 45%); }
+        &.is-fcnr { fill : var(--kept); }
+        &.is-nro { fill : color-mix(in srgb, var(--kept), var(--ink) 55%); }
+        &.is-dim { opacity : 0.35 !important; }
+    }
+    .vault.is-drawn .layer { opacity : 0.92; transform : none; }
+    .window {
+        opacity : 0; transition : opacity 0.6s;
+        &.is-shown { opacity : 1; }
+        rect { fill : color-mix(in srgb, var(--gulf), transparent 82%); stroke : color-mix(in oklch, var(--gulf), black 10%); stroke-dasharray : 3 3; }
+        .window-value { font : 700 14px var(--font-sans-serif); fill : var(--ink); paint-order : stroke; stroke : var(--page); stroke-width : 4px; }
+        .window-sub { font : 500 11.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    }
+    .block-2026 {
+        opacity : 0; transition : opacity 0.8s 2.2s;
+        &.is-shown { opacity : 1; }
+        .block-base { fill : color-mix(in srgb, var(--kept), var(--page) 70%); }
+        .block-new { fill : color-mix(in srgb, var(--kept), transparent 85%); stroke : var(--kept); stroke-width : 2; stroke-dasharray : 6 4; }
+        .block-value { font : 700 16px var(--font-sans-serif); fill : var(--kept); }
+        .block-sub { font : 500 11.5px var(--font-sans-serif); fill : var(--ink-soft); }
+        .block-year { font : 700 12px var(--font-sans-serif); fill : var(--kept); }
+    }
+    .vault-stage .mark circle { fill : var(--kept); }
+    .vault-stage .mark .pulse { stroke : var(--kept); }
+    .layer-key {
+        list-style : none; margin : 0; padding : 0; display : grid; gap : 8px; font-size : 14px;
+        li { display : grid; grid-template-columns : 14px auto 1fr; column-gap : 8px; align-items : baseline; cursor : default; }
+        b { font-weight : 700; } span { grid-column : 2 / span 2; font-size : 12.5px; color : var(--ink-soft); }
+        li.is-on b { color : var(--kept); }
+    }
+    .sw { display : inline-block; width : 12px; height : 12px; border-radius : 3px; vertical-align : -1px;
+        &.is-nre { background : color-mix(in srgb, var(--kept), var(--page) 45%); } &.is-fcnr { background : var(--kept); } &.is-nro { background : color-mix(in srgb, var(--kept), var(--ink) 55%); }
+        &.is-study { background : var(--kept); } &.is-faded { background : color-mix(in srgb, var(--out), var(--page) 70%); } }
+
+    /* THE STAIRCASE, THE SUITCASE, STUDY, THE TICKER =================================================================== */
+    .stairs-stage {
+        --step-hi : color-mix(in srgb, var(--box), var(--page) 25%); --step-lo : color-mix(in srgb, var(--box), var(--out) 30%);
+        --cut-hi : color-mix(in srgb, var(--out), var(--page) 25%); --cut-lo : var(--out);
+        --side-hi : color-mix(in srgb, var(--box), var(--ink) 30%); --side-lo : color-mix(in srgb, var(--box), var(--ink) 45%);
+    }
+    .stairs-floor { fill : color-mix(in srgb, var(--box), var(--page) 55%); }
+    .stairs-shadow { fill : color-mix(in srgb, var(--ink), transparent 82%); }
+    .step {
+        transform : scaleY(0); transition : transform 0.7s cubic-bezier(0.34, 1.3, 0.64, 1);
+        &.is-up { transform : none; }
+        .step-top { fill : color-mix(in srgb, var(--box), var(--page) 60%); }
+        &.is-cut .step-top { fill : color-mix(in srgb, var(--out), var(--page) 55%); }
+        .step-edge { stroke : #ffffff; stroke-opacity : 0.7; stroke-width : 1.5; }
+        .step-edge-back { stroke : color-mix(in srgb, var(--ink), transparent 85%); stroke-width : 1; }
+        .step-value { font : 700 clamp(12px, 1.25vw, 18px) var(--font-sans-serif); fill : var(--ink); }
+        .step-date { font : 500 12px var(--font-sans-serif); fill : var(--ink-soft); }
+        &.is-cut .step-value, .step-arrow { fill : #ffffff; }
+        .step-arrow { font : 700 12px var(--font-sans-serif); }
+    }
+    .stairs-note { font : 500 11.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    /* THE SHELVES: after the ₹1 lakh story's rack */
+    .lrs-shelves { display : flex; flex-direction : column; min-height : 0; }
+    .shelf-control {
+        display : grid; grid-template-columns : auto minmax(120px, 1fr) auto auto auto; align-items : center; gap : 14px;
+        padding : 4px 0 12px; border-bottom : 1px solid color-mix(in srgb, var(--ink), transparent 88%);
+        label { font-size : 12px; font-weight : 600; color : var(--ink-soft); }
+        input[type="range"] {
+            width : 100%; height : 24px; margin : 0; appearance : none; background : transparent; outline : none; cursor : pointer;
+            &::-webkit-slider-runnable-track { height : 5px; border : 0; border-radius : 3px; background : color-mix(in srgb, var(--ink), transparent 85%); }
+            &::-moz-range-track { height : 5px; border : 0; border-radius : 3px; background : color-mix(in srgb, var(--ink), transparent 85%); }
+            &::-moz-range-progress { height : 5px; border-radius : 3px; background : var(--accent); }
+            &::-webkit-slider-thumb { appearance : none; width : 16px; height : 16px; margin-top : -5.5px; border : 0; border-radius : 50%; background : var(--accent); }
+            &::-moz-range-thumb { width : 16px; height : 16px; border : 0; border-radius : 50%; background : var(--accent); }
+        }
+    }
+    .shelf-play { padding : 4px 12px; border : 1px solid var(--accent); border-radius : 999px; background : transparent; color : var(--accent); font : 600 12px var(--font-sans-serif); cursor : pointer;
+        &.is-playing { background : var(--accent); color : #fff; } }
+    .shelf-year { font-family : var(--font-mono, ui-monospace, monospace); font-variant-numeric : tabular-nums; font-size : 22px; color : var(--ink); }
+    .shelf-total { font : 600 14px var(--font-sans-serif); color : var(--accent); white-space : nowrap; }
+    .shelves-stage { position : relative; flex : 1; min-height : 0; margin : 6px 0 0; &.is-loading { min-height : 50vh; } }
+    .shelves-canvas { position : absolute; inset : 0; canvas { display : block; width : 100%; height : 100%; } }
+    .shelf-tag { position : absolute; left : 0; top : 0; pointer-events : none; white-space : nowrap; transform-origin : 0 0; }
+    .shelf-tag-name {
+        display : flex; flex-direction : column; align-items : flex-end; text-align : right; font-family : var(--font-serif, serif); line-height : 1.15; color : var(--ink);
+        .shelf-unit { font-family : var(--font-sans-serif); font-size : 0.62em; color : var(--ink-soft); }
+        .emo { font-size : 1.15em; }
+    }
+    .shelf-tag-count { font-family : var(--font-mono, ui-monospace, monospace); font-variant-numeric : tabular-nums; line-height : 1.15; color : var(--ink); }
+    .shelves-fallback { position : absolute; inset : auto 16px 45% 16px; text-align : center; font-size : 14px; color : var(--ink-soft); }
+    .shelf-note { margin : 6px 0 0; font-size : 12px; color : var(--ink-soft); }
+    .pack-key {
+        list-style : none; margin : 0; padding : 0; display : grid; gap : 6px; font-size : 13px;
+        li { display : grid; grid-template-columns : 24px auto 1fr; column-gap : 8px; align-items : center; cursor : default; }
+        b { font-weight : 700; white-space : nowrap; } span:last-child { color : var(--ink-soft); font-size : 12.5px; line-height : 1.3; }
+        li.is-on b { color : var(--accent); }
+    }
+    .pack-key-icon {
+        display : grid; place-items : center; width : 24px; height : 24px; border-radius : 6px; color : #fff;
+        background : color-mix(in srgb, var(--box), var(--ink) 18%);
+        &.is-travel { background : var(--out); } &.is-relatives { background : color-mix(in srgb, var(--out), var(--gulf) 55%); }
+        &.is-gifts { background : var(--gulf); color : #2f2f2f; } &.is-study { background : var(--kept); } &.is-investment { background : var(--in); }
+        &.is-rest { color : #2f2f2f; }
+    }
+    .col {
+        rect { transform : scaleY(0); transform-origin : bottom; transform-box : fill-box; transition : transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); transition-delay : inherit; }
+        &.is-up rect { transform : none; }
+        .part { fill : color-mix(in srgb, var(--out), var(--page) 70%); stroke : var(--page); stroke-width : 0.5; }
+        .part.is-study { fill : var(--kept); }
+        .study-value { font : 600 12px var(--font-sans-serif); fill : var(--ink-soft); &.is-key { font-size : 14px; font-weight : 700; fill : var(--kept); } }
+    }
+    .study-key { margin : 0; font-size : 13px; color : var(--ink-soft); display : flex; gap : 6px; align-items : center; flex-wrap : wrap; }
+    .tick {
+        fill : color-mix(in srgb, var(--out), var(--page) 25%);
+        transform : scaleY(0); transform-origin : bottom; transform-box : fill-box; transition : transform 0.5s ease-out;
+        &.is-up { transform : none; }
+        &.is-pinned { fill : var(--gulf); }
+    }
+
+    /* THE SCALE: S1'S BRASS BALANCE ==================================================================================== */
+    .scale-stage svg { width : 100%; height : 100%; overflow : visible; }
+    .scale-stage {
+        .beam, .pan { transition : transform 1.6s cubic-bezier(0.34, 1.3, 0.5, 1); }
+        .counter { stroke : color-mix(in srgb, var(--ink), transparent 80%); }
+        .pan-label { font : 600 13px var(--font-sans-serif); fill : var(--ink-soft); }
+        .scale-caption { font : 500 12.5px var(--font-sans-serif); fill : var(--ink-soft); }
+        .scale-plaque {
+            .plaque-inset { fill : #fbf3dc; stroke : #c9a24a; stroke-width : 0.8; }
+            .tag-price { font : 700 21px var(--font-sans-serif); fill : #3d2c0c; }
+            &.is-in .plaque-inset { fill : #eef3dc; stroke : #6b8e23; } &.is-in .tag-price { fill : #4d6a12; }
+            &.is-out .plaque-inset { fill : #fde4df; stroke : #d06a5c; } &.is-out .tag-price { fill : #a3261a; }
+        }
+        .sc-bundle { opacity : 0; &.is-in { animation : note-drop 0.7s cubic-bezier(0.55, 0, 0.45, 1) both; } }
+        .sc-band { fill : #f2f0e6; stroke : #a8957a; stroke-width : 0.5; }
+        .bundles.is-in .sc-note { fill : var(--in-soft); stroke : #6b8e23; stroke-width : 0.8; }
+        .bundles.is-out .sc-note { fill : #f0c6bb; stroke : #ba644f; stroke-width : 0.8; }
+    }
+
+    /* THE CLOSE ======================================================================================================== */
+    .slide.is-close { height : auto; min-height : 100svh; overflow : visible; }
+    .close { display : grid; gap : 3.5vh; align-content : center; min-height : 100svh; padding : 8vh clamp(16px, 6vw, 120px); }
+    .close-head .chapter-title { font-size : clamp(26px, 3vw, 44px) !important; }
+    .close .board { max-width : 980px; }
+    .close-facts {
+        display : grid; grid-template-columns : repeat(3, minmax(0, 1fr)); gap : 18px 32px; margin : 0;
+        div { border-top : 1px solid color-mix(in oklch, var(--ink), transparent 85%); padding-top : 10px; }
+        dt { font : 700 clamp(22px, 2.2vw, 30px) var(--font-serif, serif); color : var(--accent); }
+        dd { margin : 2px 0 0; font-size : 13.5px; color : var(--ink-soft); }
+    }
+    .close-words { max-width : 72ch; a { color : var(--accent); } }
+
+    /* PINS AND READOUTS ================================================================================================ */
+    .line-stage, .vault-stage, .study-stage, .ticker-stage { touch-action : pan-y; cursor : crosshair; }
+    .pins { position : absolute; inset : 0; pointer-events : none; }
+    .pin {
+        position : absolute; left : 0; top : 0; width : 0; height : 0; pointer-events : auto; z-index : 4; cursor : default;
+        &.is-open { z-index : 7; }
+        .pin-stem { position : absolute; left : 0; bottom : 0; height : var(--lift); border-left : 1px dashed color-mix(in oklch, var(--ink), transparent 50%); transform-origin : bottom; }
+        .pin-mark {
+            position : absolute; left : -11px; top : calc(-1 * var(--lift) - 11px);
+            display : grid; place-items : center; width : 22px; height : 22px; padding : 0;
+            border : 2px solid var(--page); border-radius : 50%; background : var(--ink); color : var(--page);
+            font : 700 11px / 1 var(--font-sans-serif); cursor : pointer; transition : transform 0.2s, background 0.2s;
+            &:hover, &:focus-visible { transform : scale(1.2); background : var(--accent); outline : none; }
+        }
+        &.is-open .pin-mark { background : var(--accent); transform : scale(1.2); }
+        .pin-label {
+            position : absolute; left : 16px; top : calc(-1 * var(--lift) - 8px); white-space : nowrap;
+            font : 600 12px var(--font-sans-serif); color : var(--ink);
+            text-shadow : 0 0 3px var(--page), 0 0 3px var(--page), 0 0 6px var(--page);
+        }
+        &.is-right .pin-label { left : auto; right : 16px; }
+        &.is-down { .pin-stem { bottom : auto; top : 0; } .pin-mark { top : calc(var(--lift) - 11px); } .pin-label { top : calc(var(--lift) - 8px); } }
+        .pin-note {
+            position : absolute; left : -16px; top : calc(-1 * var(--lift) + 18px); width : 280px; display : flex; flex-direction : column; gap : 4px;
+            padding : 10px 12px; border-radius : 8px; background : var(--card);
+            box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 10px 28px color-mix(in oklch, var(--ink), transparent 85%);
+            font-size : 12.5px; line-height : 1.45; color : var(--ink);
+            strong { font-size : 13px; }
+            a { color : var(--accent); font-weight : 600; font-size : 12px; }
+        }
+        &.is-right .pin-note { left : auto; right : -16px; }
+        opacity : 0;
+        &.is-shown { opacity : 1; transition : opacity 0.3s var(--d); .pin-mark { animation : pin-drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d) both; } .pin-stem { animation : pin-rise 0.4s ease-out calc(var(--d) + 0.3s) both; } }
+    }
+    .hairline { position : absolute; left : 0; top : 0; width : 0; border-left : 1px solid color-mix(in oklch, var(--ink), transparent 55%); pointer-events : none; z-index : 3; }
+    .hair-dot { position : absolute; left : -5px; top : -5px; width : 10px; height : 10px; border-radius : 50%; background : var(--ink); box-shadow : 0 0 0 2px var(--page); pointer-events : none; z-index : 3; }
+    .chart-tip {
+        position : absolute; left : 0; top : 0; z-index : 6; display : flex; flex-direction : column; gap : 2px;
+        max-width : 240px; padding : 8px 12px; border-radius : 6px; background : var(--card); pointer-events : none;
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 8px 24px color-mix(in oklch, var(--ink), transparent 88%);
+        font-size : 12.5px; line-height : 1.35; color : var(--ink-soft);
+        strong { font-size : 13px; color : var(--ink); }
+    }
+
+    /* THE SECTIONS ===================================================================================================== */
+    .section-rail {
+        position : fixed; z-index : 20; top : 14px; left : 50%; transform : translate(-50%, -8px);
+        display : flex; gap : 2px; padding : 3px; border-radius : 999px;
+        background : color-mix(in oklch, var(--card), transparent 8%); backdrop-filter : blur(6px);
+        box-shadow : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%), 0 6px 18px color-mix(in oklch, var(--ink), transparent 92%);
+        opacity : 0; pointer-events : none; transition : opacity 0.3s, transform 0.3s;
+        &.is-shown { opacity : 1; transform : translate(-50%, 0); pointer-events : auto; }
+        button {
+            display : flex; align-items : center; gap : 6px; border : 0; background : none; cursor : pointer;
+            padding : 5px 12px 5px 6px; border-radius : 999px; font : 500 12.5px var(--font-sans-serif); color : var(--ink-soft);
+            transition : background 0.2s, color 0.2s;
+            &.is-on { background : var(--accent); color : #ffffff; .rail-n { background : #ffffff; color : var(--accent); } }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+        .rail-n {
+            display : inline-grid; place-items : center; width : 18px; height : 18px; border-radius : 50%;
+            font : 700 10.5px / 1 var(--font-sans-serif); background : color-mix(in oklch, var(--ink), transparent 88%); color : var(--ink);
+        }
+    }
+
+    /* SOURCES, METHOD, DOWNLOADS ======================================================================================= */
+    .page-foot { background : linear-gradient(to top, color-mix(in oklch, #6b8e23, transparent 91%) 0, color-mix(in oklch, #6b8e23, transparent 97%) 40%, transparent 85%); }
+    #money-sources {
+        padding : var(--large) 0 var(--medium);
+        hr { height : 1px; background : color-mix(in oklch, var(--ink), transparent 88%); }
+        a { color : var(--accent); }
+    }
+    .downloads-head { padding-top : var(--nano); }
+    .download-link {
+        display : block; width : fit-content; color : var(--accent); transition : opacity 0.2s ease;
+        & + .download-link { margin-top : 10px; }
+        &:hover { opacity : 0.7; }
+    }
+
+    /* PHONES =========================================================================================================== */
+    @media (max-width : 760px) {
+        .hero { top : 44%; }
+        .arrivals { padding : 56px 16px 4vh; }
+        .board { padding : 12px 10px; gap : 6px; }
+        .board-row { flex-direction : column; align-items : flex-start; gap : 4px; }
+        .board-tag:empty { display : none; }
+        .board-head span:last-child { display : none; }
+        .slide.is-step { height : 100svh; padding : 46px 0 1vh; }
+        .split, .split.is-left, .split.is-top { grid-template-columns : 1fr; grid-template-rows : auto minmax(0, 1fr); height : 100%; padding : 0 16px; gap : 10px; align-content : stretch; align-items : stretch; }
+        .split-card, .split.is-top .split-card { display : flex; flex-direction : column; gap : 6px; padding : 0; background : none; box-shadow : none; order : 1; }
+        .split-stage { order : 2; height : auto; }
+        .step-note { display : none; }
+        .chapter-title { font-size : 19px !important; }
+        .step-line { font-size : 14px; }
+        .guess-answer { min-height : 6em; font-size : 14px; }
+        .layer-key span { display : none; }
+        .shelf-control { grid-template-columns : auto 1fr auto; .shelf-total { grid-column : 1 / -1; } }
+        .shelves-stage.is-narrow { display : flex; flex-direction : column; }
+        .shelves-stage.is-narrow .shelves-canvas { position : relative; flex : 1; min-height : 34vh; }
+        .is-narrow .shelf-tags { display : flex; justify-content : space-between; align-items : baseline; gap : 12px; padding : 4px 0; border-bottom : 1px solid color-mix(in srgb, var(--ink), transparent 90%); }
+        .is-narrow .shelf-tag { position : static; transform : none !important; font-size : 13px !important; }
+        .is-narrow .shelf-tag-name { flex-direction : row; align-items : baseline; gap : 8px; text-align : left; .shelf-unit { display : none; } }
+        .state-card { padding : 6px 10px; .state-name { font-size : 12px; } .state-share { font-size : 16px; } }
+        .view-switch button { padding : 6px 10px; font-size : 12px; }
+        .split.is-top .split-card { align-items : stretch; } .view-switch { align-self : flex-start; }
+        .map-key { display : none; }
+        .round-slider .round-stops button span { font-size : 11px; }
+        .case .case-label { font-size : 12px; }
+        .close { padding : 6vh 16px; }
+        .close-facts { grid-template-columns : 1fr 1fr; gap : 12px 16px; }
+        .section-rail { top : 8px; .rail-name { display : none; } button { padding : 4px; } }
+    }
+}
+
+/* On a touch screen the story snaps a slide at a time (paging.ts sets the attribute while the story is open). */
+@media (pointer : coarse) {
+    html[data-story-snap] { scroll-snap-type : y mandatory; }
+    html[data-story-snap] #money-in-money-out-page [data-slide] { scroll-snap-align : start; }
+}
+
+@media (prefers-reduced-motion : reduce) {
+    #money-in-money-out-page *, #money-in-money-out-page *::after { animation : none !important; transition : none !important; }
+    #money-in-money-out-page .bundle, #money-in-money-out-page .loose-note, #money-in-money-out-page .sc-bundle, #money-in-money-out-page .guess-scale { opacity : 1; }
+}
+
+/* Keyframes live at the top level: declared inside the nested page block, the build drops them. */
+@keyframes rise { from { opacity : 0; transform : translateY(18px); } }
+@keyframes fade-in { to { opacity : 1; } }
+@keyframes flap { 50% { transform : scaleY(0.15); } }
+@keyframes pulse { from { transform : scale(1); opacity : 0.8; } to { transform : scale(3); opacity : 0; } }
+@keyframes pin-drop { from { transform : translateY(-18px) scale(0.6); opacity : 0; } }
+@keyframes pin-rise { from { transform : scaleY(0); } }
+@keyframes yr-drop { from { opacity : 0; transform : translateY(-40px); } to { opacity : 1; transform : none; } }
+@keyframes flow-run { to { stroke-dashoffset : -16; } }
+@keyframes icon-pop { from { opacity : 0; transform : scale(0.4); } to { opacity : 1; transform : none; } }
+@keyframes hero-ch { from { opacity : 0; transform : translateY(0.5em) rotateX(-70deg); filter : blur(8px); } }
+@keyframes cue { 50% { transform : translate(-50%, 8px); } }
+@keyframes spill {
+    0%   { opacity : 0; transform : translate(var(--fx), var(--fy)) scale(0.5) rotate(0deg); }
+    12%  { opacity : 1; }
+    50%  { transform : translate(calc(var(--fx) * 0.45), var(--peak)) scale(1.05) rotate(var(--spin)); }
+    85%  { transform : translate(0, -4px) rotate(0deg); }
+    100% { opacity : 1; transform : none; }
+}
+@keyframes flutter {
+    0%   { opacity : 0; transform : translate(var(--fx), var(--fy)) rotate(0deg) scale(0.6); }
+    10%  { opacity : 1; }
+    35%  { transform : translate(calc(var(--fx) * 0.6), calc(var(--fy) - 90px)) rotate(calc(var(--rot) * 0.4)) scale(1); }
+    70%  { transform : translate(calc(var(--fx) * 0.15 + 10px), -20px) rotate(calc(var(--rot) * 0.8)); }
+    100% { opacity : 1; transform : none; }
+}
+@keyframes note-drop { 0% { opacity : 0; transform : translateY(-160px); } 15% { opacity : 1; } 80% { transform : translateY(0); } 90% { transform : translateY(-3px); } 100% { opacity : 1; transform : none; } }
