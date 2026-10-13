@@ -114,6 +114,7 @@ const datasets = [
   { name: 'story-the-women-who-stayed', mode: 'exact' },
   { name: 'story-what-got-cheaper', mode: 'exact' },
   { name: 'story-what-one-lakh-bought', mode: 'exact' },
+  { name: 'story-the-10-gram-question', mode: 'exact' },
   { name: 'treasury-bill-auctions', mode: 'fresh' },
   { name: 'treasury-bills-ownership', mode: 'fresh' },
   { name: 'union-government-accounts', mode: 'fresh' },

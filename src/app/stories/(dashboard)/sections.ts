@@ -23,6 +23,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "How do you measure a rupee?",
                 description : "A dollar costs more than twice as many rupees as in 2004, yet Indian goods cost buyers abroad about what they did then. Three ways to measure the rupee, and the question each one answers.",
             },
+            {
+                linkTo      : "/stories/the-10-gram-question",
+                label       : "The 10-gram question",
+                description : "Ten grams of gold cost about 42 times as many rupees as in 1990. How much of that is gold getting dearer in dollars, how much the rupee getting cheaper, and how much the gap between the world price and Mumbai’s.",
+            },
         ],
     },
     {
