@@ -41,7 +41,8 @@ export const StoryBody = memo(function StoryBody() {
                     <div className="year-badge is-hidden" id="year-badge" />
                 </div>
                 <div className="steps">
-                    {SCENES.map(s => <div className={`step step-${s}`} data-scene={s} key={s}><div className="step-card" id={`card-${s}`} /></div>)}
+                    {/* the first step has no card: it holds everyone in the field while the plots rise into view */}
+                    {SCENES.map(s => <div className={`step step-${s}`} data-scene={s} key={s}>{s !== "meet" && <div className="step-card" id={`card-${s}`} />}</div>)}
                 </div>
             </section>
 
