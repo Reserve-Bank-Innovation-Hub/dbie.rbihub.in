@@ -191,8 +191,6 @@ export const mountStoryBody = (root : HTMLElement) => {
         $(id).innerHTML = `<div class="step-kicker">${kicker}</div>${big ? `<div class="step-big">${big}</div>` : ""}<div class="step-title">${title}</div>${body}`;
     };
     const say = (s : string) => `<p class="say">${s}</p>`;
-    card("card-meet", "100 men, 100 women", "", "Now think of 100 rural men and 100 rural women who work",
-        say(`The farmer and the woman above are two of them. Each figure here is one. DBIE gives its figures for every 1,000 workers; here we show the same shares for 100, so every figure is 1%.`));
     card("card-then", shortOf(FIRST), `<span class="m">${pc(FIRST.m[0])}</span><span class="w">${pc(FIRST.w[0])}</span>`, "of rural working men and women were in agriculture",
         say(`Those still in the fields work in agriculture. Those by the factory work in industry, and those by the shops in services. In ${shortOf(FIRST)}, ${Math.round(FIRST.m[0] / 10)} of the 100 men and ${Math.round(FIRST.w[0] / 10)} of the 100 women worked in agriculture.`));
     $("card-guess").innerHTML = `

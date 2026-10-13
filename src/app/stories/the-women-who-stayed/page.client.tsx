@@ -86,10 +86,10 @@ export const TheWomenWhoStayedPage = () => {
                     <div className="bridge" aria-hidden={text < 0.5}>
                         <span className="bridge-kicker">What comes next</span>
                         <p className="bridge-text">
-                            One man left the field. One woman stayed. Now picture it across rural India: 100 men and 100
-                            women who work, followed through {RURAL.length} surveys from {shortOf(FIRST)} to {shortOf(LAST)}.
-                            Scroll on and watch who walks off to the building site, the factory and the shop, who stays
-                            with the crop, and what a day’s work pays on each side of that choice.
+                            How has the split of rural work between men and women changed since {shortOf(FIRST)}? Who
+                            left farming, where did they go, and what does a day’s work pay on each side? The sections
+                            below follow 100 rural men and 100 rural women who work through {RURAL.length} surveys up to
+                            {" "}{shortOf(LAST)}. Scroll on to see.
                         </p>
                     </div>
                 </div>
