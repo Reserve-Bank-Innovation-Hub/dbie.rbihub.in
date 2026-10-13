@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 // UI ==================================================================================================================
-import { Article, Button, Card, Div, Divider, Heading1, Heading4, Heading6, Portion, Row, Section, Table, Text } from "fictoan-react";
+import { Article, Button, Card, Div, Heading1, Heading4, Heading6, Table, Text } from "fictoan-react";
 import { BookOpen, Download, Table2 } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 
@@ -331,8 +331,8 @@ const TheOpening = () => {
 
                 {/* THE PRICE ================================================================================ */}
                 <Div className="step" data-scene="priceMoney" ref={ref("priceMoney")}>
-                    <p className="sr-only">{prose(`Interest rates fall as loans get larger. Blue dots are money lent at under
-                        8% a year: on loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100. Red dots
+                    <p className="sr-only">{prose(`Interest rates fall as loans get larger. Green dots are money lent at under
+                        8% a year: on loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100. Terracotta dots
                         are money lent at 13% or more: below the line, ₹${Math.round(PRICE.belowMoneyAt13)} of every ₹100.
                         ₹${Math.round(below7to9)} of every ₹100 below the line is lent at 7% to 9%, much of it crop loans
                         at a subsidised 7%. Loans up to ₹25,000 carry at least ${SMALLEST.weightedRate.toFixed(1)}% a year
@@ -442,7 +442,6 @@ const [ ruralWent, , , metroWent ] = WHERE_THEY_WENT.groups;
 const [ farm, durables, cards ] = WHERE_THEY_WENT.purposes;
 const fall = (r : { then : number; now : number }) => r.then - r.now;
 const placesFell = WHERE_THEY_WENT.groups.filter(g => g.now < g.then);
-const [ firstFaller, ...otherFallers ] = WOMEN.fallers;
 const EAST = [ "Bihar", "Jharkhand", "Odisha", "West Bengal" ];
 const mostlyEast = WOMEN.fallers.filter(s => EAST.includes(s.name)).length > WOMEN.fallers.length / 2;
 const [ d1, d2, d3 ] = DISTRICT_SHARES.shares;
@@ -462,18 +461,12 @@ const byUse = (name : string) => {
     return { accountsPer100 : 100 * sum(ds.map(d => d.accounts)) / (s.population ?? NaN), creditPerHead : sum(ds.map(d => d.outstanding)) * 1e7 / (s.population ?? NaN) };
 };
 const mhByUse = byUse("Maharashtra"), brByUse = byUse("Bihar");
-// Loans to women: the money lent to them across the comparable states, whether it rose in each of the states that
-// fell, and Maharashtra outside Mumbai's two districts.
+// Loans to women: the money lent to them across the comparable states, and whether it rose in each of the states
+// that fell.
 const womenMoney = (s : { womenOutstanding2024 : number; womenOutstanding2026 : number }) => 100 * (s.womenOutstanding2026 - s.womenOutstanding2024) / s.womenOutstanding2024;
 const comparableStates = WOMEN_STATES.filter(s => s.comparable);
 const womenMoneyRise = womenMoney({ womenOutstanding2024 : sum(comparableStates.map(s => s.womenOutstanding2024)), womenOutstanding2026 : sum(comparableStates.map(s => s.womenOutstanding2026)) });
 const fallersMoneyRose = WOMEN.fallers.length > 0 && WOMEN.fallers.every(f => womenMoney(WOMEN.state(f.name)) > 0);
-const otherFallersMoneyRose = otherFallers.length > 0 && otherFallers.every(f => womenMoney(WOMEN.state(f.name)) > 0);
-const mumbaiRows = WOMEN_DISTRICTS_FALLS.filter(d => /^Mumbai/.test(d.district));
-const mhWomen = WOMEN.state("Maharashtra");
-const mhOutsideMumbai = mumbaiRows.length === 2 && WOMEN.fallers.some(f => f.name === "Maharashtra")
-    ? 100 * ((mhWomen.women2026 - sum(mumbaiRows.map(d => d.women2026))) - (mhWomen.women2024 - sum(mumbaiRows.map(d => d.women2024)))) / (mhWomen.women2024 - sum(mumbaiRows.map(d => d.women2024)))
-    : null;
 // The districts outside Mumbai that lost the most loans to women and where women hold most of the loans.
 const bookingHubs = WOMEN_DISTRICTS_FALLS.filter(d => !/^Mumbai/.test(d.district) && d.womenShare2026 >= 50).slice(0, 5).map(d => d.district);
 
@@ -498,14 +491,14 @@ const accessTiles : Record<string, TileDatum> = Object.fromEntries(STATES.map(s 
 const Chapter = ({ kicker, title, children, id } : { kicker : string; title : string; children : ReactNode; id : string }) => (
     <Reveal>
         <Text className="kicker" weight="600" marginBottom="nano" id={id}>{kicker}</Text>
-        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{title}</Heading4>
+        <Heading4 className="chapter-title" fontStyle="serif" weight="600" marginBottom="micro">{title}</Heading4>
         {children}
     </Reveal>
 );
 
-const Para = ({ children, last = false } : { children : string; last ? : boolean }) => <Text fontStyle="serif" marginBottom={last ? undefined : "nano"}>{prose(children)}</Text>;
+const Para = ({ children, last = false } : { children : string; last ? : boolean }) => <Text className={`para${last ? " is-last" : ""}`} fontStyle="serif">{prose(children)}</Text>;
 // A paragraph with links in it: the text is written as strings around the links, so no space is lost at a join.
-const Prose = ({ children, last = false } : { children : ReactNode; last ? : boolean }) => <Text fontStyle="serif" marginBottom={last ? undefined : "nano"}>{children}</Text>;
+const Prose = ({ children, last = false } : { children : ReactNode; last ? : boolean }) => <Text className={`para${last ? " is-last" : ""}`} fontStyle="serif">{children}</Text>;
 const Cite = ({ href, children } : { href : string; children : ReactNode }) => <a href={href} target="_blank" rel="noopener" className="cite-link">{children}</a>;
 
 const SOURCES : [ string, string ][] = [
@@ -543,39 +536,34 @@ export const TheTwoLakhLinePage = () => (
             <TheOpening />
 
             {/* WHERE THEY WENT ======================================================================================== */}
-            <Section className="chapter">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
+            <section className="chapter">
+                <div className="row">
+                    <div className="words">
                         <Chapter id="where-they-went" kicker="WHERE THEY WENT" title="Villages lost loans filed as farm credit, while big cities lost durable-loan
                             accounts">
-                            <Para>{`Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)}
-                                ${placesFell.length === WHERE_THEY_WENT.groups.length ? "every kind of place lost small loans" : `${list(placesFell.map(g => g.label.toLowerCase()))} lost small loans`},
-                                counting each loan at the branch that made it. Villages lost ${crore(fall(ruralWent))},
-                                ${crore(fall(farm))} of them filed under agriculture, a heading that also covers the group
-                                loans banks make for dairy and livestock. ${ruralSmallPrivateSfbFall > fall(ruralWent) / 2 ? "Most" : "Part"} of
-                                that loss was at private banks and small finance banks, while village loans of every size at
-                                public-sector banks ${ruralPublicChange >= 0 ? `grew by ${crore(ruralPublicChange)}` : `fell by ${crore(-ruralPublicChange)}`}.`}</Para>
+                            <Para>{`Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)},
+                                ${placesFell.length === WHERE_THEY_WENT.groups.length ? "every kind of place lost small loans" : `${list(placesFell.map(g => g.label.toLowerCase()))} lost small loans`}.
+                                Villages lost ${crore(fall(ruralWent))}, ${crore(fall(farm))} of them under agriculture (which
+                                includes group loans for dairy and livestock), ${ruralSmallPrivateSfbFall > fall(ruralWent) / 2 ? "mostly" : "partly"} at
+                                private and small finance banks; public-sector banks ${ruralPublicChange >= 0 ? `added ${crore(ruralPublicChange)}` : `lost ${crore(-ruralPublicChange)}`} village loans.`}</Para>
                             <Para>{`The big cities lost ${crore(fall(metroWent))}, ${fall(durables) >= 0.9 * fall(metroWent)
-                                ? "almost all of it" : fall(durables) > fall(metroWent) / 2 ? "most of it" : "some of it"} consumer-durable
-                                accounts, which fell by ${crore(fall(durables))} while the money on them ${durMoneyWords}.
-                                Across all lenders, the credit bureau CRIF High Mark counts loans for household goods rising
-                                from 10.3 crore to 11.3 crore in the year to June 2026, which suggests banks changed how they
-                                count these accounts rather than stopped lending. Credit cards
-                                ${cards.now > cards.then ? "kept growing" : "fell too"}.`}</Para>
-                            <Para>{`The village losses match the retreat of microfinance from the middle of 2024, after a wave
-                                of defaults. The lenders’ industry body capped each borrower’s microfinance debt at ₹2 lakh
-                                and the number of lenders at four, later three. Funding to small lenders dried up, Karnataka
-                                and Tamil Nadu passed laws against coercive recovery, and many bad loans were written off.
-                                Across all lenders, CRIF counted 10.3 crore microfinance loans in June 2026, against 14.6
-                                crore at the end of 2024.`}</Para>
+                                ? "almost all" : fall(durables) > fall(metroWent) / 2 ? "most of them" : "some of them"} consumer-durable
+                                accounts, down ${crore(fall(durables))} ${Math.abs(durMoneyChange) < 5 ? "with balances barely moving" : `while balances ${durMoneyChange < 0 ? "fell" : "rose"} by ${pct(Math.abs(durMoneyChange), 0)}`}.
+                                CRIF High Mark counts household-goods loans across all lenders rising from 10.3 crore to
+                                11.3 crore in the year to June 2026, suggesting banks changed how they count these accounts
+                                rather than stopped lending. Credit cards ${cards.now > cards.then ? "kept growing" : "fell too"}.`}</Para>
+                            <Para>{`The village losses track microfinance’s retreat after defaults from mid-2024: borrower
+                                caps of ₹2 lakh and four lenders (later three), scarce funding, Karnataka and Tamil Nadu laws
+                                against coercive recovery, and write-offs. CRIF counted 10.3 crore microfinance loans in
+                                June 2026, against 14.6 crore at end-2024.`}</Para>
                             {SERIES.totalChange.rural < 0 && (
-                                <Para last>{`In the villages, bank loans of every size fell by ${crore(-SERIES.totalChange.rural)}
-                                    too, so many small loans closed rather than growing past the line, though fewer people
-                                    than loans lost credit.`}</Para>
+                                <Para last>{`Village bank loans of every size fell by ${crore(-SERIES.totalChange.rural)} too, so
+                                    many small loans closed rather than outgrew the line—though fewer people than loans lost
+                                    credit.`}</Para>
                             )}
                         </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="16">
+                    </div>
+                    <div className="panel">
                         <Reveal delay={0.1}>
                             <Figure
                                 title="Small loans at the high point and now" units="crore loans of ₹2 lakh or less"
@@ -588,46 +576,33 @@ export const TheTwoLakhLinePage = () => (
                                 <SmallGroupsChart />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-            </Section>
+                    </div>
+                </div>
+            </section>
 
             {/* WHOSE LOANS CLOSED ===================================================================================== */}
-            <Section className="chapter">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
+            <section className="chapter">
+                <div className="row">
+                    <div className="words">
                         <Chapter id="whose-loans" kicker="WHOSE LOANS CLOSED" title={mostlyEast ? "Loans to women fell, most steeply in the east" : "Loans to women fell"}>
                             <Para>{`Women held ${crore(WOMEN.thenCount)} loan accounts in
                                 ${monthName(WOMEN.then.quarter)} and ${crore(WOMEN.nowCount)} by ${monthName(WOMEN.now.quarter)},
                                 while the amount banks had lent to women ${womenMoneyRise >= 0 ? "rose" : "fell"} by
                                 ${pct(Math.abs(womenMoneyRise), 0)}.`}</Para>
-                            <Para>{`${firstFaller ? `In ${firstFaller.name}, loan accounts held by women fell by
-                                ${Math.abs(firstFaller.change).toFixed(0)}%, while the money lent to women there
-                                ${womenMoney(WOMEN.state(firstFaller.name)) >= 0 ? "rose" : "fell"} by
-                                ${pct(Math.abs(womenMoney(WOMEN.state(firstFaller.name))), 0)}.` : ""} ${otherFallers.length > 0 ? `In
-                                ${list(otherFallers.map(s => s.name))} they fell by between
-                                ${Math.abs(Math.max(...otherFallers.map(s => s.change))).toFixed(0)}% and
-                                ${Math.abs(Math.min(...otherFallers.map(s => s.change))).toFixed(0)}%${otherFallersMoneyRose ? ", and in each the money lent to women rose" : ""}.` : ""}
-                                ${mhOutsideMumbai !== null ? `Maharashtra’s fall is mostly Mumbai’s, where lenders appear to have moved their books: outside
-                                Mumbai the state ${mhOutsideMumbai < 0 ? "fell" : "rose"} by ${pct(Math.abs(mhOutsideMumbai), 0)}.` : ""}`}</Para>
-                            <Para>{`${WOMEN.risers.length > 0 ? `${list(WOMEN.risers.map(s => s.name))} went the other way: loans to women
-                                rose there. ` : ""}TransUnion CIBIL, which counts women rather than accounts and sees every
-                                lender, put the number of women with a live loan at 16 crore in December 2025, twice the
-                                2017 count and still rising.`}</Para>
                             <Para>{`Loans to women fell in ${WOMEN.districts.fell} of the ${WOMEN.districts.compared} districts
-                                we can compare. Mumbai is left out of the district ranking, because its numbers move with where
-                                lenders book their loans. Of the ${numberWord(WOMEN.topFallsOutsideMumbai)} districts that lost
-                                the most outside Mumbai, ${numberWord(WOMEN.majorityWomenOfThem)} are places where women hold most of the loans to individuals. That pattern
-                                    suggests these are the branches where banks keep their group loans to women, so
-                                    the ranking says where those books are kept rather than where the borrowers live.`}</Para>
+                                we can compare. Of the ${numberWord(WOMEN.topFallsOutsideMumbai)} districts that lost the most
+                                outside Mumbai, ${numberWord(WOMEN.majorityWomenOfThem)} are places where women hold most of the
+                                loans to individuals. That pattern suggests these are the branches where banks keep their group
+                                loans to women, so the ranking says where those books are kept rather than where the borrowers
+                                live.`}</Para>
                             <Para last>{`A borrower with loans from two lenders holds two accounts, and when lenders stop renewing
                                 second loans the count of accounts falls faster than the count of people. The credit bureaus,
                                 which count both, report microfinance accounts falling faster than borrowers in the year to
                                 March 2026: on Equifax India’s count, published by Sa-Dhan, loan accounts fell 21% while
                                 borrowers fell 13%.`}</Para>
                         </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="16">
+                    </div>
+                    <div className="panel">
                         <Reveal delay={0.1}>
                             <Figure
                                 title={`How loans to women changed, ${monthName(WOMEN.then.quarter)} to ${monthName(WOMEN.now.quarter)}`} units="per cent, by state"
@@ -643,10 +618,10 @@ export const TheTwoLakhLinePage = () => (
                                 />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="small" marginTop="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="half">
+                    </div>
+                </div>
+                <div className="row is-pair">
+                    <div>
                         <Reveal>
                             <Figure title="Loans to women gained or lost" units="lakh loans, in states that moved by half a lakh or more">
                                 <HBars
@@ -656,8 +631,8 @@ export const TheTwoLakhLinePage = () => (
                                 />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="half">
+                    </div>
+                    <div>
                         <Reveal delay={0.1}>
                             <Figure title="The districts that lost the most loans to women" units="loans to individuals, counted at the branch that made them">
                                 <Table className="story-table women-table" bordersFor="rows" isFullWidth>
@@ -677,14 +652,14 @@ export const TheTwoLakhLinePage = () => (
                                 </Table>
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-            </Section>
+                    </div>
+                </div>
+            </section>
 
             {/* WHERE THE MONEY GOES =================================================================================== */}
-            <Section className="chapter">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
+            <section className="chapter">
+                <div className="row">
+                    <div className="words">
                         <Chapter id="where-the-money-goes" kicker="WHERE THE MONEY GOES" title={`Ten districts hold ₹${Math.round(DISTRICT_SHARES.top10.outstandingShare)} of every ₹100`}>
                             <Para>{`The Reserve Bank’s annual district return for March 2026 covers ${DISTRICT_SHARES.count} districts and
                                 counts each loan where the bank reports the money is used. Ten of them, led by ${d1.district}, ${d2.district} and ${d3.district}, hold
@@ -705,8 +680,8 @@ export const TheTwoLakhLinePage = () => (
                                 in ${in2010.year} the ten largest districts held ${pct(in2010.top10Share, 0)} of bank credit and
                                 Mumbai alone ${pct(in2010.mumbaiShare, 0)}.`}</Para>
                         </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="16">
+                    </div>
+                    <div className="panel">
                         <Reveal delay={0.1}>
                             <Figure
                                 title="Districts ranked by bank credit, March 2026" units="by the district the bank reports the money as used in"
@@ -719,10 +694,10 @@ export const TheTwoLakhLinePage = () => (
                                 <DistrictsChart />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="small" marginTop="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="words">
                         <Reveal>
                             <Heading6 fontStyle="serif" weight="600" marginBottom="nano">State by state</Heading6>
                             <Para>{`Counted at the branch that made the loan, ${maharashtra.name} had
@@ -744,8 +719,8 @@ export const TheTwoLakhLinePage = () => (
                                 its income per person, for the latest year both are published. The result is within 1% of
                                 the official population projections for 1 March 2026.`}</Para>
                         </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="16">
+                    </div>
+                    <div className="panel">
                         <Reveal delay={0.1}>
                             <Figure
                                 title="Loans for every hundred people, March 2026" units="by state"
@@ -761,95 +736,81 @@ export const TheTwoLakhLinePage = () => (
                                 />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-            </Section>
+                    </div>
+                </div>
+            </section>
 
-            {/* SO WHAT ================================================================================================ */}
-            <Section id="so-what">
-                <Row horizontalPadding="medium" marginBottom="none" allowUltraWide>
-                    <Portion>
-                        <Heading1 className="so-what-title"><LetterRise text="In short" /></Heading1>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="medium" gutters="huge" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
-                        <Reveal>
-                            <Text className="so-what-kicker" weight="600" marginBottom="nano">WHERE INCLUSION HAPPENED</Text>
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">{`Small loans have ${SERIES.doubling >= 1.85 && SERIES.doubling < 2.25 ? "doubled" : `grown ${timesWords(SERIES.doubling)}`} since ${since2017}`}</Heading6>
-                            <Para>{`When people say more Indians can borrow now, this is the part of it that happened at banks,
-                                counted in loan accounts rather than people. There were ${crore(BELOW.accounts)} small loan
-                                accounts in March 2026, and the Reserve Bank’s quarterly count of them, which leaves out the
-                                regional rural banks, has ${SERIES.doubling >= 1.85 && SERIES.doubling < 2.25 ? "doubled" : `grown ${timesWords(SERIES.doubling)}`}
-                                since ${since2017}. Microfinance companies that joined the return when they became small
-                                finance banks account for ${pct(sfbShareOfRise, 0)} of that rise, and credit cards, which
-                                come nearly two to a holder, for ${pct(cardsShareOfRise, 0)}.`}</Para>
-                                    <Para>{`Loans above the line grew faster still, to ${timesWords(aboveGrowth)}
-                                    their ${since2017} number. TransUnion CIBIL, which counts people across every kind
-                                    of lender, put credit-active adults aged 18 to 60 at 28% in March 2026 against 11%
-                                    in March 2017.`}</Para>
-                            <Para last>{`Banks are no longer where most of the smallest loans are made. The Fintech Association
-                                for Consumer Empowerment (FACE), the digital lenders’ body, counts 13.2 crore personal loans
-                                sanctioned in 2025-26 by the NBFCs that lend mainly through apps. That is 77% of all personal
-                                loans sanctioned by number, though only 19% by value, and none of them are in these figures.
-                                What is not in doubt is the money: the small
-                                accounts hold ₹${ACTUAL} of every ₹100 banks have out on loan.`}</Para>
-                        </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="8">
-                        <Reveal delay={0.12}>
-                            <Text className="so-what-kicker" weight="600" marginBottom="nano">WHAT IT COSTS</Text>
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">The smallest loans carry the highest rates in the banks’ books</Heading6>
-                            <Para>{`In March 2026 the smallest loans carried at least ${Math.round(SMALLEST.weightedRate)}% a
-                                year, while the biggest carried about ${Math.round(TOP.weightedRate)}%. The small-loan
-                                rate is higher still once credit cards are priced at the ${pct(cardRate, 0)} the Reserve
-                                Bank reports for them. ${cap(shareOf(PRICE.accountsAt13, "loans"))} carry rates of 13% or more, and
-                                ${pct(cardsOfAt13, 0)} of those are credit cards. Access to credit and its cost are
-                                separate questions, and on cost the smallest loans in the banks’ books carry the highest
-                                rates.`}</Para>
-                            <Para>{`That is a gradient of products as much as of size, with subsidised crop loans at 7% in
-                                the same band as cards at ${pct(cardRate, 0)}. The figures count loans, not people, so they
-                                cannot say who pays the most.`}</Para>
-                            <Para last>{`The gap has widened: in ${monthName(RATE_2014.quarter)} the same tables priced loans up to
-                                ₹25,000 at about ${RATE_2014.smallest.toFixed(1)}% and loans above ₹100 crore at about
-                                ${RATE_2014.top.toFixed(1)}%, less than a point apart. The bank rate is also the cheapest formal price such
-                                borrowers see: Sa-Dhan, the other microfinance industry body, reports its member lenders
-                                outside the banks charging 22% to 24% across the quarters of 2025-26.`}</Para>
-                        </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="8">
-                        <Reveal delay={0.24}>
-                            <Text className="so-what-kicker" weight="600" marginBottom="nano">WHAT CHANGED</Text>
-                            <Heading6 fontStyle="serif" weight="600" marginBottom="nano">{`Small loans fell by about ${croreN(SERIES.fewer, 0)} crore between ${yearOf(Q_PEAK.quarter)} and ${yearOf(Q_LAST.quarter)}`}</Heading6>
-                            <Para>{`Small loans grew for ${span(SERIES.riseMonths)}, to ${monthName(Q_PEAK.quarter)}${peakOnEntry ? `, though the count changed little through ${yearOf(Q_PEAK.quarter)}. The ${monthName(Q_PEAK.quarter).split(" ")[0]} high point includes about ${croreAbout(entryStep)} accounts that arrived in one quarter when a fintech’s loans were merged into a small finance bank` : ""}.
-                                In the ${fallIn} since, they have fallen by
-                                ${crore(SERIES.fewer)}${peakOnEntry ? ", and by more than that among the loans that were there before" : ""}.`}</Para>
-                                <Para>{`The fall is in the small loans that private banks and small finance banks file
-                                under agriculture, many of them group loans of the kind microfinance lenders make. It is
-                                also in a count of consumer-durable accounts that fell while the money lent on them
-                                ${durMoneyWords}. It is a loss of loans more than of borrowers: the credit bureaus’
-                                counts suggest many were the second or third loans of people who kept one. The fixed
-                                ₹2 lakh line explains little of it.`}</Para>
-                            <Para last>{`Among women the count fell most in ${list(WOMEN.fallers.slice(0, 5).map(s => s.name))}${fallersMoneyRose
-                                ? ", while the money lent to women rose in every one of them" : ""}. The next figures will show
-                                whether this was a pause, a retreat, or a move to lenders these figures cannot see.`}</Para>
-                        </Reveal>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="medium" marginTop="large" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="20">
-                        <WordReveal
-                            className="closing-line"
-                            text={prose(`Banks held about ${croreN(BELOW.accounts, 0)} crore small loan accounts in March 2026, many of them credit cards and held by fewer people than that. Those accounts hold ₹${ACTUAL} of every ₹100 banks have lent, and the unsecured ones among them carry the highest rates in the banks’ books. Since ${peakWhen} there are about ${croreN(SERIES.fewer, 0)} crore fewer of them at banks, and where those borrowers went, bank figures cannot say.`)}
-                        />
-                    </Portion>
-                </Row>
-            </Section>
+            {/* IN SHORT =============================================================================================== */}
+            <section className="in-short" id="so-what">
+                <h2 className="so-title"><LetterRise text="In short" /></h2>
+                <div className="so-grid">
+                    <Reveal>
+                        <Text className="so-kicker" weight="600">WHERE INCLUSION HAPPENED</Text>
+                        <h3>{`Small loans have ${SERIES.doubling >= 1.85 && SERIES.doubling < 2.25 ? "doubled" : `grown ${timesWords(SERIES.doubling)}`} since ${since2017}`}</h3>
+                        <Para>{`When people say more Indians can borrow now, this is the part of it that happened at banks,
+                            counted in loan accounts rather than people. There were ${crore(BELOW.accounts)} small loan
+                            accounts in March 2026, and the Reserve Bank’s quarterly count of them, which leaves out the
+                            regional rural banks, has ${SERIES.doubling >= 1.85 && SERIES.doubling < 2.25 ? "doubled" : `grown ${timesWords(SERIES.doubling)}`}
+                            since ${since2017}. Microfinance companies that joined the return when they became small
+                            finance banks account for ${pct(sfbShareOfRise, 0)} of that rise, and credit cards, which
+                            come nearly two to a holder, for ${pct(cardsShareOfRise, 0)}.`}</Para>
+                        <Para>{`Loans above the line grew faster still, to ${timesWords(aboveGrowth)}
+                            their ${since2017} number. TransUnion CIBIL, which counts people across every kind
+                            of lender, put credit-active adults aged 18 to 60 at 28% in March 2026 against 11%
+                            in March 2017.`}</Para>
+                        <Para last>{`Banks are no longer where most of the smallest loans are made. The Fintech Association
+                            for Consumer Empowerment (FACE), the digital lenders’ body, counts 13.2 crore personal loans
+                            sanctioned in 2025-26 by the NBFCs that lend mainly through apps. That is 77% of all personal
+                            loans sanctioned by number, though only 19% by value, and none of them are in these figures.
+                            What is not in doubt is the money: the small
+                            accounts hold ₹${ACTUAL} of every ₹100 banks have out on loan.`}</Para>
+                    </Reveal>
+                    <Reveal delay={0.12}>
+                        <Text className="so-kicker" weight="600">WHAT IT COSTS</Text>
+                        <h3>The smallest loans carry the highest rates in the banks’ books</h3>
+                        <Para>{`In March 2026 the smallest loans carried at least ${Math.round(SMALLEST.weightedRate)}% a
+                            year, while the biggest carried about ${Math.round(TOP.weightedRate)}%. The small-loan
+                            rate is higher still once credit cards are priced at the ${pct(cardRate, 0)} the Reserve
+                            Bank reports for them. ${cap(shareOf(PRICE.accountsAt13, "loans"))} carry rates of 13% or more, and
+                            ${pct(cardsOfAt13, 0)} of those are credit cards. Access to credit and its cost are
+                            separate questions, and on cost the smallest loans in the banks’ books carry the highest
+                            rates.`}</Para>
+                        <Para>{`That is a gradient of products as much as of size, with subsidised crop loans at 7% in
+                            the same band as cards at ${pct(cardRate, 0)}. The figures count loans, not people, so they
+                            cannot say who pays the most.`}</Para>
+                        <Para last>{`The gap has widened: in ${monthName(RATE_2014.quarter)} the same tables priced loans up to
+                            ₹25,000 at about ${RATE_2014.smallest.toFixed(1)}% and loans above ₹100 crore at about
+                            ${RATE_2014.top.toFixed(1)}%, less than a point apart. The bank rate is also the cheapest formal price such
+                            borrowers see: Sa-Dhan, the other microfinance industry body, reports its member lenders
+                            outside the banks charging 22% to 24% across the quarters of 2025-26.`}</Para>
+                    </Reveal>
+                    <Reveal delay={0.24}>
+                        <Text className="so-kicker" weight="600">WHAT CHANGED</Text>
+                        <h3>{`Small loans fell by about ${croreN(SERIES.fewer, 0)} crore between ${yearOf(Q_PEAK.quarter)} and ${yearOf(Q_LAST.quarter)}`}</h3>
+                        <Para>{`Small loans grew for ${span(SERIES.riseMonths)}, to ${monthName(Q_PEAK.quarter)}${peakOnEntry ? `, though the count changed little through ${yearOf(Q_PEAK.quarter)}. The ${monthName(Q_PEAK.quarter).split(" ")[0]} high point includes about ${croreAbout(entryStep)} accounts that arrived in one quarter when a fintech’s loans were merged into a small finance bank` : ""}.
+                            In the ${fallIn} since, they have fallen by
+                            ${crore(SERIES.fewer)}${peakOnEntry ? ", and by more than that among the loans that were there before" : ""}.`}</Para>
+                        <Para>{`The fall is in the small loans that private banks and small finance banks file
+                            under agriculture, many of them group loans of the kind microfinance lenders make. It is
+                            also in a count of consumer-durable accounts that fell while the money lent on them
+                            ${durMoneyWords}. It is a loss of loans more than of borrowers: the credit bureaus’
+                            counts suggest many were the second or third loans of people who kept one. The fixed
+                            ₹2 lakh line explains little of it.`}</Para>
+                        <Para last>{`Among women the count fell most in ${list(WOMEN.fallers.slice(0, 5).map(s => s.name))}${fallersMoneyRose
+                            ? ", while the money lent to women rose in every one of them" : ""}. The next figures will show
+                            whether this was a pause, a retreat, or a move to lenders these figures cannot see.`}</Para>
+                    </Reveal>
+                </div>
+                <WordReveal
+                    className="closing"
+                    text={prose(`Banks held about ${croreN(BELOW.accounts, 0)} crore small loan accounts in March 2026, many of them credit cards and held by fewer people than that. Those accounts hold ₹${ACTUAL} of every ₹100 banks have lent, and the unsecured ones among them carry the highest rates in the banks’ books. Since ${peakWhen} there are about ${croreN(SERIES.fewer, 0)} crore fewer of them at banks, and where those borrowers went, bank figures cannot say.`)}
+                />
+            </section>
 
             {/* WHAT THE RESEARCH SAYS ================================================================================= */}
-            <Section className="chapter">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="8">
+            <section className="chapter">
+                <div className="row is-text">
+                    <div>
                         <Chapter id="what-the-research-says" kicker="WHAT THE RESEARCH SAYS" title="The counts hold, but they count accounts rather than people, include one merger and place loans where they are booked">
                             <Prose>
                                 {"The statistical standard is one borrower per person, however many accounts they hold. India reports loan accounts, not borrowers, to the "}
@@ -889,25 +850,25 @@ export const TheTwoLakhLinePage = () => (
                                 {" found US bank small-business lending in 2016 still 24% below its pre-crisis level, while total lending, once finance companies and fintech lenders were counted, grew no less in the counties that had depended most on banks. A bank-only count says where a fall happened at banks, not whether borrowers lost credit. The Guwahati entry shows how far one lender’s change of status can move that count."}
                             </Prose>
                         </Chapter>
-                    </Portion>
-                </Row>
-            </Section>
+                    </div>
+                </div>
+            </section>
 
             {/* THE NUMBERS BEHIND THE DOTS ============================================================================ */}
-            <Section className="chapter" id="receipts">
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="half">
+            <section className="chapter" id="receipts">
+                <div className="row is-text">
+                    <div>
                         <Reveal>
                             <Text className="kicker" weight="600" marginBottom="nano">THE NUMBERS BEHIND THE DOTS</Text>
-                            <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="nano">The exact figures</Heading4>
-                            <Text fontStyle="serif" opacity="80">
+                            <Heading4 className="chapter-title" fontStyle="serif" weight="600" marginBottom="nano">The exact figures</Heading4>
+                            <Text className="para is-last" fontStyle="serif" opacity="80">
                                 The dots in the story round the figures off. These charts give them exactly, and each has a table view with every value.
                             </Text>
                         </Reveal>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="small" marginTop="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="half">
+                    </div>
+                </div>
+                <div className="figure-grid">
+                    <div>
                         <Reveal>
                             <Figure
                                 title={`Deposit accounts and loans, March ${SAVE_BORROW.year}`} units="deposit accounts by the branch that holds them; loans by where the money is used"
@@ -917,8 +878,8 @@ export const TheTwoLakhLinePage = () => (
                                 <SaveBorrowChart />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="half">
+                    </div>
+                    <div>
                         <Reveal delay={0.1}>
                             <Figure
                                 title="What loans of each size cost, March 2026" units="interest rate on the books, per cent a year, weighted by amount; a lower bound for the smallest loans, since the top range is open"
@@ -939,10 +900,8 @@ export const TheTwoLakhLinePage = () => (
                                 />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-                <Row horizontalPadding="small" marginTop="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="half">
+                    </div>
+                    <div>
                         <Reveal>
                             <Figure
                                 title="Loans and money by size of loan, March 2026" units="share of all loans, and of all the money lent"
@@ -952,8 +911,8 @@ export const TheTwoLakhLinePage = () => (
                                 <PyramidChart />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                    <Portion desktopSpan="half">
+                    </div>
+                    <div>
                         <Reveal delay={0.1}>
                             <Figure
                                 title="Small loans, quarter by quarter" units={`${monthName(Q_FIRST.quarter)} to ${monthName(Q_LAST.quarter)}`}
@@ -965,189 +924,184 @@ export const TheTwoLakhLinePage = () => (
                                 <SeriesPanels />
                             </Figure>
                         </Reveal>
-                    </Portion>
-                </Row>
-            </Section>
+                    </div>
+                </div>
+            </section>
 
             {/* SOURCES & METHOD ======================================================================================= */}
-            <Section id="ttll-sources">
-                <Row horizontalPadding="medium" marginTop="large" allowUltraWide>
-                    <Portion desktopSpan="half">
-                        <Divider kind="secondary" verticalMargin="micro" />
-                        <Text weight="600" size="tiny" verticalMargin="micro">SOURCES</Text>
-                        <Text size="tiny" marginBottom="micro">
-                            {prose(`Reserve Bank of India, Basic Statistical Returns of scheduled commercial banks, as published on
-                                DBIE. The annual BSR-1 for March 2026, which includes the regional rural banks: Table 1.8 (credit by
-                                size of limit), Table 2.1 (size of limit by interest rate), Table 3.3 (interest rate by occupation),
-                                Table 1.13 (small borrowal accounts by occupation), Table 2.13 (states, by place of sanction), the
-                                district-wise return (by place of utilisation, every year from 2010) and Table 2.14 (districts by
-                                place of sanction). The quarterly BSR-1, March 2014 to June 2026, which leaves them out and counts
-                                each loan at the branch that made it: Table 2.1 (small borrowal accounts by population group and
-                                bank group), Table 1.7 (size of limit), Table 1.3 (states), Table 3.5a (small borrowal accounts by
-                                occupation), Table 1.9 (the Reserve Bank’s weighted average lending rate by occupation), Table 2.5
-                                in its older format (size of limit by interest rate, with ranges to “20% and above”, to December
-                                2020) and Table 1.10 (credit to individuals by district and gender). The Handbook of Statistics on
-                                the Indian Economy for deposit accounts and loans by population group, with credit by place of
-                                utilisation, and the net state domestic product series for population. The ₹2 lakh line dates from
-                                the March 1999 return, when the Reserve Bank raised the cut-off from ₹25,000 (RBI, Basic Statistical
-                                Returns, volume 28, March 1999, introduction; RBI Bulletin, Survey of small borrowal accounts:
-                                2008, May 2011). The November 2023 change to risk weights on consumer credit is RBI notification
-                                RBI/2023-24/85; the circular of 25 February 2025 that took banks’ microfinance loans back out of it
-                                is RBI/2024-25/119, and RBI/2024-25/120, issued the same day, restored the risk weights on bank
-                                lending to NBFCs from 1 April 2025. The 10% yearly step-up in Kisan Credit Card limits is in the
-                                RBI’s master circular on the scheme (RBI/2017-18/4), and the 7% rate is the interest subvention
-                                scheme for 2025-26. The microfinance industry’s caps of ₹2 lakh per borrower and four, then three,
-                                lenders are MFIN’s directives of 8 July and 25 November 2024. The merger that put a fintech’s loans
-                                into the returns in December 2024 is recorded in slice Small Finance Bank’s annual report for
-                                2024-25 (scheme of amalgamation effective 27 October 2024). Counts of people rather than loans,
-                                and of loans at lenders outside the banks, are from TransUnion CIBIL (8 April, 8 July and 30 July
-                                2026), CRIF High Mark (MicroLend, August 2026, and How India Lends, September 2026), Sa-Dhan
-                                (quarterly report for January to March 2026), FACE (Digital personal loans, March 2026) and the
-                                World Bank’s Global Findex 2025. The population projections are those of the Technical Group on
-                                Population Projections (July 2020).`)}
-                        </Text>
-                        <Text weight="600" size="tiny" verticalMargin="micro">FURTHER READING</Text>
-                        {READING.map(r => (
-                            <Div key={r.href} marginBottom="nano">
-                                <a href={r.href} target="_blank" rel="noopener" className="download-link">
-                                    <Div verticallyCentreItems>
-                                        <BookOpen size="16px" />
-                                        <Text weight="600" marginLeft="nano" size="tiny">{r.title}</Text>
-                                    </Div>
-                                </a>
-                                <Text size="tiny" opacity="80">{r.note}</Text>
-                            </Div>
-                        ))}
-                        <Text weight="600" size="tiny" verticalMargin="micro">DOWNLOADS</Text>
-                        {SOURCES.map(([ file, label ]) => (
-                            <Div key={file}>
-                                <Link href={`/stories/the-two-lakh-line/${file}`} download className="download-link">
-                                    <Div verticallyCentreItems marginBottom="nano">
-                                        <Download size="16px" />
-                                        <Text weight="600" marginLeft="nano" size="tiny">Download {label} (CSV)</Text>
-                                    </Div>
-                                </Link>
-                            </Div>
-                        ))}
-                        <Div>
-                            <Link href="/publications" className="download-link">
-                                <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
-                                    <Table2 size="16px" />
-                                    <Text weight="600" marginLeft="nano" size="tiny">Go to the Basic Statistical Returns</Text>
+            <section className="sources" id="ttll-sources">
+                <div>
+                    <h3>SOURCES</h3>
+                    <Text size="tiny" marginBottom="micro">
+                        {prose(`Reserve Bank of India, Basic Statistical Returns of scheduled commercial banks, as published on
+                            DBIE. The annual BSR-1 for March 2026, which includes the regional rural banks: Table 1.8 (credit by
+                            size of limit), Table 2.1 (size of limit by interest rate), Table 3.3 (interest rate by occupation),
+                            Table 1.13 (small borrowal accounts by occupation), Table 2.13 (states, by place of sanction), the
+                            district-wise return (by place of utilisation, every year from 2010) and Table 2.14 (districts by
+                            place of sanction). The quarterly BSR-1, March 2014 to June 2026, which leaves them out and counts
+                            each loan at the branch that made it: Table 2.1 (small borrowal accounts by population group and
+                            bank group), Table 1.7 (size of limit), Table 1.3 (states), Table 3.5a (small borrowal accounts by
+                            occupation), Table 1.9 (the Reserve Bank’s weighted average lending rate by occupation), Table 2.5
+                            in its older format (size of limit by interest rate, with ranges to “20% and above”, to December
+                            2020) and Table 1.10 (credit to individuals by district and gender). The Handbook of Statistics on
+                            the Indian Economy for deposit accounts and loans by population group, with credit by place of
+                            utilisation, and the net state domestic product series for population. The ₹2 lakh line dates from
+                            the March 1999 return, when the Reserve Bank raised the cut-off from ₹25,000 (RBI, Basic Statistical
+                            Returns, volume 28, March 1999, introduction; RBI Bulletin, Survey of small borrowal accounts:
+                            2008, May 2011). The November 2023 change to risk weights on consumer credit is RBI notification
+                            RBI/2023-24/85; the circular of 25 February 2025 that took banks’ microfinance loans back out of it
+                            is RBI/2024-25/119, and RBI/2024-25/120, issued the same day, restored the risk weights on bank
+                            lending to NBFCs from 1 April 2025. The 10% yearly step-up in Kisan Credit Card limits is in the
+                            RBI’s master circular on the scheme (RBI/2017-18/4), and the 7% rate is the interest subvention
+                            scheme for 2025-26. The microfinance industry’s caps of ₹2 lakh per borrower and four, then three,
+                            lenders are MFIN’s directives of 8 July and 25 November 2024. The merger that put a fintech’s loans
+                            into the returns in December 2024 is recorded in slice Small Finance Bank’s annual report for
+                            2024-25 (scheme of amalgamation effective 27 October 2024). Counts of people rather than loans,
+                            and of loans at lenders outside the banks, are from TransUnion CIBIL (8 April, 8 July and 30 July
+                            2026), CRIF High Mark (MicroLend, August 2026, and How India Lends, September 2026), Sa-Dhan
+                            (quarterly report for January to March 2026), FACE (Digital personal loans, March 2026) and the
+                            World Bank’s Global Findex 2025. The population projections are those of the Technical Group on
+                            Population Projections (July 2020).`)}
+                    </Text>
+                    <h3>FURTHER READING</h3>
+                    {READING.map(r => (
+                        <Div key={r.href} marginBottom="nano">
+                            <a href={r.href} target="_blank" rel="noopener" className="download-link">
+                                <Div verticallyCentreItems>
+                                    <BookOpen size="16px" />
+                                    <Text weight="600" marginLeft="nano" size="tiny">{r.title}</Text>
+                                </Div>
+                            </a>
+                            <Text size="tiny" opacity="80">{r.note}</Text>
+                        </Div>
+                    ))}
+                    <h3>DOWNLOADS</h3>
+                    {SOURCES.map(([ file, label ]) => (
+                        <Div key={file}>
+                            <Link href={`/stories/the-two-lakh-line/${file}`} download className="download-link">
+                                <Div verticallyCentreItems marginBottom="nano">
+                                    <Download size="16px" />
+                                    <Text weight="600" marginLeft="nano" size="tiny">Download {label} (CSV)</Text>
                                 </Div>
                             </Link>
                         </Div>
-                    </Portion>
-
-                    <Portion desktopSpan="half">
-                        <Divider kind="secondary" verticalMargin="micro" />
-                        <Text weight="600" size="tiny" verticalMargin="micro">METHOD</Text>
-                        <MethodNote title="Loans, not people.">{`Every count here is of loans, strictly loan accounts: one person can have several, and
-                            each credit card counts as one. The Reserve Bank publishes no count of distinct bank
-                            borrowers. India reports loan accounts, not borrowers, to the IMF’s Financial Access
-                            Survey, whose standard is one borrower per person however many accounts they hold.`}</MethodNote>
-                        <MethodNote title="What the bureaus count.">{`Where the credit bureaus do count people, the gap is wide. In March 2026, 10.7 crore
-                            active credit cards were held by 5.2 crore people, and in June 2026, 10.3 crore
-                            microfinance loans by 6.6 crore borrowers. By TransUnion CIBIL’s count, 28% of adults aged
-                            18 to 60 had a live retail loan in March 2026, against 11% in March 2017. On those ratios the ${crore(BELOW.accounts)} small loans
-                            belong to roughly 16 to 20 crore people, and the fall since 2024 is smaller in people than
-                            in loans.`}</MethodNote>
-                        <MethodNote title="The line.">{`The ₹2 lakh line is the Reserve Bank’s own: a small borrowal account is a loan whose
-                            sanctioned limit is ₹2 lakh or less. The Bank drew the line in the March 1999 return, when
-                            it raised the cut-off from ₹25,000, and has not moved it since; the regional rural banks
-                            moved to the same line in March 2002. A limit is fixed when a loan is sanctioned. A
-                            loan crosses the line only when its limit is renewed higher, as a Kisan Credit Card limit
-                            is by 10% a year, or when a bigger loan replaces it.`}</MethodNote>
-                        <MethodNote title="Crossing the line.">{`Some loans cross the line every year as their limits are renewed. That is why the share
-                            of small loans slipped from ${Math.round(at2020.borrowers)} in every hundred in
-                            ${monthName(q20.quarter)} to ${Math.round(peak.borrowers)} by ${monthName(Q_PEAK.quarter)}
-                            while their number was still rising. It does not explain the fall since then. Loans above the line
-                            ${SERIES.aboveRise >= 0 ? "grew" : "fell"} by ${crore(Math.abs(SERIES.aboveRise))} in the
-                            ${fallIn} to
-                            ${monthName(Q_LAST.quarter)}${aboveRiseBefore >= 0 ? `, and grew by ${crore(aboveRiseBefore)} in the ${fallIn} before` : ""}.
-                            The number of loans of every size
-                            ${allSizesChange < 0 ? `fell by ${crore(-allSizesChange)}` : `rose by ${crore(allSizesChange)}`}
-                            over the same ${fallIn}.`}</MethodNote>
-                        <MethodNote title="About the dots.">{`At the start, each dot is ten lakh accounts, rounded so that the dots add up to the
-                            totals. When the stack is counted by money, each of the ${LOAN_DOTS} loan dots stands for
-                            ₹${(100 / LOAN_DOTS).toFixed(2)} of every ₹100 lent. In the scenes over time, each dot is
-                            a crore small loans, and a part-lit dot shows the fraction. The charts further down give
-                            the exact values.`}</MethodNote>
-                        <MethodNote title="Two sets of figures.">{`The yearly figures for March 2026 include the regional rural banks. They give the stack of
-                            loans, what loans cost, and the districts. The quarterly figures leave those banks out:
-                            ${crore(RRB.small)} of the ${crore(BELOW.accounts)} small loans and
-                            ${lakhCrore(RRB.money, 0)} of their ${lakhCrore(BELOW.outstanding)}. They give everything
-                            that moves through time, the states, and the figures on women. The two are never mixed in
-                            one number.`}</MethodNote>
-                        <MethodNote title="Banks only.">{`The Basic Statistical Returns are filed by scheduled commercial banks: public and private
-                            sector banks, foreign banks, the small finance banks and, in the yearly figures, the
-                            regional rural banks. They include the loans that microfinance companies make as banks’
-                            agents. Finance companies, microfinance companies lending on their own books, lending
-                            apps, and cooperative banks and societies do not file them, so their loans appear nowhere
-                            in this story. That is a great deal of small lending. In June 2026 CRIF High Mark counted
-                            10.3 crore microfinance loans across all lenders, and in 2025-26 the NBFCs that lend mainly
-                            through apps sanctioned 13.2 crore personal loans.`}</MethodNote>
-                        <MethodNote title="What the bank figures cannot tell.">{`A fall in bank loans can mean borrowers moving to those lenders, or those lenders
-                            shrinking too, and the bank figures cannot tell the two apart. In the year to March 2026
-                            microfinance shrank at every kind of lender, while in the year to June 2026 consumer durable
-                            loans grew across all lenders as they fell at banks. A lender can also join the returns:
-                            when a fintech’s loans were merged into a small finance bank in October 2024, about
-                            ${croreAbout(entryStep)} accounts entered them in one quarter.
-                            Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)},
-                            ${crore(fall(durables))} consumer-durable accounts in the big cities left the return while
-                            the money outstanding on them ${durMoneyWords}. That points to a reclassification rather
-                            than a repayment.`}</MethodNote>
-                        <MethodNote title="Breaks in the series.">{`Accounts enter the quarterly figures when a lender becomes or merges into a bank, and
-                            leave when a bank closes or reclassifies them, without any loan being made or repaid. The
-                            small finance banks, most of them former microfinance lenders, report from September 2017,
-                            one quarter after the series here begins, and ${pct(sfbShareOfRise, 0)} of the rise since
-                            then is theirs. In ${monthName(ENTRY.quarter)} about ${croreAbout(entryStep)} small app-based
-                            credit accounts, booked in Guwahati, entered the return in one quarter when a fintech’s
-                            loans were merged into a small finance bank. They are still on the books and have grown:
-                            Assam’s loan accounts stand ${croreAbout(ENTRY.assamSince)} above their September 2024 count.
-                            They lift the ${monthName(ENTRY.quarter)} count, the urban count, and Assam’s and Kamrup
-                            Metropolitan’s figures from then on.${peakOnEntry && marchOfPeakYear !== null ? ` Without them the count would not have risen above ${monthName(marchOfPeakYear.quarter)}’s, and the fall since ${monthName(Q_PEAK.quarter)} would be somewhat larger than ${crore(SERIES.fewer)}.` : ""}`}</MethodNote>
-                        <MethodNote title="Villages, towns and cities.">{`These are the Reserve Bank’s four population groups. Rural centres have fewer than 10,000
-                            people, semi-urban centres fewer than a lakh, urban centres fewer than ten lakh, and
-                            metropolitan centres ten lakh or more.`}</MethodNote>
-                        <MethodNote title="Where a loan is counted.">{`The Reserve Bank records two places for every loan, the branch that sanctioned it and the
-                            place where the money is used, and publishes some tables on each basis. The district
-                            figures, and the deposit-and-loan counts by village and city at the start, count a loan
-                            where the bank reports the money is used. Everything else, the small loans by village and
-                            city over time, the states, and the figures on women, counts it at the branch that made
-                            it. Even by use, a loan to a company, a finance company or a government body is placed at
-                            the borrower’s office. That is why New Delhi district shows
-                            ${newDelhi ? lakhCrore(newDelhi.outstanding) : "so much"} of credit.`}</MethodNote>
-                        <MethodNote title="Books that move.">{`A lender that moves its loans to a central office moves them to that district, and across
-                            state lines. That is the likeliest reading of what happened in Mumbai between March and
-                            June 2026. Loans to individuals, men’s and women’s alike, left the books of branches in
-                            Mumbai Suburban while the all-India total kept rising. The same thing happens in reverse in Assam, where a
-                            fintech’s loans, made across the country through an app, are booked at the merged bank’s
-                            office in Guwahati. From December 2024 they appear as Assam’s in the state figures, as
-                            Kamrup Metropolitan’s in the district figures on women, and as urban in the
-                            village-to-city figures.`}</MethodNote>
-                        <MethodNote title="Group loans and agents.">{`Banks also book their group loans to women at a few branches. The districts that lost the
-                            most loans to women${bookingHubs.length > 0 ? `, ${list(bookingHubs)} among them,` : ""}
-                            are where those books are kept. Loans that microfinance institutions make as banks’
-                            business correspondents are on the bank’s books (RBI circular RBI/2005-06/288) and enter
-                            the return through the bank branch that holds them. For a joint account, the gender is that
-                            of the first holder (RBI, Handbook of instructions for the Basic Statistical Returns, 2008).`}</MethodNote>
-                        <MethodNote title="Like with like.">{`DBIE prints many districts on two rows, one carrying the older quarters and one the
-                            newer. Each state’s figure adds up every row, and each district its rows by name. Districts
-                            renamed or redrawn between March 2024 and June 2026, such as Ramanagara, now Bengaluru
-                            South, and Ahmadnagar, now Ahilyanagar, are left out of the district comparisons. Assam is
-                            left out altogether: a fintech’s loans booked in Guwahati entered its figures in December
-                            2024 through a merger into a small finance bank, so its two dates would not cover the same
-                            lenders. The maps show the 28 states, Delhi, and Jammu & Kashmir; the smaller union
-                            territories are in the downloads.`}</MethodNote>
-                        <MethodNote title="Nothing typed by hand." last>{`Every number from the returns is read from the DBIE tables by a program that checks the
-                            totals and the shape of each table every time it runs. The sentences in the story use
-                            those same numbers. The interest rate for each loan size is a weighted midpoint of DBIE’s rate
-                            ranges. The only figures typed in are those cited from other publications, which are named
-                            where they appear.`}</MethodNote>
-                    </Portion>
-                </Row>
-            </Section>
+                    ))}
+                    <Div>
+                        <Link href="/publications" className="download-link">
+                            <Div verticallyCentreItems marginTop="nano" marginBottom="nano">
+                                <Table2 size="16px" />
+                                <Text weight="600" marginLeft="nano" size="tiny">Go to the Basic Statistical Returns</Text>
+                            </Div>
+                        </Link>
+                    </Div>
+                </div>
+                <div>
+                    <h3>METHOD</h3>
+                    <MethodNote title="Loans, not people.">{`Every count here is of loans, strictly loan accounts: one person can have several, and
+                        each credit card counts as one. The Reserve Bank publishes no count of distinct bank
+                        borrowers. India reports loan accounts, not borrowers, to the IMF’s Financial Access
+                        Survey, whose standard is one borrower per person however many accounts they hold.`}</MethodNote>
+                    <MethodNote title="What the bureaus count.">{`Where the credit bureaus do count people, the gap is wide. In March 2026, 10.7 crore
+                        active credit cards were held by 5.2 crore people, and in June 2026, 10.3 crore
+                        microfinance loans by 6.6 crore borrowers. By TransUnion CIBIL’s count, 28% of adults aged
+                        18 to 60 had a live retail loan in March 2026, against 11% in March 2017. On those ratios the ${crore(BELOW.accounts)} small loans
+                        belong to roughly 16 to 20 crore people, and the fall since 2024 is smaller in people than
+                        in loans.`}</MethodNote>
+                    <MethodNote title="The line.">{`The ₹2 lakh line is the Reserve Bank’s own: a small borrowal account is a loan whose
+                        sanctioned limit is ₹2 lakh or less. The Bank drew the line in the March 1999 return, when
+                        it raised the cut-off from ₹25,000, and has not moved it since; the regional rural banks
+                        moved to the same line in March 2002. A limit is fixed when a loan is sanctioned. A
+                        loan crosses the line only when its limit is renewed higher, as a Kisan Credit Card limit
+                        is by 10% a year, or when a bigger loan replaces it.`}</MethodNote>
+                    <MethodNote title="Crossing the line.">{`Some loans cross the line every year as their limits are renewed. That is why the share
+                        of small loans slipped from ${Math.round(at2020.borrowers)} in every hundred in
+                        ${monthName(q20.quarter)} to ${Math.round(peak.borrowers)} by ${monthName(Q_PEAK.quarter)}
+                        while their number was still rising. It does not explain the fall since then. Loans above the line
+                        ${SERIES.aboveRise >= 0 ? "grew" : "fell"} by ${crore(Math.abs(SERIES.aboveRise))} in the
+                        ${fallIn} to
+                        ${monthName(Q_LAST.quarter)}${aboveRiseBefore >= 0 ? `, and grew by ${crore(aboveRiseBefore)} in the ${fallIn} before` : ""}.
+                        The number of loans of every size
+                        ${allSizesChange < 0 ? `fell by ${crore(-allSizesChange)}` : `rose by ${crore(allSizesChange)}`}
+                        over the same ${fallIn}.`}</MethodNote>
+                    <MethodNote title="About the dots.">{`At the start, each dot is ten lakh accounts, rounded so that the dots add up to the
+                        totals. When the stack is counted by money, each of the ${LOAN_DOTS} loan dots stands for
+                        ₹${(100 / LOAN_DOTS).toFixed(2)} of every ₹100 lent. In the scenes over time, each dot is
+                        a crore small loans, and a part-lit dot shows the fraction. The charts further down give
+                        the exact values.`}</MethodNote>
+                    <MethodNote title="Two sets of figures.">{`The yearly figures for March 2026 include the regional rural banks. They give the stack of
+                        loans, what loans cost, and the districts. The quarterly figures leave those banks out:
+                        ${crore(RRB.small)} of the ${crore(BELOW.accounts)} small loans and
+                        ${lakhCrore(RRB.money, 0)} of their ${lakhCrore(BELOW.outstanding)}. They give everything
+                        that moves through time, the states, and the figures on women. The two are never mixed in
+                        one number.`}</MethodNote>
+                    <MethodNote title="Banks only.">{`The Basic Statistical Returns are filed by scheduled commercial banks: public and private
+                        sector banks, foreign banks, the small finance banks and, in the yearly figures, the
+                        regional rural banks. They include the loans that microfinance companies make as banks’
+                        agents. Finance companies, microfinance companies lending on their own books, lending
+                        apps, and cooperative banks and societies do not file them, so their loans appear nowhere
+                        in this story. That is a great deal of small lending. In June 2026 CRIF High Mark counted
+                        10.3 crore microfinance loans across all lenders, and in 2025-26 the NBFCs that lend mainly
+                        through apps sanctioned 13.2 crore personal loans.`}</MethodNote>
+                    <MethodNote title="What the bank figures cannot tell.">{`A fall in bank loans can mean borrowers moving to those lenders, or those lenders
+                        shrinking too, and the bank figures cannot tell the two apart. In the year to March 2026
+                        microfinance shrank at every kind of lender, while in the year to June 2026 consumer durable
+                        loans grew across all lenders as they fell at banks. A lender can also join the returns:
+                        when a fintech’s loans were merged into a small finance bank in October 2024, about
+                        ${croreAbout(entryStep)} accounts entered them in one quarter.
+                        Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)},
+                        ${crore(fall(durables))} consumer-durable accounts in the big cities left the return while
+                        the money outstanding on them ${durMoneyWords}. That points to a reclassification rather
+                        than a repayment.`}</MethodNote>
+                    <MethodNote title="Breaks in the series.">{`Accounts enter the quarterly figures when a lender becomes or merges into a bank, and
+                        leave when a bank closes or reclassifies them, without any loan being made or repaid. The
+                        small finance banks, most of them former microfinance lenders, report from September 2017,
+                        one quarter after the series here begins, and ${pct(sfbShareOfRise, 0)} of the rise since
+                        then is theirs. In ${monthName(ENTRY.quarter)} about ${croreAbout(entryStep)} small app-based
+                        credit accounts, booked in Guwahati, entered the return in one quarter when a fintech’s
+                        loans were merged into a small finance bank. They are still on the books and have grown:
+                        Assam’s loan accounts stand ${croreAbout(ENTRY.assamSince)} above their September 2024 count.
+                        They lift the ${monthName(ENTRY.quarter)} count, the urban count, and Assam’s and Kamrup
+                        Metropolitan’s figures from then on.${peakOnEntry && marchOfPeakYear !== null ? ` Without them the count would not have risen above ${monthName(marchOfPeakYear.quarter)}’s, and the fall since ${monthName(Q_PEAK.quarter)} would be somewhat larger than ${crore(SERIES.fewer)}.` : ""}`}</MethodNote>
+                    <MethodNote title="Villages, towns and cities.">{`These are the Reserve Bank’s four population groups. Rural centres have fewer than 10,000
+                        people, semi-urban centres fewer than a lakh, urban centres fewer than ten lakh, and
+                        metropolitan centres ten lakh or more.`}</MethodNote>
+                    <MethodNote title="Where a loan is counted.">{`The Reserve Bank records two places for every loan, the branch that sanctioned it and the
+                        place where the money is used, and publishes some tables on each basis. The district
+                        figures, and the deposit-and-loan counts by village and city at the start, count a loan
+                        where the bank reports the money is used. Everything else, the small loans by village and
+                        city over time, the states, and the figures on women, counts it at the branch that made
+                        it. Even by use, a loan to a company, a finance company or a government body is placed at
+                        the borrower’s office. That is why New Delhi district shows
+                        ${newDelhi ? lakhCrore(newDelhi.outstanding) : "so much"} of credit.`}</MethodNote>
+                    <MethodNote title="Books that move.">{`A lender that moves its loans to a central office moves them to that district, and across
+                        state lines. That is the likeliest reading of what happened in Mumbai between March and
+                        June 2026. Loans to individuals, men’s and women’s alike, left the books of branches in
+                        Mumbai Suburban while the all-India total kept rising. The same thing happens in reverse in Assam, where a
+                        fintech’s loans, made across the country through an app, are booked at the merged bank’s
+                        office in Guwahati. From December 2024 they appear as Assam’s in the state figures, as
+                        Kamrup Metropolitan’s in the district figures on women, and as urban in the
+                        village-to-city figures.`}</MethodNote>
+                    <MethodNote title="Group loans and agents.">{`Banks also book their group loans to women at a few branches. The districts that lost the
+                        most loans to women${bookingHubs.length > 0 ? `, ${list(bookingHubs)} among them,` : ""}
+                        are where those books are kept. Loans that microfinance institutions make as banks’
+                        business correspondents are on the bank’s books (RBI circular RBI/2005-06/288) and enter
+                        the return through the bank branch that holds them. For a joint account, the gender is that
+                        of the first holder (RBI, Handbook of instructions for the Basic Statistical Returns, 2008).`}</MethodNote>
+                    <MethodNote title="Like with like.">{`DBIE prints many districts on two rows, one carrying the older quarters and one the
+                        newer. Each state’s figure adds up every row, and each district its rows by name. Districts
+                        renamed or redrawn between March 2024 and June 2026, such as Ramanagara, now Bengaluru
+                        South, and Ahmadnagar, now Ahilyanagar, are left out of the district comparisons. Assam is
+                        left out altogether: a fintech’s loans booked in Guwahati entered its figures in December
+                        2024 through a merger into a small finance bank, so its two dates would not cover the same
+                        lenders. The maps show the 28 states, Delhi, and Jammu & Kashmir; the smaller union
+                        territories are in the downloads.`}</MethodNote>
+                    <MethodNote title="Nothing typed by hand." last>{`Every number from the returns is read from the DBIE tables by a program that checks the
+                        totals and the shape of each table every time it runs. The sentences in the story use
+                        those same numbers. The interest rate for each loan size is a weighted midpoint of DBIE’s rate
+                        ranges. The only figures typed in are those cited from other publications, which are named
+                        where they appear.`}</MethodNote>
+                </div>
+            </section>
         </Article>
     </MotionConfig>
 );

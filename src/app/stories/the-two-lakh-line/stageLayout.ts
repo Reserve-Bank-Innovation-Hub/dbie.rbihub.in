@@ -22,9 +22,9 @@ export const isPyramid = (s : SceneId) => PYRAMID_SCENES.includes(s);
 export const isSeries  = (s : SceneId) => SERIES_SCENES.includes(s);
 
 // THE STAGE'S COLOURS =================================================================================================
-// The stage draws in the site's own chart scheme (src/components/charts/chartConfig.ts), resolved for the page's theme
-// in LineStage: the emphasis hue for the small loans, the de-emphasis grey for everything else, the scheme's cool and
-// warm poles either side of a grey for the price, and greys from the ink for the unlit and the lost.
+// The stage draws in the Kosh palette (kosh.ts), picked for the page's theme in LineStage: indivara for the small
+// loans, a warm grey for everything else, neem and terracotta either side of a grey for the price, and greys mixed
+// from the ink for the unlit and the lost.
 export type RGB = [ number, number, number ];
 export interface StagePalette {
     field  : RGB;    // the deposit accounts, unlit
