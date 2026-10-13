@@ -63,6 +63,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "The phone pays, but the cash stays",
                 description : "UPI payments grew 19.4 times between November 2019 and July 2026. Over the ten years to March 2026, currency in circulation grew 2.5 times.",
             },
+            {
+                linkTo      : "/stories/money-in-money-out",
+                label       : "Money in, money out",
+                description : "Indians abroad sent home $135.4 billion in 2024-25 and keep $165.7 billion in Indian banks; in 2023-24 they sent 1.67 times what foreign companies invested. Indians at home sent $29.6 billion abroad, more than half of it for travel.",
+            },
         ],
     },
     {

@@ -1,0 +1,140 @@
+{
+ "about": "Events marked on the steps of the story 'Money in, money out' (src/app/stories/money-in-money-out): the official record of what changed around each series. Each is from a Reserve Bank of India or Government of India document, read on 13-10-2026; 'quote' is copied from it, and 'note' says only what the source says. 'slide' names the step it is shown on; 'day' is the date the source gives. An event with no 'url' is held back: the story shows only what it can link. data/processors/story-money-in-money-out.mjs checks each date and each link.",
+ "events": [
+  {
+   "slide": "history",
+   "day": "1990-08-13",
+   "label": "Evacuation from Kuwait",
+   "note": "Indians in Kuwait were flown home between 13 August and 20 October 1990, after Iraq's invasion of Kuwait on 2 August 1990.",
+   "source_title": null,
+   "url": null,
+   "quote": null
+  },
+  {
+   "slide": "history",
+   "day": "2020-03-24",
+   "label": "The national lockdown",
+   "note": "The Prime Minister announced a lockdown of the whole country for 21 days from midnight on 24 March 2020.",
+   "source_title": "Press Information Bureau (PIB), Prime Minister's Office, 24-03-2020",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1608009",
+   "quote": "a complete lockdown of the entire nation for the next 21 days"
+  },
+  {
+   "slide": "history",
+   "day": "2023-02-07",
+   "label": "“Highest ever”",
+   "note": "The Ministry of Finance told the Rajya Sabha that the $89,127 million received in 2021-22 was the highest in a single year.",
+   "source_title": "PIB (Ministry of Finance), 07-02-2023",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1897036",
+   "quote": "the highest ever inward remittances received in a single year"
+  },
+  {
+   "slide": "vault",
+   "day": "2013-09-04",
+   "label": "The 2013 deposit window",
+   "note": "The RBI offered banks a swap for fresh FCNR(B) dollar deposits of three years or more at a fixed 3.5% a year, open until 30 November 2013.",
+   "source_title": "RBI press release, 04-09-2013",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=29480",
+   "quote": "a window to the banks to swap fresh FCNR(B) dollar funds, mobilised for a minimum tenor of three years and over at a fixed rate of 3.5 per cent per annum"
+  },
+  {
+   "slide": "vault",
+   "day": "2016-09-01",
+   "label": "The 2013 swaps unwind",
+   "note": "An RBI Bulletin article records the unwinding of the special FCNR(B) swaps with the Reserve Bank in September to November 2016.",
+   "source_title": "RBI Bulletin, December 2018",
+   "url": "https://rbidocs.rbi.org.in/rdocs/Bulletin/PDFs/02AR_111220180F73AB0873744414AD564BAE69A28A43.PDF",
+   "quote": "unwinding of special FCNR(B) swaps with the Reserve Bank during September-November 2016"
+  },
+  {
+   "slide": "vault",
+   "day": "2026-06-08",
+   "label": "The 2026 deposit window",
+   "note": "The RBI opened a swap facility for FCNR(B) deposits of three to five years, for deposits taken until 30 September 2026.",
+   "source_title": "RBI circular RBI/2026-27/99, 08-06-2026",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13468",
+   "quote": "Swap Facility for FCNR (B) Deposits"
+  },
+  {
+   "slide": "vault",
+   "day": "2026-08-24",
+   "label": "$65.40 bn in FCNR(B)",
+   "note": "The Ministry of Finance reported $73 billion raised under the facility by 21 August 2026, $65.40 billion of it in FCNR(B) deposits; the FCNR(B) window was closed early, on 31 August 2026. It put the 2013 scheme at about $26 billion.",
+   "source_title": "PIB (Ministry of Finance), 24-08-2026",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2302879",
+   "quote": "FCNR(B) deposits alone accounted for US $65.40 billion"
+  },
+  {
+   "slide": "stairs",
+   "day": "2004-02-04",
+   "label": "LRS begins",
+   "note": "The Liberalised Remittance Scheme began with a limit of $25,000.",
+   "source_title": "RBI FAQ, Liberalised Remittance Scheme limit",
+   "url": "https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=1834",
+   "quote": "The Scheme was introduced on February 4, 2004, with a limit of USD 25,000."
+  },
+  {
+   "slide": "stairs",
+   "day": "2013-08-14",
+   "label": "Cut to $75,000",
+   "note": "A.P. (DIR Series) Circular No. 24 reduced the limit from $200,000 to $75,000.",
+   "source_title": "RBI Master Direction on the LRS, list of circulars",
+   "url": "https://rbi.org.in/scripts/BS_ViewMasDirections.aspx?id=10192",
+   "quote": "Reduction of limit from USD 200,000 to USD 75,000"
+  },
+  {
+   "slide": "stairs",
+   "day": "2014-06-03",
+   "label": "Raised to $125,000",
+   "note": "A.P. (DIR Series) Circular No. 138 raised the limit from $75,000 to $125,000.",
+   "source_title": "RBI Master Direction on the LRS, list of circulars",
+   "url": "https://rbi.org.in/scripts/BS_ViewMasDirections.aspx?id=10192",
+   "quote": "Increase in the limit from USD 75,000 to USD 125,000"
+  },
+  {
+   "slide": "stairs",
+   "day": "2015-06-01",
+   "label": "Raised to $250,000",
+   "note": "A.P. (DIR Series) Circular No. 106 raised the limit from $125,000 to $250,000 a financial year; separate limits for travel, gifts and other purposes had been folded into the LRS from 26 May 2015.",
+   "source_title": "RBI Master Direction on the LRS, list of circulars",
+   "url": "https://rbi.org.in/scripts/BS_ViewMasDirections.aspx?id=10192",
+   "quote": "increase in the limit from USD 125,000 to USD 250,000"
+  },
+  {
+   "slide": "ticker",
+   "day": "2020-03-24",
+   "label": "Lockdown",
+   "note": "The Prime Minister announced a lockdown of the whole country for 21 days from midnight on 24 March 2020.",
+   "source_title": "PIB (Prime Minister's Office), 24-03-2020",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1608009",
+   "quote": "a complete lockdown of the entire nation for the next 21 days"
+  },
+  {
+   "slide": "ticker",
+   "day": "2020-10-01",
+   "label": "Tax at source, 5%",
+   "note": "From 1 October 2020, banks collect tax at source of 5% on LRS remittances above ₹7 lakh in a financial year (Finance Act 2020, section 206C(1G)).",
+   "source_title": "Income Tax Department, section 206C",
+   "url": "https://www.incometaxindia.gov.in/w/section-206c-35",
+   "quote": "at the rate of five per cent of the amount"
+  },
+  {
+   "slide": "ticker",
+   "day": "2023-10-01",
+   "label": "Tax at source, 20%",
+   "note": "The higher rates of the Finance Act 2023 (20% above ₹7 lakh, except for education and medical treatment) applied from 1 October 2023, moved from 1 July 2023.",
+   "source_title": "PIB (Ministry of Finance), 28-06-2023",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1936105",
+   "quote": "Increased TCS rates to apply from 1st October, 2023"
+  },
+  {
+   "slide": "ticker",
+   "day": "2025-04-01",
+   "label": "Tax threshold ₹10 lakh",
+   "note": "The Budget for 2025-26 raised the threshold for TCS on LRS remittances from ₹7 lakh to ₹10 lakh.",
+   "source_title": "PIB (Ministry of Finance), 01-02-2025",
+   "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2098362",
+   "quote": "proposed to be increased from ₹ 7 lakh to ₹ 10 lakh"
+  }
+ ]
+}
