@@ -331,8 +331,8 @@ const TheOpening = () => {
 
                 {/* THE PRICE ================================================================================ */}
                 <Div className="step" data-scene="priceMoney" ref={ref("priceMoney")}>
-                    <p className="sr-only">{prose(`Interest rates fall as loans get larger. Blue dots are money lent at under
-                        8% a year: on loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100. Red dots
+                    <p className="sr-only">{prose(`Interest rates fall as loans get larger. Green dots are money lent at under
+                        8% a year: on loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100. Terracotta dots
                         are money lent at 13% or more: below the line, ₹${Math.round(PRICE.belowMoneyAt13)} of every ₹100.
                         ₹${Math.round(below7to9)} of every ₹100 below the line is lent at 7% to 9%, much of it crop loans
                         at a subsidised 7%. Loans up to ₹25,000 carry at least ${SMALLEST.weightedRate.toFixed(1)}% a year
@@ -442,7 +442,6 @@ const [ ruralWent, , , metroWent ] = WHERE_THEY_WENT.groups;
 const [ farm, durables, cards ] = WHERE_THEY_WENT.purposes;
 const fall = (r : { then : number; now : number }) => r.then - r.now;
 const placesFell = WHERE_THEY_WENT.groups.filter(g => g.now < g.then);
-const [ firstFaller, ...otherFallers ] = WOMEN.fallers;
 const EAST = [ "Bihar", "Jharkhand", "Odisha", "West Bengal" ];
 const mostlyEast = WOMEN.fallers.filter(s => EAST.includes(s.name)).length > WOMEN.fallers.length / 2;
 const [ d1, d2, d3 ] = DISTRICT_SHARES.shares;
@@ -462,18 +461,12 @@ const byUse = (name : string) => {
     return { accountsPer100 : 100 * sum(ds.map(d => d.accounts)) / (s.population ?? NaN), creditPerHead : sum(ds.map(d => d.outstanding)) * 1e7 / (s.population ?? NaN) };
 };
 const mhByUse = byUse("Maharashtra"), brByUse = byUse("Bihar");
-// Loans to women: the money lent to them across the comparable states, whether it rose in each of the states that
-// fell, and Maharashtra outside Mumbai's two districts.
+// Loans to women: the money lent to them across the comparable states, and whether it rose in each of the states
+// that fell.
 const womenMoney = (s : { womenOutstanding2024 : number; womenOutstanding2026 : number }) => 100 * (s.womenOutstanding2026 - s.womenOutstanding2024) / s.womenOutstanding2024;
 const comparableStates = WOMEN_STATES.filter(s => s.comparable);
 const womenMoneyRise = womenMoney({ womenOutstanding2024 : sum(comparableStates.map(s => s.womenOutstanding2024)), womenOutstanding2026 : sum(comparableStates.map(s => s.womenOutstanding2026)) });
 const fallersMoneyRose = WOMEN.fallers.length > 0 && WOMEN.fallers.every(f => womenMoney(WOMEN.state(f.name)) > 0);
-const otherFallersMoneyRose = otherFallers.length > 0 && otherFallers.every(f => womenMoney(WOMEN.state(f.name)) > 0);
-const mumbaiRows = WOMEN_DISTRICTS_FALLS.filter(d => /^Mumbai/.test(d.district));
-const mhWomen = WOMEN.state("Maharashtra");
-const mhOutsideMumbai = mumbaiRows.length === 2 && WOMEN.fallers.some(f => f.name === "Maharashtra")
-    ? 100 * ((mhWomen.women2026 - sum(mumbaiRows.map(d => d.women2026))) - (mhWomen.women2024 - sum(mumbaiRows.map(d => d.women2024)))) / (mhWomen.women2024 - sum(mumbaiRows.map(d => d.women2024)))
-    : null;
 // The districts outside Mumbai that lost the most loans to women and where women hold most of the loans.
 const bookingHubs = WOMEN_DISTRICTS_FALLS.filter(d => !/^Mumbai/.test(d.district) && d.womenShare2026 >= 50).slice(0, 5).map(d => d.district);
 
@@ -498,7 +491,7 @@ const accessTiles : Record<string, TileDatum> = Object.fromEntries(STATES.map(s 
 const Chapter = ({ kicker, title, children, id } : { kicker : string; title : string; children : ReactNode; id : string }) => (
     <Reveal>
         <Text className="kicker" weight="600" marginBottom="nano" id={id}>{kicker}</Text>
-        <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="micro">{title}</Heading4>
+        <Heading4 className="chapter-title" fontStyle="serif" weight="600" marginBottom="micro">{title}</Heading4>
         {children}
     </Reveal>
 );
@@ -548,30 +541,25 @@ export const TheTwoLakhLinePage = () => (
                     <div className="words">
                         <Chapter id="where-they-went" kicker="WHERE THEY WENT" title="Villages lost loans filed as farm credit, while big cities lost durable-loan
                             accounts">
-                            <Para>{`Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)}
-                                ${placesFell.length === WHERE_THEY_WENT.groups.length ? "every kind of place lost small loans" : `${list(placesFell.map(g => g.label.toLowerCase()))} lost small loans`},
-                                counting each loan at the branch that made it. Villages lost ${crore(fall(ruralWent))},
-                                ${crore(fall(farm))} of them filed under agriculture, a heading that also covers the group
-                                loans banks make for dairy and livestock. ${ruralSmallPrivateSfbFall > fall(ruralWent) / 2 ? "Most" : "Part"} of
-                                that loss was at private banks and small finance banks, while village loans of every size at
-                                public-sector banks ${ruralPublicChange >= 0 ? `grew by ${crore(ruralPublicChange)}` : `fell by ${crore(-ruralPublicChange)}`}.`}</Para>
+                            <Para>{`Between ${monthName(WHERE_THEY_WENT.from)} and ${monthName(WHERE_THEY_WENT.to)},
+                                ${placesFell.length === WHERE_THEY_WENT.groups.length ? "every kind of place lost small loans" : `${list(placesFell.map(g => g.label.toLowerCase()))} lost small loans`}.
+                                Villages lost ${crore(fall(ruralWent))}, ${crore(fall(farm))} of them under agriculture (which
+                                includes group loans for dairy and livestock), ${ruralSmallPrivateSfbFall > fall(ruralWent) / 2 ? "mostly" : "partly"} at
+                                private and small finance banks; public-sector banks ${ruralPublicChange >= 0 ? `added ${crore(ruralPublicChange)}` : `lost ${crore(-ruralPublicChange)}`} village loans.`}</Para>
                             <Para>{`The big cities lost ${crore(fall(metroWent))}, ${fall(durables) >= 0.9 * fall(metroWent)
-                                ? "almost all of it" : fall(durables) > fall(metroWent) / 2 ? "most of it" : "some of it"} consumer-durable
-                                accounts, which fell by ${crore(fall(durables))} while the money on them ${durMoneyWords}.
-                                Across all lenders, the credit bureau CRIF High Mark counts loans for household goods rising
-                                from 10.3 crore to 11.3 crore in the year to June 2026, which suggests banks changed how they
-                                count these accounts rather than stopped lending. Credit cards
-                                ${cards.now > cards.then ? "kept growing" : "fell too"}.`}</Para>
-                            <Para>{`The village losses match the retreat of microfinance from the middle of 2024, after a wave
-                                of defaults. The lenders’ industry body capped each borrower’s microfinance debt at ₹2 lakh
-                                and the number of lenders at four, later three. Funding to small lenders dried up, Karnataka
-                                and Tamil Nadu passed laws against coercive recovery, and many bad loans were written off.
-                                Across all lenders, CRIF counted 10.3 crore microfinance loans in June 2026, against 14.6
-                                crore at the end of 2024.`}</Para>
+                                ? "almost all" : fall(durables) > fall(metroWent) / 2 ? "most of them" : "some of them"} consumer-durable
+                                accounts, down ${crore(fall(durables))} ${Math.abs(durMoneyChange) < 5 ? "with balances barely moving" : `while balances ${durMoneyChange < 0 ? "fell" : "rose"} by ${pct(Math.abs(durMoneyChange), 0)}`}.
+                                CRIF High Mark counts household-goods loans across all lenders rising from 10.3 crore to
+                                11.3 crore in the year to June 2026, suggesting banks changed how they count these accounts
+                                rather than stopped lending. Credit cards ${cards.now > cards.then ? "kept growing" : "fell too"}.`}</Para>
+                            <Para>{`The village losses track microfinance’s retreat after defaults from mid-2024: borrower
+                                caps of ₹2 lakh and four lenders (later three), scarce funding, Karnataka and Tamil Nadu laws
+                                against coercive recovery, and write-offs. CRIF counted 10.3 crore microfinance loans in
+                                June 2026, against 14.6 crore at end-2024.`}</Para>
                             {SERIES.totalChange.rural < 0 && (
-                                <Para last>{`In the villages, bank loans of every size fell by ${crore(-SERIES.totalChange.rural)}
-                                    too, so many small loans closed rather than growing past the line, though fewer people
-                                    than loans lost credit.`}</Para>
+                                <Para last>{`Village bank loans of every size fell by ${crore(-SERIES.totalChange.rural)} too, so
+                                    many small loans closed rather than outgrew the line—though fewer people than loans lost
+                                    credit.`}</Para>
                             )}
                         </Chapter>
                     </div>
@@ -601,25 +589,12 @@ export const TheTwoLakhLinePage = () => (
                                 ${monthName(WOMEN.then.quarter)} and ${crore(WOMEN.nowCount)} by ${monthName(WOMEN.now.quarter)},
                                 while the amount banks had lent to women ${womenMoneyRise >= 0 ? "rose" : "fell"} by
                                 ${pct(Math.abs(womenMoneyRise), 0)}.`}</Para>
-                            <Para>{`${firstFaller ? `In ${firstFaller.name}, loan accounts held by women fell by
-                                ${Math.abs(firstFaller.change).toFixed(0)}%, while the money lent to women there
-                                ${womenMoney(WOMEN.state(firstFaller.name)) >= 0 ? "rose" : "fell"} by
-                                ${pct(Math.abs(womenMoney(WOMEN.state(firstFaller.name))), 0)}.` : ""} ${otherFallers.length > 0 ? `In
-                                ${list(otherFallers.map(s => s.name))} they fell by between
-                                ${Math.abs(Math.max(...otherFallers.map(s => s.change))).toFixed(0)}% and
-                                ${Math.abs(Math.min(...otherFallers.map(s => s.change))).toFixed(0)}%${otherFallersMoneyRose ? ", and in each the money lent to women rose" : ""}.` : ""}
-                                ${mhOutsideMumbai !== null ? `Maharashtra’s fall is mostly Mumbai’s, where lenders appear to have moved their books: outside
-                                Mumbai the state ${mhOutsideMumbai < 0 ? "fell" : "rose"} by ${pct(Math.abs(mhOutsideMumbai), 0)}.` : ""}`}</Para>
-                            <Para>{`${WOMEN.risers.length > 0 ? `${list(WOMEN.risers.map(s => s.name))} went the other way: loans to women
-                                rose there. ` : ""}TransUnion CIBIL, which counts women rather than accounts and sees every
-                                lender, put the number of women with a live loan at 16 crore in December 2025, twice the
-                                2017 count and still rising.`}</Para>
                             <Para>{`Loans to women fell in ${WOMEN.districts.fell} of the ${WOMEN.districts.compared} districts
-                                we can compare. Mumbai is left out of the district ranking, because its numbers move with where
-                                lenders book their loans. Of the ${numberWord(WOMEN.topFallsOutsideMumbai)} districts that lost
-                                the most outside Mumbai, ${numberWord(WOMEN.majorityWomenOfThem)} are places where women hold most of the loans to individuals. That pattern
-                                    suggests these are the branches where banks keep their group loans to women, so
-                                    the ranking says where those books are kept rather than where the borrowers live.`}</Para>
+                                we can compare. Of the ${numberWord(WOMEN.topFallsOutsideMumbai)} districts that lost the most
+                                outside Mumbai, ${numberWord(WOMEN.majorityWomenOfThem)} are places where women hold most of the
+                                loans to individuals. That pattern suggests these are the branches where banks keep their group
+                                loans to women, so the ranking says where those books are kept rather than where the borrowers
+                                live.`}</Para>
                             <Para last>{`A borrower with loans from two lenders holds two accounts, and when lenders stop renewing
                                 second loans the count of accounts falls faster than the count of people. The credit bureaus,
                                 which count both, report microfinance accounts falling faster than borrowers in the year to
@@ -885,7 +860,7 @@ export const TheTwoLakhLinePage = () => (
                     <div>
                         <Reveal>
                             <Text className="kicker" weight="600" marginBottom="nano">THE NUMBERS BEHIND THE DOTS</Text>
-                            <Heading4 className="chapter-title" fontStyle="serif" weight="500" marginBottom="nano">The exact figures</Heading4>
+                            <Heading4 className="chapter-title" fontStyle="serif" weight="600" marginBottom="nano">The exact figures</Heading4>
                             <Text className="para is-last" fontStyle="serif" opacity="80">
                                 The dots in the story round the figures off. These charts give them exactly, and each has a table view with every value.
                             </Text>

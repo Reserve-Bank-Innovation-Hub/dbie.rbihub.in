@@ -10,10 +10,6 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as RPointerEven
 // UI ==================================================================================================================
 import { useTheme } from "fictoan-react";
 
-// LIB =================================================================================================================
-import { resolveScheme } from "@/components/charts/chartConfig";
-import { fictoanColour } from "@/lib/fictoan-colours";
-
 // DATA ================================================================================================================
 import {
     BAND_NAMES, BAND_SHORT, BANDS, LOAN_DOTS, PEAK_INDEX, PRICE, SERIES_DOTS, SMALLEST, STAGE_GROUPS, WALR, bandShares, crore, lakhCrore,
@@ -23,6 +19,7 @@ import {
     POOL, SHARE_MAX, bandHeader, bandHeaderShort, bandValue, dotRhythm, isMobile, isPyramid, isSeries, layoutScene,
     type GroupsGeometry, type PyramidGeometry, type RGB, type SceneId, type SeriesGeometry, type Spawn, type StagePalette, type Target,
 } from "./stageLayout";
+import { STAGE_PALETTES, themeOf } from "./kosh";
 import { AnimatedNumber } from "./Motion";
 
 const TAU = Math.PI * 2;
@@ -139,24 +136,9 @@ class DotEngine {
 }
 
 // THE PALETTE =========================================================================================================
-// The site's chart scheme for the page's theme: emphasis and de-emphasis, the cool and warm poles, and the ink, with
-// greys from the same ladder for the unlit dots. The same scheme every chart on the site draws with.
-const rgbOf = (hex : string) : RGB => [ parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16) ];
-export const stagePalette = (theme : string) : StagePalette => {
-    const dark = theme === "theme-dark";
-    const s = resolveScheme("line", undefined, theme);
-    return {
-        field  : rgbOf(fictoanColour("grey", dark ? "dark40" : "light60")),
-        emph   : rgbOf(s.emphasis),
-        deemph : rgbOf(s.deemphasis),
-        top    : rgbOf(s.ink.primary),
-        cool   : rgbOf(s.positive),
-        mid    : rgbOf(fictoanColour("grey", dark ? "dark40" : "light70")),
-        warm   : rgbOf(s.negative),
-        faint  : rgbOf(fictoanColour("grey", dark ? "dark60" : "light80")),
-        ring   : rgbOf(s.ink.secondary),
-    };
-};
+// The Kosh palette for the page's theme (kosh.ts): indivara for the loans, a warm grey for the rest, neem and
+// terracotta either side of a grey for the price, the sandal for the quarters not yet reached, the ink for the rings.
+export const stagePalette = (theme : string) : StagePalette => STAGE_PALETTES[themeOf(theme)];
 const css = (c : RGB) => `rgb(${c.join(",")})`;
 
 // WHAT EACH SCENE SAYS TO A SCREEN READER =============================================================================
@@ -326,9 +308,9 @@ export const LineStage = ({ scene, seriesPos } : LineStageProps) => {
         const cardRate = WALR.find(w => w.key === "2026-03")?.creditCards ?? WALR[0].creditCards;
         const top = BANDS.length - 1;
         const notes = [
-            { key : "cool", colour : pal.cool, title : "Blue: under 8% a year", body : `On loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100 is lent at these rates.`, dot : end(top, pal.cool, "topRight"), from : "side" as const, far : true },
+            { key : "cool", colour : pal.cool, title : "Green: under 8% a year", body : `On loans above ₹100 crore, ₹${Math.round(PRICE.topMoneyUnder8)} of every ₹100 is lent at these rates.`, dot : end(top, pal.cool, "topRight"), from : "side" as const, far : true },
             { key : "crop", colour : null, title : "Cheaper money below the line", body : `₹${Math.round(PRICE.below7to9)} of every ₹100 below the line is lent at 7% to 9%, much of it crop loans at a subsidised 7%.`, dot : end(1, pal.cool, "left"), from : "above" as const, far : false },
-            { key : "warm", colour : pal.warm, title : "Red: 13% or more a year", body : `Below the line, ₹${Math.round(PRICE.belowMoneyAt13)} of every ₹100 is lent at these rates.`, dot : end(1, pal.warm, "right"), from : "below" as const, far : false },
+            { key : "warm", colour : pal.warm, title : "Terracotta: 13% or more a year", body : `Below the line, ₹${Math.round(PRICE.belowMoneyAt13)} of every ₹100 is lent at these rates.`, dot : end(1, pal.warm, "right"), from : "below" as const, far : false },
             { key : "small", colour : null, title : "Loans up to ₹25,000", body : `At least ${SMALLEST.weightedRate.toFixed(1)}% a year on average. The table’s top range is open, and holds credit cards at ${Math.round(cardRate)}%.`, dot : end(0, pal.warm, "right"), from : "below" as const, far : false },
         ].filter(n => n.dot);
         // where the arrow lands: beside, above or below the dot, clear of it

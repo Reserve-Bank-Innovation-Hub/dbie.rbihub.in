@@ -2,9 +2,9 @@
 
 // A tile map of India: each state a square in roughly its place, so a pattern by region reads at a glance without
 // drawing any boundary. Tiles rise in from the north-west when the map scrolls into view; each can be hovered or
-// focused for its numbers. The colours are the site's own chart scheme for the page's theme: a sequential map takes
-// the blue ramp in steps, a diverging map the warm arm for a fall and the cool arm for a rise either side of the
-// neutral grey. States with no figure are hatched.
+// focused for its numbers. The colours are the Kosh palette for the page's theme (kosh.ts): a sequential map climbs
+// indivara in steps, a diverging map takes terracotta for a fall and neem for a rise either side of a sandal neutral.
+// States with no figure are hatched.
 
 // REACT CORE ==========================================================================================================
 import { useMemo, useState } from "react";
@@ -16,11 +16,11 @@ import { useTheme } from "fictoan-react";
 import { motion } from "framer-motion";
 
 // LIB =================================================================================================================
-import { resolveScheme } from "@/components/charts/chartConfig";
 import { contrastBetween } from "@/lib/fictoan-colours";
 
 // LOCAL ===============================================================================================================
 import { EASE } from "./chartKit";
+import { themeOf, tilePalette } from "./kosh";
 import { TILES } from "./data";
 import { useSize } from "./useSize";
 
@@ -47,7 +47,7 @@ export const TileMap = ({ data, mode, edges, format, missing, ariaLabel } : Tile
     const { ref, width } = useSize<HTMLDivElement>();
     const [ active, setActive ] = useState<string | null>(null);
     const [ theme ] = useTheme();
-    const scheme = useMemo(() => resolveScheme("heatmap", undefined, theme), [ theme ]);
+    const scheme = useMemo(() => tilePalette(themeOf(theme)), [ theme ]);
     // the swatches, lowest first: the ramp's seven steps, or the warm arm strongest first, the neutral, the cool arm
     const swatches = mode === "sequential"
         ? scheme.ramp

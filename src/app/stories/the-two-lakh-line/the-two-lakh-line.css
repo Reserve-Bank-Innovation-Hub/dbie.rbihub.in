@@ -1,25 +1,41 @@
+/* The RBIH Kosh palette by role, as the phone-pays story sets it: the page ivory, the cards white, charcoal ink,
+   terracotta for the accents, indivara for the loans and neem for the money, the sandal and a warm grey for what is
+   not the point. The dark theme (at the end of the file) swaps the page and the ink. The stage and the tile maps draw
+   the same colours from kosh.ts; the two must agree. */
 #the-two-lakh-line-page {
-    /* The site's own chart scheme (src/components/charts/chartConfig.ts), by role, so the story reads like every other
-       chart here: the emphasis hue and the second categorical slot, the de-emphasis grey, the cool and warm poles, the
-       dumbbell's now and then. The canvas and the tile maps take the same scheme from resolveScheme in script. */
-    --c-emph    : var(--royal);
-    --c-second  : var(--green);
-    --c-deemph  : var(--grey);
-    --c-cool    : var(--blue-light10);
-    --c-warm    : var(--salmon);
-    --c-now     : var(--blue-dark20);
-    --c-then    : var(--blue-light30);
-    --c-faint   : var(--grey-light80);
-    --fig-bg    : var(--grid-cell-bg);
-    --ink       : var(--paragraph-text-colour);
-    /* the secondary ink for labels, ticks and notes: at least 4.5:1 on the white panels and the dark cells */
-    --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
-    --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
+    --page      : #f2f0e6;
+    --card      : #ffffff;
+    --sandal    : #e1d5bc;
+    --ink       : #2f2f2f;
+    /* the secondary ink for labels, ticks and notes: at least 4.5:1 on the cards and the page */
+    --ink-soft  : color-mix(in oklch, var(--ink), transparent 30%);
+    --ink-faint : color-mix(in oklch, var(--ink), transparent 86%);
     /* the rules between the chapters, above the closing points and over the sources: ink, light enough to sit
-       behind the words, dark enough to read on the page itself, which is darker than the panels */
-    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 72%);
-    /* the site's indivara for kickers and links, a shade deeper so small type clears 4.5:1 on the grey page too */
-    --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+       behind the words, dark enough to read on the page, which is darker than the cards */
+    --rule      : color-mix(in oklch, var(--ink), transparent 72%);
+    --accent    : #ba644f;        /* terracotta: the kickers, the links, the title's ₹2 lakh, the slider */
+    --c-emph    : #864fe3;        /* indivara: the loans, the small loans, the count */
+    --c-second  : #6b8e23;        /* neem: the money, the share, the cards */
+    --c-deemph  : #a8957a;        /* the warm grey of the small change on the phone-pays note wall */
+    --c-cool    : #6b8e23;        /* a rise; the cheaper money */
+    --c-warm    : #ba644f;        /* a fall; the dearer money */
+    --c-now     : #864fe3;
+    --c-then    : #a8957a;
+    --c-faint   : var(--sandal);
+    --fig-bg    : var(--card);
+    /* fictoan's headings, paragraphs and crumbs take the story's ink */
+    --heading-text-colour              : var(--ink);
+    --paragraph-text-colour            : var(--ink);
+    --breadcrumb-item-text             : var(--ink-soft);
+    --breadcrumb-item-text-active      : var(--ink);
+    --breadcrumb-item-separator-colour : var(--ink-soft);
+    /* and the one button, the guess's, wears the accent as the phone-pays story's buttons do (this fictoan reads
+       --button-primary-bg and --button-primary-text; it mixes the hover and active shades itself) */
+    --button-primary-bg                : var(--accent);
+    --button-primary-text              : #ffffff;
+
+    background : var(--page);
+    color      : var(--ink);
 
     .sr-only {
         position    : absolute;
@@ -30,10 +46,14 @@
         white-space : nowrap;
     }
 
+    /* every figure in Geist, its numerals tabular so counts line up as they count */
+    .band-value, .series-tick, .playhead-badge, .value-badge, .bar-value, .tick, .end-label, .curve-label, .seg-value,
+    .tile-value, .legend-ticks span, .guess-value, .step-big, .cluster-ratio { font-variant-numeric : tabular-nums; }
+
     /* THE OPENING ================================================================================================= */
     .act {
         position   : relative;
-        background : var(--fig-bg);
+        background : var(--page);
     }
 
     .stage {
@@ -120,17 +140,16 @@
         }
     }
 
-    /* the cards that carry the story over the dots, in the same frosted panel the site's other stories use */
+    /* the cards that carry the story over the dots, in the phone-pays story's card: white, rounded, a hairline ring
+       and a soft shadow */
     .step-card {
         pointer-events   : auto;
         width            : min(420px, 34vw);
-        background-color : color-mix(in oklch, var(--fig-bg), transparent 10%);
-        backdrop-filter  : blur(10px) saturate(150%);
+        background-color : var(--card);
         border           : none;
-        box-shadow       : inset 0 0 0 1px color-mix(in oklch, var(--fig-bg), transparent 30%),
-                           0 0 0 1px var(--ink-faint),
-                           0 2px 4px rgba(0, 0, 0, 0.03),
-                           0 20px 40px rgba(0, 0, 0, 0.09);
+        border-radius    : 16px;
+        box-shadow       : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%),
+                           0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
         opacity          : 0.3;
         transform        : translateY(22px) scale(0.985);
         transition       : opacity 0.55s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -148,12 +167,12 @@
     }
 
     .step-big {
-        font-family    : var(--font-sans-serif);
-        font-weight    : 600;
+        font-family    : var(--font-serif);
+        font-weight    : 700;
         font-size      : clamp(40px, 4.4vw, 56px);
         line-height    : 1;
-        letter-spacing : -0.025em;
-        color          : var(--heading-text-colour);
+        letter-spacing : -0.01em;
+        color          : var(--ink);
         margin         : 2px 0 6px;
 
         .big-of {
@@ -196,8 +215,9 @@
     }
 
     .guess-value {
-        min-width  : 3.4ch;
-        font-size  : 28px;
+        min-width   : 3.4ch;
+        font-family : var(--font-serif);
+        font-size   : 28px;
         text-align : right;
         color      : var(--heading-text-colour);
     }
@@ -267,7 +287,7 @@
     }
 
     .band-value {
-        font-family          : var(--font-mono);
+        font-family          : var(--font-sans-serif);
         font-size            : 12px;
         font-variant-numeric : tabular-nums;
         color                : var(--ink);
@@ -322,9 +342,10 @@
     }
 
     .cluster-ratio {
-        font-weight    : 600;
+        font-family    : var(--font-serif);
+        font-weight    : 700;
         font-size      : 24px;
-        letter-spacing : -0.02em;
+        letter-spacing : -0.01em;
         color          : var(--heading-text-colour);
     }
 
@@ -343,7 +364,7 @@
     .playhead    { stroke : var(--ink-soft); stroke-width : 1; }
 
     .series-tick {
-        font-family : var(--font-mono);
+        font-family : var(--font-sans-serif);
         font-size   : 11px;
         color       : var(--ink-soft);
     }
@@ -357,7 +378,7 @@
     .value-badge {
         padding       : 2px 8px;
         border-radius : 999px;
-        font-family   : var(--font-mono);
+        font-family   : var(--font-sans-serif);
         font-size     : 11px;
         font-weight   : 700;
         color         : var(--white);
@@ -412,8 +433,9 @@
         max-width      : 300px;
         padding        : 10px 12px;
         border-radius  : 8px;
-        background     : var(--fig-bg);
-        box-shadow     : 0 0 0 1px var(--ink-faint), 0 12px 28px rgba(0, 0, 0, 0.14);
+        background     : var(--card);
+        box-shadow     : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 88%),
+                         0 8px 24px color-mix(in oklch, var(--ink), transparent 88%);
         color          : var(--ink);
         font-size      : 12.5px;
         line-height    : 1.35;
@@ -471,13 +493,14 @@
 
     .kicker {
         color          : var(--accent);
-        letter-spacing : 0.1em;
-        font-size      : 13px;
+        letter-spacing : 0.12em;
+        font-size      : 11.5px;
         margin-bottom  : 6px;
     }
 
     .chapter-title {
         max-width     : 22ch;
+        font-weight   : 600;
         font-size     : clamp(26px, 2.6vw, 34px);
         line-height   : 1.15;
         margin-bottom : 14px;
@@ -493,10 +516,14 @@
         &.is-last { margin-bottom : 0; }
     }
 
+    /* a figure on its card, the same chrome as the step cards */
     .story-figure {
-        margin     : 0;
-        padding    : 20px 22px 16px;
-        background : var(--fig-bg);
+        margin        : 0;
+        padding       : 20px 22px 16px;
+        background    : var(--card);
+        border-radius : 16px;
+        box-shadow    : 0 0 0 1px color-mix(in oklch, var(--ink), transparent 90%),
+                        0 12px 32px color-mix(in oklch, var(--ink), transparent 92%);
 
         figcaption {
             display        : flex;
@@ -573,7 +600,7 @@
     .story-figure .band-label { font-size : 12px; }
 
     .bar-value, .row-note, .tick, .end-label, .curve-label {
-        font-family : var(--font-mono) !important;
+        font-family : var(--font-sans-serif) !important;
         font-size   : 11.5px;
     }
 
@@ -637,7 +664,7 @@
     .cards-chart {
         .seg-other { fill : var(--c-emph); }
         .seg-cards { fill : var(--c-second); }
-        .seg-value { font-family : var(--font-mono); font-size : 11px; }
+        .seg-value { font-family : var(--font-sans-serif); font-size : 11px; }
         .on-bar    { fill : var(--white) !important; }
         .row-label, .legend-label { font-size : 12px; }
     }
@@ -698,7 +725,7 @@
     }
 
     .tile-value {
-        font-family : var(--font-mono);
+        font-family : var(--font-sans-serif);
         font-size   : 10.5px;
         opacity     : 0.92;
 
@@ -734,7 +761,7 @@
 
         span {
             text-align  : center;
-            font-family : var(--font-mono);
+            font-family : var(--font-sans-serif);
             font-size   : 10.5px;
         }
     }
@@ -918,14 +945,22 @@
     }
 }
 
-/* The dark theme restates what its scheme changes: the accent lifted towards white as the site's dark focus colour is,
-   the warm pole two steps lighter, the dumbbell's now and then, and a faint grey that reads on the dark cells. */
+/* The dark theme, as the phone-pays story has it: the evening studio for the page, ivory for the ink, the cards and
+   the sandal mixed down towards the page, and the marks lifted towards white so they clear the dark surface. kosh.ts
+   mixes the same colours for the stage and the tile maps. */
 .theme-dark #the-two-lakh-line-page {
-    --accent  : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
-    --c-warm  : var(--salmon-light20);
-    --c-now   : var(--blue-light30);
-    --c-then  : var(--blue-dark10);
-    --c-faint : var(--grey-dark60);
+    --page     : #16151a;
+    --card     : color-mix(in oklch, #f2f0e6 8%, #16151a);
+    --sandal   : color-mix(in oklch, #e1d5bc 22%, #16151a);
+    --ink      : #f2f0e6;
+    --accent   : color-mix(in oklch, #ba644f, white 22%);
+    --c-emph   : color-mix(in oklch, #864fe3, white 15%);
+    --c-second : color-mix(in oklch, #6b8e23, white 20%);
+    --c-deemph : color-mix(in oklch, #a8957a, #16151a 30%);
+    --c-cool   : var(--c-second);
+    --c-warm   : var(--accent);
+    --c-now    : var(--c-emph);
+    --c-then   : var(--c-deemph);
 }
 
 @keyframes ttll-bob {
