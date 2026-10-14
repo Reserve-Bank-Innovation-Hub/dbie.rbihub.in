@@ -1,0 +1,46 @@
+<!-- The builder's guide: how a story is made in this repository and the house rules every story follows. An HTML
+     fragment, edited by hand; scripts/story-tracker/build.mjs places it in docs/story-tracker/index.html. -->
+<section id="build-guide">
+  <div class="sec-head"><span class="sec-num">B</span><h2>How to build a story</h2></div>
+  <p class="tldr"><b>In short</b><span>Pick the story in the tracker, read its brief, plan briefly with Claude against this page, then build on a branch from <code>dev</code>. A processor turns DBIE files into a frozen <code>data.gen.ts</code>; the page reads only that. The tracker updates itself when the branch opens a pull request (WIP) and when it merges (On dev).</span></p>
+  <ol class="acts">
+    <li><span><b>Start from the brief.</b> Open the story's row below: the headline figures, chapters, visual, interactions, data sources and fact-check traps are there, with overlaps and links to other stories. Ask Claude: "Read docs/story-tracker/stories.json entry S<i>n</i> and docs/story-tracker/guide.html, then plan the build." Planning should take minutes, not days.</span></li>
+    <li><span><b>Branch from dev.</b> <code>git switch -c story-&lt;slug&gt; origin/dev</code>. The slug is the story's address: <code>/stories/&lt;slug&gt;</code>, lower case, words joined by hyphens, read as a title (e.g. <code>money-in-money-out</code>).</span></li>
+    <li><span><b>Restore the data.</b> <code>pnpm data:fetch</code> brings back the latest scrape (<code>data/sdmx</code>, <code>data/reports</code>); <code>pnpm data:pull</code> the site's release JSON. Never commit scraped files.</span></li>
+    <li><span><b>Write the processor.</b> <code>data/processors/story-&lt;slug&gt;.mjs</code>, modelled on <code>story-money-in-money-out.mjs</code>: a header comment listing every DBIE series code, file and unit used, any non-DBIE source (kept in <code>data/sources/*.json</code> with its citation) and every check; it reads the scraped files with <code>readSdmxCsv</code> from <code>scripts/db/lib.mjs</code>, writes the oracle <code>data/processors/out/story-&lt;slug&gt;.json</code>, the page's <code>src/app/stories/&lt;slug&gt;/data.gen.ts</code> and downloads under <code>public/stories/&lt;slug&gt;/</code>, and fails without writing if a check does not hold. Add it to the list in <code>data/processors/build.mjs</code>.</span></li>
+    <li><span><b>Comment the data.</b> In <code>data.gen.ts</code>, the processor writes one comment line above each export saying what it is, its unit and period (e.g. "Private transfers received, US$ billion, by financial year."). The tracker reads these lines to list what the story shows.</span></li>
+    <li><span><b>Build the page.</b> <code>src/app/stories/&lt;slug&gt;/page.tsx</code> with <code>metadata.title</code> "&lt;Title&gt; | Stories — Database on Indian Economy" and a one-sentence <code>description</code> with the headline figures; <code>page.client.tsx</code> and components beside it; styles in <code>&lt;slug&gt;.css</code>. Every number on the page comes from <code>data.gen.ts</code>; no figure is typed into copy by hand. Reuse the shared pieces (section rail, timeline scrubber, chart kits) from the live stories.</span></li>
+    <li><span><b>List it.</b> Add the story to <code>src/app/stories/(dashboard)/sections.ts</code> under its heading (the Stories page and the crumbs read it). A renamed story keeps a permanent redirect in <code>next.config.js</code>; the tracker follows redirects to keep its history.</span></li>
+    <li><span><b>Preview and check.</b> Run the site locally and check desktop and phone widths, dark mode and every number against the brief and the fact-check gates below. Show it to the story's reviewer before opening the pull request.</span></li>
+    <li><span><b>Pull request to dev.</b> Sentence-case title, no AI attribution. Opening it marks the story WIP here; merging marks it On dev, with you as the author of the update; reaching <code>main</code> marks it Live.</span></li>
+  </ol>
+  <h3 id="build-files">Files a story touches</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>File</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="ent"><code>data/processors/story-&lt;slug&gt;.mjs</code></td><td>Series codes, transformations and checks; the only place numbers are computed</td></tr>
+      <tr><td class="ent"><code>data/processors/out/story-&lt;slug&gt;.json</code></td><td>The oracle: the processor's output, committed, verified on release</td></tr>
+      <tr><td class="ent"><code>src/app/stories/&lt;slug&gt;/data.gen.ts</code></td><td>Generated; every figure on the page, each export with its comment</td></tr>
+      <tr><td class="ent"><code>src/app/stories/&lt;slug&gt;/page.tsx</code></td><td>Metadata: title and description</td></tr>
+      <tr><td class="ent"><code>src/app/stories/&lt;slug&gt;/page.client.tsx</code> and components</td><td>The story: sections, headers, charts, interactions</td></tr>
+      <tr><td class="ent"><code>public/stories/&lt;slug&gt;/</code></td><td>CSV downloads for the sources footer</td></tr>
+      <tr><td class="ent"><code>src/app/stories/(dashboard)/sections.ts</code></td><td>The Stories page listing and crumbs</td></tr>
+      <tr><td class="ent"><code>data/sources/*.json</code></td><td>Any non-DBIE input, with its citation</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="house-rules">
+  <div class="sec-head"><span class="sec-num">R</span><h2>House rules for every story</h2></div>
+  <p class="tldr"><b>In short</b><span>RBIH is a public institution and people will quote these pages. Every story reads as a sober, consulting-grade note: action-title headers with exact figures, one line of text, sources and method at the foot, no commentary and no causal claims.</span></p>
+  <div class="cards">
+    <li><h4>Headers are action titles</h4><p>Each header states the whole message with an exact, data-backed figure ("2.2x", not a rounded "2.5x"), and each leads into the next. Titles short: one figure, one message, about 70 characters at most.</p></li>
+    <li><h4>No eyebrows or kickers</h4><p>No small uppercase labels above headers. Section structure goes in a marker such as the section rail of "The phone pays, but the cash stays".</p></li>
+    <li><h4>Little body text</h4><p>One line under each header plus a source line. No metaphors or loose wording ("tide", "the rain began", "race"), no leading statements.</p></li>
+    <li><h4>Vary the layout</h4><p>Words left, right and on top across sections; never the same split throughout.</p></li>
+    <li><h4>Sources footer</h4><p>In the format of "What ₹1 lakh could buy": SOURCES and DOWNLOADS (CSV files) in one column, METHOD in the other.</p></li>
+    <li><h4>Words to avoid</h4><p>Never "dearer" (say "more expensive"); no weakness framing of the rupee ("lost half its value", "the fall everyone sees"); no loaded words (crisis, boom, distress, bubble, bad loans, clean-up); name every quantity precisely ("dollars that were worth ₹100 in April 2004").</p></li>
+    <li><h4>RBI products and operations</h4><p>Word with extreme care. Quote the RBI for any cause; use official counts for headline multiples; never imply causation or intent. Stories that describe RBI's own operations get a courtesy review.</p></li>
+    <li><h4>Groups, not names</h4><p>Banks, companies and states are shown as groups or as maps of facts; no individual bank or company singled out, no ranking words.</p></li>
+  </div>
+</section>
