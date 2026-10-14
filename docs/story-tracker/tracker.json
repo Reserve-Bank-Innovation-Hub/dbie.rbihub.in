@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-14T11:21:25.707Z",
-  "dev": "8451788",
+  "generated": "2026-10-14T12:58:57.379Z",
+  "dev": "aba1a50",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "81b2fd70da23e770"
+  "digest": "9f9f22cbc6ac88ce"
  },
  "stories": [
   {
@@ -661,16 +661,18 @@
    "wip": [],
    "captured": {
     "title": "The women who stayed",
-    "description": "Since 2000-01, rural men in India have been leaving farm work for building sites, factories and shops, while most rural women who work have stayed in agriculture. A data story from the Reserve Bank’s Database on Indian Economy.",
+    "description": "Since 2000-01, more and more rural men in India have moved from farming into construction, factories and shops, while most rural women who work are still in farming. A data story from the Reserve Bank’s Database on Indian Economy.",
     "headers": [
      "The women who stayed",
-     "The men left farm work twice as fast as the women",
-     "Men moved into industry, and the women who left went into services",
+     "Men moved out of farming twice as fast as women",
+     "Men moved mostly into industry; women who changed work moved into services",
+     "After 2018-19, more women worked in farming again",
      "A day on a building site pays more than a day in the field",
-     "After 2018-19, more women went back to the farm",
+     "What a day’s farm wage buys",
+     "A building site pays the most extra where farm work pays the least",
      "In short",
      "The DBIE tables behind this story",
-     "SOURCES",
+     "REFERENCES",
      "METHOD"
     ],
     "shows": [
