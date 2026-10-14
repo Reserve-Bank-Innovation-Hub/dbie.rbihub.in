@@ -32,9 +32,9 @@ const clamp01 = (v : number) => Math.max(0, Math.min(1, v));
 const span = (p : number, a : number, b : number) => clamp01((p - a) / (b - a));
 
 const CAPTIONS = [
-    { from : 0,             kicker : "Before",          text : "A man and a woman farm the same field of wheat." },
-    { from : BEATS.turn,    kicker : "Leaving",         text : "He puts down his work in the field and walks to a building site." },
-    { from : BEATS.mason,   kicker : "After",           text : "He works on the site as a mason. She is still in the field." },
+    { from : 0,             kicker : "Before",          text : "A man and a woman work in the same wheat field." },
+    { from : BEATS.turn,    kicker : "A new job",       text : "He moves from farm work to a job on a building site." },
+    { from : BEATS.mason,   kicker : "After",           text : "He now works on the site as a mason. She still works in the field." },
 ];
 
 export const TheWomenWhoStayedPage = () => {
@@ -74,8 +74,8 @@ export const TheWomenWhoStayedPage = () => {
                         <Text className="hero-kicker" weight="600">AGRICULTURE</Text>
                         <Heading1 className="hero-title">The women who <span className="accent">stayed</span></Heading1>
                         <Text className="hero-sub">
-                            Since 2000-01, rural men in India have been leaving farm work for building sites, factories and
-                            shops. Rural women have mostly stayed.
+                            Since 2000-01, more and more rural men in India have moved from farming into construction,
+                            factories and shops. Most rural women who work are still in farming.
                         </Text>
                     </div>
                     <div className={`beat-caption ${scene > 0.02 && gone < 0.05 ? "is-on" : ""}`} aria-live="polite">
@@ -86,10 +86,10 @@ export const TheWomenWhoStayedPage = () => {
                     <div className="bridge" aria-hidden={text < 0.5}>
                         <span className="bridge-kicker">What comes next</span>
                         <p className="bridge-text">
-                            How has the split of rural work between men and women changed since {shortOf(FIRST)}? Who
-                            left farming, where did they go, and what does a day’s work pay on each side? The sections
-                            below follow 100 rural men and 100 rural women who work through {RURAL.length} surveys up to
-                            {" "}{shortOf(LAST)}. Scroll on to see.
+                            How has rural work changed for men and women since {shortOf(FIRST)}? Below, 100 rural men and
+                            100 rural women who work stand in for everyone. Follow them through {RURAL.length} surveys up
+                            to {shortOf(LAST)} to see how men move into construction and services over time, how many women
+                            stay in farming, and what each kind of work pays.
                         </p>
                     </div>
                 </div>

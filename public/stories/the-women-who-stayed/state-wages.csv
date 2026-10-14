@@ -1,0 +1,23 @@
+# DBIE, WAGE_RATES_RN by state (men, ₹ a day, averaged over each financial year) and CPI_ALRL_ST_RN (agricultural labourers, base 1986-87)
+state,farm_labourer_2024-25,construction_worker_2024-25,mason_2024-25,farm_labourer_2014-15,cpi_al_2014-15,cpi_al_2024-25
+Kerala,869,923,1006,575,825.4,1311.8
+Jammu & Kashmir,590,585,807,368,759.3,1221.9
+Tamil Nadu,573,583,874,334,812.8,1518.6
+Himachal Pradesh,516,558,729,309,653.2,995.5
+Haryana,499,535,750,340,884.3,1405.2
+Andhra Pradesh,463,554,810,217,860.3,1480.2
+Karnataka,454,485,678,205,862.8,1494.6
+Punjab,421,438,623,284,856,1384.3
+Rajasthan,407,470,727,270,858.7,1373.3
+All India,398,441,638,225,799.5,1299.1
+Assam,385,421,545,201,784.5,1136
+Tripura,380,379,498,209,720.8,1066.8
+Odisha,369,393,554,180,757.4,1137.9
+Bihar,363,389,568,199,720.8,1078.3
+Uttar Pradesh,355,390,631,192,759.9,1140.7
+West Bengal,347,374,466,216,754.1,1104.9
+Maharashtra,343,408,624,197,848.3,1463.8
+Meghalaya,334,407,472,175,790.8,1295.5
+Gujarat,281,355,556,160,809.9,1322.5
+Madhya Pradesh,256,308,481,151,732.7,1168.5
+Manipur,,350,443,,774.9,1161.9
