@@ -1,0 +1,614 @@
+#the-10-gram-question-page {
+    /* The site's own chart scheme (src/components/charts/chartConfig.ts), by role, and the paper the story is set on:
+       the same shell as "What ₹1 lakh could buy", with turmeric for the gold, the cool pole for the rupee and the warm
+       pole for Mumbai's gap. */
+    --c-emph    : var(--violet);
+    --c-second  : var(--green);
+    --c-deemph  : var(--grey);
+    --c-cool    : var(--blue-light10);
+    --c-warm    : var(--salmon);
+    --c-faint   : var(--grey-light80);
+    --fig-bg    : var(--grid-cell-bg);
+    --ink       : var(--paragraph-text-colour);
+    --ink-soft  : color-mix(in oklch, var(--paragraph-text-colour), transparent 28%);
+    --ink-faint : color-mix(in oklch, var(--paragraph-text-colour), transparent 86%);
+    --accent    : color-mix(in oklch, hsl(var(--indivara)), black 12%);
+    --paper     : var(--fig-bg);
+    --ivory-faint : color-mix(in oklab, hsl(var(--ivory)), var(--paper) 25%);
+    --rule      : color-mix(in oklch, var(--paragraph-text-colour), transparent 88%);
+    --gold      : hsl(var(--turmeric));
+    --gold-deep : color-mix(in oklch, hsl(var(--turmeric)), black 28%);
+    --engine-gold : color-mix(in oklab, hsl(var(--turmeric)), hsl(var(--sand)) 38%);
+    --rupee     : color-mix(in oklab, hsl(var(--indivara)), hsl(var(--sand)) 42%);
+    --gap       : color-mix(in oklab, hsl(var(--terracotta)), hsl(var(--sand)) 35%);
+    --prices    : color-mix(in oklch, var(--ink), transparent 30%);
+
+    background : var(--paper);
+
+    /* THE TITLE ================================================================================================== */
+    .hero {
+        padding    : var(--small) 0 var(--medium);
+        background : var(--ivory-faint);
+    }
+
+    .kicker {
+        color     : var(--accent);
+        font-size : 13px;
+    }
+    .hero-kicker { letter-spacing : 0.14em; margin-top : var(--small); }
+
+    .hero-title {
+        font-family : var(--font-serif);
+        font-size   : clamp(40px, 5.6vw, 76px);
+        line-height : 0.98;
+
+        .accent { color : var(--accent); }
+    }
+
+    .hero-sub { max-width : 48ch; }
+
+    /* the ten grams on a card, the two prices one above the other, the later one in the gold's own deep tone */
+    .ten-card {
+        margin-top    : calc(var(--small) + 48px);
+        padding       : 18px 22px 16px;
+        border        : 1px solid hsl(var(--sand));
+        background    : hsl(var(--ivory));
+        font-family   : var(--font-serif);
+        color         : hsl(var(--charcoal));
+
+        p { margin : 0; }
+        .ten-bar { display : block; width : min(100%, 300px); height : auto; margin : -4px auto 10px; }
+        .ten-head { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; letter-spacing : 0.08em; text-transform : uppercase; color : var(--ink-soft); padding-bottom : 10px; border-bottom : 1px dashed var(--ink-faint); }
+        .ten-line { display : flex; justify-content : space-between; align-items : baseline; gap : 16px; padding : 12px 0; border-bottom : 1px dotted var(--ink-faint); }
+        .ten-when { font-size : 15px; }
+        .ten-price { font-family : var(--font-mono); font-variant-numeric : tabular-nums; font-size : 26px; color : var(--heading-text-colour); &.is-now { color : var(--gold-deep); font-weight : 600; } }
+        .ten-foot { padding-top : 12px; font-family : var(--font-sans-serif); font-size : 12px; color : var(--ink-soft); }
+    }
+
+    /* the bar: the gold's tones from a bright edge to a deep shadow, the marks stamped in the deep tone */
+    .bar-light  { stop-color : color-mix(in oklch, hsl(var(--turmeric)), white 45%); }
+    .bar-mid    { stop-color : hsl(var(--turmeric)); }
+    .bar-deep   { stop-color : color-mix(in oklch, hsl(var(--turmeric)), black 25%); }
+    .bar-shadow { stop-color : color-mix(in oklch, hsl(var(--turmeric)), black 50%); }
+    .bar-stamp  { fill : none; stroke : color-mix(in oklch, hsl(var(--turmeric)), black 35%); stroke-width : 1.2; opacity : 0.7; }
+    .bar-weight { font-family : var(--font-serif); font-weight : 700; font-size : 34px; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); letter-spacing : 0.02em; }
+    .bar-fine   { font-family : var(--font-sans-serif); font-weight : 600; font-size : 11px; letter-spacing : 0.16em; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); }
+    .bar-small  { font-family : var(--font-sans-serif); font-weight : 600; font-size : 9px; letter-spacing : 0.14em; fill : color-mix(in oklch, hsl(var(--turmeric)), black 40%); }
+
+    /* THE CHAPTERS =============================================================================================== */
+    .chapter {
+        padding-top    : var(--large);
+        padding-bottom : var(--medium);
+    }
+
+    .data-set { padding-bottom : var(--nano); }
+    .page-foot { background : linear-gradient(to top, color-mix(in oklab, hsl(var(--indivara)), transparent 91%) 0, color-mix(in oklab, hsl(var(--indivara)), transparent 97%) 40%, transparent 85%); }
+    #tgq-sources {
+        padding-bottom : var(--medium);
+        hr { height : 1px; background : var(--rule); }
+    }
+
+    .emo { font-size : 1.15em; }
+
+    .chapter-title { max-width : 24ch; }
+    .chapter-text  { max-width : 60ch; }
+
+    /* A figure in a sentence: mono, a shade heavier, on a soft wash of the accent, so the numbers carry the story. */
+    .fig {
+        font-family          : var(--font-mono);
+        font-variant-numeric : tabular-nums;
+        font-weight          : 600;
+        font-size            : 0.9em;
+        padding              : 0.02em 0.22em;
+        border-radius        : 4px;
+        background           : color-mix(in oklch, var(--accent), transparent 88%);
+        color                : var(--heading-text-colour);
+        white-space          : nowrap;
+    }
+
+    /* In the title the figures are simply bold in the running serif. */
+    .figs-bold .fig {
+        font-family   : inherit;
+        font-size     : inherit;
+        font-weight   : 700;
+        padding       : 0;
+        border-radius : 0;
+        background    : none;
+        color         : inherit;
+    }
+
+    /* THE FULL-SCREEN CHAPTERS =================================================================================== */
+    /* A chapter that fills the screen, its parts fading in one after another once it is in view; a pinned chapter
+       holds the screen for a stretch of scroll before the page moves on. */
+    .pinned {
+        padding : 0;
+
+        .pinned-frame {
+            position    : relative;
+            display     : flex;
+            align-items : center;
+            min-height  : 100vh;
+            min-height  : 100svh;
+            padding     : var(--medium) 0;
+            box-sizing  : border-box;
+
+            > [data-row] { width : 100%; }
+        }
+
+        &.is-pinned { height : var(--hold); }
+        &.is-pinned .pinned-frame { position : sticky; top : 0; height : 100vh; height : 100svh; }
+        &.is-still .pinned-frame { min-height : 0; padding : var(--large) 0 var(--medium); }
+    }
+
+    .r1, .r2, .r3, .r4 {
+        opacity    : 0;
+        transition : opacity 0.7s ease, translate 0.7s ease;
+        translate  : 0 14px;
+    }
+    svg .r1, svg .r2 { translate : none; }
+    .s1 .r1, .s2 .r2, .s3 .r3, .s4 .r4,
+    .is-still .r1, .is-still .r2, .is-still .r3, .is-still .r4,
+    .chapter:not(.pinned) .r1, .hero .r1 { opacity : 1; translate : none; }
+
+    /* the chapters alternate between the page's paper and a faint ivory, with a breath of the accent in a corner */
+    .on-ivory {
+        background : var(--ivory-faint);
+        .pinned-frame { background : radial-gradient(ellipse 70% 80% at 0% 100%, color-mix(in oklab, hsl(var(--indivara)), transparent 88%), transparent 70%); }
+    }
+    .on-paper .pinned-frame { background : radial-gradient(ellipse 60% 70% at 100% 0%, color-mix(in oklab, hsl(var(--turmeric)), transparent 90%), transparent 70%); }
+    /* the race chapter: on ivory, with the paper chapters' warm wash */
+    #against-prices { background : var(--ivory-faint); }
+
+    /* THE FIELDS ================================================================================================= */
+    /* The reader's fields, set apart from the page: a label above each, a firm border, the accent on focus. */
+    .necklace-fields, .race-fields {
+        display               : grid;
+        grid-template-columns : 1fr 1.6fr;
+        gap                   : 14px;
+        margin-bottom         : 16px;
+
+        label { display : flex; flex-direction : column; gap : 6px; font-size : 12px; font-weight : 600; color : var(--ink-soft); }
+
+        select, input {
+            width         : 100%;
+            padding       : 10px 14px;
+            border        : 1.5px solid color-mix(in oklch, var(--ink), transparent 60%);
+            border-radius : 6px;
+            background    : var(--paper);
+            color         : var(--heading-text-colour);
+            font-family   : var(--font-mono);
+            font-size     : 16px;
+            font-variant-numeric : tabular-nums;
+
+            &:hover { border-color : var(--ink); }
+            &:focus-visible { outline : none; border-color : var(--accent); box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 78%); }
+        }
+
+        select {
+            appearance          : none;
+            padding-right       : 36px;
+            background-image    : linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+            background-position : calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+            background-size     : 6px 6px, 6px 6px;
+            background-repeat   : no-repeat;
+        }
+    }
+    .race-fields {
+        grid-template-columns : 180px 1fr;
+        align-items           : end;
+    }
+    /* the race's controls above the piles: the scrubber left, the toggle right */
+    .race-controls {
+        display               : grid;
+        grid-template-columns : minmax(0, 1fr) auto;
+        align-items           : start;
+        gap                   : 18px 32px;
+        margin                : 0 0 8px;
+    }
+    #against-prices .race-card { max-width : 60ch; margin-top : 36px; }
+    #against-prices .chapter-text > p { font-size : clamp(17px, 1.35vw, 20px); line-height : 1.4; }
+    /* The race's scoreboard: the two runners' multiples and gold's lead, each a figure over a word or two. */
+    .race-card {
+        margin      : 0;
+        padding     : 16px 20px 18px;
+        border      : 1px solid hsl(var(--sand));
+        background  : hsl(var(--ivory));
+        p { margin : 0; }
+        .race-head  { font-family : var(--font-serif); font-size : 15px; font-weight : 700; line-height : 1.3; color : var(--heading-text-colour); margin-bottom : 12px; }
+        .race-stats { display : flex; flex-wrap : wrap; gap : 10px 44px; }
+        .race-stat  { display : flex; flex : 0 0 auto; flex-direction : column; gap : 6px; }
+        .race-stat span   { font-family : var(--font-serif); font-size : 14px; line-height : 1.25; color : var(--ink); white-space : nowrap; }
+        .race-stat strong { font-family : var(--font-mono); font-variant-numeric : tabular-nums; font-weight : 700; font-size : 24px; line-height : 1.1; color : var(--heading-text-colour); }
+        .is-gold strong   { color : var(--gold-deep); }
+        .is-prices strong { color : var(--prices); }
+    }
+
+    /* THE NECKLACE =============================================================================================== */
+    .necklace-control {
+        display               : grid;
+        grid-template-columns : auto 1fr auto auto;
+        align-items           : center;
+        gap                   : 14px;
+        padding               : 4px 0 10px;
+
+        label { font-size : 12px; font-weight : 600; color : var(--ink-soft); }
+        input[type="range"] {
+            width      : 100%;
+            height     : 24px;
+            margin     : 0;
+            appearance : none;
+            background : transparent;
+            outline    : none;
+            cursor     : pointer;
+
+            &::-webkit-slider-runnable-track { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
+            &::-moz-range-track              { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
+            &::-moz-range-progress           { height : 5px; border-radius : 3px; background : var(--accent); }
+            &::-webkit-slider-thumb { appearance : none; width : 16px; height : 16px; margin-top : -5.5px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
+            &::-moz-range-thumb     { width : 16px; height : 16px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
+            &:focus-visible::-webkit-slider-thumb { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
+            &:focus-visible::-moz-range-thumb     { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
+        }
+    }
+    .necklace-year {
+        font-family          : var(--font-mono);
+        font-variant-numeric : tabular-nums;
+        font-size            : 22px;
+        color                : var(--heading-text-colour);
+    }
+    .play-pill {
+        padding       : 4px 12px;
+        border        : 1px solid var(--accent);
+        border-radius : 999px;
+        background    : transparent;
+        color         : var(--accent);
+        font-family   : var(--font-sans-serif);
+        font-size     : 12px;
+        font-weight   : 600;
+        cursor        : pointer;
+        &.is-playing { background : var(--accent); color : white; }
+    }
+
+    .necklace-stage {
+        display               : grid;
+        grid-template-columns : minmax(0, 1fr) minmax(200px, 0.45fr);
+        align-items           : center;
+        gap                   : 24px;
+    }
+    .necklace-svg {
+        display : block;
+        width   : 100%;
+        height  : auto;
+    }
+    .necklace-thread { transition : opacity 0.45s ease; &.is-off { opacity : 0; } }
+    .necklace-thread path { fill : none; stroke : color-mix(in oklch, var(--gold-deep), transparent 50%); stroke-width : 1; }
+    .necklace-clasp  { fill : var(--gold); stroke : var(--gold-deep); stroke-width : 1.5; }
+    .necklace-bead   { stroke : color-mix(in oklch, var(--gold-deep), transparent 30%); stroke-width : 0.5; transition : opacity 0.45s ease, r 0.3s ease; &.is-off { opacity : 0; } }
+    .bead-light { stop-color : color-mix(in oklch, hsl(var(--turmeric)), white 55%); }
+    .bead-mid   { stop-color : hsl(var(--turmeric)); }
+    .bead-deep  { stop-color : color-mix(in oklch, hsl(var(--turmeric)), black 35%); }
+    .necklace-readout {
+        .necklace-count { display : flex; flex-direction : column; margin : 0 0 10px; }
+        .necklace-count strong { font-family : var(--font-mono); font-weight : 600; font-size : clamp(32px, 3vw, 44px); line-height : 1; color : var(--gold-deep); }
+        .necklace-count span { font-family : var(--font-serif); font-size : 15px; color : var(--ink-soft); margin-top : 4px; }
+        .necklace-line { margin : 0 0 10px; font-family : var(--font-serif); font-size : clamp(15px, 1.3vw, 18px); line-height : 1.4; color : var(--ink); }
+        .necklace-line strong { font-family : var(--font-mono); font-weight : 600; color : var(--ink); }
+        .is-soft { color : var(--ink-soft); font-size : 14px; }
+    }
+
+    /* THE CHARTS ================================================================================================= */
+    .chart-wrap { position : relative; }
+    .chart-scroll { overflow-x : auto; }
+    .chart-svg { display : block; max-width : 100%; }
+
+    .grid-line {
+        line { stroke : var(--rule); }
+        &.is-one line { stroke : color-mix(in oklch, var(--ink), transparent 55%); }
+        text { font-family : var(--font-sans-serif); font-size : 11px; fill : var(--ink-soft); }
+    }
+    .axis-label { font-family : var(--font-sans-serif); font-size : 11px; fill : var(--ink-soft); }
+    .end-label {
+        circle { fill : var(--gold-deep); }
+        text { font-family : var(--font-mono); font-size : 12px; font-weight : 400; fill : var(--heading-text-colour); }
+        &.is-gold { fill : var(--gold-deep); }
+        &.is-prices { fill : var(--prices); }
+    }
+    .hot-line { stroke : color-mix(in oklch, var(--ink), transparent 60%); stroke-dasharray : 3 3; }
+    .hot-dot  { fill : var(--gold-deep); stroke : var(--paper); stroke-width : 2; &.is-prices { fill : var(--prices); } }
+
+    .area-top  { stop-color : var(--gold); stop-opacity : 0.45; }
+    .area-foot { stop-color : var(--gold); stop-opacity : 0.04; }
+    .end-label .is-peak { fill : var(--gap); }
+    .price-line { fill : none; stroke : var(--gold-deep); stroke-width : 2; stroke-linejoin : round; }
+    .duty-mark {
+        line { stroke : var(--gap); stroke-dasharray : 4 4; }
+        text { font-family : var(--font-sans-serif); font-size : 11px; fill : var(--gap); }
+    }
+
+    /* The race's piles, in 3D: the canvas, the figures above the piles and the names on the ground before them. */
+    .race-stage {
+        position : relative;
+        margin   : 0;
+        &.is-loading { aspect-ratio : 1.1 / 1; max-height : 74vh; }
+    }
+    .race-canvas {
+        aspect-ratio : 1.1 / 1;
+        max-height   : 74vh;
+        canvas { display : block; width : 100%; height : 100%; }
+    }
+    .pile-tag {
+        position       : absolute;
+        left           : 0;
+        top            : 0;
+        pointer-events : none;
+        white-space    : nowrap;
+        text-align     : center;
+    }
+    .pile-tag-count {
+        font-family          : var(--font-mono);
+        font-variant-numeric : tabular-nums;
+        font-weight          : 700;
+        font-size            : 20px;
+        line-height          : 1.1;
+        color                : var(--heading-text-colour);
+        &.is-gold { color : var(--gold-deep); }
+    }
+    .pile-tag-name {
+        display        : flex;
+        flex-direction : column;
+        padding-top    : 14px;
+        font-family    : var(--font-serif);
+        font-size      : 15px;
+        line-height    : 1.2;
+        color          : var(--heading-text-colour);
+        .pile-tag-sub { font-family : var(--font-sans-serif); font-size : 11px; color : var(--ink-soft); }
+    }
+    .race-fallback {
+        position   : absolute;
+        inset      : auto 16px 45% 16px;
+        text-align : center;
+        font-size  : 14px;
+        color      : var(--ink-soft);
+    }
+
+    .share-area { fill : color-mix(in oklch, var(--gold), transparent 78%); }
+    .share-line { fill : none; stroke : var(--gold-deep); stroke-width : 2; stroke-linejoin : round; }
+
+    /* the engines: three colours, one a segment, with a key beneath */
+    .engines-svg {
+        .row-label { font-family : var(--font-serif); font-size : 15px; fill : var(--heading-text-colour); }
+        .row-sub   { font-family : var(--font-sans-serif); font-size : 11px; fill : var(--ink-soft); }
+        .net-mark  { stroke : var(--heading-text-colour); stroke-width : 2; }
+        .net-label { font-family : var(--font-mono); font-size : 12px; font-weight : 400; fill : var(--heading-text-colour); }
+        .seg-label { font-family : var(--font-mono); font-size : 11px; font-weight : 400; fill : hsl(var(--charcoal)); pointer-events : none; &.is-rate { fill : white; } }
+        .one-line  { stroke : color-mix(in oklch, var(--ink), transparent 40%); }
+        .is-whole .row-label { font-weight : 700; }
+    }
+    .engine-london  { fill : var(--engine-gold); }
+    .engine-rate    { fill : var(--rupee); }
+    .engine-premium { fill : var(--gap); }
+    .engine-key, .chart-key {
+        display    : flex;
+        flex-wrap  : wrap;
+        justify-content : center;
+        gap        : 8px 22px;
+        margin     : 18px 0 0;
+        padding    : 0;
+        list-style : none;
+        font-size  : 13px;
+        color      : var(--ink);
+        li { display : flex; align-items : center; gap : 8px; }
+        .swatch { width : 14px; height : 14px; border-radius : 3px; &.engine-london { background : var(--engine-gold); } &.is-gold { background : var(--gold-deep); } &.is-prices { background : var(--prices); } &.engine-rate { background : var(--rupee); } &.engine-premium { background : var(--gap); } }
+    }
+
+    /* the tonnes beside the share, on a card */
+    /* The sentence as a formula: the result, an equals sign, and the three engines joined by multiplication signs,
+       each term a tinted chip in its engine's colour with what it is measured in beneath. */
+    .formula {
+        display     : inline-flex;
+        flex-wrap   : wrap;
+        align-items : center;
+        gap         : 10px 28px;
+        margin      : 12px 0 0;
+        padding     : 22px 30px;
+        border      : 1px solid color-mix(in oklab, hsl(var(--indivara)), hsl(var(--sand)) 78%);
+        background  : hsl(var(--ivory));
+        .formula-term {
+            display        : inline-flex;
+            flex-direction : column;
+            gap            : 4px;
+            &.is-london  { --series : var(--engine-gold); }
+            &.is-rate    { --series : var(--rupee); }
+            &.is-premium { --series : var(--gap); }
+        }
+        .formula-name { font-family : var(--font-serif); font-weight : 700; font-size : 20px; line-height : 1.2; color : var(--heading-text-colour); white-space : nowrap; }
+        .formula-sub  { font-family : var(--font-sans-serif); font-size : 13px; line-height : 1.25; color : var(--ink-soft); }
+        .formula-op   { font-family : var(--font-mono); font-size : 26px; line-height : 1; color : var(--ink-soft); }
+    }
+
+    /* The engines chapter: the title and the formula across the full width, then the card and the chart side by side. */
+    .engines-chapter {
+        .pinned-frame { flex-direction : column; justify-content : center; align-items : stretch; background : radial-gradient(ellipse 70% 80% at 100% 0%, color-mix(in oklab, hsl(var(--indivara)), transparent 88%), transparent 70%); }
+        .chapter-text, .chapter-title { max-width : none; }
+        .chapter-text { margin-bottom : 56px; }
+    }
+
+    .tonnes-card {
+        margin     : 16px 0 0;
+        padding    : 14px 18px;
+        border     : 1px solid hsl(var(--sand));
+        background : hsl(var(--ivory));
+        max-width  : 44ch;
+        p { margin : 0; }
+        .tonnes-head { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; letter-spacing : 0.08em; text-transform : uppercase; color : var(--ink-soft); margin-bottom : 8px; }
+        .tonnes-line { font-family : var(--font-serif); font-size : 15px; line-height : 1.4; color : var(--ink); strong { font-family : var(--font-mono); font-weight : 600; color : var(--gold-deep); } }
+        .tonnes-line + .tonnes-line { margin-top : 4px; }
+    }
+
+    /* A tooltip at a point inside a chart: the value leads, the label follows. */
+    .chart-tip {
+        position       : absolute;
+        transform      : translate(-50%, -100%);
+        display        : flex;
+        flex-direction : column;
+        gap            : 2px;
+        padding        : 8px 12px;
+        border         : 1px solid var(--rule);
+        background     : var(--paper);
+        box-shadow     : 0 4px 14px color-mix(in oklch, black, transparent 88%);
+        font-size      : 12px;
+        color          : var(--ink);
+        white-space    : nowrap;
+        pointer-events : none;
+        z-index        : 2;
+        strong { font-family : var(--font-mono); font-size : 14px; color : var(--heading-text-colour); }
+    }
+
+    /* THE FIGURES ================================================================================================ */
+    .story-figure {
+        margin     : 0 0 24px;
+        padding    : 0;
+        border     : none;
+        background : transparent;
+
+        figcaption {
+            display        : flex;
+            flex-direction : column;
+            gap            : 4px;
+            margin-bottom  : 16px;
+        }
+    }
+
+    .figure-title {
+        font-weight : 600;
+        font-size   : 15px;
+        color       : var(--heading-text-colour);
+    }
+    .figure-large .figure-title {
+        font-family : var(--font-serif);
+        font-weight : 500;
+        font-size   : clamp(17px, 1.5vw, 20px);
+        line-height : 1.2;
+    }
+
+    .figure-head {
+        display         : flex;
+        align-items     : center;
+        justify-content : space-between;
+        gap             : 16px;
+        flex-wrap       : wrap;
+    }
+    /* the race figure: no units line, so the heading itself carries the space before the fields */
+    .figure-head .view-toggle { margin-left : auto; }
+
+    .figure-units, .figure-note {
+        font-size : 13px;
+        color     : var(--ink-soft);
+    }
+    .figure-note { margin : 12px 0 0; }
+
+    .view-toggle {
+        display       : inline-flex;
+        flex-shrink   : 0;
+        border        : 1px solid var(--accent);
+        border-radius : 4px;
+        overflow      : hidden;
+
+        button {
+            padding     : 6px 12px;
+            border      : 0;
+            background  : transparent;
+            color       : var(--accent);
+            font        : inherit;
+            font-size   : 12px;
+            font-weight : 600;
+            cursor      : pointer;
+
+            & + button { border-left : 1px solid var(--accent); }
+            &:hover { background : color-mix(in oklch, var(--accent), transparent 90%); }
+            &.is-on { background : var(--accent); color : var(--white); }
+            &:focus-visible { outline : 2px solid var(--accent); outline-offset : 2px; }
+        }
+    }
+
+    .table-scroll {
+        max-height : 360px;
+        overflow   : auto;
+        margin-top : 8px;
+
+        table { background : transparent; }
+        thead th {
+            position   : sticky;
+            top        : 0;
+            z-index    : 1;
+            background : var(--table-ground, var(--paper));
+            box-shadow : inset 0 -1px 0 var(--rule);
+        }
+    }
+    .on-ivory .table-scroll, #against-prices .table-scroll { --table-ground : var(--ivory-faint); }
+
+    .year-table { overflow-x : auto; }
+
+    .table-scroll tr.is-strong td { font-weight : 700; }
+    /* a figure's table: a touch larger and a shade lighter, the marked row in full ink */
+    .table-scroll table {
+        th { font-size : 12px; }
+        td { font-size : 14.5px; padding : 8px 10px; color : color-mix(in oklch, var(--ink), transparent 22%); }
+        tr.is-strong td { color : var(--ink); }
+    }
+    .year-table table, .table-scroll table {
+        width           : 100%;
+        border-collapse : collapse;
+        font-size       : 13px;
+
+        th, td {
+            padding       : 6px 10px;
+            border-bottom : 1px solid var(--rule);
+            text-align    : left;
+            white-space   : nowrap;
+        }
+        th { font-size : 11px; font-weight : 600; text-transform : uppercase; color : var(--ink-soft); }
+        .num { text-align : right; font-family : var(--font-mono); font-variant-numeric : tabular-nums; }
+        .lens-year td { background : color-mix(in oklch, var(--accent), transparent 92%); font-weight : 600; }
+    }
+    .story-figure:has(.year-table) .view-toggle { display : none; }
+
+    /* THE SOURCES ================================================================================================ */
+    .downloads-head { padding-top : var(--nano); }
+    .download-link {
+        display    : block;
+        width      : fit-content;
+        color      : var(--accent);
+        transition : opacity 0.2s ease;
+        & + .download-link { margin-top : 10px; }
+        &:hover { opacity : 0.7; }
+    }
+
+    @media (max-width : 900px) {
+        .hero { padding-bottom : var(--small); }
+        .ten-card { margin-top : var(--small); }
+        .chapter-text { margin-bottom : 24px; }
+        .necklace-fields, .race-fields { grid-template-columns : 1fr; }
+        .necklace-stage { grid-template-columns : 1fr; }
+        .necklace-control { grid-template-columns : auto 1fr auto auto; }
+        .race-controls { grid-template-columns : 1fr; gap : 12px; .view-toggle { justify-self : start; } }
+        /* a phone's screen is shorter than these chapters, so they flow instead of holding */
+        .pinned.is-pinned { height : auto; }
+        .pinned.is-pinned .pinned-frame { position : relative; height : auto; min-height : 0; padding : var(--medium) 0; }
+        .pinned .pinned-frame { min-height : 0; padding : var(--medium) 0; }
+    }
+}
+
+.theme-dark #the-10-gram-question-page {
+    --accent      : color-mix(in oklch, hsl(var(--indivara)), var(--white) 42%);
+    --ivory-faint : color-mix(in srgb, hsl(var(--ivory)), black 84%);
+    --gold-deep   : color-mix(in oklch, hsl(var(--turmeric)), white 10%);
+    --engine-gold : color-mix(in oklab, hsl(var(--turmeric)), hsl(var(--sand)) 30%);
+    --rupee       : color-mix(in oklab, hsl(var(--indivara)), hsl(var(--sand)) 45%);
+    --gap         : color-mix(in oklab, hsl(var(--terracotta)), hsl(var(--sand)) 30%);
+    --c-warm      : var(--salmon-light20);
+    --c-faint     : var(--grey-dark60);
+
+    .ten-card, .tonnes-card, .formula, .race-card { background : var(--ivory-faint); border-color : var(--rule); color : var(--ink); }
+    .formula { border-color : color-mix(in oklab, hsl(var(--indivara)), var(--ivory-faint) 62%); }
+}

@@ -23,6 +23,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "How do you measure a rupee?",
                 description : "A dollar costs more than twice as many rupees as in 2004, yet Indian goods cost buyers abroad about what they did then. Three ways to measure the rupee, and the question each one answers.",
             },
+            {
+                linkTo      : "/stories/the-10-gram-question",
+                label       : "The 10-gram question",
+                description : "Ten grams of gold cost about 42 times as many rupees as in 1990. How much of that is gold getting dearer in dollars, how much the rupee getting cheaper, and how much the gap between the world price and Mumbai’s.",
+            },
         ],
     },
     {
@@ -62,6 +67,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 linkTo      : "/stories/the-phone-pays-the-cash-stays",
                 label       : "The phone pays, but the cash stays",
                 description : "UPI payments grew 19.4 times between November 2019 and July 2026. Over the ten years to March 2026, currency in circulation grew 2.5 times.",
+            },
+            {
+                linkTo      : "/stories/money-in-money-out",
+                label       : "Money in, money out",
+                description : "Indians abroad sent home $135.4 billion in 2024-25 and keep $165.7 billion in Indian banks; in 2023-24 they sent 1.67 times what foreign companies invested. Indians at home sent $29.6 billion abroad, more than half of it for travel.",
             },
         ],
     },

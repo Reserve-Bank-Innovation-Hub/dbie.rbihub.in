@@ -188,6 +188,8 @@
     /* the receipt and its foot follow the paragraphs closely */
     .on-sandalwood .chapter-text.r1 { margin-bottom : 0; }
     .on-sandalwood .receipt-two { margin-top : 6px; .receipt-foot { margin-top : 8px; } }
+    /* on a wide screen the note sits on the ground's darkening wash, so it goes near-white; on a phone it does not */
+    @media (min-width : 901px) { .on-sandalwood .receipt-two .receipt-foot { color : color-mix(in oklch, white, transparent 18%); } }
 
     /* A figure in a sentence: mono, a shade heavier, on a soft wash of the accent, so the numbers carry the story. */
     .fig {
@@ -634,55 +636,10 @@
     /* THE SHELVES ================================================================================================ */
     .shelves { display : flex; flex-direction : column; }
 
+    /* the year control: the shared Timeline (play, the track, the year) under a rule */
     .shelf-control {
-        display       : grid;
-        grid-template-columns : auto 1fr auto auto;
-        align-items   : center;
-        gap           : 14px;
         padding       : 4px 0 14px;
         border-bottom : 1px solid var(--rule);
-
-        label { font-size : 12px; font-weight : 600; color : var(--ink-soft); }
-        /* the year slider drawn plain: a hairline track, the accent round for a thumb, no native border or ring */
-        input[type="range"] {
-            width      : 100%;
-            height     : 24px;
-            margin     : 0;
-            appearance : none;
-            background : transparent;
-            outline    : none;
-            cursor     : pointer;
-
-            &::-webkit-slider-runnable-track { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
-            &::-moz-range-track              { height : 5px; border : 0; border-radius : 3px; background : var(--rule); }
-            &::-moz-range-progress           { height : 5px; border-radius : 3px; background : var(--accent); }
-            &::-webkit-slider-thumb { appearance : none; width : 16px; height : 16px; margin-top : -5.5px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
-            &::-moz-range-thumb     { width : 16px; height : 16px; border : 0; border-radius : 50%; background : var(--accent); box-shadow : none; }
-            &:focus-visible::-webkit-slider-thumb { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
-            &:focus-visible::-moz-range-thumb     { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
-        }
-    }
-
-    /* the play button beside the year: a small outlined pill, filled while the years run */
-    .shelf-play {
-        padding       : 4px 12px;
-        border        : 1px solid var(--accent);
-        border-radius : 999px;
-        background    : transparent;
-        color         : var(--accent);
-        font-family   : var(--font-sans-serif);
-        font-size     : 12px;
-        font-weight   : 600;
-        cursor        : pointer;
-
-        &.is-playing { background : var(--accent); color : white; }
-    }
-
-    .shelf-year {
-        font-family          : var(--font-mono);
-        font-variant-numeric : tabular-nums;
-        font-size            : 22px;
-        color                : var(--heading-text-colour);
     }
 
     /* the figure split: on a wide screen the heading runs across the top, the figure's title under it with the toggle
@@ -703,7 +660,10 @@
             figcaption     { grid-column : 1; grid-row : 1; margin-bottom : 0; }
             .figure-head   { flex-direction : column; align-items : flex-start; gap : 24px; }
             /* the year slider shares the caption's cell, standing beside the toggle on its line */
-            .shelf-control { grid-column : 1; grid-row : 1; align-self : start; justify-self : start; width : clamp(280px, 24vw, 340px); margin : calc(1.2 * clamp(17px, 1.5vw, 20px) + 25px) 0 0 224px; padding : 0; border-bottom : none; }
+            .shelf-control { grid-column : 1; grid-row : 1; align-self : start; justify-self : start; width : var(--tl-w); margin : calc(1.2 * clamp(17px, 1.5vw, 20px) + 25px) 0 0 0; padding : 0; border-bottom : none; }
+            /* the timeline left under the title, the chart-or-table toggle to its right */
+            --tl-w : clamp(340px, 30vw, 460px);
+            .figure-head .view-toggle { margin-left : calc(var(--tl-w) + 40px); }
             /* the stage runs out to the frame's edges, so the plot is as wide as the screen allows, and sits 65px to the left of centre */
             .shelves-stage { grid-column : 1 / -1; grid-row : 2; aspect-ratio : 2 / 1; max-height : none; margin : 22px calc(-1 * var(--small) + 65px) 0 calc(-1 * var(--small) - 65px); }
             .shelves       { display : contents; }
@@ -754,6 +714,48 @@
         max-height   : 52vh;
         canvas { display : block; width : 100%; height : 100%; }
     }
+
+    /* THE FLAT SHELVES (phone) ===================================================================================== */
+    /* five cards in a grid of two, each its name and count over its units laid flat */
+    .flat-shelves {
+        display               : grid;
+        grid-template-columns : 1fr 1fr;
+        gap                   : 10px;
+        margin                : 14px 0 28px;
+    }
+    .flat-shelf {
+        --unit     : hsl(var(--turmeric));
+        display    : flex;
+        flex-direction : column;
+        gap        : 4px;
+        padding    : 10px 10px 12px;
+        border     : 1px solid hsl(var(--sand));
+        background : color-mix(in oklab, hsl(var(--ivory)), transparent 30%);
+        &.is-gold   { --unit : hsl(var(--turmeric)); }
+        &.is-silver { --unit : hsl(220, 6%, 66%); }
+        &.is-mason  { --unit : hsl(var(--terracotta)); }
+        &.is-usd    { --unit : hsl(var(--neem)); }
+        &.is-wheat  { --unit : hsl(38, 42%, 62%); }
+    }
+    .flat-shelf-head  { display : flex; flex-direction : column; gap : 1px; }
+    .flat-shelf-name  { font-family : var(--font-serif); font-size : 15px; line-height : 1.2; color : var(--heading-text-colour); }
+    .flat-shelf-unit  { font-family : var(--font-sans-serif); font-size : 10.5px; color : var(--ink-soft); }
+    .flat-shelf-count { font-family : var(--font-mono); font-variant-numeric : tabular-nums; font-size : 17px; font-weight : 600; color : var(--heading-text-colour); &.is-missing { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 400; color : var(--ink-soft); } }
+    .flat-units {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 3px;
+        margin-top : 4px;
+    }
+    /* a unit: a small tile filled to its part in the thing's colour, the empty rest a ghost of it */
+    .flat-unit {
+        width      : 10px;
+        height     : 10px;
+        border-radius : 2px;
+        background : linear-gradient(to right, var(--unit) var(--fill), color-mix(in oklab, var(--unit), transparent 80%) var(--fill));
+        transition : background 0.3s ease;
+    }
+    .is-mason .flat-unit { width : 7px; height : 7px; }               /* the mason's fortnights are many, so smaller */
 
     /* the tags lie on the ground beside their tiles; the stage sets their size and lays them in the tiles' direction */
     .shelf-tag {
@@ -887,6 +889,7 @@
     /* under a quantity on the reader's bill, what it costs at the last price, in the note's face, set to the right */
     .bill .receipt-value { text-align : right; }
     .bill .receipt-line  { align-items : center; padding : 14px 0; }
+    .bill .receipt-label { font-size : 19px; gap : 4px; }                /* the things' names lead the reader's bill */
     .receipt-worth {
         display     : block;
         margin-top  : 2px;
@@ -1067,7 +1070,6 @@
         .is-narrow .shelf-tag-name { flex-direction : row; align-items : baseline; gap : 8px; text-align : left; font-size : 15px; .shelf-unit { font-size : 11px; } }
         .is-narrow .shelf-tag-count { font-size : 16px; &.is-missing { font-size : 12px; } }
         .is-narrow .shelf-tag { font-size : 15px !important; }
-        .shelf-control { grid-template-columns : auto 1fr auto auto; }
         .bill-fields { grid-template-columns : 1fr; }
 
         .chapter-text {
@@ -1119,8 +1121,12 @@
 
     .shelves-ground .commodities { opacity : 0.75; }
     .bill { background : var(--paper); }
-    .stat-card { background : var(--ivory-faint); color : var(--ink); }
-    .shelves-ground .figure-split .shelves-aside { background : var(--ivory-faint); border-color : var(--rule); }
+    .flat-shelf { background : var(--ivory-faint); border-color : var(--rule); }
+    .stat-card { background : color-mix(in srgb, hsl(var(--ivory)), black 68%); border-color : color-mix(in srgb, hsl(var(--sand)), black 40%); color : var(--ink); .stat-times { color : var(--c-warm); } }
+    .on-sandalwood .receipt-foot { color : var(--ink-soft); }
+    /* the smaller table (the receipt and its note) has no ground of its own in dark mode, only the card's rule on desktop */
+    .shelves-ground .figure-split .shelves-aside { background : transparent; border-color : var(--rule); }
+    .shelves-ground .shelves-aside .receipt { background : transparent; }
     --c-warm  : var(--salmon-light20);
     --c-faint : var(--grey-dark60);
 }

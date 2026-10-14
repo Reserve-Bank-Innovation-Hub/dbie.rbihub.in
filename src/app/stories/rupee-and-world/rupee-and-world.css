@@ -161,7 +161,7 @@
             font-weight    : 600;
             line-height    : 1.25;
             color          : var(--heading-text-colour);
-            span { font : 700 12px var(--font-mono, monospace); color : var(--c); }
+            span { font : 700 12px var(--font-sans-serif); font-variant-numeric : tabular-nums; color : var(--c); }
         }
         li:nth-child(1) { --c : var(--c-usd); }
         li:nth-child(2) { --c : var(--c-neer); }
@@ -215,6 +215,8 @@
     }
 
     /* a term defined where it first appears */
+    .define summary { display : inline; list-style : none; cursor : pointer; &::-webkit-details-marker { display : none; } }
+    .define .define-more { display : none; }
     .define {
         margin        : 4px 0 10px;
         padding       : 10px 12px;
@@ -1194,6 +1196,9 @@
         .globe-key { display : none; }
         .chips.is-partners { display : none; }
         .step-card .chip-hint { display : none; }
+        /* the explainer opens on a tap, so the card does not cover the chart */
+        .define:not([open]) { padding : 8px 12px; .define-more { display : inline; margin-left : 8px; font-size : 12.5px; font-weight : 600; color : var(--accent); text-decoration : underline; } }
+        .define[open] .define-more { display : none; }
         .story-figure { padding : 16px; }
         .recap { grid-template-columns : 1fr; grid-template-rows : none; row-gap : var(--small); }
         .constellation { grid-template-columns : 1fr; padding : 18px; }
@@ -1210,6 +1215,17 @@
         .recap-card, .recap-inner, .recap-front { grid-row : auto; grid-template-rows : none; display : block; }
         .recap-front > * + * { margin-top : 10px; }
         .chapter [data-portion] + [data-portion] { margin-top : 32px; }
+        /* The illustrations' words are drawn at the picture's scale, which shrinks to about half on a phone: set them
+           larger there, so they read at 10 to 12 pixels on the screen */
+        .basket-caption { font-size : 25px; }
+        .price-tag .tag-month { font-size : 17px; }
+        .scale-scene .pan-label { font-size : 22px; }
+        .scale-scene .scale-month { font-size : 23px; }
+        .scale-scene .scale-caption { font-size : 20px; }
+        .time-jump { font-size : 24px; }
+        .cn-ring-guide text, .cn-ring-100-label { font-size : 19px; }
+        .cn-planet .cn-planet-name { font-size : 19px; }
+        .cn-planet .cn-planet-value { font-size : 21px; }
     }
 
     @media print {

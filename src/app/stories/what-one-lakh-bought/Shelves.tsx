@@ -1,12 +1,14 @@
 "use client";
 
 // REACT CORE ==========================================================================================================
-import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // LOCAL COMPONENTS ====================================================================================================
+import { Timeline } from "@components/Timeline/Timeline";
 import { Figure } from "./chartKit";
+import { FlatShelves } from "./FlatShelves";
 
 // DATA ================================================================================================================
 import { FROM_YEAR, SUM, TO_YEAR, YEARS, Year, inr, kg, grams } from "./data";
@@ -50,7 +52,6 @@ export const Shelves = ({ receipt } : { receipt ? : ReactNode }) => {
     const rootRef = useRef<HTMLDivElement>(null);
     const inView = useInView(rootRef, { amount : 0.4 });
     const prefersReduced = !!useReducedMotion();
-    const id = useId();
 
     useEffect(() => {
         if (!playing || !inView || prefersReduced) return;
@@ -58,6 +59,14 @@ export const Shelves = ({ receipt } : { receipt ? : ReactNode }) => {
         return () => clearTimeout(t);
     }, [ playing, inView, prefersReduced, year ]);
     const pause = () => setPlaying(false);
+    // a phone gets the flat grid in place of the isometric rack, the page's own breakpoint
+    const [ phone, setPhone ] = useState(false);
+    useEffect(() => {
+        const mq = matchMedia("(max-width: 900px)");
+        const on = () => setPhone(mq.matches);
+        on(); mq.addEventListener("change", on);
+        return () => mq.removeEventListener("change", on);
+    }, []);
     const row = YEARS.find(y => y.year === year)!, first = YEARS[0];
     // each shelf's units this year, against the first year's pile, for the rack and its tags
     const stage = useMemo<StageShelf[]>(() => SHELVES.map(s => {
@@ -66,20 +75,14 @@ export const Shelves = ({ receipt } : { receipt ? : ReactNode }) => {
     }), [ row, first ]);
 
     return (
-        <div ref={rootRef} className="shelves-figure" onPointerDownCapture={pause} onKeyDownCapture={pause}>
+        <div ref={rootRef} className="shelves-figure" onPointerDownCapture={e => { if (!(e.target as HTMLElement).closest(".timeline-play")) pause(); }} onKeyDownCapture={e => { if (!(e.target as HTMLElement).closest(".timeline-play")) pause(); }}>
         <Figure title={`What ₹${inr(SUM)} could buy, shelf by shelf`} className="figure-large figure-split" table={TABLE}
             aside={<div className="shelves-aside">{receipt}<p className="figure-note">{NOTE}</p></div>}>
             <div className="shelves">
                 <div className="shelf-control r1">
-                    <label htmlFor={id}>Year</label>
-                    <input id={id} type="range" min={FROM_YEAR} max={TO_YEAR} step={1} value={year} onChange={e => { pause(); setYear(+e.target.value); }} aria-valuetext={`${year}`} />
-                    <output htmlFor={id} className="shelf-year">{year}</output>
-                    {!prefersReduced && (
-                        <button type="button" className={`shelf-play ${playing ? "is-playing" : ""}`} onPointerDown={e => e.stopPropagation()} onKeyDown={e => e.stopPropagation()}
-                            onClick={() => setPlaying(p => !p)} aria-pressed={playing} aria-label={playing ? "Pause the years" : "Play the years"}>{playing ? "Pause" : "Play"}</button>
-                    )}
+                    <Timeline min={FROM_YEAR} max={TO_YEAR} value={year} onChange={v => { pause(); setYear(v); }} playing={playing} onPlay={prefersReduced ? undefined : setPlaying} />
                 </div>
-                <ShelvesStage shelves={stage} />
+                {phone ? <FlatShelves shelves={stage} /> : <ShelvesStage shelves={stage} />}
             </div>
         </Figure>
         </div>
