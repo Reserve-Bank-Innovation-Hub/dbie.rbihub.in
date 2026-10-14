@@ -1,6 +1,6 @@
 /* The opening: one full-screen isometric scene, a bank heading five stacks that share its ₹100, with time running
    along a rail at the foot of the screen as the reader scrolls. The words sit flat over the scene's empty corner. */
-#the-lights-came-on-page {
+#how-households-took-over-the-bank-loan-book-page {
     --gutter : clamp(20px, 6vw, 88px);
     --iso-ground : color-mix(in oklch, var(--sandal) 55%, var(--page));
 
@@ -316,7 +316,7 @@
     }
 }
 
-.theme-dark #the-lights-came-on-page {
+.theme-dark #how-households-took-over-the-bank-loan-book-page {
     --iso-ground : color-mix(in oklch, var(--sandal) 70%, var(--page));
     .iso-bank { --stack : color-mix(in oklch, #e1d5bc 70%, #16151a); }
     .iso-bank .is-hall { --stack : color-mix(in oklch, #e1d5bc 45%, #16151a); }

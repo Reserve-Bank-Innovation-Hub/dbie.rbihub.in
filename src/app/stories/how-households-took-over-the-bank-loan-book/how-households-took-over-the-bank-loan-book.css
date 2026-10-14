@@ -2,7 +2,7 @@
    charcoal ink, terracotta for the accents and for private companies, indivara for individuals, neem for the money,
    the sandal and a warm grey for what is not the point. The dark theme (at the end of the file) swaps the page and
    the ink. opening.css draws the ledger with these same tokens and defines none of its own colours. */
-#the-lights-came-on-page {
+#how-households-took-over-the-bank-loan-book-page {
     --page      : #f2f0e6;
     --card      : #ffffff;
     --sandal    : #e1d5bc;
@@ -452,7 +452,7 @@
 
 /* The dark theme, as the ₹2 lakh line has it: the evening studio for the page, ivory for the ink, the cards and the
    sandal mixed down towards the page, and the marks lifted towards white so they clear the dark surface. */
-.theme-dark #the-lights-came-on-page {
+.theme-dark #how-households-took-over-the-bank-loan-book-page {
     --page     : #16151a;
     --card     : color-mix(in oklch, #f2f0e6 8%, #16151a);
     --sandal   : color-mix(in oklch, #e1d5bc 22%, #16151a);

@@ -44,6 +44,7 @@ const nextConfig = {
     async redirects() {
         return [
             { source : "/stories/cash-didnt-die", destination : "/stories/the-phone-pays-the-cash-stays", permanent : true },
+            { source : "/stories/the-lights-came-on", destination : "/stories/how-households-took-over-the-bank-loan-book", permanent : true },
         ];
     },
     async rewrites() {

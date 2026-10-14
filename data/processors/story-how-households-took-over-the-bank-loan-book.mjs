@@ -1,4 +1,4 @@
-// Processor: story-the-lights-came-on — derives every series for "Companies left, households came" from the
+// Processor: story-how-households-took-over-the-bank-loan-book — derives every series for "How households took over the bank loan book" from the
 // scrape's report exports (data/reports/**, restored by `pnpm data:fetch`), read with the parser the database
 // loader uses, so each grid is the one loaded into Postgres. Nothing is typed by hand.
 //
@@ -27,9 +27,9 @@
 // The table counts loan accounts, not people. Amounts are ₹ crore outstanding.
 //
 // Emits:
-//   out/story-the-lights-came-on.json                     the oracle (data/processors/oracles/ holds the snapshot)
-//   src/app/stories/the-lights-came-on/data.gen.ts        the module the page imports
-//   public/stories/the-lights-came-on/*.csv               the four downloads the page offers
+//   out/story-how-households-took-over-the-bank-loan-book.json                     the oracle (data/processors/oracles/ holds the snapshot)
+//   src/app/stories/how-households-took-over-the-bank-loan-book/data.gen.ts        the module the page imports
+//   public/stories/how-households-took-over-the-bank-loan-book/*.csv               the four downloads the page offers
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,7 +39,7 @@ import { csvRows } from '../../scripts/db/lib.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO      = path.join(__dirname, '../..');
 const OUT_DIR   = path.join(__dirname, 'out');
-const NAME      = 'story-the-lights-came-on';
+const NAME      = 'story-how-households-took-over-the-bank-loan-book';
 
 const PUB       = path.join(REPO, 'data/reports/publication/time-series-publications');
 const QUARTERLY = path.join(PUB, 'quarterly-basic-statistical-return-bsr-1-on-credit-by-scheduled-commercial-banks-excluding-regional-rural-banks');
@@ -468,13 +468,13 @@ const GEN = [
     '};',
     '',
 ].join('\n');
-const genPath = path.join(REPO, 'src/app/stories/the-lights-came-on/data.gen.ts');
+const genPath = path.join(REPO, 'src/app/stories/how-households-took-over-the-bank-loan-book/data.gen.ts');
 fs.mkdirSync(path.dirname(genPath), { recursive : true });
 fs.writeFileSync(genPath, GEN);
 
 // ── the downloads ─────────────────────────────────────────────────────────────────────────────────────────────────
 
-const pubDir = path.join(REPO, 'public/stories/the-lights-came-on');
+const pubDir = path.join(REPO, 'public/stories/how-households-took-over-the-bank-loan-book');
 fs.mkdirSync(pubDir, { recursive : true });
 const old = path.join(pubDir, 'rbi-bsr-table-3-2-occupation-credit.xlsx');
 if (fs.existsSync(old)) fs.unlinkSync(old);   // the hand-saved workbook the earlier story offered; the CSVs replace it
@@ -507,4 +507,4 @@ fs.writeFileSync(path.join(pubDir, 'cpi-general-index-quarterly.csv'), '# MoSPI 
 console.log(`${NAME}: ${QUARTERS.length} quarters (${SOURCE.from} to ${SOURCE.to}), ${MARCHES.length} Marches; self-check passed`);
 passed.forEach(p => console.log('  ok  ' + p));
 console.log(`  CPI ${CPI_LINKED.join(', ')} linked from base 2024 = 100: ${CPI_LINKED.map(k => `${k} ${CPI[k]}`).join(', ')}; prices ${prices}`);
-console.log(`  wrote out/${NAME}.json, src/app/stories/the-lights-came-on/data.gen.ts and 4 CSVs under public/stories/the-lights-came-on/`);
+console.log(`  wrote out/${NAME}.json, src/app/stories/how-households-took-over-the-bank-loan-book/data.gen.ts and 4 CSVs under public/stories/how-households-took-over-the-bank-loan-book/`);

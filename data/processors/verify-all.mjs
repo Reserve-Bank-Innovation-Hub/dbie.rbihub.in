@@ -109,7 +109,7 @@ const datasets = [
   { name: 'state-government-investments', mode: 'exact' },
   { name: 'state-market-borrowings', mode: 'fresh' },
   { name: 'story-external-debt', mode: 'exact' },        // story series — re-snapshot when their sources refresh
-  { name: 'story-the-lights-came-on', mode: 'exact' },
+  { name: 'story-how-households-took-over-the-bank-loan-book', mode: 'exact' },
   { name: 'story-the-two-lakh-line', mode: 'exact' },
   { name: 'story-the-women-who-stayed', mode: 'exact' },
   { name: 'story-what-got-cheaper', mode: 'exact' },

@@ -1,5 +1,5 @@
 // DATA ================================================================================================================
-// What the page derives from data.gen.ts, which data/processors/story-the-lights-came-on.mjs emits from the quarterly
+// What the page derives from data.gen.ts, which data/processors/story-how-households-took-over-the-bank-loan-book.mjs emits from the quarterly
 // Basic Statistical Return, Table 3.2 (DBIE report 958), the annual March 2026 Tables 3.2 and 1.11 (reports 1092 and
 // 1137) and the consumer price index (report 610). Nothing here is typed by hand: every figure is read from QUARTERS,
 // CPI or HEADLINE, so a refresh of the data rewrites the page.
