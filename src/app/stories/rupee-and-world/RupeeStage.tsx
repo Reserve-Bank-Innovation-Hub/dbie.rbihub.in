@@ -250,7 +250,8 @@ const frameOf = (scene : SceneId, w : number, h : number) : Frame => {
     // with the card on the left, the picture moves right; the end labels keep their room on the right either way
     const left = !mobile && CARD_LEFT.has(scene);
     const chart = mobile
-        ? { x0 : 40, x1 : w - 100, y0 : h * 0.1, y1 : h * 0.46 }
+        // on a phone the chart takes the top half, below the section marker, the card the bottom half
+        ? { x0 : 40, x1 : w - 84, y0 : Math.max(104, h * 0.15), y1 : h * 0.48 }
         : left
             ? { x0 : card + Math.max(64, w * 0.05), x1 : w - 150, y0 : h * 0.17, y1 : h * 0.83 }
             : { x0 : Math.max(64, w * 0.05), x1 : w - card - 150, y0 : h * 0.17, y1 : h * 0.83 };
@@ -830,12 +831,15 @@ export const RupeeStage = ({ scene, focus, guess } : StageProps) => {
             <canvas ref={canvasRef} />
 
             {/* THE BASKET OF CURRENCIES, BOUGHT IN 2004 AND IN 2026 */}
-            {F && <CoinBasket scene={scene} box={F.chart} />}
-            {F && <PriceScale scene={scene} box={F.chart} />}
+            {/* the illustrations take the chart's place; on a phone, the full width and the whole top half, so their labels can be read */}
+            {F && <CoinBasket scene={scene} box={F.mobile ? { x0 : 4, x1 : F.chart.x1 + 80, y0 : 56, y1 : F.chart.y1 + 12 } : F.chart} />}
+            {F && <PriceScale scene={scene} box={F.mobile ? { x0 : 4, x1 : F.chart.x1 + 80, y0 : 56, y1 : F.chart.y1 + 12 } : F.chart} />}
             {/* the currency constellation, twice: in rupees after the basket's chart, turned to prices after the answer */}
             {F && (
                 <div className={`coin-scene orbit-scene ${scene === "orbit" || scene === "orbitReal" ? "is-on" : ""}`}
-                    style={{ left : F.chart.x0, top : Math.max(8, F.chart.y0 - 60), width : F.chart.x1 - F.chart.x0 + 120, height : F.chart.y1 - F.chart.y0 + 110 }}>
+                    style={F.mobile
+                        ? { left : 12, top : 56, width : F.chart.x1 + 60, height : F.chart.y1 - 4 }
+                        : { left : F.chart.x0, top : Math.max(8, F.chart.y0 - 60), width : F.chart.x1 - F.chart.x0 + 120, height : F.chart.y1 - F.chart.y0 + 110 }}>
                     <Constellation active={scene === "orbit" || scene === "orbitReal"} realView={scene === "orbitReal"} />
                 </div>
             )}

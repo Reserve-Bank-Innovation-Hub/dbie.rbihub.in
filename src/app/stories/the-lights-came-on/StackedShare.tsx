@@ -33,7 +33,9 @@ export const StackedShare = () => {
     }, []);
 
     const { w, h } = size;
-    const plotW = w - PAD.left - PAD.right;
+    // on a phone the legend's labels are shorter, so it needs less room on the right and the bars get more
+    const padR = w < 500 ? 118 : PAD.right;
+    const plotW = w - PAD.left - padR;
     const step = plotW / BOOK_MIX.length;
     const barW = step * 0.68;
     const yOf = (v : number) => (h - PAD.bottom) - (v / 100) * (h - PAD.top - PAD.bottom);
@@ -48,7 +50,7 @@ export const StackedShare = () => {
                     {/* y gridlines */}
                     {[ 0, 25, 50, 75, 100 ].map((v) => (
                         <g key={v}>
-                            <line x1={PAD.left} y1={yOf(v)} x2={w - PAD.right} y2={yOf(v)} className="grid-line" />
+                            <line x1={PAD.left} y1={yOf(v)} x2={w - padR} y2={yOf(v)} className="grid-line" />
                             <text x={PAD.left - 8} y={yOf(v) + 4} textAnchor="end" className="axis-label">₹{v}</text>
                         </g>
                     ))}
@@ -71,7 +73,7 @@ export const StackedShare = () => {
                                         />
                                     );
                                 })}
-                                {(!narrow || i % 2 === 1 || i === 0) && (
+                                {(!narrow || i % 3 === 0 || i === BOOK_MIX.length - 1) && (
                                     <text x={x + barW / 2} y={h - 10} textAnchor="middle" className="axis-label">
                                         {narrow ? `'${String(row.y).slice(2)}` : row.y}
                                     </text>
@@ -110,7 +112,7 @@ export const StackedShare = () => {
                                         ₹{v.toFixed(1)}
                                     </text>
                                     <text x={xEnd + 16} y={yMid + 11} className="legend-label">
-                                        {s.label}
+                                        {w < 500 ? s.label.replace(" to individuals", "").replace("Private companies", "Companies") : s.label}
                                     </text>
                                 </g>
                             );

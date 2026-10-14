@@ -232,7 +232,7 @@
         .case-side { fill : none; stroke : #2f2f2f; stroke-width : 5; stroke-linecap : round; }
         .tag-string { fill : none; stroke : #6d6a62; stroke-width : 1.2; }
         .tag-card { fill : #f2f0e6; stroke : #a8957a; } .tag-hole { fill : #a8957a; }
-        .tag-text { font : 700 9px var(--font-sans-serif); fill : #ba644f; letter-spacing : 0.06em; }
+        .tag-text { font : 700 10.5px var(--font-sans-serif); fill : #ba644f; letter-spacing : 0.04em; }
         .door-face { stroke : var(--shell-dark); stroke-width : 1; }
         .rib-shade { stroke : var(--shell-dark); stroke-width : 2.5; stroke-linecap : round; opacity : 0.7; }
         .rib-light { stroke : var(--shell-light); stroke-width : 1.5; stroke-linecap : round; opacity : 0.8; }
@@ -493,7 +493,7 @@
     }
     .shelf-play { padding : 4px 12px; border : 1px solid var(--accent); border-radius : 999px; background : transparent; color : var(--accent); font : 600 12px var(--font-sans-serif); cursor : pointer;
         &.is-playing { background : var(--accent); color : #fff; } }
-    .shelf-year { font-family : var(--font-mono, ui-monospace, monospace); font-variant-numeric : tabular-nums; font-size : 22px; color : var(--ink); }
+    .shelf-year { font : 700 22px var(--font-sans-serif); font-variant-numeric : tabular-nums; color : var(--ink); }
     .shelf-total { font : 600 14px var(--font-sans-serif); color : var(--accent); white-space : nowrap; }
     .shelves-stage { position : relative; flex : 1; min-height : 0; margin : 6px 0 0; &.is-loading { min-height : 50vh; } }
     .shelves-canvas { position : absolute; inset : 0; canvas { display : block; width : 100%; height : 100%; } }
@@ -503,9 +503,25 @@
         .shelf-unit { font-family : var(--font-sans-serif); font-size : 0.62em; color : var(--ink-soft); }
         .emo { font-size : 1.15em; }
     }
-    .shelf-tag-count { font-family : var(--font-mono, ui-monospace, monospace); font-variant-numeric : tabular-nums; line-height : 1.15; color : var(--ink); }
+    .shelf-tag-count { font-family : var(--font-sans-serif); font-weight : 600; font-variant-numeric : tabular-nums; line-height : 1.15; color : var(--ink); }
     .shelves-fallback { position : absolute; inset : auto 16px 45% 16px; text-align : center; font-size : 14px; color : var(--ink-soft); }
     .shelf-note { margin : 6px 0 0; font-size : 12px; color : var(--ink-soft); }
+    .flat-shelves { list-style : none; margin : 10px 0 0; padding : 0; display : grid; gap : 10px; flex : 1; align-content : start; }
+    .flat-shelf {
+        --tone : color-mix(in srgb, var(--box), var(--ink) 30%);
+        &.is-travel { --tone : var(--out); } &.is-relatives { --tone : color-mix(in srgb, var(--out), var(--gulf) 55%); }
+        &.is-gifts { --tone : var(--gulf); } &.is-study { --tone : var(--kept); } &.is-investment { --tone : var(--in); }
+        .flat-head { display : flex; justify-content : space-between; align-items : baseline; gap : 8px; font-size : 13.5px; color : var(--ink);
+            b { font : 600 13px var(--font-sans-serif); font-variant-numeric : tabular-nums; } .emo { font-size : 1.1em; } }
+        .flat-row { display : flex; flex-wrap : wrap; gap : 4px; margin-top : 4px; }
+        .flat-unit {
+            display : grid; place-items : center; width : 24px; height : 24px; border-radius : 6px;
+            background : color-mix(in srgb, var(--tone), transparent 85%); color : color-mix(in srgb, var(--tone), transparent 50%);
+            transition : background 0.35s, color 0.35s, transform 0.35s cubic-bezier(0.34, 1.6, 0.64, 1);
+            &.is-on { background : var(--tone); color : #fff; transform : scale(calc(0.55 + 0.45 * var(--fill))); }
+        }
+        &.is-gifts .flat-unit.is-on { color : #2f2f2f; }
+    }
     .pack-key {
         list-style : none; margin : 0; padding : 0; display : grid; gap : 6px; font-size : 13px;
         li { display : grid; grid-template-columns : 24px auto 1fr; column-gap : 8px; align-items : center; cursor : default; }
@@ -662,9 +678,12 @@
         .step-line { font-size : 14px; }
         .guess-answer { min-height : 6em; font-size : 14px; }
         .layer-key span { display : none; }
+        .scale-stage svg.is-narrow { .pan-label { font-size : 22px; } .scale-caption { font-size : 21px; } .tag-price { font-size : 26px; } }
+        .slope .slope-name { font-size : 12px; } .slope.is-big .slope-name { font-size : 13px; }
+        .shelves-stage.is-narrow .shelves-canvas { min-height : 42vh; }
         .shelf-control { grid-template-columns : auto 1fr auto; .shelf-total { grid-column : 1 / -1; } }
         .shelves-stage.is-narrow { display : flex; flex-direction : column; }
-        .shelves-stage.is-narrow .shelves-canvas { position : relative; flex : 1; min-height : 34vh; }
+        .shelves-stage.is-narrow .shelves-canvas { position : relative; flex : 1; }
         .is-narrow .shelf-tags { display : flex; justify-content : space-between; align-items : baseline; gap : 12px; padding : 4px 0; border-bottom : 1px solid color-mix(in srgb, var(--ink), transparent 90%); }
         .is-narrow .shelf-tag { position : static; transform : none !important; font-size : 13px !important; }
         .is-narrow .shelf-tag-name { flex-direction : row; align-items : baseline; gap : 8px; text-align : left; .shelf-unit { display : none; } }

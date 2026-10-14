@@ -58,7 +58,10 @@ export const DebtMixChart = ({ currentYear } : DebtMixChartProps) => {
 
     const { w, h } = size;
 
-    const xOf = (year : number) => ((clamp(year, YEAR_MIN, YEAR_MAX) - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)) * w;
+    // on a wide screen the years run edge to edge; on a phone they are inset, so the latest year, its dot and its label
+    // stay on screen
+    const inset = w < 600 ? { l : 18, r : 40 } : { l : 0, r : 0 };
+    const xOf = (year : number) => inset.l + ((clamp(year, YEAR_MIN, YEAR_MAX) - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)) * (w - inset.l - inset.r);
     const yOf = (v : number, min : number, max : number) =>
         (h - PAD.bottom) - ((v - min) / (max - min)) * (h - PAD.top - PAD.bottom);
     const yConc = (v : number) => yOf(v, CONC_MIN, CONC_MAX);
@@ -92,7 +95,7 @@ export const DebtMixChart = ({ currentYear } : DebtMixChartProps) => {
     const labelX = clamp(px, 42, Math.max(42, w - 42));
     const markerX = clamp(px, 28, Math.max(28, w - 28));
 
-    const xTicks = [ 1991, 2000, 2010, 2020, 2025 ];
+    const xTicks = w < 600 ? [ 1991, 2005, 2025 ] : [ 1991, 2000, 2010, 2020, 2025 ];
 
     return (
         <div className="debt-chart-wrap" ref={wrapRef}>

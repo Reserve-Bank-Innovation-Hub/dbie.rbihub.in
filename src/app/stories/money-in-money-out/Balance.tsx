@@ -73,7 +73,8 @@ const Pan = ({ hx, bundles, tone, value, label, later, drop } : { hx : number; b
 );
 
 export const ScaleStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
-    const { ref, drawn } = useStage<HTMLDivElement>();
+    const { ref, drawn, size } = useStage<HTMLDivElement>();
+    const narrow = size.w > 0 && size.w < 560;
     const [ later, setLater ] = useState(false);
     useEffect(() => {
         if (!drawn) return;
@@ -84,7 +85,7 @@ export const ScaleStep = ({ layout, children } : { layout? : Layout; children : 
     return (
         <div className={splitClass(layout)}>
             <div className="split-stage scale-stage" ref={ref}>
-                <svg viewBox="40 150 720 350" preserveAspectRatio="xMidYMid meet" role="img" aria-label={`For every $100 that came into India from Indians abroad in ${HEADLINE.lastFy}, $${b} went out of India under the LRS.`}>
+                <svg viewBox={narrow ? "70 140 660 360" : "40 150 720 350"} className={narrow ? "is-narrow" : ""} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`For every $100 that came into India from Indians abroad in ${HEADLINE.lastFy}, $${b} went out of India under the LRS.`}>
                     <defs>
                         <linearGradient id="sc-col" x1="0" x2="1">
                             <stop offset="0" stopColor="#5a3d0c" /><stop offset="0.22" stopColor="#b78a2c" /><stop offset="0.4" stopColor="#fff3c4" />
@@ -129,10 +130,10 @@ export const ScaleStep = ({ layout, children } : { layout? : Layout; children : 
                         <circle cx={624} cy={220} r={6} fill="url(#sc-col)" stroke="#5a3d0c" strokeWidth={0.6} />
                         <circle cx={400} cy={220} r={10} fill="url(#sc-col)" stroke="#5a3d0c" strokeWidth={0.8} />
                         <circle cx={400} cy={220} r={5} fill="url(#sc-jewel)" />
-                        <Pan hx={180} bundles={10} tone="is-in" value="$100" label="Into India, from Indians abroad" later={later} drop={drawn} />
-                        <Pan hx={620} bundles={b / 10} tone="is-out" value={`$${b}`} label="Out of India, under the LRS" later={later} drop={drawn} />
+                        <Pan hx={180} bundles={10} tone="is-in" value="$100" label={narrow ? "Into India" : "Into India, from Indians abroad"} later={later} drop={drawn} />
+                        <Pan hx={620} bundles={b / 10} tone="is-out" value={`$${b}`} label={narrow ? "Out under the LRS" : "Out of India, under the LRS"} later={later} drop={drawn} />
                     </g>
-                    <text x={400} y={492} textAnchor="middle" className="scale-caption">Each bundle is $10 of every $100 that came in, {HEADLINE.lastFy}.</text>
+                    <text x={400} y={492} textAnchor="middle" className="scale-caption">{narrow ? "Each bundle: $10 of every $100 in" : `Each bundle is $10 of every $100 that came in, ${HEADLINE.lastFy}.`}</text>
                 </svg>
             </div>
             <aside className="split-card">{children}</aside>

@@ -99,10 +99,12 @@ export const PACK_REST = { key : "rest", label : "Other", Icon : Package, means 
 // their own while the slide is on screen, a year at a time, round again after a pause at the end; a touch of the
 // slider pauses them and the button sets them going again. A tag at each end of a row names it and gives the year's sum.
 const LrsStage = dynamic(() => import("./LrsStage"), { ssr : false, loading : () => <div className="shelves-stage is-loading" /> });
-const UNIT_BN = 0.25, STEP_MS = 1100, HOLD_MS = 2600;
+const STEP_MS = 1100, HOLD_MS = 2600;
 const EMOJI : Record<string, string> = { travel : "✈️", relatives : "👪", gifts : "🎁", study : "🎓", investment : "📈", rest : "📦" };
 export const PackStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
-    const { ref, seen } = useStage<HTMLDivElement>();
+    const { ref, seen, size } = useStage<HTMLDivElement>();
+    // each object is $250 million; on a phone, where the rows are shorter, $1 billion, so the objects are large enough to see
+    const phone = size.w > 0 && size.w < 560, UNIT_BN = phone ? 1 : 0.25;
     const [ k, setK ] = useState(0);
     const [ playing, setPlaying ] = useState(true);
     const [ visible, setVisible ] = useState(false);
@@ -135,7 +137,7 @@ export const PackStep = ({ layout, children } : { layout? : Layout; children : R
         const now = valueOf(year, p.key);
         return { key : p.key as ShelfKey, name : <span className="named"><span className="emo" aria-hidden="true">{EMOJI[p.key]}</span> {p.label}</span>, unit : p.means,
             count : `${usd(now)} · ${pct(now / year.total * 100, 0)}`, have : now / UNIT_BN, max : Math.ceil(top / UNIT_BN), missing : false };
-    }), [ k ]);                                                                  // eslint-disable-line react-hooks/exhaustive-deps
+    }), [ k, UNIT_BN ]);                                                         // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className={splitClass(layout)}>
             <div className="split-stage lrs-shelves" ref={ref} onPointerDownCapture={pauseUnlessPlay} onKeyDownCapture={pauseUnlessPlay}
@@ -150,8 +152,28 @@ export const PackStep = ({ layout, children } : { layout? : Layout; children : R
                             onClick={() => setPlaying(v => !v)} aria-pressed={playing} aria-label={playing ? "Pause the years" : "Play the years"}>{playing ? "Pause" : "Play"}</button>
                     )}
                 </div>
-                <LrsStage shelves={stage} />
-                <p className="shelf-note">Each object on a row is $250 million sent abroad; the faint ones behind are the row’s largest year.</p>
+                {size.w > 0 && !phone && <LrsStage shelves={stage} />}
+                {/* on a phone the shelves lie flat, a row of icons each: the 3D objects would be too small to read */}
+                {phone && (
+                    <ul className="flat-shelves">
+                        {purposes.map(p => {
+                            const now = valueOf(year, p.key), top = Math.max(...LRS_FY.map(y => valueOf(y, p.key)));
+                            const slots = Math.ceil(top / UNIT_BN), have = now / UNIT_BN;
+                            return (
+                                <li key={p.key} className={`flat-shelf is-${p.key}`}>
+                                    <div className="flat-head"><span><span className="emo" aria-hidden="true">{EMOJI[p.key]}</span> {p.label}</span><b>{usd(now)} · {pct(now / year.total * 100, 0)}</b></div>
+                                    <div className="flat-row">
+                                        {Array.from({ length : slots }, (_, j) => {
+                                            const fill = Math.max(0, Math.min(1, have - j));
+                                            return <span key={j} className={`flat-unit ${fill > 0 ? "is-on" : ""}`} style={{ "--fill" : fill.toFixed(2) } as React.CSSProperties}><p.Icon size={14} /></span>;
+                                        })}
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                )}
+                <p className="shelf-note">{phone ? "Each icon is $1 billion sent abroad; the faint ones are the row’s largest year." : "Each object on a row is $250 million sent abroad; the faint ones behind are the row’s largest year."}</p>
             </div>
             <aside className="split-card">{children}</aside>
         </div>

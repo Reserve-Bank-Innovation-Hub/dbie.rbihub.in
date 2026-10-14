@@ -521,7 +521,10 @@ export const LineStep = ({ layout, months, values, fmt, ticks, lo, hi, tone, axi
                             </g>
                         ))}
                         {years.map(([ m, i ]) => <text key={m} className="tide-year" x={X(i)} y={h - pad.b + 22} textAnchor="middle">{m.slice(0, 4)}</text>)}
-                        <text className="tide-year" x={pad.l} y={pad.t - 18}>{axis}</text>
+                        {/* the axis's caption; on a narrow phone it breaks at its first comma, so it stays on screen */}
+                        {w < 420 && axis.includes(", ")
+                            ? <text className="tide-year" x={pad.l} y={pad.t - 30}><tspan>{axis.slice(0, axis.indexOf(", "))},</tspan><tspan x={pad.l} dy={15}>{axis.slice(axis.indexOf(", ") + 2)}</tspan></text>
+                            : <text className="tide-year" x={pad.l} y={pad.t - 18}>{axis}</text>}
                         {level && <g className="line-level">
                             <line x1={pad.l} x2={w - pad.r + 40} y1={Y(level.value)} y2={Y(level.value)} />
                             <text x={w - pad.r + 40} y={Y(level.value) - 6} textAnchor="end">{level.label}</text>
@@ -568,7 +571,7 @@ export const SeasonStep = ({ layout, values, parts, children } : { layout? : Lay
     const uid = useId().replace(/:/g, "");
     const { w, h } = size;
     const narrow = w < 560;
-    const cx = w / 2, cy = h / 2 + 6, R = Math.max(60, Math.min(w / 2 - (narrow ? 30 : 190), h / 2 - (narrow ? 40 : 60)));   // room for the quarters' names
+    const cx = w / 2, cy = h / 2 + 6, R = Math.max(60, Math.min(w / 2 - (narrow ? 22 : 190), h / 2 - (narrow ? 40 : 60)) / (narrow ? 1.12 : 1));   // room for the quarters' names
     const r0 = R * 0.42, most = Math.max(...Object.values(values).map(Math.abs));
     const k = (R * 0.94 - r0) / most;
     const ang = (m : number) => (-90 + (m - 1) * 30) * Math.PI / 180;           // month 1 (January) at the top

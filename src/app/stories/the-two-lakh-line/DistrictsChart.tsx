@@ -55,7 +55,7 @@ export const DistrictsChart = () => {
                             <motion.rect x={0} y={0} height={height} variants={{ hidden : { width : 0 }, shown : { width, transition : { duration : 1.8, ease : EASE } } }} />
                         </clipPath>
                     </defs>
-                    <text className="panel-title" x={padL} y={TOP - 12}>Running total of all bank credit, biggest districts first</text>
+                    <text className="panel-title" x={padL} y={TOP - 12}>{width < 420 ? "Running total, biggest districts first" : "Running total of all bank credit, biggest districts first"}</text>
                     {[ 25, 50, 75, 100 ].map(v => (
                         <g key={v}><line className="grid" x1={padL} x2={padL + W} y1={y1(v)} y2={y1(v)} /><text className="tick" x={padL - 8} y={y1(v) + 4} textAnchor="end">{v}%</text></g>
                     ))}
