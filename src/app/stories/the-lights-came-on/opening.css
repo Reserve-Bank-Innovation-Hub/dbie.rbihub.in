@@ -1,225 +1,335 @@
-/* The opening, laid out as the agriculture story lays out its farm (the-women-who-stayed.css, "THE OPENING"): the
-   stage pinned for the scroll, the title over a soft wash at the top, and at the foot a card in the place of the
-   farm's beat caption, here full width up to 860px, carrying the caption and the ₹100 strip. Colours are the page's
-   tokens from the-lights-came-on.css, so the wash, the card and the strip follow the theme; none are defined here. */
+/* The opening: one full-screen isometric scene, a bank heading five stacks that share its ₹100, with time running
+   along a rail at the foot of the screen as the reader scrolls. The words sit flat over the scene's empty corner. */
 #the-lights-came-on-page {
-    .town-opening {
-        position : relative;
-        height   : 520vh;
-        height   : 520svh;
+    --gutter : clamp(20px, 6vw, 88px);
+    --iso-ground : color-mix(in oklch, var(--sandal) 55%, var(--page));
+
+    .credit-opening { position : relative; height : 560svh; }
+
+    /* the gradients in the scene's defs read these where they are defined, so they live on the opening */
+    .credit-opening {
+        --glass-hi : color-mix(in oklch, var(--accent), white 45%);
+        --glass-mid : color-mix(in oklch, var(--accent), #2a2f3a 22%);
+        --glass-lo : color-mix(in oklch, var(--accent), #2a2f3a 50%);
+        --glass-deep : color-mix(in oklch, var(--accent), #1e222b 62%);
+        /* the parliament in sandalwood, deeper than the bank's sandal so the two read apart */
+        --sandalwood : #c08a4e;
+        --drum-hi : color-mix(in oklch, var(--sandalwood), white 40%);
+        --drum-mid : var(--sandalwood);
+        --drum-lo : color-mix(in oklch, var(--sandalwood), #5a4632 40%);
     }
 
-    .town-sticky {
-        position   : sticky;
-        top        : 0;
-        height     : 100vh;
-        height     : 100svh;
-        overflow   : hidden;
+    .credit-stage {
+        position : sticky;
+        top : 0;
+        height : 100svh;
+        min-height : 560px;
+        overflow : hidden;
         background : var(--page);
     }
 
-    .town-stage {
+    /* THE SCENE ===================================================================================================== */
+    .credit-scene {
         position : absolute;
-        inset    : 0;
-
-        canvas { display : block; width : 100%; height : 100%; }
-        &.is-loading { background : linear-gradient(var(--page), var(--sandal)); }
+        inset : 5% 1.5% 132px 33%;
+        transition : transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .credit-stage:has(.credit-title-card:not(.is-gone)) .credit-scene { transform : translateX(6%) scale(0.94); }
+    .credit-isometric { display : block; width : 100%; height : 100%; overflow : visible; }
 
-    .town-fallback {
-        position   : absolute;
-        inset      : auto 16px 46% 16px;
-        margin     : 0;
-        text-align : center;
-        color      : var(--ink-soft);
+    .iso-ground { fill : var(--iso-ground); }
+    .iso-grid path { fill : none; stroke : var(--page); stroke-width : 1.2; }
+    .iso-road path { fill : none; stroke : color-mix(in oklch, var(--ink), transparent 70%); stroke-width : 1.4; stroke-dasharray : 5 6; stroke-linecap : round; stroke-linejoin : round; }
+
+    .iso-face-top { fill : color-mix(in oklch, var(--stack), white 22%); }
+    .iso-face-left { fill : var(--stack); }
+    .iso-face-right { fill : color-mix(in oklch, var(--stack), black 16%); }
+    .iso-stack path, .iso-bank path { stroke : color-mix(in oklch, var(--stack), black 22%); stroke-width : 0.6; stroke-linejoin : round; }
+    .iso-then { fill : none; stroke : var(--ink); stroke-opacity : 0.62; stroke-width : 1.3; stroke-dasharray : 4 4; stroke-linejoin : round; }
+
+    /* the people */
+    .iso-person rect, .iso-person circle { stroke : none; }
+    .iso-legs { fill : #3b3542; }
+    .iso-cloth.is-c0 { fill : var(--c-emph); }
+    .iso-cloth.is-c1 { fill : color-mix(in oklch, var(--c-emph), white 35%); }
+    .iso-cloth.is-c2 { fill : color-mix(in oklch, var(--c-emph), black 28%); }
+    .iso-cloth.is-c3 { fill : #eaaa3a; }
+    .iso-cloth.is-c4 { fill : color-mix(in oklch, var(--c-emph), #ba644f 35%); }
+    .is-businesses .iso-cloth.is-c0, .is-others .iso-cloth.is-c0 { fill : #2f6f8f; }
+    .is-businesses .iso-cloth.is-c1, .is-others .iso-cloth.is-c1 { fill : #f2f0e6; }
+    .is-businesses .iso-cloth.is-c2, .is-others .iso-cloth.is-c2 { fill : #6b8e23; }
+    .is-businesses .iso-cloth.is-c4, .is-others .iso-cloth.is-c4 { fill : #ba644f; }
+
+    /* The human tower: adult proportions, shaded clothing and supporting poses, without intervening platforms. */
+    .iso-tower-person path, .iso-tower-person ellipse { stroke : none; }
+    .iso-person-shadow { fill : #2f253e; opacity : 0.17; }
+    .iso-person-shirt { fill : var(--person-shirt); }
+    .iso-person-shirt-side { fill : color-mix(in oklch, var(--person-shirt), black 18%); }
+    .iso-person-skin { fill : var(--person-skin); }
+    .iso-person-skin-side { fill : color-mix(in oklch, var(--person-skin), black 15%); }
+    .iso-person-trousers { fill : #51435d; }
+    .iso-person-trousers.is-far { fill : #40334b; }
+    .iso-person-shoes { fill : #312a38; }
+    .iso-person-hair { fill : #332b2b; }
+    .iso-tower-person .iso-person-cloth-fold { fill : none; stroke : color-mix(in oklch, var(--person-shirt), black 24%); stroke-width : 0.6; stroke-opacity : 0.5; stroke-linecap : round; }
+    .iso-tower-person .iso-person-collar { fill : none; stroke : color-mix(in oklch, var(--person-shirt), black 30%); stroke-width : 0.8; stroke-linecap : round; }
+    .iso-tower-person .iso-person-trouser-fold { fill : none; stroke : #87778e; stroke-width : 0.6; stroke-opacity : 0.35; stroke-linecap : round; }
+    .iso-tower-person .iso-person-face-detail { fill : none; stroke : #49362d; stroke-width : 0.65; stroke-linecap : round; }
+
+    /* the office tower */
+    .iso-glass { stroke : color-mix(in oklch, var(--accent), black 35%); stroke-width : 0.6; }
+    .iso-glass.is-left { fill : url(#credit-glass-left); }
+    .iso-glass.is-right { fill : url(#credit-glass-right); }
+    .iso-glint { fill : white; opacity : 0.16; stroke : none; }
+    .iso-floor { fill : none; stroke : color-mix(in oklch, var(--accent), black 45%); stroke-opacity : 0.55; stroke-width : 0.6; }
+    .iso-fin { fill : none; stroke : white; stroke-opacity : 0.4; stroke-width : 0.9; }
+    .iso-crown { fill : color-mix(in oklch, var(--accent), white 70%); stroke : none; }
+    .iso-crown.is-right { fill : color-mix(in oklch, var(--accent), white 50%); }
+    .iso-logo { fill : #ffffff; stroke : none; }
+    .iso-logo-mark { fill : var(--accent); stroke : none; }
+    .iso-lobby { fill : #f3d58a; stroke : none; opacity : 0.85; }
+    .iso-canopy { fill : color-mix(in oklch, var(--accent), black 30%); stroke : none; }
+    .iso-roof-top { fill : color-mix(in oklch, var(--accent), white 30%); stroke : color-mix(in oklch, var(--accent), black 30%); stroke-width : 0.6; }
+    .iso-helipad { fill : none; stroke : #ffffff; stroke-width : 1.4; stroke-opacity : 0.9; }
+    .iso-helipad-h { font-family : var(--font-sans-serif); font-size : 13px; font-weight : 700; fill : #ffffff; }
+    .iso-mast { fill : none; stroke : var(--ink-soft); stroke-width : 1.3; }
+
+    /* the parliament */
+    .iso-drum-side { fill : url(#credit-drum); stroke : color-mix(in oklch, var(--sandalwood), black 35%); stroke-width : 0.6; }
+    .iso-colonnade { fill : color-mix(in oklch, var(--sandalwood), #3b2a1e 62%); stroke : none; }
+    .iso-column { fill : color-mix(in oklch, var(--sandalwood), white 72%); stroke : none; }
+    .iso-cornice { fill : none; stroke : color-mix(in oklch, var(--sandalwood), white 60%); stroke-width : 2; }
+    .iso-drum-top { fill : color-mix(in oklch, var(--sandalwood), white 45%); stroke : color-mix(in oklch, var(--sandalwood), black 30%); stroke-width : 0.6; }
+    .iso-dome { fill : color-mix(in oklch, var(--sandalwood), white 62%); stroke : color-mix(in oklch, var(--sandalwood), black 25%); stroke-width : 0.6; }
+    .iso-chakra circle { fill : none; stroke : #000080; stroke-width : 0.45; }
+    .iso-chakra path { fill : none; stroke : #000080; stroke-width : 0.18; }
+
+    /* the shops */
+    .iso-shop-wall { --stack : var(--c-deemph); }
+    .iso-shop-inside { fill : #2f2a26; stroke : none; }
+    .iso-counter { fill : #c89b6a; stroke : none; }
+    .iso-shutter { fill : color-mix(in oklch, var(--c-deemph), white 35%); stroke : none; }
+    .iso-stripe path { stroke : none; }
+    .iso-stripe.is-a path { fill : #ba644f; }
+    .iso-stripe.is-b path { fill : #6b8e23; }
+    .iso-stripe.is-plain path { fill : #f2f0e6; }
+    .iso-board { fill : #f2f0e6; stroke : var(--ink); stroke-width : 0.8; }
+    .iso-board-text { font-family : var(--font-serif); font-size : 9px; font-weight : 700; fill : #2f2f2f; }
+
+    /* the hall */
+    .iso-door { fill : color-mix(in oklch, var(--ink) 70%, var(--sandal)); stroke : none; }
+    .iso-sign { fill : var(--accent); stroke : none; }
+
+    .iso-category.is-individuals { --stack : var(--c-emph); }
+    .iso-category.is-companies { --stack : var(--accent); }
+    .iso-category.is-public { --stack : var(--sandalwood); }
+    .iso-category.is-businesses { --stack : var(--c-deemph); }
+    .iso-category.is-others { --stack : color-mix(in oklch, var(--sandal), var(--ink) 18%); }
+
+    .iso-bank { --stack : color-mix(in oklch, var(--sandal) 40%, white); }
+    .iso-bank .is-hall { --stack : color-mix(in oklch, var(--sandal) 85%, var(--ink)); }
+    .iso-bank-column { --stack : color-mix(in oklch, var(--sandal) 15%, white); }
+    .iso-bank-door { fill : color-mix(in oklch, var(--ink) 75%, var(--sandal)); }
+    .iso-roof { fill : color-mix(in oklch, var(--sandal) 55%, white); }
+    .iso-roof.is-back { fill : color-mix(in oklch, var(--sandal) 75%, white); }
+    .iso-gable { fill : color-mix(in oklch, var(--sandal) 30%, white); }
+    .iso-bank-name { font-family : var(--font-sans-serif); font-size : 10px; font-weight : 700; letter-spacing : 0.28em; fill : var(--ink); }
+
+    .iso-value { font-family : var(--font-sans-serif); font-size : 19px; font-weight : 600; font-variant-numeric : tabular-nums; fill : var(--ink); }
+    .iso-value.is-primary { font-family : var(--font-serif); font-size : 30px; font-weight : 700; }
+    .is-individuals .iso-value.is-primary { fill : var(--c-emph); }
+    .is-companies .iso-value.is-primary { fill : var(--accent); }
+    .iso-icon { color : var(--ink-soft); }
+    .is-individuals .iso-icon { color : var(--c-emph); }
+    .is-companies .iso-icon { color : var(--accent); }
+    .iso-name { font-family : var(--font-sans-serif); font-size : 13px; fill : var(--ink-soft); }
+    .is-individuals .iso-name, .is-companies .iso-name { font-size : 14px; font-weight : 600; fill : var(--ink); }
+
+    /* THE WORDS ===================================================================================================== */
+    .credit-crumbs { position : absolute; top : 28px; left : var(--gutter); z-index : 2; }
+    .credit-crumbs .table-crumbs { margin : 0; }
+
+    .credit-words {
+        position : absolute;
+        top : 50%;
+        left : var(--gutter);
+        z-index : 1;
+        display : grid;
+        width : min(36%, 520px);
+        transform : translateY(-58%);
     }
+    .credit-title-card, .credit-beat { grid-area : 1 / 1; transition : opacity 500ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .credit-title-card.is-gone { opacity : 0; transform : translateY(-24px); pointer-events : none; }
+    .credit-beat.is-waiting { opacity : 0; transform : translateY(24px); }
+    .credit-beat { align-self : center; max-width : 400px; }
 
-    /* THE TITLE ==================================================================================================== */
-    .town-title {
-        position       : absolute;
-        left           : 50%;
-        top            : 5vh;
-        transform      : translateX(-50%);
-        width          : min(820px, calc(100% - 32px));
-        display        : grid;
-        gap            : 10px;
-        justify-items  : center;
-        text-align     : center;
-        pointer-events : none;
-
-        > * { pointer-events : auto; }
-        .table-crumbs { justify-content : center; }
-
-        /* a soft wash of the page so the title reads over the town */
-        &::before {
-            content        : "";
-            position       : absolute;
-            inset          : -6vh -12vw -5vh;
-            z-index        : -1;
-            background     : radial-gradient(ellipse at 50% 42%, color-mix(in oklch, var(--page), transparent 6%) 0%, color-mix(in oklch, var(--page), transparent 24%) 46%, color-mix(in oklch, var(--page), transparent 100%) 72%);
-            pointer-events : none;
-        }
+    .credit-kicker { margin : 0 0 18px; font-family : var(--font-sans-serif); font-size : 12px; font-weight : 600; letter-spacing : 0.14em; text-transform : uppercase; color : var(--accent); }
+    .credit-title {
+        margin : 0 0 24px;
+        font-family : var(--font-serif);
+        font-size : clamp(44px, 4.3vw, 70px);
+        font-weight : 700;
+        line-height : 1.02;
+        letter-spacing : -0.03em;
+        color : var(--ink);
+        text-wrap : balance;
+        span { color : var(--c-emph); }
     }
+    .credit-standfirst { margin : 0; max-width : 30em; font-family : var(--font-serif); font-size : clamp(18px, 1.5vw, 21px); line-height : 1.5; color : var(--ink); }
 
-    .town-kicker {
-        margin         : 0;
-        color          : var(--accent);
-        font-family    : var(--font-sans-serif);
-        font-weight    : 600;
-        font-size      : 13px;
-        letter-spacing : 0.16em;
-    }
-
-    .town-h1 {
-        margin         : 0;
-        color          : var(--ink);
-        font-family    : var(--font-serif);
-        font-weight    : 700;
-        font-size      : clamp(40px, 6.4vw, 88px);
-        line-height    : 0.98;
+    .credit-date {
+        display : block;
+        margin : 0 0 16px;
+        font-family : var(--font-serif);
+        font-size : clamp(40px, 4vw, 58px);
+        font-weight : 700;
+        white-space : nowrap;
+        line-height : 1;
         letter-spacing : -0.02em;
-        text-wrap      : balance;
-
-        .accent { color : var(--c-emph); }
+        font-variant-numeric : tabular-nums;
+        color : var(--ink);
     }
+    .credit-caption { transition : opacity 300ms ease; }
+    .credit-caption > p { animation : credit-caption-in 500ms ease both; }
+    .credit-caption.is-running { opacity : 0; }
+    .credit-text { margin : 0 0 14px; font-family : var(--font-serif); font-size : clamp(19px, 1.6vw, 23px); line-height : 1.45; color : var(--ink); }
+    .credit-aside { margin : 0; font-family : var(--font-sans-serif); font-size : 13px; line-height : 1.6; color : var(--ink-soft); }
 
-    .town-standfirst {
-        max-width   : 38em;
-        margin      : 0;
-        color       : var(--ink-soft);
-        font-family : var(--font-serif);
-        font-size   : clamp(15px, 1.35vw, 18px);
-        line-height : 1.45;
-        text-wrap   : pretty;
-        /* the standfirst steps aside once the years begin, and its room with it, so the town shows under the title */
-        opacity     : var(--title, 1);
-        max-height  : calc(var(--title, 1) * 9em);
-        overflow    : hidden;
-    }
+    .credit-values { display : none; }
 
-    /* THE CAPTION AND THE ₹100 STRIP =============================================================================== */
-    .town-read {
-        position       : absolute;
-        left           : 50%;
-        bottom         : 3vh;
-        transform      : translate(-50%, 12px);
-        width          : min(860px, calc(100% - 32px));
-        display        : grid;
-        gap            : 10px;
-        padding        : 14px 18px 14px;
-        border-radius  : 10px;
-        background     : color-mix(in oklch, var(--card), transparent 6%);
-        box-shadow     : 0 0 0 1px var(--rule), 0 12px 28px rgba(0, 0, 0, 0.12);
-        opacity        : 0;
-        transition     : opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        pointer-events : none;
-
-        &.is-on { opacity : 1; transform : translate(-50%, 0); }
-    }
-
-    .town-read-kicker {
-        color          : var(--accent);
-        font-family    : var(--font-sans-serif);
-        font-weight    : 600;
-        font-size      : 11.5px;
-        letter-spacing : 0.12em;
-        text-transform : uppercase;
-    }
-
-    .town-read-text {
-        margin      : 2px 0 0;
-        color       : var(--ink);
-        font-family : var(--font-serif);
-        font-size   : 17px;
-        line-height : 1.4;
-        text-wrap   : pretty;
-    }
-
-    .town-strip { display : grid; gap : 6px; padding-top : 10px; border-top : 1px solid var(--rule); }
-
-    .town-strip-head {
-        margin      : 0;
-        color       : var(--ink-soft);
+    /* THE TIME ====================================================================================================== */
+    .credit-time {
+        position : absolute;
+        left : var(--gutter);
+        right : var(--gutter);
+        bottom : 30px;
+        z-index : 1;
+        padding-top : 34px;
         font-family : var(--font-sans-serif);
-        font-size   : 12.5px;
     }
-
-    .town-bar {
-        display       : flex;
-        gap           : 2px;
-        height        : 22px;
-        border-radius : 4px;
-        overflow      : hidden;
-    }
-
-    .town-seg {
-        flex-basis  : 0;
-        min-width   : 0;
-        display     : flex;
-        align-items : center;
-        padding     : 0 7px;
-        overflow    : hidden;
-
+    .credit-rail { position : relative; height : 2px; background : var(--rule); }
+    .credit-rail-fill { position : absolute; inset : 0 auto 0 0; width : calc(var(--along) * 100%); background : var(--ink); }
+    .credit-rail-head {
+        position : absolute;
+        top : 50%;
+        left : calc(var(--along) * 100%);
+        width : 14px;
+        height : 14px;
+        border-radius : 50%;
+        background : var(--ink);
+        box-shadow : 0 0 0 4px var(--page);
+        transform : translate(-50%, -50%);
         b {
-            color                : #ffffff;
-            font-family          : var(--font-sans-serif);
-            font-weight          : 600;
-            font-size            : 12.5px;
+            position : absolute;
+            bottom : 22px;
+            left : 50%;
+            transform : translateX(-50%);
+            font-size : 13px;
+            font-weight : 600;
             font-variant-numeric : tabular-nums;
-            white-space          : nowrap;
+            white-space : nowrap;
+            color : var(--ink);
         }
+        &.is-start b { left : 0; transform : none; }
+        &.is-end b { left : auto; right : 0; transform : none; }
     }
-
-    .seg-individuals      { background : var(--c-emph); }
-    .seg-privateCompanies { background : var(--accent); }
-    .seg-public           { background : var(--c-deemph); }
-    .seg-householdOthers  { background : color-mix(in oklch, var(--c-deemph) 50%, var(--sandal)); }
-    .seg-others           { background : color-mix(in oklch, var(--c-deemph) 22%, var(--sandal)); }
-
-    .town-key {
-        display   : flex;
-        flex-wrap : wrap;
-        gap       : 4px 16px;
-        margin    : 0;
-        padding   : 0;
-        list-style: none;
-
-        li { display : flex; align-items : baseline; gap : 6px; font-family : var(--font-sans-serif); font-size : 12.5px; }
+    .credit-rail-cross {
+        position : absolute;
+        top : -5px;
+        width : 2px;
+        height : 12px;
+        background : var(--c-emph);
+        i { position : absolute; bottom : 18px; left : 0; font-size : 11px; font-style : normal; white-space : nowrap; color : var(--c-emph); transition : opacity 300ms ease; }
+        &.is-quiet i { opacity : 0; }
     }
-
-    .town-swatch { display : inline-block; width : 9px; height : 9px; border-radius : 2px; align-self : center; }
-    .town-key-name { color : var(--ink-soft); }
-    .town-key-value { color : var(--ink); font-weight : 600; font-variant-numeric : tabular-nums; }
-
-    .town-cue {
-        position       : absolute;
-        left           : 50%;
-        bottom         : 4vh;
-        transform      : translateX(-50%);
-        padding        : 4px 12px;
-        border-radius  : 6px;
-        background     : color-mix(in oklch, var(--card), transparent 25%);
-        color          : var(--ink-soft);
-        font-family    : var(--font-sans-serif);
-        font-size      : 12px;
-        letter-spacing : 0.2em;
-        text-transform : uppercase;
-        white-space    : nowrap;
-        transition     : opacity 0.4s ease;
-        pointer-events : none;
-
-        &.is-off { opacity : 0; }
+    .credit-rail input {
+        position : absolute;
+        inset : -14px 0;
+        width : 100%;
+        height : 30px;
+        margin : 0;
+        opacity : 0;
+        cursor : ew-resize;
     }
+    .credit-rail:has(input:focus-visible) { outline : 2px solid var(--c-emph); outline-offset : 10px; border-radius : 2px; }
+    .credit-years { position : relative; height : 16px; margin : 14px 0 0; padding : 0; list-style : none; }
+    .credit-years li { position : absolute; transform : translateX(-50%); font-size : 11px; font-variant-numeric : tabular-nums; color : var(--ink-soft); }
+    .credit-years li:first-child { transform : none; }
+    .credit-cue {
+        position : absolute;
+        top : 0;
+        margin : 0;
+        display : flex;
+        align-items : center;
+        gap : 8px;
+        font-size : 12px;
+        color : var(--ink-soft);
+        transition : opacity 400ms ease;
+    }
+    .credit-cue { right : 0; }
+    .credit-cue.is-gone { opacity : 0; }
+    .credit-key { display : flex; align-items : center; gap : 8px; margin : 18px 0 0; font-family : var(--font-sans-serif); font-size : 12px; color : var(--ink-soft); transition : opacity 400ms ease; }
+    .credit-key.is-gone { opacity : 0; }
+    .credit-key span { width : 22px; height : 0; border-top : 1.5px dashed var(--ink); opacity : 0.7; }
 
-    /* on a phone the title steps aside once the years begin, so the town and the strip share the screen */
-    @media (max-width : 700px) {
-        .town-title { opacity : var(--title, 1); top : 4vh; }
-        .town-read { bottom : 2vh; padding : 12px 14px; gap : 8px; }
-        .town-read-text { font-size : 15.5px; }
-        .town-key { gap : 3px 12px; li { font-size : 12px; } }
+    /* PHONES AND NARROW SCREENS ===================================================================================== */
+    @media (max-width : 900px) {
+        .credit-opening { height : 480svh; }
+        .credit-stage { display : flex; flex-direction : column; padding : 20px var(--gutter) 22px; }
+        .credit-crumbs, .credit-words, .credit-scene, .credit-time { position : relative; inset : auto; transform : none; }
+        .credit-crumbs { order : 1; margin-bottom : 16px; }
+        .credit-words { order : 2; }
+        .credit-scene { order : 3; }
+        .credit-values { order : 4; position : relative; z-index : 1; }
+        .credit-time { order : 5; }
+        .credit-words { width : auto; transform : none; }
+        .credit-stage:has(.credit-title-card:not(.is-gone)) .credit-scene { transform : none; }
+        .credit-beat { align-self : start; max-width : none; }
+        .credit-title { font-size : clamp(38px, 10vw, 56px); margin-bottom : 16px; }
+        .credit-standfirst { font-size : 17px; }
+        .credit-date { font-size : 34px; margin-bottom : 10px; }
+        .credit-text { font-size : 17px; margin-bottom : 8px; }
+        .credit-aside { font-size : 12px; }
+        .credit-scene { flex : 1 1 0; min-height : 0; margin : 8px -8px 0; }
+        .iso-labels { display : none; }
+        .credit-values {
+            display : grid;
+            grid-template-columns : repeat(5, minmax(0, 1fr));
+            gap : 8px;
+            margin : 6px 0 0;
+            font-family : var(--font-sans-serif);
+            dt { display : flex; align-items : center; gap : 3px; font-size : 9.5px; line-height : 1.2; color : var(--ink-soft); }
+            dt svg { flex-shrink : 0; }
+            dd { margin : 3px 0 0; font-size : 16px; font-weight : 600; font-variant-numeric : tabular-nums; color : var(--ink); }
+            .is-individuals dd, .is-individuals svg { color : var(--c-emph); }
+            .is-companies dd, .is-companies svg { color : var(--accent); }
+        }
+        .credit-time { left : auto; right : auto; bottom : auto; margin-top : 4px; padding-top : 30px; }
+        .credit-years li:not(:first-child):not(:last-child):nth-child(even) { visibility : hidden; }
+        .credit-rail-cross i, .credit-cue, .credit-key { display : none; }
+        .credit-caption.is-running { opacity : 0; }
     }
 
     @media (prefers-reduced-motion : reduce) {
-        .town-read { transition : opacity 0.3s ease; transform : translate(-50%, 0); }
+        .credit-scene, .credit-title-card, .credit-beat { transition : none; }
+        .credit-caption > p { animation : none; }
     }
+}
+
+.theme-dark #the-lights-came-on-page {
+    --iso-ground : color-mix(in oklch, var(--sandal) 70%, var(--page));
+    .iso-bank { --stack : color-mix(in oklch, #e1d5bc 70%, #16151a); }
+    .iso-bank .is-hall { --stack : color-mix(in oklch, #e1d5bc 45%, #16151a); }
+    .iso-bank-column { --stack : color-mix(in oklch, #e1d5bc 85%, #16151a); }
+    .iso-roof { fill : color-mix(in oklch, #e1d5bc 60%, #16151a); }
+    .iso-roof.is-back { fill : color-mix(in oklch, #e1d5bc 50%, #16151a); }
+    .iso-gable { fill : color-mix(in oklch, #e1d5bc 78%, #16151a); }
+    .iso-bank-name { fill : #16151a; }
+    .iso-bank-door, .iso-door { fill : #16151a; }
+    .iso-face-top { fill : color-mix(in oklch, var(--stack), white 12%); }
+}
+
+@keyframes credit-caption-in {
+    from { opacity : 0; transform : translateY(8px); }
+    to { opacity : 1; transform : translateY(0); }
 }

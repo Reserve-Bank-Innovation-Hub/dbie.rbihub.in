@@ -79,6 +79,8 @@ export const WomenPanels = () => {
                     <motion.path className="line-acc-share" d={path(p => p.accountsShare, y2)} variants={draw(0.2)} />
                     <motion.path className="line-money-share" d={path(p => p.moneyShare, y2)} variants={draw(0.35)} />
                     <motion.g variants={fade(1.3)}>
+                        {/* the quarter the end labels are for, as the prose quotes March */}
+                        <text className="end-label" x={x(N - 1) + 8} y={Math.min(endA, endM) - apart - 12}>{shortMonth(last.key)}</text>
                         <text className="end-label end-acc" x={x(N - 1) + 8} y={endA + 4 - (endA <= endM ? apart : -apart)}>accounts {last.accountsShare.toFixed(1)}</text>
                         <text className="end-label end-money" x={x(N - 1) + 8} y={endM + 4 + (endA <= endM ? apart : -apart)}>money {last.moneyShare.toFixed(1)}</text>
                     </motion.g>

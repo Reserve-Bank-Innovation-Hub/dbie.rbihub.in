@@ -76,6 +76,8 @@ export const IndexLines = () => {
                         />
                     ))}
                     {toIndex >= 0 && SERIES.map(s => <circle key={s.key} className={`dot-${s.key}`} cx={x(toIndex)} cy={y(INDEX[toIndex][s.key])} r={4} />)}
+                    {/* the end labels are the last quarter's, named so they are not read as the marked March */}
+                    <text className="end-label" x={padL + W + 8} y={ends[0].y - 14}>{shortMonth(INDEX[N - 1].key)}</text>
                     {ends.map(s => (
                         <text key={s.key} className={`end-label end-${s.key}`} x={padL + W + 8} y={s.y + 4}>{s.label} {Math.round(s.v)}</text>
                     ))}

@@ -30,7 +30,7 @@ export const STORY_SECTIONS : ListSection[] = [
         items : [
             {
                 linkTo      : "/stories/the-lights-came-on",
-                label       : "Companies left, households came",
+                label       : "How households took over the bank loan book",
                 description : "Individuals owe ₹47 of every ₹100 banks have lent, up from ₹31 in 2015, and private companies ₹27, down from ₹40. Individuals’ loan accounts tripled while the average loan, after prices, did not grow.",
             },
             {

@@ -1,172 +1,167 @@
 "use client";
 
-// The opening, in the manner of the agriculture story's: a pinned isometric town (TownStage) under the title. As the
-// reader scrolls from March 2015 to June 2026 the bank's business turns from the companies' district to the
-// households' street, and scrolling back reverses it. The scene carries no number: the captions say in words what the
-// picture shows, and the ₹100 strip under them gives the figures, from QUARTERS, for the quarter each beat names. The
-// chapters follow on the page.
-
-// REACT CORE ==========================================================================================================
-import { useEffect, useRef, useState } from "react";
-import type React from "react";
-import dynamic from "next/dynamic";
-
-// LOCAL COMPONENTS ====================================================================================================
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { ArrowDown } from "lucide-react";
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
-import { BEATS, ease, span } from "./townBeats";
-
-// DATA ================================================================================================================
-import { CLASS_LABELS, HEADLINE, QUARTERS, type Quarter } from "./data.gen";
-
-// STYLES ==============================================================================================================
+import { HEADLINE, QUARTERS } from "./data.gen";
+import { LATEST_YEAR, monthName, shortMonth } from "./data";
+import { CREDIT_GROUPS, IsometricCredit, type CreditGroup, type CreditShares } from "./IsometricCredit";
 import "./opening.css";
 
-// three.js loads only in the browser, and only on this story
-const TownStage = dynamic(() => import("./TownStage"), { ssr : false, loading : () => <div className="town-stage is-loading" /> });
+// THE SHARES ==========================================================================================================
+// Each stack is a group's share of outstanding bank credit; the five add to ₹100. Heights glide between quarters as
+// the reader scrolls; every figure printed is an actual quarter's, the nearest one.
+const RUN = QUARTERS.filter(q => q.quarter >= "2015-03");
+const SHARES : CreditShares[] = RUN.map(q => {
+    const of = (n : number) => 100 * n / q.total.outstanding;
+    const individuals = of(q.classes.individuals.outstanding);
+    const companies = of(q.classes.privateCompanies.outstanding);
+    const publicShare = of(q.classes.public.outstanding);
+    const businesses = of(q.classes.householdOthers.outstanding);
+    return { individuals, companies, public : publicShare, businesses, others : 100 - individuals - companies - publicShare - businesses };
+});
+const LAST = RUN.length - 1;
+const CROSS = RUN.findIndex(q => q.quarter === HEADLINE.crossover);
+const KEYS = CREDIT_GROUPS.map(g => g.key);
+const at = (f : number) : CreditShares => {
+    const i = Math.min(LAST - 1, Math.floor(f)), t = f - i;
+    return Object.fromEntries(KEYS.map(k => [ k, SHARES[i][k] * (1 - t) + SHARES[i + 1][k] * t ])) as Record<CreditGroup, number>;
+};
 
-// THE QUARTERS ========================================================================================================
-// The story counts from March 2015, the first March of the eleven years it compares; every quarter from then on is in
-// QUARTERS.
-const BASE_QUARTER = "2015-03";
-const RUN : Quarter[] = QUARTERS.slice(QUARTERS.findIndex(q => q.quarter === BASE_QUARTER));
-const runIndex = (quarter : string) => RUN.findIndex(q => q.quarter === quarter);
-const MONTHS = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-const monthYear = (quarter : string) => `${MONTHS[+quarter.slice(5, 7) - 1]} ${quarter.slice(0, 4)}`;
+// THE SCROLL ==========================================================================================================
+// The title, a hold on the first quarter, time running to the crossover, a hold, time running to the latest quarter,
+// a hold. Time runs at an even pace through each stretch, so a year of scrolling is a year of quarters.
+const P = { title : 0.1, start : 0.2, toCross : 0.46, cross : 0.56, toLast : 0.86 };
+const clamp = (n : number) => Math.max(0, Math.min(1, n));
+const indexAt = (p : number) => p < P.start ? 0
+    : p < P.toCross ? CROSS * (p - P.start) / (P.toCross - P.start)
+        : p < P.cross ? CROSS
+            : p < P.toLast ? CROSS + (LAST - CROSS) * (p - P.cross) / (P.toLast - P.cross) : LAST;
+const progressAt = (i : number) => i === 0 ? (P.title + P.start) / 2
+    : i <= CROSS ? P.start + (P.toCross - P.start) * i / CROSS
+        : i === LAST ? (P.toLast + 1) / 2 : P.cross + (P.toLast - P.cross) * (i - CROSS) / (LAST - CROSS);
 
 // THE WORDS ===========================================================================================================
-// Template strings over HEADLINE, so a refresh of the data rewrites them; prose() folds the line breaks of the source
-// into single spaces and keeps a figure on the same line as its unit.
-const prose = (s : string) => s.replace(/\s+/g, " ").trim().replace(/(\d) (lakh|crore)\b/g, "$1 $2");
-const whole = (v : number) => Math.round(v);
-
-const BASE_YEAR = +BASE_QUARTER.slice(0, 4);
-const M15 = HEADLINE.marches.find(m => m.year === BASE_YEAR)!;
-const LATEST = HEADLINE.latest;
-
-// The change in the gap between individuals and private companies, March 2015 to the latest quarter, and the part of
-// it that is private companies' share falling.
-const rise = LATEST.individuals - M15.individuals, fall = M15.privateCompanies - LATEST.privateCompanies;
-const companiesPart = fall / (rise + fall);
-const partWords = companiesPart >= 0.45 && companiesPart <= 0.55 ? "about half"
-    : companiesPart >= 0.4 && companiesPart < 0.45 ? "nearly half"
-    : `${whole(100 * companiesPart)} of every 100 rupees`;
-const gapNow = LATEST.individuals - LATEST.privateCompanies;
-const narrowed = gapNow < HEADLINE.gapPeak.gap - 0.05;
-// the women's figures are for March of the last year in HEADLINE.marches
-const WOMEN_QUARTER = `${HEADLINE.marches[HEADLINE.marches.length - 1].year}-03`;
-
-// One caption for each beat, holding from the beat's start in townBeats.ts.
-const CAPTIONS = [
-    { from : BEATS.y2015, kicker : monthYear(BASE_QUARTER), text : prose(`Private companies owed ₹${whole(M15.privateCompanies)} of every ₹100 that
-        banks had lent, and individuals ₹${whole(M15.individuals)}.`) },
-    { from : BEATS.crossover, kicker : monthYear(HEADLINE.crossover), text : "Individuals overtook private companies." },
-    { from : BEATS.latest, kicker : monthYear(LATEST.quarter), text : prose(`Individuals owed ₹${whole(LATEST.individuals)} of every ₹100 and private
-        companies ₹${whole(LATEST.privateCompanies)}. ${narrowed
-            ? `The gap was widest in ${monthYear(HEADLINE.gapPeak.quarter)} and has narrowed since.`
-            : "The gap between them is the widest yet."}`) },
-    { from : BEATS.women, kicker : "Women", text : prose(`Women held ${whole(HEADLINE.women.accountsShare2026)} of every 100 individuals’ loan
-        accounts and ₹${HEADLINE.women.moneyShare2026.toFixed(1)} of every ₹100 lent to individuals.`) },
+const prose = (s : string) => s.replace(/\s+/g, " ").trim();
+const rs = (n : number) => `₹${n.toFixed(1)}`;
+const FIRST = SHARES[0], TURN = SHARES[CROSS], NOW = SHARES[LAST];
+const narrowed = NOW.individuals - NOW.companies < HEADLINE.gapPeak.gap - 0.05;
+const BEATS = [
+    {
+        text  : prose(`Private companies owed ${rs(FIRST.companies)} of every ₹100 banks had lent, and individuals
+                ${rs(FIRST.individuals)}.`),
+        aside : "Each is one group of borrowers, as tall as its share. The five always add up to ₹100.",
+    },
+    {
+        text  : prose(`Individuals passed private companies, ${rs(TURN.individuals)} to ${rs(TURN.companies)} of every ₹100.`),
+        aside : "Loans to individuals include home loans, farm loans, other personal loans and loans for a trade or profession.",
+    },
+    {
+        text  : prose(`Individuals owed ${rs(NOW.individuals)} of every ₹100 and private companies ${rs(NOW.companies)}.`),
+        aside : prose(narrowed
+            ? `The gap was widest in ${monthName(HEADLINE.gapPeak.quarter)}. It has narrowed since because lending to
+                private companies sped up: it grew ${LATEST_YEAR.companies.toFixed(1)}% in the year to
+                ${monthName(RUN[LAST].quarter)}, against ${LATEST_YEAR.companiesBefore.toFixed(1)}% a year before.`
+            : `Lending to private companies grew ${LATEST_YEAR.companies.toFixed(1)}% in the year to
+                ${monthName(RUN[LAST].quarter)}, and lending to individuals ${LATEST_YEAR.individuals.toFixed(1)}%.`),
+    },
 ];
-
-// THE ₹100 STRIP ======================================================================================================
-// Five groups: the four small classes of Table 3.2 (co-operatives, microfinance institutions, non-profits and
-// non-residents) travel together as "Others".
-type GroupKey = "individuals" | "privateCompanies" | "public" | "householdOthers" | "others";
-const GROUPS : { key : GroupKey; label : string }[] = [
-    { key : "individuals", label : CLASS_LABELS.individuals },
-    { key : "privateCompanies", label : CLASS_LABELS.privateCompanies },
-    { key : "public", label : CLASS_LABELS.public },
-    { key : "householdOthers", label : CLASS_LABELS.householdOthers },
-    { key : "others", label : "Others" },
-];
-const sharesOf = (q : Quarter) : Record<GroupKey, number> => {
-    const c = q.classes, t = q.total.outstanding / 100;
-    return {
-        individuals : c.individuals.outstanding / t, privateCompanies : c.privateCompanies.outstanding / t, public : c.public.outstanding / t,
-        householdOthers : c.householdOthers.outstanding / t,
-        others : (c.cooperative.outstanding + c.mfis.outstanding + c.nonProfits.outstanding + c.nonResidents.outstanding) / t,
-    };
-};
-const SHARES = RUN.map(sharesOf);
-// The strip holds each beat's quarter and, as a beat begins, travels to the next one through every quarter between;
-// the bar's widths move smoothly, the figures are always the nearest real quarter's.
-const STOPS = [
-    { at : 0, travel : 0, i : runIndex(BASE_QUARTER) },
-    { at : BEATS.crossover, travel : 0.06, i : runIndex(HEADLINE.crossover) },
-    { at : BEATS.latest, travel : 0.11, i : runIndex(LATEST.quarter) },
-    { at : BEATS.women, travel : 0.03, i : runIndex(WOMEN_QUARTER) },
-];
-const quarterAt = (p : number) => {
-    let f = STOPS[0].i;
-    for (let k = 1; k < STOPS.length; k++) if (p >= STOPS[k].at) f = STOPS[k - 1].i + (STOPS[k].i - STOPS[k - 1].i) * ease(span(p, STOPS[k].at, STOPS[k].at + STOPS[k].travel));
-    return f;
-};
+const YEARS = RUN.map((q, i) => ({ year : q.quarter.slice(0, 4), i })).filter(({ year }, i, all) => i === 0 || all[i - 1].year !== year);
 
 export const Opening = () => {
-    const openingRef = useRef<HTMLElement>(null);
-    const [ progress, setProgress ] = useState(0);
+    const ref = useRef<HTMLElement>(null);
+    const [ p, setP ] = useState(0);
 
-    // progress through the opening: 0 as it reaches the top of the screen, 1 as its last screen begins to leave
     useEffect(() => {
         let raf = 0;
         const measure = () => {
-            const el = openingRef.current; if (!el) return;
-            const r = el.getBoundingClientRect(), run = r.height - window.innerHeight;
-            setProgress(run > 0 ? Math.max(0, Math.min(1, -r.top / run)) : 0);
+            const el = ref.current;
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            setP(clamp(-r.top / Math.max(1, r.height - window.innerHeight)));
         };
-        const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
+        const queue = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
         measure();
-        window.addEventListener("scroll", onScroll, { passive : true });
-        window.addEventListener("resize", onScroll);
-        return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(raf); };
+        window.addEventListener("scroll", queue, { passive : true });
+        window.addEventListener("resize", queue);
+        return () => {
+            cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", queue);
+            window.removeEventListener("resize", queue);
+        };
     }, []);
 
-    const caption = [ ...CAPTIONS ].reverse().find(c => progress >= c.from) ?? CAPTIONS[0];
-    const f = quarterAt(progress), lo = Math.floor(f), hi = Math.min(RUN.length - 1, lo + 1), near = Math.round(f);
-    const width = (g : GroupKey) => SHARES[lo][g] + (SHARES[hi][g] - SHARES[lo][g]) * (f - lo);
-    const figures = SHARES[near], quarter = monthYear(RUN[near].quarter);
+    // The timeline is also a control: choosing a quarter scrolls the page to it.
+    const jump = (i : number) => {
+        const el = ref.current;
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top : top + progressAt(i) * (el.offsetHeight - window.innerHeight), behavior : "instant" });
+    };
+
+    const f = indexAt(p);
+    const index = Math.round(f);
+    const values = SHARES[index];
+    const date = monthName(RUN[index].quarter);
+    const titled = p < P.title;
+    const beat = index < CROSS ? 0 : index < LAST ? 1 : 2;
+    // The sentences belong to their quarters: they show while time holds there and give way while it runs.
+    const holding = f === 0 || f === CROSS || f === LAST;
+    const along = f / LAST;
+    const nearCross = Math.abs(along - CROSS / LAST) < 0.09;
 
     return (
-        <section className="town-opening" ref={openingRef} aria-label="The opening: a town whose bank turns from its companies to its households">
-            <div className="town-sticky" style={{ "--title" : 1 - span(progress, 0.06, 0.12) } as React.CSSProperties}>
-                <TownStage progress={progress} />
-                <div className="town-title">
-                    <PageCrumbs />
-                    <p className="town-kicker">BANK CREDIT</p>
-                    <h1 className="town-h1">Companies left, <span className="accent">households came</span></h1>
-                    <p className="town-standfirst">
-                        {prose(`Of every ₹100 that banks in India have lent, more now goes to individuals than to private companies.
-                            The Reserve Bank’s quarterly returns show the change from ${monthYear(BASE_QUARTER)} to
-                            ${monthYear(LATEST.quarter)}, and ${partWords} of it is the share lent to private companies falling.`)}
-                    </p>
+        <section className="credit-opening" ref={ref} aria-label="How every ₹100 of bank credit was shared, quarter by quarter">
+            <div className="credit-stage">
+                <div className="credit-scene">
+                    <IsometricCredit shares={at(f)} values={values} then={FIRST} showThen={f > 0.5} date={date} />
                 </div>
-                <div className={`town-read ${progress >= BEATS.y2015 - 0.04 ? "is-on" : ""}`}>
-                    <div aria-live="polite">
-                        <span className="town-read-kicker">{caption.kicker}</span>
-                        <p className="town-read-text">{caption.text}</p>
+
+                <div className="credit-crumbs"><PageCrumbs /></div>
+
+                <div className="credit-words">
+                    <div className={`credit-title-card${titled ? "" : " is-gone"}`} aria-hidden={!titled}>
+                        <p className="credit-kicker">Bank credit</p>
+                        <h1 className="credit-title">How households took over <span>the bank loan book</span></h1>
+                        <p className="credit-standfirst">
+                            {prose(`In ${RUN[0].quarter.slice(0, 4)}, private companies owed ${Math.round(FIRST.companies)}% of everything
+                            Indian banks had lent. Watch how individuals passed companies to become the dominant borrower
+                            category.`)}
+                        </p>
                     </div>
-                    <div className="town-strip">
-                        <p className="town-strip-head">Of every ₹100 banks had lent, {quarter}</p>
-                        <div className="town-bar" role="img"
-                            aria-label={`${quarter}: ${GROUPS.map(g => `${g.label} ₹${figures[g.key].toFixed(1)}`).join(", ")}`}>
-                            {GROUPS.map(g => (
-                                <span key={g.key} className={`town-seg seg-${g.key}`} style={{ flexGrow : width(g.key) }}>
-                                    {figures[g.key] >= 20 && <b>₹{figures[g.key].toFixed(1)}</b>}
-                                </span>
-                            ))}
+                    <div className={`credit-beat${titled ? " is-waiting" : ""}`} aria-live="polite">
+                        <time className="credit-date" dateTime={RUN[index].quarter}>{date}</time>
+                        <div className={`credit-caption${holding ? "" : " is-running"}`} key={beat}>
+                            <p className="credit-text">{BEATS[beat].text}</p>
+                            <p className="credit-aside">{BEATS[beat].aside}</p>
                         </div>
-                        <ul className="town-key" aria-hidden="true">
-                            {GROUPS.map(g => (
-                                <li key={g.key}>
-                                    <i className={`town-swatch seg-${g.key}`} />
-                                    <span className="town-key-name">{g.label}</span>
-                                    <b className="town-key-value">₹{figures[g.key].toFixed(1)}</b>
-                                </li>
-                            ))}
-                        </ul>
+                        <p className={`credit-key${f > 0.5 ? "" : " is-gone"}`}><span aria-hidden="true" /> Where each stack stood in {monthName(RUN[0].quarter)}</p>
                     </div>
                 </div>
-                <div className={`town-cue ${progress > 0.02 ? "is-off" : ""}`}>Scroll through the years</div>
+
+                <dl className="credit-values" aria-hidden="true">
+                    {CREDIT_GROUPS.map(g => <div key={g.key} className={`is-${g.key}`}>
+                        <dt><g.icon size={13} />{g.short}</dt><dd>{rs(values[g.key])}</dd>
+                    </div>)}
+                </dl>
+
+                <div className="credit-time">
+                    <div className="credit-rail" style={{ "--along" : along } as CSSProperties}>
+                        <span className="credit-rail-fill" />
+                        <span className={`credit-rail-cross${nearCross ? " is-quiet" : ""}`} style={{ left : `${100 * CROSS / LAST}%` }}>
+                            <i>Individuals pass companies</i>
+                        </span>
+                        <span className={`credit-rail-head${along < 0.04 ? " is-start" : along > 0.96 ? " is-end" : ""}`}><b>{shortMonth(RUN[index].quarter)}</b></span>
+                        <label className="sr-only" htmlFor="credit-quarter">Quarter</label>
+                        <input id="credit-quarter" type="range" min="0" max={LAST} step="1" value={index}
+                            aria-valuetext={`${date}: individuals ${rs(values.individuals)}, private companies ${rs(values.companies)}`}
+                            onChange={e => jump(Number(e.target.value))} />
+                    </div>
+                    <ol className="credit-years" aria-hidden="true">
+                        {YEARS.map(({ year, i }) => <li key={year} style={{ left : `${100 * i / LAST}%` }}>{year}</li>)}
+                    </ol>
+                    <p className={`credit-cue${titled ? "" : " is-gone"}`}><ArrowDown size={14} aria-hidden="true" /> Scroll to move through time</p>
+                </div>
             </div>
         </section>
     );

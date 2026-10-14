@@ -21,7 +21,7 @@ import { WomenSlope } from "./WomenSlope";
 
 // DATA ================================================================================================================
 import {
-    BOTH_SIDES, CPI, CPI_LINKED, FOLDED, FROM, HEADLINE, INDEX, LATEST, OCC_LABELS, PERSONAL_LABELS, QUARTERS, RRB_2026,
+    BOTH_SIDES, CPI, CPI_LINKED, FOLDED, FROM, HEADLINE, INDEX, LATEST, LATEST_YEAR, MERGER, OCC_LABELS, PERSONAL_LABELS, QUARTERS, RRB_2026,
     SLOPE, TO, WOMEN_SERIES, companiesPartOfSwing, crore, lakhCrore, latestGap, mixOf, monthName, shortMonth,
     timesWords, whole, yearOf, type OccKey, type PersonalKey,
 } from "./data";
@@ -54,6 +54,19 @@ const realLoanWords = Math.abs(1 - AVG.realChange) < 0.025
     : `about ${Math.round(100 * Math.abs(1 - AVG.realChange))}% ${AVG.realChange < 1 ? "smaller" : "larger"} than in`;
 // The average loan against prices, for In short.
 const loanPaceWords = Math.abs(1 - AVG.realChange) < 0.025 ? "about as fast as prices" : AVG.realChange < 1 ? "a little slower than prices" : "faster than prices";
+// Lending to companies in rupees of the day and after prices, as said in the chapter's title: "doubled", "a quarter".
+const companiesNominalWords = timesWords(G.companies);
+const companiesRealWords = (() => {
+    const pct = 100 * (G.companiesReal - 1);
+    return pct >= 22 && pct < 28 ? "a quarter" : pct >= 30 && pct < 36 ? "a third" : pct >= 45 && pct < 55 ? "a half" : `${Math.round(pct)}%`;
+})();
+// What a rupee of the latest March bought against one of March 2015, as a fraction a person would say.
+const rupeeBuysWords = (() => {
+    const f = 1 / H.prices;
+    const said : [ number, string ][] = [ [ 1 / 2, "half" ], [ 3 / 5, "three-fifths" ], [ 2 / 3, "two-thirds" ], [ 3 / 4, "three-quarters" ], [ 4 / 5, "four-fifths" ] ];
+    const [ v, w ] = said.reduce((a, b) => Math.abs(b[0] - f) < Math.abs(a[0] - f) ? b : a);
+    return Math.abs(v - f) < 0.02 ? `about ${w}` : `${Math.round(100 * f)}%`;
+})();
 // Prices over the span, as a percentage rise.
 const pricesRise = Math.round(100 * (H.prices - 1));
 // The swing between individuals and private companies, and the part of it that is companies' fall.
@@ -121,6 +134,8 @@ const DOWNLOADS : [ string, string ][] = [
 ];
 
 const CARDS_URL = "https://newsroom.transunioncibil.com/half-of-indias-new-to-credit-card-consumers-are-gen-z-and-reside-beyond-metros/";
+const SURVEY_URL = "https://www.indiabudget.gov.in/budget2017-2018/es2016-17/echapter.pdf";
+const MERGER_URL = "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=56850";
 const ACTIVE_URL = "https://newsroom.transunioncibil.com/credit-growth-in-uttar-pradesh-madhya-pradesh-bihar-outpaced-that-of-traditional-strongholds/";
 const lakh = (v : number) => `₹${v.toFixed(2)} lakh`;
 
@@ -129,26 +144,34 @@ export const TheLightsCameOnPage = () => (
         <Article id="the-lights-came-on-page">
             <Opening />
 
-            {/* BOTH SIDES MOVED ======================================================================================= */}
+            {/* IN REAL TERMS ========================================================================================== */}
             <section className="chapter">
                 <div className="row">
                     <div className="words">
                         <Chapter
-                            id="both-sides-moved" kicker="BOTH SIDES MOVED"
-                            title={`After prices, lending to private companies ${timesWords(G.companiesReal)} from ${y15} to ${y26}`}
+                            id="both-sides-moved" kicker="IN REAL TERMS"
+                            title={`Bank loans to companies ${companiesNominalWords} on paper, only rose ${companiesRealWords} in real terms`}
                         >
-                            <Para>{`Bank lending to private companies ${timesWords(G.companies)} in rupees between
-                                ${monthName(FROM.quarter)} and ${monthName(TO.quarter)}, from ${lakhCrore(companies.thenNominal)}
-                                to ${lakhCrore(companies.nowNominal)}.`}</Para>
-                            <Para>{`Prices rose by ${pricesRise}% over the same ${numberWord(years)} years. In
-                                ${monthName(TO.quarter)} rupees, lending to companies went from ${lakhCrore(companies.thenReal)}
-                                to ${lakhCrore(companies.nowReal)}, so it ${timesWords(G.companiesReal)}.`}</Para>
-                            <Para>{`Lending to individuals grew ${G.outstanding.toFixed(1)} times in rupees, from
-                                ${lakhCrore(individuals.thenNominal)} to ${lakhCrore(individuals.nowNominal)}. In ${monthName(TO.quarter)} rupees it
-                                went from ${lakhCrore(individuals.thenReal)} to ${lakhCrore(individuals.nowReal)}, so it
-                                ${timesWords(G.outstandingReal)}.`}</Para>
-                            <Para last>{`The table does not say why private companies borrowed less from banks, and this story
-                                does not guess.`}</Para>
+                            <Para>{`Bank lending to private companies grew by about ${companiesRealWords} between ${monthName(FROM.quarter)}
+                                and ${monthName(TO.quarter)}, once rising prices are taken into account.`}</Para>
+                            <Para>{`In the rupees of each year, the amount banks had lent to companies ${companiesNominalWords === "doubled" ? "roughly doubled" : companiesNominalWords},
+                                from ${lakhCrore(companies.thenNominal)} to ${lakhCrore(companies.nowNominal)}. But prices rose
+                                ${pricesRise}% over the same ${numberWord(years)} years, with the consumer price index going from
+                                ${CPI[FROM.quarter]} to ${CPI[TO.quarter]}. A rupee in ${monthName(TO.quarter)} bought ${rupeeBuysWords}
+                                of what it did in ${monthName(FROM.quarter)}.`}</Para>
+                            <Para>{`At ${monthName(TO.quarter)} prices, the ${lakhCrore(companies.thenNominal)} outstanding in ${y15}
+                                would be about ${lakhCrore(companies.thenReal)}. Compared with that, the ${lakhCrore(companies.nowNominal)}
+                                outstanding in ${y26} is an increase of about ${Math.round(100 * (G.companiesReal - 1))}%.`}</Para>
+                            <Para>{`Lending to individuals grew much faster. After adjusting for prices, it ${timesWords(G.outstandingReal)},
+                                from ${lakhCrore(individuals.thenReal)} to ${lakhCrore(individuals.nowReal)} at ${monthName(TO.quarter)}
+                                prices. In the rupees of each year it rose ${G.outstanding.toFixed(1)} times, from
+                                ${lakhCrore(individuals.thenNominal)}.`}</Para>
+                            <Prose last>
+                                {prose(`The returns do not say why lending to private companies grew more slowly than lending
+                                    to individuals, and they cover banks only, not other lenders. The government’s`)}{" "}
+                                <Cite href={SURVEY_URL}>Economic Survey of 2016-17</Cite>
+                                {" put it down to banks weighed down by bad loans to large companies, and to the better-rated companies turning to bonds and commercial paper."}
+                            </Prose>
                         </Chapter>
                     </div>
                     <div className="panel">
@@ -172,22 +195,31 @@ export const TheLightsCameOnPage = () => (
                 </div>
             </section>
 
-            {/* MORE LOANS, NOT BIGGER ONES ============================================================================ */}
+            {/* MORE LOANS ============================================================================================= */}
             <section className="chapter">
                 <div className="row">
                     <div className="words">
-                        <Chapter id="more-loans" kicker="MORE LOANS, NOT BIGGER ONES" title={`Individuals’ loan accounts ${timesWords(G.accounts)} from ${y15} to ${y26}`}>
+                        <Chapter id="more-loans" kicker="MORE LOANS" title={`Individuals’ loan accounts ${timesWords(G.accounts)} from ${y15} to ${y26}`}>
                             <Para>{`Individuals held ${crore(FROM.classes.individuals.accounts)} loan accounts at banks in
                                 ${monthName(FROM.quarter)} and ${crore(TO.classes.individuals.accounts)} in
                                 ${monthName(TO.quarter)}. The money lent to them grew ${G.outstanding.toFixed(1)} times.`}</Para>
                             <Para>{`The average loan to an individual went from ${lakh(AVG.y2015.all)} to ${lakh(AVG.y2026.all)}.
-                                In ${monthName(TO.quarter)} rupees it is ${realLoanWords} ${y15}. The growth is in the number of
-                                loans.`}</Para>
+                                In ${monthName(TO.quarter)} rupees it is ${realLoanWords} ${y15}. After prices, the growth is in the
+                                number of loans.`}</Para>
+                            <Prose>
+                                {prose(`Part of the growth is a change of lender, not new borrowing. On 1 July 2023 HDFC, a housing
+                                    finance company, merged into HDFC Bank, and its loans joined the banks’ returns. In that
+                                    quarter individuals’ share of bank credit went from ${rs(MERGER.individualsBefore)} to
+                                    ${rs(MERGER.individualsAfter)} of every ₹100, and home loans grew ${Math.round(MERGER.housingGrowth)}%.
+                                    The Reserve Bank put bank credit growth in the year to September 2023 at 15.7% without the merger and 19.8% with it`)}{" ("}
+                                <Cite href={MERGER_URL}>RBI, 2023</Cite>
+                                {")."}
+                            </Prose>
                             <Prose last>
-                                {prose(`The table counts loan accounts, and one person can hold several.`)}{" "}
-                                <Cite href={CARDS_URL}>TransUnion CIBIL (2026)</Cite>
-                                {" counts 10.7 crore active credit cards held by 5.2 crore people in March 2026. The same bureau, which counts people across every kind of lender, put the adults aged 18 to 60 with a live retail loan at 28% in March 2026, against 11% in March 2017 ("}
-                                <Cite href={ACTIVE_URL}>TransUnion CIBIL, 2026</Cite>
+                                {prose(`The table counts loan accounts, and one person can hold several. A`)}{" "}
+                                <Cite href={CARDS_URL}>TransUnion CIBIL report of July 2026</Cite>
+                                {" counts 10.7 crore active credit cards held by 5.2 crore people in March 2026. The same bureau, which counts people across every kind of lender, put credit-active consumers at 28% of the credit-eligible population in March 2026, against 11% in March 2017 ("}
+                                <Cite href={ACTIVE_URL}>TransUnion CIBIL, July 2026</Cite>
                                 {")."}
                             </Prose>
                         </Chapter>
@@ -211,23 +243,25 @@ export const TheLightsCameOnPage = () => (
                 </div>
             </section>
 
-            {/* WHAT HOUSEHOLDS BORROW FOR ============================================================================= */}
+            {/* WHAT INDIVIDUALS BORROW FOR ============================================================================ */}
             <section className="chapter">
                 <div className="row">
                     <div className="words">
                         <Chapter
-                            id="what-for" kicker="WHAT HOUSEHOLDS BORROW FOR"
+                            id="what-for" kicker="WHAT INDIVIDUALS BORROW FOR"
                             title={`Personal loans went from ${rs(m15.personal)} to ${rs(m26.personal)} of every ₹100 banks lent, ${y15} to ${y26}`}
                         >
-                            <Para>{`Personal loans to individuals held ${rs(m26.personal)} of every ₹100 banks had lent in
+                            <Para>{`Personal loans to individuals made up ${rs(m26.personal)} of every ₹100 banks had lent in
                                 ${monthName(TO.quarter)}, up from ${rs(m15.personal)} in ${monthName(FROM.quarter)}${personalAboveCompanies
                                     ? `, more than banks had lent to all private companies (${rs(m26.privateCompanies)})` : ""}.`}</Para>
                             <Para>{`Home loans are the largest kind. They ${moved(P15.housing.ofIndividuals, P26.housing.ofIndividuals)}
                                 from ${rs(P15.housing.ofIndividuals)} to ${rs(P26.housing.ofIndividuals)} of every ₹100 lent to
                                 individuals, and from ${rs(P15.housing.ofBook)} to ${rs(P26.housing.ofBook)} of every ₹100 of all bank
-                                credit. Other personal loans, the row for everything that is not a home, a vehicle, a card, a
-                                durable or education, ${moved(P15.otherPersonal.ofIndividuals, P26.otherPersonal.ofIndividuals)}
-                                from ${rs(P15.otherPersonal.ofIndividuals)} to ${rs(P26.otherPersonal.ofIndividuals)} of individuals’ ₹100.`}</Para>
+                                credit; part of that rise is HDFC’s home loans, which joined the banks in 2023. Other personal loans,
+                                which cover everything but homes, vehicles, cards, consumer durables and education,
+                                ${moved(P15.otherPersonal.ofIndividuals, P26.otherPersonal.ofIndividuals)} from
+                                ${rs(P15.otherPersonal.ofIndividuals)} to ${rs(P26.otherPersonal.ofIndividuals)} of every ₹100 lent to
+                                individuals.`}</Para>
                             <Para>{`Vehicle loans ${moved(P15.vehicles.ofIndividuals, P26.vehicles.ofIndividuals)} from
                                 ${rs(P15.vehicles.ofIndividuals)} to ${rs(P26.vehicles.ofIndividuals)} and credit cards
                                 ${moved(P15.cards.ofIndividuals, P26.cards.ofIndividuals)} from ${rs(P15.cards.ofIndividuals)} to
@@ -236,7 +270,7 @@ export const TheLightsCameOnPage = () => (
                                 ${P15.durables.ofIndividuals === P26.durables.ofIndividuals ? `stayed at ${rs(P26.durables.ofIndividuals)}` : `${moved(P15.durables.ofIndividuals, P26.durables.ofIndividuals)} from ${rs(P15.durables.ofIndividuals)} to ${rs(P26.durables.ofIndividuals)}`}.`}</Para>
                             <Para last>{`Farm loans ${moved(H.occupations.y2015.agriculture.ofIndividuals, H.occupations.y2026.agriculture.ofIndividuals)}
                                 from ${rs(H.occupations.y2015.agriculture.ofIndividuals)} to ${rs(H.occupations.y2026.agriculture.ofIndividuals)}
-                                of individuals’ ₹100, though the money lent for farming ${timesWords(agriGrowth)}. Loans to individuals
+                                of every ₹100 lent to individuals, though the money lent for farming ${timesWords(agriGrowth)}. Loans to individuals
                                 for trade, industry, services and transport together ${moved(business("y2015"), business("y2026"))}
                                 from ${rs(business("y2015"))} to ${rs(business("y2026"))}.`}</Para>
                         </Chapter>
@@ -281,15 +315,15 @@ export const TheLightsCameOnPage = () => (
                             <Prose>
                                 {prose(`Women’s accounts ${W.belowPeakPct > 0 ? "peaked" : "stand"} at ${crore(W.peak.accounts)} in
                                     ${monthName(W.peak.quarter)}. By ${monthName(LATEST.quarter)} they were ${crore(W.latestAccounts)},
-                                    ${W.belowPeakPct.toFixed(1)}% fewer. The fall came with the retreat of microfinance lending from
-                                    mid-2024, which`)}{" "}
+                                    ${W.belowPeakPct.toFixed(1)}% fewer. The fall came at the same time as the retreat of microfinance
+                                    lending from mid-2024, which`)}{" "}
                                 <Link href="/stories/the-two-lakh-line" className="cite-link">The ₹2 lakh line</Link>
                                 {" traces."}
                             </Prose>
                             {agri && (
                                 <Para>{`Women’s share of the money lent to individuals for farming ${moved(agri.then, agri.now)} from
                                     ${rs(agri.then)} to ${rs(agri.now)} of every ₹100 between ${y15} and ${y26}.${roseMore.length
-                                        ? ` ${roseMore.map(s => OCC_LABELS[s.key]).join(" and ")} rose by more, from ${roseMore.map(s => rs(s.then)).join(" and ")} to ${roseMore.map(s => rs(s.now)).join(" and ")}.`
+                                        ? ` Their share in ${roseMore.map(s => OCC_LABELS[s.key].toLowerCase()).join(" and ")} rose by more, from ${roseMore.map(s => rs(s.then)).join(" and ")} to ${roseMore.map(s => rs(s.now)).join(" and ")}.`
                                         : " No other occupation rose as much."}`}</Para>
                             )}
                             <Para last>{`These quarterly figures leave out the regional rural banks, which lend mostly in
@@ -297,8 +331,8 @@ export const TheLightsCameOnPage = () => (
                                 accounts of individuals. With them, women hold ${H.rrb.womenAccountsShare2026.toFixed(1)}% of
                                 individuals’ accounts and ${rs(H.rrb.womenMoneyShare2026)} of every ₹100,
                                 ${rrbClose ? "close to" : "against"} ${toWomenShare.toFixed(1)}% and ${rs(W.moneyShare2026)} without them.
-                                No table that includes those banks splits an occupation by gender, so the farm figure stays on
-                                the quarterly count.`}</Para>
+                                No table that includes those banks splits an occupation by gender, so the farm figures leave
+                                those banks out.`}</Para>
                         </Chapter>
                     </div>
                     <div className="panel">
@@ -324,7 +358,7 @@ export const TheLightsCameOnPage = () => (
                                     rows : SLOPE.map(s => [ OCC_LABELS[s.key], s.then.toFixed(1), s.now.toFixed(1) ]),
                                 }}
                                 note={prose(`From the quarterly Basic Statistical Return, Table 3.2. ${FOLDED.length
-                                    ? `${FOLDED.map(k => OCC_LABELS[k]).join(" and ")}, under ₹1 of every ₹100 lent to individuals, ${FOLDED.length > 1 ? "are" : "is"} counted in all others, since so small a row swings too much from year to year to compare two years of it.`
+                                    ? `${FOLDED.map(k => OCC_LABELS[k]).join(" and ")}, under ₹1 of every ₹100 lent to individuals, ${FOLDED.length > 1 ? "are" : "is"} counted in all others, since so small an amount swings too much from year to year to compare.`
                                     : ""}`)}
                             >
                                 <WomenSlope />
@@ -339,13 +373,17 @@ export const TheLightsCameOnPage = () => (
                 <h2 className="so-title"><LetterRise text="In short" /></h2>
                 <div className="so-grid">
                     <Reveal>
-                        <Text className="so-kicker" weight="600">THE BIGGEST BORROWER</Text>
-                        <h3>{prose(`Individuals hold ₹${whole(H.latest.individuals)} of every ₹100 banks have lent, private companies ₹${whole(H.latest.privateCompanies)}`)}</h3>
-                        <Para>{`Individuals passed private companies in ${monthName(H.crossover)}. ${cap(swingPart)} of the swing
-                            since ${y15} is companies’ smaller share. Lending to them ${timesWords(G.companies)} in rupees and
-                            ${timesWords(G.companiesReal)} after prices, while lending to individuals ${timesWords(G.outstandingReal)}.`}</Para>
+                        <Text className="so-kicker" weight="600">THE LARGEST SHARE</Text>
+                        <h3>{prose(`Individuals owe ₹${whole(H.latest.individuals)} of every ₹100 banks have lent, private companies ₹${whole(H.latest.privateCompanies)}`)}</h3>
+                        <Para>{`Individuals passed private companies in ${monthName(H.crossover)}. ${cap(swingPart)} of the change in
+                            the gap since ${y15} came from companies’ smaller share, the rest from individuals’ larger one.
+                            Lending to companies ${timesWords(G.companies)} in rupees and ${timesWords(G.companiesReal)} after
+                            prices, while lending to individuals ${timesWords(G.outstandingReal)} after prices.`}</Para>
                         <Para last>{`The gap between the two peaked at ${rs(H.gapPeak.gap)} of every ₹100 in
-                            ${monthName(H.gapPeak.quarter)}${gapNarrowed ? ` and has narrowed since, to ${rs(latestGap)} in ${monthName(H.latest.quarter)}` : ""}.`}</Para>
+                            ${monthName(H.gapPeak.quarter)}${gapNarrowed ? ` and has narrowed since, to ${rs(latestGap)} in ${monthName(H.latest.quarter)},
+                            because lending to private companies sped up: it grew ${LATEST_YEAR.companies.toFixed(1)}% in the year
+                            to ${monthName(H.latest.quarter)}, against ${LATEST_YEAR.companiesBefore.toFixed(1)}% a year before,
+                            while lending to individuals grew ${LATEST_YEAR.individuals.toFixed(1)}%` : ""}.`}</Para>
                     </Reveal>
                     <Reveal delay={0.12}>
                         <Text className="so-kicker" weight="600">MORE LOANS</Text>
@@ -366,7 +404,7 @@ export const TheLightsCameOnPage = () => (
                 <WordReveal
                     className="closing"
                     text={prose(`In ${monthName(H.latest.quarter)} individuals owed ₹${whole(H.latest.individuals)} of every ₹100 banks
-                        had lent, and private companies ₹${whole(H.latest.privateCompanies)}. In ${monthName(FROM.quarter)} it was
+                        had lent, and private companies ₹${whole(H.latest.privateCompanies)}. In ${monthName(FROM.quarter)} they owed
                         ₹${whole(m15.individuals)} and ₹${whole(m15.privateCompanies)}.`)}
                 />
             </section>
@@ -383,7 +421,14 @@ export const TheLightsCameOnPage = () => (
                             includes them: Table 3.2 (report 1092) and Table 1.11 for the split by gender (report 1137). Prices
                             are MoSPI’s consumer price index, rural and urban combined, general index, base 2012 = 100 (report 610),
                             carried on by the base 2024 = 100 series in the RBI Monthly Bulletin (report 45). Counts of people
-                            rather than accounts are from TransUnion CIBIL (8 April and 30 July 2026).`)}
+                            rather than accounts are from TransUnion CIBIL (8 and 30 July 2026). The effect of the HDFC merger is
+                            from the Reserve Bank’s press release on the quarterly returns for September 2023 (1 December 2023).
+                            Further reading: Ministry of Finance, Economic Survey 2016-17, Volume 1, Chapter 4, “The festering
+                            twin balance sheet problem”; J. M. Anthony, S. Shankar and S. Sahoo, “Sectoral deployment of bank
+                            credit in India”, RBI Bulletin, February 2019; V. S. Shekhawat, A. K. Shukla, A. C. V. Subrahmanyam
+                            and J. Ansari, “Dynamics of credit growth in the retail segment: risk and stability concerns”, RBI
+                            Bulletin, January 2024; International Monetary Fund, India: 2024 Article IV consultation, Country
+                            Report 25/54, February 2025.`)}
                     </Text>
                     <h3>DOWNLOADS</h3>
                     {DOWNLOADS.map(([ file, label ]) => (
@@ -414,23 +459,27 @@ export const TheLightsCameOnPage = () => (
                         figure that moves through time comes from it. The annual return for ${monthName(TO.quarter)} includes
                         them: with them individuals hold ${rs(H.rrb.individualsShareOfBook2026)} of every ₹100 lent, against
                         ${rs(m26.individuals)} without, and women ${H.rrb.womenAccountsShare2026.toFixed(1)}% of individuals’
-                        accounts and ${rs(H.rrb.womenMoneyShare2026)} of their ₹100. The two are never mixed in one number.`}</MethodNote>
+                        accounts and ${rs(H.rrb.womenMoneyShare2026)} of every ₹100 lent to individuals. The two are never mixed in one number.`}</MethodNote>
                     <MethodNote title="Prices.">{`Amounts after prices are divided by the consumer price index, general
                         index, rural and urban combined, for the last month of each quarter, and stated in
                         ${monthName(TO.quarter)} rupees. The index was ${CPI[FROM.quarter]} in ${monthName(FROM.quarter)} and
-                        ${CPI[TO.quarter]} in ${monthName(TO.quarter)}, a rise of ${H.prices.toFixed(2)} times. The base 2012
+                        ${CPI[TO.quarter]} in ${monthName(TO.quarter)}, a rise of ${pricesRise}%. The base 2012
                         series ends in December 2025, so ${CPI_LINKED.map(monthName).join(" and ")} carry it on by the
                         year-on-year change of the base 2024 series.`}</MethodNote>
                     <MethodNote title="The quarters.">{`The series starts in ${monthName(QUARTERS[0].quarter)} and DBIE has no
-                        ${missingWords} quarter. The latest quarter is ${monthName(LATEST.quarter)}. Shares of every ₹100 are
-                        given for the latest quarter, and every multiple runs from ${monthName(FROM.quarter)} to
+                        ${missingWords} quarter. The latest quarter is ${monthName(LATEST.quarter)}. Shares in the opening and In short
+                        are for the latest quarter; the chapters compare ${monthName(FROM.quarter)} with
                         ${monthName(TO.quarter)}, so that a year is compared with a year.`}</MethodNote>
+                    <MethodNote title="A change of lender.">{`The returns cover scheduled commercial banks only. When HDFC, a
+                        housing finance company, merged into HDFC Bank on 1 July 2023, its loans entered the returns from the
+                        ${monthName(MERGER.after.quarter)} quarter. That moves existing loans into the banks’ figures; it is
+                        not new borrowing. The series is not adjusted for it, as the Reserve Bank’s tables are not.`}</MethodNote>
                     <MethodNote title="Rounding.">{`The quarterly amounts are published to the whole crore. Shares are rounded
-                        to one decimal and multiples to two.`}</MethodNote>
+                        to one decimal, and multiples to one decimal or put in words.`}</MethodNote>
                     <MethodNote title="Nothing typed by hand." last>{`Every figure from the returns and the price index is read
                         from the DBIE tables by a program that checks the totals of each table every time it runs, and the
-                        sentences use those same figures. The only figures typed in are the credit bureau’s, which are named
-                        where they appear.`}</MethodNote>
+                        sentences use those same figures. The only figures typed in are the credit bureau’s and the Reserve
+                        Bank’s growth with and without the HDFC merger, each named where it appears.`}</MethodNote>
                 </div>
             </section>
         </Article>

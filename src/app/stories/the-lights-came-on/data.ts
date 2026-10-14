@@ -72,6 +72,34 @@ export const companiesPartOfSwing = SWING.companiesFall / (SWING.individualsRise
 // The gap since its peak: whether it has narrowed, and to what in the latest quarter.
 export const latestGap = Math.round(10 * (HEADLINE.latest.individuals - HEADLINE.latest.privateCompanies)) / 10;
 
+// THE LATEST YEAR =====================================================================================================
+// Why the gap has narrowed since its peak: growth of lending to private companies and to individuals in the year to
+// the latest quarter, and in the year before that, with each group's share at the peak and now.
+const yearBefore = (key : string) => `${+key.slice(0, 4) - 1}${key.slice(4)}`;
+const grewPct = (key : string, k : "privateCompanies" | "individuals") =>
+    100 * (quarterAt(key).classes[k].outstanding / quarterAt(yearBefore(key)).classes[k].outstanding - 1);
+const shareIn = (key : string, k : "privateCompanies" | "individuals") => 100 * quarterAt(key).classes[k].outstanding / quarterAt(key).total.outstanding;
+export const LATEST_YEAR = {
+    companies         : grewPct(HEADLINE.latest.quarter, "privateCompanies"),
+    companiesBefore   : grewPct(yearBefore(HEADLINE.latest.quarter), "privateCompanies"),
+    individuals       : grewPct(HEADLINE.latest.quarter, "individuals"),
+    companiesAtPeak   : shareIn(HEADLINE.gapPeak.quarter, "privateCompanies"),
+    individualsAtPeak : shareIn(HEADLINE.gapPeak.quarter, "individuals"),
+};
+
+// THE HDFC MERGER =====================================================================================================
+// HDFC, a housing finance company, merged into HDFC Bank on 1 July 2023, and its loans joined the banks' returns from
+// the September 2023 quarter. The quarter before and the quarter of the merger, for individuals' share and home loans.
+export const MERGER = (() => {
+    const before = quarterAt("2023-06"), after = quarterAt("2023-09");
+    return {
+        before, after,
+        individualsBefore : shareIn(before.quarter, "individuals"),
+        individualsAfter  : shareIn(after.quarter, "individuals"),
+        housingGrowth     : 100 * (after.personal.housing.all.outstanding / before.personal.housing.all.outstanding - 1),
+    };
+})();
+
 // MORE LOANS ==========================================================================================================
 // Individuals' accounts, money and money in the latest March's rupees, each indexed to March 2015 = 100, every
 // quarter from March 2015.
