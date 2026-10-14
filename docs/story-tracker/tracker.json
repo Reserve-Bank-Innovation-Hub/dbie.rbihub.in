@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-14T09:27:00.886Z",
-  "dev": "1402a67",
+  "generated": "2026-10-14T09:29:42.665Z",
+  "dev": "0eabce4",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "b92951822a3b2530"
+  "digest": "f90c2c377005fd33"
  },
  "stories": [
   {
@@ -1054,8 +1054,8 @@
   {
    "id": "S17",
    "slug": null,
-   "status": "planned",
-   "mergedInto": null,
+   "status": "merged",
+   "mergedInto": "S23",
    "title": "Does MSP keep up?",
    "plannedTitle": "Does MSP keep up?",
    "section": "Agriculture",
