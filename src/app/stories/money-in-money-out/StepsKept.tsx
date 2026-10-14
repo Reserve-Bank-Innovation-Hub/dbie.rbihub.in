@@ -93,7 +93,7 @@ export const VaultStep = ({ layout, mode, events, children } : { layout? : Layou
                             <g className={`block-2026 ${drawn ? "is-shown" : ""}`}>
                                 <rect className="block-base" x={xb} y={Y(lastF)} width={block} height={Y(0) - Y(lastF)} />
                                 <rect className="block-new" x={xb} y={Y(lastF + WINDOW_2026)} width={block} height={Y(lastF) - Y(lastF + WINDOW_2026)} />
-                                <text className="block-value" x={narrow ? xb + block / 2 : xb + block + 8} y={narrow ? Y(lastF + WINDOW_2026) - 8 : Y(lastF + WINDOW_2026) + 14} textAnchor={narrow ? "middle" : "start"}>+{usd(WINDOW_2026, narrow ? 1 : 2)}</text>
+                                <text className="block-value" x={narrow ? xb + block : xb + block + 8} y={narrow ? Y(lastF + WINDOW_2026) - 8 : Y(lastF + WINDOW_2026) + 14} textAnchor={narrow ? "end" : "start"}>+{usd(WINDOW_2026, narrow ? 1 : 2)}</text>
                                 {!narrow && <>
                                     <text className="block-sub" x={xb + block + 8} y={Y(lastF + WINDOW_2026) + 30}>raised 08-06 to</text>
                                     <text className="block-sub" x={xb + block + 8} y={Y(lastF + WINDOW_2026) + 45}>21-08-2026</text>

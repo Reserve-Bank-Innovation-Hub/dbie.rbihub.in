@@ -207,7 +207,10 @@ export const HistoryStep = ({ layout, events, children } : { layout? : Layout; e
         return { x : X(i), y : Y(PRIVATE[i]), head : PRIVATE_FYS[i], lines : [ `${usd(PRIVATE[i], PRIVATE[i] < 10 ? 2 : 1)} sent home`, i ? `${signed((PRIVATE[i] / PRIVATE[i - 1] - 1) * 100)} on the year before` : "" ].filter(Boolean) };
     });
     const pins = events.map(e => ({ ...e, x : X(e.k), y : Y(PRIVATE[e.k]), delay : 0.4 + 2.2 * e.k / (n - 1) }));
-    const years = [ "1950-51", "1970-71", "1990-91", "2010-11", PRIVATE_FYS[n - 1] ];
+    const years = w < 560 ? [ "1950-51", "1980-81", "2010-11" ] : [ "1950-51", "1970-71", "1990-91", "2010-11", PRIVATE_FYS[n - 1] ];
+    // on a phone the two 1970s marks sit on top of each other in dollars: there only the latest is named, unless the
+    // ratio scale spreads them apart
+    const shownMarks = w < 560 && !ratio ? marks.filter(([ i ]) => i === n - 1) : marks;
     return (
         <div className={splitClass(layout)}>
             <div className="split-stage line-stage" ref={ref} {...bind}>
@@ -218,9 +221,9 @@ export const HistoryStep = ({ layout, events, children } : { layout? : Layout; e
                             <linearGradient id={`${uid}-fill`} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="var(--in)" stopOpacity="0.28" /><stop offset="1" stopColor="var(--in)" stopOpacity="0.02" /></linearGradient>
                         </defs>
                         <rect className="era" x={X(i73)} y={pad.t} width={X(i80) - X(i73)} height={h - pad.t - pad.b} />
-                        <text className="era-label" x={X(i73) + 6} y={pad.t + 16}>1973-74 to 1980-81</text>
+                        <text className="era-label" x={X(i73) + 6} y={pad.t + 16}>{w < 560 ? "1973–81" : "1973-74 to 1980-81"}</text>
                         <line className="era-line" x1={X(i91)} x2={X(i91)} y1={pad.t} y2={h - pad.b} />
-                        <text className="era-label" x={X(i91) + 6} y={pad.t + 16}>1991</text>
+                        <text className="era-label" x={X(i91) + 6} y={pad.t + (w < 560 ? 34 : 16)}>1991</text>
                         {ticks.map(v => (
                             <g key={v} className="grid">
                                 <line x1={pad.l} x2={w - pad.r + 20} y1={Y(v || 0.0001)} y2={Y(v || 0.0001)} />
@@ -232,7 +235,7 @@ export const HistoryStep = ({ layout, events, children } : { layout? : Layout; e
                             <polygon fill={`url(#${uid}-fill)`} points={`${X(0)},${Y(ratio ? 0.05 : 0)} ${PRIVATE.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ")} ${X(n - 1)},${Y(ratio ? 0.05 : 0)}`} />
                             <polyline className="series is-in" points={PRIVATE.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ")} />
                         </g>
-                        {marks.map(([ i, at ]) => {
+                        {shownMarks.map(([ i, at ]) => {
                             const x = X(i), y = Y(PRIVATE[i]);
                             const [ tx, ty, anchor ] : [ number, number, "start" | "middle" | "end" ] = at === "right" ? [ x + 12, y + 5, "start" ] : at === "below" ? [ x + 8, y + 22, "start" ] : [ x, y - 14, "middle" ];
                             return (
@@ -381,7 +384,7 @@ export const SlopeStep = ({ layout, children } : { layout? : Layout; children : 
     const { w, h } = size;
     const narrow = w < 560;
     const rows = SURVEY.countries.filter(c => c.shares[0] !== null && c.shares[2] !== null && c.short !== "Canada");
-    const pad = { t : 56, b : 34 }, x0 = w * (narrow ? 0.3 : 0.28), x1 = w * (narrow ? 0.66 : 0.6);
+    const pad = { t : 56, b : 34 }, x0 = w * (narrow ? 0.37 : 0.28), x1 = w * (narrow ? 0.63 : 0.6);
     const Y = (v : number) => pad.t + (1 - v / 30) * (h - pad.t - pad.b);
     // labels in value order, pushed apart where they would touch
     const spread = (vals : number[]) => {

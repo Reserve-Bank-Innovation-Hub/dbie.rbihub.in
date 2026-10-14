@@ -29,7 +29,7 @@ export interface ShelvesScene {
 
 // THE PLOT ============================================================================================================
 // the tiles run along x and stack along z, the first at the back; the units are scaled up from life so they read
-const L = 26, LANE = 3.4, SCALE = 1.45, TILE_D = LANE - 0.5;
+const L_WIDE = 26, LANE = 3.4, SCALE = 1.45, TILE_D = LANE - 0.5;
 const PAD = { narrow : { l : 8, r : 8, t : 8, b : 8 }, wide : { l : 16, r : 16, t : 10, b : 10 } };   // pixels
 const NAME_ROOM = 5.2, COUNT_ROOM = 4;                                      // ground the tags take beyond a tile's two ends, in world units
 
@@ -100,6 +100,8 @@ const KINDS : Record<ShelfKey, () => UnitKind> = {
 };
 
 export const createLrsScene = (canvas : HTMLCanvasElement, keys : ShelfKey[], max : number[], opts : { narrow : boolean; reduced : boolean }) : ShelvesScene => {
+    // a phone's rows are half as long, so its larger units still fit across the screen
+    const L = opts.narrow ? L_WIDE / 2 : L_WIDE;
     const renderer = new THREE.WebGLRenderer({ canvas, antialias : true, alpha : true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, opts.narrow ? 1.5 : 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -111,7 +113,9 @@ export const createLrsScene = (canvas : HTMLCanvasElement, keys : ShelfKey[], ma
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
-    const EYE = new THREE.Vector3(1, 0.82, 1).normalize().multiplyScalar(60);     // the isometric corner, as the farm is seen
+    // the isometric corner, as the farm is seen; on a phone, from in front and above, so each row runs across the screen
+    // and the plot fills its width
+    const EYE = (opts.narrow ? new THREE.Vector3(0.12, 0.62, 1) : new THREE.Vector3(1, 0.82, 1)).normalize().multiplyScalar(60);
     const FOCUS = new THREE.Vector3(0, 0, 0);
 
     // LIGHT ===========================================================================================================

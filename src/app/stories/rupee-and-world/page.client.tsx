@@ -88,9 +88,19 @@ const StepCard = ({ active, big, title, children, wide = false } : { active : bo
 );
 
 // A term the story uses, defined in plain words where it first appears.
-const Define = ({ term, children } : { term : string; children : ReactNode }) => (
-    <div className="define" role="note"><b>{term}</b> {children}</div>
-);
+// On a wide screen the explainer is always open, the term running into its text; on a phone (where the card shares the
+// screen with the chart) it starts closed and opens on a tap, so the card stays short. The page is served with the
+// wide form and switches after it mounts on a phone, so the server's page and the browser's agree.
+const Define = ({ term, children } : { term : string; children : ReactNode }) => {
+    const [ phone, setPhone ] = useState(false);
+    useEffect(() => { setPhone(matchMedia("(max-width: 900px)").matches); }, []);
+    if (!phone) return <div className="define" role="note"><b>{term}</b> {children}</div>;
+    return (
+        <details className="define" role="note">
+            <summary><b>{term}</b><span className="define-more">What is it?</span></summary> {children}
+        </details>
+    );
+};
 
 // A ring filled to a share of the basket, per cent: whole until a region or a partner is picked out.
 const ShareRing = ({ share } : { share : number }) => {
