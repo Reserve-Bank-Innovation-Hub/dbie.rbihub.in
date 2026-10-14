@@ -5,8 +5,8 @@
 // sari. Figures stand where DBIE's report 134 puts them for a survey; between surveys they walk.
 //
 // Around them, decoration that carries no number: coconut palms and mango trees, birds, and the times. In the NSS
-// years a bullock cart rolls down the farm track; in the PLFS years a tractor takes its place, and far off on the left a
-// wind turbine turns beside a small town, a glass tower and a power line, and the factory has solar panels. The track
+// years a bullock cart rolls down the farm track; in the PLFS years a tractor takes its place, and far off beyond the
+// shops a wind turbine turns beside a small town, a glass tower and a power line, and the factory has solar panels. The track
 // runs down the right of the women's field, past the end of the shops' yard, where no figure ever walks, so nothing
 // drives through a person.
 //
@@ -59,7 +59,7 @@ const modernAt = (i : number) => i >= 0 && RURAL[i].round.startsWith("PLFS");
 
 // THE LAYOUT, square to the land: on screen x runs down to the right and z down to the left, as in the opening.
 const FIELD = { w : 8.4, d : 6.6, z : 2.9, x : { m : -4.9, w : 4.9 }, rows : 0.64 };
-const YARD = { z0 : -4.9, z1 : -2.3, x : { ind : -4.9, serv : 4.9 }, w : 7.6 };
+const YARD = { z0 : -4.35, z1 : -2.15, x : { ind : -4.9, serv : 4.9 }, w : 7.6 };   // a strip clear behind, for the labels
 const BACK = -7.0;
 const TRACK_X = 10.8;    // the farm track down the right of the women's field and past the shops' yard, where nobody walks
 const S = 0.42;
@@ -247,7 +247,7 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
     for (let i = 0; i < 44; i++) {
         const x = (rand() - 0.5) * 90, z = (rand() - 0.5) * 80;
         if (Math.abs(x) < 14 && Math.abs(z) < 12) continue;
-        if (Math.abs(x - TRACK_X) < 3.5 || (x < -11 && z < 0 && z > -11)) continue;   // the track and the distant town stay clear
+        if (Math.abs(x - TRACK_X) < 3.5 || (Math.abs(x - 1) < 5 && z < -13 && z > -24)) continue;   // the track and the distant town stay clear
         if (rand() < 0.6) palm(x, z, 0.55 + rand() * 0.2, rand() < 0.5 ? 1 : -1, rand() * 6); else mango(x, z, 0.75 + rand() * 0.35);
     }
 
@@ -364,14 +364,14 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
     const tdriver = driver("manModern"); tdriver.position.set(0, 0.95, -0.4); tdriver.scale.setScalar(0.75); tractor.add(tdriver);
     tractor.scale.setScalar(0.62);
 
-    // THE DISTANT TOWN, the PLFS years only: far off on the left, small with distance and casting no shadow on the
-    // fields: one wind turbine, a few blocks of flats, a glass tower, and a power line on lattice pylons
+    // THE DISTANT TOWN, the PLFS years only: far off beyond the shops, above the cards, small with distance and casting
+    // no shadow on the fields: one wind turbine, a few blocks of flats, a glass tower, and a power line on pylons
     const modernBg = new THREE.Group(); scene.add(modernBg); modernBits.push(modernBg);
     const far = (geo : THREE.BufferGeometry, m : THREE.Material, x : number, y : number, z : number, parent : THREE.Object3D = modernBg) => {
         const o = new THREE.Mesh(geo, m); o.position.set(x, y, z); parent.add(o); return o;
     };
     const white = flat(0xd9dfe4), pale = flat(0xc9d0d6), lattice = flat(0x8d97a1);
-    const turbine = new THREE.Group(); turbine.position.set(-11.4, 0, -4.8); turbine.scale.setScalar(0.4); modernBg.add(turbine);
+    const turbine = new THREE.Group(); turbine.position.set(-1.0, 0, -16.0); turbine.scale.setScalar(0.4); modernBg.add(turbine);
     far(new THREE.CylinderGeometry(0.12, 0.22, 8, 10), white, 0, 4, 0, turbine);
     far(new THREE.BoxGeometry(0.35, 0.35, 0.8), pale, 0, 8.1, 0.1, turbine);
     const rotor = new THREE.Group(); rotor.position.set(0, 8.1, 0.55); rotor.rotation.y = Math.PI / 4; turbine.add(rotor);
@@ -384,9 +384,9 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
         far(new THREE.BoxGeometry(w, h, w), flat(c), x, h / 2, z);
         for (let r = 1; r < h / 0.45; r++) far(new THREE.BoxGeometry(w + 0.02, 0.07, w + 0.02), flat(0xeef4f8), x, r * 0.45, z);
     };
-    block(-13.6, -3.6, 1.0, 2.2, 0xc9d3dc); block(-12.9, -5.3, 1.0, 1.8, 0xced7df); block(-14.4, -4.6, 0.9, 2.6, 0xb7c4d0);
-    far(new THREE.BoxGeometry(0.7, 3.2, 0.7), flat(0x9fc3d6, { roughness : 0.3, metalness : 0.2 }), -13.5, 1.6, -4.8);
-    // a lattice pylon: four legs leaning in, cross bracing, two arms with insulators; the line runs off to the left
+    block(0.6, -17.0, 1.0, 2.2, 0xc9d3dc); block(1.6, -18.0, 0.9, 2.6, 0xb7c4d0); block(2.4, -17.0, 1.0, 1.8, 0xced7df);
+    far(new THREE.BoxGeometry(0.7, 3.2, 0.7), flat(0x9fc3d6, { roughness : 0.3, metalness : 0.2 }), 0.6, 1.6, -18.4);
+    // a lattice pylon: four legs leaning in, cross bracing, two arms with insulators; the line runs off to the right
     const pylon = (x : number, z : number) => {
         const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = Math.PI / 4; modernBg.add(g);
         for (const [ a, b ] of [ [ -1, -1 ], [ 1, -1 ], [ -1, 1 ], [ 1, 1 ] ]) { const leg = far(new THREE.CylinderGeometry(0.025, 0.035, 3.3, 4), lattice, a * 0.17, 1.6, b * 0.17, g); leg.rotation.set(-b * 0.1, 0, a * 0.1); }
@@ -395,7 +395,7 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
         far(new THREE.ConeGeometry(0.06, 0.3, 4), lattice, 0, 3.4, 0, g);
         return g;
     };
-    const P1 = new THREE.Vector3(-12.8, 0, -7.8), P2 = new THREE.Vector3(-15.6, 0, -3.0);
+    const P1 = new THREE.Vector3(3.6, 0, -19.6), P2 = new THREE.Vector3(6.4, 0, -24.4);
     pylon(P1.x, P1.z); pylon(P2.x, P2.z);
     // the wires sag between the pylons and run on past the second, off the screen
     const wireMat = new THREE.LineBasicMaterial({ color : 0x6b7078 });
@@ -409,11 +409,11 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
 
     // the NSS years' horizon: thatched huts and haystacks
     const oldBg = new THREE.Group(); scene.add(oldBg); oldBits.push(oldBg);
-    ([ [ -12.4, -5.0 ], [ -13.4, -6.2 ], [ 7.5, -12.5 ], [ 10.2, -11.5 ] ] as const).forEach(([ x, z ]) => {
+    ([ [ 0.4, -17.0 ], [ 1.8, -18.2 ], [ -0.8, -16.2 ], [ 2.8, -17.0 ] ] as const).forEach(([ x, z ]) => {
         add(new THREE.CylinderGeometry(0.5, 0.53, 0.66, 10), flat(0xc79a68), x, 0.33, z, oldBg);
         add(new THREE.ConeGeometry(0.74, 0.6, 10), flat(0xd9b45e), x, 0.93, z, oldBg);
     });
-    ([ [ -12.6, -3.4 ], [ -13.6, -4.0 ] ] as const).forEach(([ x, z ]) => add(new THREE.ConeGeometry(0.4, 0.8, 8), flat(0xe2c065), x, 0.4, z, oldBg));
+    ([ [ -1.6, -15.4 ], [ 3.4, -18.6 ] ] as const).forEach(([ x, z ]) => add(new THREE.ConeGeometry(0.4, 0.8, 8), flat(0xe2c065), x, 0.4, z, oldBg));
 
     // BIRDS: two loose flocks crossing the sky. Each bird has a body, head, beak and forked tail, and wings in two parts
     // that bend at the wrist as they beat; the flock beats for a while, then glides.
@@ -447,7 +447,7 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
             return new THREE.Vector3(FIELD.x[sex] - FIELD.w / 2 + 0.42 + c * (FIELD.w - 0.84) / 9, 0.14, FIELD.z - FIELD.d / 2 + 0.42 + r * FIELD.rows);
         }
         const half = YARD.w / 2, x0 = YARD.x[place] - half + (sex === "m" ? 0 : half), r = Math.floor(slot / 6), c = slot % 6;
-        return new THREE.Vector3(x0 + 0.34 + c * (half - 0.68) / 5, 0.05, YARD.z0 + 0.25 + r * 0.52);
+        return new THREE.Vector3(x0 + 0.34 + c * (half - 0.68) / 5, 0.05, YARD.z0 + 0.22 + r * 0.44);
     };
     const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), sc = new THREE.Vector3();
     const drawFigures = (x : number) => {
@@ -540,10 +540,12 @@ export const createPlotsScene = (canvas : HTMLCanvasElement, opts : { narrow : b
         },
         resize,
         anchors : () => ({
-            ind   : proj(YARD.x.ind, 3.6, BACK),
-            serv  : proj(YARD.x.serv, 2.9, BACK),
+            // the industry and services labels hang just below the front of their buildings, above the yards
+            // the industry and services labels sit on the roofs: the factory's saw-tooth and the shops' flat top
+            ind   : proj(-2.9, 2.15, BACK - 0.3),
+            serv  : proj(YARD.x.serv - 2.6, 2.35, BACK),   // the left end of the roof, clear of the cards
             // each field's label hangs just below its front bank: the women's under the middle of it, the men's nearer
-            // the front corner, as the left of the men's field runs off the screen; the key goes under the women's corner
+            // the front corner, as the left of the men's field runs off the screen
             men   : proj(FIELD.x.m + FIELD.w * 0.4, 0.1, FIELD.z + FIELD.d / 2 + 0.45),
             women : proj(FIELD.x.w, 0.1, FIELD.z + FIELD.d / 2 + 0.45),
             // on a phone the cards cover the fronts of the fields, so the labels sit off the fields' left corners

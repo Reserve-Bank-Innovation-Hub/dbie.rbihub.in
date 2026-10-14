@@ -5,11 +5,12 @@
 // drawing is plain SVG strings, as in the other stories' hand-built figures; mountStoryBody returns its own clean-up.
 
 import {
-    CPI_AL, DIP, FIRST, I_DIP, I_TOP, JOBS, LAST, RURAL,
+    ALL_JOBS, CPI_AL, CPI_YEARS, DIP, FIRST, I_DIP, JOBS, LAST, RURAL, SEASON, STATE_WAGES, STATE_YEARS, URBAN,
     TOP, URBAN_WOMEN_FARM, W0, W1, WAGES, WAGE_RANGE, WIDEST, hundred, pc, prem, pts, realGrowth, shortOf,
 } from "./data";
-import type { JobKey, Survey } from "./data";
+import type { JobKey, Round, StateWage, Survey } from "./data";
 import type { PlotsScene } from "./plotsScene";
+import type { TlBus } from "./SurveyTimeline";
 
 const NS = "http://www.w3.org/2000/svg";
 const FIGS = 100;
@@ -164,7 +165,8 @@ const DEFS = `
 // The decoration on the stage: trees on the horizon, as fractions of the width, with their scale.
 const TREES : [ number, string, number ][] = [ [ 0.015, "palm", 1.05 ], [ 0.055, "palm", 0.8 ], [ 0.11, "mango", 0.95 ], [ 0.19, "chilli", 1.1 ], [ 0.29, "palm", 0.7 ], [ 0.45, "mango", 0.7 ], [ 0.58, "chilli", 1 ], [ 0.66, "palm", 0.8 ], [ 0.8, "mango", 0.95 ], [ 0.885, "chilli", 1.1 ], [ 0.93, "palm", 1.1 ], [ 0.975, "palm", 0.85 ] ];
 
-type Scene = "meet" | "then" | "guess" | "years" | "now" | "gap" | "sectors" | "turn" | "latest";
+type Scene = "meet" | "then" | "guess" | "play";
+type PlayCard = "years" | "turn" | "now" | "gap" | "sectors" | "latest";
 type Place = "agri" | "ind" | "serv";
 type Sex = "m" | "w";
 interface Fig { el : SVGGElement; body : SVGGElement; place : Place | null; timer : number; }
@@ -176,9 +178,9 @@ interface Geo {
 }
 
 const LAST_I = RURAL.length - 1;
-const ROUND_OF : Record<Scene, number> = { meet : 0, then : 0, guess : 0, years : LAST_I, now : LAST_I, gap : LAST_I, sectors : LAST_I, turn : I_DIP, latest : LAST_I };
+const ROUND_OF : Record<Scene, number> = { meet : 0, then : 0, guess : 0, play : 0 };
 
-export const mountStoryBody = (root : HTMLElement) => {
+export const mountStoryBody = (root : HTMLElement, tlBus : TlBus) => {
     const $ = <T extends Element = HTMLElement>(id : string) => root.querySelector<T>(`#${id}`)!;
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cleanups : (() => void)[] = [];
@@ -191,34 +193,35 @@ export const mountStoryBody = (root : HTMLElement) => {
         $(id).innerHTML = `<div class="step-kicker">${kicker}</div>${big ? `<div class="step-big">${big}</div>` : ""}<div class="step-title">${title}</div>${body}`;
     };
     const say = (s : string) => `<p class="say">${s}</p>`;
-    card("card-then", shortOf(FIRST), `<span class="m">${pc(FIRST.m[0])}</span><span class="w">${pc(FIRST.w[0])}</span>`, "of rural working men and women were in agriculture",
-        say(`Those still in the fields work in agriculture. Those by the factory work in industry, and those by the shops in services. In ${shortOf(FIRST)}, ${Math.round(FIRST.m[0] / 10)} of the 100 men and ${Math.round(FIRST.w[0] / 10)} of the 100 women worked in agriculture.`));
+    const of100 = (v : number) => Math.round(v / 10);   // per 1000 → out of every 100, rounded
+    card("card-then", shortOf(FIRST), `<span class="m">${pc(FIRST.m[0])}</span><span class="w">${pc(FIRST.w[0])}</span>`, "of rural men and women who work were in farming",
+        say(`Each figure is one person out of 100. Figures in the fields work in farming, figures at the factory work in industry, and figures at the shops work in services. In ${shortOf(FIRST)}, ${of100(FIRST.m[0])} of every 100 men and ${of100(FIRST.w[0])} of every 100 women worked in farming.`));
     $("card-guess").innerHTML = `
         <div class="step-kicker">Before the answer</div>
-        <div class="step-title">Twenty-five years on, of every ten rural women who work, how many do you think work in agriculture?</div>
+        <div class="step-title">25 years later, out of every 10 rural women who work, how many do you think still work in farming?</div>
         <div class="guess-row" id="guess-row" role="group" aria-label="Your guess, out of ten">${Array.from({ length : 10 }, (_, k) => `<button type="button" data-v="${k + 1}" aria-label="${k + 1} out of 10">${k + 1}</button>`).join("")}</div>
         <button class="btn" id="lock" type="button" disabled>Lock in my guess ↓</button>`;
     // the survey-by-survey card: in 3D its figures follow the scroll; without WebGL it shows the latest survey
-    const yearsCard = (i : number) => card("card-years", "Survey by survey", `<span class="m">${pc(RURAL[i].m[0])}</span><span class="w">${pc(RURAL[i].w[0])}</span>`,
-        `of rural working men and women in agriculture, ${RURAL[i].period}`,
-        say(`Keep scrolling to move through all ${RURAL.length} surveys, from ${shortOf(FIRST)} to ${shortOf(LAST)}. Watch the men walk off to the building site and the shops. Scroll back to rewind.`));
-    yearsCard(LAST_I);
+    const yearsCard = (i : number) => card("card-years", "Year by year", `<span class="m">${pc(RURAL[i].m[0])}</span><span class="w">${pc(RURAL[i].w[0])}</span>`,
+        `of rural men and women who work were in farming, ${RURAL[i].period}`,
+        say(`The timeline at the top moves through every survey from ${shortOf(FIRST)} to ${shortOf(LAST)}. See how men move into construction and services over time. The cards change on their own; you can pause the timeline or drag it to any year.`));
+    yearsCard(0);
     const tens = (v : number, colour : string) => Array.from({ length : 10 }, (_, k) => `<i><b style="height:${Math.max(0, Math.min(1, v - k)) * 100}%;background:var(${colour})"></b></i>`).join("");
     const inTen = (v : number) => Math.round(v / 100);
-    const nowCard = (guess : number | null) => card("card-now", `The answer · ${shortOf(LAST)}`, `<span class="w">${pc(LAST.w[0])}</span>`, "of rural working women are still in agriculture",
+    const nowCard = (guess : number | null) => card("card-now", `The answer · ${shortOf(LAST)}`, `<span class="w">${pc(LAST.w[0])}</span>`, "of rural women who work are still in farming",
         (guess ? `<p class="verdict">${Math.abs(guess - LAST.w[0] / 100) < 0.5 ? `Your guess of ${guess} was right.` : guess < LAST.w[0] / 100 ? `Your guess of ${guess} was low.` : `Your guess of ${guess} was high.`}</p>` : "")
         + `<div class="tens"><div class="ten"><span>Women</span>${tens(LAST.w[0] / 100, "--women")}</div><div class="ten"><span>Men</span>${tens(LAST.m[0] / 100, "--men")}</div></div>`
-        + say(`About ${inTen(LAST.w[0])} in ten. For rural men it is under ${Math.ceil(LAST.m[0] / 100)} in ten: ${pc(LAST.m[0])}, down from ${pc(FIRST.m[0])}. The women’s share fell by ${pts(FIRST.w[0] - LAST.w[0])}; the men’s by ${pts(FIRST.m[0] - LAST.m[0])}.`));
+        + say(`That is about ${inTen(LAST.w[0])} in 10. For rural men who work, it is now fewer than ${Math.ceil(LAST.m[0] / 100)} in 10 (${pc(LAST.m[0])}), down from ${pc(FIRST.m[0])} in ${shortOf(FIRST)}.`));
     nowCard(null);
     const underHalf = RURAL.find(r => r.m[0] < 500 && RURAL.slice(RURAL.indexOf(r)).every(q => q.m[0] < 500));
-    card("card-gap", "The gap", `${(FIRST.w[0] - FIRST.m[0]) / 10} <small>→</small> ${(LAST.w[0] - LAST.m[0]) / 10}<small>points</small>`, "The gap between women and men on farms has nearly doubled",
-        say(`In ${shortOf(FIRST)}, the women’s share in agriculture was ${pts(FIRST.w[0] - FIRST.m[0])} above the men’s. In ${shortOf(LAST)} it is ${pts(LAST.w[0] - LAST.m[0])} above.${underHalf ? ` Since ${shortOf(underHalf)}, fewer than half of rural working men have worked on farms.` : ""}`));
-    card("card-sectors", "Where the men went", `<span class="m">${pc(FIRST.m[1])}</span><small>→</small><span class="m">${pc(LAST.m[1])}</span>`, `of rural working men are in industry, twice the ${shortOf(FIRST)} share`,
-        say(`The factory stands for industry, which in this table includes construction along with mining, factories and utilities; the shops stand for services. Rural women in industry barely moved, from ${pc(FIRST.w[1])} to ${pc(LAST.w[1])}. Those who left the farm went into services, which rose from ${pc(FIRST.w[2])} to ${pc(LAST.w[2])}.`));
-    card("card-turn", `${shortOf(DIP)} to ${shortOf(TOP)}`, `<span class="w">${pc(DIP.w[0])}</span><small>→</small><span class="w">${pc(TOP.w[0])}</span>`, "The women went back to the farm",
-        say(`For five years the women’s share in agriculture rose, while the men’s kept falling, from ${pc(DIP.m[0])} to ${pc(TOP.m[0])}. By ${shortOf(WIDEST)} the gap reached ${pts(WIDEST.w[0] - WIDEST.m[0])}, the widest in the series.`));
-    card("card-latest", `The latest survey · ${shortOf(LAST)}`, `<span class="w">${pc(LAST.w[0])}</span>`, "Most rural women who work are still on farms",
-        say(`The calendar year ${shortOf(LAST)} brought the women’s share back down to ${pc(LAST.w[0])}, close to the ${pc(DIP.w[0])} of ${shortOf(DIP)}. Whether the turn back has ended, the next survey will show.`));
+    card("card-gap", "The difference", `${of100(FIRST.w[0] - FIRST.m[0])} <small>→</small> ${of100(LAST.w[0] - LAST.m[0])}<small>out of 100</small>`, "The difference between women and men in farming has nearly doubled",
+        say(`In ${shortOf(FIRST)}, ${of100(FIRST.w[0])} of every 100 women and ${of100(FIRST.m[0])} of every 100 men worked in farming: a difference of ${of100(FIRST.w[0] - FIRST.m[0])}. In ${shortOf(LAST)}, it is ${of100(LAST.w[0])} women and ${of100(LAST.m[0])} men: a difference of ${of100(LAST.w[0] - LAST.m[0])}.${underHalf ? ` Since ${shortOf(underHalf)}, fewer than half of rural men who work have been in farming.` : ""}`));
+    card("card-sectors", "Where men found work", `<span class="m">${pc(FIRST.m[1])}</span><small>→</small><span class="m">${pc(LAST.m[1])}</span>`, `of rural men who work are now in industry, about twice as many as in ${shortOf(FIRST)}`,
+        say(`Industry here includes construction, factories, mining and power supply. Few women moved into industry: ${pc(FIRST.w[1])} in ${shortOf(FIRST)} and ${pc(LAST.w[1])} in ${shortOf(LAST)}. Women who moved out of farming mostly went into services, which rose from ${pc(FIRST.w[2])} to ${pc(LAST.w[2])}.`));
+    card("card-turn", `${shortOf(DIP)} to ${shortOf(TOP)}`, `<span class="w">${pc(DIP.w[0])}</span><small>→</small><span class="w">${pc(TOP.w[0])}</span>`, "More women worked in farming again",
+        say(`For five years, the share of women in farming went up, while the share of men kept going down, from ${pc(DIP.m[0])} to ${pc(TOP.m[0])}. In ${shortOf(WIDEST)}, the difference between them was the largest of any survey.`));
+    card("card-latest", `The latest survey · ${shortOf(LAST)}`, `<span class="w">${pc(LAST.w[0])}</span>`, "Most rural women who work are still in farming",
+        say(`In ${shortOf(LAST)}, the share of women in farming came back down to ${pc(LAST.w[0])}, close to the ${pc(DIP.w[0])} of ${shortOf(DIP)}. The next survey will show whether this continues.`));
 
     // THE STAGE =======================================================================================================
     // Two plots, the men's and the women's, with a factory and a row of shops beyond them. Each figure is one in every
@@ -468,38 +471,29 @@ export const mountStoryBody = (root : HTMLElement) => {
 
     // The survey each scene shows; the turn scene steps through 2018-19 to 2023-24 while its card is in view. (This is
     // the 2D stage, used until the 3D one has loaded and wherever WebGL is missing.)
-    let current : Scene | null = null, turnTimer = 0;
+    let current : Scene | null = null;
     let plots3d : PlotsScene | null = null;
     const setScene = (scene : Scene, force = false) => {
         if (current === scene && !force) return;
         current = scene;
-        clearInterval(turnTimer); turnTimer = 0;
-        root.querySelectorAll<HTMLElement>(".step-card").forEach(c => c.classList.toggle("is-active", c.parentElement?.dataset.scene === scene));
-        let round = ROUND_OF[scene];
-        if (plots3d) return;
-        render(scene, round);
-        if (scene === "turn") {
-            turnTimer = window.setInterval(() => {
-                round += 1;
-                render("turn", round);
-                if (round >= I_TOP) { clearInterval(turnTimer); turnTimer = 0; }
-            }, reduced ? 1200 : 850);
-        }
+        // the first steps' cards follow the scroll; the play step's cards follow the player (below)
+        root.querySelectorAll<HTMLElement>(".step > .step-card").forEach(c => c.classList.toggle("is-active", c.parentElement?.dataset.scene === scene));
+        if (plots3d || scene === "play") return;
+        render(scene, ROUND_OF[scene]);
     };
     layout(); setScene("meet");
     const io = new IntersectionObserver(entries => { for (const e of entries) if (e.isIntersecting) setScene((e.target as HTMLElement).dataset.scene as Scene); }, { rootMargin : "-45% 0px -45% 0px", threshold : 0 });
     root.querySelectorAll(".step").forEach(s => io.observe(s));
-    cleanups.push(() => { io.disconnect(); clearInterval(turnTimer); figs.m.concat(figs.w).forEach(f => clearTimeout(f.timer)); });
+    cleanups.push(() => { io.disconnect(); figs.m.concat(figs.w).forEach(f => clearTimeout(f.timer)); });
 
     // THE 3D STAGE ====================================================================================================
-    // Where WebGL works, the plots are the opening's 3D farmland (plotsScene.ts) and the scroll drives a timeline of
-    // surveys: x is a round index (-1 everyone in the field), held while a card is centred and scrubbed between cards,
-    // so between the guess and the answer the figures walk through every survey, and scrolling back rewinds them.
-    const SCENE_ORDER : Scene[] = [ "meet", "then", "guess", "years", "now", "gap", "sectors", "turn", "latest" ];
-    const KEYS : [ number, number ][] = [
-        [ 0.35, -1 ], [ 0.65, -1 ], [ 1.35, 0 ], [ 2.65, 0 ], [ 3.12, 0 ], [ 3.9, LAST_I ], [ 6.65, LAST_I ],
-        [ 7.2, I_DIP ], [ 7.8, I_TOP ], [ 8.35, LAST_I ],
-    ];
+    // Where WebGL works, the plots are the opening's 3D farmland (plotsScene.ts). x is a round index (-1 everyone in the
+    // field): the scroll sets it, held while a card is centred and moved between cards, except in the survey-by-survey
+    // step, where the timeline plays the surveys by itself. The figures follow x with a short catch-up, so they walk to a
+    // new survey rather than jump.
+    // 2000-01 for the first card and the guess; the play step is the player's own (below); 2025 after it
+    const SCENE_ORDER : Scene[] = [ "meet", "then", "guess", "play" ];
+    const KEYS : [ number, number ][] = [ [ 0.35, -1 ], [ 0.65, -1 ], [ 1.35, 0 ], [ 2.65, 0 ], [ 3.0, 0 ], [ 4.0, LAST_I ] ];
     const timeline = (s : number) => {
         if (s <= KEYS[0][0]) return KEYS[0][1];
         for (let i = 1; i < KEYS.length; i++) {
@@ -519,38 +513,109 @@ export const mountStoryBody = (root : HTMLElement) => {
         return 0;
     };
     const frameOf = (W : number, H : number) => W < 900
-        ? { l : 8, r : W - 8, t : H * 0.11, b : H * 0.58 }
+        ? { l : 8, r : W - 8, t : H * 0.25, b : H * 0.58 }
         : { l : W * 0.03, r : W - Math.min(430, W * 0.36) - W * 0.06, t : H * 0.12, b : H * 0.96 };
-    let lastRound = -2, lastModern : boolean | null = null, raf3 = 0;
+    // THE PLAYER ------------------------------------------------------------------------------------------------------
+    // After the guess, one long step where the surveys play by themselves from 2000-01 to 2025 and never go back: the
+    // figures walk from survey to survey, the timeline (SurveyTimeline.tsx, the site's shared scrubber) follows, and each
+    // card comes up as its year arrives. The play is a list of beats, each a walk from one survey to the next or a hold
+    // on a card; the clock is the time into them. Arriving from above plays it from 2000-01; from below shows the end.
+    // The play button pauses and resumes; the scrubber jumps to a year and the card that goes with it.
+    const PLAY_STEP = SCENE_ORDER.indexOf("play");
+    const SURVEY_MS = 1500, WALK = 0.6, READ_MS = 6500;
+    interface Beat { from : number; to : number; ms : number; card : PlayCard; }
+    const BEATS : Beat[] = [];
+    const walk = (a : number, b : number, card : PlayCard) => { for (let k = a; k < b; k++) BEATS.push({ from : k, to : k + 1, ms : SURVEY_MS, card }); };
+    const hold = (x : number, ms : number, card : PlayCard) => BEATS.push({ from : x, to : x, ms, card });
+    hold(0, 2000, "years"); walk(0, I_DIP, "years");                          // 2000-01 to 2018-19, the shares updating
+    hold(I_DIP, 3500, "turn"); walk(I_DIP, LAST_I - 1, "turn");               // the turn back, 2018-19 to 2024
+    hold(LAST_I - 1, 3000, "turn");
+    walk(LAST_I - 1, LAST_I, "now"); hold(LAST_I, READ_MS, "now");           // 2025: the answer, then what it shows
+    hold(LAST_I, READ_MS, "gap"); hold(LAST_I, READ_MS, "sectors"); hold(LAST_I, 0, "latest");
+    const STARTS = BEATS.map((_, k) => BEATS.slice(0, k).reduce((t, b) => t + b.ms, 0));
+    const TOTAL = STARTS[STARTS.length - 1];
+    const beatAt = (e : number) => { let k = 0; while (k + 1 < BEATS.length && STARTS[k + 1] <= e) k++; return k; };
+    const xAt = (e : number) => {
+        const k = beatAt(e), b = BEATS[k], f = (e - STARTS[k]) / (b.ms * WALK || 1);
+        return b.from === b.to ? b.from : b.from + (reduced ? (f >= 1 ? 1 : 0) : Math.min(1, f));
+    };
+    const pl = { e : 0, playing : false, start : 0, card : null as PlayCard | null };
+    const inPlay = (s : number) => s >= PLAY_STEP && s < PLAY_STEP + 1;
+    const toPlay = () => steps[PLAY_STEP].scrollIntoView({ behavior : reduced ? "auto" : "smooth", block : "start" });
+    const play = () => { if (pl.e >= TOTAL) pl.e = 0; pl.playing = true; pl.start = performance.now() - pl.e; schedule3d(); };
+    const pause = () => { pl.playing = false; schedule3d(); };
+    const showCard = (c : PlayCard | null) => {
+        if (c === pl.card) return;
+        pl.card = c;
+        root.querySelectorAll<HTMLElement>(".card-stack > .step-card").forEach(el => el.classList.toggle("is-active", el.id === `card-${c}`));
+    };
+    tlBus.onPlay = want => {
+        if (!inPlay(stepPos())) { toPlay(); return; }
+        if (want) play(); else pause();
+    };
+    // a year picked on the scrubber: the moment the play arrives at it, and the card that goes with it
+    tlBus.onChange = i => {
+        if (!inPlay(stepPos())) { toPlay(); return; }
+        pl.e = STARTS[Math.max(0, BEATS.findIndex(b => b.from === i))]; pause();
+    };
+    const publish = (x : number) => {
+        const i = Math.max(0, Math.min(LAST_I, Math.round(x)));
+        tlBus.set({ i, meet : x < -0.5, playing : pl.playing });
+    };
+    const paintTl = publish;
+    const tlBox = $("wws-tl");
+    const drawTl = () => {};
+
+    let lastRound = -2, lastModern : boolean | null = null, raf3 = 0, shown = NaN, lastS = -9, lastT = 0;
+    let last2d = -9;
     const draw3d = () => {
-        if (!plots3d) return;
-        const s = stepPos(), x = timeline(s), zoomT = smoothT(Math.max(0, Math.min(1, s / 0.5)));
+        const now = performance.now(), dt = Math.min(0.1, (now - (lastT || now)) / 1000); lastT = now;
+        const s = stepPos(), zoomT = smoothT(Math.max(0, Math.min(1, s / 0.5)));
+        const was = inPlay(lastS), here = inPlay(s);
+        if (here && !was) { if (lastS >= PLAY_STEP + 1) { pl.e = TOTAL; pause(); } else { pl.e = 0; play(); } }
+        if (!here && was) pause();
+        lastS = s;
+        if (pl.playing) { pl.e = now - pl.start; if (pl.e >= TOTAL) { pl.e = TOTAL; pause(); } }
+        showCard(here ? BEATS[beatAt(pl.e)].card : null);
+        const target = here ? xAt(pl.e) : timeline(s);
+        // the timeline appears with the play, and stays for the rest of the plots
+        tlBox.classList.toggle("is-on", s >= PLAY_STEP - 0.1);
+        // without WebGL the 2D stage takes each survey as the player reaches it
+        if (!plots3d) {
+            const r2 = Math.max(0, Math.min(LAST_I, Math.round(target)));
+            if (here && r2 !== last2d) { last2d = r2; render("play", r2); }
+            if (pl.playing) schedule3d();
+            return;
+        }
+        // the figures catch up with the target over a fraction of a second, so a jump becomes a walk
+        shown = Number.isNaN(shown) || reduced ? target : shown + (target - shown) * (1 - Math.exp(-dt * 6));
+        if (Math.abs(target - shown) < 0.002) shown = target;
+        const x = shown;
+        if (pl.playing || shown !== target) schedule3d();
+        paintTl(x);
         plots3d.render({ x, zoom : 2.3 - 1.3 * zoomT, dim : Math.abs(s - 2.5) < 0.5 });
         // the plots rise out of the same haze the opening fades into
         stage.style.setProperty("--veil", String(1 - smoothT(Math.max(0, Math.min(1, (s + 0.1) / 0.5)))));
         const meet = x < -0.5, i = Math.max(0, Math.min(LAST_I, Math.round(x))), r = RURAL[i], a = plots3d.anchors();
-        // a label centred above its anchor, hanging just below it, or ending just left of it, kept inside the screen
-        const put = (id : string, ax : number, ay : number, html : string, at : "above" | "below" | "left" = "above") => {
+        // a label centred above its anchor, hanging just below it, centred on it, or ending just left of it, kept inside
+        // the screen
+        const put = (id : string, ax : number, ay : number, html : string, at : "above" | "below" | "left" | "centre" = "above") => {
             const el = $(id); if (el.dataset.html !== html) { el.innerHTML = html; el.dataset.html = html; }
             const w = el.offsetWidth, h = el.offsetHeight, edge = stage.clientWidth < 900 ? 6 : 56;
             const cx = Math.max(edge, Math.min(stage.clientWidth - w - 6, at === "left" ? ax - w - 6 : ax - w / 2));
-            el.style.transform = `translate(${cx}px, ${at === "below" ? ay : at === "left" ? ay - h / 2 : ay - h}px)`;
+            el.style.transform = `translate(${cx}px, ${at === "below" ? ay : at === "left" || at === "centre" ? ay - h / 2 : ay - h}px)`;
         };
         const phone = stage.clientWidth < 900;
-        put("lab-factory", a.ind.x, a.ind.y, `<b style="color:var(--ind)">Industry</b>${meet ? "" : `<span><i class="m">men ${pc(r.m[1])}</i> · <i class="w">women ${pc(r.w[1])}</i></span>`}`);
-        put("lab-shops", a.serv.x, a.serv.y, `<b style="color:#8a5d00">Services</b>${meet ? "" : `<span><i class="m">men ${pc(r.m[2])}</i> · <i class="w">women ${pc(r.w[2])}</i></span>`}`);
+        // the building labels are one line each, sitting on the roofs
+        put("lab-factory", a.ind.x, a.ind.y, `<span class="one-line"><b style="color:var(--ind)">Industry</b>${meet ? "" : ` <i class="m">men ${pc(r.m[1])}</i> · <i class="w">women ${pc(r.w[1])}</i>`}</span>`, "centre");
+        put("lab-shops", a.serv.x, a.serv.y, `<span class="one-line"><b style="color:#8a5d00">Services</b>${meet ? "" : ` <i class="m">men ${pc(r.m[2])}</i> · <i class="w">women ${pc(r.w[2])}</i>`}</span>`, "centre");
         // each field's label just below its front bank; on a phone, beside the field's left corner
         const men = phone ? a.menSide : a.men, women = phone ? a.womenSide : a.women;
         put("lab-men", men.x, men.y, `<b class="m">${meet ? "100 rural men who work" : `Men on the farm ${pc(r.m[0])}`}</b>`, phone ? "left" : "below");
         put("lab-women", women.x, women.y, `<b class="w">${meet ? "100 rural women who work" : `Women on the farm ${pc(r.w[0])}`}</b>`, phone ? "left" : "below");
-        const badge = $("year-badge");
-        badge.classList.toggle("is-hidden", meet);
-        badge.textContent = r.period;
-        // on a phone the card below already names the survey, and there is no free corner for the dates
-        badge.style.display = stage.clientWidth < 900 ? "none" : "";
-        // on a wide screen the dates sit in the bottom-left corner, with the key just above them
+        // the timeline names the survey, so the 3D stage needs no separate dates badge
+        $("year-badge").style.display = "none";
         const left = frameOf(stage.clientWidth, stage.clientHeight).l + 8;
-        badge.style.transform = `translate(${left}px, ${stage.clientHeight - badge.offsetHeight - 22}px)`;
         if (i !== lastRound) { lastRound = i; yearsCard(i); }
         const modern = !meet && r.round.startsWith("PLFS");
         if (modern !== lastModern) {
@@ -558,13 +623,13 @@ export const mountStoryBody = (root : HTMLElement) => {
             const fr = frameOf(stage.clientWidth, stage.clientHeight);
             const fig = (id : string, w : number) => `<svg width="${w}" height="${w * 2}" viewBox="-10 -40 20 41" aria-hidden="true"><use href="#${id}"></use></svg>`;
             $("caption-keys").innerHTML = `<span class="key">${fig(modern ? "fig-man-modern" : "fig-man", 15)}a man</span><span class="key">${fig("fig-woman", 15)}a woman</span><span class="key">${fig("fig-worker", 15)}a man in industry</span>`;
-            if (stage.clientWidth < 900) $("stage-caption").style.transform = `translate(${fr.l + 8}px, 12px)`;
+            // on a phone the key sits under the timeline, across the top
+            if (stage.clientWidth < 900) $("stage-caption").style.transform = `translate(${fr.l + 4}px, ${tlBox.offsetTop + tlBox.offsetHeight + 6}px)`;
         }
-        // on a wide screen the key sits in the bottom-left corner, just above the dates; on a phone, where the cards fill
-        // the bottom, it stays at the top
+        // on a wide screen the key sits in the bottom-left corner; on a phone, where the cards fill the bottom, at the top
         if (!phone) {
             const cap = $("stage-caption");
-            cap.style.transform = `translate(${left}px, ${stage.clientHeight - badge.offsetHeight - 22 - cap.offsetHeight - 8}px)`;
+            cap.style.transform = `translate(${left}px, ${stage.clientHeight - cap.offsetHeight - 20}px)`;
         }
     };
     const smoothT = (t : number) => t * t * (3 - 2 * t);
@@ -572,7 +637,7 @@ export const mountStoryBody = (root : HTMLElement) => {
     const size3d = () => {
         if (!plots3d) return;
         const W = stage.clientWidth, H = stage.clientHeight;
-        plots3d.resize(W, H, frameOf(W, H)); lastModern = null; draw3d();
+        drawTl(); plots3d.resize(W, H, frameOf(W, H)); lastModern = null; draw3d();
     };
     const webgl = (() => { try { return !!document.createElement("canvas").getContext("webgl2"); } catch { return false; } })();
     let gone = false;
@@ -584,12 +649,12 @@ export const mountStoryBody = (root : HTMLElement) => {
             const act = stage.parentElement!;
             const vis = new IntersectionObserver(([ en ]) => plots3d?.run(en.isIntersecting));
             vis.observe(act); cleanups.push(() => vis.disconnect());
-            clearInterval(turnTimer); figs.m.concat(figs.w).forEach(f => clearTimeout(f.timer));
-            stage.classList.add("is-3d");
+            figs.m.concat(figs.w).forEach(f => clearTimeout(f.timer));
+            stage.classList.add("is-3d"); stage.parentElement?.classList.add("is-3d");
             size3d();
         }).catch(() => { /* the 2D stage stays */ });
     }
-    on("scroll", () => { if (plots3d) schedule3d(); });
+    on("scroll", schedule3d);
     cleanups.push(() => { gone = true; cancelAnimationFrame(raf3); plots3d?.dispose(); plots3d = null; });
 
     // The guess.
@@ -604,36 +669,174 @@ export const mountStoryBody = (root : HTMLElement) => {
     lock.addEventListener("click", () => {
         if (!picked) return;
         nowCard(picked);
-        root.querySelector('[data-scene="now"]')?.scrollIntoView({ behavior : reduced ? "auto" : "smooth", block : "center" });
+        toPlay();
     });
 
     // THE CHAPTERS' WORDS =============================================================================================
     const para = (s : string) => `<p class="para">${s}</p>`;
     const gapsFrom = RURAL.filter(r => r.t > 2019);
-    $("long-prose").innerHTML = para(`In ${shortOf(FIRST)}, <b class="m">${pc(FIRST.m[0])}</b> of rural working men and <b class="w">${pc(FIRST.w[0])}</b> of rural working women were in agriculture. By ${shortOf(LAST)}, the men’s share had fallen by ${pts(FIRST.m[0] - LAST.m[0])}, to <b class="m">${pc(LAST.m[0])}</b>. The women’s had fallen by ${pts(FIRST.w[0] - LAST.w[0])}, to <b class="w">${pc(LAST.w[0])}</b>.`)
-        + para(`Both lines fall, but the men’s falls more than twice as far. The shaded area between them is the gap. From ${shortOf(gapsFrom[0])} on, it is wider in every survey than in any survey before, and it was widest in ${shortOf(WIDEST)}, at ${pts(WIDEST.w[0] - WIDEST.m[0])}.`);
-    $("went-prose").innerHTML = para(`The men who left farm work mostly went into industry: <b class="m">${pc(FIRST.m[1])}</b> of rural working men in ${shortOf(FIRST)}, <b class="m">${pc(LAST.m[1])}</b> in ${shortOf(LAST)}. The table counts construction as industry and does not split it out. Services took ${pts(LAST.m[2] - FIRST.m[2])} more.`)
-        + para(`Women barely moved into industry: ${pc(FIRST.w[1])} then, ${pc(LAST.w[1])} now. The ones who left the farm went into services, which rose from <b class="w">${pc(FIRST.w[2])}</b> to <b class="w">${pc(LAST.w[2])}</b>. That is a big rise from a small base, and still only about one rural working woman in ${Math.round(1000 / LAST.w[2])}.`);
-    $("wage-prose").innerHTML = para(`DBIE cannot record why anyone moves. It does record what each kind of work pays a rural man, every month, and the gap is plain. In ${W1.year} a general farm labourer earned <b>₹${W1.farm.toFixed(0)}</b> a day on average. A construction worker earned <b>₹${W1.constr.toFixed(0)}</b>, a carpenter <b>₹${W1.carp.toFixed(0)}</b> and a mason <b>₹${W1.mason.toFixed(0)}</b>, ${prem(W1, "mason").toFixed(0)}% more than the farm labourer. Construction is counted as industry in the employment table, and industry is where the men went.`)
-        + para(`The gap has narrowed. A construction worker earned ${prem(W0, "constr").toFixed(0)}% more than a farm labourer in ${W0.year} and ${prem(W1, "constr").toFixed(0)}% more in ${W1.year}, because farm wages rose faster: ${(100 * (W1.farm / W0.farm - 1)).toFixed(0)}% over the decade, against ${(100 * (W1.constr / W0.constr - 1)).toFixed(0)}%. After the rise in farm workers’ prices, a farm labourer’s daily wage bought ${realGrowth("farm").toFixed(0)}% more in ${W1.year} than in ${W0.year}; a construction worker’s bought ${Math.abs(realGrowth("constr")).toFixed(0)}% ${realGrowth("constr") < 0 ? "less" : "more"}. The pull of the building site is the higher day rate, especially for skilled work, more than a gap that keeps widening.`)
-        + para(`These are men’s wages. DBIE publishes no wage for women in any of the rural jobs it tracks, so it cannot show whether women would gain the same by leaving the farm.`);
-    $("turn-prose").innerHTML = para(`The fall was not steady. Between ${shortOf(DIP)} and ${shortOf(TOP)}, the share of rural working women in agriculture rose from <b class="w">${pc(DIP.w[0])}</b> to <b class="w">${pc(TOP.w[0])}</b>. Over the same years the men’s share kept falling, from <b class="m">${pc(DIP.m[0])}</b> to <b class="m">${pc(TOP.m[0])}</b>.`)
-        + para(`It happened in the towns too: ${pc(URBAN_WOMEN_FARM[DIP.round])} of urban working women were in agriculture in ${shortOf(DIP)}, and ${pc(URBAN_WOMEN_FARM[LAST.round])} in ${shortOf(LAST)}. The table shows the movement, not its cause.`)
-        + para(`The latest survey, for the calendar year ${shortOf(LAST)}, brings rural women back down to ${pc(LAST.w[0])}. One survey is not yet a trend.`);
+    $("long-prose").innerHTML = para(`In ${shortOf(FIRST)}, <b class="m">${pc(FIRST.m[0])}</b> of rural men who work and <b class="w">${pc(FIRST.w[0])}</b> of rural women who work were in farming. By ${shortOf(LAST)}, this had fallen to <b class="m">${pc(LAST.m[0])}</b> for men and <b class="w">${pc(LAST.w[0])}</b> for women.`)
+        + para(`Both lines go down, but the men’s line falls more than twice as far. The shaded area shows the difference between them. Since ${shortOf(gapsFrom[0])}, the difference has been larger than in any earlier survey, and it was largest in ${shortOf(WIDEST)}.`);
+    $("went-prose").innerHTML = para(`Most men who moved out of farming went into industry, which in this table includes construction. In ${shortOf(FIRST)}, <b class="m">${pc(FIRST.m[1])}</b> of rural men who work were in industry; in ${shortOf(LAST)}, <b class="m">${pc(LAST.m[1])}</b>. Services also grew for men, from ${pc(FIRST.m[2])} to ${pc(LAST.m[2])}.`)
+        + para(`Few women moved into industry: ${pc(FIRST.w[1])} in ${shortOf(FIRST)} and ${pc(LAST.w[1])} in ${shortOf(LAST)}. Women who moved out of farming mostly went into services, which rose from <b class="w">${pc(FIRST.w[2])}</b> to <b class="w">${pc(LAST.w[2])}</b>. That is a large rise, but it is still only about 1 in ${Math.round(1000 / LAST.w[2])} rural women who work.`);
+    $("wage-prose").innerHTML = para(`DBIE does not record why people change jobs. It does record what each kind of work pays rural men. In ${W1.year}, a farm labourer earned about <b>₹${W1.farm.toFixed(0)}</b> a day. A construction worker earned <b>₹${W1.constr.toFixed(0)}</b>, a carpenter <b>₹${W1.carp.toFixed(0)}</b> and a mason <b>₹${W1.mason.toFixed(0)}</b>, which is ${prem(W1, "mason").toFixed(0)}% more than a farm labourer.`)
+        + para(`The difference has become smaller over time. In ${W0.year}, a construction worker earned ${prem(W0, "constr").toFixed(0)}% more than a farm labourer; in ${W1.year}, ${prem(W1, "constr").toFixed(0)}% more. This is because farm wages rose faster: by ${(100 * (W1.farm / W0.farm - 1)).toFixed(0)}% over ten years, compared with ${(100 * (W1.constr / W0.constr - 1)).toFixed(0)}% for construction. But everyday things also cost more. The things a farm worker’s family buys, such as food, fuel and clothes, cost about ${Math.round(100 * (CPI_AL[W1.year] / CPI_AL[W0.year] - 1))}% more in ${W1.year} than in ${W0.year}. So a farm labourer’s day of work now buys about ${realGrowth("farm").toFixed(0)}% more of these things than ten years ago, and a construction worker’s about ${Math.abs(realGrowth("constr")).toFixed(0)}% ${realGrowth("constr") < 0 ? "less" : "more"}. Skilled jobs, such as a mason’s, still pay much more than farm work.`)
+        + para(`These wages are for men only. DBIE does not publish wages for women in rural jobs, so we cannot compare what women would earn in other work.`);
+    // TOWNS AS WELL AS VILLAGES =====================================================================================
+    {
+        const UF = URBAN[0], UL = URBAN[URBAN.length - 1], UD = URBAN.find(r => r.round === DIP.round)!;
+        $("towns-title").textContent = `In towns, few people farm, and most work in services`;
+        $("towns-prose").innerHTML = para(`The same table covers towns and cities. There, farming was never the main work. In ${shortOf(UL)}, <b class="m">${pc(UL.m[0])}</b> of urban men who work and <b class="w">${pc(UL.w[0])}</b> of urban women who work were in farming. Most worked in services: <b class="m">${pc(UL.m[2])}</b> of men and <b class="w">${pc(UL.w[2])}</b> of women.`)
+            + para(`Urban women’s share in farming fell from ${pc(UF.w[0])} in ${shortOf(UF)} to ${pc(UD.w[0])} in ${shortOf(UD)}, then rose again to ${pc(UL.w[0])} by ${shortOf(UL)}, the same turn seen in villages. Urban men’s share in farming stayed small throughout, between ${pc(Math.min(...URBAN.map(r => r.m[0])))} and ${pc(Math.max(...URBAN.map(r => r.m[0])))}.`);
+    }
+
+    // WHAT A DAY'S FARM WAGE BUYS ==================================================================================
+    {
+        const wUp = W1.farm / W0.farm, cUp = CPI_YEARS[W1.year] / CPI_YEARS[W0.year], real = 100 * (wUp / cUp - 1);
+        $("real-units").textContent = `${W0.year} = 100. When the green line is above the red one, a day’s wage buys more than it did in ${W0.year}.`;
+        $("real-prose").innerHTML = para(`Between ${W0.year} and ${W1.year}, a day of farm work went from ₹${W0.farm.toFixed(0)} to ₹${W1.farm.toFixed(0)}, about ${wUp.toFixed(1)} times as much. Over the same years, the everyday things a farm worker’s family buys, such as food, fuel and clothes, came to cost about ${cUp.toFixed(1)} times as much.`)
+            + para(`So the wage went further, but only a little: a day’s farm wage now buys about ${Math.round(real)}% more than ten years ago. The shaded gap between the two lines is that extra.`);
+    }
+
+    // WHICH RURAL JOBS PAY THE MOST ================================================================================
+    {
+        // short, everyday names for the jobs in DBIE's list, and which of them are farm work
+        const SHORT : Record<string, string> = { WR23 : "Mason", WR31 : "Plumber", WR10 : "Electrician", WR07 : "Carpenter", WR20 : "Tractor or vehicle driver", WR22 : "Logger, wood cutter", WR05 : "Blacksmith", WR12 : "Fisherman, inland", WR11 : "Fisherman, sea", WR28 : "Pesticide sprayer", WR09 : "Construction worker", WR29 : "Ploughing, tilling", WR14 : "Handicraft worker", WR33 : "Sowing, planting, weeding", WR19 : "Horticulture, nursery", WR15 : "Harvesting, threshing", WR13 : "General farm labourer", WR24 : "Porter, loader", WR40 : "Weaver", WR25 : "Packing worker", WR27 : "Picking tea, cotton", WR03 : "Basket weaver", WR36 : "Sweeper, cleaner", WR01 : "Herder, dairy, poultry", WR04 : "Beedi maker" };
+        const FARMWORK = new Set([ "WR13", "WR29", "WR33", "WR15", "WR28", "WR19", "WR27", "WR01" ]);
+        const top = ALL_JOBS[0], low = ALL_JOBS[ALL_JOBS.length - 1], farm = ALL_JOBS.find(j => j.code === "WR13")!;
+        const farmJobs = ALL_JOBS.filter(j => FARMWORK.has(j.code)), bestFarm = farmJobs[0];
+        const rankOf = (code : string) => ALL_JOBS.findIndex(j => j.code === code) + 1;
+        $("jobs-title").textContent = `Skilled building work pays most; most farm work pays less than the average job`;
+        $("jobs-figtitle").textContent = `A day’s pay in ${ALL_JOBS.length} rural jobs, ${W1.year}`;
+        $("jobs-units").textContent = "Average daily wage in ₹, all-India, men";
+        $("jobs-prose").innerHTML = para(`DBIE tracks the daily wage for ${ALL_JOBS.length} kinds of rural work. In ${W1.year}, a ${SHORT[top.code].toLowerCase()} earned the most, about <b>₹${top.wage}</b> a day, and a ${SHORT[low.code].toLowerCase()} the least, about <b>₹${low.wage}</b>.`)
+            + para(`A general farm labourer, at <b>₹${farm.wage}</b>, comes ${rankOf("WR13")}th of ${ALL_JOBS.length}. The best-paid farm job, ${SHORT[bestFarm.code].toLowerCase()}, pays ₹${bestFarm.wage}, still well below a plumber, an electrician or a carpenter. Skills that a building site needs pay the most.`);
+        $("jobs-bars").innerHTML = ALL_JOBS.map(j => `<div class="st-row ${FARMWORK.has(j.code) ? "is-farm" : "is-other"} ${j.code === "WR13" ? "is-picked" : ""}" title="${j.label}">
+            <span class="st-name">${SHORT[j.code] ?? j.label}</span><span class="st-bar"><i style="width:${(100 * j.wage / top.wage).toFixed(1)}%"></i></span><span class="st-val">₹${j.wage}</span></div>`).join("");
+        // seasons: does farm work pay more at harvest time?
+        $("season").innerHTML = `<span class="fact-kicker">Does farm work pay more at harvest time?</span>
+            <span class="fact-big">Hardly</span>
+            <span class="fact-text">In DBIE’s monthly figures, the daily farm wage rises steadily through the year, but hardly moves with the seasons: up and down by less than ${Math.max(1, Math.ceil(SEASON.allIndia))}% across India. Even in ${SEASON.state}, where it moves most, the swing is only about ${Math.round(SEASON.swing)}%.</span>`;
+    }
+
+    // SAME WORK, DIFFERENT PAY ======================================================================================
+    // A day's wage for the same job in each state (men; DBIE has no women's series), and how far it goes there now
+    // against ten years ago. The state price index says how much prices rose in a state, not how dear it is, so the
+    // states are compared on pay, and each state's buying power only against its own past.
+    {
+        type SJob = "farm" | "constr" | "mason" | "gap";
+        const SJOBS : [ "farm" | "constr" | "mason", string, string ][] = [ [ "farm", "Farm labourer", "farm work" ], [ "constr", "Construction worker", "construction work" ], [ "mason", "Mason", "a mason’s work" ] ];
+        const ALL = STATE_WAGES.find(x => x.code === "ALL_INDIA")!;
+        const STATES = STATE_WAGES.filter(x => x.code !== "ALL_INDIA");
+        // a state's wage for a job; Manipur has no recent farm wage in DBIE, so it drops out of the farm comparisons
+        // "gap": how much more a day of construction work pays than a day of farm work in the state, in per cent
+        const wage = (x : StateWage, job : SJob) => job === "gap" ? (x.farm ? Math.round(100 * (x.constr / x.farm - 1)) : 0) : x[job] ?? 0;
+        const has = (x : StateWage, job : SJob) => job === "gap" ? x.farm != null : x[job] != null;
+        const rank = (job : SJob) => STATES.filter(x => has(x, job)).sort((a, b) => wage(b, job) - wage(a, job));
+        const FARM = rank("farm"), top = FARM[0], low = FARM[FARM.length - 1];
+        const fw = (x : StateWage) => x.farm ?? 0, fwThen = (x : StateWage) => x.farmThen ?? 0;
+        const times = (a : number, b : number) => (a / b).toFixed(1);
+        // what a day's wage buys now against then: farm work, or construction work where a state has no farm wage
+        const basis = (x : StateWage) : [ number, number, string ] => x.farm != null && x.farmThen != null ? [ x.farm, x.farmThen, "farm" ] : [ x.constr, x.constrThen ?? x.constr, "construction" ];
+        const buys = (x : StateWage) => { const [ n, t ] = basis(x); return 100 * ((n / t) / (x.cpiNow / x.cpiThen) - 1); };
+        const up = (a : number, b : number) => Math.round(100 * (a / b - 1));
+        const { then : T0, now : T1 } = STATE_YEARS;
+        const rupee = (v : number) => `₹${v.toLocaleString("en-IN")}`;
+        $("st-title").textContent = `A day of farm work pays more than ${Math.floor(fw(top) / fw(low))} times as much in ${top.name} as in ${low.name}`;
+        const lessNow = FARM.filter(x => buys(x) < -0.5), best = [ ...FARM ].sort((a, b) => buys(b) - buys(a))[0];
+        const list = (xs : StateWage[]) => xs.length < 2 ? xs.map(x => x.name).join("") : `${xs.slice(0, -1).map(x => x.name).join(", ")} and ${xs[xs.length - 1].name}`;
+        $("st-prose").innerHTML = para(`DBIE records the daily wage for the same kind of rural work in ${STATES.length} states, all the states it covers. The pay is very different from one state to another. In ${T1}, a day of farm work paid <b>${rupee(fw(top))}</b> in ${top.name} and <b>${rupee(fw(low))}</b> in ${low.name}. The all-India average was ${rupee(fw(ALL))}.`)
+            + para(`Higher pay does not always mean more money left over. A farm worker’s family spends most of its wage on everyday things such as food, fuel and clothes, and these cost more each year.`)
+            + para(`${lessNow.length ? `In ${list(lessNow)}, these things became costlier faster than wages went up. So a day’s farm wage there now buys a little less than it did in ${T0}. ` : ""}In ${best.name}, wages went up much faster than these costs, so a day’s wage buys about ${Math.round(buys(best))}% more.`);
+        // 1. the guess: which state pays most? four choices, the answer among them
+        const others = [ "Punjab", "Gujarat", "Haryana", "Maharashtra", "Tamil Nadu" ].map(n => STATES.find(x => x.name === n)).filter((x) : x is StateWage => !!x && x.code !== top.code).slice(0, 3);
+        const choices = [ top, ...others ].sort((a, b) => a.name.localeCompare(b.name));
+        $("st-guess").innerHTML = `<div class="step-kicker">Your guess</div>
+            <div class="step-title">In which state does a day of farm work pay the most?</div>
+            <div class="st-choices">${choices.map(c => `<button type="button" class="st-choice" data-code="${c.code}">${c.name}</button>`).join("")}</div>
+            <button type="button" class="st-skip">Skip and show me</button>`;
+        let job : SJob = "farm", picked = "ALL_INDIA";
+        const drawBars = () => {
+            const rows = [ ...rank(job), ALL ].sort((a, b) => wage(b, job) - wage(a, job)), max = Math.max(1, ...rows.map(r => Math.abs(wage(r, job))));
+            const fmt = (v : number) => job === "gap" ? `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}%` : rupee(v);
+            $("st-units").textContent = job === "gap" ? `How much more a day of construction work pays than a day of farm work, in per cent, ${T1}. Men only.` : `${SJOBS.find(j => j[0] === job)![1]}, average daily wage in ₹, ${T1}. Men only; DBIE publishes no women’s wages.`;
+            $("st-bars").innerHTML = rows.map(x => `<div class="st-row ${x.code === "ALL_INDIA" ? "is-all" : ""} ${x.code === picked ? "is-picked" : ""}" data-code="${x.code}">
+                <span class="st-name">${x.name}</span><span class="st-bar"><i style="width:${(100 * Math.max(0, wage(x, job)) / max).toFixed(1)}%"></i></span><span class="st-val">${fmt(wage(x, job))}</span></div>`).join("")
+                + (job === "farm" ? STATES.filter(x => !has(x, "farm")).map(x => `<p class="st-missing">${x.name}: DBIE has no recent farm wage; see construction and mason.</p>`).join("") : "")
+
+            const SHORT : Record<SJob, string> = { farm : "Farm work", constr : "Construction", mason : "Mason", gap : "Site vs farm" };
+            $("st-jobs").innerHTML = SJOBS.map(([ k, label ]) => `<button type="button" class="${k === job ? "is-on" : ""}" data-job="${k}" aria-pressed="${k === job}" aria-label="${label}">${SHORT[k]}</button>`).join("");
+        };
+        const reveal = (code : string | null) => {
+            const g = $("st-guess");
+            const verdict = code === null ? "" : code === top.code ? `Yes: ${top.name}.` : `Not quite: it is ${top.name}.`;
+            g.innerHTML = `<p class="verdict">${verdict} A day of farm work there pays ${rupee(fw(top))}, ${times(fw(top), fw(ALL))} times the all-India average.</p>`;
+            $("st-reveal").hidden = false; drawBars();
+        };
+        $("st-guess").addEventListener("click", e => {
+            const b = (e.target as HTMLElement).closest("button"); if (!b) return;
+            reveal(b.classList.contains("st-skip") ? null : b.dataset.code ?? null);
+        });
+        // site against farm, its own chart: how much more a day of construction work pays than a day of farm work
+        {
+            const g = rank("gap"), hi = g[0], lo = g[g.length - 1], payTop = FARM[0], payTopGap = wage(payTop, "gap");
+            const rows = [ ...g, ALL ].sort((a, b) => wage(b, "gap") - wage(a, "gap")), max = Math.max(1, ...rows.map(r => wage(r, "gap")));
+            const pct = (v : number) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}%`;
+            $("gap-units").textContent = `How much more a day of construction work pays than a day of farm work, in per cent, ${T1}. Men only.`;
+            $("gap-bars").innerHTML = rows.map(x => `<div class="st-row ${x.code === "ALL_INDIA" ? "is-all" : ""} ${x.code === payTop.code ? "is-picked" : ""}" data-code="${x.code}">
+                <span class="st-name">${x.name}</span><span class="st-bar"><i style="width:${(100 * Math.max(0, wage(x, "gap")) / max).toFixed(1)}%"></i></span><span class="st-val">${pct(wage(x, "gap"))}</span></div>`).join("");
+            // the state that pays most for farm work, picked from the data, shows the pattern best
+            $("gap-note").textContent = `Where farm work pays least, a building site pays the most extra: ${wage(hi, "gap")}% more in ${hi.name}. Where farm work already pays well, the site adds little: in ${payTop.name}, which pays the most for farm work, a day on a site pays only ${payTopGap}% more${lo.code !== payTop.code ? `, and in ${lo.name} ${wage(lo, "gap") <= 0 ? "no more at all" : `${wage(lo, "gap")}% more`}` : ""}.`;
+        }
+        $("st-jobs").addEventListener("click", e => { const b = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-job]"); if (b) { job = b.dataset.job as SJob; drawBars(); } });
+        // 3. one day here is how many days there
+        $("st-days").innerHTML = `<span class="fact-big">1 day = ${times(fw(top), fw(low))} days</span>
+            <span class="fact-text">One day of farm work in ${top.name} pays as much as ${times(fw(top), fw(low))} days of the same work in ${low.name}.</span>
+            <span class="st-daybar" aria-hidden="true"><b style="flex:1"></b>${Array.from({ length : Math.ceil(fw(top) / fw(low)) }, (_, k) => `<i style="flex:${Math.min(1, fw(top) / fw(low) - k).toFixed(2)}"></i>`).join("")}</span>`;
+        // 4. pick a state
+        const sel = $<HTMLSelectElement>("st-select");
+        sel.innerHTML = [ ALL, ...[ ...STATES ].sort((a, b) => a.name.localeCompare(b.name)) ].map(x => `<option value="${x.code}">${x.name}</option>`).join("");
+        const drawCard = () => {
+            const x = STATE_WAGES.find(v => v.code === picked)!, b = buys(x), [ now, then, kind ] = basis(x), w = up(now, then), pr = up(x.cpiNow, x.cpiThen);
+            $("st-card").innerHTML = `
+                <div class="st-wages">${SJOBS.map(([ k, label ]) => `<div><span>${label}</span><b>${x[k] == null ? "—" : rupee(x[k] as number)}</b></div>`).join("")}</div>
+                ${x.farm == null ? `<p class="st-line">DBIE has no recent farm wage for ${x.name}, so this uses construction work.</p>` : ""}
+                <p class="st-line">A day of ${kind} work pays <b>${rupee(now)}</b>, up from ${rupee(then)} in ${T0}: <b>${w}%</b> more.</p>
+                <p class="st-line">Everyday things a farm worker’s family buys here, such as food, fuel and clothes, cost <b>${pr}% more</b> than in ${T0}.</p>
+                <p class="st-line st-buys ${b < -0.5 ? "is-less" : "is-more"}">So a day’s ${kind} wage now buys about <b>${Math.abs(Math.round(b))}% ${b < -0.5 ? "less" : "more"}</b> of these things than in ${T0}.</p>
+                ${x.farm != null && x.code !== low.code ? `<p class="st-line">One day of farm work here pays as much as <b>${times(x.farm, fw(low))} days</b> in ${low.name}.</p>` : ""}
+                <p class="st-explain"><b>What “cost more” means.</b> Every month, the government checks the prices of the same list of things in villages: mostly food, and also fuel, clothes and other needs. This shows how much these costs went up in each state since ${T0}. It does not show whether one state is cheaper than another.</p>`;
+            root.querySelectorAll<HTMLElement>("#st-bars .st-row").forEach(r => r.classList.toggle("is-picked", r.dataset.code === picked));
+        };
+        sel.addEventListener("change", () => { picked = sel.value; drawCard(); });
+        $("st-bars").addEventListener("click", e => { const r = (e.target as HTMLElement).closest<HTMLElement>(".st-row"); if (r?.dataset.code) { picked = r.dataset.code; sel.value = picked; drawCard(); } });
+        drawCard();
+        // the states DBIE's wage series does not cover, from India's 28 states (Jammu & Kashmir, now a union territory,
+        // is in the series and is shown)
+        const INDIA_STATES = [ "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal" ];
+        const notCovered = INDIA_STATES.filter(n => !STATES.some(x => x.name === n));
+        $("st-coverage").textContent = notCovered.length ? `Not every state is here: DBIE’s rural wage data does not cover ${list(notCovered.map(name => ({ name } as StateWage)))}, or the union territories other than Jammu & Kashmir.` : "";
+        $("st-note").textContent = `Wages: DBIE wage rates (annexure A2), men only, averaged over ${T0} and ${T1}; all ${STATES.length} states DBIE covers, and all-India (Manipur has no recent farm wage). Everyday costs: DBIE consumer price index for agricultural labourers by state (annexure A4), from the Labour Bureau’s monthly village prices; it runs to ${monthOf(STATE_YEARS.cpiLast)}, when it was rebased.`;
+    }
+
+    $("turn-prose").innerHTML = para(`The fall was not steady. Between ${shortOf(DIP)} and ${shortOf(TOP)}, the share of rural women who work in farming went up, from <b class="w">${pc(DIP.w[0])}</b> to <b class="w">${pc(TOP.w[0])}</b>. In the same years, the share of men kept going down, from <b class="m">${pc(DIP.m[0])}</b> to <b class="m">${pc(TOP.m[0])}</b>.`)
+        + para(`The same happened in towns: ${pc(URBAN_WOMEN_FARM[DIP.round])} of urban women who work were in farming in ${shortOf(DIP)}, and ${pc(URBAN_WOMEN_FARM[LAST.round])} in ${shortOf(LAST)}. The data shows the change, but not the reason for it.`)
+        + para(`In the latest survey, for ${shortOf(LAST)}, the share of rural women in farming came back down to ${pc(LAST.w[0])}. One survey is not enough to call this a new trend.`);
     $("turn-facts").innerHTML = [
-        [ `${pc(DIP.w[0])} → ${pc(TOP.w[0])}`, `Rural working women in agriculture, ${shortOf(DIP)} to ${shortOf(TOP)}`, "w" ],
-        [ `${pc(DIP.m[0])} → ${pc(TOP.m[0])}`, `Rural working men in agriculture, same years`, "m" ],
-        [ pts(WIDEST.w[0] - WIDEST.m[0]), `The gap in ${shortOf(WIDEST)}, the widest in the series`, "" ],
-        [ `${pc(URBAN_WOMEN_FARM[DIP.round])} → ${pc(URBAN_WOMEN_FARM[LAST.round])}`, `Urban working women in agriculture, ${shortOf(DIP)} to ${shortOf(LAST)}`, "w" ],
+        [ `${pc(DIP.w[0])} → ${pc(TOP.w[0])}`, `Rural women who work, in farming, ${shortOf(DIP)} to ${shortOf(TOP)}`, "w" ],
+        [ `${pc(DIP.m[0])} → ${pc(TOP.m[0])}`, `Rural men who work, in farming, same years`, "m" ],
+        [ `${of100(WIDEST.w[0])} vs ${of100(WIDEST.m[0])}`, `Women and men in farming, out of every 100, in ${shortOf(WIDEST)}: the largest difference of any survey`, "" ],
+        [ `${pc(URBAN_WOMEN_FARM[DIP.round])} → ${pc(URBAN_WOMEN_FARM[LAST.round])}`, `Urban women who work, in farming, ${shortOf(DIP)} to ${shortOf(LAST)}`, "w" ],
     ].map(([ big, text, cls ]) => `<div class="fact"><span class="fact-big ${cls}">${big}</span><span class="fact-text">${text}</span></div>`).join("");
 
     // IN SHORT, THE CLOSING LINE ==========================================================
     $("so-grid").innerHTML = [
-        [ "Who left", `Rural men left farm work, from ${pc(FIRST.m[0])} to ${pc(LAST.m[0])}`, `Since ${shortOf(FIRST)} the men’s share in agriculture has fallen by ${pts(FIRST.m[0] - LAST.m[0])}, and the share in industry, construction included, has doubled. A day’s construction work paid ${prem(W1, "constr").toFixed(0)}% more than a day’s farm work in ${W1.year}, and a mason’s ${prem(W1, "mason").toFixed(0)}% more.` ],
-        [ "Who stayed", `Rural women stayed, at ${pc(LAST.w[0])}`, `The women’s share fell by only ${pts(FIRST.w[0] - LAST.w[0])}, rose again between ${shortOf(DIP)} and ${shortOf(TOP)}, and the gap with men nearly doubled, from ${pts(FIRST.w[0] - FIRST.m[0])} to ${pts(LAST.w[0] - LAST.m[0])}.` ],
+        [ "Men", `Fewer rural men work in farming: from ${pc(FIRST.m[0])} to ${pc(LAST.m[0])}`, `Since ${shortOf(FIRST)}, the share of rural men in industry, including construction, has about doubled. In ${W1.year}, a day of construction work paid ${prem(W1, "constr").toFixed(0)}% more than a day of farm work, and a mason’s work paid ${prem(W1, "mason").toFixed(0)}% more.` ],
+        [ "Women", `Most rural women who work are still in farming: ${pc(LAST.w[0])}`, `Their share fell only a little, from ${pc(FIRST.w[0])}, and went up again between ${shortOf(DIP)} and ${shortOf(TOP)}. The difference between women and men in farming nearly doubled, from ${of100(FIRST.w[0] - FIRST.m[0])} to ${of100(LAST.w[0] - LAST.m[0])} out of every 100.` ],
+        [ "Pay", `A day’s farm wage buys only about ${Math.round(realGrowth("farm"))}% more than in ${W0.year}`, `Farm wages rose, but so did the cost of food, fuel and clothes. Skilled site work pays most: ₹${W1.mason.toFixed(0)} a day for a mason, against ₹${W1.farm.toFixed(0)} for a farm labourer. The same farm work pays more than ${Math.floor(Math.max(...STATE_WAGES.filter(x => x.farm != null && x.code !== "ALL_INDIA").map(x => x.farm!)) / Math.min(...STATE_WAGES.filter(x => x.farm != null && x.code !== "ALL_INDIA").map(x => x.farm!)))} times as much in some states as in others.` ],
     ].map(([ k, h, p ]) => `<div><div class="so-kicker">${k}</div><h3>${h}</h3><p class="para">${p}</p></div>`).join("");
     const closing = $("closing");
-    closing.innerHTML = `Since ${shortOf(FIRST)}, rural men have moved off the farm into building sites, factories and shops. ${[ "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" ][inTen(LAST.w[0])]} in ten rural women who work are still in agriculture.`
+    closing.innerHTML = `Since ${shortOf(FIRST)}, many rural men have moved from farming into construction, factories and shops, where a day’s work pays more. ${[ "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" ][inTen(LAST.w[0])]} in ten rural women who work are still in farming, where a day’s wage buys only a little more than it did ten years ago.`
         .split(" ").map(w => `<span>${w} </span>`).join("");
     // The closing line's words brighten as it rises up the screen; until then, and with reduced motion, it is fully lit.
     const closingWords = [ ...closing.children ] as HTMLElement[];
@@ -647,19 +850,22 @@ export const mountStoryBody = (root : HTMLElement) => {
     on("scroll", lightClosing);
 
     // THE ANNEXURE ====================================================================================================
-    const DBIE = (path : string) => `https://data.rbi.org.in/DBIE/#/dbie/reports/${path.split("/").map(encodeURIComponent).join("/")}`;
-    const HB = DBIE("Publication/Time-Series Publications/Handbook of Statistics on the Indian Economy");
-    const QUERY = "https://data.rbi.org.in/DBIE/#/dbie/dataquery_enhanced";
+    // Each table links to its page on this site (dbie.rbihub.in), relative, so dev, staging and the live site each open
+    // their own: the employment table opens in place in the Publications menu; the wage and price series have pages.
+    const EMPLOYMENT_PAGE = "/publications?table=socio_economic.r134_employment_situation_in_india_per_1000_distribution_of_usu";
+    const WAGES_PAGE = "/tables/wage-rates", CPI_AL_PAGE = "/tables/cpi-agricultural-labourer";
     const table = (head : string[], rows : (string | number)[][]) => `<details class="table-view"><summary>The figures used</summary><div class="table-scroll"><table><thead><tr>${head.map((h, i) => `<th class="${i ? "n" : ""}">${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${i ? "n" : ""}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div></details>`;
     const ANNEX = [
-        { title : "Employment situation in India: per 1000 distribution of usually employed by broad groups of industry", meta : `Handbook of Statistics on the Indian Economy, Table 154 (DBIE report 134), part I, socio-economic indicators. Rural; usual status, principal and subsidiary. NSS rounds 56 to 68 and PLFS ${shortOf(RURAL.find(r => /^PLFS/.test(r.round))!)} to ${shortOf(LAST)}.`, link : HB,
+        { title : "Employment situation in India: per 1000 distribution of usually employed by broad groups of industry", meta : `Handbook of Statistics on the Indian Economy, Table 154 (DBIE report 134), part I, socio-economic indicators. Rural; usual status, principal and subsidiary. NSS rounds 56 to 68 and PLFS ${shortOf(RURAL.find(r => /^PLFS/.test(r.round))!)} to ${shortOf(LAST)}.`, link : EMPLOYMENT_PAGE,
           data : table([ "Survey", "Men: agriculture", "Men: industry", "Men: services", "Women: agriculture", "Women: industry", "Women: services" ], RURAL.map(r => [ `${r.round} (${r.period})`, ...r.m, ...r.w ])) },
-        { title : "Average daily wage rates in rural India for men (WAGE_RATES_RN)", meta : `DBIE data query: Real Sector, Prices & Wages, Wage Rates. All-India, monthly from ${monthOf(WAGE_RANGE.first.month)}, averaged here over each financial year: general agricultural labourers, non-agricultural labourers, construction workers, carpenters and masons. The series has one gender, male.`, link : QUERY,
+        { title : "Average daily wage rates in rural India for men (WAGE_RATES_RN)", meta : `DBIE data query: Real Sector, Prices & Wages, Wage Rates. All-India, monthly from ${monthOf(WAGE_RANGE.first.month)}, averaged here over each financial year: general agricultural labourers, non-agricultural labourers, construction workers, carpenters and masons. The series has one gender, male; it also gives each state, used in “Same work, different pay”.`, link : WAGES_PAGE,
           data : table([ "Financial year", ...WAGE_JOBS.map(j => j[1]) ], WAGES.map(r => [ r.year, ...WAGE_JOBS.map(([ k ]) => `₹${r[k].toFixed(1)}`) ])) },
-        { title : "Consumer price index for agricultural labourers (CPI-AL)", meta : "DBIE data query: Real Sector, Prices & Wages. General index, base 1986-87, monthly, averaged over each financial year.", link : QUERY,
+        { title : "Consumer price index for agricultural labourers (CPI-AL)", meta : "DBIE data query: Real Sector, Prices & Wages. General index, base 1986-87, monthly, averaged over each financial year.", link : CPI_AL_PAGE,
           data : table([ "Financial year", "Index" ], Object.entries(CPI_AL)) },
+        { title : "Consumer price index for agricultural and rural labourers, state-wise (CPI_ALRL_ST_RN)", meta : `DBIE data query: Real Sector, Prices & Wages. Agricultural labourers, general index, base 1986-87, monthly, averaged over ${STATE_YEARS.then} and ${STATE_YEARS.now}. Each state’s index has its own base, so it shows how much prices rose there, not how expensive the state is.`, link : "/tables/consumer-price-index-agriculture-and-rural-labourer-state-wise",
+          data : table([ "State", `Farm wage ${STATE_YEARS.then} (₹)`, `Farm wage ${STATE_YEARS.now} (₹)`, `Price index ${STATE_YEARS.then}`, `Price index ${STATE_YEARS.now}` ], STATE_WAGES.map(x => [ x.name, x.farmThen ?? "no data", x.farm ?? "no data", x.cpiThen, x.cpiNow ])) },
     ];
-    $("annex-list").innerHTML = ANNEX.map((a, i) => `<div class="annex-item"><h3 class="annex-title">A${i + 1}. ${a.title}</h3><div class="annex-meta">${a.meta}</div><div class="annex-meta"><a href="${a.link}" target="_blank" rel="noopener noreferrer">Open on DBIE</a></div>${a.data}</div>`).join("");
+    $("annex-list").innerHTML = ANNEX.map((a, i) => `<div class="annex-item"><h3 class="annex-title">A${i + 1}. ${a.title}</h3><div class="annex-meta">${a.meta}</div><div class="annex-meta"><a href="${a.link}">See the full table ↗</a></div>${a.data}</div>`).join("");
 
     // THE CHARTS ======================================================================================================
     const before = RURAL.filter(r => r.t < 2015), after = RURAL.filter(r => r.t > 2015);
@@ -709,11 +915,11 @@ export const mountStoryBody = (root : HTMLElement) => {
     $("table-all").innerHTML = `<thead><tr><th>Survey</th><th>Period</th><th class="n">Men: agri.</th><th class="n">Men: industry</th><th class="n">Men: services</th><th class="n">Women: agri.</th><th class="n">Women: industry</th><th class="n">Women: services</th></tr></thead>
         <tbody>${RURAL.map(r => `<tr><td>${/^PLFS/.test(r.round) ? r.round : `NSS ${r.round}`}</td><td>${r.period}</td>${[ ...r.m, ...r.w ].map(v => `<td class="n">${pc(v)}</td>`).join("")}</tr>`).join("")}</tbody>`;
 
-    // Stacked bars: each sex then and now, the three sectors as per cent.
-    const drawBars = () => {
-        const box = $("bars-box"), W = box.clientWidth; if (!W) return;
+    // Stacked bars: each sex then and now, the three sectors as per cent, for the villages or the towns.
+    const stackBars = (id : string, F : Round, L : Round, where : string) => {
+        const box = $(id), W = box.clientWidth; if (!W) return;
         const narrow = W < 560;
-        const rows = [ [ "Men", FIRST, "m" ], [ "Men", LAST, "m" ], [ "Women", FIRST, "w" ], [ "Women", LAST, "w" ] ] as const;
+        const rows = [ [ "Men", F, "m" ], [ "Men", L, "m" ], [ "Women", F, "w" ], [ "Women", L, "w" ] ] as const;
         const lw = narrow ? 104 : 130, rowH = 36, gapH = 18, plotW = W - lw - 4;
         const H = 4 + rows.length * rowH + gapH + 4;
         let yAt = 4;
@@ -726,12 +932,34 @@ export const mountStoryBody = (root : HTMLElement) => {
                 const w = v / total * plotW;
                 const fill = [ "var(--agri)", "var(--ind)", "var(--serv)" ][j];
                 const txt = w > 46 ? `<text x="${x0 + w / 2}" y="${y + rowH / 2 + 3}" text-anchor="middle" style="fill:${j === 1 ? "#ffffff" : "#26282c"};font-size:12px">${pc(v)}</text>` : "";
-                const out = `<rect x="${x0 + (j ? 1 : 0)}" y="${y + 5}" width="${Math.max(0, w - (j ? 2 : 1))}" height="${rowH - 12}" rx="3" fill="${fill}"><title>${who}, ${shortOf(r)}: ${[ "agriculture", "industry", "services" ][j]} ${pc(v)}</title></rect>${txt}`;
+                const out = `<rect x="${x0 + (j ? 1 : 0)}" y="${y + 5}" width="${Math.max(0, w - (j ? 2 : 1))}" height="${rowH - 12}" rx="3" fill="${fill}"><title>${who}, ${shortOf(r)}: ${[ "farming", "industry", "services" ][j]} ${pc(v)}</title></rect>${txt}`;
                 x0 += w; return out;
             }).join("");
             return `<text class="${i % 2 ? "lbl-strong" : "lbl"}" x="${lw - 10}" y="${y + rowH / 2 + 3}" text-anchor="end"><tspan style="fill:var(--${k === "m" ? "men" : "women"})">${who}</tspan> ${shortOf(r)}</text>${segs}`;
         }).join("");
-        box.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Rural men and women by sector, ${shortOf(FIRST)} and ${shortOf(LAST)}">${svgRows}</svg>`;
+        box.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${where} men and women by kind of work, ${shortOf(F)} and ${shortOf(L)}">${svgRows}</svg>`;
+    };
+    const drawBars = () => { stackBars("bars-box", FIRST, LAST, "Rural"); stackBars("towns-box", URBAN[0], URBAN[URBAN.length - 1], "Urban"); };
+
+    // A day's farm wage against everyday costs, both from the first full year = 100.
+    const drawReal = () => {
+        const box = $("real-box"), W = box.clientWidth; if (!W) return;
+        const narrow = W < 560, H = narrow ? 230 : 260, pad = { l : 40, r : narrow ? 14 : 150, t : 12, b : 26 };
+        const ys = WAGES.map(w => w.year), n = ys.length;
+        const wage = WAGES.map(w => 100 * w.farm / W0.farm), cost = ys.map(y => 100 * CPI_YEARS[y] / CPI_YEARS[W0.year]);
+        const top = Math.ceil(Math.max(...wage, ...cost) / 20) * 20;
+        const x = (i : number) => pad.l + i / (n - 1) * (W - pad.l - pad.r), y = (v : number) => pad.t + (1 - (v - 80) / (top - 80)) * (H - pad.t - pad.b);
+        const line = (v : number[]) => v.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p).toFixed(1)}`).join("");
+        const area = line(wage) + [ ...cost ].reverse().map((p, i) => `L${x(n - 1 - i).toFixed(1)},${y(p).toFixed(1)}`).join("") + "Z";
+        box.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="A day's farm wage against everyday costs, ${W0.year} = 100">
+            ${Array.from({ length : (top - 80) / 20 + 1 }, (_, i) => 80 + i * 20).map(v => `<line class="${v === 100 ? "base" : "grid"}" x1="${pad.l}" x2="${W - pad.r}" y1="${y(v)}" y2="${y(v)}"></line><text x="${pad.l - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`).join("")}
+            ${ys.map((yr, i) => (i % (narrow ? 5 : 2) === 0 || i === n - 1) ? `<text x="${x(i)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === n - 1 ? "end" : "middle"}">${yr}</text>` : "").join("")}
+            <path d="${area}" fill="var(--agri)" opacity="0.1"></path>
+            <path class="ln" style="stroke:#b4432b" d="${line(cost)}"></path>
+            <path class="ln" style="stroke:var(--agri);stroke-width:3" d="${line(wage)}"></path>
+            ${narrow ? "" : `<text class="lbl-strong" x="${x(n - 1) + 8}" y="${y(wage[n - 1]) + 4}">Wage ${(wage[n - 1] / 100).toFixed(2)}×</text>
+                <text class="lbl-strong" x="${x(n - 1) + 8}" y="${y(cost[n - 1]) + 4}">Costs ${(cost[n - 1] / 100).toFixed(2)}×</text>`}
+        </svg>`;
     };
 
     // What a day's work pays a rural man, and the premium over farm work, then and now.
@@ -768,7 +996,7 @@ export const mountStoryBody = (root : HTMLElement) => {
             </svg>`;
     };
 
-    const drawCharts = () => { drawLines(); drawBars(); drawWages(); };
+    const drawCharts = () => { drawLines(); drawBars(); drawWages(); drawReal(); };
     drawCharts();
     let rz = 0, lastW = innerWidth;
     on("resize", () => {

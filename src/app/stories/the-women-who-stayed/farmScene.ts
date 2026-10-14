@@ -359,11 +359,20 @@ export const createFarmScene = (canvas : HTMLCanvasElement, opts : { narrow : bo
             drape.scale.z = 0.76;
             put(new THREE.Mesh(new THREE.CylinderGeometry(0.168, 0.168, 0.05, 12), soft(SKIN)), 0, 0.97, 0).scale.z = 0.72;
         }
+        // the shoulders: a rounded cap on each side of the torso that slopes from the neck down to the arm, so the arm
+        // grows out of the body rather than hanging beside it
+        [ -1, 1 ].forEach(side => {
+            const cap = put(new THREE.Mesh(new THREE.SphereGeometry(0.085, 14, 10), soft(spec.sleeve ?? spec.top)), side * 0.17, 1.39, 0);
+            cap.scale.set(1.3, 0.55, 0.78); cap.rotation.z = side * -0.4;
+        });
         const arms = [ -1, 1 ].map(side => {
-            const sh = put(new THREE.Group(), side * 0.235, 1.4, 0);
-            put(limb(0.3, 0.055, 0.045, spec.sleeve ?? spec.top), 0, 0, 0, sh);
+            const sh = put(new THREE.Group(), side * 0.225, 1.385, 0);
+            // a ball at the shoulder and one at the elbow keep the joints closed whichever way the arm swings
+            put(new THREE.Mesh(new THREE.SphereGeometry(0.058, 12, 9), soft(spec.sleeve ?? spec.top)), 0, 0, 0, sh);
+            put(limb(0.3, 0.06, 0.046, spec.sleeve ?? spec.top), 0, 0, 0, sh);
             const el = put(new THREE.Group(), 0, -0.3, 0, sh);
-            put(limb(0.27, 0.04, 0.032, spec.forearm ?? SKIN), 0, 0, 0, el);
+            put(new THREE.Mesh(new THREE.SphereGeometry(0.044, 10, 8), soft(spec.forearm ?? SKIN)), 0, 0, 0, el);
+            put(limb(0.27, 0.043, 0.032, spec.forearm ?? SKIN), 0, 0, 0, el);
             put(new THREE.Mesh(new THREE.SphereGeometry(0.045, 8, 6), soft(SKIN)), 0, -0.3, 0, el).scale.set(0.8, 1.2, 0.6);
             if (spec.bangles) [ -0.22, -0.25 ].forEach(y => { put(new THREE.Mesh(new THREE.TorusGeometry(0.038, 0.008, 4, 10), soft(y < -0.23 ? 0xd4202c : 0x2e9e6a)), 0, y, 0, el).rotation.x = Math.PI / 2; });
             return { sh, el };

@@ -100,18 +100,90 @@ for (const f of cpi.data) if (f[ci('BASE_PER')] === 'BY_1986-87' && f[ci('COMD_I
 const CPI_AL = Object.fromEntries([ WAGES[0].year, WAGES.at(-1).year ].map(y => [ y, r1(cpiFy[y].reduce((a, b) => a + b, 0) / cpiFy[y].length) ]));
 check(CPI_AL['2014-15'] === 799.5 && CPI_AL['2024-25'] === 1299.1, `CPI_AG_RN: 2014-15 799.5 and 2024-25 1299.1, got ${CPI_AL['2014-15']}, ${CPI_AL['2024-25']}`);
 
+// ── 3. Wages and farm workers' prices by state (WAGE_RATES_RN, CPI_ALRL_ST_RN) ────────────────────────────────────
+
+// For each state with all three jobs: the daily wage of a farm labourer, a construction worker and a mason, averaged
+// over 2024-25 and 2014-15; and the state's price index for agricultural labourers over the same two years, which
+// says how much prices rose there, not how dear the state is (every state's index has its own base).
+const STATE_JOBS = [ [ 'farm', 'WR13' ], [ 'constr', 'WR09' ], [ 'mason', 'WR23' ] ];
+const Y0 = WAGES[0].year, Y1 = WAGES.at(-1).year;
+const sw = {};
+for (const f of wr.data) {
+    const job = STATE_JOBS.find(j => j[1] === f[wi('TYP_AAA_RN')]); if (!job) continue;
+    const y = fyOf(f[wi('TIME_PERIOD')]); if (y !== Y0 && y !== Y1) continue;
+    const v = num(f[wi('OBS_VALUE')]); if (v == null) continue;
+    (((sw[f[wi('STATE_CODE')]] ??= {})[job[0]] ??= {})[y] ??= []).push(v);
+}
+const cs = readSdmxCsv(path.join(PRICES, 'consumer-price-index-agriculture-and-rural-labourer-state-wise.csv'));
+const si = n => cs.header.indexOf(n);
+const scpi = {};
+for (const f of cs.data) {
+    if (f[si('TYPE_LABOU_RN')] !== 'AL') continue;
+    const y = fyOf(f[si('TIME_PERIOD')]); if (y !== Y0 && y !== Y1) continue;
+    const v = num(f[si('OBS_VALUE')]); if (v == null) continue;
+    ((scpi[f[si('STATE_CODE')]] ??= {})[y] ??= []).push(v);
+}
+const avg = a => a.reduce((x, y) => x + y, 0) / a.length;
+const codelist = JSON.parse(fs.readFileSync(path.join(REPO, 'data/sdmx-codelists/WAGE_RATES_RN.json'), 'utf8'));
+const NAMES = {};
+(function names(o) { if (Array.isArray(o)) o.forEach(names); else if (o && typeof o === 'object') { if (o.code && o.label) NAMES[o.code] = o.label; Object.values(o).forEach(names); } })(codelist);
+// Every state DBIE carries: a job's wage is given where the state has at least ten months of it in the year (Manipur
+// has a farm-labourer wage for only five months, in 2016-17, so its farm wage is null).
+const yearOf_ = (code, k, y) => (sw[code][k]?.[y]?.length ?? 0) >= 10 ? Math.round(avg(sw[code][k][y])) : null;
+const STATE_WAGES = Object.keys(sw).filter(c => [ 'constr', 'mason' ].every(k => yearOf_(c, k, Y1) != null) && scpi[c]?.[Y0] && scpi[c]?.[Y1])
+    .map(code => ({
+        code, name : NAMES[code] ?? code,
+        ...Object.fromEntries(STATE_JOBS.map(([ k ]) => [ k, yearOf_(code, k, Y1) ])),
+        farmThen : yearOf_(code, 'farm', Y0), constrThen : yearOf_(code, 'constr', Y0),
+        cpiThen : r1(avg(scpi[code][Y0])), cpiNow : r1(avg(scpi[code][Y1])),
+    }))
+    .sort((a, b) => (b.farm ?? -1) - (a.farm ?? -1));
+const STATE_YEARS = { then : Y0, now : Y1, cpiLast : cs.data.filter(f => f[si('TYPE_LABOU_RN')] === 'AL').map(f => f[si('TIME_PERIOD')]).sort().at(-1).slice(0, 7) };
+const sv = c => STATE_WAGES.find(s => s.code === c);
+check(STATE_WAGES.length === 21 && sv('MANI')?.farm === null && sv('KER')?.farm === 869 && sv('MP')?.farm === 256, `WAGE_RATES_RN by state: 20 states (Manipur without a farm wage) and all-India; Kerala ₹869 and Madhya Pradesh ₹256 for farm work in ${Y1}, got ${STATE_WAGES.length}, ${sv('KER')?.farm}, ${sv('MP')?.farm}`);
+
+// ── 4. Every rural job, everyday costs each year, and how much farm pay moves within the year ───────────────────
+
+// All-India daily wage for each of the jobs DBIE tracks, averaged over the first and last full years.
+const jw = {};
+for (const f of wr.data) {
+    if (f[wi('STATE_CODE')] !== 'ALL_INDIA') continue;
+    const y = fyOf(f[wi('TIME_PERIOD')]); if (y !== Y0 && y !== Y1) continue;
+    const v = num(f[wi('OBS_VALUE')]); if (v == null) continue;
+    ((jw[f[wi('TYP_AAA_RN')]] ??= {})[y] ??= []).push(v);
+}
+const ALL_JOBS = Object.entries(jw).filter(([ , y ]) => (y[Y1]?.length ?? 0) >= 10)
+    .map(([ code, y ]) => ({ code, label : NAMES[code] ?? code, wage : Math.round(avg(y[Y1])), wageThen : (y[Y0]?.length ?? 0) >= 10 ? Math.round(avg(y[Y0])) : null }))
+    .sort((a, b) => b.wage - a.wage);
+check(ALL_JOBS.length === 25 && ALL_JOBS[0].code === 'WR23' && ALL_JOBS.find(j => j.code === 'WR13')?.wage === 398, `WAGE_RATES_RN jobs: 25 jobs, the mason highest and the farm labourer at ₹398, got ${ALL_JOBS.length}, ${ALL_JOBS[0]?.code}`);
+// Everyday costs (CPI_AG_RN) for every full wage year, to plot a day's farm wage against them year by year.
+const CPI_YEARS = Object.fromEntries(WAGES.map(w => [ w.year, r1(avg(cpiFy[w.year])) ]));
+// How far the all-India farm wage moves within the year once its steady rise is taken out: each month against the
+// average of the thirteen months around it, averaged by calendar month over the full years; and the largest such
+// swing in any state.
+const swing = code => {
+    const ser = wr.data.filter(f => f[wi('STATE_CODE')] === code && f[wi('TYP_AAA_RN')] === 'WR13' && num(f[wi('OBS_VALUE')]) != null)
+        .map(f => [ f[wi('TIME_PERIOD')].slice(0, 7), num(f[wi('OBS_VALUE')]) ]).filter(([ m ]) => m >= `${Y0.slice(0, 4)}-04` && m <= `20${Y1.slice(5)}-03`).sort();
+    const dev = {};
+    for (let j = 6; j < ser.length - 6; j++) (dev[+ser[j][0].slice(5)] ??= []).push(100 * (ser[j][1] / avg(ser.slice(j - 6, j + 7).map(x => x[1])) - 1));
+    const by = Object.values(dev).map(avg);
+    return r1(Math.max(...by) - Math.min(...by));
+};
+const SEASON = { allIndia : swing('ALL_INDIA'), ...STATE_WAGES.filter(x => x.code !== 'ALL_INDIA' && x.farm != null).map(x => ({ state : x.name, swing : swing(x.code) })).sort((a, b) => b.swing - a.swing)[0] };
+check(SEASON.allIndia < 1.5, `WAGE_RATES_RN: the all-India farm wage should move less than 1.5% within the year, got ${SEASON.allIndia}`);
+
 fatal();
 
 // ── the oracle, the module, the downloads ─────────────────────────────────────────────────────────────────────────
 
-const DATA = { RURAL, URBAN_WOMEN_FARM, WAGES, WAGE_RANGE, CPI_AL, JOBS : JOBS.map(([ k, , label ]) => [ k, label ]) };
+const DATA = { RURAL, URBAN, URBAN_WOMEN_FARM, WAGES, WAGE_RANGE, CPI_AL, CPI_YEARS, STATE_WAGES, STATE_YEARS, ALL_JOBS, SEASON, JOBS : JOBS.map(([ k, , label ]) => [ k, label ]) };
 fs.mkdirSync(OUT_DIR, { recursive : true });
 fs.writeFileSync(path.join(OUT_DIR, `${NAME}.json`), JSON.stringify(DATA, null, 2));
 
 const ts = v => JSON.stringify(v);
 const GEN = [
     `// GENERATED by data/processors/${NAME}.mjs — do not edit by hand; regenerate via pnpm data:build`,
-    '// Sources: DBIE, as scraped — Handbook report 134; SDMX series WAGE_RATES_RN and CPI_AG_RN.',
+    '// Sources: DBIE, as scraped — Handbook report 134; SDMX series WAGE_RATES_RN, CPI_AG_RN and CPI_ALRL_ST_RN.',
     '',
     '// Report 134, rural: per 1000 usually employed (principal and subsidiary status) in agriculture, industry, services.',
     'export interface Round { round : string; period : string; m : number[]; w : number[]; }',
@@ -122,6 +194,21 @@ const GEN = [
     'export interface WageYear { year : string; months : number; farm : number; nonfarm : number; constr : number; carp : number; mason : number; }',
     `export const WAGES : WageYear[] = ${ts(WAGES)};`,
     `export const WAGE_RANGE = ${ts(WAGE_RANGE)};`,
+    '// WAGE_RATES_RN by state (men; farm labourer, construction worker, mason, ₹ a day, averaged over the year) and',
+    '// CPI_ALRL_ST_RN (agricultural labourers, base 1986-87): how much prices rose in each state, not how dear it is.',
+    'export interface StateWage { code : string; name : string; farm : number | null; constr : number; mason : number; farmThen : number | null; constrThen : number | null; cpiThen : number; cpiNow : number; }',
+    `export const STATE_WAGES : StateWage[] = ${ts(STATE_WAGES)};`,
+    `export const STATE_YEARS = ${ts(STATE_YEARS)};`,
+    '// Report 134, urban: per 1000 usually employed, as RURAL.',
+    `export const URBAN : Round[] = ${ts(URBAN)};`,
+    '// WAGE_RATES_RN, all-India: every rural job DBIE tracks (men), ₹ a day, averaged over the last and first full years.',
+    'export interface JobWage { code : string; label : string; wage : number; wageThen : number | null; }',
+    `export const ALL_JOBS : JobWage[] = ${ts(ALL_JOBS)};`,
+    '// CPI_AG_RN, general index, base 1986-87: the average of every full wage year.',
+    `export const CPI_YEARS : Record<string, number> = ${ts(CPI_YEARS)};`,
+    '// How much the farm wage moves within the year, in per cent, once its steady rise is taken out: all-India, and the',
+    '// state where it moves most.',
+    `export const SEASON = ${ts(SEASON)};`,
     `export const JOBS = ${ts(DATA.JOBS)} as const;`,
     '// CPI_AG_RN, general index, base 1986-87: financial-year averages.',
     `export const CPI_AL : Record<string, number> = ${ts(CPI_AL)};`,
@@ -139,5 +226,8 @@ fs.writeFileSync(path.join(pubDir, 'rural-workers-by-sector.csv'), '# DBIE, Hand
 fs.writeFileSync(path.join(pubDir, 'rural-wages-men.csv'), '# DBIE, WAGE_RATES_RN, average daily wage rates in rural India for men, all-India, financial-year averages, rupees a day\n' + csv(
     [ 'year', 'months', ...JOBS.map(j => j[0]) ], WAGES.map(w => [ w.year, w.months, ...JOBS.map(j => w[j[0]]) ])));
 
-console.log(`${NAME}: ${RURAL.length} survey rounds, ${WAGES.length} wage years; self-check passed`);
-console.log(`  wrote out/${NAME}.json, src/app/stories/${SLUG}/data.gen.ts and 2 CSVs under public/stories/${SLUG}/`);
+fs.writeFileSync(path.join(pubDir, 'state-wages.csv'), `# DBIE, WAGE_RATES_RN by state (men, ₹ a day, averaged over each financial year) and CPI_ALRL_ST_RN (agricultural labourers, base 1986-87)\n` + csv(
+    [ 'state', `farm_labourer_${Y1}`, `construction_worker_${Y1}`, `mason_${Y1}`, `farm_labourer_${Y0}`, `cpi_al_${Y0}`, `cpi_al_${Y1}` ],
+    STATE_WAGES.map(s => [ s.name, s.farm, s.constr, s.mason, s.farmThen, s.cpiThen, s.cpiNow ])));
+console.log(`${NAME}: ${RURAL.length} survey rounds, ${WAGES.length} wage years, ${STATE_WAGES.length - 1} states; self-check passed`);
+console.log(`  wrote out/${NAME}.json, src/app/stories/${SLUG}/data.gen.ts and 3 CSVs under public/stories/${SLUG}/`);

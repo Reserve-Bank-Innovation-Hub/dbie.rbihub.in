@@ -267,6 +267,274 @@
       ]
     }
   ],
+  "URBAN": [
+    {
+      "round": "56",
+      "period": "July 2000-June 2001",
+      "m": [
+        66,
+        356,
+        578
+      ],
+      "w": [
+        183,
+        342,
+        475
+      ]
+    },
+    {
+      "round": "57",
+      "period": "July 2001-June 2002",
+      "m": [
+        78,
+        321,
+        600
+      ],
+      "w": [
+        211,
+        332,
+        457
+      ]
+    },
+    {
+      "round": "58",
+      "period": "July-December 2002",
+      "m": [
+        70,
+        337,
+        593
+      ],
+      "w": [
+        171,
+        315,
+        513
+      ]
+    },
+    {
+      "round": "59",
+      "period": "January-December 2003",
+      "m": [
+        63,
+        336,
+        601
+      ],
+      "w": [
+        190,
+        312,
+        497
+      ]
+    },
+    {
+      "round": "60",
+      "period": "January-June 2004",
+      "m": [
+        63,
+        347,
+        590
+      ],
+      "w": [
+        161,
+        309,
+        530
+      ]
+    },
+    {
+      "round": "61",
+      "period": "July 2004-June 2005",
+      "m": [
+        61,
+        344,
+        595
+      ],
+      "w": [
+        181,
+        324,
+        495
+      ]
+    },
+    {
+      "round": "62",
+      "period": "July 2005-June 2006",
+      "m": [
+        63,
+        343,
+        594
+      ],
+      "w": [
+        148,
+        330,
+        522
+      ]
+    },
+    {
+      "round": "64",
+      "period": "July 2007-June 2008",
+      "m": [
+        58,
+        343,
+        597
+      ],
+      "w": [
+        153,
+        323,
+        524
+      ]
+    },
+    {
+      "round": "66",
+      "period": "July 2009-June 2010",
+      "m": [
+        60,
+        346,
+        593
+      ],
+      "w": [
+        139,
+        333,
+        528
+      ]
+    },
+    {
+      "round": "68",
+      "period": "July 2011-June 2012",
+      "m": [
+        56,
+        353,
+        591
+      ],
+      "w": [
+        109,
+        340,
+        551
+      ]
+    },
+    {
+      "round": "PLFS 1",
+      "period": "July 2017-June 2018",
+      "m": [
+        54,
+        360,
+        587
+      ],
+      "w": [
+        91,
+        301,
+        607
+      ]
+    },
+    {
+      "round": "PLFS 2",
+      "period": "July 2018-June 2019",
+      "m": [
+        49,
+        353,
+        597
+      ],
+      "w": [
+        78,
+        293,
+        630
+      ]
+    },
+    {
+      "round": "PLFS 3",
+      "period": "July 2019-June 2020",
+      "m": [
+        50,
+        342,
+        608
+      ],
+      "w": [
+        82,
+        280,
+        638
+      ]
+    },
+    {
+      "round": "PLFS 4",
+      "period": "July 2020-June 2021",
+      "m": [
+        53,
+        345,
+        603
+      ],
+      "w": [
+        104,
+        281,
+        615
+      ]
+    },
+    {
+      "round": "PLFS 5",
+      "period": "July 2021-June 2022",
+      "m": [
+        54,
+        362,
+        584
+      ],
+      "w": [
+        111,
+        288,
+        601
+      ]
+    },
+    {
+      "round": "PLFS 6",
+      "period": "July 2022-June 2023",
+      "m": [
+        47,
+        350,
+        603
+      ],
+      "w": [
+        117,
+        276,
+        608
+      ]
+    },
+    {
+      "round": "PLFS 7",
+      "period": "July 2023-June 2024",
+      "m": [
+        48,
+        342,
+        611
+      ],
+      "w": [
+        123,
+        277,
+        600
+      ]
+    },
+    {
+      "round": "PLFS 2024",
+      "period": "January 2024-December 2024",
+      "m": [
+        43,
+        344,
+        613
+      ],
+      "w": [
+        113,
+        270,
+        619
+      ]
+    },
+    {
+      "round": "PLFS 2025",
+      "period": "January 2025-December 2025",
+      "m": [
+        57,
+        340,
+        603
+      ],
+      "w": [
+        127,
+        255,
+        619
+      ]
+    }
+  ],
   "URBAN_WOMEN_FARM": {
     "56": 183,
     "57": 211,
@@ -403,6 +671,414 @@
   "CPI_AL": {
     "2014-15": 799.5,
     "2024-25": 1299.1
+  },
+  "CPI_YEARS": {
+    "2014-15": 799.5,
+    "2015-16": 834.9,
+    "2016-17": 869.8,
+    "2017-18": 888.9,
+    "2018-19": 907.3,
+    "2019-20": 979.6,
+    "2020-21": 1033.7,
+    "2021-22": 1074.9,
+    "2022-23": 1148.4,
+    "2023-24": 1229.4,
+    "2024-25": 1299.1
+  },
+  "STATE_WAGES": [
+    {
+      "code": "KER",
+      "name": "Kerala",
+      "farm": 869,
+      "constr": 923,
+      "mason": 1006,
+      "farmThen": 575,
+      "constrThen": 788,
+      "cpiThen": 825.4,
+      "cpiNow": 1311.8
+    },
+    {
+      "code": "JNK",
+      "name": "Jammu & Kashmir",
+      "farm": 590,
+      "constr": 585,
+      "mason": 807,
+      "farmThen": 368,
+      "constrThen": 414,
+      "cpiThen": 759.3,
+      "cpiNow": 1221.9
+    },
+    {
+      "code": "TN",
+      "name": "Tamil Nadu",
+      "farm": 573,
+      "constr": 583,
+      "mason": 874,
+      "farmThen": 334,
+      "constrThen": 364,
+      "cpiThen": 812.8,
+      "cpiNow": 1518.6
+    },
+    {
+      "code": "HP",
+      "name": "Himachal Pradesh",
+      "farm": 516,
+      "constr": 558,
+      "mason": 729,
+      "farmThen": 309,
+      "constrThen": 317,
+      "cpiThen": 653.2,
+      "cpiNow": 995.5
+    },
+    {
+      "code": "HAR",
+      "name": "Haryana",
+      "farm": 499,
+      "constr": 535,
+      "mason": 750,
+      "farmThen": 340,
+      "constrThen": 357,
+      "cpiThen": 884.3,
+      "cpiNow": 1405.2
+    },
+    {
+      "code": "ANP",
+      "name": "Andhra Pradesh",
+      "farm": 463,
+      "constr": 554,
+      "mason": 810,
+      "farmThen": 217,
+      "constrThen": 237,
+      "cpiThen": 860.3,
+      "cpiNow": 1480.2
+    },
+    {
+      "code": "KAR",
+      "name": "Karnataka",
+      "farm": 454,
+      "constr": 485,
+      "mason": 678,
+      "farmThen": 205,
+      "constrThen": 286,
+      "cpiThen": 862.8,
+      "cpiNow": 1494.6
+    },
+    {
+      "code": "PUN",
+      "name": "Punjab",
+      "farm": 421,
+      "constr": 438,
+      "mason": 623,
+      "farmThen": 284,
+      "constrThen": 296,
+      "cpiThen": 856,
+      "cpiNow": 1384.3
+    },
+    {
+      "code": "RAJA",
+      "name": "Rajasthan",
+      "farm": 407,
+      "constr": 470,
+      "mason": 727,
+      "farmThen": 270,
+      "constrThen": 303,
+      "cpiThen": 858.7,
+      "cpiNow": 1373.3
+    },
+    {
+      "code": "ALL_INDIA",
+      "name": "All India",
+      "farm": 398,
+      "constr": 441,
+      "mason": 638,
+      "farmThen": 225,
+      "constrThen": 275,
+      "cpiThen": 799.5,
+      "cpiNow": 1299.1
+    },
+    {
+      "code": "ASM",
+      "name": "Assam",
+      "farm": 385,
+      "constr": 421,
+      "mason": 545,
+      "farmThen": 201,
+      "constrThen": 249,
+      "cpiThen": 784.5,
+      "cpiNow": 1136
+    },
+    {
+      "code": "TRI",
+      "name": "Tripura",
+      "farm": 380,
+      "constr": 379,
+      "mason": 498,
+      "farmThen": 209,
+      "constrThen": 200,
+      "cpiThen": 720.8,
+      "cpiNow": 1066.8
+    },
+    {
+      "code": "OD",
+      "name": "Odisha",
+      "farm": 369,
+      "constr": 393,
+      "mason": 554,
+      "farmThen": 180,
+      "constrThen": 199,
+      "cpiThen": 757.4,
+      "cpiNow": 1137.9
+    },
+    {
+      "code": "BIH",
+      "name": "Bihar",
+      "farm": 363,
+      "constr": 389,
+      "mason": 568,
+      "farmThen": 199,
+      "constrThen": 227,
+      "cpiThen": 720.8,
+      "cpiNow": 1078.3
+    },
+    {
+      "code": "UP",
+      "name": "Uttar Pradesh",
+      "farm": 355,
+      "constr": 390,
+      "mason": 631,
+      "farmThen": 192,
+      "constrThen": 216,
+      "cpiThen": 759.9,
+      "cpiNow": 1140.7
+    },
+    {
+      "code": "WB",
+      "name": "West Bengal",
+      "farm": 347,
+      "constr": 374,
+      "mason": 466,
+      "farmThen": 216,
+      "constrThen": 230,
+      "cpiThen": 754.1,
+      "cpiNow": 1104.9
+    },
+    {
+      "code": "MAH",
+      "name": "Maharashtra",
+      "farm": 343,
+      "constr": 408,
+      "mason": 624,
+      "farmThen": 197,
+      "constrThen": 268,
+      "cpiThen": 848.3,
+      "cpiNow": 1463.8
+    },
+    {
+      "code": "MEG",
+      "name": "Meghalaya",
+      "farm": 334,
+      "constr": 407,
+      "mason": 472,
+      "farmThen": 175,
+      "constrThen": 231,
+      "cpiThen": 790.8,
+      "cpiNow": 1295.5
+    },
+    {
+      "code": "GUJ",
+      "name": "Gujarat",
+      "farm": 281,
+      "constr": 355,
+      "mason": 556,
+      "farmThen": 160,
+      "constrThen": 231,
+      "cpiThen": 809.9,
+      "cpiNow": 1322.5
+    },
+    {
+      "code": "MP",
+      "name": "Madhya Pradesh",
+      "farm": 256,
+      "constr": 308,
+      "mason": 481,
+      "farmThen": 151,
+      "constrThen": 173,
+      "cpiThen": 732.7,
+      "cpiNow": 1168.5
+    },
+    {
+      "code": "MANI",
+      "name": "Manipur",
+      "farm": null,
+      "constr": 350,
+      "mason": 443,
+      "farmThen": null,
+      "constrThen": 310,
+      "cpiThen": 774.9,
+      "cpiNow": 1161.9
+    }
+  ],
+  "STATE_YEARS": {
+    "then": "2014-15",
+    "now": "2024-25",
+    "cpiLast": "2025-05"
+  },
+  "ALL_JOBS": [
+    {
+      "code": "WR23",
+      "label": "Mason",
+      "wage": 638,
+      "wageThen": 378
+    },
+    {
+      "code": "WR31",
+      "label": "Plumbers",
+      "wage": 584,
+      "wageThen": 385
+    },
+    {
+      "code": "WR07",
+      "label": "Carpenter",
+      "wage": 569,
+      "wageThen": 343
+    },
+    {
+      "code": "WR10",
+      "label": "Electrician",
+      "wage": 569,
+      "wageThen": 369
+    },
+    {
+      "code": "WR20",
+      "label": "LMV & Tractors drivers",
+      "wage": 497,
+      "wageThen": 292
+    },
+    {
+      "code": "WR22",
+      "label": "Loggers and Wood Cutters",
+      "wage": 492,
+      "wageThen": 307
+    },
+    {
+      "code": "WR05",
+      "label": "Blacksmith",
+      "wage": 469,
+      "wageThen": 280
+    },
+    {
+      "code": "WR11",
+      "label": "Fishermen Costal/Deep Sea",
+      "wage": 453,
+      "wageThen": 299
+    },
+    {
+      "code": "WR12",
+      "label": "Fishermen Inland",
+      "wage": 453,
+      "wageThen": 277
+    },
+    {
+      "code": "WR28",
+      "label": "Plant protection workers (applying pesticides, treating seeds, etc.)",
+      "wage": 442,
+      "wageThen": 287
+    },
+    {
+      "code": "WR09",
+      "label": "Construction Workers (for roads, dams, industrial & project construction work & well diggers)",
+      "wage": 441,
+      "wageThen": 275
+    },
+    {
+      "code": "WR29",
+      "label": "Ploughing/Tilling Workers",
+      "wage": 441,
+      "wageThen": 267
+    },
+    {
+      "code": "WR14",
+      "label": "Handicraft Workers",
+      "wage": 435,
+      "wageThen": 314
+    },
+    {
+      "code": "WR33",
+      "label": "Sowing (including Planting/Transplanting/Weeding workers)",
+      "wage": 405,
+      "wageThen": 230
+    },
+    {
+      "code": "WR19",
+      "label": "Horticulture Workers ( including Nursery growers)",
+      "wage": 403,
+      "wageThen": 220
+    },
+    {
+      "code": "WR15",
+      "label": "Harvesting/Winnowing/ Threshing workers",
+      "wage": 401,
+      "wageThen": 235
+    },
+    {
+      "code": "WR13",
+      "label": "General Agricultural Labourers including Watering & Irrigation workers etc.",
+      "wage": 398,
+      "wageThen": 225
+    },
+    {
+      "code": "WR24",
+      "label": "Nonagricultural labourers (Including porters, loaders)",
+      "wage": 396,
+      "wageThen": 238
+    },
+    {
+      "code": "WR40",
+      "label": "Weavers",
+      "wage": 382,
+      "wageThen": 240
+    },
+    {
+      "code": "WR25",
+      "label": "Packaging Labourers",
+      "wage": 371,
+      "wageThen": 222
+    },
+    {
+      "code": "WR27",
+      "label": "Picking Workers (including Tea, Cotton, Tobacco & other commercial crops)",
+      "wage": 368,
+      "wageThen": 199
+    },
+    {
+      "code": "WR03",
+      "label": "Bamboo, cane basket weavers",
+      "wage": 334,
+      "wageThen": 217
+    },
+    {
+      "code": "WR36",
+      "label": "Sweeping/ Cleaning Workers",
+      "wage": 332,
+      "wageThen": 191
+    },
+    {
+      "code": "WR01",
+      "label": "Animal husbandry workers: including Poultry workers, dairy workers & Herdsman",
+      "wage": 324,
+      "wageThen": 182
+    },
+    {
+      "code": "WR04",
+      "label": "Beedi Makers",
+      "wage": 259,
+      "wageThen": 166
+    }
+  ],
+  "SEASON": {
+    "allIndia": 0.6,
+    "state": "Meghalaya",
+    "swing": 4
   },
   "JOBS": [
     [
