@@ -161,7 +161,7 @@
 
     /* THE FIELDS ================================================================================================= */
     /* The reader's fields, set apart from the page: a label above each, a firm border, the accent on focus. */
-    .necklace-fields, .race-fields, .race-controls {
+    .necklace-fields, .race-fields {
         display               : grid;
         grid-template-columns : 1fr 1.6fr;
         gap                   : 14px;
@@ -199,49 +199,11 @@
     }
     /* the race's controls above the piles: the scrubber left, the toggle right */
     .race-controls {
+        display               : grid;
         grid-template-columns : minmax(0, 1fr) auto;
         align-items           : start;
         gap                   : 18px 32px;
         margin                : 0 0 8px;
-        .year-control { padding : 0; align-items : start; .year-readout { margin-top : 2px; } }
-    }
-    /* the scrubber: a hairline track filled to the year, a round knob, the named years beneath their ticks */
-    .race-controls .year-control { grid-template-columns : auto 1fr auto; gap : 14px 22px; }
-    .play-dot {
-        width           : 30px;
-        height          : 30px;
-        margin-top      : -4px;
-        padding         : 0;
-        border          : 1.5px solid var(--accent);
-        border-radius   : 50%;
-        background      : transparent;
-        color           : var(--accent);
-        font-size       : 9px;
-        line-height     : 1;
-        cursor          : pointer;
-        &.is-playing { background : var(--accent); color : white; }
-        &:disabled   { opacity : 0.4; cursor : default; }
-    }
-    .timeline {
-        position : relative;
-        padding  : 0 7px 20px;                                              /* half the knob, so the ticks meet its centre */
-        .year-control & input[type="range"] {
-            margin : 0 -7px; width : calc(100% + 14px); height : 22px; border : 0; border-radius : 0; background : transparent; box-shadow : none;
-            &::-webkit-slider-runnable-track { height : 2px; border-radius : 0; background : linear-gradient(to right, var(--accent) var(--pct, 0%), color-mix(in oklch, var(--ink), transparent 72%) var(--pct, 0%)); }
-            &::-moz-range-track              { height : 2px; border-radius : 0; background : color-mix(in oklch, var(--ink), transparent 72%); }
-            &::-moz-range-progress           { height : 2px; border-radius : 0; background : var(--accent); }
-            &::-webkit-slider-thumb { width : 14px; height : 14px; margin-top : -6px; border : 2px solid var(--paper); box-shadow : 0 0 0 1px var(--accent); }
-            &::-moz-range-thumb     { width : 14px; height : 14px; border : 2px solid var(--paper); box-shadow : 0 0 0 1px var(--accent); }
-        }
-        .timeline-ticks { position : absolute; left : 7px; right : 7px; top : 12px; height : 20px; }
-        .tick {
-            position   : absolute;
-            top        : 0;
-            width      : 1px;
-            height     : 6px;
-            background : color-mix(in oklch, var(--ink), transparent 50%);
-            i { position : absolute; top : 9px; left : 50%; transform : translateX(-50%); font-family : var(--font-sans-serif); font-style : normal; font-size : 11px; line-height : 1; color : var(--ink-soft); white-space : nowrap; }
-        }
     }
     #against-prices .race-card { max-width : 60ch; margin-top : 36px; }
     #against-prices .chapter-text > p { font-size : clamp(17px, 1.35vw, 20px); line-height : 1.4; }
@@ -262,7 +224,7 @@
     }
 
     /* THE NECKLACE =============================================================================================== */
-    .necklace-control, .year-control {
+    .necklace-control {
         display               : grid;
         grid-template-columns : auto 1fr auto auto;
         align-items           : center;
@@ -288,7 +250,7 @@
             &:focus-visible::-moz-range-thumb     { box-shadow : 0 0 0 3px color-mix(in oklch, var(--accent), transparent 65%); }
         }
     }
-    .necklace-year, .year-readout {
+    .necklace-year {
         font-family          : var(--font-mono);
         font-variant-numeric : tabular-nums;
         font-size            : 22px;
@@ -628,9 +590,8 @@
         .chapter-text { margin-bottom : 24px; }
         .necklace-fields, .race-fields { grid-template-columns : 1fr; }
         .necklace-stage { grid-template-columns : 1fr; }
-        .necklace-control, .year-control { grid-template-columns : auto 1fr auto auto; }
+        .necklace-control { grid-template-columns : auto 1fr auto auto; }
         .race-controls { grid-template-columns : 1fr; gap : 12px; .view-toggle { justify-self : start; } }
-        .timeline .tick:not(:first-child):not(:last-child) i { display : none; }
         /* a phone's screen is shorter than these chapters, so they flow instead of holding */
         .pinned.is-pinned { height : auto; }
         .pinned.is-pinned .pinned-frame { position : relative; height : auto; min-height : 0; padding : var(--medium) 0; }
