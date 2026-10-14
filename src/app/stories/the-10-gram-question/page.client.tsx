@@ -13,11 +13,11 @@ import { MotionConfig } from "framer-motion";
 import { PageCrumbs } from "@components/Crumbs/PageCrumbs";
 import { Figure } from "./chartKit";
 import { Pinned } from "./Pinned";
-import { Necklace } from "./Necklace";
+import { WeddingYear } from "./WeddingYear";
 import { PriceLine } from "./PriceLine";
 import { Engines } from "./Engines";
 import { Race } from "./Race";
-import { Reserves } from "./Reserves";
+import { Reserves, TonnesCards } from "./Reserves";
 import { GoldBar } from "./GoldBar";
 
 // DATA ================================================================================================================
@@ -108,36 +108,27 @@ export const TenGramQuestionPage = () => (
             </Section>
 
             {/* 2 THE WEDDING YEAR ==================================================================================== */}
-            <Pinned steps={2} className="on-ivory" id="the-wedding-year" pin>
-                <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
-                    <Portion desktopSpan="9">
-                        <Chapter id="your-year" title="The wedding year">
-                            <Para>{`Pick a year, a wedding year say, and a sum from [[₹${inr(10000)}]] to [[₹${inr(1000000)}]]. The necklace shows what
-                                it bought in gold that year, one bead a gram.`}</Para>
-                            <Para>{`Then the years run. In [[${AGAINST.year}]], ₹1 lakh bought [[${grams(AGAINST.gold.grams)}]], ${pieceOf(AGAINST.gold.grams)} by
-                                weight. In [[${TO_YEAR}]] the same ₹1 lakh buys [[${grams(NOW.gold.grams)}]], ${pieceOf(NOW.gold.grams)}.`}</Para>
-                            <Para last>{`That is the bullion price the Reserve Bank publishes, before a jeweller’s making charges and tax. ${TO_YEAR}
-                                is ${GOLD_SPAN} so far.`}</Para>
-                        </Chapter>
-                    </Portion>
-                    <Portion desktopSpan="1" />
-                    <Portion desktopSpan="14">
-                        <Necklace />
-                    </Portion>
-                </Row>
+            <Pinned steps={2} className="on-sandalwood" id="the-wedding-year" pin>
+                <WeddingYear lead={<Chapter id="your-year" title={`What ₹${inr(SUM)} bought in gold`} />} />
             </Pinned>
 
             {/* 3 TEN GRAMS, MONTH BY MONTH =========================================================================== */}
             <Pinned steps={2} className="on-paper" id="month-by-month" pin>
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="24">
-                        <Chapter id="the-price" title={`Ten grams, month by month since ${monthName(HEADLINE.first.ym)}`}>
-                            <Para>{`The price rose [[${timesWords(HEADLINE.times)}]] over [[${HEADLINE.span} years]], about [[${pct(HEADLINE.yearly)}]] a year, and
-                                reached its highest month so far in [[${monthName(HEADLINE.peak.ym)}]], at [[${rs(HEADLINE.peak.price)}]].`}</Para>
-                            <Para last>{`The import duty on gold sits inside the Mumbai price. It was cut to [[${HEADLINE.duty[0].rate}%]] in
-                                ${monthName(HEADLINE.duty[0].month)} and raised again to [[${HEADLINE.duty[1].rate}%]] in ${monthName(HEADLINE.duty[1].month)};
-                                both are marked on the chart.`}</Para>
-                        </Chapter>
+                        <Chapter id="the-price" title="Price of ten grams" />
+                        <div className="price-facts r1">
+                            <div className="race-card price-card" aria-label={`From ${monthName(HEADLINE.first.ym)} to ${monthName(HEADLINE.last.ym)}, the price rose by ${times(HEADLINE.times)} over ${HEADLINE.span} years, about ${pct(HEADLINE.yearly)} a year; its highest month so far was ${monthName(HEADLINE.peak.ym)}, at ${rs(HEADLINE.peak.price)}.`}>
+                                <p className="race-head">From {monthName(HEADLINE.first.ym)} to {monthName(HEADLINE.last.ym)},</p>
+                                <p className="race-stats">
+                                    <span className="race-stat is-gold"><span>the price rose by</span><strong>{times(HEADLINE.times)}</strong></span>
+                                    <span className="race-stat"><span>over</span><strong>{HEADLINE.span} years</strong></span>
+                                    <span className="race-stat"><span>about, a year</span><strong>{pct(HEADLINE.yearly)}</strong></span>
+                                    <span className="race-stat is-peak"><span>its highest, {monthName(HEADLINE.peak.ym)}</span><strong>{rs(HEADLINE.peak.price)}</strong></span>
+                                </p>
+                            </div>
+                            <p className="duty-note"><span>The import duty on gold sits inside the Mumbai price. It was cut to <strong>{HEADLINE.duty[0].rate}%</strong> in {monthName(HEADLINE.duty[0].month)} and raised again to <strong>{HEADLINE.duty[1].rate}%</strong> in {monthName(HEADLINE.duty[1].month)}.</span></p>
+                        </div>
                         <PriceLine />
                     </Portion>
                 </Row>
@@ -174,16 +165,13 @@ export const TenGramQuestionPage = () => (
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="9">
                         <Chapter id="the-reserves" title="The country’s gold">
-                            <Para>{`The Reserve Bank holds gold in the foreign exchange reserves. In ${monthName(R.first.ym)} it was [[${pct(R.first.share)}]] of
-                                reserves of [[${bn(R.first.totalUsdBn)}]], and in ${monthName(R.high.ym)}, with the reserves run down to
-                                [[${bn(R.high.totalUsdBn)}]], [[${pct(R.high.share)}]]. As the dollar assets grew the share fell, to [[${pct(R.low.share)}]]
-                                in ${monthName(R.low.ym)}.`}</Para>
-                            <Para>{`By ${monthName(R.last.ym)} gold was [[${bn(R.last.goldUsdBn)}]] of [[${bn(R.last.totalUsdBn)}]], a share of [[${pct(R.last.share)}]].`}</Para>
-                            <Para last>{`Most of that rise is price. By weight the Bank held [[${inr(R.tonnes.first.tonnes)} tonnes]] at ${dateName(R.tonnes.first.date)}
-                                and [[${inr(R.tonnes.last.tonnes)} tonnes]] at ${dateName(R.tonnes.last.date)}, ${timesWords(R.tonnes.last.tonnes / R.tonnes.first.tonnes)};
-                                the value went from [[${bn(R.tonnes.first.goldUsdBn)}]] to [[${bn(R.tonnes.last.goldUsdBn)}]], ${timesWords(R.tonnes.last.goldUsdBn / R.tonnes.first.goldUsdBn)}.
-                                What the past did is on this page; what to buy is not.`}</Para>
+                            <Para>{`The Reserve Bank holds gold in the foreign exchange reserves.`}</Para>
+                            <Para last>{`In ${monthName(R.first.ym)}, it was [[${pct(R.first.share)}]] of reserves of [[${bn(R.first.totalUsdBn)}]], and in
+                                ${monthName(R.high.ym)}, with the reserves run down to [[${bn(R.high.totalUsdBn)}]], [[${pct(R.high.share)}]]. As the dollar
+                                assets grew the share fell, to [[${pct(R.low.share)}]] in ${monthName(R.low.ym)}. By ${monthName(R.last.ym)}, gold was
+                                [[${bn(R.last.goldUsdBn)}]] of [[${bn(R.last.totalUsdBn)}]], a share of [[${pct(R.last.share)}]]. Most of that rise is price.`}</Para>
                         </Chapter>
+                        <div className="r2"><TonnesCards /></div>
                     </Portion>
                     <Portion desktopSpan="1" />
                     <Portion desktopSpan="14">
@@ -197,11 +185,7 @@ export const TenGramQuestionPage = () => (
             <Section className="chapter data-set">
                 <Row horizontalPadding="small" marginBottom="none" allowUltraWide>
                     <Portion desktopSpan="8">
-                        <Chapter id="every-year" title="The data set">
-                            <Para last>{`The table gives the figures for every year from [[${FROM_YEAR}]] to [[${TO_YEAR}]], and the downloads have the
-                                months behind them: the Mumbai and London prices, the rate, the gap, the index, and the Bank’s gold by month
-                                and, where given, by weight.`}</Para>
-                        </Chapter>
+                        <Chapter id="every-year" title="The data set" />
                     </Portion>
                     <Portion desktopSpan="16">
                         <Figure title={`Gold by year, ${FROM_YEAR} to ${TO_YEAR}`} units={`calendar-year averages of the monthly series on DBIE; ${FROM_YEAR} is ${partYear(FROM_YEAR, FIRST.gold.months)} and ${TO_YEAR} is ${GOLD_SPAN}; the reserves at each year’s last month`} table={YEAR_TABLE}

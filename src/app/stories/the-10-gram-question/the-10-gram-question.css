@@ -25,6 +25,9 @@
 
     background : var(--paper);
 
+    /* no tracking anywhere on the story, the site's own kickers and labels included */
+    &, * { letter-spacing : normal !important; }
+
     /* THE TITLE ================================================================================================== */
     .hero {
         padding    : var(--small) 0 var(--medium);
@@ -35,7 +38,7 @@
         color     : var(--accent);
         font-size : 13px;
     }
-    .hero-kicker { letter-spacing : 0.14em; margin-top : var(--small); }
+    .hero-kicker { margin-top : var(--small); }
 
     .hero-title {
         font-family : var(--font-serif);
@@ -58,7 +61,7 @@
 
         p { margin : 0; }
         .ten-bar { display : block; width : min(100%, 300px); height : auto; margin : -4px auto 10px; }
-        .ten-head { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; letter-spacing : 0.08em; text-transform : uppercase; color : var(--ink-soft); padding-bottom : 10px; border-bottom : 1px dashed var(--ink-faint); }
+        .ten-head { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; text-transform : uppercase; color : var(--ink-soft); padding-bottom : 10px; border-bottom : 1px dashed var(--ink-faint); }
         .ten-line { display : flex; justify-content : space-between; align-items : baseline; gap : 16px; padding : 12px 0; border-bottom : 1px dotted var(--ink-faint); }
         .ten-when { font-size : 15px; }
         .ten-price { font-family : var(--font-mono); font-variant-numeric : tabular-nums; font-size : 26px; color : var(--heading-text-colour); &.is-now { color : var(--gold-deep); font-weight : 600; } }
@@ -71,9 +74,9 @@
     .bar-deep   { stop-color : color-mix(in oklch, hsl(var(--turmeric)), black 25%); }
     .bar-shadow { stop-color : color-mix(in oklch, hsl(var(--turmeric)), black 50%); }
     .bar-stamp  { fill : none; stroke : color-mix(in oklch, hsl(var(--turmeric)), black 35%); stroke-width : 1.2; opacity : 0.7; }
-    .bar-weight { font-family : var(--font-serif); font-weight : 700; font-size : 34px; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); letter-spacing : 0.02em; }
-    .bar-fine   { font-family : var(--font-sans-serif); font-weight : 600; font-size : 11px; letter-spacing : 0.16em; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); }
-    .bar-small  { font-family : var(--font-sans-serif); font-weight : 600; font-size : 9px; letter-spacing : 0.14em; fill : color-mix(in oklch, hsl(var(--turmeric)), black 40%); }
+    .bar-weight { font-family : var(--font-serif); font-weight : 700; font-size : 34px; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); }
+    .bar-fine   { font-family : var(--font-sans-serif); font-weight : 600; font-size : 11px; fill : color-mix(in oklch, hsl(var(--turmeric)), black 45%); }
+    .bar-small  { font-family : var(--font-sans-serif); font-weight : 600; font-size : 9px; fill : color-mix(in oklch, hsl(var(--turmeric)), black 40%); }
 
     /* THE CHAPTERS =============================================================================================== */
     .chapter {
@@ -205,6 +208,38 @@
         gap                   : 18px 32px;
         margin                : 0 0 8px;
     }
+    /* the reserves' text in three paragraphs, a full line's space between them */
+    #the-countrys-gold .chapter-text > p:not(:last-child) { margin-bottom : 1.4em; }
+    /* the price chapter: the run's figures on a card, the duty beside it, above the chart */
+    #month-by-month .chapter-title { max-width : none; }
+    .end-label .leader { stroke : color-mix(in oklch, var(--ink), transparent 55%); stroke-width : 1; }
+    .end-label text.is-peak { fill : var(--gap); }
+    .price-facts {
+        display     : flex;
+        flex-wrap   : wrap;
+        align-items : stretch;
+        gap         : 16px;
+        margin      : 0 0 20px;
+        .price-card { flex : 0 1 auto; }
+        /* the figures other than gold's multiple a lighter charcoal, so the multiple leads */
+        .price-card .race-stat:not(.is-gold) strong { color : color-mix(in oklch, hsl(var(--charcoal)), white 24%); }
+    }
+    /* the duty, on a faint wash of the duty marks' colour, the card's rule the same as the figures' card beside it */
+    .duty-note {
+        flex        : 1 1 280px;
+        align-self  : stretch;
+        display     : flex;                                             /* one span inside, centred down the card's height */
+        align-items : center;
+        margin      : 0;
+        padding     : 14px 18px;
+        border      : 1px solid hsl(var(--sand));
+        background  : color-mix(in oklch, var(--gap), transparent 92%);
+        font-family : var(--font-serif);
+        font-size   : 16px;
+        line-height : 1.45;
+        color       : var(--ink);
+        strong { font-family : var(--font-mono); font-weight : 700; color : color-mix(in oklab, hsl(var(--terracotta)), black 28%); }
+    }
     #against-prices .race-card { max-width : 60ch; margin-top : 36px; }
     #against-prices .chapter-text > p { font-size : clamp(17px, 1.35vw, 20px); line-height : 1.4; }
     /* The race's scoreboard: the two runners' multiples and gold's lead, each a figure over a word or two. */
@@ -221,6 +256,99 @@
         .race-stat strong { font-family : var(--font-mono); font-variant-numeric : tabular-nums; font-weight : 700; font-size : 24px; line-height : 1.1; color : var(--heading-text-colour); }
         .is-gold strong   { color : var(--gold-deep); }
         .is-prices strong { color : var(--prices); }
+    }
+
+    /* THE WEDDING YEAR'S GALLERY ================================================================================== */
+    /* the jeweller's display cases and the maroon gallery of "What ₹1 lakh could buy", for the wedding year: the room's
+       colours, the cases' parts, and the sandalwood chapter with the gallery's floor at its foot */
+    --scene-maroon : hsl(348 52% 24%);
+    --scene-wall   : var(--scene-maroon);
+    --scene-floor  : color-mix(in oklch, var(--scene-maroon), white 10%);
+    --scene-light  : hsl(var(--turmeric));
+    --scene-black  : color-mix(in oklch, hsl(var(--charcoal)), black 55%);
+    --scene-accent : color-mix(in oklch, hsl(var(--vermilion)), black 30%);
+    --scene-gold   : color-mix(in oklch, hsl(var(--turmeric)), white 18%);
+    --scene-ink    : hsl(var(--ivory));
+
+    .display-unit {
+
+        .wall-top    { stop-color : color-mix(in oklch, var(--scene-wall), black 30%); }
+        .wall-foot   { stop-color : var(--scene-wall); }
+        .floor-far   { stop-color : var(--scene-floor); }
+        .floor-near  { stop-color : color-mix(in oklch, var(--scene-floor), black 22%); }
+        .pool-in     { stop-color : var(--scene-light); stop-opacity : 0.34; }
+        .pool-out    { stop-color : var(--scene-light); stop-opacity : 0; }
+        .beam-top    { stop-color : var(--scene-light); stop-opacity : 0.26; }
+        .beam-foot   { stop-color : var(--scene-light); stop-opacity : 0.02; }
+        .skirting    { stroke : color-mix(in oklch, var(--scene-wall), black 45%); stroke-width : 3; }
+        .floor-line  { stroke : color-mix(in oklch, var(--scene-floor), black 30%); stroke-width : 2; }
+        .lamp-rim    { fill : color-mix(in oklch, var(--scene-wall), black 40%); }
+        .lamp        { fill : color-mix(in oklch, var(--scene-light), white 55%); }
+
+        .black        { fill : var(--scene-black); }
+        .black-sheen  { fill : color-mix(in oklch, var(--scene-black), white 13%); }
+        .black-dark   { fill : color-mix(in oklch, var(--scene-black), black 40%); }
+        .plinth       { fill : color-mix(in oklch, var(--scene-accent), black 42%); }
+        .plinth-shade { fill : color-mix(in oklch, var(--scene-accent), black 60%); }
+        .plinth-top   { fill : color-mix(in oklch, var(--scene-accent), black 20%); }
+        .plate        { fill : hsl(var(--ivory)); }
+        .plate-shadow { fill : color-mix(in oklch, black, transparent 55%); }
+        .stone        { fill : color-mix(in oklch, var(--scene-gold), white 38%); stroke : color-mix(in oklch, var(--scene-gold), black 22%); stroke-width : 1.4; }
+        .stone-light  { fill : color-mix(in oklch, var(--scene-gold), white 62%); }
+        .gold-bead       { fill : var(--scene-gold); stroke : color-mix(in oklch, var(--scene-gold), black 28%); stroke-width : 1; }
+        .gold-bead-light { fill : color-mix(in oklch, var(--scene-gold), white 22%); stroke : color-mix(in oklch, var(--scene-gold), black 28%); stroke-width : 1; }
+        .pearl        { fill : color-mix(in oklch, hsl(var(--ivory)), white 45%); stroke : color-mix(in oklch, var(--scene-gold), black 12%); stroke-width : 1; }
+        .pearl-ring   { fill : none; stroke : color-mix(in oklch, hsl(var(--ivory)), white 45%); }
+        .accent       { fill : var(--scene-accent); }
+        .accent-deep  { fill : color-mix(in oklch, var(--scene-accent), black 40%); }
+        .gold-line    { stroke : var(--scene-gold); stroke-width : 2; opacity : 0.8; }
+        .gold         { stroke : var(--scene-gold); }
+        .gold-fill    { fill : var(--scene-gold); }
+        .gold-ring    { fill : none; stroke : var(--scene-gold); stroke-width : 12; }
+        .glass        { fill : color-mix(in oklch, var(--scene-light), transparent 90%); stroke : color-mix(in oklch, var(--scene-light), transparent 45%); stroke-width : 2.5; }
+        .glare        { fill : color-mix(in oklch, white, transparent 86%); }
+
+        .label-year  { font-family : var(--font-sans-serif); font-size : 13px; font-weight : 600; fill : color-mix(in oklch, hsl(var(--charcoal)), white 30%); }
+        .label-grams { font-family : var(--font-mono); font-size : 34px; font-weight : 600; font-variant-numeric : tabular-nums; fill : hsl(var(--charcoal)); }
+        .label-piece { font-family : var(--font-serif); font-size : 17px; fill : hsl(var(--charcoal)); }
+        .label-note  { font-family : var(--font-sans-serif); font-size : 12px; fill : color-mix(in oklch, hsl(var(--charcoal)), white 30%); }
+
+    }
+
+
+    .label-was { font-family : var(--font-mono); font-size : 17px; fill : color-mix(in oklch, hsl(var(--charcoal)), white 40%); text-decoration : line-through; }
+    .label-now { font-family : var(--font-mono); font-size : 28px; font-weight : 600; fill : color-mix(in oklch, hsl(var(--vermilion)), black 18%); }
+
+    .on-sandalwood {
+        --bill   : color-mix(in oklch, hsl(var(--sand)), white 30%);
+        --sandal : color-mix(in oklch, var(--bill), var(--paper) 45%);
+        background : var(--sandal);
+
+        /* the gallery's maroon, rising from the foot of the chapter into the sandalwood, with no floor or wall drawn */
+        .pinned-frame {
+            align-items    : flex-end;
+            padding-bottom : 36px;
+            background     : linear-gradient(to top, color-mix(in oklch, var(--scene-maroon), black 12%) 0, color-mix(in oklch, var(--scene-maroon), transparent 18%) 60px, color-mix(in oklch, var(--scene-maroon), transparent 40%) 140px, color-mix(in oklch, var(--scene-maroon), transparent 62%) 240px, color-mix(in oklch, var(--scene-maroon), transparent 80%) 350px, color-mix(in oklch, var(--scene-maroon), transparent 92%) 460px, transparent max(70%, 520px));
+            > [data-row] { position : relative; z-index : 1; }
+            /* the row stands on the floor: its foot, the note under the cases, sits a little into the boards */
+            @media (min-width : 901px) { padding-bottom : 124px; }
+            /* in table view the row hangs from the top instead, and the table scrolls inside the room above the floor */
+            @media (min-width : 901px) {
+                &:has(.table-scroll) { align-items : flex-start; padding-top : 110px; }
+                .table-scroll { max-height : calc(100svh - 110px - 270px); overflow-y : auto; }
+            }
+        }
+        .table-scroll { --table-ground : var(--sandal); }
+    }
+
+    /* the years' timeline under the title, the view toggle under it */
+    .wedding-timeline { margin : 4px 0 22px; max-width : 30rem; }
+    .wedding-toggle   { display : inline-flex; }
+
+    /* the one case, standing on the floor, faded in afresh when the piece or the year changes */
+    .wedding-case {
+        .display-unit { display : block; width : 100%; max-width : 26rem; height : auto; margin : 0 auto; }
+        animation : case-in 0.5s ease both;
     }
 
     /* THE NECKLACE =============================================================================================== */
@@ -313,6 +441,9 @@
         &.is-gold { fill : var(--gold-deep); }
         &.is-prices { fill : var(--prices); }
     }
+    .end-label.is-haloed text { paint-order : stroke; stroke : var(--paper); stroke-width : 5px; stroke-linejoin : round; }
+    .on-ivory .end-label.is-haloed text { stroke : var(--ivory-faint); }
+    .duty-mark text { paint-order : stroke; stroke : var(--paper); stroke-width : 5px; stroke-linejoin : round; }
     .hot-line { stroke : color-mix(in oklch, var(--ink), transparent 60%); stroke-dasharray : 3 3; }
     .hot-dot  { fill : var(--gold-deep); stroke : var(--paper); stroke-width : 2; &.is-prices { fill : var(--prices); } }
 
@@ -322,7 +453,7 @@
     .price-line { fill : none; stroke : var(--gold-deep); stroke-width : 2; stroke-linejoin : round; }
     .duty-mark {
         line { stroke : var(--gap); stroke-dasharray : 4 4; }
-        text { font-family : var(--font-sans-serif); font-size : 11px; fill : var(--gap); }
+        text { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; fill : color-mix(in oklab, hsl(var(--terracotta)), black 28%); }
     }
 
     /* The race's piles, in 3D: the canvas, the figures above the piles and the names on the ground before them. */
@@ -433,16 +564,26 @@
         .chapter-text { margin-bottom : 56px; }
     }
 
+    /* two cards across the figure: the weights on the left, what the value did against the weight on the right */
+    /* the two cards share one line grid, a 24px line, so their three lines sit on the same baselines; where the
+       figure is too narrow for each line to hold, the cards stack */
+    .tonnes-cards {
+        display               : grid;
+        grid-template-columns : max-content minmax(320px, 1fr);
+        gap                   : 12px;
+        @container (max-width : 700px) { grid-template-columns : 1fr; .tonnes-value:first-child { margin-top : 0; } }
+    }
+    .tonnes-wrap { container-type : inline-size; margin-top : 32px; }
+    /* side by side, the value's card has no title, so its lines start a title's height down, on the weight's lines */
+    .tonnes-value:first-child { margin-top : 24px; }
     .tonnes-card {
-        margin     : 16px 0 0;
-        padding    : 14px 18px;
+        padding    : 14px 18px 16px;
         border     : 1px solid hsl(var(--sand));
         background : hsl(var(--ivory));
-        max-width  : 44ch;
         p { margin : 0; }
-        .tonnes-head { font-family : var(--font-sans-serif); font-size : 11px; font-weight : 600; letter-spacing : 0.08em; text-transform : uppercase; color : var(--ink-soft); margin-bottom : 8px; }
-        .tonnes-line { font-family : var(--font-serif); font-size : 15px; line-height : 1.4; color : var(--ink); strong { font-family : var(--font-mono); font-weight : 600; color : var(--gold-deep); } }
-        .tonnes-line + .tonnes-line { margin-top : 4px; }
+        .tonnes-head  { font-family : var(--font-sans-serif); font-size : 11px; line-height : 16px; font-weight : 600; text-transform : uppercase; color : var(--ink-soft); margin-bottom : 8px; }
+        .tonnes-line  { font-family : var(--font-serif); font-size : 15px; line-height : 24px; color : var(--ink); white-space : nowrap; strong { font-family : var(--font-mono); font-weight : 600; line-height : 0; color : var(--gold-deep); } }
+        .tonnes-value { font-family : var(--font-serif); font-size : 15px; line-height : 24px; color : var(--ink); em { font-style : normal; font-family : var(--font-mono); font-weight : 600; line-height : 0; color : var(--accent); white-space : nowrap; } }
     }
 
     /* A tooltip at a point inside a chart: the value leads, the label follows. */
@@ -610,5 +751,18 @@
     --c-faint     : var(--grey-dark60);
 
     .ten-card, .tonnes-card, .formula, .race-card { background : var(--ivory-faint); border-color : var(--rule); color : var(--ink); }
+    .on-sandalwood { --bill : color-mix(in oklch, hsl(var(--sand)), black 62%); }
+    .duty-note strong { color : color-mix(in oklab, hsl(var(--terracotta)), white 25%); }
+    .duty-note { border-color : var(--rule); }
+    .duty-mark text { fill : color-mix(in oklab, hsl(var(--terracotta)), white 25%); }
+    .price-card .race-stat:not(.is-gold) strong { color : var(--heading-text-colour); }
     .formula { border-color : color-mix(in oklab, hsl(var(--indivara)), var(--ivory-faint) 62%); }
+}
+
+@keyframes case-in {
+    from { opacity : 0; transform : translateY(8px); }
+    to   { opacity : 1; transform : none; }
+}
+@media (prefers-reduced-motion : reduce) {
+    #the-10-gram-question-page .wedding-case { animation : none; }
 }

@@ -35,8 +35,10 @@ export default function RaceStage({ gold, prices, max, piles } : RaceStageProps)
         sceneRef.current = scene;
         scene.set(haveRef.current.gold, haveRef.current.prices);
 
+        // the figures ride above each pile and the names sit under it, each the same gap from its own pile's front
         const placeTags = () => {
-            scene.anchors().forEach((a, i) => {
+            const anchors = scene.anchors();
+            anchors.forEach((a, i) => {
                 const c = tagsRef.current[i * 2], n = tagsRef.current[i * 2 + 1];
                 if (c) c.style.transform = `translate(${a.top.x.toFixed(1)}px, ${a.top.y.toFixed(1)}px) translate(-50%, -100%)`;
                 if (n) n.style.transform = `translate(${a.base.x.toFixed(1)}px, ${a.base.y.toFixed(1)}px) translate(-50%, 0)`;
