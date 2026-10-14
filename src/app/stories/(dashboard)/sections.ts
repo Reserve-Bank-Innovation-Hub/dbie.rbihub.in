@@ -35,8 +35,8 @@ export const STORY_SECTIONS : ListSection[] = [
         items : [
             {
                 linkTo      : "/stories/the-lights-came-on",
-                label       : "The lights came on",
-                description : "Individuals overtook companies as banks' biggest borrowers — and a third of the borrowers added since 2015 are women.",
+                label       : "How households took over the bank loan book",
+                description : "Individuals owe ₹47 of every ₹100 banks have lent, up from ₹31 in 2015, and private companies ₹27, down from ₹40. Individuals’ loan accounts tripled while the average loan, after prices, did not grow.",
             },
             {
                 linkTo      : "/stories/the-two-lakh-line",
