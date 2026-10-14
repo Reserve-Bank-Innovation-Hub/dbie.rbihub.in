@@ -1,0 +1,89 @@
+/* The timeline scrubber (Timeline.tsx): a play button, a hairline track filled to the value, a round knob, the named
+   steps ticked and labelled beneath, the value in mono at the end. Colours come from the page's --accent, --ink and
+   --paper where it sets them, otherwise from the theme. */
+.timeline-control {
+    --tl-accent : var(--accent, hsl(var(--indivara)));
+    --tl-ink    : var(--ink, var(--paragraph-text-colour));
+    --tl-paper  : var(--paper, var(--body-bg));
+    --tl-soft   : color-mix(in oklch, var(--tl-ink), transparent 28%);
+
+    display               : grid;
+    grid-template-columns : auto minmax(0, 1fr) auto;
+    align-items           : start;
+    gap                   : 14px 22px;
+
+    &.no-play { grid-template-columns : minmax(0, 1fr) auto; }
+}
+
+.timeline-play {
+    width         : 30px;
+    height        : 30px;
+    margin-top    : -4px;
+    padding       : 0;
+    border        : 1.5px solid var(--tl-accent);
+    border-radius : 50%;
+    background    : transparent;
+    color         : var(--tl-accent);
+    font-size     : 9px;
+    line-height   : 1;
+    cursor        : pointer;
+
+    &.is-playing { background : var(--tl-accent); color : white; }
+    &:disabled   { opacity : 0.4; cursor : default; }
+}
+
+.timeline-readout {
+    margin-top           : 2px;
+    font-family          : var(--font-mono);
+    font-variant-numeric : tabular-nums;
+    font-size            : 22px;
+    line-height          : 1;
+    color                : var(--heading-text-colour);
+}
+
+.timeline {
+    position : relative;
+    padding  : 0 7px 20px;                                                  /* half the knob, so the ticks meet its centre */
+
+    /* the input reaches half a knob past each end tick, so the knob's centre meets the ticks; the track itself is
+       drawn only between them */
+    input[type="range"] {
+        display    : block;
+        width      : calc(100% + 14px);
+        height     : 22px;
+        margin     : 0 -7px;
+        padding    : 0;
+        border     : 0;
+        border-radius : 0;
+        box-shadow : none;
+        appearance : none;
+        background : transparent;
+        outline    : none;
+        cursor     : pointer;
+
+        &::-webkit-slider-runnable-track { height : 2px; margin : 0 7px; border : 0; border-radius : 0; background : linear-gradient(to right, var(--tl-accent) var(--pct, 0%), color-mix(in oklch, var(--tl-ink), transparent 72%) var(--pct, 0%)); }
+        &::-moz-range-track              { height : 2px; margin : 0 7px; border : 0; border-radius : 0; background : color-mix(in oklch, var(--tl-ink), transparent 72%); }
+        &::-moz-range-progress           { height : 2px; border-radius : 0; background : var(--tl-accent); }
+        &::-webkit-slider-thumb { appearance : none; width : 14px; height : 14px; margin-top : -6px; border : 2px solid var(--tl-paper); border-radius : 50%; background : var(--tl-accent); box-shadow : 0 0 0 1px var(--tl-accent); }
+        &::-moz-range-thumb     { width : 14px; height : 14px; border : 2px solid var(--tl-paper); border-radius : 50%; background : var(--tl-accent); box-shadow : 0 0 0 1px var(--tl-accent); }
+        &:focus-visible::-webkit-slider-thumb { box-shadow : 0 0 0 3px color-mix(in oklch, var(--tl-accent), transparent 65%); }
+        &:focus-visible::-moz-range-thumb     { box-shadow : 0 0 0 3px color-mix(in oklch, var(--tl-accent), transparent 65%); }
+        &:disabled { cursor : default; }
+    }
+
+    .timeline-ticks { position : absolute; left : 7px; right : 7px; top : 12px; height : 20px; }
+    .timeline-tick {
+        position   : absolute;
+        top        : 0;
+        width      : 1px;
+        height     : 6px;
+        background : color-mix(in oklch, var(--tl-ink), transparent 50%);
+
+        i { position : absolute; top : 9px; left : 50%; transform : translateX(-50%); font-family : var(--font-sans-serif); font-style : normal; font-size : 11px; line-height : 1; color : var(--tl-soft); white-space : nowrap; }
+    }
+}
+
+/* on a phone only the two ends are named */
+@media (max-width : 900px) {
+    .timeline .timeline-tick:not(:first-child):not(:last-child) i { display : none; }
+}
