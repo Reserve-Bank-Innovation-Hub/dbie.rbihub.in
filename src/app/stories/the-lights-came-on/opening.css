@@ -1,0 +1,225 @@
+/* The opening, laid out as the agriculture story lays out its farm (the-women-who-stayed.css, "THE OPENING"): the
+   stage pinned for the scroll, the title over a soft wash at the top, and at the foot a card in the place of the
+   farm's beat caption, here full width up to 860px, carrying the caption and the ₹100 strip. Colours are the page's
+   tokens from the-lights-came-on.css, so the wash, the card and the strip follow the theme; none are defined here. */
+#the-lights-came-on-page {
+    .town-opening {
+        position : relative;
+        height   : 520vh;
+        height   : 520svh;
+    }
+
+    .town-sticky {
+        position   : sticky;
+        top        : 0;
+        height     : 100vh;
+        height     : 100svh;
+        overflow   : hidden;
+        background : var(--page);
+    }
+
+    .town-stage {
+        position : absolute;
+        inset    : 0;
+
+        canvas { display : block; width : 100%; height : 100%; }
+        &.is-loading { background : linear-gradient(var(--page), var(--sandal)); }
+    }
+
+    .town-fallback {
+        position   : absolute;
+        inset      : auto 16px 46% 16px;
+        margin     : 0;
+        text-align : center;
+        color      : var(--ink-soft);
+    }
+
+    /* THE TITLE ==================================================================================================== */
+    .town-title {
+        position       : absolute;
+        left           : 50%;
+        top            : 5vh;
+        transform      : translateX(-50%);
+        width          : min(820px, calc(100% - 32px));
+        display        : grid;
+        gap            : 10px;
+        justify-items  : center;
+        text-align     : center;
+        pointer-events : none;
+
+        > * { pointer-events : auto; }
+        .table-crumbs { justify-content : center; }
+
+        /* a soft wash of the page so the title reads over the town */
+        &::before {
+            content        : "";
+            position       : absolute;
+            inset          : -6vh -12vw -5vh;
+            z-index        : -1;
+            background     : radial-gradient(ellipse at 50% 42%, color-mix(in oklch, var(--page), transparent 6%) 0%, color-mix(in oklch, var(--page), transparent 24%) 46%, color-mix(in oklch, var(--page), transparent 100%) 72%);
+            pointer-events : none;
+        }
+    }
+
+    .town-kicker {
+        margin         : 0;
+        color          : var(--accent);
+        font-family    : var(--font-sans-serif);
+        font-weight    : 600;
+        font-size      : 13px;
+        letter-spacing : 0.16em;
+    }
+
+    .town-h1 {
+        margin         : 0;
+        color          : var(--ink);
+        font-family    : var(--font-serif);
+        font-weight    : 700;
+        font-size      : clamp(40px, 6.4vw, 88px);
+        line-height    : 0.98;
+        letter-spacing : -0.02em;
+        text-wrap      : balance;
+
+        .accent { color : var(--c-emph); }
+    }
+
+    .town-standfirst {
+        max-width   : 38em;
+        margin      : 0;
+        color       : var(--ink-soft);
+        font-family : var(--font-serif);
+        font-size   : clamp(15px, 1.35vw, 18px);
+        line-height : 1.45;
+        text-wrap   : pretty;
+        /* the standfirst steps aside once the years begin, and its room with it, so the town shows under the title */
+        opacity     : var(--title, 1);
+        max-height  : calc(var(--title, 1) * 9em);
+        overflow    : hidden;
+    }
+
+    /* THE CAPTION AND THE ₹100 STRIP =============================================================================== */
+    .town-read {
+        position       : absolute;
+        left           : 50%;
+        bottom         : 3vh;
+        transform      : translate(-50%, 12px);
+        width          : min(860px, calc(100% - 32px));
+        display        : grid;
+        gap            : 10px;
+        padding        : 14px 18px 14px;
+        border-radius  : 10px;
+        background     : color-mix(in oklch, var(--card), transparent 6%);
+        box-shadow     : 0 0 0 1px var(--rule), 0 12px 28px rgba(0, 0, 0, 0.12);
+        opacity        : 0;
+        transition     : opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events : none;
+
+        &.is-on { opacity : 1; transform : translate(-50%, 0); }
+    }
+
+    .town-read-kicker {
+        color          : var(--accent);
+        font-family    : var(--font-sans-serif);
+        font-weight    : 600;
+        font-size      : 11.5px;
+        letter-spacing : 0.12em;
+        text-transform : uppercase;
+    }
+
+    .town-read-text {
+        margin      : 2px 0 0;
+        color       : var(--ink);
+        font-family : var(--font-serif);
+        font-size   : 17px;
+        line-height : 1.4;
+        text-wrap   : pretty;
+    }
+
+    .town-strip { display : grid; gap : 6px; padding-top : 10px; border-top : 1px solid var(--rule); }
+
+    .town-strip-head {
+        margin      : 0;
+        color       : var(--ink-soft);
+        font-family : var(--font-sans-serif);
+        font-size   : 12.5px;
+    }
+
+    .town-bar {
+        display       : flex;
+        gap           : 2px;
+        height        : 22px;
+        border-radius : 4px;
+        overflow      : hidden;
+    }
+
+    .town-seg {
+        flex-basis  : 0;
+        min-width   : 0;
+        display     : flex;
+        align-items : center;
+        padding     : 0 7px;
+        overflow    : hidden;
+
+        b {
+            color                : #ffffff;
+            font-family          : var(--font-sans-serif);
+            font-weight          : 600;
+            font-size            : 12.5px;
+            font-variant-numeric : tabular-nums;
+            white-space          : nowrap;
+        }
+    }
+
+    .seg-individuals      { background : var(--c-emph); }
+    .seg-privateCompanies { background : var(--accent); }
+    .seg-public           { background : var(--c-deemph); }
+    .seg-householdOthers  { background : color-mix(in oklch, var(--c-deemph) 50%, var(--sandal)); }
+    .seg-others           { background : color-mix(in oklch, var(--c-deemph) 22%, var(--sandal)); }
+
+    .town-key {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : 4px 16px;
+        margin    : 0;
+        padding   : 0;
+        list-style: none;
+
+        li { display : flex; align-items : baseline; gap : 6px; font-family : var(--font-sans-serif); font-size : 12.5px; }
+    }
+
+    .town-swatch { display : inline-block; width : 9px; height : 9px; border-radius : 2px; align-self : center; }
+    .town-key-name { color : var(--ink-soft); }
+    .town-key-value { color : var(--ink); font-weight : 600; font-variant-numeric : tabular-nums; }
+
+    .town-cue {
+        position       : absolute;
+        left           : 50%;
+        bottom         : 4vh;
+        transform      : translateX(-50%);
+        padding        : 4px 12px;
+        border-radius  : 6px;
+        background     : color-mix(in oklch, var(--card), transparent 25%);
+        color          : var(--ink-soft);
+        font-family    : var(--font-sans-serif);
+        font-size      : 12px;
+        letter-spacing : 0.2em;
+        text-transform : uppercase;
+        white-space    : nowrap;
+        transition     : opacity 0.4s ease;
+        pointer-events : none;
+
+        &.is-off { opacity : 0; }
+    }
+
+    /* on a phone the title steps aside once the years begin, so the town and the strip share the screen */
+    @media (max-width : 700px) {
+        .town-title { opacity : var(--title, 1); top : 4vh; }
+        .town-read { bottom : 2vh; padding : 12px 14px; gap : 8px; }
+        .town-read-text { font-size : 15.5px; }
+        .town-key { gap : 3px 12px; li { font-size : 12px; } }
+    }
+
+    @media (prefers-reduced-motion : reduce) {
+        .town-read { transition : opacity 0.3s ease; transform : translate(-50%, 0); }
+    }
+}
