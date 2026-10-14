@@ -1,0 +1,57 @@
+name: Story tracker
+
+# Rebuilds docs/story-tracker (tracker.json and index.html) from git history on dev and main, open pull requests to
+# dev and the deployed dev pages, then commits the result to dev. Runs on every push to dev or main, when a pull
+# request to dev opens, updates or closes, every two hours (a deploy finishes a few minutes after a merge, so the
+# push-time run can read a page that is one deploy old), and on demand. The commit message ends in [skip-cd] so
+# Amplify does not rebuild the site for it; pushes made with GITHUB_TOKEN do not start workflows, so it cannot loop.
+on:
+    push:
+        branches: [dev, main]
+    pull_request:
+        branches: [dev]
+        types: [opened, reopened, synchronize, closed, ready_for_review, converted_to_draft]
+    schedule:
+        - cron: "17 */2 * * *"
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: read
+
+concurrency:
+    group: story-tracker
+    cancel-in-progress: true
+
+jobs:
+    build:
+        # Never run against a fork's code with a write token.
+        if: github.repository_owner == 'Reserve-Bank-Innovation-Hub' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: dev
+                    fetch-depth: 0
+
+            -   run: git fetch --no-tags origin main
+
+            -   uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+
+            -   name: Build the tracker
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    DEV_REF: HEAD
+                    MAIN_REF: origin/main
+                run: node scripts/story-tracker/build.mjs
+
+            -   name: Commit to dev
+                run: |
+                    git add docs/story-tracker/tracker.json docs/story-tracker/index.html
+                    if git diff --cached --quiet; then echo "No change."; exit 0; fi
+                    git config user.name "github-actions[bot]"
+                    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                    git commit -m "Story tracker: refresh [skip-cd]"
+                    git push origin HEAD:dev

@@ -12,6 +12,7 @@ Conventions mirror the Pratirupa repo (`~/projects/pratirupa`); when in doubt, d
 | Database: instance, roles and secrets, tailnet access, data model, loading, what is loaded, buckets, infrastructure | `docs/database.md` |
 | Data API: endpoints, parameters, table shapes, deployment | `docs/data-api.md`, `dbie-backend/data-api/CLAUDE.md` |
 | How DBIE itself works and how the scraper drives it | `docs/dbie-portal-anatomy.md`, `docs/scraper.md` |
+| Building a data story: every story's brief, status, owner, history; the builder's guide and house rules (read this first) | `docs/story-tracker/` (`index.html`, `stories.json`, `guide.html`) |
 | Commands | `package.json` scripts (`scrape*`, `data:*`, `db:*`, `start:api`, `test:api`) |
 | Infrastructure | `infra/terraform/common/*.tf`, one file per concern, header comments carry the why |
 
