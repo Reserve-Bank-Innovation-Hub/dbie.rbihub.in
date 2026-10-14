@@ -27,7 +27,7 @@ import {
 } from "./data";
 
 // STYLES ==============================================================================================================
-import "./the-lights-came-on.css";
+import "./how-households-took-over-the-bank-loan-book.css";
 
 // THE WORDS ===========================================================================================================
 // The sentences are template strings over data.gen.ts and data.ts, so a refresh of the data rewrites them; prose()
@@ -141,7 +141,7 @@ const lakh = (v : number) => `₹${v.toFixed(2)} lakh`;
 
 export const TheLightsCameOnPage = () => (
     <MotionConfig reducedMotion="user">
-        <Article id="the-lights-came-on-page">
+        <Article id="how-households-took-over-the-bank-loan-book-page">
             <Opening />
 
             {/* IN REAL TERMS ========================================================================================== */}
@@ -433,7 +433,7 @@ export const TheLightsCameOnPage = () => (
                     <h3>DOWNLOADS</h3>
                     {DOWNLOADS.map(([ file, label ]) => (
                         <Div key={file}>
-                            <Link href={`/stories/the-lights-came-on/${file}`} download className="download-link">
+                            <Link href={`/stories/how-households-took-over-the-bank-loan-book/${file}`} download className="download-link">
                                 <Div verticallyCentreItems marginBottom="nano">
                                     <Download size="16px" />
                                     <Text weight="600" marginLeft="nano" size="tiny">Download {label} (CSV)</Text>

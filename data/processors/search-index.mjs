@@ -76,7 +76,7 @@ const STATIC_PAGES = [
     { url : '/docs/mcp',                           section : 'Docs',         title : 'AI access via MCP',          keywords : [ 'docs', 'mcp', 'ai', 'claude', 'model context protocol', 'assistant', 'api' ] },
     { url : '/stories',                            section : 'Stories',      title : 'Stories — dashboard',        keywords : [ 'stories', 'so what', 'editorial', 'narratives' ],
       description : 'Data-led stories built on the same verified datasets as the tables' },
-    { url : '/stories/the-lights-came-on',         section : 'Stories',      title : 'The lights came on',         keywords : [ 'story', 'bank credit', 'individuals', 'women', 'financial inclusion', 'BSR' ] },
+    { url : '/stories/how-households-took-over-the-bank-loan-book', section : 'Stories',      title : 'How households took over the bank loan book', keywords : [ 'story', 'bank credit', 'individuals', 'women', 'financial inclusion', 'BSR', 'households', 'loan book' ] },
     { url : '/stories/the-two-lakh-line',          section : 'Stories',      title : 'The ₹2 lakh line',           keywords : [ 'story', 'bank credit', 'small borrowal accounts', 'financial inclusion', 'women', 'districts', 'BSR' ] },
     { url : '/stories/what-got-cheaper',           section : 'Stories',      title : 'What got cheaper',           keywords : [ 'story', 'prices', 'wholesale price index', 'WPI', 'inflation', 'solar', 'gold', 'consumer price index', 'wages' ] },
     { url : '/stories/debt-to-service-ratio',      section : 'Stories',      title : 'The long walk back from 1991', keywords : [ 'story', 'external debt', 'debt service ratio', '1991', 'crisis', 'liberalisation' ] },

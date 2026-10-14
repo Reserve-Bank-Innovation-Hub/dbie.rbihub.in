@@ -98,7 +98,7 @@ const processors = [
   'yield-per-hectare-foodgrains',
   'yield-per-hectare-major-commercial-crops',
   'story-external-debt',        // stories: also regenerate the data.gen.ts modules
-  'story-the-lights-came-on',
+  'story-how-households-took-over-the-bank-loan-book',
   'story-the-two-lakh-line',
   'story-the-women-who-stayed',
   'story-what-got-cheaper',
