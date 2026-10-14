@@ -2,8 +2,12 @@
 
 `index.html` is the source of truth for building a data story on dbie.rbihub.in: every story's brief (headline figures,
 chapters, visual, interactions, data sources, fact-check traps, overlaps and links), its status, owner and history, the
-builder's guide and the house rules. Open it through GitHub's raw view or
-[htmlpreview](https://htmlpreview.github.io/?https://github.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in/blob/dev/docs/story-tracker/index.html).
+builder's guide and the house rules. Open it at
+<https://raw.githack.com/Reserve-Bank-Innovation-Hub/dbie.rbihub.in/dev/docs/story-tracker/index.html> (click
+"Open the page" once; it serves the file straight from dev). Once GitHub Pages is enabled for this repository (Settings
+→ Pages → Deploy from a branch → `dev`, folder `/docs`), it is also at
+<https://reserve-bank-innovation-hub.github.io/dbie.rbihub.in/story-tracker/>. The page loads the latest
+`tracker.json` and `owners.json` from dev when it opens, so any copy of it shows current data.
 
 ## Building a story with Claude
 
