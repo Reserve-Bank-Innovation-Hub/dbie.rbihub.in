@@ -257,6 +257,8 @@ footer { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--hair-s
         ${s.slug ? `<dt>Address</dt><dd><a href="${D.devSite}/stories/${esc(s.slug)}">/stories/${esc(s.slug)}</a></dd>` : ""}
         ${r.plannedAs || (s.plannedTitle && s.plannedTitle !== s.title) ? `<dt>Planned as</dt><dd>${esc(r.plannedAs || s.plannedTitle)}</dd>` : ""}
         ${(r.earlierNumbers || []).length ? `<dt>Earlier #</dt><dd>${esc(r.earlierNumbers.join("; "))}</dd>` : ""}
+        ${(r.absorbs || []).length ? `<dt>Absorbs</dt><dd>${r.absorbs.map(x => `<a href="#${x}">${x}</a>`).join(", ")}: read their briefs too</dd>` : ""}
+        ${(r.mayAbsorb || []).length ? `<dt>May absorb</dt><dd>${r.mayAbsorb.map(x => `<a href="#${x}">${x}</a>`).join(", ")} (to be agreed)</dd>` : ""}
       </dl></div>
       ${r.covers ? `<div class="panel"><h4>What it covers and shows</h4><p>${esc(r.covers)}</p><p class="small"><b>Shows:</b> ${esc(r.shows)}</p></div>` : ""}
       ${r.overlaps ? `<div class="panel"><h4>Overlaps and links</h4><p class="small"><b>Overlaps.</b> ${esc(r.overlaps)}</p><p class="small"><b>Links.</b> ${esc(r.links)}</p></div>` : ""}
@@ -279,7 +281,7 @@ footer { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--hair-s
     $("#rows").innerHTML = rows.map(s => {
       const latest = s.updates[0] || (s.wip[0] ? { date: s.wip[0].updated, authors: [s.wip[0].author], pr: s.wip[0].pr } : null);
       return `<tr class="row" data-id="${s.id}" id="${s.id}"><td class="num">${s.id}</td>
-        <td class="t">${s.slug && s.status !== "planned" && s.status !== "wip" ? `<a href="${D.devSite}/stories/${esc(s.slug)}" onclick="event.stopPropagation()">${esc(s.title)}</a>` : esc(s.title || s.slug)}<span class="sub">${esc(s.section || "")}${s.mergedInto ? " · into " + s.mergedInto : ""}</span></td>
+        <td class="t">${s.slug && s.status !== "planned" && s.status !== "wip" ? `<a href="${D.devSite}/stories/${esc(s.slug)}" onclick="event.stopPropagation()">${esc(s.title)}</a>` : esc(s.title || s.slug)}<span class="sub">${esc(s.section || "")}${s.mergedInto ? " · into " + s.mergedInto : ""}${(reg()[s.id] || {}).absorbs ? " · absorbs " + reg()[s.id].absorbs.join(", ") : ""}</span></td>
         <td><span class="st ${s.status}">${LABEL[s.status]}</span></td>
         <td class="own">${s.status === "merged" ? `<span class="small">with ${esc(s.mergedInto)}</span>` : ownerOf(s.id) ? esc(ownerOf(s.id)) : '<span class="st planned">To be named</span>'}</td>
         <td class="when">${whenCell(s.firstOnDev)}</td>
