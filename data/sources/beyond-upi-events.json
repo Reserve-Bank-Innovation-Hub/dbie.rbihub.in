@@ -1,0 +1,75 @@
+{
+ "about": "Dated facts and quotations used on the steps of the story 'Beyond UPI: everything else India pays with' (src/app/stories/beyond-upi). Each is from a Reserve Bank of India or Government of India page, read on 15-10-2026; 'quote' is copied from it, and 'note' says only what the source says. 'slide' names the step it is shown on; 'day' is the date the change took effect, 'issued' the date of the document. data/processors/story-beyond-upi.mjs checks each date and each link.",
+ "events": [
+  {
+   "slide": "rtgs",
+   "day": "2004-03-26",
+   "issued": "2004-08-16",
+   "label": "RTGS goes live",
+   "note": "The RBI's RTGS system went live on 26 March 2004, at first for payments between banks only.",
+   "source_title": "RTGS Services now for Bank Customers: RBI",
+   "url": "https://www.rbi.org.in/commonman/Upload/English/PressRelease/PDFs/55844.pdf",
+   "quote": "the Reserve Bank of India's Real Time Gross Settlement (RTGS) System went live on March 26, 2004. Initially, it was open to the settlement of inter-bank transactions."
+  },
+  {
+   "slide": "rtgs",
+   "day": "2020-12-14",
+   "issued": "2020-12-09",
+   "label": "RTGS round the clock",
+   "note": "RTGS became available round the clock, every day of the year, from 00:30 hours on 14 December 2020.",
+   "source_title": "RBI announces date for launching of RTGS 24x7",
+   "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=50775",
+   "quote": "RTGS 24x7x365 will be launched with effect from 00:30 hours on December 14, 2020."
+  },
+  {
+   "slide": "rtgs",
+   "day": "2026-10-15",
+   "issued": "2026-10-15",
+   "label": "Credit within 30 minutes",
+   "note": "The RBI's RTGS FAQ, read on 15-10-2026: the receiving bank must credit the account within 30 minutes of receiving the transfer message.",
+   "source_title": "RBI, Frequently asked questions on RTGS, question 13",
+   "url": "https://www.rbi.org.in/commonperson/English/scripts/FAQs.aspx?Id=275",
+   "quote": "The beneficiary bank must credit the beneficiary's account within 30 minutes of receiving the fund transfer message."
+  },
+  {
+   "slide": "neft",
+   "day": "2019-12-16",
+   "issued": "2019-12-06",
+   "label": "NEFT round the clock, in 48 batches",
+   "note": "NEFT became available round the clock from 16 December 2019, settling in 48 half-hourly batches a day.",
+   "source_title": "Availability of National Electronic Funds Transfer (NEFT) System on 24x7 basis (RBI/2019-20/111)",
+   "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11750&Mode=0",
+   "quote": "There will be 48 half-hourly batches every day."
+  },
+  {
+   "slide": "cheque",
+   "day": "2021-09-30",
+   "issued": "2021-03-15",
+   "label": "CTS required at every branch",
+   "note": "The RBI required banks to bring all their branches into image-based cheque truncation (CTS) by 30 September 2021.",
+   "source_title": "Extension of Cheque Truncation System (CTS) across all bank branches in the country (RBI/2020-21/107)",
+   "url": "https://www.rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12039",
+   "quote": "ensure that all their branches participate in image-based CTS"
+  },
+  {
+   "slide": "toll",
+   "day": "2021-02-16",
+   "issued": "2021-02-14",
+   "label": "Every toll lane a FASTag lane",
+   "note": "All lanes at national-highway fee plazas were declared FASTag lanes from the midnight of 15/16 February 2021.",
+   "source_title": "FASTag declared mandatory from midnight tomorrow (Ministry of Road Transport and Highways)",
+   "url": "https://pib.gov.in/PressReleasePage.aspx?PRID=1697928",
+   "quote": "all lanes in the fee plazas on National Highways shall be declared as \"FASTag lane of the fee plaza\" w.e.f midnight of 15th/16th February 2021"
+  },
+  {
+   "slide": "cards",
+   "day": "2026-05-18",
+   "issued": "2026-05-18",
+   "label": "The RBI on debit and credit cards",
+   "note": "The RBI's Payment System Report (December 2025) on why debit-card payments fell.",
+   "source_title": "Payment System Report, December 2025, paragraph 2.36",
+   "url": "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23813",
+   "quote": "the decline in debit card transactions, both in volume and value, is potentially driven by the rise of digital wallets, UPI, and credit card adoption"
+  }
+ ]
+}
