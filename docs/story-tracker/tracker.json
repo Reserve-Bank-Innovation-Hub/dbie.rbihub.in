@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-15T14:49:36.778Z",
-  "dev": "2e6ee5d",
+  "generated": "2026-10-15T16:41:10.311Z",
+  "dev": "b3a3976",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "7d61c947b98aa4a9"
+  "digest": "84d02113fb7ee858"
  },
  "stories": [
   {
@@ -1305,6 +1305,33 @@
    "wip": [],
    "captured": null,
    "auto": false
+  },
+  {
+   "id": "S33",
+   "slug": "beyond-upi",
+   "status": "wip",
+   "mergedInto": null,
+   "title": null,
+   "plannedTitle": null,
+   "section": null,
+   "firstOnDev": null,
+   "updates": [],
+   "live": null,
+   "wip": [
+    {
+     "pr": 63,
+     "title": "Beyond UPI: everything else India pays with (S26)",
+     "author": "vishes-jena-rbihub",
+     "draft": false,
+     "updated": "2026-10-15",
+     "branch": "story-beyond-upi",
+     "slugs": [
+      "beyond-upi"
+     ]
+    }
+   ],
+   "captured": null,
+   "auto": true
   }
  ]
 }
