@@ -1,0 +1,28 @@
+/* NEFT's day as a clock (NeftClock.tsx): 48 half-hourly batches in a ring, NEFT turmeric; IMPS's ring beside it. */
+#beyond-upi-page {
+    .nc-stage svg { display : block; overflow : visible; }
+    .nc-face { fill : var(--card); filter : drop-shadow(0 14px 30px rgba(0, 0, 0, 0.1)); }
+    .nc-slot { fill : color-mix(in srgb, var(--neft), transparent 86%); }
+    .nc-done { fill : var(--neft); }
+    .nc-fill { fill : color-mix(in srgb, var(--neft), transparent 35%); }
+    .nc-flash { fill : #fff; mix-blend-mode : screen; filter : drop-shadow(0 0 8px var(--neft)); }
+    .nc-dot { fill : var(--neft); }
+    .nc-hour { font : 600 11px var(--font-sans-serif); fill : var(--ink-soft); }
+    .nc-time { font : 700 34px var(--font-mono, ui-monospace, monospace); fill : var(--ink); letter-spacing : 0.02em; }
+    .nc-batch { font : 600 13px var(--font-sans-serif); fill : var(--neft); }
+    .nc-settled { font : 700 20px var(--font-sans-serif); fill : var(--ink); }
+    .nc-sub { font : 500 11.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    .nc-imps-track { fill : none; stroke : color-mix(in srgb, var(--imps), transparent 85%); stroke-width : 1; }
+    .nc-imps-fill { fill : var(--imps); }
+    .nc-imps-head { fill : var(--imps); filter : drop-shadow(0 0 6px var(--imps)); }
+    .nc-imps-n { font : 700 22px var(--font-sans-serif); fill : var(--imps); }
+    .nc-imps-name { font : 600 12.5px var(--font-sans-serif); fill : var(--imps); }
+    .nc-avg { font : 500 12.5px var(--font-sans-serif); fill : var(--ink-soft); }
+    @media (max-width : 760px) {
+        .nc-time { font-size : 24px; }
+        .nc-batch, .nc-imps-name, .nc-avg { font-size : 11px; }
+        .nc-settled { font-size : 16px; }
+        .nc-imps-n { font-size : 16px; }
+        .nc-sub, .nc-hour { font-size : 10px; }
+    }
+}
