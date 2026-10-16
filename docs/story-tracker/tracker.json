@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T05:28:52.906Z",
-  "dev": "c118446",
+  "generated": "2026-10-16T05:30:37.679Z",
+  "dev": "707ed2a",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "da8891435b5040f7"
+  "digest": "a3b38e2f5e9aca8b"
  },
  "stories": [
   {
@@ -1363,6 +1363,33 @@
    "wip": [],
    "captured": null,
    "auto": false
+  },
+  {
+   "id": "S33",
+   "slug": "from-field-to-thali",
+   "status": "wip",
+   "mergedInto": null,
+   "title": null,
+   "plannedTitle": null,
+   "section": null,
+   "firstOnDev": null,
+   "updates": [],
+   "live": null,
+   "wip": [
+    {
+     "pr": 66,
+     "title": "From field to thali: what India grows, buys and trades, on one thali",
+     "author": "Swati-072",
+     "draft": false,
+     "updated": "2026-10-16",
+     "branch": "story-from-field-to-thali",
+     "slugs": [
+      "from-field-to-thali"
+     ]
+    }
+   ],
+   "captured": null,
+   "auto": true
   }
  ]
 }
