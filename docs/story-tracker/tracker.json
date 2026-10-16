@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T05:05:47.337Z",
-  "dev": "6310d95",
+  "generated": "2026-10-16T05:28:27.015Z",
+  "dev": "0546a7e",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "2e12c61deaadf996"
+  "digest": "13703167ab6c8700"
  },
  "stories": [
   {
@@ -1230,7 +1230,19 @@
     }
    ],
    "live": null,
-   "wip": [],
+   "wip": [
+    {
+     "pr": 65,
+     "title": "Beyond UPI: trucks, round tolls and a tarmac road at the toll plaza",
+     "author": "vishes-jena-rbihub",
+     "draft": false,
+     "updated": "2026-10-16",
+     "branch": "story-beyond-upi-tolls",
+     "slugs": [
+      "beyond-upi"
+     ]
+    }
+   ],
    "captured": {
     "title": "Beyond UPI: everything else India pays with",
     "description": "In 2025-26 an RTGS payment averaged ₹65.0 lakh, a cheque ₹1.28 lakh and a UPI payment ₹1,301; RTGS carried 68.4% of all payment value in 0.12% of payments. Built from the data published on the Reserve Bank’s DBIE.",
