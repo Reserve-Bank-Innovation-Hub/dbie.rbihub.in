@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T06:32:28.924Z",
-  "dev": "e89d9ec",
+  "generated": "2026-10-16T06:39:16.472Z",
+  "dev": "46191ae",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "80a3ebe6f0f18ffd"
+  "digest": "948f69eddd2c33a0"
  },
  "stories": [
   {
@@ -1239,7 +1239,19 @@
     }
    ],
    "live": null,
-   "wip": [],
+   "wip": [
+    {
+     "pr": 70,
+     "title": "Beyond UPI: QR spiral, camera tour via cheques and UPI, Kosh colours for the guess",
+     "author": "vishes-jena-rbihub",
+     "draft": false,
+     "updated": "2026-10-16",
+     "branch": "story-beyond-upi",
+     "slugs": [
+      "beyond-upi"
+     ]
+    }
+   ],
    "captured": {
     "title": "Beyond UPI: everything else India pays with",
     "description": "In 2025-26 an RTGS payment averaged ₹65.0 lakh, a cheque ₹1.28 lakh and a UPI payment ₹1,301; RTGS carried 68.4% of all payment value in 0.12% of payments. Built from the data published on the Reserve Bank’s DBIE.",
