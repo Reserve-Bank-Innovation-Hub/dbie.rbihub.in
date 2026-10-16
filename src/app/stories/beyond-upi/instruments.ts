@@ -25,33 +25,109 @@ const wrap = (w : number, h : number, body : string) => `<svg xmlns="http://www.
 
 export interface ChequeFill { date? : string; payee? : string; words? : [ string, string ]; figure? : string }
 
-// A CTS-2010 cheque leaf. The fill (date, payee, amount) is optional: the cheque step writes its own over a blank one.
-export const chequeSvg = (f : ChequeFill = {}) => {
-    const ink = "#7a6650", line = "#a89077", dark = "#3b3128";
+// Guilloche: fine, interleaved curves of the kind security printers lay under a cheque. A ribbon is a bundle of
+// sinusoids whose phase steps from curve to curve; a rosette is a hypotrochoid. Points are rounded to keep the string short.
+const pts = (p : [ number, number ][]) => "M" + p.map(([ x, y ]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(" L");
+const ribbon = (x0 : number, x1 : number, n : number, at : (x : number, i : number) => number) =>
+    Array.from({ length : n }, (_, i) => pts(Array.from({ length : Math.ceil((x1 - x0) / 2.5) + 1 }, (_, j) => { const x = x0 + j * 2.5; return [ x, at(x, i) ]; })));
+const rosette = (cx : number, cy : number, R : number, r : number, d : number, turns : number) => {
+    const n = turns * 120;
+    return pts(Array.from({ length : n + 1 }, (_, j) => { const t = j / n * turns * 2 * Math.PI;
+        return [ cx + (R - r) * Math.cos(t) + d * Math.cos((R - r) / r * t), cy + (R - r) * Math.sin(t) - d * Math.sin((R - r) / r * t) ]; }));
+};
+
+// A cheque leaf as Indian banks print them under CTS-2010: a white header with the bank, its branch and IFSC; a pale
+// blue security tint of fine diamonds under the payee, amount and signature; guilloche ribbons rising from the lower
+// left and a rosette behind the amount; the account box, "payable at par", bilingual labels, a microprinted signature
+// line and the MICR band on white. The chequebook writes its own ink over a blank leaf, so its fields keep fixed places.
+// The serial is the leaf's cheque number, which opens its MICR band; a book's leaves run in sequence. The fill (date,
+// payee, amount) is optional.
+export const chequeLeafSvg = (serial = 1, f : ChequeFill = {}) => {
+    const hand = "Bradley Hand, Snell Roundhand, Segoe Script, cursive";
+    const ink = "#23466e", soft = "#5d7a99", tint = "#dcebf3", guil = "#9cc2d8";
+    // the ribbon swells from the lower left and pinches to a point at either end
+    const wave = ribbon(0, 260, 26, (x, i) => 138 - 26 * Math.exp(-(((x - 80) / 80) ** 2)) + Math.sin(Math.PI * x / 260) * (6 * Math.sin(x / 19 + i * 0.24) + 3 * Math.sin(x / 7.5 - i * 0.5) + (i - 13) * 0.6));
+    const lace = ribbon(0, 400, 6, (x, i) => 40.5 + 1.6 * Math.sin(x / 3.2 + i * 1.05));
+    const micro = "NATIONALBANK".repeat(14);
     return wrap(400, 180, [
-        `<rect x="0.5" y="0.5" width="399" height="179" rx="4" fill="#f7ecdb" stroke="#d8c3a3"/>`,
-        `<g fill="none" stroke="#ead6b6" stroke-width="0.8"><circle cx="70" cy="95" r="44"/><circle cx="70" cy="95" r="34"/><circle cx="70" cy="95" r="24"/><circle cx="345" cy="110" r="30"/><circle cx="345" cy="110" r="20"/><path d="M0 125 Q100 105 200 125 T400 125"/><path d="M0 132 Q100 112 200 132 T400 132"/></g>`,
-        `<rect x="0.5" y="0.5" width="399" height="34" rx="4" fill="#fffaf2"/>`,
-        `<circle cx="22" cy="17" r="10" fill="#ba644f"/><text x="22" y="21.5" text-anchor="middle" font-family="${SANS}" font-size="12" font-weight="700" fill="#fff">₹</text>`,
-        `<text x="38" y="16" font-family="${SANS}" font-size="11" font-weight="700" fill="#4b3b2b" letter-spacing="1.5">NATIONAL BANK</text>`,
-        `<text x="38" y="27" font-family="${SANS}" font-size="6.5" fill="${ink}">Branch · IFSC BANK0001234</text>`,
+        `<defs><pattern id="tint" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="${tint}"/><rect x="0.6" y="0.6" width="3.8" height="3.8" fill="none" stroke="#c4dcea" stroke-width="0.45"/><circle cx="2.5" cy="2.5" r="0.45" fill="#b7d3e4"/></pattern>`,
+        `<linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#ffffff" stop-opacity="0.35"/></linearGradient></defs>`,
+        `<rect x="0.5" y="0.5" width="399" height="179" rx="3" fill="#ffffff" stroke="#cfd9e2"/>`,
+        // the security tint, the guilloche over it, and a lace border along its top
+        `<rect x="1" y="41" width="398" height="104" fill="url(#tint)"/><rect x="1" y="41" width="398" height="104" fill="url(#fade)"/>`,
+        `<clipPath id="field"><rect x="1" y="41" width="398" height="104"/></clipPath>`,
+        `<g fill="none" stroke="${guil}" stroke-width="0.35" opacity="0.9" clip-path="url(#field)">${wave.map(d => `<path d="${d}"/>`).join("")}</g>`,
+        `<path d="${rosette(333, 84, 40, 15, 31, 3)}" fill="none" stroke="#c0d8e7" stroke-width="0.3"/>`,
+        `<path d="${rosette(120, 70, 30, 7, 22, 7)}" fill="none" stroke="#cfe2ee" stroke-width="0.25"/>`,
+        `<g fill="none" stroke="#a7c8dc" stroke-width="0.3">${lace.map(d => `<path d="${d}"/>`).join("")}</g>`,
+        // the printer's imprint up the left edge
+        `<text transform="translate(6 132) rotate(-90)" font-family="${SANS}" font-size="2.6" fill="${soft}" letter-spacing="0.2">CTS-2010 · SECURITY PRINTER (I) PVT LTD · 0425</text>`,
+        // the header: the bank, its branch, the IFSC; the date boxes
+        `<rect x="16" y="6" width="13" height="13" rx="2" fill="#ba644f"/><text x="22.5" y="16.3" text-anchor="middle" font-family="${SANS}" font-size="10" font-weight="700" fill="#fff">₹</text>`,
+        `<text x="33" y="16.4" font-family="${SANS}" font-size="11" font-weight="800" fill="${ink}" letter-spacing="0.6">NATIONAL BANK</text>`,
+        `<text x="16" y="25" font-family="${SANS}" font-size="4" fill="${soft}">GROUND FLOOR, STATION ROAD, NEAR BUS STAND, ANDHERI (EAST), MUMBAI - 400 069, MAHARASHTRA</text>`,
+        `<text x="16" y="34.5" font-family="${SANS}" font-size="6.5" font-weight="700" fill="${ink}">RTGS / NEFT IFSC : NATB0001234</text>`,
         boxes(282, 9, 8, 13, 14, ink),
-        f.date ? `<text x="288" y="20" font-family="${MONO}" font-size="9" fill="#23324f" letter-spacing="7.3">${f.date}</text>` : "",
-        `<text x="334" y="30" text-anchor="middle" font-family="${SANS}" font-size="5.5" fill="${ink}" letter-spacing="5.4">DDMMYYYY</text>`,
-        `<text x="16" y="56" font-family="${SANS}" font-size="8" fill="${ink}">PAY</text><line x1="36" y1="57" x2="360" y2="57" stroke="${line}" stroke-width="0.6"/>`,
-        `<text x="386" y="56" text-anchor="end" font-family="${SANS}" font-size="6.5" fill="${ink}">OR BEARER</text>`,
-        f.payee ? `<text x="44" y="54" font-family="Snell Roundhand, Segoe Script, cursive" font-size="12" fill="#23324f">${f.payee}</text>` : "",
-        `<text x="16" y="78" font-family="${SANS}" font-size="8" fill="${ink}">RUPEES</text>`,
-        `<line x1="50" y1="79" x2="268" y2="79" stroke="${line}" stroke-width="0.6"/><line x1="16" y1="99" x2="268" y2="99" stroke="${line}" stroke-width="0.6"/>`,
-        f.words ? `<text x="56" y="76" font-family="Snell Roundhand, Segoe Script, cursive" font-size="11" fill="#23324f">${f.words[0]}</text><text x="20" y="96" font-family="Snell Roundhand, Segoe Script, cursive" font-size="11" fill="#23324f">${f.words[1]}</text>` : "",
-        `<rect x="280" y="72" width="106" height="24" fill="#fffaf2" stroke="${ink}" stroke-width="0.7"/><line x1="296" y1="72" x2="296" y2="96" stroke="${ink}" stroke-width="0.7"/>`,
-        `<text x="288" y="88.5" text-anchor="middle" font-family="${SANS}" font-size="10" fill="#4b3b2b">₹</text>`,
-        f.figure ? `<text x="304" y="89" font-family="${MONO}" font-size="11" font-weight="700" fill="#23324f">${f.figure}</text>` : "",
-        `<rect x="16" y="110" width="128" height="14" fill="none" stroke="${ink}" stroke-width="0.7"/><text x="20" y="119.5" font-family="${SANS}" font-size="6.5" fill="${ink}">A/c No.</text>`,
-        `<text x="16" y="137" font-family="${SANS}" font-size="6" font-weight="700" fill="${ink}">CTS-2010</text>`,
-        `<line x1="270" y1="126" x2="386" y2="126" stroke="${line}" stroke-width="0.6"/><text x="328" y="135" text-anchor="middle" font-family="${SANS}" font-size="6.5" fill="${ink}">Please sign above</text>`,
-        `<rect x="0.5" y="148" width="399" height="31.5" fill="#fffaf2"/>`,
-        micr(168, dark, "123456", "400002345", "001234", "10"),
+        `<text x="334" y="30" text-anchor="middle" font-family="${SANS}" font-size="5.5" font-weight="700" fill="${ink}" letter-spacing="7.6">DDMMYYYY</text>`,
+        `<text x="386" y="37" text-anchor="end" font-family="${SANS}" font-size="4.2" fill="${soft}">Valid for 3 months only</text>`,
+        // pay, rupees and the amount box, in English and Hindi
+        `<text x="16" y="56" font-family="${SANS}" font-size="8.5" font-weight="700" fill="${ink}">Pay</text><line x1="36" y1="57.5" x2="350" y2="57.5" stroke="${soft}" stroke-width="0.4" stroke-dasharray="1 0.6"/>`,
+        `<text x="386" y="52" text-anchor="end" font-family="${SANS}" font-size="7" font-weight="700" fill="${ink}">Or Bearer</text><text x="386" y="61" text-anchor="end" font-family="${DEVA}" font-size="6" fill="${soft}">या धारक को</text>`,
+        `<text x="16" y="78" font-family="${SANS}" font-size="8.5" font-weight="700" fill="${ink}">Rupees</text><text x="16" y="86" font-family="${DEVA}" font-size="5.5" fill="${soft}">रुपये</text>`,
+        `<line x1="50" y1="79.5" x2="270" y2="79.5" stroke="${soft}" stroke-width="0.4" stroke-dasharray="1 0.6"/><line x1="16" y1="99.5" x2="246" y2="99.5" stroke="${soft}" stroke-width="0.4" stroke-dasharray="1 0.6"/>`,
+        `<text x="250" y="98" font-family="${DEVA}" font-size="5.5" fill="${soft}">अदा करें</text>`,
+        `<rect x="280" y="72" width="106" height="24" fill="#ffffff" fill-opacity="0.8" stroke="${ink}" stroke-width="0.8"/><line x1="296" y1="72" x2="296" y2="96" stroke="${ink}" stroke-width="0.8"/>`,
+        `<text x="288" y="89" text-anchor="middle" font-family="${SANS}" font-size="12" font-weight="700" fill="${ink}">₹</text>`,
+        // the account
+        `<rect x="16" y="107" width="34" height="16" fill="#ffffff" fill-opacity="0.7" stroke="${ink}" stroke-width="0.7"/><text x="19" y="114" font-family="${SANS}" font-size="5.5" font-weight="700" fill="${ink}">A/c No.</text><text x="19" y="120.5" font-family="${DEVA}" font-size="4" fill="${soft}">खाता सं.</text>`,
+        `<rect x="50" y="107" width="88" height="16" fill="#ffffff" fill-opacity="0.85" stroke="${ink}" stroke-width="0.7"/><text x="54" y="119" font-family="${SANS}" font-size="9.5" font-weight="700" fill="#16263a" letter-spacing="0.4">50100012345678</text>`,
+        `<text x="143" y="113" font-family="${SANS}" font-size="5" fill="${ink}">Brn: 0123  Pdt: 100</text><text x="143" y="120" font-family="${SANS}" font-size="5" fill="${ink}">SB A/C</text>`,
+        `<text x="56" y="131" font-family="${SANS}" font-size="4.4" fill="${soft}">Payable at par through clearing / transfer at all branches of National Bank</text>`,
+        // the signature line, microprinted
+        `<text x="270" y="126.6" font-family="${SANS}" font-size="1.55" fill="${soft}" textLength="116" lengthAdjust="spacingAndGlyphs">${micro}</text>`,
+        `<text x="386" y="137" text-anchor="end" font-family="${SANS}" font-size="4.4" fill="${soft}">Please sign above / <tspan font-family="${DEVA}">कृपया यहाँ हस्ताक्षर करें</tspan></text>`,
+        f.date ? `<text font-family="${hand}" font-size="12" font-weight="700" fill="#1c2e4a" text-anchor="middle">${[ ...f.date ].map((c, i) => `<tspan x="${288.5 + i * 13}" y="21">${c}</tspan>`).join("")}</text>` : "",
+        f.payee ? `<text x="44" y="54" font-family="${hand}" font-size="13" font-weight="700" fill="#1c2e4a">${f.payee}</text>` : "",
+        f.words ? `<text font-family="${hand}" font-size="11.5" fill="#1c2e4a"><tspan x="56" y="76">${f.words[0]}</tspan><tspan x="20" y="96">${f.words[1]}</tspan></text>` : "",
+        f.figure ? `<text x="302" y="89.5" font-family="${hand}" font-size="13" font-weight="700" fill="#1c2e4a">${f.figure}/-</text>` : "",
+        micr(168, "#1d1d1d", String(serial).padStart(6, "0"), "400002345", "001234", "31"),
+    ].join(""));
+};
+
+// A chequebook's cover, after the blue covers Indian banks issue: a stitched spine band down the left, the bank's
+// mark in a white-ruled box at the top right, a faint grid of squares, an outlined motif in the lower right, a
+// courier's address label with a barcode, and CHEQUE BOOK in white. The motif and the mark are our own; the label
+// names no one.
+export const chequeCoverSvg = () => {
+    const sq = (x : number, y : number, s : number, o = 1, w = 1.4) => `<rect x="${x}" y="${y}" width="${s}" height="${s}" fill="none" stroke="#ffffff" stroke-opacity="${o}" stroke-width="${w}"/>`;
+    // the motif: a diamond of nested squares, turned 45°, with smaller ones trailing off
+    const motif = (cx : number, cy : number, s : number, o : number) =>
+        `<g transform="translate(${cx} ${cy}) rotate(45)">${[ 1, 0.72, 0.44 ].map(f => sq(-s * f / 2, -s * f / 2, s * f, o)).join("")}<rect x="${-s * 0.12}" y="${-s * 0.12}" width="${s * 0.24}" height="${s * 0.24}" fill="#ffffff" fill-opacity="${o}"/></g>`;
+    const bars = Array.from({ length : 46 }, (_, i) => { const w = [ 0.8, 1.6, 0.8, 2.4, 0.8 ][(i * 7) % 5]; return `<rect x="${86 + i * 2.75}" y="56" width="${w}" height="13" fill="#1e1e1e"/>`; }).join("");
+    return wrap(540, 200, [
+        `<defs><linearGradient id="cv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a86c8"/><stop offset="0.55" stop-color="#2c74b6"/><stop offset="1" stop-color="#215f9c"/></linearGradient>`,
+        `<pattern id="grid" width="7" height="7" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="5" height="5" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="0.6"/></pattern>`,
+        `<radialGradient id="sheen" cx="0.62" cy="0.3" r="0.7"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs>`,
+        `<rect width="540" height="200" rx="9" fill="url(#cv)"/><rect width="540" height="200" rx="9" fill="url(#grid)"/><rect width="540" height="200" rx="9" fill="url(#sheen)"/>`,
+        // the spine: a darker band, two ruled lines, the staples
+        `<path d="M9 0 H40 V200 H9 Q0 200 0 191 V9 Q0 0 9 0 Z" fill="#1f5c98"/><rect x="40" y="0" width="1.4" height="200" fill="#ffffff" fill-opacity="0.85"/><rect x="47" y="0" width="0.8" height="200" fill="#ffffff" fill-opacity="0.45"/>`,
+        [ 36, 100, 164 ].map(y => `<rect x="24" y="${y - 6}" width="2" height="12" rx="1" fill="#cfe0ef" fill-opacity="0.8"/>`).join(""),
+        // faint motifs: one behind the label, one in the middle, the bold one in the lower right with its trail
+        motif(250, 64, 52, 0.12), motif(52, 30, 18, 0.25),
+        motif(474, 146, 62, 0.9), motif(418, 150, 34, 0.55), motif(456, 188, 22, 0.45), motif(400, 182, 14, 0.3),
+        // the bank's mark, in a white-ruled box
+        `<rect x="352" y="22" width="172" height="26" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-width="1.1"/>`,
+        `<rect x="357" y="26" width="18" height="18" rx="2" fill="#ba644f"/><text x="366" y="39.6" text-anchor="middle" font-family="${SANS}" font-size="13" font-weight="700" fill="#ffffff">₹</text>`,
+        `<text x="381" y="40" font-family="${SANS}" font-size="14" font-weight="800" fill="#ffffff" letter-spacing="0.6">NATIONAL BANK</text>`,
+        `<text x="438" y="62" text-anchor="middle" font-family="${SANS}" font-size="8.5" fill="#e6f0f9">Banking for every Indian</text>`,
+        // the courier's label: rounded, a little lifted, with a barcode and a return address
+        `<g transform="rotate(-1.2 140 90)"><rect x="76" y="36" width="160" height="106" rx="12" fill="#f6f7f4" stroke="#dfe3e2"/>`,
+        `<text x="86" y="51" font-family="${SANS}" font-size="6" fill="#333">NBE0405214709</text>${bars}`,
+        `<g font-family="${SANS}" font-size="6.6" fill="#2a2a2a"><text x="86" y="81">SB A/C ····5678</text><text x="86" y="90">Station Road, Andheri (East)</text><text x="86" y="99">Mumbai - 400 069</text><text x="86" y="108">Maharashtra, INDIA</text></g>`,
+        `<rect x="84" y="114" width="146" height="22" fill="none" stroke="#555" stroke-width="0.6"/><text font-family="${SANS}" font-size="4.6" fill="#333"><tspan x="87" y="121">If undelivered, please return to NATIONAL BANK LTD.</tspan><tspan x="87" y="127">Ground Floor, Station Road, Andheri (East),</tspan><tspan x="87" y="133">Mumbai - 400 069, Maharashtra</tspan></text></g>`,
+        `<text x="76" y="178" font-family="${SANS}" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">CHEQUE BOOK</text>`,
+        `<text x="78" y="190" font-family="${SANS}" font-size="6.5" fill="#d6e6f4" letter-spacing="1">25 LEAVES</text>`,
+        `<rect x="0.5" y="0.5" width="539" height="199" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.18"/>`,
     ].join(""));
 };
 
@@ -196,7 +272,7 @@ export const neftNetSvg = (amount = "₹49,731") => wrap(300, 190, [
 export type MethodKey = "rtgs" | "paper" | "neft" | "imps" | "credit" | "debit" | "upi" | "ppi" | "netc";
 export const FACE : Record<MethodKey, { svg : () => string; w : number; h : number }> = {
     rtgs   : { svg : () => formSvg(), w : 300, h : 190 },
-    paper  : { svg : () => chequeSvg({ figure : "1,27,909" }), w : 400, h : 180 },
+    paper  : { svg : () => chequeLeafSvg(111, { figure : "1,27,909" }), w : 400, h : 180 },
     neft   : { svg : () => neftNetSvg(), w : 300, h : 190 },
     imps   : { svg : () => impsSvg(), w : 130, h : 250 },
     credit : { svg : () => cardSvg("credit").svg, w : 240, h : 150 },

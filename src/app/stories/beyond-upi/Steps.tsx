@@ -11,7 +11,7 @@ import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 // LOCAL ===============================================================================================================
 import { CarArt, FlatArt, PenthouseArt, PhoneArt } from "./GuessArt";
 import { allot, diagonalOrder, mountWall, type Wall, type WallStep } from "./walls";
-import { FACE, chequeSvg, dataUri, type MethodKey } from "./instruments";
+import { FACE, chequeLeafSvg, dataUri, type MethodKey } from "./instruments";
 import { CAR_COUNT, TRUCK_KINDS, carSvg, cardSvg, fastagCardSvg, posKeypadSvg, standeeSvg, truckSvg } from "./objects";
 import { LADDER, METHOD, inr, monthName, rupees } from "./methods";
 import { Layout, loopOnScreen, rasterise, reducedMotion, splitClass, useStage } from "./stage";
@@ -238,7 +238,7 @@ export const WallsStep = ({ children } : { children : ReactNode }) => {
 // lift away.
 const CQ_COLS = 10, CQ_ROWS = 15;
 // each leaf is the story's cheque (instruments.ts), drawn small; a plain leaf stands in until its image has loaded
-const LEAF_IMG = rasterise(dataUri(chequeSvg()), 200, 90);
+const LEAF_IMG = rasterise(dataUri(chequeLeafSvg()), 400, 180);
 const leafDraw = (paper : string, edge : string) => (g : CanvasRenderingContext2D, _k : string, x : number, y : number, w : number, h : number, lit : number) => {
     const leaf = LEAF_IMG.get();
     if (leaf) { g.drawImage(leaf, x, y, w, h); g.strokeStyle = edge; g.lineWidth = 1; g.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1); }
@@ -249,7 +249,7 @@ const CQ_STEPS : WallStep[] = CHEQUE_N.map(n => { const cells : (string | null)[
 const PEAK_I = CHEQUE_N.indexOf(Math.max(...CHEQUE_N));
 export const ChequeWallStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const W = useWall((canvas, cb) => mountWall(canvas, { cols : CQ_COLS, rows : CQ_ROWS, aspect : 2.2, steps : CQ_STEPS, journey : 12, reduced : cb.reduced,
-        draw : leafDraw("#f7ecdb", toneOf(canvas, "paper")), onStep : cb.onStep, onEnd : cb.onEnd }), CHEQUE_FYS.length);
+        draw : leafDraw("#eef5f9", "#b9c9d7"), onStep : cb.onStep, onEnd : cb.onEnd }), CHEQUE_FYS.length);
     const k = W.i;
     return (
         <div className={splitClass(layout)}>
