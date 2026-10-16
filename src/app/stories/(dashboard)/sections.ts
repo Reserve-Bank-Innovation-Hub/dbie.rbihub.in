@@ -17,6 +17,7 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/from-field-to-thali",
                 label       : "From field to thali",
+                image       : "/images/stories/from-field-to-thali/cover.webp",
                 description : "What India grows and in which states, what the government buys from farmers, how support prices compare with everyday costs, and what India sells abroad and buys from abroad.",
             },
         ],
@@ -33,6 +34,7 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/rupee-and-world",
                 label       : "How do you measure a rupee?",
+                image       : "/images/stories/rupee-and-world/cover.webp",
                 description : "A dollar costs more than twice as many rupees as in 2004, yet Indian goods cost buyers abroad about what they did then. Three ways to measure the rupee, and the question each one answers.",
             },
         ],
