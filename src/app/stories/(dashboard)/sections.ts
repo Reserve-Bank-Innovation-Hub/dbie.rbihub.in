@@ -45,11 +45,13 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/how-households-took-over-the-bank-loan-book",
                 label       : "How households took over the bank loan book",
+                image       : "/images/stories/how-households-took-over-the-bank-loan-book/cover.webp",
                 description : "Individuals owe ₹47 of every ₹100 banks have lent, up from ₹31 in 2015, and private companies ₹27, down from ₹40. Individuals’ loan accounts tripled while the average loan, after prices, did not grow.",
             },
             {
                 linkTo      : "/stories/the-two-lakh-line",
                 label       : "The ₹2 lakh line",
+                image       : "/images/stories/the-two-lakh-line/cover.webp",
                 description : "Nearly two in every three bank loans have a limit of ₹2 lakh or less. They hold ₹6 of every ₹100 banks have lent, carry the highest rates in the banks’ books, and there are about 4 crore fewer of them at banks than at the end of 2024.",
             },
         ],
@@ -60,6 +62,7 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/what-got-cheaper",
                 label       : "What got cheaper",
+                image       : "/images/stories/what-got-cheaper/cover.webp",
                 description : "Of the 697 goods in India’s wholesale price index, 33 cost less in 2025-26 than in 2011-12 and 103 cost at least twice as much. Solar power systems fell by more than half, and jasmine costs six times what it did.",
             },
         ],
