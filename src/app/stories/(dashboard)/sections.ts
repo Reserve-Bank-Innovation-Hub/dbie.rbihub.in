@@ -102,11 +102,13 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/debt-to-service-ratio",
                 label       : "The long walk back from 1991",
+                image       : "/images/stories/debt-to-service-ratio/cover.webp",
                 description : "India went from spending a third of its export earnings on debt service in 1991 to just 6% today.",
             },
             {
                 linkTo      : "/stories/concessional-share-of-total-debt-vs-commercial-borrowings",
                 label       : "From aid recipient to market borrower",
+                image       : "/images/stories/concessional-share-of-total-debt-vs-commercial-borrowings/cover.webp",
                 description : "India's external debt shifted from aid-style concessional loans to market-rate commercial borrowing.",
             },
         ],
