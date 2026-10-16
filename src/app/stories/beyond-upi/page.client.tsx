@@ -72,7 +72,7 @@ export const BeyondUpiPage = () => {
             <section className="slide is-step" data-slide data-section="1">
                 <GuessStep layout="left">
                     <Head>What does the average RTGS payment come to?</Head>
-                    <Line>RTGS (Real Time Gross Settlement) is how banks move large sums: each payment travels on its own, at once. Guess its average size by stacking ₹500 bundles of 100 notes.</Line>
+                    <Line>RTGS (Real Time Gross Settlement) is how banks move large sums, one payment at a time. How large is the average one? Pick the closest.</Line>
                 </GuessStep>
             </section>
 

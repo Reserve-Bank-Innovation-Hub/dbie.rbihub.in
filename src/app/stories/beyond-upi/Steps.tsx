@@ -9,8 +9,9 @@
 import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 // LOCAL ===============================================================================================================
+import { CarArt, FlatArt, PenthouseArt, PhoneArt } from "./GuessArt";
 import { allot, diagonalOrder, mountWall, type Wall, type WallStep } from "./walls";
-import { FACE, bundleSvg, chequeSvg, dataUri, type MethodKey } from "./instruments";
+import { FACE, chequeSvg, dataUri, type MethodKey } from "./instruments";
 import { CAR_COUNT, carSvg, cardSvg, fastagCardSvg, posKeypadSvg, standeeSvg } from "./objects";
 import { LADDER, METHOD, inr, monthName, rupees } from "./methods";
 import { Layout, loopOnScreen, rasterise, reducedMotion, splitClass, useStage } from "./stage";
@@ -60,70 +61,54 @@ function useWall(make : (canvas : HTMLCanvasElement, cb : { onStep : (i : number
 const toneOf = (el : Element, k : string) => getComputedStyle(el).getPropertyValue(`--${k === "netc" ? "toll" : k}`).trim() || "#999";
 
 // THE GUESS ===========================================================================================================
-// The guess is made in ₹500 bundles of 100 notes (₹50,000): drag, and a stack grows on the table; lock it, and RTGS's
-// average lands beside it, with UPI's few notes at its foot. The slider runs on a ratio scale, ₹1,000 to ₹5 crore.
-const G_LO = Math.log10(1000), G_HI = Math.log10(5e7);
+// The guess is a choice of four things the reader can picture, each roughly the size of a payment, a tenfold step
+// apart: a phone, a hatchback, a 2BHK flat in a tier-2 city, a 4BHK penthouse in a metro city. Tapping one locks it;
+// the card nearest the average RTGS payment lights up, and the answer is given in rupees. The prices are rough, for
+// scale only.
 export const GUESS_EVENT = "beyond-upi-guess";
-const BUNDLE_IMG = dataUri(bundleSvg());
-// a stack of bundles: columns of 20, a brick for each bundle; less than a bundle shows as a thin slice of notes
-const Stack = ({ amount, x, base, brick, tone, delay = 0 } : { amount : number; x : number; base : number; brick : { w : number; h : number }; tone : string; delay? : number }) => {
-    const bundles = Math.floor(amount / 50000), rest = (amount - bundles * 50000) / 50000, per = 20;
-    const out : ReactNode[] = [];
-    for (let b = 0; b < bundles; b++) {
-        const c = Math.floor(b / per), r = b % per;
-        out.push(<image key={b} href={BUNDLE_IMG} x={x + c * (brick.w + 2)} y={base - (r + 1) * brick.h} width={brick.w} height={brick.h} preserveAspectRatio="none"
-            className="brick" style={{ animationDelay : `${delay + b * Math.min(0.012, 1.2 / Math.max(1, bundles))}s` }} />);
-    }
-    if (rest > 0.002) {
-        const c = Math.floor(bundles / per), r = bundles % per, hh = Math.max(1.5, rest * brick.h);
-        out.push(<rect key="rest" x={x + c * (brick.w + 2)} y={base - r * brick.h - hh} width={brick.w} height={hh} rx={1} fill={tone} className="brick" style={{ animationDelay : `${delay + 0.2}s` }} />);
-    }
-    return <g>{out}</g>;
-};
-const notesText = (v : number) => { const b = v / 50000; return b >= 1 ? `${b >= 10 ? Math.round(b) : b.toFixed(1)} bundles of ₹500` : `${(v / 500).toFixed(1)} notes of ₹500`; };
+interface Choice { key : string; price : number; label : string; what : string; art : ReactNode }
+const CHOICES : Choice[] = [
+    { key : "phone", price : 50000, label : "₹50,000", what : "a smartphone", art : <PhoneArt /> },
+    { key : "car", price : 6e5, label : "₹6 lakh", what : "a hatchback car", art : <CarArt /> },
+    { key : "flat", price : 65e5, label : "₹65 lakh", what : "a 2BHK flat in a tier-2 city", art : <FlatArt /> },
+    { key : "penthouse", price : 6.5e7, label : "₹6.5 crore", what : "a 4BHK penthouse in a metro city", art : <PenthouseArt /> },
+];
 export const GuessStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
-    const { ref, size } = useStage<HTMLDivElement>();
-    const [ pos, setPos ] = useState(0.55), [ locked, setLocked ] = useState(false);
-    const guess = Math.pow(10, G_LO + pos * (G_HI - G_LO));
-    const nice = guess >= 1e5 ? Math.round(guess / 1e4) * 1e4 : Math.round(guess / 100) * 100;
-    const rtgs = LADDER.find(r => r.key === "rtgs")!.avg, upi = H.upiAvg;
-    const { w, h } = size, narrow = w < 560;
-    const base = h - 46, brick = { w : narrow ? 30 : 54, h : Math.max(5, Math.min(18, (h - 110) / 21)) };
-    const off = Math.abs(Math.log10(nice / rtgs));
-    const lock = () => { setLocked(true); window.dispatchEvent(new CustomEvent(GUESS_EVENT, { detail : nice })); (window as unknown as { __beyondUpiGuess? : number }).__beyondUpiGuess = nice; };
-    // the verdict, in one short line: close, or how many times too small or too big
-    const verdict = off < 0.15 ? "Close." : nice < rtgs ? (rtgs / nice >= 2 ? `${inr(rtgs / nice)} times too small.` : "A little too small.") : (nice / rtgs >= 2 ? `${inr(nice / rtgs)} times too big.` : "A little too big.");
+    const [ picked, setPicked ] = useState<string | null>(null);
+    const rtgs = LADDER.find(r => r.key === "rtgs")!.avg;
+    // the choice nearest the answer on a ratio scale
+    const right = CHOICES.reduce((a, b) => (Math.abs(Math.log10(b.price / rtgs)) < Math.abs(Math.log10(a.price / rtgs)) ? b : a));
+    const pick = (c : Choice) => {
+        if (picked) return;
+        setPicked(c.key);
+        window.dispatchEvent(new CustomEvent(GUESS_EVENT, { detail : c.price }));
+        (window as unknown as { __beyondUpiGuess? : number }).__beyondUpiGuess = c.price;
+    };
+    const mine = CHOICES.find(c => c.key === picked);
     return (
         <div className={splitClass(layout)}>
             <div className="split-card">
                 {children}
-                <div className="guess-control">
-                    <label htmlFor="rtgs-guess">Your guess: <b>{rupees(nice)}</b> <span className="guess-sub">{notesText(nice)}</span></label>
-                    <input id="rtgs-guess" type="range" min={0} max={1} step={0.001} value={pos} disabled={locked} onChange={e => setPos(+e.target.value)} aria-valuetext={rupees(nice)} />
-                    <button type="button" className="lock" onClick={lock} disabled={locked}>{locked ? "Locked" : "Lock my guess"}</button>
-                </div>
-                <div className={`guess-answer ${locked ? "is-shown" : ""}`} aria-live="polite">
-                    {locked && <>
-                        <span className="ga-label">The answer</span>
+                <div className={`guess-answer ${picked ? "is-shown" : ""}`} aria-live="polite">
+                    {mine && <>
+                        <span className="ga-label">{mine.key === right.key ? "Right" : "The answer"}</span>
                         <b className="ga-value">{rupees(rtgs)}</b>
-                        <span className="ga-line">You guessed {rupees(nice)}. {verdict}</span>
+                        <span className="ga-line">The average RTGS payment in {H.fy}: about the price of {right.what}. A UPI payment averaged {rupees(H.upiAvg)}.</span>
                     </>}
                 </div>
+                <p className="step-note">Prices are rough, for a sense of scale only.</p>
             </div>
-            <div className="split-stage guess-stage" ref={ref}>
-                {w > 0 && (
-                    <svg width={w} height={h} role="img" aria-label={`Your guess, ${rupees(nice)}, as a stack of ₹500 bundles${locked ? `; beside it the average RTGS payment, ${rupees(rtgs)}, ${Math.round(rtgs / 50000)} bundles, and a UPI payment, ${rupees(upi)}` : ""}.`}>
-                        <line className="table-line" x1={0} x2={w} y1={base} y2={base} />
-                        <Stack amount={nice} x={narrow ? 8 : w * 0.06} base={base} brick={brick} tone="var(--note)" />
-                        <text className="stack-name" x={narrow ? 8 : w * 0.06} y={base + 22}>Your guess · {rupees(nice)}</text>
-                        {locked && <>
-                            <Stack amount={rtgs} x={w * 0.5} base={base} brick={brick} tone="var(--rtgs)" delay={0.2} />
-                            <text className="stack-name is-rtgs" x={w * 0.5} y={base + 22}>RTGS · {rupees(rtgs)}</text>
-                            <rect x={w - (narrow ? 34 : 56)} y={base - 3} width={narrow ? 26 : 40} height={3} fill="var(--note-dark)" className="brick" style={{ animationDelay : "1.6s" }} />
-                            <text className="stack-name is-upi" x={w - 4} y={base + 22} textAnchor="end">UPI · {rupees(upi)}</text>
-                        </>}
-                    </svg>
-                )}
+            <div className="split-stage guess-grid" role="group" aria-label="Choose your guess">
+                {CHOICES.map(c => (
+                    <button key={c.key} type="button" onClick={() => pick(c)} disabled={!!picked}
+                        className={`guess-card ${picked === c.key ? "is-picked" : ""} ${picked && c.key === right.key ? "is-right" : ""} ${picked && picked !== c.key && c.key !== right.key ? "is-dim" : ""}`}>
+                        <span className="gc-art">{c.art}</span>
+                        <b>{c.label}</b>
+                        <span>{c.what}</span>
+                        {picked === c.key && <em>Your guess</em>}
+                        {picked && c.key === right.key && picked !== c.key && <em className="is-answer">Closest</em>}
+                    </button>
+                ))}
             </div>
         </div>
     );
