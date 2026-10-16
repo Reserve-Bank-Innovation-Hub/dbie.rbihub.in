@@ -15,7 +15,7 @@ Ask: "Read `docs/story-tracker/stories.json` entry S<n> and `docs/story-tracker/
 The entry's `briefHtml` holds the plan; `guide.html` holds the repository conventions and house rules;
 `tracker.json` holds what the live stories already show, so a new story links to them rather than repeating them.
 If the entry lists `absorbs`, read those entries too: they are chapters of this story now, and their research and
-fact-check traps apply (S18 absorbs S12, S20 absorbs S13, S23 absorbs S17, S7's next edition absorbs S14). `mayAbsorb` marks a
+fact-check traps apply (S18 absorbs S12, S20 absorbs S13, S23 absorbs S17, S7 absorbs S14). `mayAbsorb` marks a
 merge still to be agreed with the other owner.
 
 ## Files

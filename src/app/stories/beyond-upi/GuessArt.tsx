@@ -1,11 +1,12 @@
 "use client";
 
 // The guess's four things, drawn in the same isometric manner as the RTGS flow (RtgsIso.tsx), after the references the
-// user chose: a modern phone lying on its back with a bright wallpaper; a blue hatchback seen from the front three
-// quarters; a low-poly diorama of two brick apartment towers on a block with a courtyard, trees and a road; and a blue
+// user chose: a modern phone lying on its back with a bright wallpaper; an indivara hatchback seen from the front three
+// quarters; a low-poly diorama of two turmeric apartment towers on a block with a courtyard, trees and a road; and a teal
 // glass tower with white fins, balcony bands and a glass penthouse on its roof. Light comes from the upper left (tops
 // lightest, the face to the left a mid tone, the face to the right darkest); each stands on a soft shadow, on a clear
-// background. Colours are written out so the drawings read the same in both themes.
+// background. Colours are written out so the drawings read the same in both themes; they are Kosh colours and their
+// tints (indivara, turmeric, sandalwood, neem, a teal).
 
 // REACT CORE ==========================================================================================================
 import type { ReactNode } from "react";
@@ -79,14 +80,15 @@ export const PhoneArt = () => {
 };
 
 // THE CAR =============================================================================================================
-// a blue hatchback from the front three quarters: its length along x, the front facing the lower right, the near side
-// with its windows, doors and two alloy wheels facing the lower left
+// an indivara hatchback from the front three quarters: its length along x, the front facing the lower right, the near side
+// with its windows, doors and two alloy wheels facing the lower left; then mirrored, so that it lies on the phone's
+// diagonal, its length running up to the right and its front facing the lower left
 export const CarArt = () => {
     const s = 28, P = iso([ 82, 99 ], s);
     const x0 = -1.8, x1 = 1.8, y0 = -0.8, y1 = 0.8, zb = 0.3, zt = 0.95, zr = 1.65;
     const wheel = (xw : number) => (
         <g transform={leftPlane(P(xw, y1 + 0.002, 0.37), s)}>
-            <circle r="0.44" fill="#163a73" />
+            <circle r="0.44" fill="#3d1f7a" />
             <circle r="0.36" fill="#1f1f22" />
             <circle r="0.24" fill="#cfd3d8" />
             {[ 0, 1, 2, 3, 4 ].map(k => { const a = k / 5 * Math.PI * 2; return <line key={k} x1="0" y1="0" x2={(Math.cos(a) * 0.22).toFixed(3)} y2={(Math.sin(a) * 0.22).toFixed(3)} stroke="#8a9098" strokeWidth="0.05" />; })}
@@ -96,47 +98,49 @@ export const CarArt = () => {
     const ln = (a : Pt, b : Pt, stroke : string, w : number, op = 1) => <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={stroke} strokeWidth={w} strokeOpacity={op} />;
     return (
         <Art label="A small car" defs={<>
-            <linearGradient id="ga-car-side" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#3a80d2" /><stop offset="1" stopColor="#1f4f99" /></linearGradient>
-            <linearGradient id="ga-car-top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#5a9be2" /><stop offset="1" stopColor="#2f6fc0" /></linearGradient>
+            <linearGradient id="ga-car-side" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#a079ee" /><stop offset="1" stopColor="#5a2fb0" /></linearGradient>
+            <linearGradient id="ga-car-top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#b392f2" /><stop offset="1" stopColor="#864fe3" /></linearGradient>
             <linearGradient id="ga-car-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#3b4654" /><stop offset="1" stopColor="#1c232c" /></linearGradient>
         </>}>
-            <ellipse cx="86" cy="118" rx="68" ry="18" fill="#2f2f2f" opacity="0.12" />
-            {/* the body */}
-            <Box P={P} x={x0} y={y0} z={zb} w={x1 - x0} d={y1 - y0} h={zt - zb} c={{ top : "url(#ga-car-top)", left : "url(#ga-car-side)", right : "#1f4f99" }} />
-            {/* the cabin: the near side, the roof and the windscreen */}
-            <polygon points={pts([ P(x0 + 0.05, y1 - 0.1, zt), P(x0 + 0.3, y1 - 0.1, zr), P(0.55, y1 - 0.1, zr), P(1.2, y1 - 0.1, zt) ])} fill="#2f6fc0" />
-            <polygon points={pts([ P(x0 + 0.3, y0 + 0.1, zr), P(0.55, y0 + 0.1, zr), P(0.55, y1 - 0.1, zr), P(x0 + 0.3, y1 - 0.1, zr) ])} fill="url(#ga-car-top)" />
-            <polygon points={pts([ P(0.55, y0 + 0.1, zr), P(0.55, y1 - 0.1, zr), P(1.2, y1 - 0.1, zt), P(1.2, y0 + 0.1, zt) ])} fill="url(#ga-car-glass)" />
-            <polygon points={pts([ P(0.65, y0 + 0.4, zr - 0.12), P(0.65, y0 + 0.6, zr - 0.12), P(1.08, y0 + 0.9, zt + 0.08), P(1.08, y0 + 0.7, zt + 0.08) ])} fill="#ffffff" opacity="0.22" />
-            {/* the side windows, split by the B-pillar */}
-            <polygon points={pts([ P(x0 + 0.18, y1 - 0.098, zt + 0.07), P(x0 + 0.38, y1 - 0.098, zr - 0.07), P(-0.5, y1 - 0.098, zr - 0.07), P(-0.5, y1 - 0.098, zt + 0.07) ])} fill="url(#ga-car-glass)" />
-            <polygon points={pts([ P(-0.36, y1 - 0.098, zt + 0.07), P(-0.36, y1 - 0.098, zr - 0.07), P(0.5, y1 - 0.098, zr - 0.07), P(1.05, y1 - 0.098, zt + 0.07) ])} fill="url(#ga-car-glass)" />
-            {ln(P(x0 + 0.35, y1 - 0.097, zr - 0.12), P(0.4, y1 - 0.097, zr - 0.12), "#ffffff", 0.8, 0.18)}
-            {/* door lines, a handle, the tail lamp */}
-            {[ -0.43, 0.55 ].map(u => <g key={u}>{ln(P(u, y1 + 0.002, zb + 0.08), P(u, y1 + 0.002, zt), "#173f80", 0.7)}</g>)}
-            <polygon points={onLeft(P, y1 + 0.003, -0.2, 0.05, 0.78, 0.83)} fill="#173f80" />
-            <polygon points={onLeft(P, y1 + 0.003, x0, x0 + 0.12, 0.62, 0.86)} fill="#d23a3a" />
-            {/* the wing mirror */}
-            <polygon points={pts([ P(0.62, y1, zt + 0.05), P(0.62, y1 + 0.2, zt + 0.08), P(0.75, y1 + 0.2, zt + 0.16), P(0.75, y1, zt + 0.14) ])} fill="#2f6fc0" />
-            {/* the front: grille, lamps, plate, bumper */}
-            <polygon points={onRight(P, x1 + 0.002, -0.32, 0.32, 0.5, 0.74)} fill="#1d2733" />
-            {[ 0.56, 0.62, 0.68 ].map(z => <g key={z}>{ln(P(x1 + 0.003, -0.3, z), P(x1 + 0.003, 0.3, z), "#5f6b78", 0.5)}</g>)}
-            <polygon points={pts([ P(x1 + 0.002, -0.76, 0.72), P(x1 + 0.002, -0.42, 0.74), P(x1 + 0.002, -0.42, 0.86), P(x1 + 0.002, -0.72, 0.88) ])} fill="#f4f6f8" />
-            <polygon points={pts([ P(x1 + 0.002, 0.42, 0.74), P(x1 + 0.002, 0.76, 0.72), P(x1 + 0.002, 0.72, 0.88), P(x1 + 0.002, 0.42, 0.86) ])} fill="#f4f6f8" />
-            <polygon points={onRight(P, x1 + 0.003, -0.24, 0.24, 0.34, 0.46)} fill="#f4f6f8" />
-            <polygon points={onRight(P, x1 + 0.002, y0, y1, zb, zb + 0.06)} fill="#173f80" />
-            {wheel(-1.05)}{wheel(1.05)}
+            <g transform="translate(160 0) scale(-1 1)">
+                <ellipse cx="86" cy="118" rx="68" ry="18" fill="#2f2f2f" opacity="0.12" />
+                {/* the body */}
+                <Box P={P} x={x0} y={y0} z={zb} w={x1 - x0} d={y1 - y0} h={zt - zb} c={{ top : "url(#ga-car-top)", left : "url(#ga-car-side)", right : "#5a2fb0" }} />
+                {/* the cabin: the near side, the roof and the windscreen */}
+                <polygon points={pts([ P(x0 + 0.05, y1 - 0.1, zt), P(x0 + 0.3, y1 - 0.1, zr), P(0.55, y1 - 0.1, zr), P(1.2, y1 - 0.1, zt) ])} fill="#864fe3" />
+                <polygon points={pts([ P(x0 + 0.3, y0 + 0.1, zr), P(0.55, y0 + 0.1, zr), P(0.55, y1 - 0.1, zr), P(x0 + 0.3, y1 - 0.1, zr) ])} fill="url(#ga-car-top)" />
+                <polygon points={pts([ P(0.55, y0 + 0.1, zr), P(0.55, y1 - 0.1, zr), P(1.2, y1 - 0.1, zt), P(1.2, y0 + 0.1, zt) ])} fill="url(#ga-car-glass)" />
+                <polygon points={pts([ P(0.65, y0 + 0.4, zr - 0.12), P(0.65, y0 + 0.6, zr - 0.12), P(1.08, y0 + 0.9, zt + 0.08), P(1.08, y0 + 0.7, zt + 0.08) ])} fill="#ffffff" opacity="0.22" />
+                {/* the side windows, split by the B-pillar */}
+                <polygon points={pts([ P(x0 + 0.18, y1 - 0.098, zt + 0.07), P(x0 + 0.38, y1 - 0.098, zr - 0.07), P(-0.5, y1 - 0.098, zr - 0.07), P(-0.5, y1 - 0.098, zt + 0.07) ])} fill="url(#ga-car-glass)" />
+                <polygon points={pts([ P(-0.36, y1 - 0.098, zt + 0.07), P(-0.36, y1 - 0.098, zr - 0.07), P(0.5, y1 - 0.098, zr - 0.07), P(1.05, y1 - 0.098, zt + 0.07) ])} fill="url(#ga-car-glass)" />
+                {ln(P(x0 + 0.35, y1 - 0.097, zr - 0.12), P(0.4, y1 - 0.097, zr - 0.12), "#ffffff", 0.8, 0.18)}
+                {/* door lines, a handle, the tail lamp */}
+                {[ -0.43, 0.55 ].map(u => <g key={u}>{ln(P(u, y1 + 0.002, zb + 0.08), P(u, y1 + 0.002, zt), "#4a2596", 0.7)}</g>)}
+                <polygon points={onLeft(P, y1 + 0.003, -0.2, 0.05, 0.78, 0.83)} fill="#4a2596" />
+                <polygon points={onLeft(P, y1 + 0.003, x0, x0 + 0.12, 0.62, 0.86)} fill="#d23a3a" />
+                {/* the wing mirror */}
+                <polygon points={pts([ P(0.62, y1, zt + 0.05), P(0.62, y1 + 0.2, zt + 0.08), P(0.75, y1 + 0.2, zt + 0.16), P(0.75, y1, zt + 0.14) ])} fill="#864fe3" />
+                {/* the front: grille, lamps, plate, bumper */}
+                <polygon points={onRight(P, x1 + 0.002, -0.32, 0.32, 0.5, 0.74)} fill="#1d2733" />
+                {[ 0.56, 0.62, 0.68 ].map(z => <g key={z}>{ln(P(x1 + 0.003, -0.3, z), P(x1 + 0.003, 0.3, z), "#5f6b78", 0.5)}</g>)}
+                <polygon points={pts([ P(x1 + 0.002, -0.76, 0.72), P(x1 + 0.002, -0.42, 0.74), P(x1 + 0.002, -0.42, 0.86), P(x1 + 0.002, -0.72, 0.88) ])} fill="#f4f6f8" />
+                <polygon points={pts([ P(x1 + 0.002, 0.42, 0.74), P(x1 + 0.002, 0.76, 0.72), P(x1 + 0.002, 0.72, 0.88), P(x1 + 0.002, 0.42, 0.86) ])} fill="#f4f6f8" />
+                <polygon points={onRight(P, x1 + 0.003, -0.24, 0.24, 0.34, 0.46)} fill="#f4f6f8" />
+                <polygon points={onRight(P, x1 + 0.002, y0, y1, zb, zb + 0.06)} fill="#4a2596" />
+                {wheel(-1.05)}{wheel(1.05)}
+            </g>
         </Art>
     );
 };
 
 // THE FLATS ===========================================================================================================
-// a low-poly block: two brick towers of eight storeys with cream tops, stepped roofs and entrance canopies, on a
-// courtyard with trees, planters, lamps and a red car, a road round two sides, on a slab of earth
+// a low-poly block: two turmeric towers of eight storeys with sandalwood tops, stepped roofs and entrance canopies, on a
+// courtyard with trees, planters, lamps and a teal car, a road round two sides, on a slab of earth
 export const FlatArt = () => {
     const s = 18, P = iso([ 80, 90 ], s);
-    const brick : Shade = { top : "#d06a48", left : "#c4532f", right : "#a8401f" };
-    const cream : Shade = { top : "#fbf8f2", left : "#f3eee4", right : "#ddd4c3" };
+    const brick : Shade = { top : "#f4c25a", left : "#eaaa3a", right : "#c98a14" };
+    const cream : Shade = { top : "#f3eee4", left : "#ede6d7", right : "#d6c8ac" };
     const items : { d : number; el : ReactNode }[] = [];
     const tower = (cx : number, cy : number, k : string) => {
         const x0 = cx - 0.5, y0 = cy - 0.5, H = 3.6, band = 0.8, x1 = x0 + 1, y1 = y0 + 1, fh = (H - 0.3) / 8;
@@ -152,9 +156,9 @@ export const FlatArt = () => {
                 {Array.from({ length : 8 }, (_, f) => [ 0.14, 0.6 ].flatMap((u, c) => [ win("l", x0 + u, 0.3 + f * fh, `l${f}${c}`), win("r", y0 + u, 0.3 + f * fh, `r${f}${c}`) ]))}
                 {/* the stepped roof and its deck */}
                 <Box P={P} x={x0 - 0.05} y={y0 - 0.05} z={H} w={1.1} d={1.1} h={0.1} c={cream} />
-                <polygon points={onTop(P, H + 0.101, x0 + 0.08, y0 + 0.08, x1 - 0.08, y1 - 0.08)} fill="#d9a98c" />
+                <polygon points={onTop(P, H + 0.101, x0 + 0.08, y0 + 0.08, x1 - 0.08, y1 - 0.08)} fill="#e1d5bc" />
                 <Box P={P} x={x0 + 0.1} y={y0 + 0.1} z={H + 0.1} w={0.5} d={0.35} h={0.14} c={cream} />
-                <polygon points={onTop(P, H + 0.241, x0 + 0.14, y0 + 0.14, x0 + 0.56, y0 + 0.41)} fill="#d9a98c" />
+                <polygon points={onTop(P, H + 0.241, x0 + 0.14, y0 + 0.14, x0 + 0.56, y0 + 0.41)} fill="#e1d5bc" />
                 {/* the entrance: door, canopy, steps */}
                 <polygon points={onLeft(P, y1 + 0.004, x0 + 0.36, x0 + 0.64, 0, 0.42)} fill="#fbf8f2" />
                 <Box P={P} x={x0 + 0.3} y={y1} z={0.46} w={0.4} d={0.18} h={0.05} c={cream} />
@@ -195,8 +199,8 @@ export const FlatArt = () => {
     lamp(-1.6, 1.2); lamp(0.2, 1.2); lamp(1.2, 0.95); lamp(1.2, -0.9);
     items.push({ d : 0.9, el : (
         <g key="car">
-            <Box P={P} x={0.05} y={0.35} z={0.04} w={0.6} d={0.3} h={0.12} c={{ top : "#e0503e", left : "#de4635", right : "#b5321f" }} />
-            <Box P={P} x={0.18} y={0.38} z={0.16} w={0.3} d={0.24} h={0.1} c={{ top : "#ea6a58", left : "#3a2f2c", right : "#2a2220" }} />
+            <Box P={P} x={0.05} y={0.35} z={0.04} w={0.6} d={0.3} h={0.12} c={{ top : "#6fb0b3", left : "#478f93", right : "#1e4e51" }} />
+            <Box P={P} x={0.18} y={0.38} z={0.16} w={0.3} d={0.24} h={0.1} c={{ top : "#8cc0c2", left : "#3a2f2c", right : "#2a2220" }} />
         </g>
     ) });
     items.sort((a, b) => a.d - b.d);
@@ -221,7 +225,7 @@ export const FlatArt = () => {
 };
 
 // THE PENTHOUSE =======================================================================================================
-// a modern tower of nine storeys on a rounded plinth with a lawn: blue glass walls behind white balcony bands, white
+// a modern tower of nine storeys on a rounded plinth with a lawn: teal glass walls behind white balcony bands, white
 // fins and corner frames, and on the roof a round drum, two white boxes and a glass penthouse with plants; round trees
 // along the lawn
 export const PenthouseArt = () => {
@@ -235,15 +239,15 @@ export const PenthouseArt = () => {
     const dr = P(-0.65, -0.45, H + 0.15), R = 0.38;
     return (
         <Art label="A glass tower with a penthouse" defs={<>
-            <linearGradient id="ga-pent-gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#5a86e0" /><stop offset="0.5" stopColor="#2f5fd0" /><stop offset="1" stopColor="#24499f" /></linearGradient>
-            <linearGradient id="ga-pent-gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#2f5fd0" /><stop offset="1" stopColor="#1d3f9e" /></linearGradient>
-            <linearGradient id="ga-pent-sky" x1="0" y1="0" x2="1" y2="0"><stop offset="0.1" stopColor="#fff" stopOpacity="0" /><stop offset="0.45" stopColor="#dbe8ff" stopOpacity="0.35" /><stop offset="0.6" stopColor="#fff" stopOpacity="0" /></linearGradient>
+            <linearGradient id="ga-pent-gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#6fb0b3" /><stop offset="0.5" stopColor="#478f93" /><stop offset="1" stopColor="#2f6f73" /></linearGradient>
+            <linearGradient id="ga-pent-gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#478f93" /><stop offset="1" stopColor="#1e4e51" /></linearGradient>
+            <linearGradient id="ga-pent-sky" x1="0" y1="0" x2="1" y2="0"><stop offset="0.1" stopColor="#fff" stopOpacity="0" /><stop offset="0.45" stopColor="#e2f2f2" stopOpacity="0.35" /><stop offset="0.6" stopColor="#fff" stopOpacity="0" /></linearGradient>
             <radialGradient id="ga-pent-tree" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stopColor="#a6d15a" /><stop offset="1" stopColor="#4f8a1e" /></radialGradient>
         </>}>
             <ellipse cx="82" cy="140" rx="54" ry="8" fill="#2f2f2f" opacity="0.1" />
             {/* the plinth and its lawn, rounded */}
-            <Box P={P} x={-1.75} y={-1.55} z={-0.22} w={3.5} d={3.1} h={0.22} c={{ top : "#e8e6e1", left : "#cfccc5", right : "#aeaaa2" }} />
-            <polygon points={onTop(P, 0.001, -1.55, -1.35, 1.55, 1.35)} fill="#7fb33a" stroke="#7fb33a" strokeWidth="4" strokeLinejoin="round" />
+            <Box P={P} x={-1.75} y={-1.55} z={-0.22} w={3.5} d={3.1} h={0.22} c={{ top : "#f3eee4", left : "#e1d5bc", right : "#c9b99a" }} />
+            <polygon points={onTop(P, 0.001, -1.55, -1.35, 1.55, 1.35)} fill="#86a83c" stroke="#86a83c" strokeWidth="4" strokeLinejoin="round" />
             {/* the tower's walls, glass behind bands and fins */}
             <Box P={P} x={x0} y={y0} z={0} w={x1 - x0} d={y1 - y0} h={H} c={{ top : "#ffffff", left : "url(#ga-pent-gl)", right : "url(#ga-pent-gr)" }} />
             <polygon points={onLeft(P, y1 + 0.001, x0, x1, 0, H)} fill="url(#ga-pent-sky)" />
@@ -263,13 +267,13 @@ export const PenthouseArt = () => {
             <Box P={P} x={x1 - 0.1} y={y0 - 0.06} z={0} w={0.25} d={0.22} h={H + 0.1} c={white} />
             {/* the roof: slab, drum, boxes and the glass penthouse with its plants */}
             <Box P={P} x={x0 - 0.12} y={y0 - 0.12} z={H} w={x1 - x0 + 0.24} d={y1 - y0 + 0.24} h={0.15} c={white} />
-            <polygon points={onTop(P, H + 0.151, x0, y0, x1, y1)} fill="#8fb0e8" />
+            <polygon points={onTop(P, H + 0.151, x0, y0, x1, y1)} fill="#a9d0d1" />
             <rect x={dr[0] - R * s * 1.2247} y={dr[1] - 0.35 * s} width={2 * R * s * 1.2247} height={0.35 * s} fill="#e3e7ee" />
             <ellipse cx={dr[0]} cy={dr[1]} rx={R * s * 1.2247} ry={R * s * 0.7071} fill="#cfd5df" />
             <ellipse cx={dr[0]} cy={dr[1] - 0.35 * s} rx={R * s * 1.2247} ry={R * s * 0.7071} fill="#ffffff" stroke="#dfe3ea" strokeWidth="0.8" />
             <Box P={P} x={0.05} y={-0.85} z={H + 0.15} w={0.38} d={0.32} h={0.36} c={white} />
-            <Box P={P} x={0.4} y={-0.45} z={H + 0.15} w={0.5} d={0.5} h={0.62} c={{ top : "#7fa4ea", left : "url(#ga-pent-gl)", right : "url(#ga-pent-gr)" }} />
-            {[ 0.55, 0.72 ].map(u => <line key={u} x1={P(u, 0.051, H + 0.15)[0]} y1={P(u, 0.051, H + 0.15)[1]} x2={P(u, 0.051, H + 0.77)[0]} y2={P(u, 0.051, H + 0.77)[1]} stroke="#cfdcf7" strokeWidth="0.5" />)}
+            <Box P={P} x={0.4} y={-0.45} z={H + 0.15} w={0.5} d={0.5} h={0.62} c={{ top : "#8cc0c2", left : "url(#ga-pent-gl)", right : "url(#ga-pent-gr)" }} />
+            {[ 0.55, 0.72 ].map(u => <line key={u} x1={P(u, 0.051, H + 0.15)[0]} y1={P(u, 0.051, H + 0.15)[1]} x2={P(u, 0.051, H + 0.77)[0]} y2={P(u, 0.051, H + 0.77)[1]} stroke="#d5ebeb" strokeWidth="0.5" />)}
             {[ [ 0.55, -0.3 ], [ 0.75, -0.15 ] ].map(([ u, v ]) => { const c = P(u, v, H + 0.85); return <g key={u}><circle cx={c[0]} cy={c[1]} r="3" fill="#5d8c1f" /><circle cx={c[0] - 1} cy={c[1] - 1} r="1.6" fill="#8fc24a" /></g>; })}
             <Box P={P} x={0.6} y={0.45} z={H + 0.15} w={0.45} d={0.38} h={0.3} c={white} />
             {/* the trees along the lawn */}
