@@ -184,7 +184,9 @@ export const createRaceScene = (canvas : HTMLCanvasElement, max : { gold : numbe
         settled : () => piles.every((_, i) => shown[i] === target[i]),
         resize,
         // a pile's figure sits above its ghost's top, its name on the ground in front of it
-        anchors : () => piles.map(p => ({ base : px(p.x, 0, 1.3), top : px(p.x, p.height(p.max) + 0.55, 0) })),
+        // the name sits straight below the pile on screen: a step along (1, 0, 1), towards the camera, keeps the
+        // pile's screen x and moves down, past the pile's front corner
+        anchors : () => piles.map(p => ({ base : px(p.x + 0.85, 0, 0.85), top : px(p.x, p.height(p.max) + 0.55, 0) })),
         dispose : () => {
             scene.traverse(o => {
                 const m = o as THREE.Mesh;

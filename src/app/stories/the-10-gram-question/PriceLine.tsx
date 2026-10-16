@@ -13,7 +13,7 @@ import { HEADLINE, MONTHS, SUM, TEN, YEARS, grams, gramsFor, inr, monthShort, pa
 // Ten grams of gold in Mumbai, month by month from April 1990, on a log scale so equal steps mean equal percentage
 // rises. The two changes in import duty are marked where they fall; they are not DBIE figures.
 
-const PAD = { l : 64, r : 20, t : 20, b : 30 }, H = 400;
+const PAD = { l : 64, r : 190, t : 34, b : 30 }, H = 420;              // the right margin holds the end labels
 const TICKS = [ 5000, 10000, 20000, 50000, 100000 ];
 const YEAR_TICKS = [ 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025 ];
 const LO = Math.log(3000), HI = Math.log(Math.max(...MONTHS.map(m => m.gold)) * 1.08);
@@ -38,8 +38,7 @@ export const PriceLine = () => {
     const peak = indexOf(HEADLINE.peak.ym);
 
     return (
-        <Figure title={`Ten grams of gold in Mumbai, ${monthShort(HEADLINE.first.ym)} to ${monthShort(HEADLINE.last.ym)}`} className="figure-large" table={TABLE}
-            units="monthly average, ₹ per 10 grams, log scale"
+        <Figure className="figure-large" table={TABLE}
             note={`The Reserve Bank's monthly average price of standard gold in Mumbai, a bullion price before making charges and tax. The duty marks are the story's, from the Budget and the notification, not from DBIE. The last year is ${partYear(HEADLINE.toYear, YEARS[YEARS.length - 1].gold.months)}.`}>
             <div ref={ref} className="chart-wrap r1">
                 <div className="chart-scroll">
@@ -61,20 +60,34 @@ export const PriceLine = () => {
                         {YEAR_TICKS.map(y => { const i = indexOf(`${y}-01`); return i < 0 ? null : <text key={y} className="axis-label" x={xOf(i)} y={H - 8} textAnchor={y === 1990 ? "start" : "middle"}>{y}</text>; })}
                         <path className="price-area" d={area} fill={`url(#${gradId})`} />
                         <path className="price-line" d={path} />
-                        {/* the duty marks, labelled at the foot, each on its own line so the two do not collide */}
+                        {/* every label sits in clear space, never on the line or the area beneath it: the duty marks run up to the
+                            top margin and are named there, the earlier leftward and the later rightward so the two part; the peak
+                            and the latest month are named in the right margin, a line apart; the first month is named well above its
+                            point, over the flat early years, with a leader down to it */}
                         {HEADLINE.duty.map((d, k) => { const i = indexOf(d.month); return i < 0 ? null : (
                             <g key={d.month} className="duty-mark">
-                                <line x1={xOf(i)} x2={xOf(i)} y1={PAD.t + 40} y2={H - PAD.b} />
-                                <text x={xOf(i) - 6} y={H - PAD.b - 12 - 16 * k} textAnchor="end">duty {d.rate}%, {monthShort(d.month)}</text>
+                                <line x1={xOf(i)} x2={xOf(i)} y1={PAD.t - 6} y2={H - PAD.b} />
+                                <text x={xOf(i) + (k ? 5 : -5)} y={PAD.t - 12} textAnchor={k ? "start" : "end"}>duty {d.rate}%, {monthShort(d.month)}</text>
                             </g>
                         ); })}
-                        <g className="end-label">
-                            {peak >= 0 && peak !== n - 1 && <circle className="is-peak" cx={xOf(peak)} cy={yOf(HEADLINE.peak.price)} r={4} />}
-                            {peak >= 0 && peak !== n - 1 && <text x={xOf(peak) - 8} y={yOf(HEADLINE.peak.price) - 10} textAnchor="end">peak {rs(HEADLINE.peak.price)}, {monthShort(HEADLINE.peak.ym)}</text>}
-                            <circle cx={xOf(n - 1)} cy={yOf(MONTHS[n - 1].gold)} r={4} />
-                            <text x={xOf(n - 1) + 2} y={yOf(MONTHS[n - 1].gold) + 22} textAnchor="end">{rs(MONTHS[n - 1].gold)}, {monthShort(MONTHS[n - 1].ym)}</text>
-                            <circle cx={xOf(0)} cy={yOf(MONTHS[0].gold)} r={4} />
-                            <text x={xOf(0) + 8} y={yOf(MONTHS[0].gold) - 10}>{rs(MONTHS[0].gold)}, {monthShort(MONTHS[0].ym)}</text>
+                        <g className="end-label is-haloed">
+                            {(() => {
+                                const x = W - PAD.r + 12, yPeak = Math.max(PAD.t + 14, yOf(HEADLINE.peak.price) + 4), yLast = Math.max(yPeak + 18, yOf(MONTHS[n - 1].gold) + 4);
+                                return (<>
+                                    {peak >= 0 && peak !== n - 1 && <circle className="is-peak" cx={xOf(peak)} cy={yOf(HEADLINE.peak.price)} r={4} />}
+                                    {peak >= 0 && peak !== n - 1 && <text className="is-peak" x={x} y={yPeak}>peak {rs(HEADLINE.peak.price)}, {monthShort(HEADLINE.peak.ym)}</text>}
+                                    <circle cx={xOf(n - 1)} cy={yOf(MONTHS[n - 1].gold)} r={4} />
+                                    <text x={x} y={yLast}>{rs(MONTHS[n - 1].gold)}, {monthShort(MONTHS[n - 1].ym)}</text>
+                                </>);
+                            })()}
+                            {(() => {
+                                const y0 = yOf(MONTHS[0].gold), yl = yOf(10000);
+                                return (<>
+                                    <line className="leader" x1={xOf(0)} x2={xOf(0)} y1={y0 - 5} y2={yl + 6} />
+                                    <circle cx={xOf(0)} cy={y0} r={4} />
+                                    <text x={xOf(0) - 2} y={yl} >{rs(MONTHS[0].gold)}, {monthShort(MONTHS[0].ym)}</text>
+                                </>);
+                            })()}
                         </g>
                         {hotM && <line className="hot-line" x1={xOf(hot!)} x2={xOf(hot!)} y1={PAD.t} y2={H - PAD.b} />}
                         {hotM && <circle className="hot-dot" cx={xOf(hot!)} cy={yOf(hotM.gold)} r={5} />}

@@ -35,7 +35,7 @@ export const Engines = () => {
     const x1 = xOf(1);
 
     return (
-        <Figure title="What drove the rupee price, window by window" className="figure-large" table={TABLE}>
+        <Figure title="What drove the rupee price" className="figure-large" table={TABLE}>
             <div ref={ref} className="chart-wrap r1">
                 <div className="chart-scroll">
                     <svg className="chart-svg engines-svg" width={W} height={H} viewBox={`0 0 ${W} ${H}`} role="img" aria-label="For each window, three segments on a log axis: gold in dollars, the rupee, and Mumbai’s gap, making the rise in the Mumbai price">
