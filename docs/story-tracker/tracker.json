@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T07:02:04.818Z",
-  "dev": "14dfec2",
+  "generated": "2026-10-16T08:28:37.783Z",
+  "dev": "c308d27",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "70cfc1bc18fcc70a"
+  "digest": "cfdd354aede8216f"
  },
  "stories": [
   {
@@ -1293,7 +1293,19 @@
     }
    ],
    "live": null,
-   "wip": [],
+   "wip": [
+    {
+     "pr": 72,
+     "title": "Beyond UPI: realistic cheque leaves and a blue chequebook cover",
+     "author": "vishes-jena-rbihub",
+     "draft": false,
+     "updated": "2026-10-16",
+     "branch": "story-beyond-upi",
+     "slugs": [
+      "beyond-upi"
+     ]
+    }
+   ],
    "captured": {
     "title": "Beyond UPI: everything else India pays with",
     "description": "In 2025-26 an RTGS payment averaged ₹65.0 lakh, a cheque ₹1.28 lakh and a UPI payment ₹1,301; RTGS carried 68.4% of all payment value in 0.12% of payments. Built from the data published on the Reserve Bank’s DBIE.",
