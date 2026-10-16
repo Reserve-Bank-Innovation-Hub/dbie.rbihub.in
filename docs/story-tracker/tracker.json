@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T08:43:16.477Z",
-  "dev": "28cdc3c",
+  "generated": "2026-10-16T08:47:03.026Z",
+  "dev": "3ac21eb",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "e2a081c6b70c0c51"
+  "digest": "f9c39c77cfb149de"
  },
  "stories": [
   {
@@ -959,21 +959,19 @@
     "pr": 51,
     "title": "The 10 gram question"
    },
-   "updates": [],
-   "live": null,
-   "wip": [
+   "updates": [
     {
+     "sha": "3ac21eb",
+     "date": "2026-10-16",
+     "authors": [
+      "Geetika Shukla"
+     ],
      "pr": 74,
-     "title": "The 10-gram question: the year's display case, card and chart refinem…",
-     "author": "Geetika-Shukla",
-     "draft": false,
-     "updated": "2026-10-16",
-     "branch": "the-10-gram-question",
-     "slugs": [
-      "the-10-gram-question"
-     ]
+     "title": "The 10-gram question: the year's display case, card and chart refinem…"
     }
    ],
+   "live": null,
+   "wip": [],
    "captured": {
     "title": "The 10-gram question",
     "description": "Ten grams of gold cost ₹3,417 in Mumbai in April 1990 and ₹1,42,606 in July 2026, about 42 times as much. How much of that is gold, how much the rupee, and how much the gap between the world price and Mumbai’s. Built from the prices and reserves published on the Reserve Bank’s DBIE.",
@@ -998,7 +996,7 @@
      "CPI_IW_RN",
      "FR_EXG_RESV_M_RN"
     ],
-    "files": 16,
+    "files": 17,
     "fromPage": true
    },
    "auto": false
