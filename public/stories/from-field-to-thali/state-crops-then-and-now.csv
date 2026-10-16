@@ -1,0 +1,212 @@
+# DBIE, Handbook report 193; thousand tonnes (cotton thousand bales) and per cent of all-India; states carved out since 1980-81 added back to their parents
+crop,state,note,output_1980-81,output_2020-21,share_1980-81_pct,share_2020-21_pct
+rice,Andhra Pradesh,with Telangana,7011,18100,13.07,14.55
+rice,West Bengal,,7466,16524,13.92,13.29
+rice,Uttar Pradesh,with Uttarakhand,5570,16235,10.39,13.05
+rice,Punjab,,3223,12784,6.01,10.28
+rice,Madhya Pradesh,with Chhattisgarh,4053,11575,7.56,9.31
+rice,Bihar,with Jharkhand,5635,9500,10.51,7.64
+rice,Odisha,,4301,8810,8.02,7.08
+rice,Tamil Nadu,,4159,6881,7.75,5.53
+rice,Assam,,2523,5215,4.7,4.19
+rice,Haryana,,1228,4425,2.29,3.56
+rice,Karnataka,,2208,4292,4.12,3.45
+rice,Maharashtra,,2361,3292,4.4,2.65
+rice,Gujarat,,557,2146,1.04,1.73
+rice,Tripura,,390,803,0.73,0.65
+rice,Union Territories,,241,701,0.45,0.56
+rice,Kerala,,1272,634,2.37,0.51
+rice,Rajasthan,,150,634,0.28,0.51
+rice,Manipur,,273,602,0.51,0.48
+rice,Jammu & Kashmir,,546,582,1.02,0.47
+rice,Nagaland,,91,367,0.17,0.3
+rice,Meghalaya,,133,296,0.25,0.24
+rice,Arunachal Pradesh,,88,247,0.16,0.2
+rice,Himachal Pradesh,,125,141,0.23,0.11
+rice,Goa,,0,87,0,0.07
+rice,Mizoram,,28,62,0.05,0.05
+rice,Sikkim,,0,16,0,0.01
+wheat,Uttar Pradesh,with Uttarakhand,13385,36462,36.86,33.27
+wheat,Madhya Pradesh,with Chhattisgarh,3144,18431,8.66,16.82
+wheat,Punjab,,7677,17186,21.14,15.68
+wheat,Haryana,,3492,12394,9.62,11.31
+wheat,Rajasthan,,2394,11035,6.59,10.07
+wheat,Bihar,with Jharkhand,2306,6694,6.35,6.11
+wheat,Gujarat,,1298,3260,3.58,2.97
+wheat,Maharashtra,,931,2071,2.56,1.89
+wheat,West Bengal,,473,595,1.3,0.54
+wheat,Union Territories,,120,577,0.33,0.53
+wheat,Himachal Pradesh,,443,570,1.22,0.52
+wheat,Jammu & Kashmir,,204,484,0.56,0.44
+wheat,Karnataka,,180,262,0.5,0.24
+wheat,Assam,,118,13,0.33,0.01
+wheat,Andhra Pradesh,with Telangana,6,16,0.02,0.01
+wheat,Arunachal Pradesh,,4,8,0.01,0.01
+wheat,Manipur,,0,6,0,0.01
+wheat,Nagaland,,0,6,0,0.01
+wheat,Odisha,,122,0,0.34,0
+wheat,Tripura,,10,0,0.03,0
+wheat,Meghalaya,,4,1,0.01,0
+wheat,Tamil Nadu,,1,0,0,0
+coarse,Rajasthan,,2783,8361,9.59,16.29
+coarse,Karnataka,,3029,7931,10.44,15.45
+coarse,Maharashtra,,5635,6082,19.42,11.85
+coarse,Madhya Pradesh,with Chhattisgarh,3205,5322,11.04,10.37
+coarse,Uttar Pradesh,with Uttarakhand,3468,4875,11.95,9.5
+coarse,Andhra Pradesh,with Telangana,2560,4245,8.82,8.27
+coarse,Tamil Nadu,,1180,3470,4.07,6.76
+coarse,Bihar,with Jharkhand,1137,2779,3.92,5.41
+coarse,West Bengal,,104,2444,0.36,4.76
+coarse,Gujarat,,2354,1760,8.11,3.43
+coarse,Haryana,,820,1418,2.83,2.76
+coarse,Himachal Pradesh,,596,765,2.05,1.49
+coarse,Union Territories,,35,534,0.12,1.04
+coarse,Jammu & Kashmir,,522,520,1.8,1.01
+coarse,Punjab,,803,418,2.77,0.81
+coarse,Odisha,,667,282,2.3,0.55
+coarse,Assam,,18,151,0.06,0.29
+coarse,Nagaland,,12,149,0.04,0.29
+coarse,Arunachal Pradesh,,39,108,0.13,0.21
+coarse,Sikkim,,0,71,0,0.14
+coarse,Manipur,,18,60,0.06,0.12
+coarse,Meghalaya,,17,45,0.06,0.09
+coarse,Tripura,,0,44,0,0.09
+coarse,Mizoram,,6,13,0.02,0.02
+coarse,Goa,,8,0,0.03,0
+coarse,Kerala,,4,1,0.01,0
+pulses,Madhya Pradesh,with Chhattisgarh,2011,5742,18.92,22.55
+pulses,Maharashtra,,831,4321,7.82,16.97
+pulses,Rajasthan,,1170,4252,11.01,16.7
+pulses,Uttar Pradesh,with Uttarakhand,2524,2537,23.75,9.96
+pulses,Karnataka,,463,2065,4.35,8.11
+pulses,Gujarat,,267,1809,2.51,7.11
+pulses,Andhra Pradesh,with Telangana,415,1684,3.9,6.61
+pulses,Bihar,with Jharkhand,833,1282,7.84,5.04
+pulses,Tamil Nadu,,147,473,1.38,1.86
+pulses,West Bengal,,238,442,2.24,1.74
+pulses,Odisha,,886,431,8.34,1.69
+pulses,Assam,,47,109,0.44,0.43
+pulses,Haryana,,505,73,4.75,0.29
+pulses,Himachal Pradesh,,20,60,0.19,0.24
+pulses,Nagaland,,1,47,0,0.18
+pulses,Punjab,,200,31,1.88,0.12
+pulses,Manipur,,0,29,0,0.12
+pulses,Tripura,,2,20,0.02,0.08
+pulses,Arunachal Pradesh,,0,14,0,0.06
+pulses,Union Territories,,8,12,0.08,0.05
+pulses,Meghalaya,,2,12,0.01,0.05
+pulses,Jammu & Kashmir,,35,10,0.33,0.04
+pulses,Mizoram,,0,6,0,0.02
+pulses,Sikkim,,0,5,0,0.02
+pulses,Kerala,,22,2,0.21,0.01
+pulses,Goa,,0,4,0,0.01
+foodgrains,Uttar Pradesh,with Uttarakhand,24946,60109,19.25,19.34
+foodgrains,Madhya Pradesh,with Chhattisgarh,12412,41070,9.58,13.22
+foodgrains,Punjab,,11903,30418,9.19,9.79
+foodgrains,Rajasthan,,6497,24282,5.01,7.81
+foodgrains,Andhra Pradesh,with Telangana,9992,24045,7.71,7.74
+foodgrains,Bihar,with Jharkhand,9911,20254,7.65,6.52
+foodgrains,West Bengal,,8281,20005,6.39,6.44
+foodgrains,Haryana,,6045,18310,4.66,5.89
+foodgrains,Maharashtra,,9758,15766,7.53,5.07
+foodgrains,Karnataka,,5800,14550,4.48,4.68
+foodgrains,Tamil Nadu,,5487,10824,4.23,3.48
+foodgrains,Odisha,,5977,9524,4.61,3.06
+foodgrains,Gujarat,,10110,8974,7.8,2.89
+foodgrains,Assam,,2706,5488,2.09,1.77
+foodgrains,Union Territories,,404,1824,0.31,0.59
+foodgrains,Jammu & Kashmir,,1307,1595,1.01,0.51
+foodgrains,Himachal Pradesh,,1184,1536,0.91,0.49
+foodgrains,Tripura,,403,868,0.31,0.28
+foodgrains,Manipur,,291,697,0.22,0.22
+foodgrains,Kerala,,1298,636,1,0.2
+foodgrains,Nagaland,,47,570,0.04,0.18
+foodgrains,Arunachal Pradesh,,131,377,0.1,0.12
+foodgrains,Meghalaya,,155,353,0.12,0.11
+foodgrains,Mizoram,,35,81,0.03,0.03
+foodgrains,Goa,,8,91,0.01,0.03
+foodgrains,Sikkim,,0,92,0,0.03
+oilseeds,Rajasthan,,386,7985,4.11,22.21
+oilseeds,Maharashtra,,1005,6718,10.73,18.69
+oilseeds,Madhya Pradesh,with Chhattisgarh,861,6454,9.18,17.95
+oilseeds,Gujarat,,1862,6189,19.86,17.22
+oilseeds,Andhra Pradesh,with Telangana,928,1379,9.9,3.84
+oilseeds,Haryana,,189,1349,2.01,3.75
+oilseeds,Uttar Pradesh,with Uttarakhand,1652,1302,17.62,3.62
+oilseeds,Karnataka,,620,1249,6.61,3.47
+oilseeds,West Bengal,,149,1112,1.59,3.09
+oilseeds,Tamil Nadu,,719,1063,7.67,2.96
+oilseeds,Bihar,with Jharkhand,110,529,1.17,1.47
+oilseeds,Assam,,112,200,1.19,0.56
+oilseeds,Odisha,,485,135,5.17,0.38
+oilseeds,Nagaland,,1,70,0.01,0.2
+oilseeds,Punjab,,187,59,2,0.16
+oilseeds,Union Territories,,5,38,0.05,0.11
+oilseeds,Arunachal Pradesh,,6,37,0.07,0.1
+oilseeds,Jammu & Kashmir,,64,33,0.69,0.09
+oilseeds,Manipur,,2,33,0.02,0.09
+oilseeds,Meghalaya,,5,15,0.05,0.04
+oilseeds,Tripura,,5,13,0.05,0.04
+oilseeds,Himachal Pradesh,,6,8,0.06,0.02
+oilseeds,Sikkim,,0,6,0,0.02
+oilseeds,Mizoram,,1,3,0.01,0.01
+oilseeds,Kerala,,16,0,0.17,0
+cotton,Maharashtra,,1269,10105,18.1,28.67
+cotton,Andhra Pradesh,with Telangana,750,7399,10.7,20.99
+cotton,Gujarat,,1714,7212,24.45,20.46
+cotton,Rajasthan,,388,3208,5.54,9.1
+cotton,Karnataka,,469,2320,6.69,6.58
+cotton,Haryana,,650,1823,9.27,5.17
+cotton,Madhya Pradesh,with Chhattisgarh,268,1347,3.82,3.82
+cotton,Punjab,,1178,1023,16.8,2.9
+cotton,Odisha,,4,551,0.06,1.56
+cotton,Tamil Nadu,,265,243,3.77,0.69
+cotton,Uttar Pradesh,with Uttarakhand,31,7,0.44,0.02
+cotton,Meghalaya,,5,9,0.06,0.02
+cotton,Kerala,,8,0,0.12,0
+cotton,Union Territories,,3,1,0.04,0
+cotton,Assam,,2,0,0.03,0
+cotton,Mizoram,,2,0,0.03,0
+cotton,Tripura,,2,1,0.03,0
+cotton,Jammu & Kashmir,,1,0,0.02,0
+cotton,Bihar,with Jharkhand,1,0,0.01,0
+cotton,Himachal Pradesh,,1,0,0.01,0
+cotton,West Bengal,,0,1,0,0
+sugarcane,Uttar Pradesh,with Uttarakhand,64205,182019,41.62,44.9
+sugarcane,Maharashtra,,23591,105138,15.29,25.93
+sugarcane,Karnataka,,12421,42528,8.05,10.49
+sugarcane,Gujarat,,4435,16955,2.88,4.18
+sugarcane,Tamil Nadu,,18570,13285,12.04,3.28
+sugarcane,Bihar,with Jharkhand,3480,12110,2.26,2.99
+sugarcane,Haryana,,4660,8532,3.02,2.1
+sugarcane,Punjab,,3920,7487,2.54,1.85
+sugarcane,Madhya Pradesh,with Chhattisgarh,1071,7197,0.69,1.78
+sugarcane,Andhra Pradesh,with Telangana,10054,5890,6.52,1.45
+sugarcane,West Bengal,,867,1418,0.56,0.35
+sugarcane,Assam,,1723,1093,1.12,0.27
+sugarcane,Rajasthan,,1164,394,0.75,0.1
+sugarcane,Odisha,,3060,381,1.98,0.09
+sugarcane,Manipur,,78,279,0.05,0.07
+sugarcane,Union Territories,,149,187,0.1,0.05
+sugarcane,Nagaland,,122,203,0.08,0.05
+sugarcane,Kerala,,462,107,0.3,0.03
+sugarcane,Goa,,58,36,0.04,0.01
+sugarcane,Tripura,,65,49,0.04,0.01
+sugarcane,Himachal Pradesh,,49,23,0.03,0.01
+sugarcane,Arunachal Pradesh,,0,46,0,0.01
+sugarcane,Mizoram,,5,43,0,0.01
+sugarcane,Jammu & Kashmir,,30,0,0.02,0
+sugarcane,Meghalaya,,9,0,0.01,0
+jute,West Bengal,,4702,7593,57.63,81.17
+jute,Assam,,961,794,11.78,8.49
+jute,Bihar,with Jharkhand,883,788,10.83,8.42
+jute,Meghalaya,,70,95,0.86,1.02
+jute,Nagaland,,1,38,0.01,0.41
+jute,Odisha,,519,29,6.36,0.31
+jute,Andhra Pradesh,with Telangana,676,10,8.29,0.11
+jute,Tripura,,88,6,1.08,0.07
+jute,Madhya Pradesh,with Chhattisgarh,21,1,0.25,0.01
+jute,Maharashtra,,119,0,1.46,0
+jute,Uttar Pradesh,with Uttarakhand,72,0,0.88,0
+jute,Karnataka,,46,0,0.56,0
+jute,Tamil Nadu,,1,0,0.01,0

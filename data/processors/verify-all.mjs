@@ -112,6 +112,7 @@ const datasets = [
   { name: 'story-how-households-took-over-the-bank-loan-book', mode: 'exact' },
   { name: 'story-the-two-lakh-line', mode: 'exact' },
   { name: 'story-the-women-who-stayed', mode: 'exact' },
+  { name: 'story-from-field-to-thali', mode: 'exact' },
   { name: 'story-what-got-cheaper', mode: 'exact' },
   { name: 'story-what-one-lakh-bought', mode: 'exact' },
   { name: 'story-the-10-gram-question', mode: 'exact' },
