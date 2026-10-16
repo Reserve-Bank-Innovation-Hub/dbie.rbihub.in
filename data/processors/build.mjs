@@ -101,6 +101,7 @@ const processors = [
   'story-how-households-took-over-the-bank-loan-book',
   'story-the-two-lakh-line',
   'story-the-women-who-stayed',
+  'story-from-field-to-thali',
   'story-what-got-cheaper',
   'story-what-one-lakh-bought',
   'story-the-10-gram-question',

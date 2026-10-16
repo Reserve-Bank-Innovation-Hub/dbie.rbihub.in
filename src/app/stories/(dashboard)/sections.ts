@@ -13,6 +13,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "The women who stayed",
                 description : "Since 2000-01, rural men have been leaving farm work for building sites, factories and shops. Most rural women who work are still in agriculture.",
             },
+            {
+                linkTo      : "/stories/from-field-to-thali",
+                label       : "From field to thali",
+                description : "What India grows and in which states, what the government buys from farmers, how support prices compare with everyday costs, and what India sells abroad and buys from abroad.",
+            },
         ],
     },
     {
