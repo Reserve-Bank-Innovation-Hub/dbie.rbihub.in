@@ -12,7 +12,7 @@ import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { CarArt, FlatArt, PenthouseArt, PhoneArt } from "./GuessArt";
 import { allot, diagonalOrder, mountWall, type Wall, type WallStep } from "./walls";
 import { FACE, chequeSvg, dataUri, type MethodKey } from "./instruments";
-import { CAR_COUNT, carSvg, cardSvg, fastagCardSvg, posKeypadSvg, standeeSvg } from "./objects";
+import { CAR_COUNT, TRUCK_KINDS, carSvg, cardSvg, fastagCardSvg, posKeypadSvg, standeeSvg, truckSvg } from "./objects";
 import { LADDER, METHOD, inr, monthName, rupees } from "./methods";
 import { Layout, loopOnScreen, rasterise, reducedMotion, splitClass, useStage } from "./stage";
 
@@ -377,20 +377,24 @@ export const CounterStep = ({ layout, children } : { layout? : Layout; children 
 };
 
 // THE TOLL PLAZA ======================================================================================================
-// A toll plaza from above, cars of every kind passing through FASTag lanes, each read at the booth with ₹133 rising
-// off it; beside it a FASTag card. The cars are a picture, not a count: the readout carries the numbers.
+// A toll plaza from above, cars and trucks passing through FASTag lanes, each read at the booth with its toll rising
+// off it, round figures for illustration (a car's smaller than a truck's); beside it a FASTag card. The vehicles are a
+// picture, not a count: the readout carries the numbers.
 const CAR_IMGS = Array.from({ length : CAR_COUNT }, (_, i) => rasterise(dataUri(carSvg(i).svg), 120, 56));
+// trucks: every kind in three colours, each with its length in car units (a car is 120 across)
+const TRUCKS = TRUCK_KINDS.flatMap(k => [ 0, 1, 4 ].map(v => { const d = truckSvg(k, v + TRUCK_KINDS.indexOf(k)); return { img : rasterise(dataUri(d.svg), d.w, d.h), len : d.w / 120, h : d.h / 56 }; }));
+// the toll each vehicle pays, round figures for illustration: cars from ₹40 to ₹250, trucks from ₹300 to ₹900
+const CAR_FEES = [ 40, 60, 80, 100, 120, 150, 200, 250 ], TRUCK_FEES = [ 300, 400, 480, 600, 750, 900 ];
 const FASTAG_IMG = dataUri(fastagCardSvg().svg);
 export const TollStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const ref = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
         const cv = ref.current; if (!cv) return;
-        const g = cv.getContext("2d")!, reduced = reducedMotion(), fee = H.small.netcAvg, lanes = 5;
-        type Car = { lane : number; x : number; v : number; i : number; paid : boolean };
-        const cars : Car[] = [], chips : { x : number; y : number; t : number }[] = [];
-        // the cars come in a fixed mixed order, so no colour bunches up
-        const MIX = [ 1, 4, 0, 6, 2, 7, 3, 5 ];
-        let W = 0, Ht = 0, spawn = 0, seed = 3, spawned = 0;
+        const g = cv.getContext("2d")!, reduced = reducedMotion(), lanes = 5;
+        type Car = { lane : number; x : number; v : number; i : number; truck : boolean; fee : number; paid : boolean };
+        const cars : Car[] = [], chips : { x : number; y : number; t : number; fee : number; big : boolean }[] = [];
+        let W = 0, Ht = 0, spawn = 0, seed = Math.floor(Math.random() * 1000) + 3;
+        const last = [ -1, -1 ];
         // each lane's boom barrier, from 0 (down, across the lane) to 1 (raised)
         const boom = Array(lanes).fill(0);
         const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
@@ -402,35 +406,44 @@ export const TollStep = ({ layout, children } : { layout? : Layout; children : R
             spawn -= dt;
             if (spawn <= 0) {
                 const lane = Math.floor(rnd() * lanes);
-                if (!cars.some(c => c.lane === lane && c.x < cw * 0.4)) cars.push({ lane, x : -cw - 10, v : W * (0.16 + rnd() * 0.05), i : MIX[spawned++ % MIX.length] % CAR_COUNT, paid : false });
+                // about one vehicle in four a truck; never the same car or truck twice running
+                const truck = rnd() < 0.27, pool = truck ? TRUCKS.length : CAR_COUNT;
+                let i = Math.floor(rnd() * pool); if (i === last[truck ? 1 : 0]) i = (i + 1) % pool; last[truck ? 1 : 0] = i;
+                const len = truck ? TRUCKS[i].len * cw : cw, fees = truck ? TRUCK_FEES : CAR_FEES;
+                if (!cars.some(c => c.lane === lane && c.x < len * 0.4)) cars.push({ lane, x : -len - 10, v : W * (truck ? 0.12 + rnd() * 0.03 : 0.16 + rnd() * 0.05), i, truck, fee : fees[Math.floor(rnd() * fees.length)], paid : false });
                 spawn = 0.28 + rnd() * 0.35;
             }
             g.clearRect(0, 0, W, Ht);
             // the road, its lanes and the booths
-            g.fillStyle = "rgba(60,58,54,0.10)"; g.fillRect(0, top, W, lh * lanes);
-            g.strokeStyle = "rgba(255,255,255,0.7)"; g.lineWidth = 2; g.setLineDash([ 16, 14 ]);
+            // tarmac in charcoal, a little lighter at its edges, with solid white edge lines
+            const tar = g.createLinearGradient(0, top, 0, top + lh * lanes);
+            tar.addColorStop(0, "#3a3a3a"); tar.addColorStop(0.5, "#2f2f2f"); tar.addColorStop(1, "#3a3a3a");
+            g.fillStyle = tar; g.fillRect(0, top, W, lh * lanes);
+            g.fillStyle = "rgba(255,255,255,0.85)"; g.fillRect(0, top + 3, W, 3); g.fillRect(0, top + lh * lanes - 6, W, 3);
+            g.strokeStyle = "rgba(255,255,255,0.9)"; g.lineWidth = 4.5; g.setLineDash([ 26, 18 ]);
             for (let l = 1; l < lanes; l++) { g.beginPath(); g.moveTo(0, top + l * lh); g.lineTo(bx - 40, top + l * lh); g.moveTo(bx + 40, top + l * lh); g.lineTo(W, top + l * lh); g.stroke(); }
             g.setLineDash([]);
-            g.fillStyle = "rgba(120,110,95,0.18)"; g.fillRect(bx - 30, top - 14, 60, lh * lanes + 28);
+            g.fillStyle = "#cfc6b4"; g.fillRect(bx - 30, top - 14, 60, lh * lanes + 28);
             for (let l = 0; l <= lanes; l++) { g.fillStyle = toll; g.beginPath(); g.roundRect(bx - 10, top + l * lh - 10, 20, 20, 4); g.fill(); }
-            // the cars, each slowing through its booth and paying as its tag is read
+            // the vehicles, each slowing through its booth and paying as its tag is read; a truck is longer than a car
+            const lenOf = (c : Car) => (c.truck ? TRUCKS[c.i].len * cw : cw);
             cars.sort((a, b) => a.lane - b.lane);
             for (let k = cars.length - 1; k >= 0; k--) {
-                const c = cars[k], y = top + c.lane * lh + lh / 2;
+                const c = cars[k], y = top + c.lane * lh + lh / 2, L = lenOf(c), hh = c.truck ? chh * TRUCKS[c.i].h : chh;
                 const ahead = cars.filter(o => o.lane === c.lane && o.x > c.x).reduce((m, o) => Math.min(m, o.x), Infinity);
-                const near = Math.abs(c.x + cw * 0.75 - bx) < cw * 0.6;
-                // a car waits at its lane's boom until the boom is up
-                const stop = boom[c.lane] < 0.85 && c.x + cw < bx + 22 ? bx + 18 - cw : Infinity;
-                c.x = Math.min(c.x + c.v * dt * (near ? 0.35 : 1), ahead - cw - 8, stop);
-                if (!c.paid && c.x + cw * 0.75 > bx) { c.paid = true; chips.push({ x : bx + 22, y : y - chh * 0.6, t : 0 }); }
-                const img = CAR_IMGS[c.i].get();
-                if (img) g.drawImage(img, c.x, y - chh / 2, cw, chh);
+                const near = Math.abs(c.x + L - cw * 0.25 - bx) < cw * 0.6;
+                // a vehicle waits at its lane's boom until the boom is up
+                const stop = boom[c.lane] < 0.85 && c.x + L < bx + 22 ? bx + 18 - L : Infinity;
+                c.x = Math.min(c.x + c.v * dt * (near ? 0.35 : 1), ahead - L - 8, stop);
+                if (!c.paid && c.x + L - cw * 0.25 > bx) { c.paid = true; chips.push({ x : bx + 22, y : y - hh * 0.6, t : 0, fee : c.fee, big : c.truck }); }
+                const img = c.truck ? TRUCKS[c.i].img.get() : CAR_IMGS[c.i].get();
+                if (img) g.drawImage(img, c.x, y - hh / 2, L, hh);
                 if (c.x > W + 20) cars.splice(k, 1);
             }
             // the booms: up while a car is at or passing through the booth, down again behind it; seen from above, a
             // raised boom foreshortens towards its pivot
             for (let l = 0; l < lanes; l++) {
-                const busy = cars.some(c => c.lane === l && c.x + cw > bx - cw * 0.35 && c.x < bx + 34);
+                const busy = cars.some(c => c.lane === l && c.x + lenOf(c) > bx - cw * 0.35 && c.x < bx + 34);
                 boom[l] = Math.max(0, Math.min(1, boom[l] + (busy ? 3 : -2) * dt));
                 const px = bx + 22, py = top + l * lh + 7, len = (lh - 14) * (1 - 0.82 * boom[l]), seg = 9;
                 for (let o = 0; o < len; o += seg) { g.fillStyle = Math.floor(o / seg) % 2 ? "#ffffff" : "#de4635"; g.fillRect(px - 2.5, py + o, 5, Math.min(seg, len - o)); }
@@ -441,7 +454,12 @@ export const TollStep = ({ layout, children } : { layout? : Layout; children : R
             for (let k = chips.length - 1; k >= 0; k--) {
                 const p = chips[k]; p.t += dt; const f = p.t / 1.3;
                 if (f >= 1) { chips.splice(k, 1); continue; }
-                g.globalAlpha = 1 - f; g.fillStyle = ink; g.fillText(`₹${fee}`, p.x, p.y - f * 26); g.globalAlpha = 1;
+                g.font = p.big ? "800 15px system-ui, sans-serif" : "700 13px system-ui, sans-serif";
+                // each amount on a white pill, so it reads on the tarmac
+                const label = `₹${p.fee}`, tw = g.measureText(label).width, ty = p.y - f * 26, ph = p.big ? 20 : 18;
+                g.globalAlpha = f < 0.6 ? 1 : (1 - f) / 0.4;                                        // clear for most of its rise
+                g.fillStyle = "#ffffff"; g.beginPath(); g.roundRect(p.x - 6, ty - ph + 4, tw + 12, ph, ph / 2); g.fill();
+                g.fillStyle = p.big ? "#ba644f" : ink; g.fillText(label, p.x, ty); g.globalAlpha = 1;
             }
         };
         if (reduced) { for (let k = 0; k < 90; k++) draw(0.1); return () => ro.disconnect(); }
@@ -452,7 +470,7 @@ export const TollStep = ({ layout, children } : { layout? : Layout; children : R
     return (
         <div className={splitClass(layout)}>
             <div className="split-stage toll-stage">
-                <canvas ref={ref} role="img" aria-label={`A toll plaza from above: cars pass through FASTag lanes and each pays a toll; tolls from bank accounts averaged ₹${H.small.netcAvg} in ${H.fy}.`} />
+                <canvas ref={ref} role="img" aria-label={`A toll plaza from above: cars and trucks pass through FASTag lanes and each pays a toll; tolls from bank accounts averaged ₹${H.small.netcAvg} in ${H.fy}.`} />
                 <img className="toll-card" src={FASTAG_IMG} alt="" />
             </div>
             <div className="split-card">
@@ -460,6 +478,7 @@ export const TollStep = ({ layout, children } : { layout? : Layout; children : R
                 <div className="wall-read">
                     <span><b>{H.day.tollLakh.toFixed(2)}</b> lakh toll payments from bank accounts on an average day of {H.fy}</span>
                     <span><b>₹{H.small.netcAvg}</b> each, on average</span>
+                    <span className="toll-note">The tolls rising off the vehicles are round figures for illustration; trucks pay more than cars.</span>
                 </div>
                 {ev && <p className="event-line">{ev.note} <a href={ev.url}>Source</a></p>}
             </div>
