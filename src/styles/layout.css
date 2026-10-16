@@ -118,6 +118,9 @@
     .has-cover > a {
         position     : relative;
         display      : grid;
+        /* An explicit width, so the ratio sets the height from it and not, where the row is taller, the width from
+           the height */
+        width        : 100%;
         aspect-ratio : 14 / 3;
     }
 
