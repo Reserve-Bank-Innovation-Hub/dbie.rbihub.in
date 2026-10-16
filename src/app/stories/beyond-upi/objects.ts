@@ -353,6 +353,59 @@ export const carSvg = (i : number) : Drawn => {
     ].join(""));
 };
 
+// TRUCKS ==============================================================================================================
+// Trucks seen from above, facing right, at the same scale as the cars (56 units across): a mini truck with an open bed,
+// a tipper with a load of sand, a container truck, a tanker and a long hauler with a trailer. Each comes in a few
+// Kosh colours; `variant` picks the colour.
+const TRUCK_TONES = [ [ "#d27a64", "#8f4433" ], [ "#478f93", "#1e4e51" ], [ "#a079ee", "#5a2fb0" ], [ "#f4c25a", "#c98a14" ], [ "#86a83c", "#4a6a14" ], [ "#e9e4d8", "#a9a296" ] ] as const;
+export const TRUCK_KINDS = [ "mini", "tipper", "container", "tanker", "hauler" ] as const;
+export type TruckKind = (typeof TRUCK_KINDS)[number];
+export const truckSvg = (kind : TruckKind, variant : number) : Drawn => {
+    const t = TRUCK_TONES[((variant % TRUCK_TONES.length) + TRUCK_TONES.length) % TRUCK_TONES.length], cab = TRUCK_TONES[(variant + 2) % TRUCK_TONES.length];
+    const W = { mini : 128, tipper : 176, container : 228, tanker : 236, hauler : 290 }[kind], H = 60, y0 = 5, h = 50;
+    const cabL = kind === "mini" ? 34 : 42, cx = W - cabL - 3;                        // the cab at the front (right)
+    const grad = (id : string, c : readonly [ string, string ]) => `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="0.5" stop-color="${c[1]}"/><stop offset="1" stop-color="${c[0]}"/></linearGradient>`;
+    const body : string[] = [];
+    const bodyX = 3, bodyL = cx - bodyX - 3;
+    if (kind === "mini") {
+        body.push(`<rect x="${bodyX}" y="${y0}" width="${bodyL}" height="${h}" rx="3" fill="#6c645b"/><rect x="${bodyX + 4}" y="${y0 + 4}" width="${bodyL - 8}" height="${h - 8}" rx="2" fill="#3f3a35"/>`);
+        // a load of sacks
+        for (let r = 0; r < 2; r++) for (let c = 0; c < 3; c++) body.push(`<rect x="${bodyX + 8 + c * 26}" y="${y0 + 8 + r * 18}" width="22" height="15" rx="6" fill="#e1d5bc" stroke="#b8a888" stroke-width="0.8"/>`);
+    } else if (kind === "tipper") {
+        body.push(`<rect x="${bodyX}" y="${y0}" width="${bodyL}" height="${h}" rx="4" fill="url(#tb)"/><rect x="${bodyX + 5}" y="${y0 + 5}" width="${bodyL - 10}" height="${h - 10}" rx="3" fill="#000" opacity="0.25"/>`);
+        // the load of sand fills the bed, its ridge a lighter band along the middle
+        body.push(`<rect x="${bodyX + 6}" y="${y0 + 6}" width="${bodyL - 12}" height="${h - 12}" rx="2" fill="#d9b779"/><rect x="${bodyX + 12}" y="${y0 + h / 2 - 7}" width="${bodyL - 24}" height="11" rx="2" fill="#ecd3a0"/>`);
+    } else if (kind === "container" || kind === "hauler") {
+        const L = kind === "hauler" ? bodyL : bodyL;
+        body.push(`<rect x="${bodyX}" y="${y0}" width="${L}" height="${h}" rx="2" fill="url(#tb)"/>`);
+        for (let x = bodyX + 8; x < bodyX + L - 4; x += 7) body.push(`<line x1="${x}" y1="${y0 + 2}" x2="${x}" y2="${y0 + h - 2}" stroke="#000" stroke-opacity="0.16" stroke-width="1.2"/>`);
+        body.push(`<rect x="${bodyX}" y="${y0}" width="${L}" height="${h}" rx="2" fill="none" stroke="#000" stroke-opacity="0.3"/>`);
+        if (kind === "hauler") body.push(`<rect x="${bodyX + L * 0.49}" y="${y0 - 1}" width="3" height="${h + 2}" fill="#000" opacity="0.35"/>`);
+    } else {
+        // the tanker: a long cylinder seen from above, lit along its top, a walkway down the middle
+        body.push(`<rect x="${bodyX}" y="${y0 + 2}" width="${bodyL}" height="${h - 4}" rx="${(h - 4) / 2}" fill="url(#tk)"/>`);
+        body.push(`<rect x="${bodyX + 14}" y="${y0 + h / 2 - 3}" width="${bodyL - 28}" height="6" rx="1" fill="#6c645b" opacity="0.7"/>`);
+        for (const f of [ 0.25, 0.5, 0.75 ]) body.push(`<circle cx="${bodyX + bodyL * f}" cy="${y0 + h / 2}" r="5" fill="#9a948c" stroke="#5a5550"/>`);
+    }
+    return wrap(W, H, [
+        `<defs>${grad("tb", t)}${grad("tc", cab)}`,
+        `<linearGradient id="tk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8c8f95"/><stop offset="0.35" stop-color="#f4f4f2"/><stop offset="0.6" stop-color="#c9ccd1"/><stop offset="1" stop-color="#6d7178"/></linearGradient>`,
+        `<filter id="s" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter></defs>`,
+        `<rect x="4" y="${y0 + 4}" width="${W - 6}" height="${h}" rx="6" fill="#000" opacity="0.3" filter="url(#s)"/>`,
+        ...body,
+        // the cab: roof, windscreen and mirrors
+        `<rect x="${cx - 6}" y="${y0 + 10}" width="6" height="${h - 20}" fill="#2f2f2f"/>`,
+        `<rect x="${cx + cabL - 12}" y="${y0 - 4}" width="6" height="5" rx="1.5" fill="#2f2f2f"/><rect x="${cx + cabL - 12}" y="${y0 + h - 1}" width="6" height="5" rx="1.5" fill="#2f2f2f"/>`,
+        `<rect x="${cx}" y="${y0}" width="${cabL}" height="${h}" rx="7" fill="url(#tc)"/>`,
+        `<rect x="${cx + cabL - 11}" y="${y0 + 4}" width="8" height="${h - 8}" rx="3" fill="#1b2430"/>`,
+        `<rect x="${cx + cabL - 9}" y="${y0 + 6}" width="2.5" height="12" rx="1" fill="#fff" opacity="0.3"/>`,
+        `<rect x="${cx + cabL - 15}" y="${y0 + h / 2 - 3}" width="3" height="6" rx="0.6" fill="#fff"/>`,
+        `<rect x="${cx + 4}" y="${y0 + 6}" width="${cabL - 18}" height="${h - 12}" rx="4" fill="#fff" opacity="0.12"/>`,
+        `<rect x="${W - 5}" y="${y0 + 5}" width="3.5" height="8" rx="1.5" fill="#fffbe6"/><rect x="${W - 5}" y="${y0 + h - 13}" width="3.5" height="8" rx="1.5" fill="#fffbe6"/>`,
+        `<rect x="${bodyX}" y="${y0 + 3}" width="3" height="7" rx="1" fill="#d0201a"/><rect x="${bodyX}" y="${y0 + h - 10}" width="3" height="7" rx="1" fill="#d0201a"/>`,
+    ].join(""));
+};
+
 // THE FASTAG CARD =====================================================================================================
 // The card a FASTag comes on: white, a slate-blue band with the issuing bank and a barcode, arrows each way, the
 // vehicle class in a circle. Only the plain word FASTag, and "National Bank" for the bank; no other marks.

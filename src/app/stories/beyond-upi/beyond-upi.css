@@ -214,6 +214,7 @@
     .qr-pop { animation : pop 0.3s ease-out both; }
     .toll-stage { position : relative; canvas { display : block; width : 100%; height : 100%; } }
     .toll-card { position : absolute; right : 3%; bottom : 2%; width : min(260px, 36%); transform : rotate(-5deg); filter : drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2)); }
+    .toll-note { font-size : 12px; }
     .prepaid-stage { display : grid; align-content : center; justify-items : center; gap : 4vh; }
     .tap { position : relative; width : min(100%, 720px); height : min(60vh, 540px); }
     .tap-reader { position : absolute; left : 50%; bottom : 0; height : 100%; transform : translateX(-20%); filter : drop-shadow(0 14px 26px rgba(0, 0, 0, 0.22)); }
