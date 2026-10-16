@@ -78,6 +78,11 @@ export const STORY_SECTIONS : ListSection[] = [
                 label       : "Money in, money out",
                 description : "Indians abroad sent home $135.4 billion in 2024-25 and keep $165.7 billion in Indian banks; in 2023-24 they sent 1.67 times what foreign companies invested. Indians at home sent $29.6 billion abroad, more than half of it for travel.",
             },
+            {
+                linkTo      : "/stories/beyond-upi",
+                label       : "Beyond UPI: everything else India pays with",
+                description : "In 2025-26 an RTGS payment averaged ₹65.0 lakh, a cheque ₹1.28 lakh and a UPI payment ₹1,301. RTGS carried 68.4% of all payment value in 0.12% of payments; cheques peaked at 146.1 crore in 2007-08.",
+            },
         ],
     },
     {

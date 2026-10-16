@@ -105,6 +105,7 @@ const processors = [
   'story-what-got-cheaper',
   'story-what-one-lakh-bought',
   'story-the-10-gram-question',
+  'story-beyond-upi',
   'home',   // derives from other processors' outputs — must stay last
 ];
 
