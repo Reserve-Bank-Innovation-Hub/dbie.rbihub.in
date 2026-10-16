@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T05:34:58.428Z",
-  "dev": "7dd141a",
+  "generated": "2026-10-16T06:02:32.367Z",
+  "dev": "0115283",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "bb7f9905f54c8180"
+  "digest": "ae6d49ce07598ce7"
  },
  "stories": [
   {
@@ -1388,6 +1388,7 @@
     "title": "From field to thali",
     "description": "What India grows and where, what the government buys at the minimum support price, and what India sells abroad and buys from abroad. A data story from the Reserve Bank’s Database on Indian Economy.",
     "headers": [
+     "From field to thali",
      "What India grows, sells and buys the most",
      "Grows the most",
      "Sells abroad the most",
@@ -1400,8 +1401,7 @@
      "In short",
      "The DBIE tables behind this story",
      "REFERENCES",
-     "METHOD",
-     "From field to thali | Stories — Database on Indian Economy"
+     "METHOD"
     ],
     "shows": [
      "Each crop's output, area and yield in LAND_LAST as a multiple of 1950-51.",
@@ -1419,7 +1419,8 @@
      "CPI_AG_RN",
      "WAGE_RATES_RN"
     ],
-    "files": 10
+    "files": 10,
+    "fromPage": true
    },
    "auto": true
   }
