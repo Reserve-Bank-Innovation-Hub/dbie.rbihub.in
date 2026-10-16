@@ -3,7 +3,8 @@
 
 export interface ListSection {
     title : string;
-    items : { linkTo : string; label : string; description ? : string }[];
+    // image: a cover drawn above the label, served from public/images/ (the Stories page uses it)
+    items : { linkTo : string; label : string; description ? : string; image ? : string }[];
 }
 
 export const HANDBOOK_SECTIONS : ListSection[] = [
