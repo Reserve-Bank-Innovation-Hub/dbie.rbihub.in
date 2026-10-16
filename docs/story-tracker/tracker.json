@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated": "2026-10-16T08:51:06.784Z",
-  "dev": "9caefc8",
+  "generated": "2026-10-16T10:49:37.398Z",
+  "dev": "3e1be76",
   "main": "184ab18",
   "prsChecked": true,
-  "digest": "52b3a4c921fb66be"
+  "digest": "1a37d929f8838f3f"
  },
  "stories": [
   {
@@ -977,8 +977,8 @@
     "description": "Ten grams of gold cost ₹3,417 in Mumbai in April 1990 and ₹1,42,606 in July 2026, about 42 times as much. How much of that is gold, how much the rupee, and how much the gap between the world price and Mumbai’s. Built from the prices and reserves published on the Reserve Bank’s DBIE.",
     "headers": [
      "The 10-gram question",
-     "The wedding year",
-     "Ten grams, month by month since April 1990",
+     "What ₹1,00,000 bought in gold",
+     "Price of ten grams",
      "Three engines: gold, the rupee, and Mumbai’s gap",
      "Gold against prices in general",
      "The country’s gold",
