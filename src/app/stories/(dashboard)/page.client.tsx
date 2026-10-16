@@ -43,15 +43,25 @@ const StoriesPage = () => {
 
                         <Div className="section-content">
                             {section.items.map(item => (
-                                <Div className="grid-cell" key={item.linkTo} padding="micro">
+                                <Div
+                                    className={item.image ? "grid-cell has-cover" : "grid-cell"}
+                                    key={item.linkTo}
+                                    padding={item.image ? undefined : "micro"}
+                                >
                                     <Link href={item.linkTo}>
-                                        <Text weight="600">{item.label}</Text>
-
-                                        {item.description && (
-                                            <Text size="small" opacity="80" weight="400">
-                                                {item.description}
-                                            </Text>
+                                        {item.image && (
+                                            <img className="story-cover" src={item.image} alt="" loading="lazy" />
                                         )}
+
+                                        <Div className="story-text" padding={item.image ? "micro" : undefined}>
+                                            <Text weight="600">{item.label}</Text>
+
+                                            {item.description && (
+                                                <Text size="small" opacity="80" weight="400">
+                                                    {item.description}
+                                                </Text>
+                                            )}
+                                        </Div>
                                     </Link>
                                 </Div>
                             ))}
