@@ -1,8 +1,8 @@
 // The note tower: each method's average payment in 2025-26 laid out on one long table in banknotes, true to count.
 // ₹500 notes come in bundles of 100 (₹50,000) under a paper band; what is left over is paid in the fewest notes and
 // coins of the current series (₹500, ₹200, ₹100, ₹50, ₹20, ₹10 notes; ₹5, ₹2, ₹1 coins). RTGS's 130 bundles stand
-// four to a layer. The camera starts on the whole table, rises to the top of the RTGS tower, then travels down the
-// table to a toll's ₹133 at table height, and pulls back. Names are set over the scene by the page (`onLabels`).
+// four to a layer. The camera watches the stacks build, rises to the top of the RTGS tower, comes down to the cheque's
+// stack, travels on to UPI's few notes at table height, and pulls back over the whole table. Names are set over the scene by the page (`onLabels`).
 
 // REACT CORE ==========================================================================================================
 import * as THREE from "three";
@@ -175,8 +175,9 @@ export function mountTowerScene(canvas : HTMLCanvasElement, o : TowerOptions) : 
     };
     const progressAt = (t : number) => stackDrops.map(list => list.filter(d => t >= d.t0 + FALL).length / Math.max(1, list.length));
 
-    // the camera's path: over the whole table, up to the top of the tower, down the table, and back
+    // the camera's path: up to the top of the RTGS tower, down to the cheque's stack, on to UPI's, and back over the table
     const last = XAT(o.stacks.length - 1);
+    const at = (key : MethodKey) => { const i = Math.max(0, o.stacks.findIndex(st => st.key === key)); return { x : XAT(i), top : tops[i].y }; };
     const towerTop = tops[0].y;
     let aspect = 1;
     // far enough back to hold the whole table and the tower's top, a little above it
@@ -188,16 +189,17 @@ export function mountTowerScene(canvas : HTMLCanvasElement, o : TowerOptions) : 
         return { p : new THREE.Vector3(cx, towerTop * 0.55 + far * 0.3, far * (aspect > 1.2 ? 1.14 : 1.0)), t : new THREE.Vector3(cx, towerTop * 0.62 + far * 0.1, 0) };
     };
     const keys = () => {
-        const ov = overview();
+        const ov = overview(), cq = at("paper"), upi = at("upi");
         return [
             // the build, seen low along the table from its small end, the tower rising behind, drifting in
             // (from behind the table, so the tower rises on the right, clear of the words on the left)
             { at : 0,       p : new THREE.Vector3(last + 2.8, 1.5, -5.0), t : new THREE.Vector3(last * 0.42, 0.75, 0.4) },
             { at : T_BUILD, p : new THREE.Vector3(last + 1.6, 1.25, -4.0), t : new THREE.Vector3(last * 0.4, 0.8, 0.4) },
             { at : T_BUILD + 2.6, p : new THREE.Vector3(1.6, towerTop + 1.6, 3.6), t : new THREE.Vector3(0, towerTop - 0.4, 0) },
-            { at : T_BUILD + 5.0, p : new THREE.Vector3(GAP * 2.2, 1.4, 3.4), t : new THREE.Vector3(GAP * 1.6, 0.15, 0) },
-            { at : T_BUILD + 7.6, p : new THREE.Vector3(last - GAP * 0.6, 0.55, 2.2), t : new THREE.Vector3(last - GAP * 1.2, 0.02, 0) },
-            { at : T_BUILD + 9.2, p : new THREE.Vector3(last + 0.4, 0.4, 1.3), t : new THREE.Vector3(last, 0.02, 0) },
+            { at : T_BUILD + 5.0, p : new THREE.Vector3(cq.x + 1.0, cq.top + 1.1, 2.8), t : new THREE.Vector3(cq.x, cq.top - 0.1, 0) },
+            { at : T_BUILD + 6.2, p : new THREE.Vector3(cq.x + 1.3, cq.top + 0.9, 2.6), t : new THREE.Vector3(cq.x + 0.2, cq.top - 0.1, 0) },
+            { at : T_BUILD + 8.6, p : new THREE.Vector3(upi.x + 0.5, 0.55, 1.6), t : new THREE.Vector3(upi.x, 0.03, 0) },
+            { at : T_BUILD + 9.4, p : new THREE.Vector3(upi.x + 0.6, 0.5, 1.5), t : new THREE.Vector3(upi.x + 0.05, 0.03, 0) },
             { at : T_END, ...ov },
         ];
     };

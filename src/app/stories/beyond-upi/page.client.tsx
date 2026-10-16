@@ -88,7 +88,7 @@ export const BeyondUpiPage = () => {
                 <TowerStage />
                 <div className="stage-words">
                     <Head>The average RTGS payment was {inr(H.times)} times the average UPI payment in {H.fy}</Head>
-                    <Line>Each average payment is laid out in ₹500 notes, a bundle being 100 notes, ₹50,000. An RTGS payment makes a tower of {H.bundles.rtgs.toFixed(1)} bundles; a UPI payment is {H.notes.upi.toFixed(1)} notes.</Line>
+                    <Line>Each average payment is laid out in ₹500 notes, a bundle being 100 notes, ₹50,000.</Line>
                     <Source>Each method’s value over its number of payments, {H.fy}; notes and coins of the current series. {PSI}.</Source>
                 </div>
             </section>

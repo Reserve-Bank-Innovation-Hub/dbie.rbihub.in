@@ -211,7 +211,7 @@
     .card-read ~ .event-line { transition : opacity 0.4s; &:not(.is-shown) { opacity : 0; } }
 
     /* the counter and the toll plaza */
-    .qr-pop { animation : pop 0.3s ease-out both; }
+    .qr-pop { animation : pop 0.3s ease-out both; transform-box : fill-box; transform-origin : center; }
     .toll-stage { position : relative; canvas { display : block; width : 100%; height : 100%; } }
     .toll-card { position : absolute; right : 3%; bottom : 2%; width : min(260px, 36%); transform : rotate(-5deg); filter : drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2)); }
     .toll-note { font-size : 12px; }
@@ -236,6 +236,9 @@
     .tilt { display : grid; grid-template-rows : auto minmax(0, 1fr); gap : 2vh; height : 100%; }
     .tilt-head { max-width : 920px; display : grid; gap : 6px; .chapter-title { font-size : clamp(24px, 2.6vw, 38px) !important; } }
     .tilt-stage { min-height : 0; svg { display : block; } }
+    .tilt.is-wide { grid-template-rows : minmax(0, 1fr); margin-left : calc(-1 * clamp(0px, 2vw, 32px));
+        .tilt-head, .tilt-stage { grid-area : 1 / 1; }
+        .tilt-head { max-width : 36%; align-self : start; position : relative; z-index : 1; } }
     .tilt-axis line { stroke : color-mix(in srgb, var(--ink), transparent 82%); }
     .tilt-axis rect { fill : var(--ink); }
     .tilt-axis text { font : 700 13px var(--font-sans-serif); fill : var(--page); }

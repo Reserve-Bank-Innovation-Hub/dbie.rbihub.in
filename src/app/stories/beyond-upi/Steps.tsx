@@ -338,18 +338,32 @@ export const CardWallStep = ({ layout, children } : { layout? : Layout; children
 const QR_FROM = UPI_QR.findIndex(v => v != null);
 const RATIO = MONTHS.map((_, m) => (UPI_QR[m] != null && POS[m] ? (UPI_QR[m] as number) / (POS[m] as number) : null));
 const STANDEES = ([ "tent", "acrylic", "card" ] as const).map(k => dataUri(standeeSvg(k).svg)), POS_IMG = dataUri(posKeypadSvg("3,922").svg);
-// the standees spiral out from a clear ring round the PoS machine (CLEAR, in steps of the spiral), so the machine stands apart
-const CLEAR = 3.3;
-const spiral = (j : number) => { const a = j * 2.399963, r = CLEAR + Math.sqrt(j) * 0.92; return { x : Math.cos(a) * r, y : Math.sin(a) * r }; };
+// the standees coil out round the PoS machine on an Archimedean spiral, from a clear ring (CLEAR, in steps) wide
+// enough to leave a gap above and below the machine; each next standee sits ARC steps further along the coil, and the coils are GAP steps apart,
+// so a new month's standees appear at the spiral's tip
+const CLEAR = 5.5, ARC = 1.45, GAP = 1.85;
+const COIL = (() => {
+    const most = Math.ceil(Math.max(...RATIO.map(v => v ?? 0))) + 1, out : { x : number; y : number; r : number }[] = [];
+    for (let j = 0, t = 0; j < most; j++) {
+        const r = CLEAR + GAP * t / (2 * Math.PI), a = t - Math.PI / 2;
+        out.push({ x : Math.cos(a) * r, y : Math.sin(a) * r, r });
+        t += ARC / r;
+    }
+    return out;
+})();
+const spiral = (j : number) => COIL[Math.min(j, COIL.length - 1)];
+const POS_W = 0.507, POS_H = 0.736;
 export const CounterStep = ({ layout, children } : { layout? : Layout; children : ReactNode }) => {
     const { ref, size, seen } = useStage<HTMLDivElement>();
     const [ m, setM ] = useState(LM), [ playing, setPlaying ] = useState(false);
     useEffect(() => { if (seen && !reducedMotion()) { setM(QR_FROM); setPlaying(true); } }, [ seen ]);
     useEffect(() => { if (!playing) return; if (m >= LM) { setPlaying(false); return; } const t = setTimeout(() => setM(m + 1), 110); return () => clearTimeout(t); }, [ playing, m ]);
     const r = RATIO[m] ?? 0, n = Math.round(r), { w, h } = size;
-    // the spiral's step fits the most standees any month has inside the stage; a standee is a little wider than a step
-    const most = Math.max(...RATIO.map(v => v ?? 0)), reach = CLEAR + Math.sqrt(most) * 0.92 + 0.7;
-    const cx = w / 2, cy = h / 2, step = Math.min(w / 2 / reach, h / 2 / reach / 1.05) * 0.99, qs = step * 1.45;
+    // the spiral's step fits the coil for the most standees any month has inside the stage; a standee is a little wider than a step
+    const reach = COIL[COIL.length - 1].r + 0.7;
+    // the PoS machine is a fixed share of the stage (POS_W, POS_H of the fit); the standees shrink to clear it
+    const cx = w / 2, cy = h / 2, fit = Math.min(w / 2, h / 2 / 1.05) * 0.99, step = fit / reach, qs = step * 1.45;
+    const pw = fit * POS_W, ph = fit * POS_H;
     return (
         <div className={splitClass(layout)}>
             <div className="split-card">
@@ -368,7 +382,7 @@ export const CounterStep = ({ layout, children } : { layout? : Layout; children 
                         <defs><radialGradient id="pos-halo"><stop offset="0.6" stopColor="var(--card)" stopOpacity="0.95" /><stop offset="1" stopColor="var(--card)" stopOpacity="0" /></radialGradient></defs>
                         <ellipse cx={cx} cy={cy} rx={step * (CLEAR - 0.2)} ry={step * (CLEAR - 0.2) * 1.05} fill="url(#pos-halo)" />
                         {Array.from({ length : n }, (_, j) => { const p = spiral(j); return <image key={j} className="qr-pop" href={STANDEES[j % 3]} x={cx + p.x * step - qs / 2} y={cy + p.y * step * 1.05 - qs * 0.69} width={qs} height={qs * 1.375} />; })}
-                        <image href={POS_IMG} x={cx - qs * 1.55} y={cy - qs * 2.25} width={qs * 3.1} height={qs * 4.5} />
+                        <image href={POS_IMG} x={cx - pw / 2} y={cy - ph / 2} width={pw} height={ph} />
                     </svg>
                 )}
             </div>
@@ -545,9 +559,10 @@ export const TiltStep = ({ children } : { children : ReactNode }) => {
         const first = FYS.findIndex((_, i) => avg(r.key, i) != null);
         return { ...r, from : avg(r.key, first) as number, fromFy : FYS[first] };
     }), []);
-    const { w, h } = size, narrow = w < 600;
+    // wide: the words sit top-left over the stage and the chart moves right into the full height
+    const { w, h } = size, narrow = w < 600, wide = w >= 1000;
     const pad = { t : 52, b : 20 }, Y = (v : number) => pad.t + (1 - (Math.log10(v) - LO) / (HI - LO)) * (h - pad.t - pad.b);
-    const x0 = narrow ? w * 0.36 : w * 0.3, x1 = narrow ? w * 0.6 : w * 0.58;
+    const x0 = narrow ? w * 0.36 : wide ? w * 0.53 : w * 0.3, x1 = narrow ? w * 0.6 : wide ? w * 0.78 : w * 0.58;
     // labels in value order, pushed apart where they would touch
     const spread = (vals : number[]) => {
         const order = vals.map((v, i) => [ Y(v) + 4, i ] as const).sort((a, b) => a[0] - b[0]), out : number[] = [];
@@ -558,7 +573,7 @@ export const TiltStep = ({ children } : { children : ReactNode }) => {
     const ly = spread(rows.map(r => r.from)), ry = spread(rows.map(r => r.avg));
     const chipX = x1 + (narrow ? 0 : 150);
     return (
-        <div className="tilt">
+        <div className={`tilt ${wide ? "is-wide" : ""}`}>
             <div className="tilt-head">{children}</div>
             <div className="tilt-stage" ref={ref}>
                 {w > 0 && (
