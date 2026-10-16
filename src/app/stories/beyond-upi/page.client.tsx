@@ -121,7 +121,7 @@ export const BeyondUpiPage = () => {
             </section>
 
             {/* 3 · PAPER ============================================================================================== */}
-            <section className="slide is-step" data-slide data-section="3">
+            <section className="slide is-step is-white" data-slide data-section="3">
                 <ChequeWallStep layout="left">
                     <Head>Cheques peaked at {H.cheque.peak.toFixed(1)} crore in {H.cheque.peakFy}; there were {H.cheque.last.toFixed(1)} crore in {H.fy}</Head>
                     <Line>In {H.cheque.firstFy} there were {H.cheque.first.toFixed(1)} crore. Cheques and other paper were {pct(H.all.paperShareFrom)} of all payments in {FYS[0]}, and {pct(H.all.paperShareTo, 2)} in {H.fy}.</Line>

@@ -9,11 +9,11 @@
 
 // REACT CORE ==========================================================================================================
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { Kalam } from "next/font/google";
+import { Caveat } from "next/font/google";
 
 // LOCAL ===============================================================================================================
 import { TimeBar, inWords } from "./Steps";
-import { chequeSvg, dataUri } from "./instruments";
+import { chequeCoverSvg, chequeLeafSvg, dataUri } from "./instruments";
 import { inr } from "./methods";
 import { Layout, reducedMotion, splitClass, useStage } from "./stage";
 
@@ -23,12 +23,14 @@ import { EVENTS, FYS, PAY } from "./data.gen";
 // STYLES ==============================================================================================================
 import "./chequebook.css";
 
-// an Indian handwriting face, legible at a cheque's small sizes
-const kalam = Kalam({ weight : [ "400", "700" ], subsets : [ "latin" ] });
+// a quick pen hand, legible at a cheque's small sizes
+const caveat = Caveat({ weight : [ "500", "700" ], subsets : [ "latin" ] });
 
 const LAST = FYS.length - 1;
 const AVG = FYS.map((_, i) => { const v = PAY.paper.value[i], n = PAY.paper.volume[i]; return v != null && n ? v * 1e7 / (n * 1e5) : 0; });
-const BLANK = dataUri(chequeSvg());
+// each leaf carries its own cheque number, from 000101 for 2015-16
+const FIRST = 101;
+const LEAF = Array.from({ length : FYS.length + 2 }, (_, i) => dataUri(chequeLeafSvg(FIRST + i))), COVER = dataUri(chequeCoverSvg());
 // the film's beats, in milliseconds: the camera's move, the cover, the ink (done by 1.3 s), the rip, the fall
 const PAN_MS = 1700, OPEN_MS = 1200, WRITE_MS = 1550, RIP_MS = 380, FALL_MS = 1500;
 // made-up payees, one a year; none is meant to be a real firm or person
@@ -44,6 +46,8 @@ const twoLines = (v : number) : [ string, string ] => {
     return [ a, words.join(" ") ];
 };
 const dateOf = (fy : string) => `3103${fy.slice(0, 2)}${fy.slice(5, 7)}`;
+// one digit to a date box: the boxes are 13 units wide from x = 282
+const DATE_X = Array.from({ length : 8 }, (_, i) => 288.5 + i * 13).join(" ");
 // the torn edge along the perforation: small teeth down the leaf's left side
 const TEETH = `polygon(${Array.from({ length : 25 }, (_, i) => `${i % 2 ? 1.2 : 0}% ${i / 24 * 100}%`).join(", ")}, 100% 100%, 100% 0)`;
 
@@ -54,7 +58,7 @@ const Ink = ({ k, animate } : { k : number; animate : boolean }) => {
     const [ w1, w2 ] = twoLines(AVG[k]);
     return (
         <svg viewBox="0 0 400 180" className={`cb-ink ${animate ? "is-writing" : ""}`} aria-hidden="true">
-            <text className="cb-date" x="289" y="20.5">{dateOf(FYS[k])}</text>
+            <text className="cb-date" x={DATE_X} y="21" textAnchor="middle">{dateOf(FYS[k])}</text>
             <text className="cb-hand cb-payee" x="44" y="54">{payee(k)}</text>
             <text className="cb-hand cb-w1" x="56" y="76">{w1}</text>
             <text className="cb-hand cb-w2" x="20" y="96">{w2}</text>
@@ -124,7 +128,7 @@ export const ChequebookStep = ({ layout, children } : { layout? : Layout; childr
             </div>
             <div className="split-stage cb-stage" ref={ref}>
                 <div className={`cb-scene ${phase === "desk" ? "is-desk" : ""}`}>
-                    <div className={`cb-book ${open ? "is-open" : ""}`} role="img" style={{ "--cb-hand" : kalam.style.fontFamily } as React.CSSProperties}
+                    <div className={`cb-book ${open ? "is-open" : ""}`} role="img" style={{ "--cb-hand" : caveat.style.fontFamily } as React.CSSProperties}
                         aria-label={`A chequebook, open on a cheque for the average cheque of ${FYS[k]}: ₹${inr(AVG[k])}, ${inWords(AVG[k])}.`}>
                         <div className="cb-inside">
                             <div className="cb-stub">
@@ -134,24 +138,19 @@ export const ChequebookStep = ({ layout, children } : { layout? : Layout; childr
                                 </ol>
                             </div>
                             <div className="cb-perf" />
-                            <div className="cb-under is-2"><img src={BLANK} alt="" /></div>
-                            <div className="cb-under"><img src={BLANK} alt="" /></div>
+                            <div className="cb-under is-2"><img src={LEAF[k + 2]} alt="" /></div>
+                            <div className="cb-under"><img src={LEAF[k + 1]} alt="" /></div>
                             <div key={k} className={`cb-leaf ${phase === "rip" ? "is-ripping" : ""}`} style={{ clipPath : TEETH }}>
-                                <img src={BLANK} alt="" />
+                                <img src={LEAF[k]} alt="" />
                                 {inked && <Ink k={k} animate={phase === "write" || phase === "rip"} />}
                             </div>
                             {falling.map(f => (
                                 <div key={f.id} className="cb-leaf is-falling" style={{ clipPath : TEETH }} aria-hidden="true">
-                                    <img src={BLANK} alt="" /><Ink k={f.k} animate={false} />
+                                    <img src={LEAF[f.k]} alt="" /><Ink k={f.k} animate={false} />
                                 </div>
                             ))}
                         </div>
-                        <div className="cb-cover" aria-hidden="true">
-                            <span className="cb-emblem">₹</span>
-                            <span className="cb-bank">NATIONAL BANK</span>
-                            <span className="cb-title">Cheque book</span>
-                            <span className="cb-leaves">25 leaves · CTS-2010</span>
-                        </div>
+                        <div className="cb-cover" aria-hidden="true"><img src={COVER} alt="" /></div>
                     </div>
                 </div>
                 <p className="cb-caption" aria-live="polite">{inked ? <><b>{FYS[k]}</b> · the average cheque <b>₹{inr(AVG[k])}</b></> : " "}</p>

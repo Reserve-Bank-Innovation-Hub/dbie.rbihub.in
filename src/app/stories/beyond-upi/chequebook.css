@@ -6,7 +6,7 @@
         .split.cb-split:not(.is-left):not(.is-top) { grid-template-columns : minmax(0, 1fr) min(340px, 27vw); }
         .split.cb-split.is-left { grid-template-columns : min(340px, 27vw) minmax(0, 1fr); }
     }
-    .cb-stage { display : grid; align-content : center; justify-items : center; gap : 18px; perspective : 1500px; perspective-origin : 50% 30%; }
+    .cb-stage { display : grid; align-content : center; justify-items : center; gap : 40px; perspective : 1500px; perspective-origin : 50% 30%; }
     /* the camera: the book first lies on a desk at an angle, then comes round to face the reader */
     .cb-scene {
         width : 95%; display : grid; justify-items : center; transform-style : preserve-3d;
@@ -15,34 +15,33 @@
     }
     .cb-book {
         position : relative; width : 100%; aspect-ratio : 540 / 200; container-type : inline-size;
-        border-radius : 10px; background : #2c4114; box-shadow : 0 24px 50px rgba(0, 0, 0, 0.22), 0 4px 10px rgba(0, 0, 0, 0.12);
+        border-radius : 10px; background : #215f9c; box-shadow : 0 24px 50px rgba(0, 0, 0, 0.22), 0 4px 10px rgba(0, 0, 0, 0.12);
         transform-style : preserve-3d;
     }
-    .cb-inside { position : absolute; inset : 1.4cqw; border-radius : 6px; background : #ece2cf; }
+    .cb-inside { position : absolute; inset : 1.4cqw; border-radius : 6px; background : #eef1f2; }
     .cb-stub {
-        position : absolute; left : 0; top : 0; bottom : 0; width : 22%; padding : 1.6cqw 1.4cqw; background : #f7ecdb;
+        position : absolute; left : 0; top : 0; bottom : 0; width : 22%; padding : 1.6cqw 1.4cqw; background : #fbfcfd;
         display : grid; grid-template-rows : auto 1fr; gap : 0.8cqw; font-family : var(--font-sans-serif);
     }
-    .cb-stub-head { font-size : 1.25cqw; font-weight : 700; letter-spacing : 0.12em; text-transform : uppercase; color : #7a6650; }
+    .cb-stub-head { font-size : 1.25cqw; font-weight : 700; letter-spacing : 0.12em; text-transform : uppercase; color : #5d7a99; }
     .cb-notes { list-style : none; margin : 0; padding : 0; display : grid; align-content : start; gap : 0.5cqw; }
     .cb-note {
-        display : flex; justify-content : space-between; gap : 0.6cqw; padding-bottom : 0.35cqw; border-bottom : 1px dashed #d8c3a3;
-        font-size : 1.35cqw; color : #7a6650; animation : cb-note-in 0.4s ease-out both;
-        b { font-family : var(--cb-hand), cursive; font-weight : 700; font-size : 1.45cqw; color : #23324f; }
+        display : flex; justify-content : space-between; gap : 0.6cqw; padding-bottom : 0.35cqw; border-bottom : 1px dashed #c4d6e4;
+        font-size : 1.35cqw; color : #5d7a99; animation : cb-note-in 0.4s ease-out both;
+        b { font-family : var(--cb-hand), cursive; font-weight : 700; font-size : 1.8cqw; color : #23324f; }
     }
-    .cb-perf { position : absolute; left : 22%; top : 0; bottom : 0; border-left : 2px dashed #b9a07e; z-index : 3; }
-    .cb-under, .cb-leaf { position : absolute; left : 22.4%; right : 0.6%; top : 4%; img { display : block; width : 100%; } }
-    .cb-under { transform : translate(0.5cqw, 0.6cqw); filter : brightness(0.97); &.is-2 { transform : translate(1cqw, 1.2cqw); filter : brightness(0.93); } }
+    .cb-perf { position : absolute; left : 22%; top : 0; bottom : 0; border-left : 2px dashed #9fb6c9; z-index : 3; }
+    .cb-under, .cb-leaf { position : absolute; left : 22.4%; right : 0.6%; top : 0.8%; img { display : block; width : 100%; } }
+    .cb-under { transform : translateY(0.35cqw); filter : brightness(0.97); &.is-2 { transform : translateY(0.7cqw); filter : brightness(0.93); } }
     .cb-leaf { z-index : 2; filter : drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12)); transform-origin : 0% 50%;
         &.is-ripping { animation : cb-rip 0.38s ease-out both; }
         &.is-falling { z-index : 6; pointer-events : none; filter : drop-shadow(0 12px 18px rgba(0, 0, 0, 0.22)); animation : cb-fall 1.5s both; } }
     .cb-ink { position : absolute; inset : 0; width : 100%; height : 100%;
         text { fill : #23324f; }
-        .cb-date { font : 9px Menlo, Consolas, monospace; letter-spacing : 7.3px; }
-        .cb-date { font-family : var(--cb-hand), Menlo, monospace; font-size : 10px; font-weight : 700; letter-spacing : 7.1px; }
-        .cb-hand { font-family : var(--cb-hand), "Segoe Print", cursive; font-size : 11px; }
-        .cb-payee { font-size : 12.5px; font-weight : 700; }
-        .cb-fig { font-size : 12.5px; font-weight : 700; }
+        .cb-date { font-family : var(--cb-hand), Menlo, monospace; font-size : 13px; font-weight : 700; }
+        .cb-hand { font-family : var(--cb-hand), "Segoe Print", cursive; font-size : 14px; font-weight : 500; }
+        .cb-payee { font-size : 16px; font-weight : 700; }
+        .cb-fig { font-size : 16px; font-weight : 700; }
         .cb-sign { fill : none; stroke : #23324f; stroke-width : 1.1; stroke-linecap : round; }
         &.is-writing {
             text, .cb-sign { clip-path : inset(0 100% 0 0); animation : cb-write 0.3s ease-out both; }
@@ -55,24 +54,16 @@
         }
     }
     .cb-cover {
-        position : absolute; inset : 0; z-index : 5; border-radius : 10px; transform-origin : 0 50%; transition : transform 0.9s cubic-bezier(0.6, 0, 0.3, 1), opacity 0.2s 0.75s;
-        backface-visibility : hidden; display : grid; place-content : center; justify-items : center; gap : 0.8cqw;
-        background :
-            repeating-radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
-            linear-gradient(135deg, #3f5a1e, #2c4114);
-        box-shadow : inset 0 0 0 1.2cqw #2c4114, inset 0 0 0 1.35cqw #b8964a55;
-        span { background : linear-gradient(180deg, #f1d991, #b8913f); -webkit-background-clip : text; background-clip : text; color : transparent; }
+        position : absolute; inset : 0; z-index : 5; border-radius : 10px; overflow : hidden; transform-origin : 0 50%;
+        transition : transform 0.9s cubic-bezier(0.6, 0, 0.3, 1), opacity 0.2s 0.75s; backface-visibility : hidden;
+        img { display : block; width : 100%; height : 100%; }
     }
     .cb-book.is-open .cb-cover { transform : rotateY(-178deg); opacity : 0; }
     .cb-scene.is-desk .cb-book { box-shadow : 30px 40px 60px rgba(0, 0, 0, 0.28); }
-    .cb-emblem { display : grid; place-items : center; width : 6cqw; height : 6cqw; border-radius : 50%; border : 0.3cqw solid #d6b56a; font : 700 3.4cqw var(--font-sans-serif); }
-    .cb-bank { font : 700 3cqw var(--font-sans-serif); letter-spacing : 0.25em; }
-    .cb-title { font : 600 2.4cqw var(--font-serif, Georgia, serif); font-style : italic; }
-    .cb-leaves { font : 500 1.3cqw var(--font-sans-serif); letter-spacing : 0.12em; text-transform : uppercase; }
     .cb-caption { margin : 0; font-size : 17px; color : var(--ink-soft); min-height : 1.5em; b { color : var(--paper); font-weight : 700; } }
 
     @media (max-width : 760px) {
-        .cb-stage { gap : 10px; }
+        .cb-stage { gap : 22px; }
         .cb-caption { font-size : 14px; }
     }
 }
