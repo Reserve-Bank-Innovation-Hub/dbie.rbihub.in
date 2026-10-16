@@ -163,19 +163,30 @@
         &.is-drawn { .sz-bar { transform : none; } .sz-fall { transform : none; } }
     }
 
-    /* the guess */
-    .guess-control { display : grid; gap : 10px; label { font-size : 15px; b { color : var(--accent); font-size : 18px; } } input { width : 100%; accent-color : var(--accent); } }
-    .guess-sub { display : block; font-size : 12.5px; color : var(--ink-soft); }
-    .lock { justify-self : start; border : 0; border-radius : 8px; padding : 9px 16px; background : var(--accent); color : #fff; font : 600 14px var(--font-sans-serif); cursor : pointer; &:disabled { opacity : 0.55; cursor : default; } }
+    /* the guess: four things to choose from */
+    .guess-grid { display : grid; grid-template-columns : repeat(2, minmax(0, 1fr)); gap : clamp(28px, 6vh, 64px) clamp(10px, 1.6vw, 20px); align-content : center; }
+    /* no cards: a large picture with its price and name under it; picking marks the label, not a box */
+    .guess-card {
+        position : relative; display : grid; justify-items : center; gap : 2px; padding : 0; border : 0; background : none; cursor : pointer; text-align : center; color : var(--ink);
+        transition : transform 0.25s, opacity 0.3s;
+        .gc-art svg { width : clamp(150px, 19vw, 280px); height : auto; display : block; filter : drop-shadow(0 10px 18px color-mix(in srgb, var(--ink), transparent 88%)); }
+        b { font : 700 clamp(20px, 2vw, 28px) var(--font-serif, serif); }
+        span { font-size : 14px; color : var(--ink); }
+        em { font : 700 11px var(--font-sans-serif); font-style : normal; padding : 3px 9px; border-radius : 999px; background : var(--accent); color : #fff; margin-top : 4px; }
+        em.is-answer { background : var(--rtgs); }
+        &:hover:not(:disabled) { transform : translateY(-4px); }
+        &:focus-visible { outline : 2px solid var(--accent); outline-offset : 6px; border-radius : 8px; }
+        &:disabled { cursor : default; }
+        &.is-picked b { color : var(--accent); }
+        &.is-right b { color : var(--rtgs); }
+        &.is-dim { opacity : 0.35; }
+    }
     .guess-answer {
-        display : grid; gap : 2px; min-height : 5.5em; opacity : 0; transition : opacity 0.5s; &.is-shown { opacity : 1; }
+        display : grid; gap : 2px; min-height : 6em; opacity : 0; transition : opacity 0.5s; &.is-shown { opacity : 1; }
         .ga-label { font : 600 12px var(--font-sans-serif); letter-spacing : 0.04em; color : var(--ink-soft); }
         .ga-value { font : 700 34px / 1.1 var(--font-serif, serif); color : var(--rtgs); }
         .ga-line { font-size : 15px; color : var(--ink); }
     }
-    .table-line { stroke : var(--ink); stroke-width : 2; }
-    .brick { animation : brick-in 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) both; }
-    .stack-name { font : 700 13px var(--font-sans-serif); fill : var(--ink); &.is-rtgs { fill : var(--rtgs); } &.is-upi { fill : var(--upi); } }
 
     /* the two walls */
     .slide.is-walls { padding : max(5vh, 64px) clamp(16px, 4vw, 64px) 3vh; }
@@ -272,7 +283,8 @@
         .step-note { display : none; }
         .chapter-title { font-size : 19px !important; }
         .step-line { font-size : 14px; }
-        .guess-answer { min-height : 4.6em; .ga-value { font-size : 26px; } .ga-line { font-size : 14px; } }
+        .guess-answer { min-height : 5.5em; .ga-value { font-size : 26px; } .ga-line { font-size : 14px; } }
+        .guess-card { .gc-art svg { width : 130px; } b { font-size : 18px; } span { font-size : 12px; } }
         .stage-words { left : 12px; right : 12px; width : auto; top : 52px; padding : 12px 14px; }
         .stack-pin .stack-label { font-size : 10px; b { font-size : 11px; } }
         .slide.is-walls, .slide.is-close, .slide.is-sizes { padding : 52px 16px 2vh; }
