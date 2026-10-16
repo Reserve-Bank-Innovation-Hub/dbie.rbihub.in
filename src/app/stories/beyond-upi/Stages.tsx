@@ -50,9 +50,6 @@ export const TitleStage = () => {
 
 // THE NOTE TOWER ======================================================================================================
 // Each method's average payment in banknotes on one table; the camera's path plays once, and again on request.
-// a label's one plain figure: bundles for the large payments, notes for the middling ones, and for the smallest what they are
-const one = (x : number) => x.toFixed(1).replace(/\.0$/, "");
-const inPlain = (v : number) => (v >= 50000 ? `${one(v / 50000)} bundles of ₹500 notes` : v >= 500 ? `${one(v / 500)} notes of ₹500` : "less than one ₹500 note");
 const inNotes = (v : number) => {
     const notes = Math.floor(v / 500), b = Math.floor(notes / 100), n = notes - b * 100, rest = Math.round(v - notes * 500);
     const parts = [ b ? `${b} bundle${b > 1 ? "s" : ""}` : "", n ? `${n} note${n > 1 ? "s" : ""} of ₹500` : "", rest ? `₹${rest}` : "" ].filter(Boolean);
@@ -80,7 +77,7 @@ export const TowerStage = () => {
                     <div key={l.key} className={`stack-pin ${l.shown ? "" : "is-off"}`} style={{ transform : `translate(${l.x}px, ${l.y}px)`, "--tone" : METHOD[l.key].tone, "--lift" : `${lift}px`, "--nudge" : `${Math.min(Math.max(l.x, 84), stageW - 84) - l.x}px` } as React.CSSProperties}>
                         <i className="stack-lead" />
                         <span className="stack-label">
-                            <b>{METHOD[l.key].short} {rupees(l.progress < 1 ? Math.round(r.avg * l.progress) : r.avg)}</b>{l.progress >= 1 && <span>{inPlain(r.avg)}</span>}
+                            <b>{METHOD[l.key].short} {rupees(l.progress < 1 ? Math.round(r.avg * l.progress) : r.avg)}</b>
                         </span>
                     </div>
                 );
