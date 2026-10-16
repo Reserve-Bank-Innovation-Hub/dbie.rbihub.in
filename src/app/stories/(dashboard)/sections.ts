@@ -73,21 +73,25 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/what-one-lakh-bought",
                 label       : "What ₹1 lakh could buy",
+                image       : "/images/stories/what-one-lakh-bought/cover.webp",
                 description : "One sum, carried from 2001 to 2026: what it bought each year in gold, silver, a mason’s days, dollars and wheat, and what it is worth today.",
             },
             {
                 linkTo      : "/stories/the-phone-pays-the-cash-stays",
                 label       : "The phone pays, but the cash stays",
+                image       : "/images/stories/the-phone-pays-the-cash-stays/cover.webp",
                 description : "UPI payments grew 19.4 times between November 2019 and July 2026. Over the ten years to March 2026, currency in circulation grew 2.5 times.",
             },
             {
                 linkTo      : "/stories/money-in-money-out",
                 label       : "Money in, money out",
+                image       : "/images/stories/money-in-money-out/cover.webp",
                 description : "Indians abroad sent home $135.4 billion in 2024-25 and keep $165.7 billion in Indian banks; in 2023-24 they sent 1.67 times what foreign companies invested. Indians at home sent $29.6 billion abroad, more than half of it for travel.",
             },
             {
                 linkTo      : "/stories/beyond-upi",
                 label       : "Beyond UPI: everything else India pays with",
+                image       : "/images/stories/beyond-upi/cover.webp",
                 description : "In 2025-26 an RTGS payment averaged ₹65.0 lakh, a cheque ₹1.28 lakh and a UPI payment ₹1,301. RTGS carried 68.4% of all payment value in 0.12% of payments; cheques peaked at 146.1 crore in 2007-08.",
             },
         ],
@@ -98,11 +102,13 @@ export const STORY_SECTIONS : ListSection[] = [
             {
                 linkTo      : "/stories/debt-to-service-ratio",
                 label       : "The long walk back from 1991",
+                image       : "/images/stories/debt-to-service-ratio/cover.webp",
                 description : "India went from spending a third of its export earnings on debt service in 1991 to just 6% today.",
             },
             {
                 linkTo      : "/stories/concessional-share-of-total-debt-vs-commercial-borrowings",
                 label       : "From aid recipient to market borrower",
+                image       : "/images/stories/concessional-share-of-total-debt-vs-commercial-borrowings/cover.webp",
                 description : "India's external debt shifted from aid-style concessional loans to market-rate commercial borrowing.",
             },
         ],
